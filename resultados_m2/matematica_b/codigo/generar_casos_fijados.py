@@ -143,17 +143,27 @@ def main():
              "Viscofan 4.13 variante «perímetro Caja» (p = 0,20/0,60/0,20, p de referencia); añadido tras la revisión externa C1: D7 compara el perímetro Caja entre entregas"),
     ]
 
-    # Etiquetas de perímetro por caso (de los expedientes publicados): la activa de
-    # Viscofan declara perímetro NIIF 16 en 4.14; «perimetro_alternativo» es «Caja».
-    casos["perimetros"] = {
-        "H1": "Vidrala 4.14 activa (perímetro declarado en su configuracion_economica.json)",
-        "H2": "Viscofan 4.14 activa · perímetro NIIF 16 (configuracion_economica.json 4.14)",
-        "H3": "Viscofan 4.13 activa · NIIF 16 (perímetro vigente; D4 del paquete)",
-        "H4": "Viscofan 4.12 activa (ejecucion_1_4_13) · NIIF 16 (perímetro vigente; D4 del paquete)",
-        "H5": "Viscofan 4.12 variante perimetro_alternativo · Caja",
-        "H6": "Viscofan 4.13 variante perimetro_alternativo · Caja",
-        "nota": "La comparación D7 («+1,5386 €») es la de perímetro Caja (H5→H6); la de activa NIIF 16 (H4→H3) es otra pregunta (+1,5478 €). Nunca mezclar perímetros en un mismo cambio total.",
-    }
+    # Identidad canónica de cada extremo histórico, vinculada al mismo vector y fuente.
+    # Regla de perímetro canónico (derivada de la fuente, no de texto descriptivo):
+    #   - variante que varía «PM1.perimetro» (perimetro_alternativo) ⇒ perímetro «Caja»;
+    #   - activa de Viscofan ⇒ «NIIF 16» (declarado en configuracion_economica.json 4.14
+    #     y en D4 de DECISIONES_PENDIENTES_4_14 para 4.12/4.13);
+    #   - activa de Vidrala sin perímetro declarado ⇒ «no declarado (activa V6.4)».
+    # Tras C2 (seguimiento ba46ea5): la guarda compara (empresa, perímetro) de ESTA
+    # estructura, no cadenas descriptivas de fecha/variante.
+    casos["identidad"] = [
+        {"caso": h["id"], "empresa": "Vidrala" if h["id"] == "H1" else "Viscofan",
+         "entrega": h["proveniencia"]["variantes"]["ruta"].split("ensayo_")[1][:4],
+         "variante": "activa" if h["id"] in ("H1", "H2", "H3", "H4") else "perimetro_alternativo",
+         "perimetro": ("no declarado (activa V6.4)" if h["id"] == "H1" else
+                       ("Caja" if h["id"] in ("H5", "H6") else "NIIF 16")),
+         "fuente": h["proveniencia"]["variantes"]["ruta"], "sha256": h["proveniencia"]["variantes"]["sha256"]}
+        for h in casos["historicos"]
+    ]
+    casos["regla_perimetro_canonico"] = (
+        "perimetro = 'Caja' si la variante varía PM1.perimetro (perimetro_alternativo); "
+        "'NIIF 16' si es la activa de Viscofan (declarado en configuracion_economica.json 4.14 y D4 del paquete); "
+        "'no declarado (activa V6.4)' en la activa de Vidrala 4.14. La descripción de fecha/variante no se compara como perímetro.")
 
     for tag, rel in (("V-Vidrala-4.14", f"{vid414}/configuracion_v64_variantes.json"),
                      ("V-Viscofan-4.14", f"{vis414}/configuracion_v64_variantes.json")):

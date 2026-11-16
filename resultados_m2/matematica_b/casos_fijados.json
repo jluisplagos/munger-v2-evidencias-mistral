@@ -1342,15 +1342,63 @@
    }
   }
  ],
- "perimetros": {
-  "H1": "Vidrala 4.14 activa (perímetro declarado en su configuracion_economica.json)",
-  "H2": "Viscofan 4.14 activa · perímetro NIIF 16 (configuracion_economica.json 4.14)",
-  "H3": "Viscofan 4.13 activa · NIIF 16 (perímetro vigente; D4 del paquete)",
-  "H4": "Viscofan 4.12 activa (ejecucion_1_4_13) · NIIF 16 (perímetro vigente; D4 del paquete)",
-  "H5": "Viscofan 4.12 variante perimetro_alternativo · Caja",
-  "H6": "Viscofan 4.13 variante perimetro_alternativo · Caja",
-  "nota": "La comparación D7 («+1,5386 €») es la de perímetro Caja (H5→H6); la de activa NIIF 16 (H4→H3) es otra pregunta (+1,5478 €). Nunca mezclar perímetros en un mismo cambio total."
- },
+ "identidad": [
+  {
+   "caso": "H1",
+   "empresa": "Vidrala",
+   "entrega": "4_14",
+   "variante": "activa",
+   "perimetro": "no declarado (activa V6.4)",
+   "fuente": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/configuracion_v64_variantes.json",
+   "sha256": "bd15b058c3bce940b726c4e7f728212965809a5d39f11b4c9d023d34a9809491"
+  },
+  {
+   "caso": "H2",
+   "empresa": "Viscofan",
+   "entrega": "4_14",
+   "variante": "activa",
+   "perimetro": "NIIF 16",
+   "fuente": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/viscofan_decisiones/Viscofan/configuracion_v64_variantes.json",
+   "sha256": "7e5ea3001209cbc66293abc426959a9aef60bb1f3b943b778b407648a34291d8"
+  },
+  {
+   "caso": "H3",
+   "empresa": "Viscofan",
+   "entrega": "4_13",
+   "variante": "activa",
+   "perimetro": "NIIF 16",
+   "fuente": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/Viscofan/configuracion_v64_variantes.json",
+   "sha256": "c8e7270f8b174172b2b9d6b525f6b6e8e26c164fa9d36b5f370575d4186913d2"
+  },
+  {
+   "caso": "H4",
+   "empresa": "Viscofan",
+   "entrega": "4_13",
+   "variante": "activa",
+   "perimetro": "NIIF 16",
+   "fuente": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/antecedentes/ejecucion_1_4_13/configuracion_v64_variantes.json",
+   "sha256": "d984c7d467047e9f1b5dc28fab6c553e46dc25a20372a804810655e58d06f364"
+  },
+  {
+   "caso": "H5",
+   "empresa": "Viscofan",
+   "entrega": "4_13",
+   "variante": "perimetro_alternativo",
+   "perimetro": "Caja",
+   "fuente": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/antecedentes/ejecucion_1_4_13/configuracion_v64_variantes.json",
+   "sha256": "d984c7d467047e9f1b5dc28fab6c553e46dc25a20372a804810655e58d06f364"
+  },
+  {
+   "caso": "H6",
+   "empresa": "Viscofan",
+   "entrega": "4_13",
+   "variante": "perimetro_alternativo",
+   "perimetro": "Caja",
+   "fuente": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/Viscofan/configuracion_v64_variantes.json",
+   "sha256": "c8e7270f8b174172b2b9d6b525f6b6e8e26c164fa9d36b5f370575d4186913d2"
+  }
+ ],
+ "regla_perimetro_canonico": "perimetro = 'Caja' si la variante varía PM1.perimetro (perimetro_alternativo); 'NIIF 16' si es la activa de Viscofan (declarado en configuracion_economica.json 4.14 y D4 del paquete); 'no declarado (activa V6.4)' en la activa de Vidrala 4.14. La descripción de fecha/variante no se compara como perímetro.",
  "probabilidades_referencia": {
   "referencia_mecanica": [
    0.2,

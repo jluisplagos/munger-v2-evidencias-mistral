@@ -23,6 +23,17 @@ Revisado: `revision_externa/m2/REVISION_CHATGPT_M2.md` y `revision_externa/m2/CO
 4. **Comprobación añadida contra comparaciones cruzadas de perímetro:** `efectos_probabilidades.py` ahora etiqueta cada fila con `perimetro` y calcula `misma_pregunta`; todo «cambio total entre entregas» se comprueba dentro de un mismo (empresa, perímetro) y mezclarlos queda marcado `PREGUNTA_DISTINTA` (la fila de control informa OK/FALLA). Resultado ejecutado: **guarda OK** (ningún cambio total mezcla perímetros; la fila 5 documenta que NIIF16 vs Caja son preguntas distintas).
 5. Archivos regenerados: `casos_fijados.json` (57), `resultados_casos.json` (57 filas, 10/10 propiedades), `COMPARACION_IMPLEMENTACION.csv` (57 filas, residuo máx vs producto 2,842e-14), `EFECTOS_PROBABILIDADES.csv` (30 filas con perímetros y guardas), `SENSIBILIDAD_FINITA.csv` (192, sin cambios de rejilla), `PROTOCOLOS_COBERTURA.csv` (cobertura 24/24), `DOSSIER_D1_D7_D11.md`, `HALLAZGOS.md`, `RESUMEN_PARA_CLAUDE.md`, `INVENTARIO_Y_PLAN.md`, `COMANDOS.md`, `MANIFIESTO_SHA256.txt`, `PUNTO_DE_RECUPERACION.md`.
 
+## C2 · La guarda de perímetros ahora compara los extremos de verdad — corregida
+
+Seguimiento leído desde `604951346bea1a487206a76519c3bb22e724bece` (`SEGUIMIENTO_C_ba46ea5.md`, `SONDA_C_GUARDA_ba46ea5.json`): en `ba46ea5` la guarda escribía `misma_pregunta = OK` como texto y buscaba `PREGUNTA_DISTINTA` en ese mismo texto, así que la sonda (H6 mutado a NIIF 16, H5 en Caja) daba igualmente OK. No probaba un importe incorrecto; demostraba que la protección no funcionaba.
+
+Corrección ejecutada:
+1. Cada extremo se representa con **identidad canónica estructurada** en `casos_fijados.json` (`identidad`: caso, empresa, entrega, variante, **perímetro canónico**, fuente y sha256, vinculados al mismo vector). Regla de perímetro derivada de la fuente: variante que varía `PM1.perimetro` ⇒ «Caja»; activa de Viscofan ⇒ «NIIF 16»; activa de Vidrala sin declarar ⇒ «no declarado». Las descripciones de fecha/variante ya no se comparan como si fueran el perímetro.
+2. `misma_pregunta(a, b)` en `codigo/efectos_probabilidades.py` compara de verdad `(empresa, perímetro)` de ambos extremos; la etiqueta `misma_pregunta` de cada fila se **deriva** de esa función. Mezclar empresa o perímetro ⇒ `PREGUNTA_DISTINTA`, nunca OK.
+3. La generación real usa esa función en **todos** los cambios totales entre entregas (tablas 2, 3 y 4): resultado `guarda_totales = OK` (3 cambios totales, todos con misma empresa y mismo perímetro).
+4. Controles incluidos en la tabla 6 del CSV (ejecutados, exit 0): positivos Caja/Caja (H5→H6), NIIF16/NIIF16 4.12→4.13 (H4→H3) y 4.13→4.14 (H3→H2) ⇒ True; negativos Caja/NIIF16 (H5→H3), empresas distintas (H5→H1) y **la sonda de la revisión** (H6 con metadato mutado a NIIF 16 vs H5 en Caja, vector y fuente intactos) ⇒ False. Banco: **todos pasan**; si un control negativo devolviera True, el script sale con exit 1.
+5. Salidas regeneradas sin cambiar el oráculo ni la aritmética de C1: la tabla Caja sigue dando +1,538645906781241 € (= «+1,5386 €» de D7); `EFECTOS_PROBABILIDADES.csv` pasa a 37 filas (añadidas tablas 5 y 6 de guardas/controles); 57 casos, 10/10 propiedades, residuo máx vs producto 2,842e-14, cobertura 24/24 — todo re-ejecutado con exit 0.
+
 ## Hallazgo sobre `p_estrella` interna — matizado como indica la revisión
 
 La llamada directa a `p_estrella` con p fuera de contrato devuelve un número sin negarse, pero la **vía pública `calcular()` rechaza el caso ensayado** («probabilidades inválidas»). Se documentan las precondiciones del contrato (p distribución con |Σp−1| ≤ 1e-3, k ≥ 1, n = 3, B78 ≤ C78 ≤ D78, precio > 0) en `COMPARACION_IMPLEMENTACION.csv`/`HALLAZGOS.md`; **no se declara un fallo material de producción** sin una vía pública reproducible. El oráculo propio valida en la propia función (`DominioError`). No se modifica el producto ni se amplía la corrección a sus guardas.
@@ -34,7 +45,7 @@ python3 codigo/oraculo_precio_si.py --selftest     # PASA
 python3 codigo/generar_casos_fijados.py            # 57 casos
 python3 codigo/ejecutar_casos.py                   # exit 0; 10/10 propiedades; res. máx vs paquete 1,4e-14
 python3 codigo/comparar_producto.py                # 57 filas; res. máx oráculo-vs-producto 2,842e-14
-python3 codigo/efectos_probabilidades.py            # 30 filas; total Caja +1,538645906781241 €; guarda OK
+python3 codigo/efectos_probabilidades.py            # 37 filas; total Caja +1,538645906781241 €; guarda_totales OK; 6 controles de guarda pasan (exit 0)
 python3 codigo/sensibilidad_finita.py              # 192 filas
 python3 codigo/protocolos_cobertura.py             # 58 filas; cobertura coincide 24/24
 ```
