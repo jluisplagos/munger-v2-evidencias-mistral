@@ -1,0 +1,79 @@
+{
+  "PASS": true,
+  "n_violaciones": 0,
+  "violaciones": [],
+  "comprobaciones": [
+    "677 filas unicas e iguales al conjunto del registro",
+    "estados dentro del conjunto permitido y coherentes con la clase",
+    "60 filas M1_REUTILIZADA = piloto",
+    "fuentes de COINCIDE_PROPUESTO existentes y con huella conforme",
+    "DERIVADOS: 101 nodos (14 piloto/87 nuevos), orígenes existentes, sin ciclos, resultado recalculado igual al registrado, hash de entradas vigente",
+    "estados del CSV iguales a un recalculo independiente",
+    "recuentos conciliados con 677/60/617/101/14/87"
+  ],
+  "recuentos": {
+    "total": 677,
+    "por_empresa": {
+      "Vidrala": 347,
+      "Viscofan": 330
+    },
+    "por_clase": {
+      "dato_publicado": 454,
+      "derivado": 101,
+      "dato_ausente": 6,
+      "hipotesis": 52,
+      "no_aplicable": 16,
+      "convencion": 35,
+      "cero_comprobado": 13
+    },
+    "por_estado": {
+      "COINCIDE_PROPUESTO": 568,
+      "DATO_AUSENTE": 6,
+      "HIPOTESIS": 52,
+      "NO_APLICABLE": 16,
+      "CONVENCION": 35
+    },
+    "por_empresa_estado": {
+      "Vidrala": {
+        "COINCIDE_PROPUESTO": 294,
+        "DATO_AUSENTE": 4,
+        "HIPOTESIS": 27,
+        "NO_APLICABLE": 5,
+        "CONVENCION": 17
+      },
+      "Viscofan": {
+        "COINCIDE_PROPUESTO": 274,
+        "NO_APLICABLE": 11,
+        "DATO_AUSENTE": 2,
+        "CONVENCION": 18,
+        "HIPOTESIS": 25
+      }
+    },
+    "por_empresa_clase": {
+      "Vidrala": {
+        "dato_publicado": 233,
+        "derivado": 56,
+        "dato_ausente": 4,
+        "hipotesis": 27,
+        "no_aplicable": 5,
+        "convencion": 17,
+        "cero_comprobado": 5
+      },
+      "Viscofan": {
+        "dato_publicado": 221,
+        "derivado": 45,
+        "no_aplicable": 11,
+        "cero_comprobado": 8,
+        "dato_ausente": 2,
+        "convencion": 18,
+        "hipotesis": 25
+      }
+    },
+    "piloto_reutilizadas": 60,
+    "nuevas": 617,
+    "derivados_total": 101,
+    "derivados_piloto": 14,
+    "derivados_nuevos": 87
+  },
+  "nota": "Autocomprobacion reproducible del propio frente; no es revision independiente ni acredita economia."
+}
