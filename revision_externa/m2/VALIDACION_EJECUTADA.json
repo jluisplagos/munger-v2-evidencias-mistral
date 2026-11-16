@@ -1,0 +1,104 @@
+{
+  "fecha_registro_utc": "2026-11-16T12:28:30.351927+00:00",
+  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+  "commits_revisados": {
+    "A": "08c9799e0534e8968b5670060db612941f02ecf9",
+    "B": "b5a07e007785f0cd194cb6437fcb5cd7029cb79f",
+    "C": "fe46f0761cb0590a280907b42e4605f6d3fec845"
+  },
+  "base_251_archivos_huella_y_tamano_conformes": true,
+  "manifiestos_conformes": {
+    "A": 44,
+    "B": 21,
+    "C": 21
+  },
+  "ejecuciones_autor_realizadas_por_revisor": [
+    {
+      "frente": "A",
+      "comando": "python3 -B scripts/control_cobertura.py",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "B",
+      "comando": "python3 -B scripts/extraer_pdfs_viscofan.py",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "B",
+      "comando": "python3 -B scripts/tablas_viscofan.py",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "B",
+      "comando": "python3 -B scripts/tablas_vidrala.py",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "B",
+      "comando": "python3 -B scripts/calculos_pm1.py",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "C",
+      "comando": "python3 -B codigo/oraculo_precio_si.py --selftest",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "C",
+      "comando": "python3 -B codigo/generar_casos_fijados.py",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "C",
+      "comando": "python3 -B codigo/ejecutar_casos.py",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "C",
+      "comando": "python3 -B codigo/comparar_producto.py",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "C",
+      "comando": "python3 -B codigo/efectos_probabilidades.py",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "C",
+      "comando": "python3 -B codigo/sensibilidad_finita.py",
+      "codigo_salida_observado": 0
+    },
+    {
+      "frente": "C",
+      "comando": "python3 -B codigo/protocolos_cobertura.py",
+      "codigo_salida_observado": 0
+    }
+  ],
+  "A_verificar_fuentes_en_sonda_aislada": {
+    "coincidencias_mecanicas": 467,
+    "metadatos_incoherentes_se_rechazan": false,
+    "no_es_prueba_de_dato_real_incorrecto": true
+  },
+  "C_resultados": {
+    "casos_totales": 56,
+    "uno_de_ellos_rechazo_esperado_de_dominio": true,
+    "propiedades_globales_conformes": 10,
+    "residuo_max_oraculo_producto": 2.842e-14,
+    "puntos_sensibilidad": 192,
+    "cobertura_real_coincide": 24
+  },
+  "archivo_publicado_identico_tras_regeneracion": {
+    "A": 45,
+    "B": 22,
+    "C": 22
+  },
+  "assets_pdf": {
+    "descargas_y_huellas_4_conformes": true,
+    "subida_http": 401,
+    "assets_release_tras_intento": 0
+  },
+  "producto_original_modificado": false,
+  "ramas_autor_modificadas_por_revisor": false,
+  "decision_inversora_o_politica_adoptada": false,
+  "alcance": "Revisión de tres propuestas M2; no validación financiera general del producto."
+}
