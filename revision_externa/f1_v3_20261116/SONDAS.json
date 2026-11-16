@@ -1,0 +1,142 @@
+{
+  "naturaleza": "sondas de especificación, no defectos de producción ni datos de Elis",
+  "horizontes_temporales": [
+    {
+      "H": 5,
+      "flujos_1_10": [
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        68.0,
+        68.0,
+        68.0,
+        68.0,
+        68.0
+      ],
+      "flujo_11": 68.0,
+      "PV_si_se_inserta_X11_en_Gordon": 653.4644926141409,
+      "PV_de_la_caja_con_horizonte_finito": 653.4644926141409,
+      "diferencia": 0.0,
+      "coincide_caja_hasta_11": true,
+      "coincide_PV": true
+    },
+    {
+      "H": 10,
+      "flujos_1_10": [
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0
+      ],
+      "flujo_11": 68.0,
+      "PV_si_se_inserta_X11_en_Gordon": 636.9880302600673,
+      "PV_de_la_caja_con_horizonte_finito": 636.9880302600673,
+      "diferencia": 0.0,
+      "coincide_caja_hasta_11": true,
+      "coincide_PV": true
+    },
+    {
+      "H": 11,
+      "flujos_1_10": [
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0
+      ],
+      "flujo_11": 61.0,
+      "PV_si_se_inserta_X11_en_Gordon": 610.0,
+      "PV_de_la_caja_con_horizonte_finito": 634.5345729636974,
+      "diferencia": -24.534572963697475,
+      "coincide_caja_hasta_11": true,
+      "coincide_PV": false
+    },
+    {
+      "H": 12,
+      "flujos_1_10": [
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0
+      ],
+      "flujo_11": 61.0,
+      "PV_si_se_inserta_X11_en_Gordon": 610.0,
+      "PV_de_la_caja_con_horizonte_finito": 632.304157239725,
+      "diferencia": -22.304157239724976,
+      "coincide_caja_hasta_11": true,
+      "coincide_PV": false
+    }
+  ],
+  "salto_terminal_signo": [
+    {
+      "escenario": "MALO",
+      "fila_178_formula": "=IF(OR(NOT(ISNUMBER(B176)),NOT(ISNUMBER(B177))),\"\",B176-B177)",
+      "salto_libro_puntos": 0.473899999999999,
+      "salto_rotulado_del_libro_en_copia": -0.474,
+      "signo_contrario": true
+    },
+    {
+      "escenario": "NORMAL",
+      "fila_178_formula": "=IF(OR(NOT(ISNUMBER(C176)),NOT(ISNUMBER(C177))),\"\",C176-C177)",
+      "salto_libro_puntos": 0.676999999999998,
+      "salto_rotulado_del_libro_en_copia": -0.677,
+      "signo_contrario": true
+    },
+    {
+      "escenario": "BUENO",
+      "fila_178_formula": "=IF(OR(NOT(ISNUMBER(D176)),NOT(ISNUMBER(D177))),\"\",D176-D177)",
+      "salto_libro_puntos": 2.4139500000000003,
+      "salto_rotulado_del_libro_en_copia": -2.414,
+      "signo_contrario": true
+    }
+  ],
+  "logica_A0": [
+    {
+      "ROU": 10,
+      "C49": 12,
+      "A0_admitido_segun_E2_y_1a": false,
+      "V_F1a_dispara_segun_E5": true,
+      "caso_no_admitido_sin_ese_bloqueo": false
+    },
+    {
+      "ROU": 10,
+      "C49": 0,
+      "A0_admitido_segun_E2_y_1a": false,
+      "V_F1a_dispara_segun_E5": false,
+      "caso_no_admitido_sin_ese_bloqueo": true
+    },
+    {
+      "ROU": 0,
+      "C49": 12,
+      "A0_admitido_segun_E2_y_1a": false,
+      "V_F1a_dispara_segun_E5": false,
+      "caso_no_admitido_sin_ese_bloqueo": true
+    },
+    {
+      "ROU": 0,
+      "C49": 0,
+      "A0_admitido_segun_E2_y_1a": true,
+      "V_F1a_dispara_segun_E5": false,
+      "caso_no_admitido_sin_ese_bloqueo": false
+    }
+  ]
+}

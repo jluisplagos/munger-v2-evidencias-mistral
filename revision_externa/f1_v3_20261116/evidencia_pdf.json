@@ -1,0 +1,633 @@
+{
+  "huellas": {
+    "URD2022": {
+      "sha256": "98c0012c0ecf7d3cf6f172452764239515126ea1ca37cd7b84c4a9ef249911e3",
+      "coincide_con_fuentes_json": true
+    },
+    "URD2025": {
+      "sha256": "04bfd08724e768804e7110093d3ec2cf017a7e7fe2983bacd75656d3a95cd62e",
+      "coincide_con_fuentes_json": true
+    },
+    "DEU2024FR": {
+      "sha256": "94e994f0de79cc588240f9866d263c4a5ae27fe3ccff83bc0b817eb91633c1e9",
+      "coincide_con_fuentes_json": true
+    },
+    "URD2021": {
+      "sha256": "e2d316b38441a167ee96e413e0c63e39a66f824302d18d5b7c78cc8b8d060537",
+      "coincide_con_fuentes_json": true
+    },
+    "URD2023": {
+      "sha256": "8aac7004177529bb20d9ca84ce05d747a15d238ffbdc5669e2add9569443bd31",
+      "coincide_con_fuentes_json": true
+    }
+  },
+  "pasajes": {
+    "def_organico_2025": {
+      "doc": "URD2025",
+      "pagina_pdf": 313,
+      "uso": "P2/4b: el crecimiento orgánico publicado solo excluye las adquisiciones «importantes»",
+      "fragmentos": [
+        "changes in the scope of consolidation of “major acquisitions” and",
+        "revenue of more than €5.0 million in France and €3.0 million in"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "changes in the scope of consolidation of “major acquisitions” and": true,
+        "revenue of more than €5.0 million in France and €3.0 million in": true
+      },
+      "lineas": [
+        "changes in the scope of consolidation of “major acquisitions” and",
+        "revenue of more than €5.0 million in France and €3.0 million in financial statements for the year ended December 31, 2025."
+      ]
+    },
+    "def_organico_2024": {
+      "doc": "DEU2024FR",
+      "pagina_pdf": 259,
+      "uso": "P2/4b: la misma definición en la edición de 2024",
+      "fragmentos": [
+        "consolidation des « acquisitions importantes » et des « cessions"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "consolidation des « acquisitions importantes » et des « cessions": true
+      },
+      "lineas": [
+        "consolidation des « acquisitions importantes » et des « cessions"
+      ]
+    },
+    "def_organico_2023": {
+      "doc": "URD2023",
+      "pagina_pdf": 267,
+      "uso": "P2/4b: la misma definición en la edición de 2023",
+      "fragmentos": [
+        "the impacts of changes in the scope of consolidation of “major"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "the impacts of changes in the scope of consolidation of “major": true
+      },
+      "lineas": [
+        "the impacts of changes in the scope of consolidation of “major Note 3.2, “Segment information – Income (loss)” to the Group's"
+      ]
+    },
+    "def_organico_2022": {
+      "doc": "URD2022",
+      "pagina_pdf": 249,
+      "uso": "P2/4b: la misma definición en la edición de 2022",
+      "fragmentos": [
+        "the impacts of changes in the scope of consolidation of “major"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "the impacts of changes in the scope of consolidation of “major": true
+      },
+      "lineas": [
+        "the impacts of changes in the scope of consolidation of “major Note 3.2, “Segment information – Income (loss)” to the Group's"
+      ]
+    },
+    "def_organico_2021": {
+      "doc": "URD2021",
+      "pagina_pdf": 217,
+      "uso": "P2/4b: la misma definición en la edición de 2021",
+      "fragmentos": [
+        "the impacts of changes in the scope of consolidation of “major"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "the impacts of changes in the scope of consolidation of “major": true
+      },
+      "lineas": [
+        "the impacts of changes in the scope of consolidation of “major information – Earnings” to the Group's consolidated financial"
+      ]
+    },
+    "gastos_de_transaccion_2025_24": {
+      "doc": "URD2025",
+      "pagina_pdf": 350,
+      "uso": "P2: los gastos de transacción de las compras están en otros gastos operativos (EBIT y caja)",
+      "fragmentos": [
+        "Major acquisition-related transaction expenses",
+        "(2.4)",
+        "(5.2)"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Major acquisition-related transaction expenses": true,
+        "(2.4)": true,
+        "(5.2)": true
+      },
+      "lineas": [
+        "Major acquisition-related transaction expenses (2.4) (5.2)",
+        "Non-capitalizable costs related to the change of main IT systems (7.6) (5.2)"
+      ]
+    },
+    "gastos_de_transaccion_2024_23": {
+      "doc": "DEU2024FR",
+      "pagina_pdf": 296,
+      "uso": "P2: ídem, 2024 y 2023",
+      "fragmentos": [
+        "Coûts connexes aux acquisitions importantes",
+        "(5,2)",
+        "(1,5)"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Coûts connexes aux acquisitions importantes": true,
+        "(5,2)": true,
+        "(1,5)": true
+      },
+      "lineas": [
+        "Charges de restructuration (7,3) (5,2)",
+        "Coûts connexes aux acquisitions importantes (5,2) (1,5)",
+        "Plus ou moins-values liées aux sorties d'immobilisations (1,5) (1,2)"
+      ]
+    },
+    "actualizacion_2025": {
+      "doc": "URD2025",
+      "pagina_pdf": 313,
+      "uso": "P3: la actualización del earnout de 2025 sí está publicada por separado",
+      "fragmentos": [
+        "Accretion expense for the earnout pertaining to the acquisition in Mexico",
+        "0.7",
+        "5.6"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Accretion expense for the earnout pertaining to the acquisition in Mexico": true,
+        "0.7": true,
+        "5.6": true
+      },
+      "lineas": [
+        "Accretion expense for the earnout pertaining to the acquisition in Mexico 0.7 5.6"
+      ]
+    },
+    "actualizacion_2023_24": {
+      "doc": "DEU2024FR",
+      "pagina_pdf": 259,
+      "uso": "P3: actualización del earnout de 2023 y 2024",
+      "fragmentos": [
+        "Charge de désactualisation du complément de prix de l’acquisition réalisée au Mexique",
+        "5,6",
+        "12,4"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Charge de désactualisation du complément de prix de l’acquisition réalisée au Mexique": true,
+        "5,6": true,
+        "12,4": true
+      },
+      "lineas": [
+        "Charge de désactualisation du complément de prix de l'acquisition réalisée au Mexique 5,6 12,4"
+      ]
+    },
+    "flujos_adquisiciones_2025": {
+      "doc": "URD2025",
+      "pagina_pdf": 341,
+      "uso": "P3: los earnouts pagados están en la línea de adquisiciones (inversión), fuera del FCF base",
+      "fragmentos": [
+        "CASH FLOWS FROM ACQUISITIONS",
+        "Earnouts and deferred",
+        "(23.3)",
+        "(19.7)",
+        "(117.6)",
+        "(37.3)"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "CASH FLOWS FROM ACQUISITIONS": true,
+        "Earnouts and deferred": true,
+        "(23.3)": true,
+        "(19.7)": true,
+        "(117.6)": true,
+        "(37.3)": true
+      },
+      "lineas": [
+        "CASH FLOWS FROM ACQUISITIONS",
+        "Earnouts and deferred",
+        "NET CASH FLOW (117.6) (8.9) (13.2) (10.2) (7.0) (11.8) (9.7) (19.7) (37.3)",
+        "consideration (23.3) 0.0 0.0 0.0 0.0 0.0 0.0 (19.7) (3.6)"
+      ]
+    },
+    "flujos_adquisiciones_2024": {
+      "doc": "URD2025",
+      "pagina_pdf": 342,
+      "uso": "P3: ídem, 2024; Lavartex es la compra de México de 2022",
+      "fragmentos": [
+        "CASH FLOWS FROM ACQUISITIONS",
+        "Earnouts and deferred consideration",
+        "(93.9)",
+        "(83.2)",
+        "(10.7)",
+        "(183.3)",
+        "(22.0)"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "CASH FLOWS FROM ACQUISITIONS": true,
+        "Earnouts and deferred consideration": true,
+        "(93.9)": true,
+        "(83.2)": true,
+        "(10.7)": true,
+        "(183.3)": true,
+        "(22.0)": true
+      },
+      "lineas": [
+        "Borrowings and financial debt (22.0) (16.7) 0.0 (0.5) (3.1) 0.0 (1.7)",
+        "CASH FLOWS FROM ACQUISITIONS",
+        "Earnouts and deferred consideration (93.9) 0.0 0.0 0.0 0.0 0.0 (83.2) (10.7)",
+        "NET CASH FLOW (183.3) (35.4) (8.3) (5.7) (8.1) (20.6) (83.2) (22.0)"
+      ]
+    },
+    "flujos_adquisiciones_2023": {
+      "doc": "DEU2024FR",
+      "pagina_pdf": 288,
+      "uso": "P3: ídem, 2023",
+      "fragmentos": [
+        "FLUX DE TRÉSORERIE LIÉS AUX ACQUISITIONS",
+        "Compléments de prix et paiements différés",
+        "(34,4)",
+        "(31,4)",
+        "(82,1)",
+        "(35,3)"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "FLUX DE TRÉSORERIE LIÉS AUX ACQUISITIONS": true,
+        "Compléments de prix et paiements différés": true,
+        "(34,4)": true,
+        "(31,4)": true,
+        "(82,1)": true,
+        "(35,3)": true
+      },
+      "lineas": [
+        "Compléments de prix et paiements différés (34,4) 0,0 0,0 (31,4) (3,0)",
+        "FLUX DE TRÉSORERIE LIÉS AUX ACQUISITIONS",
+        "FLUX NET DE TRÉSORERIE (82,1) (7,0) (8,4) (31,4) (35,3)",
+        "Sorties de trésorerie effectuées pour l'acquisition (53,4) (9,1) (9,1) 0,0 (35,3)"
+      ]
+    },
+    "liquidacion_earnout_mexico": {
+      "doc": "URD2025",
+      "pagina_pdf": 352,
+      "uso": "P3: el earnout de México se liquidó en 2024 y 2025",
+      "fragmentos": [
+        "settlement of the second installment and the balance of the Mexican earnout in 2024 and"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "settlement of the second installment and the balance of the Mexican earnout in 2024 and": true
+      },
+      "lineas": [
+        "The change in other liabilities is mainly due to the settlement of the second installment and the balance of the Mexican earnout in 2024 and"
+      ]
+    },
+    "linea_fiscal_2023_24": {
+      "doc": "DEU2024FR",
+      "pagina_pdf": 337,
+      "uso": "P3: los ajustes y la actualización del earnout no son deducibles",
+      "fragmentos": [
+        "Ajustements et désactualisation de compléments de prix non déductibles",
+        "0,8",
+        "(15,8)"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Ajustements et désactualisation de compléments de prix non déductibles": true,
+        "0,8": true,
+        "(15,8)": true
+      },
+      "lineas": [
+        "Ajustements et désactualisation de compléments de prix non déductibles* 0,8 (15,8)"
+      ]
+    },
+    "linea_fiscal_2024_25": {
+      "doc": "URD2025",
+      "pagina_pdf": 392,
+      "uso": "P3: ídem, 2024 y 2025",
+      "fragmentos": [
+        "Adjustments and accretion of non-deductible earnouts",
+        "(0.2)",
+        "0.8"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Adjustments and accretion of non-deductible earnouts": true,
+        "(0.2)": true,
+        "0.8": true
+      },
+      "lineas": [
+        "› Adjustments and accretion of non-deductible earnouts (0.2) 0.8",
+        "› Utilization of previously unrecognized tax losses/(Unrecognized tax loss carryforwards)/Tax credits (0.2) 0.3"
+      ]
+    },
+    "linea_fiscal_2022": {
+      "doc": "URD2023",
+      "pagina_pdf": 345,
+      "uso": "P3: en 2022 también hubo ajuste de earnout, fuera de la ventana y dentro del τ de 5 años",
+      "fragmentos": [
+        "Adjustments and accretion of non-deductible earnouts",
+        "(15.8)",
+        "0.5"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Adjustments and accretion of non-deductible earnouts": true,
+        "(15.8)": true,
+        "0.5": true
+      },
+      "lineas": [
+        "Adjustments and accretion of non-deductible earnouts** (15.8) 0.5",
+        "Current taxes 120.5 92.6"
+      ]
+    },
+    "nota46_2023_2022": {
+      "doc": "URD2023",
+      "pagina_pdf": 302,
+      "uso": "P3: ajuste de 2022 (+2,4) y motivo del de 2023",
+      "fragmentos": [
+        "Earnout adjustments",
+        "(48.9)",
+        "2.4",
+        "mainly to the revaluation of the earnout pertaining to the"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Earnout adjustments": true,
+        "(48.9)": true,
+        "2.4": true,
+        "mainly to the revaluation of the earnout pertaining to the": true
+      },
+      "lineas": [
+        "Earnout adjustments (48.9) 2.4",
+        "mainly to the revaluation of the earnout pertaining to the financial year, taking into account its performance in the first half"
+      ]
+    },
+    "nota46_2022_2021": {
+      "doc": "URD2022",
+      "pagina_pdf": 285,
+      "uso": "P3: ajuste de 2021 (−3,0)",
+      "fragmentos": [
+        "Earnout adjustments",
+        "2.1",
+        "(3.0)"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Earnout adjustments": true,
+        "2.1": true,
+        "(3.0)": true
+      },
+      "lineas": [
+        "Acquisition-related transaction costs (4.4) (2.1)",
+        "Earnout adjustments 2.1 (3.0)"
+      ]
+    },
+    "ooie_2025": {
+      "doc": "URD2025",
+      "pagina_pdf": 309,
+      "uso": "P3 (N2) y P2: indemnizaciones de seguros dentro de otros ingresos operativos; gasto comercial en el resultado",
+      "fragmentos": [
+        "acquisition earnout compared to 2024 (including that in Mexico),",
+        "offset by a high level of insurance benefits in 2025.",
+        "structures in particular, in line with the growth in revenue and"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "acquisition earnout compared to 2024 (including that in Mexico),": true,
+        "offset by a high level of insurance benefits in 2025.": true,
+        "structures in particular, in line with the growth in revenue and": true
+      },
+      "lineas": [
+        "for washroom consumables and higher expenditure on linen and acquisition earnout compared to 2024 (including that in Mexico),",
+        "related depreciation. offset by a high level of insurance benefits in 2025.",
+        "structures in particular, in line with the growth in revenue and"
+      ]
+    },
+    "plan_climatico_capex": {
+      "doc": "URD2025",
+      "pagina_pdf": 122,
+      "uso": "P1 y 4b: gasto del plan climático dentro del capex; efecto volumen de 2025",
+      "fragmentos": [
+        "capex contained despite new workwear contracts and expenditure",
+        "under the Climate plan",
+        "and a volume effect"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "capex contained despite new workwear contracts and expenditure": true,
+        "under the Climate plan": true,
+        "and a volume effect": true
+      },
+      "lineas": [
+        "compared 20% 20.3% €213,358 €74,391 €55,757 inflation in 2025, and a volume effect, despite a more difficult",
+        "flow compared 20% 40% €420,000 €146,440 €109,760 › capex contained despite new workwear contracts and expenditure",
+        "to budget under the Climate plan;"
+      ]
+    },
+    "plan_climatico_deterioro": {
+      "doc": "URD2025",
+      "pagina_pdf": 369,
+      "uso": "P1: los planes de deterioro suponen una inversión superior a la amortización histórica",
+      "fragmentos": [
+        "climate plan, with a level of investment greater than"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "climate plan, with a level of investment greater than": true
+      },
+      "lineas": [
+        "› the Group's climate plan, with a level of investment greater than"
+      ]
+    },
+    "deterioro_arrendamientos": {
+      "doc": "URD2025",
+      "pagina_pdf": 368,
+      "uso": "1a: la renovación de arrendamientos dentro de la inversión en las pruebas de deterioro",
+      "fragmentos": [
+        "capital expenditure (including lease"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "capital expenditure (including lease": true
+      },
+      "lineas": [
+        "at standard rate − capital expenditure (including lease"
+      ]
+    },
+    "lino_crecimiento": {
+      "doc": "URD2025",
+      "pagina_pdf": 312,
+      "uso": "P2: dotación inicial a clientes nuevos dentro del capex",
+      "fragmentos": [
+        "Growth investments thus make up a"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Growth investments thus make up a": true
+      },
+      "lineas": [
+        "maintenance services. Growth investments thus make up a"
+      ]
+    },
+    "otras_adquisiciones_2025": {
+      "doc": "URD2025",
+      "pagina_pdf": 339,
+      "uso": "P2/4b: lista de las adquisiciones de 2025 que no son «importantes»",
+      "fragmentos": [
+        "Other acquisitions",
+        "These bolt-on acquisitions help to consolidate the Group’s position"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Other acquisitions": true,
+        "These bolt-on acquisitions help to consolidate the Group’s position": true
+      },
+      "lineas": [
+        "These bolt-on acquisitions help to consolidate the Group's position",
+        "acquisition strengthens Elis's network in Switzerland and expands Other acquisitions"
+      ]
+    },
+    "otras_adquisiciones_2024": {
+      "doc": "URD2025",
+      "pagina_pdf": 341,
+      "uso": "P2/4b: lista de las adquisiciones de 2024 que no son «importantes»",
+      "fragmentos": [
+        "Other acquisitions",
+        "These bolt-on acquisitions have helped to consolidate the Group’s"
+      ],
+      "todos_en_la_pagina (pdftotext)": true,
+      "segundo_extractor (pypdf)": {
+        "Other acquisitions": true,
+        "These bolt-on acquisitions have helped to consolidate the Group’s": true
+      },
+      "lineas": [
+        "Other acquisitions",
+        "These bolt-on acquisitions have helped to consolidate the Group's"
+      ]
+    }
+  },
+  "otras_adquisiciones": {
+    "otras_adquisiciones_2025": {
+      "doc": "URD2025",
+      "pagina_pdf": 339,
+      "viñetas": 16,
+      "sin_cifra_de_ingresos": [],
+      "suma_de_ingresos_anuales": 19.8,
+      "detalle": [
+        {
+          "viñeta": "February 20, 2025: 100% of SAS Blanchisserie BSC and SCI Tacerna in France (2025 revenue of €5.4 million; 40 employees);",
+          "ingresos_anuales": 5.4
+        },
+        {
+          "viñeta": "February 28, 2025: 100% of BeMicron SA in Belgium (cleanroom, 2025 revenue of around €0.2 million; two employees);",
+          "ingresos_anuales": 0.2
+        },
+        {
+          "viñeta": "March 03, 2025: 100% of Profilakse SIA in Latvia (pest control; 2025 revenue of around €0.3 million; 10 employees);",
+          "ingresos_anuales": 0.3
+        },
+        {
+          "viñeta": "April 18, 2025: assets of Lavanderia Hospitalaria de Mexico SA de CV (2025 revenue of €0.1 million, four employees);",
+          "ingresos_anuales": 0.1
+        },
+        {
+          "viñeta": "May 13, 2025: 100% of Eradiq SAS in France (pest control; 2025 revenue of €0.5 million; five employees);",
+          "ingresos_anuales": 0.5
+        },
+        {
+          "viñeta": "May 29, 2025: 100% of Arumia SL in Spain (pest control; 2025 revenue of €0.5 million; seven employees).",
+          "ingresos_anuales": 0.5
+        },
+        {
+          "viñeta": "June 9, 2025: assets of FGMH Services Ltd in Great Britain (revenue of around €0.4 million; seven employees);",
+          "ingresos_anuales": 0.4
+        },
+        {
+          "viñeta": "June 25, 2025: 100% of Abatera SRL in Belgium (pest control; 2025 revenue of €1.2 million; four employees);",
+          "ingresos_anuales": 1.2
+        },
+        {
+          "viñeta": "July 31, 2025: 100% of Ecoserv SRL in Belgium (pest control; 2025 revenue of €1.2 million; nine employees);",
+          "ingresos_anuales": 1.2
+        },
+        {
+          "viñeta": "September 30, 2025: 100% of GPM Servi SL in Spain (pest control; 2025 revenue of €0.4 million; nine employees);",
+          "ingresos_anuales": 0.4
+        },
+        {
+          "viñeta": "October 16, 2025: 100% of Oxwash Big Blue I Ltd in Great Britain (2025 revenue of €3.6 million; 100 employees);",
+          "ingresos_anuales": 3.6
+        },
+        {
+          "viñeta": "November 5, 2025: 100% of Auxidys in France and Luxembourg (2025 revenue of €1.6 million; 12 employees);",
+          "ingresos_anuales": 1.6
+        },
+        {
+          "viñeta": "November 28, 2025: 100% of Ongediertebestrijding Midden- Brabant BV in the Netherlands (pest control; 2025 revenue of €0.4 million; four employees);",
+          "ingresos_anuales": 0.4
+        },
+        {
+          "viñeta": "December 08, 2025: 100% of AB Prokill in Belgium (pest control; 2025 revenue of €0.4 million; two employees);",
+          "ingresos_anuales": 0.4
+        },
+        {
+          "viñeta": "December 09, 2025: 100% of Alsco Textile Services in Malaysia (cleanroom; 2025 revenue of €2.1 million; 50 employees).",
+          "ingresos_anuales": 2.1
+        },
+        {
+          "viñeta": "December 10, 2025: 100% of Dodo in Italy (pest control; 2025 revenue of €1.5 million; 12 employees).",
+          "ingresos_anuales": 1.5
+        }
+      ]
+    },
+    "otras_adquisiciones_2024": {
+      "doc": "URD2025",
+      "pagina_pdf": 341,
+      "viñetas": 9,
+      "sin_cifra_de_ingresos": [],
+      "suma_de_ingresos_anuales": 9.1,
+      "detalle": [
+        {
+          "viñeta": "February 1, 2024: 100% of Les Tapis Boland SRL in Belgium (revenue of €1.0 million in 2024; seven employees);",
+          "ingresos_anuales": 1.0
+        },
+        {
+          "viñeta": "March 13, 2024: 100% of Los Carruajes de la Corona SA de CV in Mexico (revenue of €1.5 million in 2024; 60 employees);",
+          "ingresos_anuales": 1.5
+        },
+        {
+          "viñeta": "March 28, 2024: 100% of Lavanderia Hibisco Ltda in Brazil (revenue of €0.5 million in 2024; 47 employees);",
+          "ingresos_anuales": 0.5
+        },
+        {
+          "viñeta": "June 28, 2024: 100% of Ecob in Belgium (pest control; revenue of €1.4 million in 2024; 16 employees);",
+          "ingresos_anuales": 1.4
+        },
+        {
+          "viñeta": "July 1, 2024: Loonen Ongediertebestrijding en Bedrijfsdiensten VOF assets in the Netherlands (pest control; revenue of around €0.3 million; two employ",
+          "ingresos_anuales": 0.3
+        },
+        {
+          "viñeta": "July 15, 2024: 100% of Servicio Tecnilavado SAS in Colombia (revenue of €1.3 million in 2024; 72 employees);",
+          "ingresos_anuales": 1.3
+        },
+        {
+          "viñeta": "October 11, 2024: 100% of Aracnos Srl in Italy (pest control; revenue of €0.7 million in 2024; 10 employees);",
+          "ingresos_anuales": 0.7
+        },
+        {
+          "viñeta": "November 1, 2024: Rotovic Lavanderia Industrial Ltda assets in Brazil (revenue of around €1.9 million; 70 employees);",
+          "ingresos_anuales": 1.9
+        },
+        {
+          "viñeta": "December 19, 2024: 100% of Artica Traitement SAS in France (pest control; revenue of €0.5 million in 2024; four employees).",
+          "ingresos_anuales": 0.5
+        }
+      ]
+    }
+  },
+  "resumen": {
+    "pasajes": 25,
+    "fallos": [],
+    "segundo_extractor": "pypdf"
+  }
+}
