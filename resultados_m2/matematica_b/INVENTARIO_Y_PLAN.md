@@ -17,7 +17,7 @@
 
 ## 2. Alcance (universo finito del frente)
 
-1. Definición y oráculo independiente del precio de Sí (P*, precio_de_si, zona): solución por tramos exacta + bisección; contraste con los 5 casos del Anexo C, 7 sintéticos propios y 5 históricos fijados + las 39 variantes calculadas 4.14 (20 Vidrala + 19 Viscofan).
+1. Definición y oráculo independiente del precio de Sí (P*, precio_de_si, zona): solución por tramos exacta + bisección; contraste con los 5 casos del Anexo C, 7 sintéticos propios y 6 históricos fijados (H6 = Viscofan 4.13 «Caja», añadido tras la revisión externa C1) + las 39 variantes calculadas 4.14 (20 Vidrala + 19 Viscofan) = 57 casos.
 2. Propiedades y límites (T1–T12) como pruebas y como aserciones ejecutables (`oraculo_precio_si.py --selftest`, `ejecutar_casos.py`).
 3. Relación con expectiles con bibliografía primaria (N&P 1987; Koenker–Bassett 1978; Rockafellar–Uryasev 2000).
 4. Contraste de k y probabilidades en los casos históricos fijados, con el efecto puro de probabilidades separado del cambio total entre entregas (incluido 0,20/0,60/0,20 frente a 0,25/0,60/0,15 en Viscofan 4.12→4.13/4.14).
@@ -31,7 +31,8 @@ Fuera de alcance: frentes A y B, F1/Elis, motor C, valores actuales nuevos, prec
 
 | Bloque | Contenido | Salida |
 |---|---|---|
-| B1 | Definiciones, demostraciones, casos fijados, plan | este archivo + `DEFINICIONES_Y_DEMOSTRACIONES.md` + `casos_fijados.json` + `PUNTO_DE_RECUPERACION.md` → commit/push |
+| B1 | Definiciones, demostraciones, casos fijados, plan | este archivo + `DEFINICIONES_Y_DEMOSTRACIONES.md` + `casos_fijados.json` + `PUNTO_DE_RECUPERACION.md` → commit/push `f9bb54b` |
+| B6 | Corrección acotada tras revisión externa (`9366bdd`, CORRECCION_C): caso H6 Caja 4.13, tablas 2×2 por perímetro, guarda de pregunta cruzada, retiro de la falsa discrepancia D7, matización del hallazgo `p_estrella`, `RESPUESTA_REVISION_EXTERNA.md` | regeneración de casos/resultados/CSV + respuesta + manifiesto → commit/push |
 | B2 | Oráculo propio + propiedades ejecutables + comparación con el producto | `codigo/oraculo_precio_si.py`, `codigo/ejecutar_casos.py`, `codigo/comparar_producto.py`, `COMPARACION_IMPLEMENTACION.csv`, `resultados_casos.json` → commit/push |
 | B3 | Efectos de probabilidades y sensibilidad finita | `EFECTOS_PROBABILIDADES.csv`, `SENSIBILIDAD_FINITA.csv` → commit/push |
 | B4 | Protocolos de cobertura y ejemplos sintéticos | `PROTOCOLOS_COBERTURA.md`, `codigo/protocolos_cobertura.py`, CSV auxiliar → commit/push |

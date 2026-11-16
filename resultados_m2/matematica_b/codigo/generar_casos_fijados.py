@@ -139,7 +139,21 @@ def main():
              "Viscofan 4.12 (antecedente ejecucion_1_4_13) activa, p = 0,25/0,60/0,15 (desviación de la referencia)"),
         hist("H5", f"{vis412}/configuracion_v64_variantes.json", f"{vis412}/configuracion_v64_variantes.json", "perimetro_alternativo",
              "Viscofan 4.12 variante «perímetro Caja» (p = 0,25/0,60/0,15); base de la descomposición D7"),
+        hist("H6", f"{vis413}/configuracion_v64_variantes.json", f"{vis413}/configuracion_v64_variantes.json", "perimetro_alternativo",
+             "Viscofan 4.13 variante «perímetro Caja» (p = 0,20/0,60/0,20, p de referencia); añadido tras la revisión externa C1: D7 compara el perímetro Caja entre entregas"),
     ]
+
+    # Etiquetas de perímetro por caso (de los expedientes publicados): la activa de
+    # Viscofan declara perímetro NIIF 16 en 4.14; «perimetro_alternativo» es «Caja».
+    casos["perimetros"] = {
+        "H1": "Vidrala 4.14 activa (perímetro declarado en su configuracion_economica.json)",
+        "H2": "Viscofan 4.14 activa · perímetro NIIF 16 (configuracion_economica.json 4.14)",
+        "H3": "Viscofan 4.13 activa · NIIF 16 (perímetro vigente; D4 del paquete)",
+        "H4": "Viscofan 4.12 activa (ejecucion_1_4_13) · NIIF 16 (perímetro vigente; D4 del paquete)",
+        "H5": "Viscofan 4.12 variante perimetro_alternativo · Caja",
+        "H6": "Viscofan 4.13 variante perimetro_alternativo · Caja",
+        "nota": "La comparación D7 («+1,5386 €») es la de perímetro Caja (H5→H6); la de activa NIIF 16 (H4→H3) es otra pregunta (+1,5478 €). Nunca mezclar perímetros en un mismo cambio total.",
+    }
 
     for tag, rel in (("V-Vidrala-4.14", f"{vid414}/configuracion_v64_variantes.json"),
                      ("V-Viscofan-4.14", f"{vis414}/configuracion_v64_variantes.json")):

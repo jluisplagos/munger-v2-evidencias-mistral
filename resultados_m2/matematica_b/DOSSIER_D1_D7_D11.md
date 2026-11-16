@@ -10,7 +10,7 @@ Nota de nomenclatura: «D11» se usa en dos sitios del paquete — en el Anexo C
 
 **Datos (publicados, con huella).** `fase_c.json` 4.14 de Vidrala y Viscofan (`configuracion_v64.parametros`: fundamento_suficiente, material_para_accion, material_para_objetivo, bases); `contraste_objetivo_v64.{md,json}` (cobertura y Δ €/% por variante); contrato 4.14 en `objetivo_v64.py` (`validar_juicio_objetivo`, reglas V1–V8, S3, S11); `DECISIONES_PENDIENTES_4_14.md` §2.1.
 
-**Derivaciones (propias, reproducibles).** El contraste del objetivo es aritmética exacta sobre `precio_si = min(P*(V,p,k), V_N)`, que depende **solo** de (V, p, k, V_N): el oráculo propio reproduce todos los `precio_si` publicados del paquete (residuo ≤ 5,1e-13 en 56 casos) y por tanto todos los Δ del contraste. Ejemplos 4.14 (activa → variante): Vidrala estructura_SR2 56,0020 → 57,0263 (+1,0243 €), activa_sin_N1 +1,7482 €, parametro_maximo 51,2602 (−4,7418 €), heredado +8,7502 €; Viscofan estructura_SR2 +0,5726 €, parametro_maximo −1,6717 €, heredado +3,1785 € (todas las variantes, zona «caro»). Propiedad relevante: el contraste del objetivo **no necesita LibreOffice** (a diferencia del valor de los escenarios, que sí viene de la hoja recalculada).
+**Derivaciones (propias, reproducibles).** El contraste del objetivo es aritmética exacta sobre `precio_si = min(P*(V,p,k), V_N)`, que depende **solo** de (V, p, k, V_N): el oráculo propio reproduce todos los `precio_si` publicados del paquete (residuo ≤ 5,1e-13 en 57 casos) y por tanto todos los Δ del contraste. Ejemplos 4.14 (activa → variante): Vidrala estructura_SR2 56,0020 → 57,0263 (+1,0243 €), activa_sin_N1 +1,7482 €, parametro_maximo 51,2602 (−4,7418 €), heredado +8,7502 €; Viscofan estructura_SR2 +0,5726 €, parametro_maximo −1,6717 €, heredado +3,1785 € (todas las variantes, zona «caro»). Propiedad relevante: el contraste del objetivo **no necesita LibreOffice** (a diferencia del valor de los escenarios, que sí viene de la hoja recalculada).
 
 **Políticas vigentes.** V4: base «calculada» exige contraste aislado o variación conjunta necesaria. V5/S11: un criterio propio del agente (p. ej. los 1,5 € de un agente) es `juicio_propio_del_agente`, base «juicio_economico», nunca «calculada». V6: declarar «no material» un parámetro sin fundamento suficiente cuyo contraste mueve el precio de Sí exige `comparado_con` con valor en €; sin él, «no determinada» y condiciona. V7: `politica_adoptada` exige registro con decisión, fecha y firma humana. R-a (con «comprar», toda hipótesis activa va a D10) y R-b (sin evidencia propia del objetivo, un contraste que mueve el precio de Sí al redondeo declarado no puede quedar fuera) son **propuestas** de D1, no adoptadas.
 
@@ -22,14 +22,20 @@ Nota de nomenclatura: «D11» se usa en dos sitios del paquete — en el Anexo C
 
 ## D7 · D414-VARIACION-AGENTES — variación de juicio entre agentes (probabilidades)
 
-**Datos (publicados, con huella).** `fase_b.json` de Viscofan 4.12 (`antecedentes/fase_b.json.4_12` y `ejecucion_1_4_13/fase_b.json`): desviación de la referencia mecánica 0,20/0,60/0,20 a **0,25/0,60/0,15** (desviacion ±0,05, clase «fundamentada», argumento escrito); `fase_b.json` de 4.13 y 4.14 (ambas empresas): vuelven a 0,20/0,60/0,20 con `desviacion = 0`. Vectores de escenarios en los `configuracion_v64_variantes.json` correspondientes (H1–H5 en `casos_fijados.json`). Precios de mercado usados solo para la zona: 90,10 € (Vidrala), 54,70 € (Viscofan).
+**Datos (publicados, con huella).** `fase_b.json` de Viscofan 4.12 (`antecedentes/fase_b.json.4_12` y `ejecucion_1_4_13/fase_b.json`): desviación de la referencia mecánica 0,20/0,60/0,20 a **0,25/0,60/0,15** (desviacion ±0,05, clase «fundamentada», argumento escrito); `fase_b.json` de 4.13 y 4.14 (ambas empresas): vuelven a 0,20/0,60/0,20 con `desviacion = 0`. Vectores de escenarios en los `configuracion_v64_variantes.json` correspondientes (H1–H6 en `casos_fijados.json`). Precios de mercado usados solo para la zona: 90,10 € (Vidrala), 54,70 € (Viscofan).
 
-**Derivaciones (propias, en `EFECTOS_PROBABILIDADES.csv`).**
-- Con V fijo de la 4.13, cambiar p de la referencia a la desviación 4.12: 40,164007 → **38,536370 €** (−1,6276 €); D7 [cálculo B] cita 38,5364 ✓.
-- Con V fijo de la 4.12 «Caja»: 39,287701 → **40,948199 €** (+1,6605 € al volver a la referencia); D7 cita 40,9482 ✓.
-- Descomposición del cambio total 4.12→4.13 (activa): **+1,5478 €** = efecto de p (media de los dos órdenes, Shapley) **+1,6412 €** + efecto de V/palancas −0,0934 €. Los dos órdenes dan efecto p entre +1,6276 y +1,6547 €; D7 dice «entre +1,63 y +1,66 €» ✓.
-- 4.13→4.14 (Viscofan): **−0,3658 €** con p fijo en la referencia (efecto puro de V). 4.14 con la desviación 4.12 (contrafactual): 39,7982 → 38,1914 €; Vidrala 4.14: 56,0020 → 54,0848 €.
-- **Discrepancia documentada:** D7 cita «+1,5386 €» como cambio de Viscofan; con los vectores publicados en el paquete, el cambio total activa 4.12→4.13 es **+1,5478 €** (diferencia 0,0092 €, no reproducible con los datos conservados; queda anotada, no corregida).
+**Derivaciones (propias, en `EFECTOS_PROBABILIDADES.csv`; corregido tras la revisión externa C1, commit `9366bdd`).** Cada comparación va etiquetada por empresa, entrega, **perímetro**, V y p; una guarda marca como PREGUNTA_DISTINTA cualquier «cambio total» que mezcle perímetros.
+
+- **La pregunta de D7 es la de perímetro Caja** (variante `perimetro_alternativo` en 4.12 y 4.13). Tabla 2×2 Caja (k = 3), calculada con el oráculo propio desde los vectores publicados (H5, H6; sha256 en `casos_fijados.json`) y contrastada con `SONDA_C_D7_CAJA.json` de la revisión (residuo ≤ 1e-12 en las cuatro celdas):
+
+  | Celda (perímetro Caja) | p 4.12 (0,25/0,60/0,15) | p referencia (0,20/0,60/0,20) |
+  |---|---:|---:|
+  | V Caja 4.12 (H5) | 39,2877008705 | 40,9481993309 |
+  | V Caja 4.13 (H6) | 39,1920496243 | 40,8263467773 |
+
+  Cambio total Caja 4.12→4.13: **+1,5386459068 €**, que redondea a **+1,5386 € como D7**: la cifra de D7 se reproduce exactamente y **ya no se declara ninguna discrepancia**. Efecto de p según orden: +1,6604984604 € (sobre V Caja 4.12) o +1,6342971529 € (sobre V Caja 4.13); media Shapley +1,6473978067 €. Efecto de V: −0,0956512462 € o −0,1218525537 € según orden.
+- **La otra pregunta, también válida:** la misma descomposición sobre la activa (perímetro NIIF 16, H4→H3) da **+1,5477811279 €** = efecto p (Shapley) +1,6412 € + efecto V −0,0934 €. No refuta ni sustituye a la de Caja: son perímetros distintos. (Antes de C1 se presentó la diferencia 0,0092 € entre ambas como «discrepancia no reproducible»; era un error de identificación de la comparación, ya retirado de todos los informes.)
+- Con V fijo de la activa 4.13, p desviación 4.12: 40,164007 → 38,536370 €. 4.13→4.14 (activa, p fijo en referencia): **−0,3658136463 €** (efecto puro de V). Contrafactuales (solo para medir el efecto de p, no propuestas): 4.14 con p 4.12 → 38,1914 €; Vidrala 4.14 → 54,0848 €.
 
 **Matemática.** P* es el expectil τ = 1/(k+1) de la distribución de valores (k = 3 → τ = 0,25 en convención Newey–Powell); dentro de cada tramo es cociente de lineales en p y lineal en V, continua en (V, p): el efecto de las probabilidades es continuo, acotado y sin saltos (T2, T6, T7). No es un percentil ni un nivel de confianza (T10).
 

@@ -402,6 +402,38 @@
     }
    },
    "nota": "Viscofan 4.12 variante «perímetro Caja» (p = 0,25/0,60/0,15); base de la descomposición D7"
+  },
+  {
+   "id": "H6",
+   "V": [
+    "30.6406803941772",
+    "44.8547080140724",
+    "59.2982622162535"
+   ],
+   "p": [
+    "0.2",
+    "0.6",
+    "0.2"
+   ],
+   "k": "3.0",
+   "v_normal": "44.8547080140724",
+   "precio": "54.7",
+   "precio_si_publicado": 40.82634677728604,
+   "zona_publicada": "caro",
+   "P_estrella_publicado": null,
+   "proveniencia": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/Viscofan/configuracion_v64_variantes.json",
+    "sha256": "c8e7270f8b174172b2b9d6b525f6b6e8e26c164fa9d36b5f370575d4186913d2",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+    "variantes": {
+     "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/Viscofan/configuracion_v64_variantes.json",
+     "sha256": "c8e7270f8b174172b2b9d6b525f6b6e8e26c164fa9d36b5f370575d4186913d2",
+     "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+     "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+    }
+   },
+   "nota": "Viscofan 4.13 variante «perímetro Caja» (p = 0,20/0,60/0,20, p de referencia); añadido tras la revisión externa C1: D7 compara el perímetro Caja entre entregas"
   }
  ],
  "variantes": [
@@ -1310,6 +1342,15 @@
    }
   }
  ],
+ "perimetros": {
+  "H1": "Vidrala 4.14 activa (perímetro declarado en su configuracion_economica.json)",
+  "H2": "Viscofan 4.14 activa · perímetro NIIF 16 (configuracion_economica.json 4.14)",
+  "H3": "Viscofan 4.13 activa · NIIF 16 (perímetro vigente; D4 del paquete)",
+  "H4": "Viscofan 4.12 activa (ejecucion_1_4_13) · NIIF 16 (perímetro vigente; D4 del paquete)",
+  "H5": "Viscofan 4.12 variante perimetro_alternativo · Caja",
+  "H6": "Viscofan 4.13 variante perimetro_alternativo · Caja",
+  "nota": "La comparación D7 («+1,5386 €») es la de perímetro Caja (H5→H6); la de activa NIIF 16 (H4→H3) es otra pregunta (+1,5478 €). Nunca mezclar perímetros en un mismo cambio total."
+ },
  "probabilidades_referencia": {
   "referencia_mecanica": [
    0.2,

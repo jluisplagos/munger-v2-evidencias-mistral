@@ -19,7 +19,7 @@ python3 docs/programa_mistral_m2/herramientas/preparar_insumos.py --zip .trabajo
 # 2. Casos fijados (lee solo .trabajo/insumos_m2/, escribe casos_fijados.json)
 cd resultados_m2/matematica_b
 python3 codigo/oraculo_precio_si.py --selftest      # -> PASA
-python3 codigo/generar_casos_fijados.py              # -> 56 casos con provenance y sha256
+python3 codigo/generar_casos_fijados.py              # -> 57 casos con provenance y sha256 (H6 = Viscofan 4.13 Caja, tras C1)
 
 # 3. Oráculo sobre los 56 casos + propiedades (escribe resultados_casos.json)
 python3 codigo/ejecutar_casos.py                     # -> 10/10 propiedades true
