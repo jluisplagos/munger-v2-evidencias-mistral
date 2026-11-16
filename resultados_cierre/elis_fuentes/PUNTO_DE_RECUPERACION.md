@@ -17,12 +17,16 @@ Reescrito al cerrar cada bloque. B/P-M1 se conserva intacta en `mistral/m2-funda
 
 ## Commits
 
-- `b4a4703` bloque 1 (inventario). Este push: bloque 2. Remoto: `git ls-remote origin mistral/e-fuentes-elis`.
+- `b4a4703` bloque 1 (inventario); `78d2898` bloque 2 (busqueda finita + lectura, 12 docs, 28 citas); este push: bloque 3 (entrega final, E finito). Remoto verificado: `git ls-remote origin mistral/e-fuentes-elis` == HEAD local.
+
+## Estado de cierre de la etapa E (bloque 3)
+
+E queda **finito como busqueda acotada**: cada pregunta (M1/M2/M6/N2) termina con evidencia examinada, ambigüedad o «no localizado en esta búsqueda» (ver `PREGUNTAS_Y_RESULTADOS.csv` columna `estado_tras_bloque2` y `HALLAZGOS_ELIS.md`), nunca «no publicado en ninguna parte». Nada pendiente depende de información no pública que justifique más búsqueda dentro de este encargo; no si contacta a empresas por iniciativa propia. Siguiente acción: revisión del coordinador Claude sobre el control (`coordinacion/cierre-v2`, corte 2026-11-16 ~21:05, E-ELIS aún PENDIENTE de registrar); sin ciclos recursivos ni autoaprobación.
 
 ## Pendiente / siguiente acción exacta
 
-1. **Bloque 3:** leer el control de Claude (`git show origin/coordinacion/cierre-v2:coordinacion/cierre_v2/CONTROL.json`); si asigna una fuente concreta pendiente de E (o de P-M1), buscarla en bloque separado con pregunta y límite explícitos; si no hay asignación nueva, cerrar E como búsqueda finita: cada pregunta queda en «evidencia examinada / ambigüedad / no localizado en esta búsqueda» (nunca «no publicado en ninguna parte»), con lista de documentos/páginas y límites.
-2. Entrega final del bloque 3: ENTREGA.json definitivo, MANIFIESTO_SHA256.txt regenerado, esta recuperación actualizada, commit + push.
+1. ~~Bloque 3~~ **cerrado en este commit**: E finito; control consultado (`coordinacion/cierre-v2` @ `2fea890`, sin asignación nueva a E).
+2. ~~Entrega final~~ hecha: ENTREGA.json definitivo, MANIFIESTO_SHA256.txt regenerado, recuperación actualizada, commit + push.
 3. Preservación pendiente: 11 PDF nuevos en PROVISIONAL (uploads.github.com → 401; no reintentar ni pedir tokens); si hubiera otra vía autorizada de conservación, verificarla antes de afirmar preservación.
 
 ## Límites vigentes

@@ -6,10 +6,12 @@
   "base_revisada_sha": "ec707a5ba2bd684381a63ce0f6f6c143aa59f4c0 (paquete de coordinacion; rama creada desde aqui)",
   "commit_entrega": "El coordinador toma el SHA remoto tras el push; este bloque no se autorreferencia",
   "directorio_entrega": "resultados_cierre/elis_fuentes/",
-  "tareas_control": ["E-ELIS"],
+  "tareas_control": [
+    "E-ELIS"
+  ],
   "candidata_producto_sha": null,
   "banco_sha": null,
-  "naturaleza": "evidencia / busqueda acotada (bloque 1 inventario + bloque 2: 12 documentos oficiales nuevos descargados y leidos con cita verificada)",
+  "naturaleza": "evidencia / busqueda acotada FINITA (bloques 1-2 ejecutados; bloque 3 = entrega final de la etapa E)",
   "autor_contexto_modelo_herramientas": "Vibe Code de Mistral AI, modelo mistral-large-4-0; Python 3.12.15 + PyMuPDF; urllib con TLS verificado en fr.elis.com; consumo no visible desde la sesion; git show de solo lectura sobre producto 716cbd6, revision f5775dc y control ff0c60cd; sin escribir en el repo producto",
   "fuentes_y_preservacion": [
     "Base ya examinada (no se re-pide ni se re-busca): 5 URD/DEU 2021-2025 + libro Elis_v63_evaluada.xlsx en Release base-4.14 (tag base-4.14, repo producto); comunicado FY2025 FR, informe+presentacion S1-2026, HTML Euronext/OCEANE en base 4.14",
@@ -29,7 +31,9 @@
       "comando": "python3 resultados_cierre/elis_fuentes/scripts/inventario_bloque1.py",
       "exit_esperado": 0,
       "exit_observado": 0,
-      "criterios_cubiertos": ["inventario reproducible desde SHAs fijados; sha256 cruzados; ZIP base-4.14 verificado"],
+      "criterios_cubiertos": [
+        "inventario reproducible desde SHAs fijados; sha256 cruzados; ZIP base-4.14 verificado"
+      ],
       "criterios_sin_cubrir": [],
       "evidencia": "salida exit 0; sha256 de los 6 archivos base coinciden entre fuentes.json (716cbd6) y seleccion_fuentes.json (f5775dc)",
       "sha_material": "716cbd6 / f5775dc / ff0c60cd",
@@ -40,8 +44,12 @@
       "comando": "python3 resultados_cierre/elis_fuentes/scripts/descargar_fuentes_elis.py",
       "exit_esperado": 0,
       "exit_observado": 0,
-      "criterios_cubiertos": ["12/12 documentos oficiales descargados HTTP 200 con TLS verificado; hashes y texto extraido"],
-      "criterios_sin_cubrir": ["preservacion duradera como asset (bloqueada por 401)"],
+      "criterios_cubiertos": [
+        "12/12 documentos oficiales descargados HTTP 200 con TLS verificado; hashes y texto extraido"
+      ],
+      "criterios_sin_cubrir": [
+        "preservacion duradera como asset (bloqueada por 401)"
+      ],
       "evidencia": ".trabajo/elis_fuentes/INDICE_DESCARGAS.csv; URD2025 hash == base-4.14",
       "sha_material": "ver INDICE_DESCARGAS.csv",
       "resultado": "EJECUTADO_OK"
@@ -51,8 +59,12 @@
       "comando": "python3 resultados_cierre/elis_fuentes/scripts/lectura_bloque2.py",
       "exit_esperado": 0,
       "exit_observado": 0,
-      "criterios_cubiertos": ["28 citas verificadas en documento+pagina PDF; LECTURA_FUENTES.jsonl; CSV actualizados"],
-      "criterios_sin_cubrir": ["confirmacion de ambiguedades con segundo extractor o representacion visual (pendiente si procede)"],
+      "criterios_cubiertos": [
+        "28 citas verificadas en documento+pagina PDF; LECTURA_FUENTES.jsonl; CSV actualizados"
+      ],
+      "criterios_sin_cubrir": [
+        "confirmacion de ambiguedades con segundo extractor o representacion visual (pendiente si procede)"
+      ],
       "evidencia": "LECTURA_FUENTES.jsonl (40 registros)",
       "sha_material": "sha256 de cada documento citado en el propio JSONL",
       "resultado": "EJECUTADO_OK"
@@ -68,10 +80,17 @@
     "Los 11 PDF nuevos quedan PROVISIONAL (uploads.github.com 401); cmd2025.elis.com inaccesible desde el sandbox",
     "No se elige R (ni en 736,0-867,2), theta, lambda, k ni probabilidad; Elis sigue pendiente_de_datos; C48=108, C49=128,1, FCF base=307,933 y decisiones vigentes conservadas"
   ],
-  "siguiente_accion_exacta": "Bloque 3 (entrega): revisar control de Claude; si asigna una fuente concreta pendiente, bloque separado con pregunta y limite; si no, cerrar E como busqueda finita con cada pregunta en 'evidencia examinada / no localizado en esta busqueda' (nunca 'no publicado en ninguna parte') y entregar ENTREGA.json final, manifiesto y recuperacion",
+  "siguiente_accion_exacta": "E finito: entrega completa en esta rama (LECTURA_FUENTES.jsonl, PREGUNTAS_Y_RESULTADOS.csv, FUENTES_Y_BUSQUEDA.csv, HALLAZGOS_ELIS.md, RESUMEN_PARA_INTEGRADOR.md, ENTREGA.json, MANIFIESTO_SHA256.txt, PUNTO_DE_RECUPERACION.md, 3 scripts). Esperar revision del coordinador Claude (control en coordinacion/cierre-v2); no se abren ciclos recursivos ni se autoaprueba. Si el control asigna una fuente concreta pendiente, bloque separado con pregunta y limite",
   "integrado_en_producto": false,
   "apto_dinero_real": "No se declara por este formulario",
-  "criterios_cubiertos": ["E-ELIS bloque 1 (inventario)", "E-ELIS bloque 2 (busqueda finita + lectura verificada de 12 docs oficiales nuevos)"],
-  "criterios_pendientes": ["E-ELIS bloque 3 (cierre de la etapa E y entrega final)", "revision por Claude (revisor propuesto)", "preservacion duradera de los PDF nuevos (bloqueada por 401)"],
+  "criterios_cubiertos": [
+    "E-ELIS bloque 1 (inventario)",
+    "E-ELIS bloque 2 (busqueda finita + lectura verificada de 12 docs oficiales nuevos)",
+    "E-ELIS bloque 3 (entrega final; E finito como busqueda acotada)"
+  ],
+  "criterios_pendientes": [
+    "revision por Claude (revisor propuesto) de los commits de esta rama",
+    "preservacion duradera de los 11 PDF nuevos (bloqueada por 401 en uploads.github.com)"
+  ],
   "salida_siguiente": "resultados_cierre/elis_fuentes/: PREGUNTAS_Y_RESULTADOS.csv, FUENTES_Y_BUSQUEDA.csv, LECTURA_FUENTES.jsonl, HALLAZGOS_ELIS.md, RESUMEN_PARA_INTEGRADOR.md, ENTREGA.json, PUNTO_DE_RECUPERACION.md, MANIFIESTO_SHA256.txt, scripts/ (3)"
 }
