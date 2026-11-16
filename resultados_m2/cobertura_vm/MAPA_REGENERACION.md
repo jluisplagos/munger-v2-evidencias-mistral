@@ -33,3 +33,15 @@ Qué puede aprovechar Claude para una futura regeneración, qué debe revisarse 
 1. Ejecutar en orden: `inventario.py` → `verificar_fuentes.py` → `derivaciones.py` → `construir_cobertura.py` → `revisar_lote.py <L>` → `control_cobertura.py` → `asociacion_pdf.py` (con `PYTHONPATH=.trabajo/pylibs` para openpyxl/pypdf).
 2. Si cambian bytes de una fuente, recalcular todo lo dependiente: el control rechaza resultados reutilizados tras cambiar operarios sin recalcular (hash de entradas por nodo y por fuente).
 3. No fijar como objetivo 677 coincidencias; los estados honestos incluyen DIFERENCIA/NO_ACREDITADO cuando aparezcan.
+
+## Estados de las dependencias para regeneración (tras la corrección A1)
+
+| Grupo | n | Estado contextual | ¿Qué puede reutilizar el integrador? |
+|---|---|---|---|
+| Datos/ceros con fuente, revisados contextualmente | 423 | REVISADO_CONTEXTUAL | Sí: huella vigente + fila/encabezado/columna/unidad/signo/perímetro leídos |
+| Derivados cuyos orígenes están revisados | 86 | REVISADO_CONTEXTUAL | Sí: fórmula + hash de entradas vigente; significado económico aparte |
+| Piloto M1 (datos y derivados) | 60 | REUTILIZADO_M1 | Sí, con el alcance y huellas del piloto corregido |
+| Pendientes contextuales | 2 | PENDIENTE_CONTEXTUAL | No: `Vidrala Historia!G22`/`G23` (fila de continuación ambigua, CF_2019 p.19) |
+| Hipótesis / convenciones / no aplicables / ausentes | 109 | NO_APLICA (clase) | No como datos: requieren decisión o fuente |
+
+El control (`control_cobertura.py`) rechaza REVISADO_CONTEXTUAL sin evidencia contextual y valida la coherencia CSV↔verificación contextual. Ver `RESPUESTA_REVISION_EXTERNA.md`.

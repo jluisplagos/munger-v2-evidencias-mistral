@@ -33,3 +33,12 @@ Clasificación usada: [CONFLICTO_FUENTE] [LIMITE_COBERTURA] [HIPOTESIS] [ESTRUCT
 ## 7. [LIMITE_COBERTURA] Lo que esta cobertura no acredita
 - La lectura numérica no acredita significado económico: subtotales pueden incluir partidas presentadas en otra línea; importe devengado ≠ pago; mantenimiento ≠ categoría contable. Los estados HIPOTESIS/CONVENCION/DATO_AUSENTE/NO_APLICABLE siguen pendientes de decisión o de fuente.
 - No se generó ningún `verificacion_entradas.json` oficial ni se simularon sellos o revisores; no hay PR, fusión ni modificación del producto. La revisión independiente corresponde a otro contexto sobre el commit congelado.
+
+## 8. [RESPUESTA A A1] Coincidencia mecánica ≠ revisión contextual (corrección ejecutada)
+
+La revisión externa (`9366bdd`, `SONDA_A_SEMANTICA.json`) demostró que el control mecánico antiguo devuelve COINCIDE_PROPUESTO aunque se muten periodo/columna/perímetro/concepto. Se añadió verificación contextual (`scripts/verificar_contexto.py`) que lee encabezado, fila, columna (posición del valor), unidad, signo impreso y perímetro desde los bytes conservados:
+
+- Estados contextuales (677): 509 REVISADO_CONTEXTUAL, 60 REUTILIZADO_M1, 2 PENDIENTE_CONTEXTUAL (`Vidrala Historia!G22`/`G23`, fila de continuación ambigua en CF_2019 p.19), 106 NO_APLICA, 0 CONFLICTO. Los estados mecánicos se conservan en columna aparte (`estado_mecanico` vs `estado_contextual`).
+- Controles negativos (`resultados/control_negativo.json`): 154 mutaciones en memoria; 108 detectadas por el verificador contextual, **0 por el mecánico** (reproduce el límite de la sonda). Límites del automatismo declarados: unidad no decidible en 8 páginas de nota sin frase de unidad; columna no decidible en 3 filas no tabulares; perímetro no decidible en 51 páginas sin marca; 1 fila de continuación pendiente.
+- Los límites de los orígenes se propagan a los 101 derivados (`estado_contextual`, `limites_contextuales`, `coherencia_unidades_origenes` en `DERIVADOS.json`).
+- Ver `RESPUESTA_REVISION_EXTERNA.md` para la respuesta numerada completa.

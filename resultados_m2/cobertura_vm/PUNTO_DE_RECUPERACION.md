@@ -73,9 +73,15 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - Entregables completos en esta carpeta: `COBERTURA_677.csv` (677 filas), `OBSERVACIONES.jsonl` (123), `DERIVADOS.json` (101 nodos: 14 piloto / 87 nuevos), `scripts/` (8 scripts), `resultados/` (inventario, verificación, lotes, asociación, recuentos, control), `INVENTARIO.md`, `HALLAZGOS.md`, `MAPA_REGENERACION.md`, `RESUMEN_PARA_CLAUDE.md`, `MANIFIESTO_SHA256.txt` (45 archivos con huella), este archivo.
 - Control final: `python3 resultados_m2/cobertura_vm/scripts/control_cobertura.py` → **PASS, 0 violaciones** (`resultados/control_cobertura.json`); recuentos: 677 = 568 COINCIDE_PROPUESTO + 52 HIPOTESIS + 35 CONVENCION + 16 NO_APLICABLE + 6 DATO_AUSENTE; 60 M1_REUTILIZADA / 617 M2_NUEVA; derivados 101 = 14 + 87.
 
+## Corrección de la revisión externa (A1) — completada
+
+- `git fetch origin revision/chatgpt-m2-20261116`; leídos con `git show 9366bdd…`: `REVISION_CHATGPT_M2.md`, `SONDA_A_SEMANTICA.json`, `CORRECCION_A.md` (rama propia confirmada: `mistral/m2-cobertura-vm`).
+- Ejecutado: `verificar_contexto.py` (677 entradas; 509 REVISADO_CONTEXTUAL / 60 REUTILIZADO_M1 / 2 PENDIENTE / 106 NO_APLICA / 0 CONFLICTO), `derivaciones.py` (límites propagados a 101 nodos), `construir_cobertura.py` (columnas `estado_mecanico` + `estado_contextual`), `control_negativo.py` (154 mutaciones: 108 detectadas por contextual, 0 por mecánico), `control_cobertura.py` PASS 0 violaciones, `revisar_lote.py L00..L21` con commit+push por lote, `RESPUESTA_REVISION_EXTERNA.md`.
+- Pendientes contextuales declarados: `Vidrala Historia!G22`/`G23` (fila de continuación ambigua, CF_2019 p.19); unidad no decidible en 8 páginas de nota; perímetro no decidible en 51 páginas; columna no decidible en 3 filas no tabulares.
+
 ## Pendiente / siguiente acción exacta
 
-1. **Revisión por otro contexto** sobre el commit congelado de esta rama (citados, estados, dependencias y compatibilidad antes de incorporar nada).
+1. **Revisión por otro contexto** sobre el commit congelado final de esta rama (incluida la respuesta a A1 en `RESPUESTA_REVISION_EXTERNA.md`) (citados, estados, dependencias y compatibilidad antes de incorporar nada).
 2. Nada más en este frente: no ampliar alcance, no PR, no fusión, no tocar el producto, los frentes B/C ni los resultados M1 ya revisados. Hallazgos materiales pendientes: los 6 DATO_AUSENTE y las 52 HIPOTESIS quedan como tales (ver `HALLAZGOS.md`).
 
 ## Modelo, herramientas y consumo

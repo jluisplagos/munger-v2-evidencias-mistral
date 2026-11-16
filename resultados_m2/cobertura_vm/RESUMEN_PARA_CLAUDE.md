@@ -15,6 +15,10 @@ Universo fijado cubierto completo en `resultados_m2/cobertura_vm/` (rama `mistra
 
 ## Recuentos (conciliados con 677 y con las 60 reutilizadas)
 
+**Estados mecánicos** (sin cambios respecto a la entrega base `08c9799`): 568 COINCIDE_PROPUESTO, 52 HIPOTESIS, 35 CONVENCION, 16 NO_APLICABLE, 6 DATO_AUSENTE.
+
+**Estados contextuales** (nuevo tras la revisión externa A1, columnas separadas en el CSV): 509 REVISADO_CONTEXTUAL, 60 REUTILIZADO_M1, 2 PENDIENTE_CONTEXTUAL, 106 NO_APLICA, 0 CONFLICTO_CONTEXTUAL.
+
 | Concepto | n |
 |---|---|
 | Entradas totales | 677 (Vidrala 347 / Viscofan 330) |
@@ -42,9 +46,13 @@ Comandos: `python3 resultados_m2/cobertura_vm/scripts/{inventario,verificar_fuen
 - Selección parcial de insumos (no producto completo). Asociación texto↔PDF verificada por muestra, no por documento completo.
 - «COINCIDE_PROPUESTO» no acredita significado económico ni aptitud para invertir; no se fijó 677 coincidencias como objetivo.
 
+## Corrección de la revisión externa (commit `9366bdd`, rama `revision/chatgpt-m2-20261116`)
+
+Se ejecutó `CORRECCION_A.md`: verificación contextual por entrada leyendo encabezados/filas/columnas/unidad/signo/perímetro de los bytes conservados (`scripts/verificar_contexto.py`), estados mecánico y contextual en columnas separadas, límites propagados a los 101 derivados, controles negativos (`scripts/control_negativo.py`: 154 mutaciones, 108 detectadas por el contextual, 0 por el mecánico) y respuesta numerada en `RESPUESTA_REVISION_EXTERNA.md`. Lotes L00–L21 republicados con commit+push cada uno. Control PASS con 0 violaciones.
+
 ## Estado de la rama y recuperación
 
-Rama `mistral/m2-cobertura-vm` publicada en origin; primer punto de recuperación tras el inventario (commit `32bb45d`) y commit+push tras cada uno de los 22 lotes (hasta `6dc3e74`, verificado con `git ls-remote`). `PUNTO_DE_RECUPERACION.md` recoge hecho/evidencia/pendiente/siguiente acción y límites. Sin PR, sin fusión, sin tocar `main`, el producto `munger-v2`, los frentes B/C, `resultados/` del piloto ni ningún registro oficial; no se ejecutó LibreOffice ni el pipeline.
+Rama `mistral/m2-cobertura-vm` publicada en origin; primer punto de recuperación tras el inventario (commit `32bb45d`), lotes de la entrega base y lotes de la corrección A1 publicados con commit+push cada uno y commit+push tras cada uno de los 22 lotes (hasta `6dc3e74`, verificado con `git ls-remote`). `PUNTO_DE_RECUPERACION.md` recoge hecho/evidencia/pendiente/siguiente acción y límites. Sin PR, sin fusión, sin tocar `main`, el producto `munger-v2`, los frentes B/C, `resultados/` del piloto ni ningún registro oficial; no se ejecutó LibreOffice ni el pipeline.
 
 ## Modelo, herramientas y consumo
 
