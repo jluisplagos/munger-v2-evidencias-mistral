@@ -11,7 +11,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | ID | Dueño | Entregado | Revisado | Integrado | Pruebas autor / externas | Origen |
 |---|---|---|---|---|---|---|
 | F1-W | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | d519eb0 |
-| C20 | Claude | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
+| C20 | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | bf0d5c2 |
 | CSV | Claude | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | A-CTX | Mistral A | ENTREGADO | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | d2419e5 |
 | D-HARNESS | Mistral D | ENTREGADO | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | bdcbba7 |
@@ -34,8 +34,8 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 ## Próxima acción y dependencias por tarea
 
 - **F1-W · F1 W1–W3 entregada; contraste externo pendiente**: Mistral C/F contrasta solo lo afectado por W1–W3 (solicitud LISTA). El coordinador no lo incorpora como aceptado hasta ese informe.
-- **C20 · Responder U1-U6 del verificador**: En curso por Claude (bloque A, tras W1–W3): U1–U6 según ENCARGO_C20_CSV.md @ f5775dc y plan en b83803c.
-- **CSV · Acreditar cifras LECTURA por procedimiento CSV**: Fijar verificador/CSV y acreditar filas nuevas con fuentes y edición; no aplicar N1.
+- **C20 · C20: U1–U6 del verificador respondidas; contraste pendiente**: Mistral C/F contrasta solo lo afectado (solicitud LISTA); el coordinador sigue con CSV.
+- **CSV · Acreditar cifras LECTURA por procedimiento CSV**: En curso por Claude: añadir al CSV las cifras [LECTURA] que el verificador de bf0d5c2 acredite; las demás, pendientes con motivo; no aplicar N1.
   Dependencias: C20.
 - **A-CTX · Evidencia contextual A v3**: Revisar diff v3 y reproducir; comprobar importe20xx frente a metadato de año.
 - **D-HARNESS · Arnés D v2 y paquetes íntegros**: Revisar aserciones/artefactos/recuentos; cerrar Q1-027 y paquete Q1-026 referenciado.
@@ -70,7 +70,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 ## Solicitudes de revisión
 
 - F1-W: LISTA; revisor asignado: Mistral C/F; SHA: d519eb04978e64d04f1d1795c570ca96bdd7ad7f.
-- C20: POR_PREPARAR; revisor asignado: Mistral C/F; SHA: aún sin nueva entrega fijada.
+- C20: LISTA; revisor asignado: Mistral C/F; SHA: bf0d5c25d136ae9b2b1f14e4688081e1792d2363.
 - CSV: POR_PREPARAR; revisor asignado: Mistral C/F; SHA: aún sin nueva entrega fijada.
 
 ## Cómo se decide el cierre

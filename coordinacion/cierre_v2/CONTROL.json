@@ -108,29 +108,49 @@
     },
     {
       "id": "C20",
-      "tarea": "Responder U1-U6 del verificador",
+      "tarea": "C20: U1–U6 del verificador respondidas; contraste pendiente",
       "autor": "Claude",
       "revisor_propuesto": "Mistral C/F u otro contexto distinto",
-      "entrega": "PENDIENTE",
+      "entrega": "ENTREGADO",
       "revision": "PENDIENTE",
       "integracion": "NO",
-      "commit_origen": null,
+      "commit_origen": "bf0d5c25d136ae9b2b1f14e4688081e1792d2363",
       "commit_destino": null,
-      "evidencia": [],
-      "pruebas_autor": "NO_EJECUTADAS",
+      "evidencia": [
+        "docs/validacion_economica_paralela/frente_E_F1_elis/revision/RESPUESTA_REVISION_9_C20.md @ bf0d5c2"
+      ],
+      "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "En curso por Claude (bloque A, tras W1–W3): U1–U6 según ENCARGO_C20_CSV.md @ f5775dc y plan en b83803c.",
+      "siguiente_accion": "Mistral C/F contrasta solo lo afectado (solicitud LISTA); el coordinador sigue con CSV.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
       "solicitud_revision": {
-        "estado": "POR_PREPARAR",
-        "sha_autor": null,
-        "base_revisada": null,
-        "diff_rutas": [],
-        "criterios": [],
+        "estado": "LISTA",
+        "sha_autor": "bf0d5c25d136ae9b2b1f14e4688081e1792d2363",
+        "base_revisada": "d519eb04978e64d04f1d1795c570ca96bdd7ad7f",
+        "diff_rutas": [
+          "docs/validacion_economica_paralela/frente_E_F1_elis/scripts/verificar_cifras.py",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/scripts/test_verificar_cifras.py",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/revision/RESPUESTA_REVISION_9_C20.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/test_verificar_cifras.log",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/revisor9_contraejemplos_9_sobre_C20.txt",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/barrido_fecha_rotulo.txt",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/sondas_metadatos_C20.json",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/ESPECIFICACION_F1_PROPUESTA.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/INFORME_CONCILIACION_F1.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/revision/RESPUESTAS_AUTOR_1.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/revision/ESTADO.md"
+        ],
+        "criterios": [
+          "U1: posiciones desde la tokenización; casos U1a/U1b/U1d/U2a/U2b de contraejemplos_9 con el resultado propuesto por la revisión 9",
+          "U2: decisión declarada (recuentos con fecha toman el ejercicio de su fecha) coherente con código y frases",
+          "U3 y U5 b/d declarados como límites en T14 e informe §1",
+          "U4: criterio de pestaña igual a rotulo; U5 a: rótulo published impide edición vigente; U5 c: pie de página y «January 1»",
+          "Las 752 filas reales con salida byte a byte idéntica; test 143/143 y 13/13; sin cambiar tolerancias ni políticas"
+        ],
         "revisor_asignado": "Mistral C/F",
         "informe_revision": null
       }
@@ -152,7 +172,7 @@
         "C20"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Fijar verificador/CSV y acreditar filas nuevas con fuentes y edición; no aplicar N1.",
+      "siguiente_accion": "En curso por Claude: añadir al CSV las cifras [LECTURA] que el verificador de bf0d5c2 acredite; las demás, pendientes con motivo; no aplicar N1.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -581,6 +601,11 @@
     {
       "tipo": "ENTREGA",
       "hecho": "F1 W1–W3 entregada en d519eb0 (producto, rama auditoria/economica-f1-frente-e); solicitud de contraste LISTA para Mistral C/F. No se incorpora a la candidata hasta su revisión.",
+      "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "ENTREGA",
+      "hecho": "C20 entregada en bf0d5c2; solicitud de contraste LISTA para Mistral C/F. No incorporada.",
       "fecha": "2026-11-16"
     }
   ],
