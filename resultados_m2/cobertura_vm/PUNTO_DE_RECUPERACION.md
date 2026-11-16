@@ -24,6 +24,7 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - `L02`: 30 entradas (NUEVO); estados COINCIDE_PROPUESTO=27, CONVENCION=1, NO_APLICABLE=2; archivo `resultados/lotes/lote_L02.json`
 - `L03`: 30 entradas (NUEVO); estados COINCIDE_PROPUESTO=17, CONVENCION=4, HIPOTESIS=9; archivo `resultados/lotes/lote_L03.json`
 - `L04`: 30 entradas (NUEVO); estados COINCIDE_PROPUESTO=23, HIPOTESIS=7; archivo `resultados/lotes/lote_L04.json`
+- `L05`: 30 entradas (NUEVO); estados COINCIDE_PROPUESTO=30; archivo `resultados/lotes/lote_L05.json`
 
 ## Pendiente / siguiente acción exacta
 
