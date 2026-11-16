@@ -1,0 +1,279 @@
+{
+  "clasificacion": "derivación sobre datos publicados verificados; NO es adopción de parámetros",
+  "modelo": {
+    "familia_theta": "theta x exceso histórico medio; theta en [0,1] por definición de la familia",
+    "exceso_NIIF16_2021_2025_miles_eur": "64923",
+    "exceso_perimetro_caja_2021_2025_miles_eur": "40813",
+    "sum_capex_caja_2021_2025_miles_eur": "443945",
+    "sum_altas_rou_2021_2025_miles_eur": "24110",
+    "sum_DA_2021_2025_miles_eur": "403132",
+    "base_por_anio_miles_eur": {
+      "2021": "98789",
+      "2022": "117199",
+      "2023": "83680",
+      "2024": "81446",
+      "2025": "86941"
+    }
+  },
+  "theta_desglose_viscofan": {
+    "definicion_M": "porcentajes publicados por Viscofan aplicados a (capex caja + altas ROU) de cada año",
+    "resultados": {
+      "estrecha": {
+        "sum_M_miles_eur": "108207.22",
+        "sum_DA_miles_eur": "403132",
+        "exceso_miles_eur": "64923",
+        "theta": "-4.542685642992468000554503026662353865348",
+        "M_por_anio_miles_eur": {
+          "2021": "19757.8",
+          "2022": "16407.86",
+          "2023": "46024.00",
+          "2024": "13845.82",
+          "2025": "12171.74"
+        },
+        "M_menor_que_DA_en_cada_anio": true
+      },
+      "media": {
+        "sum_M_miles_eur": "218478.05",
+        "sum_DA_miles_eur": "403132",
+        "exceso_miles_eur": "64923",
+        "theta": "-2.844199282226637709286385410409254039401",
+        "M_por_anio_miles_eur": {
+          "2021": "37539.82",
+          "2022": "35159.70",
+          "2023": "67780.80",
+          "2024": "42351.92",
+          "2025": "35645.81"
+        },
+        "M_menor_que_DA_en_cada_anio": true
+      },
+      "amplia": {
+        "sum_M_miles_eur": "304459.63",
+        "sum_DA_miles_eur": "403132",
+        "exceso_miles_eur": "64923",
+        "theta": "-1.519836883692990157571276743218890069775",
+        "M_por_anio_miles_eur": {
+          "2021": "55321.84",
+          "2022": "70319.4",
+          "2023": "70291.20",
+          "2024": "53754.36",
+          "2025": "54772.83"
+        },
+        "M_menor_que_DA_en_cada_anio": true
+      }
+    },
+    "contraste_amplia_sobre_total_publicado": {
+      "sum_M_sobre_publicado_miles_eur": "291823.000",
+      "exceso_sobre_publicado_miles_eur": "47068.0",
+      "theta": "-2.364855103254865301266253080649273391689"
+    },
+    "inversion_de_capacidad_2021_2025_miles_eur": "163595.37",
+    "sensibilidad_reclasificacion_capacidad": [
+      {
+        "theta": "0",
+        "M_necesaria_miles_eur": "403132",
+        "capacidad_a_reclasificar_miles_eur": "98672.37",
+        "fraccion_de_la_capacidad_publicada": "0.6031489155224869750286942717266387184429"
+      },
+      {
+        "theta": "0.2",
+        "M_necesaria_miles_eur": "416116.6",
+        "capacidad_a_reclasificar_miles_eur": "111656.97",
+        "fraccion_de_la_capacidad_publicada": "0.6825191324179895800229554173813109747544"
+      },
+      {
+        "theta": "0.5",
+        "M_necesaria_miles_eur": "435593.5",
+        "capacidad_a_reclasificar_miles_eur": "131133.87",
+        "fraccion_de_la_capacidad_publicada": "0.8015744577612434875143471358633193592215"
+      },
+      {
+        "theta": "1",
+        "M_necesaria_miles_eur": "468055",
+        "capacidad_a_reclasificar_miles_eur": "163595.37",
+        "fraccion_de_la_capacidad_publicada": "1"
+      }
+    ],
+    "lectura": "Con la clasificación de la propia empresa, M < D&A en los cinco años bajo las tres definiciones; theta resulta negativa (fuera del dominio [0,1]) y se conserva como diagnóstico de definición/identificación: truncarla a 0 no valida theta=0. Para theta>=0 haría falta tratar como reposición desde el 60% (theta=0) hasta el 100% (theta=1) de lo que la empresa declara como capacidad. Qué fracción es creíble es un juicio económico de la persona responsable; este frente no lo fija."
+  },
+  "lambda_vidrala": {
+    "proposito": "rango condicionado a serie primaria y vida útil explícitas; NO adopta lambda",
+    "series": {
+      "C23 productos minerales no metálicos (incluye vidrio)": {
+        "metadatos": {
+          "dataset": "sts_inpp_a",
+          "geo": "ES",
+          "nace_r2": "C23",
+          "unidad": "I21 (2021=100)",
+          "ajuste_estacional": "NSA",
+          "url_api": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpp_a?format=JSON&lang=EN&geo=ES&nace_r2=C23&s_adj=NSA&unit=I21&sinceTimePeriod=2008",
+          "sha256_json": "266af4a96f56155fec3209806db343de76629448ba009741ef3d6e3500e30348",
+          "fecha_actualizacion_dataset": "2026-09-23T23:00:00+0200"
+        },
+        "formula": "lambda = PPI(2025) / PPI(2025 - L), L vida útil del activo que se repone (hornos 8-16 años según nota de Vidrala)",
+        "valores": [
+          {
+            "vida_util_L": 8,
+            "anio_base": 2017,
+            "indice_t": "127.4",
+            "indice_t_menos_L": "95.8",
+            "lambda": "1.329853862212943632567849686847599164927"
+          },
+          {
+            "vida_util_L": 9,
+            "anio_base": 2016,
+            "indice_t": "127.4",
+            "indice_t_menos_L": "95.5",
+            "lambda": "1.334031413612565445026178010471204188482"
+          },
+          {
+            "vida_util_L": 10,
+            "anio_base": 2015,
+            "indice_t": "127.4",
+            "indice_t_menos_L": "95.6",
+            "lambda": "1.332635983263598326359832635983263598326"
+          },
+          {
+            "vida_util_L": 11,
+            "anio_base": 2014,
+            "indice_t": "127.4",
+            "indice_t_menos_L": "95.1",
+            "lambda": "1.339642481598317560462670872765509989485"
+          },
+          {
+            "vida_util_L": 12,
+            "anio_base": 2013,
+            "indice_t": "127.4",
+            "indice_t_menos_L": "95.1",
+            "lambda": "1.339642481598317560462670872765509989485"
+          },
+          {
+            "vida_util_L": 13,
+            "anio_base": 2012,
+            "indice_t": "127.4",
+            "indice_t_menos_L": "94.8",
+            "lambda": "1.343881856540084388185654008438818565401"
+          },
+          {
+            "vida_util_L": 14,
+            "anio_base": 2011,
+            "indice_t": "127.4",
+            "indice_t_menos_L": "94.1",
+            "lambda": "1.353878852284803400637619553666312433581"
+          },
+          {
+            "vida_util_L": 15,
+            "anio_base": 2010,
+            "indice_t": "127.4",
+            "indice_t_menos_L": "92.7",
+            "lambda": "1.374325782092772384034519956850053937433"
+          },
+          {
+            "vida_util_L": 16,
+            "anio_base": 2009,
+            "indice_t": "127.4",
+            "indice_t_menos_L": "93.3",
+            "lambda": "1.365487674169346195069667738478027867095"
+          }
+        ],
+        "rango_L_8_16": [
+          "1.329853862212943632567849686847599164927",
+          "1.374325782092772384034519956850053937433"
+        ]
+      },
+      "C28 maquinaria y equipo": {
+        "metadatos": {
+          "dataset": "sts_inpp_a",
+          "geo": "ES",
+          "nace_r2": "C28",
+          "unidad": "I21 (2021=100)",
+          "ajuste_estacional": "NSA",
+          "url_api": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpp_a?format=JSON&lang=EN&geo=ES&nace_r2=C28&s_adj=NSA&unit=I21&sinceTimePeriod=2008",
+          "sha256_json": "4732a2fda7c00230c8c47c64d3d0cb645b9537ddb2e35ab8838f265c827611d8",
+          "fecha_actualizacion_dataset": "2026-09-23T23:00:00+0200"
+        },
+        "formula": "lambda = PPI(2025) / PPI(2025 - L), L vida útil del activo que se repone (hornos 8-16 años según nota de Vidrala)",
+        "valores": [
+          {
+            "vida_util_L": 8,
+            "anio_base": 2017,
+            "indice_t": "115.8",
+            "indice_t_menos_L": "96.2",
+            "lambda": "1.203742203742203742203742203742203742204"
+          },
+          {
+            "vida_util_L": 9,
+            "anio_base": 2016,
+            "indice_t": "115.8",
+            "indice_t_menos_L": "95.8",
+            "lambda": "1.208768267223382045929018789144050104384"
+          },
+          {
+            "vida_util_L": 10,
+            "anio_base": 2015,
+            "indice_t": "115.8",
+            "indice_t_menos_L": "95.2",
+            "lambda": "1.216386554621848739495798319327731092437"
+          },
+          {
+            "vida_util_L": 11,
+            "anio_base": 2014,
+            "indice_t": "115.8",
+            "indice_t_menos_L": "94.8",
+            "lambda": "1.221518987341772151898734177215189873418"
+          },
+          {
+            "vida_util_L": 12,
+            "anio_base": 2013,
+            "indice_t": "115.8",
+            "indice_t_menos_L": "94.3",
+            "lambda": "1.227995758218451749734888653234358430541"
+          },
+          {
+            "vida_util_L": 13,
+            "anio_base": 2012,
+            "indice_t": "115.8",
+            "indice_t_menos_L": "94.0",
+            "lambda": "1.231914893617021276595744680851063829787"
+          },
+          {
+            "vida_util_L": 14,
+            "anio_base": 2011,
+            "indice_t": "115.8",
+            "indice_t_menos_L": "92.3",
+            "lambda": "1.254604550379198266522210184182015167931"
+          },
+          {
+            "vida_util_L": 15,
+            "anio_base": 2010,
+            "indice_t": "115.8",
+            "indice_t_menos_L": "91.2",
+            "lambda": "1.269736842105263157894736842105263157895"
+          },
+          {
+            "vida_util_L": 16,
+            "anio_base": 2009,
+            "indice_t": "115.8",
+            "indice_t_menos_L": "90.4",
+            "lambda": "1.280973451327433628318584070796460176991"
+          }
+        ],
+        "rango_L_8_16": [
+          "1.203742203742203742203742203742203742204",
+          "1.280973451327433628318584070796460176991"
+        ]
+      }
+    },
+    "limites": [
+      "Mide la variación de precios de producción del sector (output), no el precio de un horno concreto (input de capital).",
+      "No captura cambio técnico (un horno nuevo puede ser más barato por tonelada) ni cambio de capacidad en la reconstrucción.",
+      "Serie de España, anual, media, sin ajustar (NSA), base 2021=100; no representa exactamente activos, tecnología y geografía del grupo Vidrala.",
+      "La vida útil 8-16 años es una pista de la nota contable contrastada, no una distribución adoptada."
+    ]
+  },
+  "pendiente": [
+    "theta y lambda no identificados por la evidencia disponible; no se elige valor.",
+    "Desglose por tipo de 2017 de Viscofan ausente en bytes conservados.",
+    "Vidrala no publica desglose reposición/capacidad de las reconstrucciones de hornos (nº de hornos, calendario, coste, capacidad antes/después).",
+    "Familia Lambda no contrastada para Viscofan; estructura de P-M1 no delimitada con el desglose."
+  ]
+}
