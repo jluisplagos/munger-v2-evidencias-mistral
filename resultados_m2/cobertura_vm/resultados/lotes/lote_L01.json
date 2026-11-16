@@ -13,8 +13,8 @@
   },
   "estados_contextuales": {
     "NO_APLICA": 24,
-    "REVISADO_CONTEXTUAL": 3,
-    "PENDIENTE_CONTEXTUAL": 3
+    "REVISADO_CONTEXTUAL": 2,
+    "PENDIENTE_CONTEXTUAL": 4
   },
   "entradas": [
     {
@@ -276,12 +276,12 @@
       "id": "N1.tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] + o[\"aux:impuesto_2024\"] / o[\"aux:bai_2024\"] + o[\"aux:impuesto_2025\"] / o[\"aux:bai_2025\"]) / 3 -> 0.2205413327698370246600604863 (valor_modelo 0.220541332769837, diff 2.46600604863E-17)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula (o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] + o[\"aux:impuesto_2024\"] / o[\"aux:bai_2024\"] + o[\"aux:impuesto_2025\"] / o[\"aux:bai_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula (o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] + o[\"aux:impuesto_2024\"] / o[\"aux:bai_2024\"] + o[\"aux:impuesto_2025\"] / o[\"aux:bai_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. T1 (propuesta de la 4.7, D-N1 sin firmar) = media del tipo efectivo de continuadas 2023–2025 = (54,813÷268,649 + 64,968÷303,218 + 67,320÷276,661) ÷ 3 = (20,403 % + 21,426 % + 24,333 %) ÷ 3 = 22,0541 %. Coincide con t_rec de …_4_7_1/financiero/matriz.json; «con todas las líneas de la conciliación» significa que no se quita ninguna línea no recurrente.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:impuesto_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 64,968 en la columna 2024 frente al comparativo -64968: pend)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -297,8 +297,10 @@
         "diferencia": "2.46600604863E-17",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:impuesto_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 64,968 en la columna 2024 frente al comparativo -64968: pend)"
+        ]
       }
     },
     {
@@ -629,7 +631,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:impuesto_2016\"] / o[\"aux:bai_2016\"] -> 0.1967071057192374350086655113 (valor_modelo 0.1967, diff 0.0000071057192374350086655113)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2016\"] / o[\"aux:bai_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. tipo efectivo = gasto por impuesto ÷ resultado antes de impuestos del mismo estado (consolidado); el libro redondea a 4 decimales: 0.1967",
-      "limites_contextuales": "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+      "limites_contextuales": "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -647,8 +649,8 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
-          "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-          "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+          "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+          "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
         ]
       }
     },
@@ -663,7 +665,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2016\"] + o[\"aux:capex_int_2016\"] -> 54.904 (valor_modelo 54.904, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2016\"] + o[\"aux:capex_int_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 51.364 + 3.540 = 54.904 mm. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
-      "limites_contextuales": "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+      "limites_contextuales": "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -681,8 +683,8 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
-          "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-          "aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+          "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+          "aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
         ]
       }
     },
@@ -697,7 +699,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2016\"] + o[\"aux:lyb_c_2016\"] -> 322.690 (valor_modelo 322.69, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2016\"] + o[\"aux:lyb_c_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2016 = préstamos no corrientes 310,288 + corrientes 12,402 (balance; antes de NIIF 16, sin línea de arrendamientos).",
-      "limites_contextuales": "aux:lyb_nc_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:lyb_c_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+      "limites_contextuales": "aux:lyb_nc_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | aux:lyb_c_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -715,8 +717,8 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
-          "aux:lyb_nc_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-          "aux:lyb_c_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+          "aux:lyb_nc_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+          "aux:lyb_c_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
         ]
       }
     },

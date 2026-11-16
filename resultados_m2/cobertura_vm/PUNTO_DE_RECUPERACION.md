@@ -104,9 +104,19 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - **Conciliación**: 677 = 467 con fuente + 101 derivados + 109 sin fuente (52H/35C/16NA/6DA). 229 pendientes = **183 fuentes + 46 derivados** (no 229 fuentes). CSV: 282=241+41; 229=183+46; 60=43+14+3 piloto no-aplica; 106=109−3.
 - Publicado `ENTREGA.json` (modelo PLANTILLA_ENTREGA.json), manifiesto regenerado; commit+push en `mistral/m2-cobertura-vm`.
 
+## Programa de cierre v2 · Bloque 2 · pasada sistemática (v3.2/v3.3) — ejecutada
+
+- `scripts/cola_pendientes.py` → `resultados/cola_pendientes.json`: **240 fuentes pendientes en 81 grupos documento/página + 73 derivados**, ordenados por `material_declarada` + derivados materiales dependientes (transitivamente). No es política económica.
+- v3.2: perímetro raíz `consolid` (ES+EN) → 40 ND resueltos con evidencia; unidad por nota de escala de la misma tabla (≤8 páginas atrás, control escala==0.001) y metadatos en todo el documento con página citada; signo en bloque de fila (±2 líneas) y NO_APLICA en valores no numéricos.
+- v3.3: reexpresión con bloque de continuación (3 líneas) + tokens canónicos; años 20xx fuera de los valores de fila; **differ+no-reexpresado nunca OK** (CONFLICTO solo ante contradicción explícita 'igual al original' sin el valor en el original; NO_DECIDIBLE con motivo en ambigüedad/alcance/diferencia sin declaración); differ+afirmación → OK por columna.
+- Resultados coherentes (regeneración en un pase): fuentes **184 REVISADO / 240 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO**; CSV **198 / 313 / 60 / 106 / 0** (313 = 240 fuentes + 73 derivados); mecánicos sin cambio; control **PASS exit 0**; bilaterales 15/15 ok; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes L00–L21 regenerados.
+- Bloqueos cuantificados (reexpresión ND 250): 36 sin texto del año original (falta el documento del ejercicio; no está en los 251 insumos) · 79 valor en el original pero no en la misma fila/columna 1:1 · 45 fila localizada, columnas no mapeables 1:1 · 44 declara no-reexpresado pero difiere · 40 no-aplica con razón de alcance (falta puente verificado) · 6 partida no localizada. Columna ND 4, fila ND 1, unidad ND 1.
+- ENTREGA.json actualizado con hashes (CSV `dd7d3913…edbf`, control `bc648281…e43e`, cola `26535ee5…cfff`).
+
 ## Pendiente / siguiente acción exacta
 
-1. **Claude coordinador revisa este Bloque 1** (diff v3.1, sondas bilaterales, reproducción del control) — no autoaprobación.
+1. **Claude coordinador revisa Bloque 1 y esta pasada sistemática** — no autoaprobación.
+2. **Bloque 2 por grupos documentales**: resolver cada grupo de la cola en orden de prioridad examinando página/tabla y texto del año original; registrar cada resolución con evidencia (cita + página + sha256) o el bloqueo preciso (qué faltaría) en `resultados/resoluciones_bloque2.json`; aplicar con `scripts/aplicar_resoluciones.py`, regenerar pipeline completo y publicar commit+push **por bloque documental terminado**. Primer grupo: `Vidrala texto/CF_2023.txt p.7` (7 pendientes, prioridad 762, materiales: aux:capex_int_2022, aux:capex_mat_2022, …).
 2. **Bloque 2 del encargo**: cola de las 183 fuentes pendientes + 46 derivados agrupada por documento/página, priorizada por dependencias de entradas materiales del motor; resolver con evidencia o dejar pendiente con motivo preciso; propagar a derivados/mapa/lotes. Termina cuando toda la cola tenga evidencia o bloqueo preciso, no al llegar a cero pendientes.
 3. Bloque 3 (cola G-MANUAL) solo si CONTROL.json lo asigna a A tras terminar el bloque A: rama nueva `mistral/g-manual-traspaso`, carpeta `resultados_cierre/manual_traspaso/`.
 4. Nada más en este frente: no PR, no fusión, no tocar producto/main/B/C/D/E/F ni M1; escritura solo en `resultados_m2/cobertura_vm/` (y la carpeta del bloque 3 si se asigna). Hallazgos materiales pendientes: 6 DATO_AUSENTE y 52 HIPOTESIS quedan como tales (ver `HALLAZGOS.md`).

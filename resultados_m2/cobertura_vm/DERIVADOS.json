@@ -7,9 +7,9 @@
     "COINCIDE_PROPUESTO": 101
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 41,
+    "REVISADO_CONTEXTUAL": 14,
     "REUTILIZADO_M1": 14,
-    "PENDIENTE_CONTEXTUAL": 46
+    "PENDIENTE_CONTEXTUAL": 73
   },
   "ciclos": [],
   "huecos": [],
@@ -105,7 +105,10 @@
       "celda": "Análisis!C46",
       "id": "cfo_media",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [],
+      "limites_contextuales": [
+        "aux:cfo_2023: dimension reexpresion no decidible (el valor 263437 figura en CF_2023.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2023 mapeable 1)",
+        "aux:cfo_2024: dimension reexpresion no decidible (el valor 362516 figura en CF_2024.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2024 mapeable 1)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo (media de ejercicios); motores A: siempre en A (FCF base) (cadena_trazabilidad, C-cfo_media). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -206,9 +209,9 @@
       "id": "h_ebit",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-        "aux:ing_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-        "aux:gto_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:ing_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:gto_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
@@ -260,7 +263,8 @@
       "id": "h_ebit",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:ing_fin_2017: dimension reexpresion no decidible (la fila aparece en CF_2017.txt pero la columna 2017 no se puede mapear (columnas ['2017', '2016'], valores ['1,964']))"
+        "aux:ing_fin_2017: dimension reexpresion no decidible (la fila aparece en CF_2017.txt (linea 153) pero la columna 2017 no se puede mapear 1:1 (columnas ['2017', '2016'], valor)",
+        "aux:gto_fin_2017: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2017.txt imprime 9,384 en la columna 2017 frente al comparativo -9384: pendie)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
@@ -310,8 +314,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!E7",
       "id": "h_ebit",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:gto_fin_2018: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2018.txt imprime 10,149 en la columna 2018 frente al comparativo -10149: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -362,8 +368,8 @@
       "id": "h_tipo",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-        "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
@@ -404,8 +410,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!D10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:impuesto_2017: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2017.txt imprime 20,616 en la columna 2017 frente al comparativo -20616: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -445,8 +453,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!E10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:impuesto_2018: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2018.txt imprime 24,466 en la columna 2018 frente al comparativo -24466: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -486,8 +496,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!F10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:impuesto_2019: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2019.txt imprime 22,705 en la columna 2019 frente al comparativo -22705: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -527,8 +539,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!G10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:impuesto_2020: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2020.txt imprime 29,703 en la columna 2020 frente al comparativo -29703: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -568,8 +582,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!H10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:impuesto_2021: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2021.txt imprime 27,357 en la columna 2021 frente al comparativo -27357: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -609,8 +625,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!I10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:impuesto_2022: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 34,062 en la columna 2022 frente al comparativo -34062: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -691,8 +709,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!K10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:impuesto_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 64,968 en la columna 2024 frente al comparativo -64968: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -775,8 +795,8 @@
       "id": "h_capex",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-        "aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
@@ -817,8 +837,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!D12",
       "id": "h_capex",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:capex_mat_2017: dimension reexpresion no decidible (el valor -86479 figura en CF_2017.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2017 mapeable 1)",
+        "aux:capex_int_2017: dimension reexpresion no decidible (el valor -2541 figura en CF_2017.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2017 mapeable 1:)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -860,7 +883,8 @@
       "id": "h_capex",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:capex_mat_2018: dimension reexpresion no decidible (la fila aparece en CF_2018.txt pero la columna 2018 no se puede mapear (columnas ['2018', '2017'], valores ['99,541']))"
+        "aux:capex_mat_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: (99,541) y (2,245))); el original CF_2018.txt imprime 2,428 )",
+        "aux:capex_int_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: (99,541) y (2,245))); el original CF_2018.txt imprime 2,245 )"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
@@ -901,8 +925,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!F12",
       "id": "h_capex",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:capex_mat_2019: dimension reexpresion no decidible (el valor -103622 figura en CF_2019.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2019 mapeable )",
+        "aux:capex_int_2019: dimension reexpresion no decidible (el valor -3547 figura en CF_2019.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2019 mapeable 1:)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -942,8 +969,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!G12",
       "id": "h_capex",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:capex_mat_2020: dimension reexpresion no decidible (el valor -132117 figura en CF_2020.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2020 mapeable )",
+        "aux:capex_int_2020: dimension reexpresion no decidible (el valor -2131 figura en CF_2020.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2020 mapeable 1:)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -985,8 +1015,8 @@
       "id": "h_capex",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:capex_mat_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt pero la columna 2021 no se puede mapear (columnas ['2021', '2020'], valores ['85,000']))",
-        "aux:capex_int_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt pero la columna 2021 no se puede mapear (columnas ['2021', '2020'], valores ['85,000']))"
+        "aux:capex_mat_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt (linea 307) pero la columna 2021 no se puede mapear 1:1 (columnas ['2021', '2020'], valor)",
+        "aux:capex_int_2021: dimension reexpresion no decidible (el valor -2196 figura en CF_2021.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2021 mapeable 1:)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
@@ -1027,8 +1057,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!I12",
       "id": "h_capex",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:capex_mat_2022: dimension reexpresion no decidible (el valor -117296 figura en CF_2022.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2022 mapeable )",
+        "aux:capex_int_2022: dimension reexpresion no decidible (el valor -2904 figura en CF_2022.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2022 mapeable 1:)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1069,7 +1102,10 @@
       "celda": "Historia!J12",
       "id": "h_capex",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [],
+      "limites_contextuales": [
+        "aux:capex_mat_2023: dimension reexpresion no decidible (el valor -143848 figura en CF_2023.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2023 mapeable )",
+        "aux:capex_int_2023: dimension reexpresion no decidible (el valor -7852 figura en CF_2023.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2023 mapeable 1:)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1110,7 +1146,10 @@
       "celda": "Historia!K12",
       "id": "h_capex",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [],
+      "limites_contextuales": [
+        "aux:capex_mat_2024: dimension reexpresion no decidible (el valor -160063 figura en CF_2024.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2024 mapeable )",
+        "aux:capex_int_2024: dimension reexpresion no decidible (el valor -8737 figura en CF_2024.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2024 mapeable 1:)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1193,7 +1232,9 @@
       "id": "h_circulante",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:circ_2022_l5: dimension reexpresion no decidible (la fila aparece en CF_2022.txt pero la columna 2022 no se puede mapear (columnas ['2022', '2021'], valores []))"
+        "aux:circ_2022_l1: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 254,683 en la columna 2022 frente al comparativo -85880: pen)",
+        "aux:circ_2022_l2: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 318,696 en la columna 2022 frente al comparativo -82341: pen)",
+        "aux:circ_2022_l4: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 40,863 en la columna 2022 frente al comparativo -84515: pend)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio (aumento del circulante); motores A: A (cadena_trazabilidad, D-h_circulante). Motor activo del libro: B (Análisis!C62).",
@@ -1263,8 +1304,8 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:lyb_nc_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-        "aux:lyb_c_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        "aux:lyb_nc_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:lyb_c_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
@@ -1305,8 +1346,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!D22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:lyb_c_2017: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2017.txt imprime 487,819 en la columna 2017 frente al comparativo 41519: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1346,8 +1389,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!E22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:lyb_c_2018: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2018.txt imprime 394,887 en la columna 2018 frente al comparativo 38880: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1387,8 +1432,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!F22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:lyb_c_2019: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2019.txt imprime 231,906 en la columna 2019 frente al comparativo 131787: pen)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1439,8 +1486,9 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:lyb_c_2020: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2020.txt imprime 185,518 en la columna 2020 frente al comparativo 160142: pen)",
         "Historia!G23: dimension fila no decidible (fila de continuacion sin etiqueta propia; contexto leido: ['contract', 'contracts', 'diciembre', 'disposal', 'disposals')",
-        "Historia!G23: dimension reexpresion no decidible (la fila aparece en CF_2019.txt pero la columna 2019 no se puede mapear (columnas ['2019', '2018'], valores []))"
+        "Historia!G23: dimension reexpresion no decidible (la fila aparece en CF_2019.txt (linea 657) pero la columna 2019 no se puede mapear 1:1 (columnas ['2019', '2018'], valor)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
@@ -1490,8 +1538,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!H22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:lyb_c_2021: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2021.txt imprime 184,003 en la columna 2021 frente al comparativo 73613: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1533,7 +1583,8 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "Historia!I23: dimension reexpresion no decidible (la fila aparece en CF_2022.txt pero la columna 2022 no se puede mapear (columnas ['2022', '2023', '2024', '2025', '2026')"
+        "aux:lyb_c_2022: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 273,464 en la columna 2022 frente al comparativo 50089: pend)",
+        "Historia!I23: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no aplica (el informe 2022 no separaba el NIIF 16: la nota 15 de CF_2022 p.60 )"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
@@ -1585,7 +1636,7 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "Historia!J23: dimension reexpresion no decidible (la fila aparece en CF_2023.txt pero la columna 2023 no se puede mapear (columnas ['2023', '2024', '2025', '2026', '2027')"
+        "Historia!J23: dimension reexpresion no decidible (la fila aparece en CF_2023.txt (linea 2738) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2024', '2025)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
@@ -1637,7 +1688,8 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "Historia!K23: dimension reexpresion no decidible (la fila aparece en CF_2024.txt pero la columna 2024 no se puede mapear (columnas ['2024', '2025', '2026', '2027', '2028')"
+        "aux:lyb_c_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 300,624 en la columna 2024 frente al comparativo 92688: pend)",
+        "Historia!K23: dimension reexpresion no decidible (la fila aparece en CF_2024.txt (linea 2958) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2025', '2026)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
@@ -1739,9 +1791,9 @@
       "id": "h_minoritarios",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:pn_y_pasivo_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-        "aux:pasivo_total_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-        "Historia!C21: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        "aux:pn_y_pasivo_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:pasivo_total_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "Historia!C21: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
@@ -1791,8 +1843,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!D26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2017: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2017.txt imprime 25,290 en la columna 2017 frente al comparativo 1404899: pen)",
+        "aux:pasivo_total_2017: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2017.txt imprime 25,290 en la columna 2017 frente al comparativo 876763: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1841,8 +1896,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!E26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2018: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2018.txt imprime 26,555 en la columna 2018 frente al comparativo 1407335: pen)",
+        "aux:pasivo_total_2018: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2018.txt imprime 26,555 en la columna 2018 frente al comparativo 797337: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1891,8 +1949,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!F26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2019: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2019.txt imprime 27,883 en la columna 2019 frente al comparativo 1457861: pen)",
+        "aux:pasivo_total_2019: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2019.txt imprime 27,883 en la columna 2019 frente al comparativo 734502: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1941,8 +2002,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!G26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2020: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2020.txt imprime 28,989 en la columna 2020 frente al comparativo 1521447: pen)",
+        "aux:pasivo_total_2020: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2020.txt imprime 28,989 en la columna 2020 frente al comparativo 705291: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1991,8 +2055,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!H26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2021: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2021.txt imprime 30,438 en la columna 2021 frente al comparativo 1703246: pen)",
+        "aux:pasivo_total_2021: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2021.txt imprime 30,438 en la columna 2021 frente al comparativo 736344: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2041,8 +2108,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!I26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2022: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 31,341 en la columna 2022 frente al comparativo 1953527: pen)",
+        "aux:pasivo_total_2022: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 31,341 en la columna 2022 frente al comparativo 919903: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2141,8 +2211,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!K26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 34,200 en la columna 2024 frente al comparativo 2308172: pen)",
+        "aux:pasivo_total_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 34,200 en la columna 2024 frente al comparativo 998342: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2243,8 +2316,10 @@
       "id": "h_adquisiciones",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:capex_mat_2018: dimension reexpresion no decidible (la fila aparece en CF_2018.txt pero la columna 2018 no se puede mapear (columnas ['2018', '2017'], valores ['99,541']))",
-        "aux:otros_inv_2018: dimension reexpresion no decidible (la fila aparece en CF_2018.txt pero la columna 2018 no se puede mapear (columnas ['2018', '2017'], valores ['2,541']))"
+        "aux:inversion_total_2018: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2018.txt imprime 115,958 en la columna 2018 frente al comparativo -101773: pe)",
+        "aux:capex_mat_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: (99,541) y (2,245))); el original CF_2018.txt imprime 2,428 )",
+        "aux:capex_int_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: (99,541) y (2,245))); el original CF_2018.txt imprime 2,245 )",
+        "aux:otros_inv_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: 13)); el original CF_2018.txt imprime 2,245 en la columna 20)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
@@ -2303,8 +2378,12 @@
       "empresa": "Vidrala",
       "celda": "Historia!F13",
       "id": "h_adquisiciones",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:inversion_total_2019: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2019.txt imprime 143,275 en la columna 2019 frente al comparativo -107169: pe)",
+        "aux:capex_mat_2019: dimension reexpresion no decidible (el valor -103622 figura en CF_2019.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2019 mapeable )",
+        "aux:capex_int_2019: dimension reexpresion no decidible (el valor -3547 figura en CF_2019.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2019 mapeable 1:)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2353,8 +2432,12 @@
       "empresa": "Vidrala",
       "celda": "Historia!G13",
       "id": "h_adquisiciones",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:inversion_total_2020: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2020.txt imprime 194,268 en la columna 2020 frente al comparativo -134248: pe)",
+        "aux:capex_mat_2020: dimension reexpresion no decidible (el valor -132117 figura en CF_2020.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2020 mapeable )",
+        "aux:capex_int_2020: dimension reexpresion no decidible (el valor -2131 figura en CF_2020.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2020 mapeable 1:)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2405,8 +2488,9 @@
       "id": "h_adquisiciones",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:capex_mat_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt pero la columna 2021 no se puede mapear (columnas ['2021', '2020'], valores ['85,000']))",
-        "aux:capex_int_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt pero la columna 2021 no se puede mapear (columnas ['2021', '2020'], valores ['85,000']))"
+        "aux:inversion_total_2021: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2021.txt imprime 178,573 en la columna 2021 frente al comparativo -109800: pe)",
+        "aux:capex_mat_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt (linea 307) pero la columna 2021 no se puede mapear 1:1 (columnas ['2021', '2020'], valor)",
+        "aux:capex_int_2021: dimension reexpresion no decidible (el valor -2196 figura en CF_2021.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2021 mapeable 1:)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
@@ -2458,8 +2542,7 @@
       "id": "h_adquisiciones",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:venta_dependientes_2024: dimension reexpresion no decidible (la fila aparece en CF_2024.txt pero la columna 2024 no se puede mapear (columnas ['2024', '2023'], valores ['230,000']))",
-        "aux:adq_puesta_equivalencia_2024: dimension reexpresion no decidible (la fila aparece en CF_2024.txt pero la columna 2024 no se puede mapear (columnas ['2024', '2023'], valores ['6,000']))"
+        "aux:adq_puesta_equivalencia_2024: dimension reexpresion no decidible (la fila aparece en CF_2024.txt (linea 42) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2023'], valore)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
@@ -2550,8 +2633,10 @@
       "empresa": "Vidrala",
       "celda": "Configuración V6.4!B11",
       "id": "N1.tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:impuesto_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 64,968 en la columna 2024 frente al comparativo -64968: pend)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "Configuración V6.4 (N1.tipo): entra en el motor B experimental (bases de «Configuración V6.4»); materialidad en configuracion_v64_variantes.json",
       "origenes": [
@@ -2934,9 +3019,7 @@
       "celda": "Análisis!C46",
       "id": "cfo_media",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [
-        "aux:CF2024_p9_cfo_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)"
-      ],
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "C-cfo_media · flujo (media de ejercicios) · motores A: siempre en A (FCF base)",
       "origenes": [
@@ -2987,7 +3070,7 @@
       "id": "capex_media",
       "estado_contextual": "REUTILIZADO_M1",
       "limites_contextuales": [
-        "Historia!J12: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)"
+        "Historia!J12: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-capex_media · flujo (media de ejercicios) · motores A: siempre en A",
@@ -3039,7 +3122,7 @@
       "id": "int_fin_media",
       "estado_contextual": "REUTILIZADO_M1",
       "limites_contextuales": [
-        "Historia!J15: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt pero la columna 2023 no se puede mapear (columnas ['2014', '2015', '2016', '2014'], va)"
+        "Historia!J15: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 2627) pero la columna 2023 no se puede mapear 1:1 (columnas ['2014', '2015', '2)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-int_fin_media · flujo (media de ejercicios) · motores A: siempre en A (0 explícito si no hay)",
@@ -3091,11 +3174,8 @@
       "id": "leases_media",
       "estado_contextual": "REUTILIZADO_M1",
       "limites_contextuales": [
-        "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
-        "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla)",
-        "aux:AR2025_p28_pagos_arrend_2024: dimension unidad no decidible (sin frase de escala en la pagina ni en la cabecera del documento)",
-        "aux:AR2025_p28_pagos_arrend_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)",
-        "aux:AR2025_p28_pagos_arrend_2025: dimension unidad no decidible (sin frase de escala en la pagina ni en la cabecera del documento)"
+        "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 1246) pero la columna 2023 no se puede mapear 1:1 (columnas ['2014', '2015', '2)",
+        "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-leases_media · flujo (media de ejercicios) · motores A: siempre en A (0 explícito si no hay)",
@@ -3147,8 +3227,7 @@
       "id": "sbc_media",
       "estado_contextual": "REUTILIZADO_M1",
       "limites_contextuales": [
-        "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
-        "aux:AR2025_p27_pagos_acciones_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)"
+        "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 1472) pero la columna 2023 no se puede mapear 1:1 (columnas ['2014', '2015', '2)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-sbc_media · flujo (media de ejercicios) · motores A: siempre en A (0 explícito si no hay)",
@@ -3200,8 +3279,8 @@
       "id": "h_da",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:AR2017_p12_amort_intangible_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-        "aux:AR2017_p12_amort_material_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        "aux:AR2017_p12_amort_intangible_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:AR2017_p12_amort_material_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_da · flujo del ejercicio · motores A: A",
@@ -3244,9 +3323,7 @@
       "id": "h_da",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:IA2018_p28_amort_intangible_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:IA2018_p28_amort_intangible_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)",
-        "aux:IA2018_p28_amort_material_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:IA2018_p28_amort_material_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)"
       ],
       "coherencia_unidades_origenes": true,
@@ -3290,7 +3367,7 @@
       "id": "h_da",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:AR2019_p12_amort_intangible_2018: dimension reexpresion no decidible (el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible)",
+        "aux:AR2019_p12_amort_intangible_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 706) pero la columna 2018 no se puede mapear 1:1 (columnas ['2017', '2017', '20)",
         "aux:AR2019_p12_amort_material_2018: dimension reexpresion no decidible (el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible)"
       ],
       "coherencia_unidades_origenes": true,
@@ -3334,8 +3411,8 @@
       "id": "h_tipo",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:AR2017_p8_impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-        "aux:AR2017_p8_bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        "aux:AR2017_p8_impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:AR2017_p8_bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
@@ -3378,9 +3455,7 @@
       "id": "h_tipo",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:IA2018_p24_impuesto_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:IA2018_p24_impuesto_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)",
-        "aux:IA2018_p24_bai_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:IA2018_p24_bai_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)"
       ],
       "coherencia_unidades_origenes": true,
@@ -3468,8 +3543,7 @@
       "id": "h_tipo",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:AR2020_p5_impuesto_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila/columna 2019; reexpresion no decidible)",
-        "aux:AR2020_p5_bai_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila/columna 2019; reexpresion no decidible)"
+        "aux:AR2020_p5_impuesto_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
@@ -3512,8 +3586,8 @@
       "id": "h_tipo",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2021_p4_impuesto_2020: dimension reexpresion no decidible (el valor aparece en AR_2020.txt pero no en la misma fila/columna 2020; reexpresion no decidible)",
-        "aux:CF2021_p4_bai_2020: dimension reexpresion no decidible (el valor aparece en AR_2020.txt pero no en la misma fila/columna 2020; reexpresion no decidible)"
+        "aux:CF2021_p4_impuesto_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)",
+        "aux:CF2021_p4_bai_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
@@ -3556,8 +3630,8 @@
       "id": "h_tipo",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2022_p21_impuesto_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt pero la columna 2021 no se puede mapear (columnas ['2021', '2020', '2021', '2020', '2021')",
-        "aux:CF2022_p21_bai_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt pero la columna 2021 no se puede mapear (columnas ['2021', '2020', '2021', '2020', '2021')"
+        "aux:CF2022_p21_impuesto_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
+        "aux:CF2022_p21_bai_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
@@ -3600,9 +3674,7 @@
       "id": "h_tipo",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:CA2023_p4_impuesto_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)",
-        "aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:CA2023_p4_bai_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)"
       ],
       "coherencia_unidades_origenes": true,
@@ -3646,8 +3718,8 @@
       "id": "h_tipo",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2024_p4_impuesto_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt pero la columna 2023 no se puede mapear (columnas ['2023', '2022', '2023', '2022', '20)",
-        "aux:CF2024_p4_bai_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)"
+        "aux:CF2024_p4_impuesto_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 1605) pero la columna 2023 no se puede mapear 1:1 (columnas ['2014', '2015', '2)",
+        "aux:CF2024_p4_bai_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], va)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
@@ -3772,8 +3844,8 @@
       "id": "h_circulante",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:AR2020_p8_var_existencias_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila/columna 2019; reexpresion no decidible)",
-        "aux:AR2020_p8_var_deudores_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila/columna 2019; reexpresion no decidible)",
+        "aux:AR2020_p8_var_existencias_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)",
+        "aux:AR2020_p8_var_deudores_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)",
         "aux:AR2020_p8_var_acreedores_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila/columna 2019; reexpresion no decidible)"
       ],
       "coherencia_unidades_origenes": true,
@@ -3824,8 +3896,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!G14",
       "id": "h_circulante",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2021_p8_var_existencias_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)",
+        "aux:CF2021_p8_var_deudores_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)",
+        "aux:CF2021_p8_var_acreedores_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
@@ -3874,8 +3950,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!H14",
       "id": "h_circulante",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2022_p25_var_existencias_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
+        "aux:CF2022_p25_var_deudores_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
+        "aux:CF2022_p25_var_acreedores_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
@@ -3926,11 +4006,8 @@
       "id": "h_circulante",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CA2023_p8_var_existencias_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:CA2023_p8_var_existencias_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)",
-        "aux:CA2023_p8_var_deudores_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:CA2023_p8_var_deudores_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)",
-        "aux:CA2023_p8_var_acreedores_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:CA2023_p8_var_acreedores_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)"
       ],
       "coherencia_unidades_origenes": true,
@@ -3983,8 +4060,8 @@
       "id": "h_circulante",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2024_p9_var_existencias_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
-        "aux:CF2024_p9_var_deudores_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
+        "aux:CF2024_p9_var_existencias_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 1333) pero la columna 2023 no se puede mapear 1:1 (columnas ['2014', '2015', '2)",
+        "aux:CF2024_p9_var_deudores_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 807) pero la columna 2023 no se puede mapear 1:1 (columnas ['2014', '2015', '20)",
         "aux:CF2024_p9_var_acreedores_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)"
       ],
       "coherencia_unidades_origenes": true,
@@ -4137,8 +4214,8 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:AR2017_p83_total_pasivos_financieros_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
-        "aux:AR2017_p83_derivados_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        "aux:AR2017_p83_total_pasivos_financieros_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:AR2017_p83_derivados_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
@@ -4181,13 +4258,9 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:IA2018_p104_bancos_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:IA2018_p104_bancos_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)",
-        "aux:IA2018_p104_intereses_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:IA2018_p104_intereses_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)",
-        "aux:IA2018_p104_arrend_financiero_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:IA2018_p104_arrend_financiero_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)",
-        "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)"
       ],
       "coherencia_unidades_origenes": true,
@@ -4251,8 +4324,8 @@
       "limites_contextuales": [
         "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
         "aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
-        "aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible)",
-        "aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible)"
+        "aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 6711) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017', '2)",
+        "aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 6711) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017', '2)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
@@ -4313,8 +4386,8 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:AR2020_p4_pasivo_fin_nc_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila/columna 2019; reexpresion no decidible)",
-        "aux:AR2020_p4_pasivo_fin_c_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila/columna 2019; reexpresion no decidible)"
+        "aux:AR2020_p4_pasivo_fin_nc_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)",
+        "aux:AR2020_p4_pasivo_fin_c_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
@@ -4357,7 +4430,7 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2021_p3_pasivo_fin_nc_2020: dimension reexpresion no decidible (el valor aparece en AR_2020.txt pero no en la misma fila/columna 2020; reexpresion no decidible)"
+        "aux:CF2021_p3_pasivo_fin_c_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
@@ -4400,8 +4473,7 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2022_p20_pasivo_fin_nc_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en la misma fila/columna 2021; reexpresion no decidible)",
-        "aux:CF2022_p20_pasivo_fin_c_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt pero la columna 2021 no se puede mapear (columnas ['2014', '2015', '2016'], valores []))"
+        "aux:CF2022_p20_pasivo_fin_c_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
@@ -4444,9 +4516,7 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CA2023_p3_pasivo_fin_nc_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:CA2023_p3_pasivo_fin_nc_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)",
-        "aux:CA2023_p3_pasivo_fin_c_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:CA2023_p3_pasivo_fin_c_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)"
       ],
       "coherencia_unidades_origenes": true,
@@ -4490,8 +4560,8 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2024_p3_pasivo_fin_nc_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
-        "aux:CF2024_p3_pasivo_fin_c_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt pero la columna 2023 no se puede mapear (columnas ['2014', '2015', '2016', '2014'], va)"
+        "aux:CF2024_p3_pasivo_fin_nc_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], va)",
+        "aux:CF2024_p3_pasivo_fin_c_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], va)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
@@ -4532,10 +4602,8 @@
       "empresa": "Viscofan",
       "celda": "Historia!K22",
       "id": "h_deuda",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:AR2025_p22_pasivo_fin_nc_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
@@ -4618,8 +4686,7 @@
       "id": "h_arrend",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:AR2020_p4_arrend_lp_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila/columna 2019; reexpresion no decidible)",
-        "aux:AR2020_p4_arrend_cp_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila/columna 2019; reexpresion no decidible)"
+        "aux:AR2020_p4_arrend_lp_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
@@ -4660,8 +4727,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!G23",
       "id": "h_arrend",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2021_p3_arrend_lp_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)",
+        "aux:CF2021_p3_arrend_cp_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
@@ -4703,8 +4773,8 @@
       "id": "h_arrend",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2022_p20_arrend_lp_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en la misma fila/columna 2021; reexpresion no decidible)",
-        "aux:CF2022_p20_arrend_cp_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt pero la columna 2021 no se puede mapear (columnas ['2014', '2015', '2016'], valores []))"
+        "aux:CF2022_p20_arrend_lp_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
+        "aux:CF2022_p20_arrend_cp_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
@@ -4747,9 +4817,7 @@
       "id": "h_arrend",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CA2023_p3_arrend_lp_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:CA2023_p3_arrend_lp_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)",
-        "aux:CA2023_p3_arrend_cp_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:CA2023_p3_arrend_cp_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)"
       ],
       "coherencia_unidades_origenes": true,
@@ -4793,8 +4861,8 @@
       "id": "h_arrend",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2024_p3_arrend_lp_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
-        "aux:CF2024_p3_arrend_cp_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt pero la columna 2023 no se puede mapear (columnas ['2014', '2015', '2016', '2014'], va)"
+        "aux:CF2024_p3_arrend_lp_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], va)",
+        "aux:CF2024_p3_arrend_cp_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], va)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
@@ -4835,11 +4903,8 @@
       "empresa": "Viscofan",
       "celda": "Historia!K23",
       "id": "h_arrend",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:AR2025_p22_arrend_lp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)",
-        "aux:AR2025_p22_arrend_cp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
@@ -4922,15 +4987,13 @@
       "id": "N1.tipo",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2022_p21_impuesto_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt pero la columna 2021 no se puede mapear (columnas ['2021', '2020', '2021', '2020', '2021')",
-        "aux:CF2022_p21_bai_2021: dimension reexpresion no decidible (la fila aparece en CF_2021.txt pero la columna 2021 no se puede mapear (columnas ['2021', '2020', '2021', '2020', '2021')",
-        "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CF2022_p21_impuesto_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
+        "aux:CF2022_p21_bai_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
         "aux:CA2023_p4_impuesto_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)",
-        "aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
         "aux:CA2023_p4_bai_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no decidible)",
-        "aux:CF2024_p4_impuesto_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt pero la columna 2023 no se puede mapear (columnas ['2023', '2022', '2023', '2022', '20)",
-        "aux:CF2024_p4_bai_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
-        "aux:AR2025_p109_activacion_BIN_2024: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt']))"
+        "aux:CF2024_p4_impuesto_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 1605) pero la columna 2023 no se puede mapear 1:1 (columnas ['2014', '2015', '2)",
+        "aux:CF2024_p4_bai_2023: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], va)",
+        "aux:AR2025_p109_activacion_BIN_2024: dimension reexpresion no decidible (la fila aparece en CF_2024.txt (linea 935) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2023'], valor)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-config-N1.tipo · tasa (parámetro) · motores B: modo experimental",

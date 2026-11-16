@@ -67,3 +67,10 @@ La revisión externa (`9366bdd`, `SONDA_A_SEMANTICA.json`) demostró que el cont
 - 15 sondas bilaterales (positivo+negativo) de columna, perímetro, versión/edición, unidad/escala (página y cabecera), reexpresión (confirmada/igualdad/ambigüedad), importe 20xx monetario y año real: **15/15 ok**; 5/5 sondas del revisor d375d80 en CONFLICTO. Negativos: 218 mutaciones, 168 ctx / 40 mec.
 - Código y salidas coherentes (regenerados en un pase): CSV 282 REVISADO / 229 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / **0 CONFLICTO**; control **PASS exit 0**. Conciliación: 677 = 467 fuentes + 101 derivados + 109 sin fuente; **229 pendientes = 183 fuentes + 46 derivados**.
 - Publicado `ENTREGA.json` según PLANTILLA_ENTREGA.json; control remoto consultado (`coordinacion/cierre-v2` @ ff0c60c): A-CTX revisión pendiente asignada a Claude. Ver `PUNTO_DE_RECUPERACION.md`.
+
+## 12. [CIERRE V2 · BLOQUE 2 sistemática] v3.2/v3.3 + cola de pendientes por documento/página
+
+- Cola (`cola_pendientes.py` → `cola_pendientes.json`): 240 fuentes pendientes en **81 grupos documento/página** + 73 derivados, prioridad = material_declarada + derivados materiales dependientes.
+- v3.2: perímetro ES/EN (`consolid`) resuelve 40 ND; unidad por nota de escala de la misma tabla con control de escala y metadatos en documento; signo en bloque de fila ±2 y NO_APLICA en no-numéricos.
+- v3.3 reexpresión estricta: bloque de continuación + tokens; años 20xx no son valores; differ+no-reexpresado **nunca OK** (CONFLICTO solo con contradicción explícita; NO_DECIDIBLE con motivo en el resto); differ+afirmación → OK por columna.
+- Totales: fuentes 184/240/43, CSV **198 REVISADO / 313 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO**; control PASS exit 0; bilaterales 15/15; sondas revisor 5/5 CONFLICTO. Bloqueos cuantificados: 36 sin texto del año original · 79 valor en otra fila/columna · 45 columnas no mapeables 1:1 · 44 declara no-reexpresado pero difiere · 40 falta puente de alcance · 6 partida no localizada.

@@ -17,7 +17,7 @@ Universo fijado cubierto completo en `resultados_m2/cobertura_vm/` (rama `mistra
 
 **Estados mecánicos** (sin cambios respecto a la entrega base `08c9799`): 568 COINCIDE_PROPUESTO, 52 HIPOTESIS, 35 CONVENCION, 16 NO_APLICABLE, 6 DATO_AUSENTE.
 
-**Estados contextuales** (tras revisión A1, seguimiento `63e366b` y revisión `d375d80`, columnas separadas en el CSV): 282 REVISADO_CONTEXTUAL, 229 PENDIENTE_CONTEXTUAL, 60 REUTILIZADO_M1, 106 NO_APLICA, 0 CONFLICTO_CONTEXTUAL.
+**Estados contextuales** (tras revisión A1, seguimiento `63e366b`, revisión `d375d80` y cierre v2 bloque 2 sistemática v3.2/v3.3, columnas separadas en el CSV): 198 REVISADO_CONTEXTUAL, 313 PENDIENTE_CONTEXTUAL, 60 REUTILIZADO_M1, 106 NO_APLICA, 0 CONFLICTO_CONTEXTUAL (313 = 240 fuentes + 73 derivados pendientes con motivo preciso; ver `cola_pendientes.json`).
 
 | Concepto | n |
 |---|---|
@@ -61,6 +61,10 @@ Ejecutada la corrección dirigida leída con `git show` desde `revision/chatgpt-
 ## Programa de cierre v2 · Bloque 1 (PROMPT_MISTRAL_A.md @ ec707a5, control @ ff0c60c)
 
 Ejecutado el bloque 1 «cerrar y facilitar revisión»: **v3.1** — un metadato de año se identifica solo por unidad/concepto, nunca por el valor (importe monetario 2000–2099 ya no pasa a NO_APLICA por parecer año; caso real `aux:AR2025_p27_pagos_acciones_2024` = 2001 miles de euros → NO_DECIDIBLE). Añadidas **15 sondas bilaterales** (positivo+negativo de cada regla: columna, perímetro, versión, unidad/escala en página y cabecera, reexpresión confirmada/igualdad/ambigüedad, importe 20xx, año real) — 15/15 ok; 5/5 sondas del revisor d375d80 en CONFLICTO; negativos 218 mutaciones (168 ctx / 40 mec). Salidas regeneradas en un pase con código definitivo: CSV **282 REVISADO / 229 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO**, control **PASS exit 0**, código=resultados. Conciliación: 677 = 467 fuentes + 101 derivados + 109 sin fuente; los **229 pendientes son 183 fuentes + 46 derivados**. Publicado `ENTREGA.json` (plantilla común), manifiesto y recuperación; revisión de este bloque queda pendiente a tu cargo (A-CTX). Siguiente: Bloque 2 (cola de pendientes por documento/página).
+
+## Cierre v2 · Bloque 2 (pasada sistemática v3.2/v3.3 + cola)
+
+Perímetro ES/EN resuelto (40 ND→OK con evidencia), unidad por nota de escala de la misma tabla con control de escala y metadatos en documento, signo en bloque de fila; reexpresión endurecida (bloque de continuación, tokens, años 20xx fuera de valores, **differ+no-reexpresado nunca OK**). Fuentes 184/240/43; CSV **198 REVISADO / 313 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO**; control PASS exit 0; sondas bilaterales 15/15 ok y 5/5 del revisor en CONFLICTO. Cola: `cola_pendientes.json` — 240 fuentes en 81 grupos documento/página + 73 derivados, priorizados por materialidad y dependencias; bloqueos cuantificados (36 sin texto del año original, 79 valor en otra fila/columna, 45 columnas no mapeables 1:1, 44 declara no-reexpresado pero difiere, 40 falta puente, 6 no localizada). Siguiente: resolver grupos por orden de prioridad con evidencia o bloqueo preciso, publicando por bloque terminado.
 
 ## Estado de la rama y recuperación
 

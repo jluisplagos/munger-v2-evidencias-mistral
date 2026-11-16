@@ -2,7 +2,7 @@
   "nota": "Controles negativos en memoria (sin tocar el registro ni el producto). El verificador mecanico solo acredita archivo/pagina/cita/numero/transformacion/libro; las mutaciones de metadatos contextuales pasan desapercibidas para el (como demostro SONDA_A_SEMANTICA.json) y deben atraparlas los chequeos contextuales.",
   "muestra": 54,
   "mutaciones": 218,
-  "detectadas_por_contextual": 168,
+  "detectadas_por_contextual": 169,
   "detectadas_por_mecanico": 40,
   "resumen_por_mutacion": {
     "bilateral: cabecera_miles_pero_escala_1|ctx=True|mec=False": 1,
@@ -22,12 +22,10 @@
     "euros frente a miles (sonda del revisor)|ctx=True|mec=False": 1,
     "partida de otra fila|ctx=False|mec=False": 8,
     "partida de otra fila|ctx=True|mec=False": 32,
-    "perimetro incorrecto|ctx=False|mec=False": 3,
-    "perimetro incorrecto|ctx=True|mec=False": 37,
+    "perimetro incorrecto|ctx=True|mec=False": 40,
     "periodo/columna equivocado|ctx=False|mec=False": 7,
     "periodo/columna equivocado|ctx=True|mec=False": 33,
-    "reexpresion declarada como no aplica|ctx=False|mec=False": 1,
-    "reexpresion declarada como no aplica|ctx=True|mec=False": 2,
+    "reexpresion declarada como no aplica|ctx=False|mec=False": 3,
     "sonda: columna_equivocada_aceptada|ctx=True|mec=False": 1,
     "sonda: contradiccion_reexpresion_devuelve_ok|ctx=True|mec=False": 1,
     "sonda: escala_erronea_con_cabecera|ctx=True|mec=False": 1,
@@ -266,7 +264,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -277,7 +275,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -286,9 +284,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -299,7 +297,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -310,7 +308,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -376,7 +374,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -387,7 +385,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -396,9 +394,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -407,9 +405,9 @@
       "mutacion": "partida de otra fila",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -420,7 +418,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -596,7 +594,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -607,7 +605,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -616,9 +614,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -629,7 +627,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -640,7 +638,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -871,7 +869,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -882,7 +880,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -891,9 +889,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -904,7 +902,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -915,7 +913,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -977,9 +975,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!J14",
       "mutacion": "reexpresion declarada como no aplica",
-      "detectado_por_contextual": true,
+      "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -1256,18 +1254,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
       "empresa": "Vidrala",
       "celda": "Palancas!C48",
       "mutacion": "perimetro incorrecto",
-      "detectado_por_contextual": false,
+      "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1278,7 +1276,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1289,7 +1287,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1619,7 +1617,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1630,7 +1628,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1641,7 +1639,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1652,7 +1650,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1714,9 +1712,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!K8",
       "mutacion": "reexpresion declarada como no aplica",
-      "detectado_por_contextual": true,
+      "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -1850,18 +1848,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
       "empresa": "Viscofan",
       "celda": "Historia!I5",
       "mutacion": "perimetro incorrecto",
-      "detectado_por_contextual": false,
+      "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1872,7 +1870,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1883,7 +1881,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1901,9 +1899,9 @@
       "empresa": "Viscofan",
       "celda": "aux:CA2023_p4_impuesto_2022",
       "mutacion": "perimetro incorrecto",
-      "detectado_por_contextual": false,
+      "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -2004,7 +2002,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2015,7 +2013,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2024,9 +2022,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2037,7 +2035,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2048,7 +2046,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2420,7 +2418,7 @@
       "mutacion": "bilateral importe 20xx monetario",
       "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "OK",
+      "estado_contextual_mutado": "NO_DECIDIBLE",
       "estado_mecanico_mutado": "n/a (sonda)",
       "estado_contextual_base": "OK",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -2458,13 +2456,13 @@
     },
     "reexpresion_toma_otra_columna": {
       "resultado": "CONFLICTO",
-      "detalle": "declara \"no reexpresado; igual al original\" pero el original CF_2024.txt imprime 10000 en la columna 2024 y el comparativo cita 9000: contradiccion explicita",
+      "detalle": "declara \"no reexpresado; igual al original\" pero el original CF_2024.txt imprime 10000 en la columna 2024 y el comparativo cita 9000: contradiccion explicita (l",
       "esperada_CONFLICTO": true,
       "detectada": true
     },
     "contradiccion_reexpresion_devuelve_ok": {
       "resultado": "CONFLICTO",
-      "detalle": "declara \"no reexpresado; igual al original\" pero el original CF_2024.txt imprime 10000 en la columna 2024 y el comparativo cita 9000: contradiccion explicita",
+      "detalle": "declara \"no reexpresado; igual al original\" pero el original CF_2024.txt imprime 10000 en la columna 2024 y el comparativo cita 9000: contradiccion explicita (l",
       "esperada_CONFLICTO": true,
       "detectada": true
     }
@@ -2577,8 +2575,8 @@
     "importe_2025_monetario_no_pasa_a_no_aplica": {
       "regla": "importe 2000-2099 != metadato de año",
       "lado": "positivo",
-      "resultado": "OK",
-      "detalle": "reexpresion confirmada por columna: el original CF_2024.txt imprime 2000 en la columna 2024 y el comparativo cita 2025; declarado: sí: comparativo reexpresado de 2024",
+      "resultado": "NO_DECIDIBLE",
+      "detalle": "la fila aparece en CF_2024.txt (linea 4) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2023'], valores linea ['1800'], bloque ['1800'])",
       "esperado": "distinto de NO_APLICA-por-año (OK/CONFLICTO/NO_DECIDIBLE via camino normal)",
       "ok": true
     },

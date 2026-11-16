@@ -11,9 +11,9 @@
     "CONVENCION": 2
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 7,
-    "REVISADO_CONTEXTUAL": 4,
-    "NO_APLICA": 19
+    "REVISADO_CONTEXTUAL": 6,
+    "NO_APLICA": 19,
+    "PENDIENTE_CONTEXTUAL": 5
   },
   "entradas": [
     {
@@ -22,12 +22,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2025_p22_pasivo_fin_nc_2024\"] + o[\"aux:AR2025_p22_pasivo_fin_c_2024\"] -> 238.005 (valor_modelo 238.005, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2025_p22_pasivo_fin_nc_2024\"] + o[\"aux:AR2025_p22_pasivo_fin_c_2024\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2025_p22_pasivo_fin_nc_2024\"] + o[\"aux:AR2025_p22_pasivo_fin_c_2024\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Deuda financiera 2024 = pasivos financieros no corrientes 63,776 + corrientes 174,229 miles (AR_2025 p. 22); sin derivados ni NIIF 16. Resultado de la fórmula con los orígenes registrados: 238.005000; valor del libro: 238.005.",
-      "limites_contextuales": "aux:AR2025_p22_pasivo_fin_nc_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -43,10 +43,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:AR2025_p22_pasivo_fin_nc_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -55,12 +53,12 @@
       "id": "h_arrend",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2025_p22_arrend_lp_2024\"] + o[\"aux:AR2025_p22_arrend_cp_2024\"] -> 11.849 (valor_modelo 11.849, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2025_p22_arrend_lp_2024\"] + o[\"aux:AR2025_p22_arrend_cp_2024\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2025_p22_arrend_lp_2024\"] + o[\"aux:AR2025_p22_arrend_cp_2024\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Pasivo por arrendamientos 2024 = largo plazo 7,535 + corto plazo 4,314 miles (AR_2025 p. 22). Resultado de la fórmula con los orígenes registrados: 11.849000; valor del libro: 11.849.",
-      "limites_contextuales": "aux:AR2025_p22_arrend_lp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible) | aux:AR2025_p22_arrend_cp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -76,11 +74,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:AR2025_p22_arrend_lp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)",
-          "aux:AR2025_p22_arrend_cp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -665,7 +660,7 @@
       "evidencia": "texto/AR_2017.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Sales and services rendered 5.1 778,136 730,833'; encabezado: 'Note 2017 2016'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2017'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2016 en las cuentas de 2017 (el que usó el modelo); sin reexpresión declarada y con las mismas cifras que el informe original de 2016 (IA_2016_es.txt, pp. 115, 116 y 119) en ventas, EBIT, patrimonio, flujo operativo, capex y pasivos financieros | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo",
+      "limites_contextuales": "reexpresion: no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -695,7 +690,7 @@
       "evidencia": "texto/AR_2017.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Operating profit 154,853 154,366'; encabezado: 'Note 2017 2016'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2017'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: resultado de explotación publicado = resultado antes de impuestos 155,255 − resultado financiero (431 − 1,819 − 721 + 2,998 = 889); incluye la diferencia negativa de combinaciones de negocios (4,475) | reexpresado: no: comparativo de 2016 en las cuentas de 2017 (el que usó el modelo); sin reexpresión declarada y con las mismas cifras que el informe original de 2016 (IA_2016_es.txt, pp. 115, 116 y 119) en ventas, EBIT, patrimonio, flujo operativo, capex y pasivos financieros | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo",
+      "limites_contextuales": "reexpresion: no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -725,7 +720,7 @@
       "evidencia": "texto/AR_2017.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Result attributable to equity holders of the parent 122,101 125,084'; encabezado: 'Note 2017 2016'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2017'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2016 en las cuentas de 2017 (el que usó el modelo); sin reexpresión declarada y con las mismas cifras que el informe original de 2016 (IA_2016_es.txt, pp. 115, 116 y 119) en ventas, EBIT, patrimonio, flujo operativo, capex y pasivos financieros | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo",
+      "limites_contextuales": "reexpresion: no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -755,7 +750,7 @@
       "evidencia": "texto/AR_2017.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Profit before tax 145,357 155,255'; encabezado: 'Note 2017 2016'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2017'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2016 en las cuentas de 2017 (el que usó el modelo); sin reexpresión declarada y con las mismas cifras que el informe original de 2016 (IA_2016_es.txt, pp. 115, 116 y 119) en ventas, EBIT, patrimonio, flujo operativo, capex y pasivos financieros | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo",
+      "limites_contextuales": "reexpresion: no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
