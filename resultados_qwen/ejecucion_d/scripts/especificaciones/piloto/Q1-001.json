@@ -1,0 +1,19 @@
+{
+  "id": "Q1-001",
+  "descripcion": "POSITIVO de entradas: cero publicado (fixture f1_001_nota.txt, nota 3 pág.2) registrado como cero_comprobado con fuente local conservada; debe quedar verificado y distinguible de ausencia. Adaptación: la línea cero del expediente sintético es Historia!C23 (arrendamientos = 0 en el libro); el concepto se declara en fuente.concepto. Control negativo: la misma celda como dato_ausente no queda verificada.",
+  "pasos": [
+    {"op": "nuevo_expediente"},
+    {"op": "escribir_fuente", "nombre": "f1_001_nota.txt", "paginas": [
+      "Tabla 1 pág.1: ingresos 1000, EBITDA 150 (millones EUR, consolidado, ejercicio 2016).",
+      "Nota 3 pág.2: deuda por arrendamientos = 0 (cero publicado, millones EUR, consolidado, ejercicio 2016)."
+    ]},
+    {"op": "entrada", "celda": "Historia!C23", "clase": "cero_comprobado",
+     "fuente": {"documento": "Informe anual sintético ES-1 (fixture f1_001_nota.txt)", "archivo": "fuentes_sinteticas/f1_001_nota.txt", "version": "sintética v1", "pagina": 2, "ubicacion": "Nota 3", "concepto": "deuda por arrendamientos (cero publicado)", "periodo": "ejercicio 2016", "unidad": "millones de euros", "escala": 1.0, "signo": 1, "tratamiento": "ninguno", "perimetro": "consolidado", "reexpresado": "no aplica", "valor_fuente": 0, "cita": "Nota 3 pág.2: deuda por arrendamientos = 0 (cero publicado, millones EUR, consolidado, ejercicio 2016)"},
+     "comprobacion": "verificada"},
+    {"op": "comprobar", "guardar": "01_comprobar_sin_sellar.json"},
+    {"op": "sellar", "celdas": ["Historia!C23"], "guardar": "02_sellar.txt"},
+    {"op": "comprobar", "guardar": "03_comprobar_sellado.json"},
+    {"op": "entrada", "celda": "Historia!C23", "clase": "dato_ausente", "justificacion": "control negativo: registrar la misma celda como ausencia", "comprobacion": {"extractor": "extractor de prueba D (arnés externo)", "revisor": "revisor independiente de prueba D (arnés externo)", "fecha": "HOY", "resultado": "pendiente", "fuente_examinada": null, "nota": "control: ausencia, no cero comprobado", "vinculo": null}, "incidencia": "control negativo del piloto"},
+    {"op": "comprobar", "guardar": "04_comprobar_control_dato_ausente.json"}
+  ]
+}
