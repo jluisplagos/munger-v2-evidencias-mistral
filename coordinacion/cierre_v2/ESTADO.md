@@ -10,9 +10,9 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 
 | ID | Dueño | Entregado | Revisado | Integrado | Pruebas autor / externas | Origen |
 |---|---|---|---|---|---|---|
-| F1-W | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | d519eb0 |
+| F1-W | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | d519eb0 |
 | C20 | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | bf0d5c2 |
-| CSV | Claude | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
+| CSV | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 77ff89f |
 | A-CTX | Mistral A | ENTREGADO | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | d2419e5 |
 | D-HARNESS | Mistral D | ENTREGADO | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | bdcbba7 |
 | D-36 | Mistral D + Claude runtime | PARCIAL | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | bdcbba7 |
@@ -33,9 +33,9 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 
 ## Próxima acción y dependencias por tarea
 
-- **F1-W · F1 W1–W3 entregada; contraste externo pendiente**: Mistral C/F contrasta solo lo afectado por W1–W3 (solicitud LISTA). El coordinador no lo incorpora como aceptado hasta ese informe.
+- **F1-W · F1 W1–W3 entregada y contrastada por Mistral C/F; propuesta no adoptada**: Nada en esta tarea. La implementación de W1 en el producto depende de las decisiones (1a)–(5b) (F1-IMPL, H-DEC); no se integra en la candidata porque no es software del producto.
 - **C20 · C20: U1–U6 del verificador respondidas; contraste pendiente**: Mistral C/F contrasta solo lo afectado (solicitud LISTA); el coordinador sigue con CSV.
-- **CSV · Acreditar cifras LECTURA por procedimiento CSV**: En curso por Claude: añadir al CSV las cifras [LECTURA] que el verificador de bf0d5c2 acredite; las demás, pendientes con motivo; no aplicar N1.
+- **CSV · Cifras [LECTURA] al CSV verificado (bloque CSV de ENCARGO_C20_CSV.md, f5775dc)**: Mistral C/F contrasta solo lo afectado por el bloque CSV (solicitud LISTA). Seis columnas por sociedad (Lavartex y «otras adquisiciones») siguen [LECTURA] con motivo; N1 no se aplica.
   Dependencias: C20.
 - **A-CTX · Evidencia contextual A v3**: Revisar diff v3 y reproducir; comprobar importe20xx frente a metadato de año.
 - **D-HARNESS · Arnés D v2 y paquetes íntegros**: Revisar aserciones/artefactos/recuentos; cerrar Q1-027 y paquete Q1-026 referenciado.
@@ -69,9 +69,9 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 
 ## Solicitudes de revisión
 
-- F1-W: LISTA; revisor asignado: Mistral C/F; SHA: d519eb04978e64d04f1d1795c570ca96bdd7ad7f.
+- F1-W: RESPONDIDA; revisor asignado: Mistral C/F; SHA: d519eb04978e64d04f1d1795c570ca96bdd7ad7f.
 - C20: LISTA; revisor asignado: Mistral C/F; SHA: bf0d5c25d136ae9b2b1f14e4688081e1792d2363.
-- CSV: POR_PREPARAR; revisor asignado: Mistral C/F; SHA: aún sin nueva entrega fijada.
+- CSV: LISTA; revisor asignado: Mistral C/F; SHA: 77ff89f8fe99a1b5f013243ea1ccd4b84512ac51.
 
 ## Cómo se decide el cierre
 

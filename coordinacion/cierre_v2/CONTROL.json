@@ -61,28 +61,31 @@
   "tareas": [
     {
       "id": "F1-W",
-      "tarea": "F1 W1–W3 entregada; contraste externo pendiente",
+      "tarea": "F1 W1–W3 entregada y contrastada por Mistral C/F; propuesta no adoptada",
       "autor": "Claude",
       "revisor_propuesto": "Mistral C/F u otro contexto distinto",
       "entrega": "ENTREGADO",
-      "revision": "PENDIENTE",
+      "revision": "CONFORME_CON_LIMITES",
       "integracion": "NO",
       "commit_origen": "d519eb04978e64d04f1d1795c570ca96bdd7ad7f",
       "commit_destino": null,
       "evidencia": [
         "docs/validacion_economica_paralela/frente_E_F1_elis/RESPUESTA_CORRECCIONES_W1_W3.md @ d519eb0",
-        "revision_externa/f1_v3_20261116/REVISION_F1_V3.md @ f5775dc (revisión de la versión anterior)"
+        "revision_externa/f1_v3_20261116/REVISION_F1_V3.md @ f5775dc (revisión de la versión anterior)",
+        "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_F1_W1_W3_d519eb0.md @ 90329a1 (mistral/f-alcance-real)"
       ],
       "pruebas_autor": "EJECUTADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "PARCIALES",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Mistral C/F contrasta solo lo afectado por W1–W3 (solicitud LISTA). El coordinador no lo incorpora como aceptado hasta ese informe.",
+      "siguiente_accion": "Nada en esta tarea. La implementación de W1 en el producto depende de las decisiones (1a)–(5b) (F1-IMPL, H-DEC); no se integra en la candidata porque no es software del producto.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": null,
-      "alcance_aceptado": [],
+      "commit_revisado": "d519eb04978e64d04f1d1795c570ca96bdd7ad7f",
+      "alcance_aceptado": [
+        "W1, W2, W3 y conservación, como texto y herramientas de investigación de la propuesta F1 (no adoptada)"
+      ],
       "solicitud_revision": {
-        "estado": "LISTA",
+        "estado": "RESPONDIDA",
         "sha_autor": "d519eb04978e64d04f1d1795c570ca96bdd7ad7f",
         "base_revisada": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262",
         "diff_rutas": [
@@ -103,7 +106,18 @@
           "No se adopta (1a)–(5b) ni se cambia producto/libros; se conservan C48=108, C49=128,1, FCF base=307,933, E1/D3/E2/E6; lo conforme de V1–V11 no se reabre"
         ],
         "revisor_asignado": "Mistral C/F",
-        "informe_revision": null
+        "informe_revision": {
+          "commit": "90329a1",
+          "rama": "mistral/f-alcance-real",
+          "ruta": "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_F1_W1_W3_d519eb0.md",
+          "veredicto": "CUMPLE en W1, W2, W3 y conservación; ningún defecto material",
+          "limites": [
+            "réplica independiente solo de W1 con g = 0; g = 2 % por la re-ejecución del script del autor",
+            "regla del producto comprobada por texto, no por ejecución",
+            "copia_investigacion_f1.py no ejecutada por el revisor"
+          ],
+          "aceptacion_del_coordinador": "Aceptado con esos límites; el coordinador no es autor del informe ni lo modifica"
+        }
       }
     },
     {
@@ -157,31 +171,50 @@
     },
     {
       "id": "CSV",
-      "tarea": "Acreditar cifras LECTURA por procedimiento CSV",
+      "tarea": "Cifras [LECTURA] al CSV verificado (bloque CSV de ENCARGO_C20_CSV.md, f5775dc)",
       "autor": "Claude",
       "revisor_propuesto": "Mistral C/F u otro contexto distinto",
-      "entrega": "PENDIENTE",
+      "entrega": "ENTREGADO",
       "revision": "PENDIENTE",
       "integracion": "NO",
-      "commit_origen": null,
+      "commit_origen": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
       "commit_destino": null,
-      "evidencia": [],
-      "pruebas_autor": "NO_EJECUTADAS",
+      "evidencia": [
+        "docs/validacion_economica_paralela/frente_E_F1_elis/RESPUESTA_BLOQUE_CSV_LECTURAS.md @ 77ff89f"
+      ],
+      "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [
         "C20"
       ],
       "bloqueo": null,
-      "siguiente_accion": "En curso por Claude: añadir al CSV las cifras [LECTURA] que el verificador de bf0d5c2 acredite; las demás, pendientes con motivo; no aplicar N1.",
+      "siguiente_accion": "Mistral C/F contrasta solo lo afectado por el bloque CSV (solicitud LISTA). Seis columnas por sociedad (Lavartex y «otras adquisiciones») siguen [LECTURA] con motivo; N1 no se aplica.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
       "solicitud_revision": {
-        "estado": "POR_PREPARAR",
-        "sha_autor": null,
-        "base_revisada": null,
-        "diff_rutas": [],
-        "criterios": [],
+        "estado": "LISTA",
+        "sha_autor": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
+        "base_revisada": "bf0d5c25d136ae9b2b1f14e4688081e1792d2363",
+        "diff_rutas": [
+          "docs/validacion_economica_paralela/frente_E_F1_elis/RESPUESTA_BLOQUE_CSV_LECTURAS.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/datos/cifras_fuente.csv",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/verificacion_cifras.json",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/scripts/copia_investigacion_f1.py",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/copia_investigacion_f1.json",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/copia_investigacion_f1.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/cobertura_por_mutacion.txt",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/sondas_metadatos_CSV.json",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/paginas/",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/README.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/INFORME_CONCILIACION_F1.md"
+        ],
+        "criterios": [
+          "Las diez filas nuevas están en su página, posición, columna, ejercicio y edición con el verificador de bf0d5c2 sin cambios; las 752 anteriores no cambian",
+          "Las seis columnas por sociedad no se presentan como grupo; un intento de declararlas grupo no queda OK",
+          "El contraste no cambia (292/0, salida idéntica) y la copia de investigación reproduce las mismas sensibilidades de V3–V4 con las filas verificadas",
+          "N1 no se aplica; no se adopta (1a)–(5b); C48=108, C49=128,1, FCF base=307,933 y E1/D3/E2/E6 se conservan"
+        ],
         "revisor_asignado": "Mistral C/F",
         "informe_revision": null
       }
@@ -606,6 +639,21 @@
     {
       "tipo": "ENTREGA",
       "hecho": "C20 entregada en bf0d5c2; solicitud de contraste LISTA para Mistral C/F. No incorporada.",
+      "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "REVISION",
+      "hecho": "F-REV (90329a1, Mistral C/F) contrasta F1 W1–W3 @ d519eb0: CUMPLE con límites; el coordinador lo registra como CONFORME_CON_LIMITES.",
+      "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "ENTREGA",
+      "hecho": "Bloque CSV entregado (77ff89f): 10 filas verificadas, 762 filas 748 OK/14 PENDIENTE/0 FALLO; contraste 292/0 idéntico; solicitud de contraste LISTA para Mistral C/F.",
+      "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "CONSULTA",
+      "hecho": "Nuevas entregas detectadas: A 2c41d68 (mistral/m2-cobertura-vm) y D 1ac661b (mistral/d-qwen-aceptacion); revisión del coordinador (bloque B) en curso, no registrada como aceptada.",
       "fecha": "2026-11-16"
     }
   ],
