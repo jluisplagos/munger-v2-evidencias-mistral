@@ -21,8 +21,10 @@
   que el autor (Mistral B), independencia de sesión/método/hashes. Evidencias en `revisiones_b_pm1/`.
   Nada adoptado; producto/libros/candidata intactos; frente C (`mistral/m2-matematica-b` @ 1ec4f18) intacto.
 - **Estado de las colas tras consultar CONTROL.json** (`git fetch origin coordinacion/cierre-v2`):
-  - Cola 1: F-REV (W1–W3), C20 y CSV hechos por mí (informes en `revisiones_claude/`); F1-W ya
-    CONFORME_CON_LIMITES en el control. No queda entrega de Claude pendiente de contraste.
+  - Cola 1: F-REV (W1–W3), C20 y CSV hechos por mí (informes en `revisiones_claude/`); en el
+    último fetch de CONTROL.json los tres quedaron **CONFORME_CON_LIMITES / RESPONDIDA**
+    (F1-W, C20, CSV). E-ELIS (93a9780) está EN_CURSO en cola B_E (no es mi cola). Cola C_F
+    completa: [F-REV, B-PM1, F-B3, F-C1] hechos.
     B-PM1 hecho por mí (informe en `revisiones_b_pm1/`); bloqueo P-M1 conservado (θ/λ no
     identificados, 4 PDF con preservación pendiente por el 401 de uploads).
   - Cola 2: **F-B3 / F-C1 HECHOS como paquete de preparación** (`preparacion_b3_c1/`): inventario
@@ -31,8 +33,11 @@
     congelado antes de calcular, MAPA_ENTRADAS.jsonl, contrato C propuesto (E62: no valida
     solvencia). Bloqueos: Ahold sin etapa 1; ninguna financiera conservada; solo GitHub alcanzable.
     La ejecución real es Cola 3 (agentes/pipeline, copias aisladas).
-  - Cola 3: ejecución/relevo solo tras revisión de candidata/contrato/precondiciones — bloqueada salvo que
-    Claude publique.
+  - Cola 3: bloqueada salvo que lleguen insumos externos (etapa 1 de Ahold; fuente oficial de
+    banco/aseguradora) y el coordinador fije candidata revisada; ejecución con agentes/pipeline
+    en copias aisladas, no por mí (prohibido LibreOffice/pipeline en este frente).
+  - Estado global según CONTROL.json: «Cierre en preparación: entregas parciales y revisiones
+    pendientes; sin aptitud económica global acreditada».
 - **Siguiente acción exacta**: contraste documental dirigido B/P-M1 @ `daa74783d2708fcd46ca7c24ae1ffbb327c35784`
   sobre fuentes ya conservadas, en `resultados_cierre/alcance_real/`; conservar el bloqueo P-M1 si θ/λ no
   están identificados; declarar el límite de misma familia de modelo respecto a la sesión B autora.
