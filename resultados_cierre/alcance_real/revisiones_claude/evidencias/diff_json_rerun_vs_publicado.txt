@@ -1,0 +1,14 @@
+Comparacion estructural: controles_sinteticos_f1.json publicado @d519eb0 (A) vs rerun aislado de Mistral C/F (B)
+TYPE /W2_aviso_del_terminal[8]/codigo/munger_v2_r1/personaje_v2/scripts/comprobar_gramatica.py True != None
+TYPE /W2_aviso_del_terminal[8]/codigo/munger_v2_r1/v6/scripts/patch_v62_base.py True != None
+DIFF /W2_aviso_del_terminal[8]/ok True != False
+LEN /resumen/errores 0 1
+
+Unica diferencia: la comprobacion textual de codigo de producto (W2[8]) da None/False en la copia aislada
+porque el arbol del producto no esta junto al script (parents[4]); el autor la publico como True.
+Verificacion independiente de esa comprobacion textual: ver verificacion_textual_y_aritmetica.txt (todo True en 716cbd6).
+bloque casos: n=32 all_ok_publicado=True
+bloque W1_coste_temporal_despues_del_año_10: n=8 all_ok_publicado=True
+bloque W2_aviso_del_terminal: n=9 all_ok_publicado=True
+bloque W3_dominio_de_A0: n=4 all_ok_publicado=True
+resumen publicado: {"casos": 32, "coherentes": 14, "incoherencias_ilustradas": 18, "con_crecimiento": 23, "con_ancla_calculada_E4": 8, "reproducidos_del_revisor": 9, "guardas": 3, "caso_fiscal_ok": true, "W1": 8, "W2": 9, "W3": 4, "errores": []}

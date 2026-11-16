@@ -1,0 +1,39 @@
+== Hashes (sha256) de los artefactos descargados de d519eb04978e64d04f1d1795c570ca96bdd7ad7f (via contents API, munger-v2) ==
+fecha consulta: 2026-11-16T21:13:30Z
+26cbf986e7fa5e0f37ad1ebd86e2f8f34e40981d3cffab6bb30e15cca2c540a7  .trabajo/f-rev/controles_sinteticos_f1.py
+f520b7fcf0599ca677fef72439b4880b011064d380944e34cde873ed47fafb9a  .trabajo/f-rev/copia_investigacion_f1.py
+d74dc6a8f9ac9ee4a07a241799f42fb479b1cf0bfa70b60a2d25ed6fba0064fc  .trabajo/f-rev/contraste_f1.py
+ab513e6b81dae7b856a14592ca877ace828d27747fd437fce3238294ef2c5089  .trabajo/f-rev/RESPUESTA_CORRECCIONES_W1_W3.md
+115f4ff9b4bd79d505d85f56034a5fc09172ed655dd65274dc4af7ff60a37ea6  .trabajo/f-rev/controles_sinteticos_f1.json
+4158ba089c0c835783b342cc00da315077bcd8b962a331cfd1f398f07027273f  .trabajo/f-rev/copia_investigacion_f1.json
+3b8fa43aee83bde27ff466ac3258259199c221cf5122e1753ed6b48a69addb32  .trabajo/f-rev/copia_investigacion_f1.md
+
+== Hashes de los dos archivos del PRODUCTO en la base revisada 716cbd6794b7fcde8b3862c9d1e7acdaf516d262 ==
+5846a57e8f6bea7e9e86ec98270474aacd25e85508b871250cb23927c3742f75  .trabajo/f-rev/comprobar_gramatica_716cbd6.py
+5cf3e46702ae465fdefdf48d007acbbb243a6fe3d97f3e42c8f19ce38c95d3df  .trabajo/f-rev/patch_v62_base_716cbd6.py
+
+== Comprobacion textual (mismas cadenas que el bloque W2 del autor, sobre los archivos anteriores) ==
+munger_v2_r1/personaje_v2/scripts/comprobar_gramatica.py :: 'abs(sv) > umbral + 1e-9' -> True
+munger_v2_r1/personaje_v2/scripts/comprobar_gramatica.py :: 'requiere_justificacion=True' -> True
+munger_v2_r1/v6/scripts/patch_v62_base.py :: "<='Diagnóstico V6'!$C$179" -> True
+munger_v2_r1/v6/scripts/patch_v62_base.py :: "MAX(ABS('Diagnóstico V6'!$B$178)" -> True
+munger_v2_r1/v6/scripts/patch_v62_base.py :: '("B178", \'=IF(OR(NOT(ISNUMBER(B176)),NOT(ISNUMBER(B177))),"",B176-B177)\')' -> True
+
+== A178/B178/C179/AVISO_TRANSICION en patch_v62_base.py @716cbd6 (lineas 228-246) ==
+228:    ("A178", "Salto en el año 11 (puntos; positivo = la rentabilidad marginal cae al pasar al terminal)"),
+229:    ("B178", '=IF(OR(NOT(ISNUMBER(B176)),NOT(ISNUMBER(B177))),"",B176-B177)'),
+232:    ("A179", "Umbral del aviso (puntos; ajustable)"), ("C179", 0.05),
+239:AVISO_TRANSICION = (
+243:    "IF(MAX(ABS('Diagnóstico V6'!$B$178),ABS('Diagnóstico V6'!$C$178),"
+303:            'MAX(ABS(Motor!$D$%d),ABS(Motor!$E$%d)))' % (fila, fila, fila, fila))
+386:    wb[MO]['E216'] = '=IF(' + _v16 + '<>"",' + _v16 + ',' + AVISO_TRANSICION.replace("$C$5", "'Diagnóstico V6'!$C5") + ')'
+
+== G8 en comprobar_gramatica.py @716cbd6 (bloque salto_anio_11) ==
+344:            filas = (self.res.get("salto_anio_11") or {}).get("filas") or []
+346:            umbral = num(self.res.get("parametros_hoja", {}).get("C179")) or 0.05
+349:                    if num(sv) is not None and abs(sv) > umbral + 1e-9:
+
+== Aritmetica W2 (Decimal): salto = marginal - ROIC, aviso si |salto| > 0.05 + 1e-9 ==
+MALO: fila178 = 7.4739% - 7% = 0.4739 pt = 0.004739 ; aviso (|s|>0.05+1e-9): False
+NORMAL: fila178 = 10.6770% - 10% = 0.6770 pt = 0.00677 ; aviso (|s|>0.05+1e-9): False
+BUENO: fila178 = 14.4140% - 12% = 2.4140 pt = 0.02414 ; aviso (|s|>0.05+1e-9): False

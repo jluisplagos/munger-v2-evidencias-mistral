@@ -1,0 +1,98 @@
+{
+  "es_plantilla": false,
+  "frente": "F · Cola 1 · F-REV (contraste independiente de entrega Claude F1 W1-W3)",
+  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+  "rama": "mistral/f-alcance-real",
+  "base_revisada_sha": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262",
+  "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+  "directorio_entrega": "resultados_cierre/alcance_real/revisiones_claude/",
+  "tareas_control": ["F1-W"],
+  "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+  "banco_sha": null,
+  "naturaleza": "revision independiente dirigida (Mistral C/F) de la propuesta F1 W1-W3 @ d519eb0; nada adoptado ni implementado",
+  "autor_contexto_modelo_herramientas": "Sesion Mistral C/F distinta del autor (Claude Opus 5.5 segun firma del commit d519eb0). Modelo real: mistral-large-4-0 (Vibe Code). Herramientas: gh CLI autenticado (API de comparacion/contenidos/arboles) y Python 3.12 stdlib. Esfuerzo/consumo no visibles desde la sesion; no se declaran.",
+  "fuentes_y_preservacion": [
+    "jluisplagos/munger-v2 @ d519eb04978e64d04f1d1795c570ca96bdd7ad7f via gh api (15 archivos, todos bajo docs/validacion_economica_paralela/frente_E_F1_elis/); hashes en evidencias/verificacion_textual_y_aritmetica.txt",
+    "jluisplagos/munger-v2 @ 716cbd6794b7fcde8b3862c9d1e7acdaf516d262: comprobar_gramatica.py y patch_v62_base.py (sha256 5846a57e..., 5cf3e467...) para la comprobacion textual de G8/AVISO_TRANSICION",
+    "coordinacion/cierre_v2/CONTROL.json @ coordinacion/cierre-v2 (fetch remoto): solicitud_revision F1-W LISTA, criterios W1/W2/W3 + conservacion",
+    "Producto, main, libros, candidata integracion/candidata-cierre-v2 y rama mistral/m2-matematica-b (1ec4f18) intactos; no se ejecuto el producto, LibreOffice ni el pipeline"
+  ],
+  "cambios_respecto_entrega_anterior": [
+    "Primera entrega de la rama mistral/f-alcance-real; no hay entrega anterior de este frente F",
+    "Conserva sin tocar el frente C (mistral/m2-matematica-b @ 1ec4f18) y el resto de frentes"
+  ],
+  "pruebas": [
+    {
+      "tipo": "componente (rerun de pruebas del autor en copia aislada)",
+      "comando": "python3 -I controles_sinteticos_f1.py (copia aislada en .trabajo/f-rev, artefactos @ d519eb0 sha256 26cbf986...)",
+      "exit_esperado": 1,
+      "exit_observado": 1,
+      "criterios_cubiertos": ["W1", "W2", "W3"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "evidencias/diff_json_rerun_vs_publicado.txt (53/53 casos ok; unica diferencia: W2[8] comprobacion textual de codigo = None/False por ausencia del arbol del producto en la copia aislada, artefacto de entorno)",
+      "sha_material": "115f4ff9b4bd79d505d85f56034a5fc09172ed655dd65274dc4af7ff60a37ea6 (json publicado) vs 532f50045e85511fd781a965653b3ab987c6d80d4177402a6de079e8a7d1bdd3 (rerun)",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (replica independiente desde cero, sin imports del autor)",
+      "comando": "python3 -I evidencias/w1_independiente.py (Fraction exacto, g=0, H=5/10/11/12, caja 68, X=7, r=10%)",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": ["W1"],
+      "criterios_sin_cubrir": ["W1 con g=2% (no modelado en la caja simplificada; cubierto solo por el rerun del autor)"],
+      "evidencia": "evidencias/w1_independiente_out.txt: propuesta == caja exacto en los 4 H y == publicado a 0.00e+00; regla anterior == 610,0 exacto en H=11/12 (defecto confirmado) y == caja solo en H<=10",
+      "sha_material": "controles_sinteticos_f1.json @ d519eb0 (115f4ff9...)",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "dato (comprobacion textual del codigo del producto en la base revisada)",
+      "comando": "gh api repos/jluisplagos/munger-v2/contents/...?ref=716cbd6... | base64 -d; grep de cadenas G8/AVISO_TRANSICION/fila 178/C179; aritmetica Decimal del salto de Elis",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": ["W2 (signo fila 178 = marginal - ROIC; aviso |salto|>C179; frontera sin aviso; G8 requiere_justificacion conservado; umbral sin cambios)", "conservacion"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "evidencias/verificacion_textual_y_aritmetica.txt (todas las cadenas True en 716cbd6; saltos Elis +0,4739/+0,6770/+2,4140 pt < 5 pt -> sin aviso)",
+      "sha_material": "comprobar_gramatica.py@716cbd6 5846a57e8f6bea7e9e86ec98270474aacd25e85508b871250cb23927c3742f75; patch_v62_base.py@716cbd6 5cf3e46702ae465fdefdf48d007acbbb243a6fe3d97f3e42c8f19ce38c95d3df",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "arnés (alcance del diff via compare API)",
+      "comando": "gh api repos/jluisplagos/munger-v2/compare/716cbd6...d519eb0 --jq '.files[] | [.filename,.status,.additions,.deletions]'",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": ["no se adopta (1a)-(5b); no cambia producto/libros; C48=108, C49=128,1, FCF 307,933, E1/D3/E2/E6 conservados; V1-V11 no reabierto"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "CONTRASTE_F1_W1_W3_d519eb0.md seccion 1: 15 archivos, todos bajo docs/validacion_economica_paralela/frente_E_F1_elis/; PROPUESTA_DECISIONES_F1.md sigue 'no adoptada ni implementada'",
+      "sha_material": "d519eb04978e64d04f1d1795c570ca96bdd7ad7f (parent 716cbd6794b7fcde8b3862c9d1e7acdaf516d262)",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (copia_investigacion_f1.py del autor)",
+      "comando": "no ejecutado (requiere argumentos --cifras/--verificacion/--libro/--contraste/--salida/--informe y el XLSX de Elis)",
+      "exit_esperado": null,
+      "exit_observado": null,
+      "criterios_cubiertos": [],
+      "criterios_sin_cubrir": ["W1/W2/W3 sobre el libro real de Elis via copia_investigacion"],
+      "evidencia": "resultados publicados copia_investigacion_f1.json/.md @ d519eb0 revisados solo documentalmente (4158ba08..., 3b8fa43a...)",
+      "sha_material": null,
+      "resultado": "NO_EJECUTADO"
+    }
+  ],
+  "precondiciones_simuladas": [],
+  "revision_por_otro_contexto": "Hecha por esta sesion (Mistral C/F) segun CONTROL.json solicitud_revision F1-W; el coordinador Claude registra aceptacion. No hay autoaprobacion.",
+  "limites_y_bloqueos": [
+    "Los tests del autor importan su propia replica (contraste_f1.py) y no cuentan como replica independiente; la unica replica independiente es W1 con g=0 desde cero",
+    "g=2% de W1 no reproducido por la caja simplificada independiente; cubierto solo por el rerun del script del autor",
+    "La presencia de la regla en el codigo del producto se comprobo textualmente, no por ejecucion del motor ni de la gramatica",
+    "copia_investigacion_f1.py no ejecutado (necesita el XLSX de Elis); sus salidas se revisaron solo documentalmente",
+    "No se decidio si W1 se implementa en el producto (tarea F1-IMPL del autor / decision del integrador)",
+    "C20/CSV siguen PENDIENTE en CONTROL.json; no hay nueva entrega Claude que contrastar; f5775dc no se re-revisa",
+    "El sandbox no permite git remote add: el contenido del producto se obtuvo via gh api (contents/compare/trees), documentado en COMANDOS.md"
+  ],
+  "siguiente_accion_exacta": "Tras commit/push de este bloque: consultar CONTROL.json (git fetch origin coordinacion/cierre-v2) y continuar Cola 1 con el contraste documental dirigido de B/P-M1 @ daa74783d2708fcd46ca7c24ae1ffbb327c35784 (nueve altas PP&E corregidas de Vidrala) sobre fuentes ya conservadas, en resultados_cierre/alcance_real/; si aparece C20/CSV publicado, contrastarlo antes. Luego Cola 2 (F-B3/F-C1).",
+  "integrado_en_producto": false,
+  "apto_dinero_real": "No se declara por este formulario",
+  "criterios_cubiertos": ["W1", "W2", "W3", "conservacion/no adopcion"],
+  "criterios_pendientes": ["implementacion de W1 en el producto (F1-IMPL, decision del integrador)", "contraste de C20/CSV cuando Claude lo entregue"],
+  "salida_siguiente": "CONTRASTE_F1_W1_W3_d519eb0.md con veredicto CUMPLE en los 4 criterios y ningun defecto material; evidencias en revisiones_claude/evidencias/"
+}
