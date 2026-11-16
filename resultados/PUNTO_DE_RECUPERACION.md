@@ -10,6 +10,7 @@ Evidencia propuesta por Mistral; pendiente de revisión e incorporación por el 
 
 ## Terminado
 
+- Bloque 2: 44 observaciones restantes añadidas a `resultados/lectura_fuentes.jsonl` (total 60 entradas = 26 objetivos + 34 dependencias, sin duplicados). Hash del bloque 2: sha256 `8a7a518f7734a015ddc255fccfd0522a5ec33ddcc828640c3a44ddc561429c2c`; hash del fichero completo tras bloque 2: `5905e415e71422fc4d5cf04e32a0b0fc4136210df7d0bfac9b52220547f3d8dc`. Verificación visual (PyMuPDF+imagen) de EN2025 p.52 (nota 8 arrendamientos) y ES2025 p.14 (flujos en español).
 - Bloque 1 (10 objetivos iniciales: Historia L6/L7/L8/L12 y Análisis C55 de Vidrala y Viscofan) + sus 6 dependencias: primera lectura registrada en `resultados/lectura_fuentes.jsonl` (16 observaciones) ANTES de comparar con valores heredados.
   - Hash de esa primera lectura (bloque 1): sha256 `5571ee7f9a5b021da59f99d6ac61f9feb3a4723af92a240556f3e1ef20c90f51`.
 
