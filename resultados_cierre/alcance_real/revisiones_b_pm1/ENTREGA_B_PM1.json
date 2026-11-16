@@ -1,0 +1,91 @@
+{
+  "es_plantilla": false,
+  "frente": "F · Cola 1 · contraste documental B-PM1 @ daa7478 (rama mistral/m2-fundamento-pm1)",
+  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+  "rama": "mistral/f-alcance-real",
+  "base_revisada_sha": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
+  "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+  "directorio_entrega": "resultados_cierre/alcance_real/revisiones_b_pm1/",
+  "tareas_control": ["B-PM1"],
+  "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+  "banco_sha": null,
+  "naturaleza": "revision documental dirigida del dossier P-M1 de Mistral B (misma familia de modelo, sesion distinta - limite declarado); nada adoptado, no se elige theta/lambda",
+  "autor_contexto_modelo_herramientas": "Revisor: sesion Mistral C/F, modelo mistral-large-4-0 (Vibe Code). Autor: Mistral B (misma familia de modelo, sesion previa) -> la independencia es de sesion/metodo/hashes, NO de familia de modelo; declarado en el informe. Herramientas: git/gh CLI, Python 3.12 stdlib. Nada instalado; sin LibreOffice ni pipeline. Esfuerzo/consumo no visibles; no declarados.",
+  "fuentes_y_preservacion": [
+    "Dossier resultados_m2/pm1 @ daa7478 via git archive desde origin/mistral/m2-fundamento-pm1 (rama del autor intacta; no fusionada ni modificada)",
+    "Textos conservados Vidrala CF_2017..CF_2025 + ES_2024/ES_2025: sha256 byte-identicos al ZIP base-4.14 (release verificada); 29 PDF de FUENTES_CONSERVADAS.csv verificados sha256+bytes en .trabajo/insumos_m2",
+    "Release fuentes-mistral-m2-20261116 consultada: assets vacios (coherente con el 401 documentado); no reintente uploads ni pedi credenciales",
+    "CONTROL.json @ coordinacion/cierre-v2: B-PM1 PARCIAL/LIMITADA, bloqueo P-M1 (theta/lambda no delimitados; 4 PDF con preservacion pendiente)"
+  ],
+  "cambios_respecto_entrega_anterior": [
+    "Se anade revisiones_b_pm1/ a los informes F-REV (W1-W3, C20, CSV) ya entregados; su material no se toca",
+    "COMANDOS.md, PUNTO_DE_RECUPERACION.md y MANIFIESTO_SHA256.txt actualizados"
+  ],
+  "pruebas": [
+    {
+      "tipo": "dato (hashes de fuentes conservadas)",
+      "comando": "sha256 de 11 textos CF/ES vs unzip -p base414.zip; sha256+bytes de 29 PDF vs FUENTES_CONSERVADAS.csv @ daa7478",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["fuentes hash-ligadas: 11/11 textos OK, 29/29 PDF OK"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "evidencias/verificacion_fuentes_y_runs.txt",
+      "sha_material": "ZIP base-4.14 sha256 bb51942c... (release verificada)",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (rerun del script del autor en copia aislada)",
+      "comando": "python3 -I .trabajo/pm1/scripts/tablas_vidrala.py (copia en .trabajo; salida redirigida y worktree limpiado despues)",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["salida VIDRALA_REPOSICION_CAPACIDAD.csv byte-identica a la commiteada @ daa7478; control negativo superado (intangibles rechazadas como PP&E)"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "evidencias/tablas_vidrala_run.log; cmp byte-identical registrado en evidencias/verificacion_fuentes_y_runs.txt",
+      "sha_material": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (extraccion independiente propia, metodo distinto: nota por titulo + slot de columna, no ventanas regex del autor)",
+      "comando": "python3 -I evidencias/extraccion_independiente_pm1.py sobre los textos hash-verificados",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["9/9 altas PP&E (101.154..177.848 kEUR) coinciden; 8/8 comparativos en el CF siguiente coinciden; 9/9 intangibles (total/emission/goodwill) coinciden; error antiguo localizado en la nota de intangibles (2017: 156.743 = 3.237 emission + 150.657 goodwill)"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "evidencias/extraccion_independiente_out.txt (RESULTADO: TODO COINCIDE)",
+      "sha_material": "textos CF_2017..CF_2025 sha256 en evidencias/verificacion_fuentes_y_runs.txt",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "dato (estado de no-identificacion de theta/lambda y preservacion pendiente)",
+      "comando": "git show daa7478:resultados_m2/pm1/CALCULOS_PM1.json (conclusion_frente_B, pendiente, clasificacion_calculos); gh release view fuentes-mistral-m2-20261116 --json assets",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["P-M1 no delimitada + bloqueo conservado; extrapolacion etiquetada HIPOTESIS con calculos separados; release con assets vacios (401 coherente); yo no elijo theta/lambda"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "CONTRASTE_B_PM1_daa7478.md seccion B2",
+      "sha_material": "CALCULOS_PM1.json @ daa7478",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (calculos_pm1.py / extraer_pdfs_viscofan.py / tablas_viscofan.py completos)",
+      "comando": "no ejecutados (parte Viscofan fuera del alcance dirigido de este contraste)",
+      "exit_esperado": null, "exit_observado": null,
+      "criterios_cubiertos": [],
+      "criterios_sin_cubrir": ["rerun de la parte Viscofan del dossier; CALCULOS_PM1.json revisado solo documentalmente"],
+      "evidencia": "CONTRASTE_B_PM1_daa7478.md seccion Limites",
+      "sha_material": null,
+      "resultado": "NO_EJECUTADO"
+    }
+  ],
+  "precondiciones_simuladas": [],
+  "revision_por_otro_contexto": "Esta sesion (Mistral C/F) contrasta el dossier de Mistral B; limite de misma familia de modelo declarado. El coordinador registra aceptacion; sin autoaprobacion.",
+  "limites_y_bloqueos": [
+    "Misma familia de modelo que el autor (Mistral B): independencia de sesion/metodo/hashes, no de familia de modelo",
+    "Parte Viscofan del dossier no re-ejecutada (fuera del alcance dirigido); CALCULOS_PM1.json revisado documentalmente",
+    "Poppler no disponible en el sandbox: la verificacion usa los textos conservados hash-ligados al ZIP base-4.14, no re-extraccion de PDF",
+    "Bloqueo P-M1 se conserva: theta/lambda no identificados; 4 PDF nuevos con preservacion pendiente (release assets vacios, 401)",
+    "No se eligio ningun parametro (theta/lambda) ni se adopto politica alguna"
+  ],
+  "siguiente_accion_exacta": "Tras commit/push: re-consultar CONTROL.json y pasar a Cola 2 (F-B3/F-C1): inventario de recursos ya conservados de las 116 empresas, hasta 3 candidatas por recorrido con protocolo congelado antes de calcular; sin usar precios de valoracion para seleccionar.",
+  "integrado_en_producto": false,
+  "apto_dinero_real": "No se declara por este formulario",
+  "criterios_cubiertos": ["nueve altas PP&E corregidas verificadas con nota/cabecera/columna/anio y comparativos", "no identificacion de theta/lambda conservada (bloqueo P-M1 intacto)"],
+  "criterios_pendientes": ["preservacion de los 4 PDF nuevos en GitHub (bloqueada por 401 del endpoint de uploads)", "desglose por tipo 2017 de Viscofan; desglose reposicion/capacidad de hornos de Vidrala"],
+  "salida_siguiente": "CONTRASTE_B_PM1_daa7478.md: CONFIRMADO B1 por extraccion independiente + rerun byte-identico del autor; B2 conservado; sin defecto material; evidencias en revisiones_b_pm1/evidencias/"
+}

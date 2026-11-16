@@ -1,0 +1,20 @@
+== Verificacion de fuentes conservadas (Mistral C/F, 2026-11-16T21:48:58Z) ==
+-- 11 textos CF/ES de Vidrala: sha256 local == sha256 del mismo archivo dentro del ZIP base-4.14 (release verificada bb51942c...) ==
+OK CF_2017 60c948af1de87608f47fde953f423c53db0799b44ec0fde90c05a5c04aafe70d
+OK CF_2018 81982ba0a7e9f190b03a688a4729312e4697c6d9afce168a4b43f9c9015d5a19
+OK CF_2019 4c0f4a6ebd8637edf5258f95465f54a0551f5c3dc8f27648d6d23b367044c570
+OK CF_2020 16c5c014909b6e40b449e87690d7e5a15bb64def362cda811f4bb6f7e537f9eb
+OK CF_2021 b6450872e4cbbb094c0d500a44bb4d77d524d9fb7af804897a0c427ef4f678f1
+OK CF_2022 590142c8c5f07f7b0fab2ffff8615b92ae0d4498efcc11eb73516d6cfd0c0b5c
+OK CF_2023 8fbc85ec5aa773c7129d86af84e11a9323eaa82b40d3090be66c5a0db44962b0
+OK CF_2024 fd37a10ecd5933b3bd6fb9355923d07be1e0190caad98fc715abb1233f3b7f7f
+OK CF_2025 ebfe0f35db7e30adf6ec381a610d30c4a56bc3ca59da24fe4c5af5b60aa6a4e4
+OK ES_2024_informacion_financiera_consolidada 1eb5ac625388b6c01a4437d368342c29d8800692ced658a3685076273ba40261
+OK ES_2025_informacion_financiera_consolidada a9f12f938986776efceed9b7f30b62763dc915546a94f02054ec22bb3ce4f43b
+
+-- 29 PDF candidatos de FUENTES_CONSERVADAS.csv @ daa7478: sha256+bytes verificados en .trabajo/insumos_m2 ==
+29 PDF OK, 0 mal: []
+
+-- script del autor tablas_vidrala.py @ daa7478: exit 0, salida VIDRALA_REPOSICION_CAPACIDAD.csv BYTE-IDENTICAL a la commiteada; control negativo superado (ver tablas_vidrala_run.log)
+-- release fuentes-mistral-m2-20261116: assets = [] (vacio), coherente con el 401 documentado por el autor
+-- Discrepancia comparativa 2023 vista por mí en CF_2024 p48: combinacion de negocios 291.821 vs 262.679 en CF_2023, cierre de coste 2.131.588 vs 2.102.446, adiciones 134.472 IGUALES (coincide con lo registrado por el autor)

@@ -107,3 +107,16 @@ PYTHONPATH=.trabajo/csv/shimlib PATH=.trabajo/c20/shim:$PATH python3 .trabajo/cs
 # 4 controles negativos reconstruidos:
 python3 .trabajo/csv/mutantes_csv.py   # Lavartex/otras adquisiciones como grupo -> PENDIENTE (no OK); anio/edicion equivocados -> FALLO
 ```
+
+## Bloque B-PM1 (contraste documental del dossier de Mistral B) · 2026-11-16 ~22:00–22:20 UTC
+
+```bash
+git fetch origin mistral/m2-fundamento-pm1                       # daa7478 = HEAD del frente B
+git archive daa7478 resultados_m2/pm1 | tar -x -C .trabajo/pm1 --strip-components=2   # copia aislada, rama intacta
+# hashes: 11 textos Vidrala == ZIP base-4.14 (unzip -p | sha256sum); 29 PDF de FUENTES_CONSERVADAS.csv OK (sha256+bytes)
+mkdir -p resultados_m2/pm1 && python3 -I .trabajo/pm1/scripts/tablas_vidrala.py   # exit 0; salida byte-identical a la commiteada; control negativo OK
+cmp resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv .trabajo/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv; rm -rf resultados_m2   # worktree limpio
+python3 -I .trabajo/pm1/extraccion_independiente_pm1.py   # metodo propio (nota+slot): 9/9 PP&E OK, 8/8 comparativos OK, 9/9 intangibles OK -> TODO COINCIDE
+gh release view fuentes-mistral-m2-20261116 --repo jluisplagos/munger-v2-evidencias-mistral --json assets   # assets: [] (401 coherente)
+git show daa7478:resultados_m2/pm1/CALCULOS_PM1.json   # conclusion: P-M1 no delimitada, bloqueo; theta/lambda no identificados
+```

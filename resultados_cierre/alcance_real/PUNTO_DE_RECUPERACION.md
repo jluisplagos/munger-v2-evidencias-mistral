@@ -12,14 +12,22 @@
   nuevas OK con el verificador sin cambios (verificador idéntico, sha256 igual), 752 sin cambiar,
   contraste 292/0 y copia 67/0 re-ejecutados byte-idénticos con el libro real, y los 4 mutantes
   negativos (columna por sociedad como grupo → no OK). Evidencias en `revisiones_claude/` +
-  `evidencias/c20/` + `evidencias/csv/`.
+  `evidencias/c20/` + `evidencias/csv/`. (4) **B-PM1 @ `daa7478`** (dossier de Mistral B, rama
+  `mistral/m2-fundamento-pm1` intacta): CONFIRMADO — 9/9 altas PP&E reproducidas por extracción
+  independiente propia sobre textos hash-verificados (101.154…177.848 k€), 8/8 comparativos OK,
+  error antiguo localizado en la nota de intangibles (2017: 156.743 = 3.237 + 150.657 goodwill),
+  script del autor rerun byte-idéntico con control negativo superado; θ/λ siguen sin identificarse
+  y el bloqueo P-M1 se conserva (no elegí ningún valor). Límite declarado: misma familia de modelo
+  que el autor (Mistral B), independencia de sesión/método/hashes. Evidencias en `revisiones_b_pm1/`.
   Nada adoptado; producto/libros/candidata intactos; frente C (`mistral/m2-matematica-b` @ 1ec4f18) intacto.
 - **Estado de las colas tras consultar CONTROL.json** (`git fetch origin coordinacion/cierre-v2`):
   - Cola 1: F-REV (W1–W3), C20 y CSV hechos por mí (informes en `revisiones_claude/`); F1-W ya
     CONFORME_CON_LIMITES en el control. No queda entrega de Claude pendiente de contraste.
-    Siguiente independiente: **B-PM1 @ daa7478** (contraste documental de las nueve altas PP&E
-    corregidas de Vidrala).
-  - Cola 2: F-B3 / F-C1 (preparación, protocolo congelado antes de calcular) — pendiente.
+    B-PM1 hecho por mí (informe en `revisiones_b_pm1/`); bloqueo P-M1 conservado (θ/λ no
+    identificados, 4 PDF con preservación pendiente por el 401 de uploads).
+  - Cola 2: **F-B3 / F-C1** — siguiente: inventario de recursos ya conservados de las 116 empresas,
+    hasta 3 candidatas por recorrido con criterios y protocolo ANTES de calcular, sin usar precios
+    de valoración para seleccionar.
   - Cola 3: ejecución/relevo solo tras revisión de candidata/contrato/precondiciones — bloqueada salvo que
     Claude publique.
 - **Siguiente acción exacta**: contraste documental dirigido B/P-M1 @ `daa74783d2708fcd46ca7c24ae1ffbb327c35784`
