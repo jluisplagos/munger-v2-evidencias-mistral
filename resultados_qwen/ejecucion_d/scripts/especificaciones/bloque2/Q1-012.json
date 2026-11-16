@@ -1,0 +1,74 @@
+{
+ "id": "Q1-012",
+ "descripcion": "Perímetro: fuente de segmento A frente al perímetro consolidado del expediente -> error sin justificación; con justificación queda etiquetado.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f2_012_perimetros.txt",
+   "paginas": [
+    "Pág.1: consolidado 730833 miles EUR (ejercicio 2016).",
+    "Nota 8 pág.5: segmento A 730833 miles (en este fixture igual al consolidado); minoritarios 217 miles; diferencia 900-610=290 en el caso original."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C6",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Perímetros sintéticos (f2_012)",
+    "archivo": "fuentes_sinteticas/f2_012_perimetros.txt",
+    "version": "sintética v1",
+    "pagina": 2,
+    "ubicacion": "tabla sintética",
+    "concepto": "ingresos segmento A",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "segmento A",
+    "reexpresado": "no aplica",
+    "valor_fuente": 730833,
+    "cita": "Nota 8 pág.5: segmento A 730833 miles"
+   }
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_perimetro_segmento_sin_justificacion.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C6",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Perímetros sintéticos (f2_012)",
+    "archivo": "fuentes_sinteticas/f2_012_perimetros.txt",
+    "version": "sintética v1",
+    "pagina": 2,
+    "ubicacion": "tabla sintética",
+    "concepto": "ingresos segmento A",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "segmento A",
+    "reexpresado": "no aplica",
+    "valor_fuente": 730833,
+    "cita": "Nota 8 pág.5: segmento A 730833 miles",
+    "perimetro_justificacion": "análisis por segmento etiquetado aparte del consolidado; la conclusión consolidada no lo usa"
+   }
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_perimetro_segmento_justificado.json"
+  }
+ ]
+}

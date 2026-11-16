@@ -1,0 +1,153 @@
+{
+ "id": "Q1-005",
+ "descripcion": "Derivado D con un origen sin fuente: D no puede quedar comprobado mientras costes siga pendiente; control: fórmula trivial o[x]-o[x]+o[y] rechazada.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f1_005_origen.txt",
+   "paginas": [
+    "Tabla 1 pág.1: ingresos 730833 (miles de euros, consolidado, ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:ingresos",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Fuente sintética (f1_005_origen.txt)",
+    "archivo": "fuentes_sinteticas/f1_005_origen.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "ingresos",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 730833,
+    "cita": "Tabla 1 pág.1: ingresos 730833 (miles de euros, consolidado, ejercicio 2016)"
+   },
+   "valor_modelo": 730.833
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:costes",
+   "clase": "hipotesis",
+   "comprobacion": "verificada",
+   "hipotesis": {
+    "fundamento": "costes_operativos 650 SIN_FUENTE (fixture f1_005_origen.csv): origen pendiente, no hay fuente que examinar",
+    "alternativas": [
+     "aportar la fuente del desglose de costes"
+    ],
+    "limites": "sin fuente no se puede contrastar"
+   },
+   "valor_modelo": 650.0
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:D",
+   "clase": "derivado",
+   "comprobacion": {
+    "extractor": "extractor de prueba D (arnés externo)",
+    "revisor": "revisor independiente de prueba D (arnés externo)",
+    "fecha": "HOY",
+    "resultado": "pendiente",
+    "fuente_examinada": null,
+    "nota": "derivado con origen pendiente",
+    "vinculo": null
+   },
+   "derivacion": {
+    "origenes": [
+     "aux:ingresos",
+     "aux:costes"
+    ],
+    "formula": "o[\"aux:ingresos\"] - o[\"aux:costes\"]",
+    "conciliacion": "D = ingresos - costes = 730.833 - 650 = 80.833 (fixture: 1200-1050=150, adaptado a la celda real)"
+   },
+   "valor_modelo": 80.833
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_derivado_origen_pendiente.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:D",
+   "clase": "derivado",
+   "comprobacion": {
+    "extractor": "extractor de prueba D (arnés externo)",
+    "revisor": "revisor independiente de prueba D (arnés externo)",
+    "fecha": "HOY",
+    "resultado": "pendiente",
+    "fuente_examinada": null,
+    "nota": "control negativo U4",
+    "vinculo": null
+   },
+   "derivacion": {
+    "origenes": [
+     "aux:ingresos",
+     "aux:costes"
+    ],
+    "formula": "o[\"aux:ingresos\"] - o[\"aux:ingresos\"] + o[\"aux:costes\"]",
+    "conciliacion": "control negativo: cancelación de operando repetido"
+   },
+   "valor_modelo": 80.833
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_control_formula_trivial.json"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f1_005_costes.txt",
+   "paginas": [
+    "Tabla 2: costes operativos = 650000 miles de euros (ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:costes",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Tabla sintética (f1_005_costes)",
+    "archivo": "fuentes_sinteticas/f1_005_costes.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "costes operativos",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 650000,
+    "cita": "costes operativos = 650000 miles de euros"
+   },
+   "valor_modelo": 650.0
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "aux:ingresos",
+    "aux:costes"
+   ],
+   "guardar": "03_sellar_origenes.txt"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "04_comprobar_formula_trivial_origenes_comprobados.json"
+  }
+ ]
+}

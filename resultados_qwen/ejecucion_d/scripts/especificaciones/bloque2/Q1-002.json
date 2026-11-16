@@ -1,0 +1,65 @@
+{
+ "id": "Q1-002",
+ "descripcion": "N/A justificado (con nota de soporte examinable) e hipótesis explícita: no_aplicable con justificacion queda aparte; la hipótesis conserva fundamento/alternativas/límites y no aparece como publicada.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f1_002_nota2.txt",
+   "paginas": [
+    "Nota 2: diferencias de conversión no aplicables por inmaterialidad cualitativa; motivo: tipo de cambio no aplicable al perímetro declarado."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:conversion",
+   "clase": "no_aplicable",
+   "comprobacion": {
+    "extractor": "extractor de prueba D (arnés externo)",
+    "revisor": "revisor independiente de prueba D (arnés externo)",
+    "fecha": "HOY",
+    "resultado": "pendiente",
+    "fuente_examinada": null,
+    "nota": "N/A justificado con nota de soporte",
+    "vinculo": null
+   },
+   "justificacion": "Nota 2 sintética examinable (f1_002_nota2.txt): N/A justificado de conversión; no es una línea ausente"
+  },
+  {
+   "op": "entrada",
+   "celda": "Análisis!C62",
+   "clase": "hipotesis",
+   "comprobacion": {
+    "extractor": "extractor de prueba D (arnés externo)",
+    "revisor": "revisor independiente de prueba D (arnés externo)",
+    "fecha": "HOY",
+    "resultado": "verificado",
+    "fuente_examinada": "registro interno",
+    "nota": null,
+    "vinculo": null
+   },
+   "hipotesis": {
+    "fundamento": "crecimiento 2% (media sintética revisada, publicada=false)",
+    "alternativas": [
+     "1%",
+     "3%"
+    ],
+    "limites": "sin central adoptada; no es dato publicado"
+   }
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Análisis!C62"
+   ],
+   "guardar": "01_sellar_hipotesis.txt"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_na_e_hipotesis.json"
+  }
+ ],
+ "celda_hipotesis": "Análisis!C62"
+}

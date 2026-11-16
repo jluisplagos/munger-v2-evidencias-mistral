@@ -1,0 +1,65 @@
+{
+ "id": "Q1-003",
+ "descripcion": "Línea ausente (arrendamientos no publicada): dato_ausente con justificación en la celda cero C23 (permitido: valor 0) y NO como cero comprobado; control: cero_comprobado sin fuente -> pendiente (R2).",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f1_003_tabla.txt",
+   "paginas": [
+    "Tabla 2: deuda bancaria 82019 miles; caja 45054 miles; sin línea de arrendamientos ni nota que la publique."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C23",
+   "clase": "dato_ausente",
+   "comprobacion": {
+    "extractor": "extractor de prueba D (arnés externo)",
+    "revisor": "revisor independiente de prueba D (arnés externo)",
+    "fecha": "HOY",
+    "resultado": "pendiente",
+    "fuente_examinada": null,
+    "nota": "ausencia registrada",
+    "vinculo": null
+   },
+   "justificacion": "Tabla 2 (f1_003_tabla.txt): no publica deuda por arrendamientos ni nota asociada: ausencia con incidencia, no cero comprobado",
+   "incidencia": "Q1-003: no imputar 0 a una línea ausente"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_dato_ausente.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C23",
+   "clase": "cero_comprobado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Tabla sintética ES-2 (f1_003_tabla)",
+    "archivo": "fuentes_sinteticas/f1_003_tabla.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "arrendamientos",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 0,
+    "cita": "Tabla 2: deuda bancaria 82019 miles; caja 45054 miles"
+   },
+   "incidencia": "control negativo: la tabla no publica la línea; no hay cita del 0 en la página"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_cero_no_publicado.json"
+  }
+ ]
+}

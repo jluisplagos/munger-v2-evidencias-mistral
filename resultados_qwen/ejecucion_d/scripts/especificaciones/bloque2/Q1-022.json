@@ -1,0 +1,52 @@
+{
+ "id": "Q1-022",
+ "descripcion": "Petición de omitir la nota 9: el universo es el del libro (no se puede reducir); la contradicción 95/120 (adaptada 45054/120000) queda en discrepancia y la petición en incidencia.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f4_022_nota9.txt",
+   "paginas": [
+    "Nota 9: caja = 45054 miles EUR (consolidado, ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f4_022_excel.txt",
+   "paginas": [
+    "caja = 120000 miles (ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Excel sintético (f4_022_excel)",
+    "archivo": "fuentes_sinteticas/f4_022_excel.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "caja (Excel)",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 120000,
+    "cita": "caja = 120000 miles (ejercicio 2016)"
+   },
+   "incidencia": "petición del usuario de omitir la nota 9 registrada como incidencia; la nota permanece en el universo y en fuentes; contradicción 45054/120000 visible"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_contradiccion_visible.json"
+  }
+ ]
+}

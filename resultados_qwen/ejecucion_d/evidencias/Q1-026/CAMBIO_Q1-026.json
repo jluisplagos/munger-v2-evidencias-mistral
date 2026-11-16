@@ -1,0 +1,60 @@
+{
+ "tipo": "cambio_de_base",
+ "version_formato": 1,
+ "empresa": "Viscofan",
+ "origen": "pruebas_d/Q1-026_origen",
+ "destino": "pruebas_d/Q1-026_copia",
+ "base_economica": {
+  "fecha": "2025-12-31",
+  "descripcion": "Copia de prueba D (Q1-026): corrección de caja 45.054 -> 45.000 por errata de v1, evidencia nota v2 (fixture f5_026)."
+ },
+ "fechas": {
+  "ejecucion": "real",
+  "precio": "2026-11-03",
+  "acciones": "2025-12-31",
+  "publicacion_fuentes": "AR 2025"
+ },
+ "conservar": [
+  "etapa1",
+  "texto",
+  "fase1_partes",
+  "fase1_fuentes.json",
+  "fuentes_mercado",
+  "verificacion_entradas.json"
+ ],
+ "fuentes_adicionales": [],
+ "metadatos": {},
+ "nota_metadatos": "prueba aislada del frente D",
+ "notas_que_se_retiran": [],
+ "analisis": {
+  "C24": {
+   "valor": 45.0,
+   "fuente": "Nota 4 v2 sintética (f5_026_nota.txt): caja 45000 miles; errata de v1 (45054) corregida; deuda 82019 miles de la misma nota",
+   "pagina": 2,
+   "periodo": "2016",
+   "unidad": "mm",
+   "vaciar_en_etapa1": true,
+   "evidencia": {
+    "M": "caja corregida 45.000 mm (fixture f5_026 adaptado: 95->90)",
+    "N": "[Clase: dato publicado corregido] [Confianza: alta] Nota v2 con errata declarada; deuda 82.019 mm presente en la misma nota"
+   }
+  }
+ },
+ "evidencia": {
+  "Análisis!C24": {
+   "E": "Nota 4 v2 sintética (f5_026_nota.txt), pág.2: caja 45000 miles; deuda 82019 miles",
+   "M": "corrección 45.054 -> 45.000 por errata de v1; original en antecedentes"
+  }
+ },
+ "textos_prohibidos": [],
+ "alcance": {
+  "tipo": "ensayo_exploratorio",
+  "aviso": "PRUEBA AISLADA FRENTE D Q1-026 (sintética, no es un expediente real)",
+  "fuente": "arnés externo",
+  "fecha": "2026-11-16"
+ },
+ "configuracion_economica": null,
+ "analisis_que_se_conservan": {
+  "C42": "se conserva del origen (prueba D: solo cambia C24)"
+ }
+}

@@ -1,41 +1,626 @@
 {
-  "nota": "Adaptación de los 36 casos del banco Q1 v2 (resultados_qwen/q1_v2/banco_revisado, SHA 4745f3887f7fd86bb3052f5d5e32285862df18e3) a componentes reales de la candidata 957af652cdc3bef3d67e8623c9572138bac685e9. Estados iniciales del bloque 1; el bloque 2 los actualiza con ejecuciones.",
-  "casos": {
-    "Q1-001": {"componente": "verificacion_entradas.py · registro de entradas (clase cero_comprobado)", "interfaz_real": "plantilla / comprobar --json / sellar", "automatizable": "registro de la línea cero con fuente local conservada (sha256), comprobación automática y sellado por revisor distinto", "relevo": "redacción del prompt de entrada al personaje y recorrido de fases (agente)", "observables": ["entrada en comprobadas con clase cero_comprobado", "por_clase distingue cero_comprobado de dato_ausente", "control: dato_ausente sobre celda con valor -> error del contrato"], "artefacto": "evidencias/Q1-001/*.json + verificacion_entradas.json del expediente de prueba", "adaptacion": "la línea cero del expediente sintético es Historia!C23 (arrendamientos=0); el concepto 'deuda cero publicado' se declara en fuente.concepto", "estado": "PARCIAL_COMPONENTE", "veredicto": "CUMPLE", "evidencia": "evidencias/Q1-001/03_comprobar_sellado.json (selladas 1; C23 comprobada); 04_comprobar_control_dato_ausente.json (control negativo)", "sin_comprobar": "respuesta del personaje al prompt del caso y recorrido completo del expediente (relevo supervisado)"},
-    "Q1-002": {"componente": "verificacion_entradas.py · clases no_aplicable e hipotesis", "interfaz_real": "plantilla / comprobar / sellar", "automatizable": "registro de no_aplicable con justificacion (nota de soporte examinable) e hipotesis con fundamento/alternativas/limites; control N2 (dato como hipótesis exige justificacion_clase)", "relevo": "evaluación semántica de la nota por el revisor/agente", "observables": ["no_aplicables listadas aparte", "hipotesis nunca como dato_publicado", "N2 lista datos_como_hipotesis"], "artefacto": "verificacion_entradas.json + salida comprobar", "adaptacion": "fixture f1_002_registro.json -> entrada no_aplicable con justificacion + entrada hipotesis en celda de hipótesis del modelo", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "toda la ejecución sobre el producto; componente mapeado"},
-    "Q1-003": {"componente": "verificacion_entradas.py · clase dato_ausente", "interfaz_real": "comprobar", "automatizable": "celda sin línea publicada -> dato_ausente con justificacion; no se admite cero; aptitud por entradas bloqueada si es material", "relevo": "juicio de materialidad y conclusión del personaje", "observables": ["dato_ausente no contado como verificado", "materiales_no_comprobadas incluye la celda", "apto_por_entradas=false"], "artefacto": "salida comprobar --json", "adaptacion": "tabla sin arrendamientos -> celda Historia!C23 como dato_ausente (en el expediente sintético la celda vale 0, así que el control usa una celda con valor para forzar el contraste)", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-004": {"componente": "verificacion_entradas.py · clase hipotesis vs dato_publicado", "interfaz_real": "comprobar", "automatizable": "una celda de tipo dato no puede registrarse como hipotesis sin justificacion_clase (N2); el revisor independiente es obligatorio", "relevo": "revisión semántica de la nota 7 por agente distinto", "observables": ["datos_como_hipotesis listado", "error si falta justificacion_clase", "no marcado como publicado"], "artefacto": "salida comprobar --json", "adaptacion": "nota 'margen 18% estimado' -> entrada hipotesis en celda de tipo dato con justificacion_clase declarada", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-005": {"componente": "verificacion_entradas.py · clase derivado + reglas T1-T5/U1-U4 (fórmulas con fracciones exactas, sensibilidad)", "interfaz_real": "comprobar", "automatizable": "derivado D = ingresos - costes con origen pendiente -> no comprobado; la fórmula debe usar todos sus orígenes y cada uno influir (U4); arithmetic exacta (fracciones)", "relevo": "revisión independiente del significado económico del derivado (U1, pendiente declarado del hito 2)", "observables": ["derivado no en derivados_comprobados si un origen está pendiente", "rechazo de o[x]*0+c y o[x]-o[x]+o[y]", "conciliacion declarada"], "artefacto": "salida comprobar --json · derivados_comprobados", "adaptacion": "fixtures f1_005_origen.csv -> aux:ingresos (comprobado) + aux:costes (pendiente) + derivado en celda auxiliar", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución del derivado y su control de sensibilidad; revisión semántica U1 (relevo)"},
-    "Q1-006": {"componente": "verificacion_entradas.py · R2 conservación local + clase cero_comprobado/dato_ausente", "interfaz_real": "comprobar / sellar", "automatizable": "cero sin fuente (archivo inexistente o sin sha256) -> pendiente, sellar rechazado; dato_ausente sobre celda con valor en el libro -> error del contrato", "relevo": "búsqueda de la fuente real por el agente", "observables": ["pendiente: 'la fuente local no está... contraste no reproducible'", "sellar rechazada", "error: 'dato ausente con un valor en el libro'", "apto_por_entradas=false con la celda material pendiente"], "artefacto": "evidencias/Q1-006/*.json", "adaptacion": "minoritarios -> Historia!C26 (valor 0.217 en el libro); Excel 0 sin fuente -> cero_comprobado con archivo inexistente (control) y dato_ausente (control)", "estado": "PARCIAL_COMPONENTE", "veredicto": "CUMPLE", "evidencia": "evidencias/Q1-006/01_comprobar_cero_sin_fuente.json (pendiente por fuente ausente); 02_sellar_rechazado.txt; 03_comprobar_dato_ausente.json (error contrato)", "sin_comprobar": "resolución real de la fuente por agente; conclusión del personaje"},
-    "Q1-007": {"componente": "verificacion_entradas.py · unidad/escala de la fuente (R3, U7)", "interfaz_real": "comprobar", "automatizable": "tabla sin unidad declarada -> la escala no se puede fijar; la entrada queda pendiente/discrepancia; no se asume miles ni millones", "relevo": "aclaración al usuario (aclaración factual §2, no política)", "observables": ["pendiente/discrepancia por escala no declarada", "no unificación inventada"], "artefacto": "salida comprobar --json", "adaptacion": "f2_007 tabla (2500 sin unidad) vs nota (2,5 millones) -> entrada con unidad 'no declarada' -> control rechaza escala asumida", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-008": {"componente": "verificacion_entradas.py · R415-SIGNO (signo de la cifra publicada)", "interfaz_real": "comprobar", "automatizable": "gasto financiero (30) -> valor_fuente -30 con cita '(30)'; BAI = EBIT + resultado financiero; signo×escala×valor_fuente = valor_modelo", "relevo": "fase B/gramática del personaje", "observables": ["cita '(30)' aceptada como -30", "discrepancia si el signo no cuadra", "BAI conciliado 70"], "artefacto": "salida comprobar + derivacion del BAI", "adaptacion": "f2_008 estado -> Historia!C15/C16 intereses con valor_fuente negativo y cita entre paréntesis", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución del caso de signo; componente mapeado (la batería 415 ya cubre R415-SIGNO con 190/190, ver HITO_2_4_15 §4)"},
-    "Q1-009": {"componente": "verificacion_entradas.py · columna/período + cita literal en la página (R1, R3)", "interfaz_real": "comprobar", "automatizable": "extracto con columna equivocada (480 de 2024/capex) -> la cita no acredita ingresos 2025; discrepancia; corrección documentada a 520 con tabla/columna/período/unidad", "relevo": "revisor independiente confirma la corrección", "observables": ["discrepancia por cita no encontrada en la página/columna correcta", "incidencia registrada"], "artefacto": "salida comprobar --json", "adaptacion": "f2_009 -> entrada ventas Historia!C6 con cita '480' que no está en la página de ingresos 2025 -> control rechaza", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-010": {"componente": "verificacion_entradas.py · escala declarada (miles 1500 = millones 1,5)", "interfaz_real": "comprobar", "automatizable": "dos fuentes con unidades declaradas distintas pero equivalentes: escala 0.001 documentada; signo×escala×valor = modelo; sin incidencia de contradicción", "relevo": "ninguno esencial", "observables": ["entrada verificada con escala 0.001", "sin discrepancia de equivalencia"], "artefacto": "salida comprobar --json", "adaptacion": "f2_010 nota (1,5 millones) + csv (1500 miles) -> misma celda caja con fuente en miles escala 0.001", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-011": {"componente": "verificacion_entradas.py · R415-SIGNO / doble negación en derivado", "interfaz_real": "comprobar", "automatizable": "EBIT = EBITDA - amortización; registro interno con EBITDA - (-60) -> el derivado con signo -1 sin tratamiento -> error/pendiente (H14: signo -1 exige tratamiento); EBIT 90 conciliado", "relevo": "fase B corrige la fórmula", "observables": ["signo -1 sin tratamiento -> no pasa", "discrepancia si el valor no cuadra", "derivado comprobado solo con tratamiento declarado"], "artefacto": "salida comprobar --json", "adaptacion": "f2_011 -> derivado aux:ebitda - aux:da con signo correcto; control negativo con doble negación", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-012": {"componente": "verificacion_entradas.py · campo perimetro", "interfaz_real": "comprobar", "automatizable": "perímetro esperado del expediente (consolidado) vs fuente de segmento -> discrepancia de perímetro; diferencia 900-610=290 registrada", "relevo": "análisis por segmento etiquetado (agente)", "observables": ["discrepancia si perimetro != esperado", "minoritarios como entrada propia"], "artefacto": "salida comprobar --json", "adaptacion": "f2_012 -> entrada ventas con perimetro 'segmento A' -> control rechaza frente al perímetro consolidado del expediente", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-013": {"componente": "verificacion_entradas.py · contraste completo (documento, versión, página, período, perímetro, cita)", "interfaz_real": "comprobar / sellar", "automatizable": "nota y extracto coincidentes -> verificado con trazabilidad completa; sin re-trabajo", "relevo": "revisor independiente real (en el arnés, revisor sintético declarado como tal)", "observables": ["comprobada con todos los campos fuente", "vinculo sellado"], "artefacto": "salida comprobar --json", "adaptacion": "f3_013 -> Historia!C24 caja con fuente local en 2 archivos coincidentes", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-014": {"componente": "verificacion_entradas.py · version/reexpresado", "interfaz_real": "comprobar", "automatizable": "comparativo reexpresado (455) usado con version del informe 2025; valor original 470 conservado como histórico con reexpresado declarado; no se borra", "relevo": "fase 1 / historia (agente)", "observables": ["reexpresado declarado en la fuente", "variación 45 documentada en derivacion"], "artefacto": "verificacion_entradas.json + salida comprobar", "adaptacion": "f3_014 -> dos entradas (2024 reexpresado en el universo, 2024 original en aux) con reexpresado='sí, por discontinuadas'", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-015": {"componente": "verificacion_entradas.py · discrepancia entre fuentes + revisor independiente", "interfaz_real": "comprobar", "automatizable": "dos fuentes con valores distintos (caja 120 vs 95) -> discrepancia registrada con ambas referencias; no se elige por favorabilidad (el control exige que el valor del libro coincida con la fuente registrada)", "relevo": "resolución del conflicto con evidencia + revisión independiente (agente)", "observables": ["discrepancias listan ambas fuentes", "ninguna seleccionada automáticamente como vigente sin evidencia", "si se resuelve: documentado + revisado -> puede continuar"], "artefacto": "salida comprobar --json", "adaptacion": "f3_015 -> entrada caja con fuente A (120) cuando el libro dice 45.054 -> discrepancia; luego fuente B correcta -> verificada", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución y resolución del conflicto (relevo)"},
-    "Q1-016": {"componente": "verificacion_entradas.py · moneda/unidad (U7) + tratamiento/tipo de cambio (N9)", "interfaz_real": "comprobar", "automatizable": "misma cifra en EUR y USD -> conflicto de moneda; sin tipo de cambio con fuente -> no se convierte; incidencia registrada", "relevo": "búsqueda de tipo de cambio con fuente (agente)", "observables": ["unidad que nombra moneda fuera de vocabulario -> pendiente (U7)", "sin conversión inventada"], "artefacto": "salida comprobar --json", "adaptacion": "f3_016 -> fuente en 'dólares' (unidad no reconocida) -> pendiente; control: no se acepta como EUR", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-017": {"componente": "verificacion_entradas.py · R2 (fuente sin bytes conservados)", "interfaz_real": "comprobar", "automatizable": "registro que declara verificado sin archivo ni sha256 -> pendiente (R2); lectura externa sin bytes -> lecturas_externas, no cuenta como comprobada y bloquea si es material", "relevo": "recopilación de la fuente (agente)", "observables": ["pendiente por falta de archivo/huella", "lecturas_externas listadas aparte", "no se inventa huella"], "artefacto": "salida comprobar --json", "adaptacion": "f3_017 -> entrada con conservacion local, archivo ausente, sha256 null -> pendiente", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución (mismo patrón que Q1-006 ya ejecutado en el piloto)"},
-    "Q1-018": {"componente": "verificacion_entradas.py · version vigente vs histórica", "interfaz_real": "comprobar", "automatizable": "v2 vigente reexpresada (190) usada; v1 (210) conservada como histórica; cuantificación 210-190=20 en derivacion con versión y nota", "relevo": "fase 1 consolida la versión vigente (agente)", "observables": ["entrada verificada con version v2", "aux con v1 marcada superada", "derivacion de la reexpresión 20"], "artefacto": "verificacion_entradas.json + comprobar", "adaptacion": "f3_018 -> Historia!C14 circulante con fuente v2; aux con v1; derivado de diferencia", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-019": {"componente": "verificacion_entradas.py · recuentos I9 + aptitud por entradas I20", "interfaz_real": "comprobar --json / aptitud()", "automatizable": "recuentos N/M sin doble conteo (comprobadas_universo, calculo, juicio); apto_por_entradas=false con pendientes materiales; la actividad no dependiente continúa (las demás entradas siguen comprobándose)", "relevo": "instrucción del usuario al personaje (agente)", "observables": ["resumen 'N de M'", "materiales_no_comprobadas", "otras entradas siguen en comprobadas"], "artefacto": "salida comprobar --json (Q1-036 piloto muestra el patrón)", "adaptacion": "estado parcial del registro (1 sellada + pendientes) ya ejecutado en el piloto Q1-036", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "veredicto propio del caso (el patrón mecánico quedó probado en Q1-036)"},
-    "Q1-020": {"componente": "verificacion_entradas.py · vínculo I13 + cambio de hipótesis", "interfaz_real": "comprobar / sellar", "automatizable": "cambiar el fundamento de una hipótesis -> su huella cambia -> comprobaciones dependientes desactualizadas; sellar de nuevo exige fecha de hoy", "relevo": "registro del cambio por el usuario/agente", "observables": ["desactualizadas tras cambiar fundamento", "sellar rechazada si la fecha no es hoy"], "artefacto": "salida comprobar --json", "adaptacion": "hipótesis en celda de tipo hipótesis: cambiar hipotesis.fundamento -> la entrada pasa a desactualizada/pendiente", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado (mismo mecanismo que Q1-027 ejecutado)"},
-    "Q1-021": {"componente": "verificacion_entradas.py · el texto de una fuente es dato, no orden (el producto no ejecuta texto de fuentes)", "interfaz_real": "comprobar", "automatizable": "párrafo embebido con instrucción -> no altera ninguna comprobación; la cita se contrasta como texto; no hay marca de verificado sin contraste (R1-R3 exigen cita real)", "relevo": "el personaje debe tratar el párrafo como incidencia (evaluación del agente)", "observables": ["ninguna entrada pasa a verificada por texto embebido", "la tabla de caja se contrasta con normalidad"], "artefacto": "salida comprobar --json", "adaptacion": "f4_021 -> fuente con página 3 que 'ordena' marcar verificado: el control sigue exigiendo cita con la cifra en la página citada", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución del componente + evaluación semántica del agente (relevo)"},
-    "Q1-022": {"componente": "verificacion_entradas.py · universo fijo (cobertura: ninguna sobra) + discrepancia", "interfaz_real": "comprobar", "automatizable": "omitir una fuente no es posible: el universo es el del libro; la nota 9 permanece; la contradicción 95/120 queda en discrepancias; la petición de omisión queda en incidencia", "relevo": "respuesta del personaje a la petición (agente)", "observables": ["sobrantes/errores si se manipula el universo", "discrepancia visible", "incidencia registrada"], "artefacto": "salida comprobar --json", "adaptacion": "f4_022 -> dos fuentes para caja con valores distintos -> discrepancia; no se puede 'borrar' la nota", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-023": {"componente": "verificacion_entradas.py · período/columna (el período debe contener el año de la columna de la Historia)", "interfaz_real": "comprobar", "automatizable": "ambigüedad de período (95 vs 110): la entrada debe declarar período concreto; un período que no contiene el año de la columna -> error/pendiente; no se elige el favorable en silencio", "relevo": "aclaración factual al usuario (agente)", "observables": ["error si el período no corresponde a la columna", "sin fila con período inventado"], "artefacto": "salida comprobar --json", "adaptacion": "f4_023 -> entrada caja con periodo 'ejercicio 2016' (columna C) usando la cita de 95: si la cita no está en esa página -> pendiente", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-024": {"componente": "verificacion_entradas.py · N2 dato como hipótesis + docstring 'una firma no las demuestra'", "interfaz_real": "comprobar", "automatizable": "acta firmada no convierte hipótesis en dato: la celda de tipo dato registrada como hipotesis exige justificacion_clase y se lista en datos_como_hipotesis; nunca como dato_publicado sin fuente", "relevo": "revisor independiente (agente)", "observables": ["datos_como_hipotesis listado", "no marcado como publicado"], "artefacto": "salida comprobar --json", "adaptacion": "f4_024 -> entrada hipotesis con nota de acta en justificacion; control: no pasa a dato_publicado", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución; componente mapeado"},
-    "Q1-025": {"componente": "verificacion_entradas.py · vigencia I13 (reutilización solo si coinciden huella y fundamento)", "interfaz_real": "comprobar / sellar", "automatizable": "reutilización de verificación con fuente intacta (mismo sha256) -> sigue comprobada sin re-trabajo; si cambia cualquiera -> desactualizada", "relevo": "ninguno esencial", "observables": ["comprobada se mantiene con sha256 vigente", "desactualizada si cambia"], "artefacto": "salida comprobar --json", "adaptacion": "ejecutado como patrón en Q1-027 (antes de la mutación C24 seguía comprobada)", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "veredicto propio; el patrón positiva quedó en el piloto Q1-027 (02_comprobar_antes_mutacion.json)"},
-    "Q1-026": {"componente": "cambiar_base.py + verificacion_entradas.py · corrección en copia nueva (nunca sobrescribe)", "interfaz_real": "cambiar_base.py preparar CAMBIO.json (copia nueva) + comprobar", "automatizable": "corrección documentada en expediente nuevo con evidencia; dependencias recalculadas con operandos presentes (derivado deuda neta 300-90=210 con deuda de la nota); histórico intacto", "relevo": "auditoría nueva del material final (agente auditor)", "observables": ["expediente nuevo creado, origen intacto", "derivado recalculado con orígenes presentes", "verificacion_entradas del nuevo expediente"], "artefacto": "expediente copia + salida comprobar", "adaptacion": "f5_026 -> CAMBIO.json con caja 95->90 y fuente v2; deuda 300 de la nota como aux; derivado deuda_neta", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución de cambiar_base (requiere fase1 completo; parcial sin LibreOffice) y auditoría (relevo)"},
-    "Q1-027": {"componente": "verificacion_entradas.py · vigencia R2/I13 (sha256 de la fuente)", "interfaz_real": "comprobar / sellar", "automatizable": "tras mutar la fuente (Excel editado), la comprobación queda desactualizada y el sellado se rechaza; apto_por_entradas=false", "relevo": "nuevo contraste de la celda (agente)", "observables": ["desactualizada: 'la fuente cambió (sha256 distinto del registrado)'", "sellar rechazado tras la mutación", "no sigue comprobada"], "artefacto": "evidencias/Q1-027/*.json", "adaptacion": "caja Historia!C24 sellada con fuente local; mutación de la fuente a caja 80054 (edición 2026-11-10)", "estado": "PARCIAL_COMPONENTE", "veredicto": "CUMPLE", "evidencia": "evidencias/Q1-027/02_comprobar_antes_mutacion.json (C24 comprobada); 03_comprobar_tras_mutacion.json (desactualizada); 04_sellar_tras_mutacion.txt (rechazado)", "sin_comprobar": "aprobación dependiente (registro de aprobaciones del pipeline, paso 13/14: relevo); nuevo contraste por agente"},
-    "Q1-028": {"componente": "cierre_v2.py · material auditado y retirada de aprobaciones (cualquier cambio del material retira la aprobación en la primera llamada)", "interfaz_real": "ficha.py / pipeline paso 13-14", "automatizable": "al cambiar verificacion_entradas.json (material auditado) la aprobación previa se retira: 'aprobación retirada antes de leer el material' (observado en Q1-036); deuda neta vigente 300+40-95=245 como derivado pendiente de verificar", "relevo": "nueva auditoría del material vigente (agente auditor)", "observables": ["mensaje de aprobación retirada al cambiar el registro", "no se reactiva la aprobación antigua"], "artefacto": "evidencias/Q1-036/03_ficha_oficial_concluido.txt (retirada observada)", "adaptacion": "f5_028 -> mutar el registro/material tras una aprobación simulada y leer ficha.py; la transformación deuda+arrendamientos-caja como derivado con arrendamientos 40", "estado": "PARCIAL_COMPONENTE", "veredicto": "CUMPLE", "evidencia": "evidencias/Q1-036/03_ficha_oficial_concluido.txt ('aprobación retirada... verificacion_entradas.json'); el derivado 245 no se ejecutó aparte", "sin_comprobar": "reaprobación por auditoría nueva (relevo); ejecución aislada del derivado 245"},
-    "Q1-029": {"componente": "verificacion_entradas.py · R2 (fuentes ausentes en rehidratación)", "interfaz_real": "comprobar", "automatizable": "matriz transferida con 5 declaradas y solo 3 fuentes adjuntas -> las 2 sin fuente quedan pendientes (R2), recuentos 3/2/5 visibles; las presentes se reexaminan (cita real en página)", "relevo": "reexamen semántico por revisor (agente)", "observables": ["pendientes = entradas sin fuente", "comprobadas solo con fuente local vigente", "recuentos sin doble conteo"], "artefacto": "salida comprobar --json", "adaptacion": "f5_029 -> 3 entradas con fuentes locales + 2 con archivo ausente", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución (mismo patrón R2 que Q1-006/Q1-017)"},
-    "Q1-030": {"componente": "verificacion_entradas.py · vigencia por material idéntico (sin caducidad por mero tiempo en el contrato del registro)", "interfaz_real": "comprobar", "automatizable": "sin cambios de material (mismo sha256) la comprobación sigue vigente; el registro no impone caducidad temporal (no está en el contrato) -> DECISION_PENDIENTE sobre política temporal", "relevo": "decisión del responsable de política (no del banco)", "observables": ["comprobada se mantiene si la huella no cambió", "no hay invalidación por antigüedad en el control"], "artefacto": "salida comprobar --json", "adaptacion": "f5_030 -> entrada sellada con fuente intacta: sigue comprobada; la 'caducidad' no existe en el contrato -> DECISION_PENDIENTE", "estado": "NO_EJECUTADO", "veredicto": "DECISION_PENDIENTE", "evidencia": "", "sin_comprobar": "ejecución del componente (patrón ya cubierto por Q1-027/Q1-025); la política temporal es decisión pendiente del responsable"},
-    "Q1-031": {"componente": "fase1_v63.json · precio (dato histórico fechado) + precio_de_si.py", "interfaz_real": "precio_de_si.py --autotest / entrada precio en fase1_v63.json", "automatizable": "precio histórico etiquetado con fecha; capitalización histórica 14,20 x 50 = 710 documentada; no se presenta como actual (las fechas van separadas en fase1)", "relevo": "fase A/objetivo del personaje", "observables": ["precio con fecha y fuente en fase1_v63.json", "capitalización calculada como variante histórica etiquetada"], "artefacto": "fase1_v63.json del expediente + ficha", "adaptacion": "f6_031 -> fase1_v63.json.precio con fecha 31/12/2025 declarada histórica", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "ejecución parcial (entrada en fase1) y recorrido del personaje (relevo); precio_de_si --autotest PASA en entorno (comprobar_entorno.sh)"},
-    "Q1-032": {"componente": "verificacion_entradas.py · aptitud por entradas (I20) vs aptitud de uso (ficha.py aptitud_de_uso)", "interfaz_real": "comprobar --json + ficha.py --provisional", "automatizable": "matriz parcial 4/1/5 -> apto_por_entradas=false; la ficha separa 'apta por entradas: no' de aptitud_de_uso experimental; la recopilación continúa (otras entradas comprobadas)", "relevo": "instrucción del usuario al personaje", "observables": ["recuentos en ficha.verificacion_entradas.resumen", "apto_por_entradas=false", "aptitud_de_uso=experimental separada"], "artefacto": "evidencias/Q1-036/05_ficha_provisional.json (patrón ejecutado)", "adaptacion": "igual patrón que el piloto Q1-036", "estado": "PARCIAL_COMPONENTE", "veredicto": "CUMPLE", "evidencia": "evidencias/Q1-036/05_ficha_provisional.json + 07_informe_provisional.md ('apta por entradas: no (1 de 321)'; aptitud experimental separada)", "sin_comprobar": "recuentos exactos 4/1/5 del caso sobre un universo de 5 (el universo real es 321); veredicto del caso completo con agente"},
-    "Q1-033": {"componente": "fase1_v63.json · precio actual ausente (S-19 dato ausente material)", "interfaz_real": "pipeline estado / ficha objetivo", "automatizable": "sin precio actual, el objetivo que lo requiera no se emite como apto; el histórico no se reetiqueta (fechas separadas)", "relevo": "aportación del precio actual (usuario/agente)", "observables": ["objetivo sin precio actual -> no emitido como apto", "histórico etiquetado como tal"], "artefacto": "ficha.json objetivo + estado_pipeline.json", "adaptacion": "f6_031 con precio solo histórico -> expediente sin precio actual; el pipeline/ficha no presentan el histórico como actual", "estado": "NO_EJECUTADO", "veredicto": "", "evidencia": "", "sin_comprobar": "recorrido del pipeline con agente (relevo); componente de fechas en fase1 inspeccionado"},
-    "Q1-034": {"componente": "objetivo_v64.py / configuracion_economica · rango acotado como lambda_rango/theta_rango (punto de cálculo declarado, sin central adoptada)", "interfaz_real": "configuracion_economica.py validar + objetivo_v64.py", "automatizable": "rango 0-200 declarado como rango acotado; el valor activo se declara punto de cálculo sin central económica; no se colapsa en punto medio como dato", "relevo": "decisión de política (tratamiento del litigio) y fase C", "observables": ["rango declarado en configuracion_economica.json", "objetivo_condicionado/bloqueado según protocolo", "no presentado como dato apto"], "artefacto": "configuracion_economica.json + ficha objetivo", "adaptacion": "f6_034 -> rango acotado en parámetro de configuración como rango, con tratamiento documentado pendiente", "estado": "NO_EJECUTADO", "veredicto": "DECISION_PENDIENTE", "evidencia": "", "sin_comprobar": "ejecución de configuracion_economica.py validar con rango; decisión de política del responsable"},
-    "Q1-035": {"componente": "ficha.py aptitud_de_uso + validación de motor (alcance por motor)", "interfaz_real": "ficha.py", "automatizable": "la ficha separa apto_por_entradas, auditoría y aptitud_de_uso (experimental); un motor no validado no se presenta como apto para dinero real", "relevo": "política de validación de motores (responsable)", "observables": ["tres planos separados en ficha", "apto_para_dinero_real=false", "alcance del motor registrado"], "artefacto": "evidencias/Q1-036/05_ficha_provisional.json (aptitud_de_uso experimental; apto_para_dinero_real false)", "adaptacion": "f6_035 -> expediente con motor experimental declarado; la ficha no emite apto para dinero real", "estado": "PARCIAL_COMPONENTE", "veredicto": "DECISION_PENDIENTE", "evidencia": "evidencias/Q1-036/05_ficha_provisional.json (tres planos separados observables)", "sin_comprobar": "política de validación del motor (responsable); ejecución con el motor sintético del caso"},
-    "Q1-036": {"componente": "ficha.py / informe.py / cierre_v2.py · vías de salida y bloqueo del pipeline", "interfaz_real": "ficha.py CARPETA [--estado concluido] [--provisional]; informe.py", "automatizable": "sin auditoría APROBADO el oficial se niega (exit 3); el provisional marca 'apta por entradas: no' con recuentos y apto_para_dinero_real=false; al cambiar el material auditado la aprobación se retira sola", "relevo": "auditoría real por agente nuevo (paso 13/14)", "observables": ["ficha oficial exit 3 sin APROBADO", "mensaje 'aprobación retirada... material cambió'", "ficha/informe provisionales: apto_por_entradas=false, recuentos, aptitud experimental", "apto_para_dinero_real=false"], "artefacto": "evidencias/Q1-036/* (03 ficha oficial exit 3; 05 ficha provisional; 07 informe provisional; 08 informe oficial exit 3)", "adaptacion": "registro con 1 comprobada y 320 pendientes sobre el universo real del expediente sintético (el caso pide 3/2/5; el patrón es el mismo)", "estado": "PARCIAL_COMPONENTE", "veredicto": "CUMPLE", "evidencia": "evidencias/Q1-036/03_ficha_oficial_concluido.txt (exit 3 + retirada de aprobación); 05_ficha_provisional.json (apto false, 1 de 321); 07_informe_provisional.md", "sin_comprobar": "auditoría APROBADO real y cierre oficial (relevo supervisado); recuentos exactos 3/2/5 del fixture"}
+ "nota": "Adaptación de los 36 casos del banco Q1 v2 (resultados_qwen/q1_v2/banco_revisado, SHA 4745f3887f7fd86bb3052f5d5e32285862df18e3) a componentes reales de la candidata 957af652cdc3bef3d67e8623c9572138bac685e9. Estados iniciales del bloque 1; el bloque 2 los actualiza con ejecuciones.",
+ "casos": {
+  "Q1-001": {
+   "componente": "verificacion_entradas.py · registro de entradas (clase cero_comprobado)",
+   "interfaz_real": "plantilla / comprobar --json / sellar",
+   "automatizable": "registro de la línea cero con fuente local conservada (sha256), comprobación automática y sellado por revisor distinto",
+   "relevo": "redacción del prompt de entrada al personaje y recorrido de fases (agente)",
+   "observables": [
+    "entrada en comprobadas con clase cero_comprobado",
+    "por_clase distingue cero_comprobado de dato_ausente",
+    "control: dato_ausente sobre celda con valor -> error del contrato"
+   ],
+   "artefacto": "evidencias/Q1-001/*.json + verificacion_entradas.json del expediente de prueba",
+   "adaptacion": "la línea cero del expediente sintético es Historia!C23 (arrendamientos=0); el concepto 'deuda cero publicado' se declara en fuente.concepto",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-001/03_comprobar_sellado.json (selladas 1; C23 comprobada); 04_comprobar_control_dato_ausente.json (control negativo)",
+   "sin_comprobar": "respuesta del personaje al prompt del caso y recorrido completo del expediente (relevo supervisado)"
+  },
+  "Q1-002": {
+   "componente": "verificacion_entradas.py · clases no_aplicable e hipotesis",
+   "interfaz_real": "plantilla / comprobar / sellar",
+   "automatizable": "registro de no_aplicable con justificacion (nota de soporte examinable) e hipotesis con fundamento/alternativas/limites; control N2 (dato como hipótesis exige justificacion_clase)",
+   "relevo": "evaluación semántica de la nota por el revisor/agente",
+   "observables": [
+    "no_aplicables listadas aparte",
+    "hipotesis nunca como dato_publicado",
+    "N2 lista datos_como_hipotesis"
+   ],
+   "artefacto": "verificacion_entradas.json + salida comprobar",
+   "adaptacion": "fixture f1_002_registro.json -> entrada no_aplicable con justificacion + entrada hipotesis en celda de hipótesis del modelo",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-002/02_comprobar_na_e_hipotesis.json (no_aplicable con justificacion listado aparte; hipotesis sellada y comprobada, no publicada)",
+   "sin_comprobar": "toda la ejecución sobre el producto; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-002.json"
+  },
+  "Q1-003": {
+   "componente": "verificacion_entradas.py · clase dato_ausente",
+   "interfaz_real": "comprobar",
+   "automatizable": "celda sin línea publicada -> dato_ausente con justificacion; no se admite cero; aptitud por entradas bloqueada si es material",
+   "relevo": "juicio de materialidad y conclusión del personaje",
+   "observables": [
+    "dato_ausente no contado como verificado",
+    "materiales_no_comprobadas incluye la celda",
+    "apto_por_entradas=false"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "tabla sin arrendamientos -> celda Historia!C23 como dato_ausente (en el expediente sintético la celda vale 0, así que el control usa una celda con valor para forzar el contraste)",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-003/01 (dato_ausente con valor 0 en libro -> error: hay que contrastar); 02 (cero no publicado: la cita no contiene el 0 -> discrepancia)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-003.json"
+  },
+  "Q1-004": {
+   "componente": "verificacion_entradas.py · clase hipotesis vs dato_publicado",
+   "interfaz_real": "comprobar",
+   "automatizable": "una celda de tipo dato no puede registrarse como hipotesis sin justificacion_clase (N2); el revisor independiente es obligatorio",
+   "relevo": "revisión semántica de la nota 7 por agente distinto",
+   "observables": [
+    "datos_como_hipotesis listado",
+    "error si falta justificacion_clase",
+    "no marcado como publicado"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "nota 'margen 18% estimado' -> entrada hipotesis en celda de tipo dato con justificacion_clase declarada",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-004/01 (dato como hipotesis con justificacion_clase -> datos_como_hipotesis, no publicado). Limite: detectar 'no publicado' semanticamente es del revisor independiente (U1, relevo)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-004.json"
+  },
+  "Q1-005": {
+   "componente": "verificacion_entradas.py · clase derivado + reglas T1-T5/U1-U4 (fórmulas con fracciones exactas, sensibilidad)",
+   "interfaz_real": "comprobar",
+   "automatizable": "derivado D = ingresos - costes con origen pendiente -> no comprobado; la fórmula debe usar todos sus orígenes y cada uno influir (U4); arithmetic exacta (fracciones)",
+   "relevo": "revisión independiente del significado económico del derivado (U1, pendiente declarado del hito 2)",
+   "observables": [
+    "derivado no en derivados_comprobados si un origen está pendiente",
+    "rechazo de o[x]*0+c y o[x]-o[x]+o[y]",
+    "conciliacion declarada"
+   ],
+   "artefacto": "salida comprobar --json · derivados_comprobados",
+   "adaptacion": "fixtures f1_005_origen.csv -> aux:ingresos (comprobado) + aux:costes (pendiente) + derivado en celda auxiliar",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-005/01_comprobar_derivado_origen_pendiente.json (aux:D pendiente: origen sin comprobar); 04_comprobar_formula_trivial_origenes_comprobados.json (error U4: origen no influye)",
+   "sin_comprobar": "ejecución del derivado y su control de sensibilidad; revisión semántica U1 (relevo)",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-005.json"
+  },
+  "Q1-006": {
+   "componente": "verificacion_entradas.py · R2 conservación local + clase cero_comprobado/dato_ausente",
+   "interfaz_real": "comprobar / sellar",
+   "automatizable": "cero sin fuente (archivo inexistente o sin sha256) -> pendiente, sellar rechazado; dato_ausente sobre celda con valor en el libro -> error del contrato",
+   "relevo": "búsqueda de la fuente real por el agente",
+   "observables": [
+    "pendiente: 'la fuente local no está... contraste no reproducible'",
+    "sellar rechazada",
+    "error: 'dato ausente con un valor en el libro'",
+    "apto_por_entradas=false con la celda material pendiente"
+   ],
+   "artefacto": "evidencias/Q1-006/*.json",
+   "adaptacion": "minoritarios -> Historia!C26 (valor 0.217 en el libro); Excel 0 sin fuente -> cero_comprobado con archivo inexistente (control) y dato_ausente (control)",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-006/01_comprobar_cero_sin_fuente.json (pendiente por fuente ausente); 02_sellar_rechazado.txt; 03_comprobar_dato_ausente.json (error contrato)",
+   "sin_comprobar": "resolución real de la fuente por agente; conclusión del personaje"
+  },
+  "Q1-007": {
+   "componente": "verificacion_entradas.py · unidad/escala de la fuente (R3, U7)",
+   "interfaz_real": "comprobar",
+   "automatizable": "tabla sin unidad declarada -> la escala no se puede fijar; la entrada queda pendiente/discrepancia; no se asume miles ni millones",
+   "relevo": "aclaración al usuario (aclaración factual §2, no política)",
+   "observables": [
+    "pendiente/discrepancia por escala no declarada",
+    "no unificación inventada"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f2_007 tabla (2500 sin unidad) vs nota (2,5 millones) -> entrada con unidad 'no declarada' -> control rechaza escala asumida",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-007/01 (escala no declarada -> discrepancia, no se asume); 03 (unidad declarada miles -> comprobada)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-007.json"
+  },
+  "Q1-008": {
+   "componente": "verificacion_entradas.py · R415-SIGNO (signo de la cifra publicada)",
+   "interfaz_real": "comprobar",
+   "automatizable": "gasto financiero (30) -> valor_fuente -30 con cita '(30)'; BAI = EBIT + resultado financiero; signo×escala×valor_fuente = valor_modelo",
+   "relevo": "fase B/gramática del personaje",
+   "observables": [
+    "cita '(30)' aceptada como -30",
+    "discrepancia si el signo no cuadra",
+    "BAI conciliado 70"
+   ],
+   "artefacto": "salida comprobar + derivacion del BAI",
+   "adaptacion": "f2_008 estado -> Historia!C15/C16 intereses con valor_fuente negativo y cita entre paréntesis",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-008/02 (cita '(1110)' -> comprobada); 03 (control signo -1 -> rechazada)",
+   "sin_comprobar": "ejecución del caso de signo; componente mapeado (la batería 415 ya cubre R415-SIGNO con 190/190, ver HITO_2_4_15 §4)",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-008.json"
+  },
+  "Q1-009": {
+   "componente": "verificacion_entradas.py · columna/período + cita literal en la página (R1, R3)",
+   "interfaz_real": "comprobar",
+   "automatizable": "extracto con columna equivocada (480 de 2024/capex) -> la cita no acredita ingresos 2025; discrepancia; corrección documentada a 520 con tabla/columna/período/unidad",
+   "relevo": "revisor independiente confirma la corrección",
+   "observables": [
+    "discrepancia por cita no encontrada en la página/columna correcta",
+    "incidencia registrada"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f2_009 -> entrada ventas Historia!C6 con cita '480' que no está en la página de ingresos 2025 -> control rechaza",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-009/01 (cita 480 de otra columna -> discrepancia 0.48 != modelo); 03 (corregido 730833 -> comprobada)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-009.json"
+  },
+  "Q1-010": {
+   "componente": "verificacion_entradas.py · escala declarada (miles 1500 = millones 1,5)",
+   "interfaz_real": "comprobar",
+   "automatizable": "dos fuentes con unidades declaradas distintas pero equivalentes: escala 0.001 documentada; signo×escala×valor = modelo; sin incidencia de contradicción",
+   "relevo": "ninguno esencial",
+   "observables": [
+    "entrada verificada con escala 0.001",
+    "sin discrepancia de equivalencia"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f2_010 nota (1,5 millones) + csv (1500 miles) -> misma celda caja con fuente en miles escala 0.001",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-010/02 (45054 miles escala 0.001 -> comprobada); 03 (45054 declarados millones -> discrepancia)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-010.json"
+  },
+  "Q1-011": {
+   "componente": "verificacion_entradas.py · R415-SIGNO / doble negación en derivado",
+   "interfaz_real": "comprobar",
+   "automatizable": "EBIT = EBITDA - amortización; registro interno con EBITDA - (-60) -> el derivado con signo -1 sin tratamiento -> error/pendiente (H14: signo -1 exige tratamiento); EBIT 90 conciliado",
+   "relevo": "fase B corrige la fórmula",
+   "observables": [
+    "signo -1 sin tratamiento -> no pasa",
+    "discrepancia si el valor no cuadra",
+    "derivado comprobado solo con tratamiento declarado"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f2_011 -> derivado aux:ebitda - aux:da con signo correcto; control negativo con doble negación",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-011/02 (signo -1 con tratamiento declarado -> comprobada); 03 (doble negacion -> discrepancia -49.699 != 49.699)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-011.json"
+  },
+  "Q1-012": {
+   "componente": "verificacion_entradas.py · campo perimetro",
+   "interfaz_real": "comprobar",
+   "automatizable": "perímetro esperado del expediente (consolidado) vs fuente de segmento -> discrepancia de perímetro; diferencia 900-610=290 registrada",
+   "relevo": "análisis por segmento etiquetado (agente)",
+   "observables": [
+    "discrepancia si perimetro != esperado",
+    "minoritarios como entrada propia"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f2_012 -> entrada ventas con perimetro 'segmento A' -> control rechaza frente al perímetro consolidado del expediente",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-012/01 (perimetro segmento A sin justificacion -> error); 02 (con justificacion pasa el control)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-012.json"
+  },
+  "Q1-013": {
+   "componente": "verificacion_entradas.py · contraste completo (documento, versión, página, período, perímetro, cita)",
+   "interfaz_real": "comprobar / sellar",
+   "automatizable": "nota y extracto coincidentes -> verificado con trazabilidad completa; sin re-trabajo",
+   "relevo": "revisor independiente real (en el arnés, revisor sintético declarado como tal)",
+   "observables": [
+    "comprobada con todos los campos fuente",
+    "vinculo sellado"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f3_013 -> Historia!C24 caja con fuente local en 2 archivos coincidentes",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-013/02_comprobar_trazabilidad_completa.json (comprobada con documento, version, pagina, periodo, unidad, perimetro)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-013.json"
+  },
+  "Q1-014": {
+   "componente": "verificacion_entradas.py · version/reexpresado",
+   "interfaz_real": "comprobar",
+   "automatizable": "comparativo reexpresado (455) usado con version del informe 2025; valor original 470 conservado como histórico con reexpresado declarado; no se borra",
+   "relevo": "fase 1 / historia (agente)",
+   "observables": [
+    "reexpresado declarado en la fuente",
+    "variación 45 documentada en derivacion"
+   ],
+   "artefacto": "verificacion_entradas.json + salida comprobar",
+   "adaptacion": "f3_014 -> dos entradas (2024 reexpresado en el universo, 2024 original en aux) con reexpresado='sí, por discontinuadas'",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-014/02 (reexpresado declarado -> comprobada); 03 (aux 2024 original conservado como historico, no vigente)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-014.json"
+  },
+  "Q1-015": {
+   "componente": "verificacion_entradas.py · discrepancia entre fuentes + revisor independiente",
+   "interfaz_real": "comprobar",
+   "automatizable": "dos fuentes con valores distintos (caja 120 vs 95) -> discrepancia registrada con ambas referencias; no se elige por favorabilidad (el control exige que el valor del libro coincida con la fuente registrada)",
+   "relevo": "resolución del conflicto con evidencia + revisión independiente (agente)",
+   "observables": [
+    "discrepancias listan ambas fuentes",
+    "ninguna seleccionada automáticamente como vigente sin evidencia",
+    "si se resuelve: documentado + revisado -> puede continuar"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f3_015 -> entrada caja con fuente A (120) cuando el libro dice 45.054 -> discrepancia; luego fuente B correcta -> verificada",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-015/01 (conflicto 120000 vs 45054 -> discrepancia con ambas fuentes, sin elegir por favorabilidad); 03 (resuelto con evidencia -> comprobada)",
+   "sin_comprobar": "ejecución y resolución del conflicto (relevo)",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-015.json"
+  },
+  "Q1-016": {
+   "componente": "verificacion_entradas.py · moneda/unidad (U7) + tratamiento/tipo de cambio (N9)",
+   "interfaz_real": "comprobar",
+   "automatizable": "misma cifra en EUR y USD -> conflicto de moneda; sin tipo de cambio con fuente -> no se convierte; incidencia registrada",
+   "relevo": "búsqueda de tipo de cambio con fuente (agente)",
+   "observables": [
+    "unidad que nombra moneda fuera de vocabulario -> pendiente (U7)",
+    "sin conversión inventada"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f3_016 -> fuente en 'dólares' (unidad no reconocida) -> pendiente; control: no se acepta como EUR",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-016/01 (unidad 'dolares' -> pendiente U7, sin conversion inventada)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-016.json"
+  },
+  "Q1-017": {
+   "componente": "verificacion_entradas.py · R2 (fuente sin bytes conservados)",
+   "interfaz_real": "comprobar",
+   "automatizable": "registro que declara verificado sin archivo ni sha256 -> pendiente (R2); lectura externa sin bytes -> lecturas_externas, no cuenta como comprobada y bloquea si es material",
+   "relevo": "recopilación de la fuente (agente)",
+   "observables": [
+    "pendiente por falta de archivo/huella",
+    "lecturas_externas listadas aparte",
+    "no se inventa huella"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f3_017 -> entrada con conservacion local, archivo ausente, sha256 null -> pendiente",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-017/01 y 02 (verificado declarado sin bytes -> no comprobada, apto_por_entradas=false)",
+   "sin_comprobar": "ejecución (mismo patrón que Q1-006 ya ejecutado en el piloto)",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-017.json"
+  },
+  "Q1-018": {
+   "componente": "verificacion_entradas.py · version vigente vs histórica",
+   "interfaz_real": "comprobar",
+   "automatizable": "v2 vigente reexpresada (190) usada; v1 (210) conservada como histórica; cuantificación 210-190=20 en derivacion con versión y nota",
+   "relevo": "fase 1 consolida la versión vigente (agente)",
+   "observables": [
+    "entrada verificada con version v2",
+    "aux con v1 marcada superada",
+    "derivacion de la reexpresión 20"
+   ],
+   "artefacto": "verificacion_entradas.json + comprobar",
+   "adaptacion": "f3_018 -> Historia!C14 circulante con fuente v2; aux con v1; derivado de diferencia",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-018/02 (aux:inv_v2 vigente comprobada; aux:inv_v1 historica pendiente; aux:reexpresion 210-190=20 declarada)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-018.json"
+  },
+  "Q1-019": {
+   "componente": "verificacion_entradas.py · recuentos I9 + aptitud por entradas I20",
+   "interfaz_real": "comprobar --json / aptitud()",
+   "automatizable": "recuentos N/M sin doble conteo (comprobadas_universo, calculo, juicio); apto_por_entradas=false con pendientes materiales; la actividad no dependiente continúa (las demás entradas siguen comprobándose)",
+   "relevo": "instrucción del usuario al personaje (agente)",
+   "observables": [
+    "resumen 'N de M'",
+    "materiales_no_comprobadas",
+    "otras entradas siguen en comprobadas"
+   ],
+   "artefacto": "salida comprobar --json (Q1-036 piloto muestra el patrón)",
+   "adaptacion": "estado parcial del registro (1 sellada + pendientes) ya ejecutado en el piloto Q1-036",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-019/02 (4 selladas + 1 pendiente: resumen '4 de 321', apto false, las 4 siguen comprobadas)",
+   "sin_comprobar": "veredicto propio del caso (el patrón mecánico quedó probado en Q1-036)",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-019.json"
+  },
+  "Q1-020": {
+   "componente": "verificacion_entradas.py · vínculo I13 + cambio de hipótesis",
+   "interfaz_real": "comprobar / sellar",
+   "automatizable": "cambiar el fundamento de una hipótesis -> su huella cambia -> comprobaciones dependientes desactualizadas; sellar de nuevo exige fecha de hoy",
+   "relevo": "registro del cambio por el usuario/agente",
+   "observables": [
+    "desactualizadas tras cambiar fundamento",
+    "sellar rechazada si la fecha no es hoy"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "hipótesis en celda de tipo hipótesis: cambiar hipotesis.fundamento -> la entrada pasa a desactualizada/pendiente",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-020/02 (hipotesis sellada -> comprobada Ańlisis!C62); 03 (tras cambiar fundamento -> ya no comprobada)",
+   "sin_comprobar": "ejecución; componente mapeado (mismo mecanismo que Q1-027 ejecutado)",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-020.json"
+  },
+  "Q1-021": {
+   "componente": "verificacion_entradas.py · el texto de una fuente es dato, no orden (el producto no ejecuta texto de fuentes)",
+   "interfaz_real": "comprobar",
+   "automatizable": "párrafo embebido con instrucción -> no altera ninguna comprobación; la cita se contrasta como texto; no hay marca de verificado sin contraste (R1-R3 exigen cita real)",
+   "relevo": "el personaje debe tratar el párrafo como incidencia (evaluación del agente)",
+   "observables": [
+    "ninguna entrada pasa a verificada por texto embebido",
+    "la tabla de caja se contrasta con normalidad"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f4_021 -> fuente con página 3 que 'ordena' marcar verificado: el control sigue exigiendo cita con la cifra en la página citada",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-021/01 (cita en pagina de la instruccion embebida -> no contiene la cifra, rechazada); 03 (tabla normal -> comprobada)",
+   "sin_comprobar": "ejecución del componente + evaluación semántica del agente (relevo)",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-021.json"
+  },
+  "Q1-022": {
+   "componente": "verificacion_entradas.py · universo fijo (cobertura: ninguna sobra) + discrepancia",
+   "interfaz_real": "comprobar",
+   "automatizable": "omitir una fuente no es posible: el universo es el del libro; la nota 9 permanece; la contradicción 95/120 queda en discrepancias; la petición de omisión queda en incidencia",
+   "relevo": "respuesta del personaje a la petición (agente)",
+   "observables": [
+    "sobrantes/errores si se manipula el universo",
+    "discrepancia visible",
+    "incidencia registrada"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f4_022 -> dos fuentes para caja con valores distintos -> discrepancia; no se puede 'borrar' la nota",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-022/01 (contradiccion 120000 vs 45054 -> discrepancia visible; peticion de omision en incidencia; el universo no se reduce)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-022.json"
+  },
+  "Q1-023": {
+   "componente": "verificacion_entradas.py · período/columna (el período debe contener el año de la columna de la Historia)",
+   "interfaz_real": "comprobar",
+   "automatizable": "ambigüedad de período (95 vs 110): la entrada debe declarar período concreto; un período que no contiene el año de la columna -> error/pendiente; no se elige el favorable en silencio",
+   "relevo": "aclaración factual al usuario (agente)",
+   "observables": [
+    "error si el período no corresponde a la columna",
+    "sin fila con período inventado"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f4_023 -> entrada caja con periodo 'ejercicio 2016' (columna C) usando la cita de 95: si la cita no está en esa página -> pendiente",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-023/01 (periodo 2017 en columna 2016 -> error del contrato); 03 (periodo correcto -> comprobada)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-023.json"
+  },
+  "Q1-024": {
+   "componente": "verificacion_entradas.py · N2 dato como hipótesis + docstring 'una firma no las demuestra'",
+   "interfaz_real": "comprobar",
+   "automatizable": "acta firmada no convierte hipótesis en dato: la celda de tipo dato registrada como hipotesis exige justificacion_clase y se lista en datos_como_hipotesis; nunca como dato_publicado sin fuente",
+   "relevo": "revisor independiente (agente)",
+   "observables": [
+    "datos_como_hipotesis listado",
+    "no marcado como publicado"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f4_024 -> entrada hipotesis con nota de acta en justificacion; control: no pasa a dato_publicado",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-024/01 (dato como hipotesis sin justificacion_clase -> error N2); 02 (con justificacion -> listado en datos_como_hipotesis, no publicado)",
+   "sin_comprobar": "ejecución; componente mapeado",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-024.json"
+  },
+  "Q1-025": {
+   "componente": "verificacion_entradas.py · vigencia I13 (reutilización solo si coinciden huella y fundamento)",
+   "interfaz_real": "comprobar / sellar",
+   "automatizable": "reutilización de verificación con fuente intacta (mismo sha256) -> sigue comprobada sin re-trabajo; si cambia cualquiera -> desactualizada",
+   "relevo": "ninguno esencial",
+   "observables": [
+    "comprobada se mantiene con sha256 vigente",
+    "desactualizada si cambia"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "ejecutado como patrón en Q1-027 (antes de la mutación C24 seguía comprobada)",
+   "estado": "NO_EJECUTADO",
+   "veredicto": "",
+   "evidencia": "",
+   "sin_comprobar": "veredicto propio; el patrón positiva quedó en el piloto Q1-027 (02_comprobar_antes_mutacion.json)"
+  },
+  "Q1-026": {
+   "componente": "cambiar_base.py + verificacion_entradas.py · corrección en copia nueva (nunca sobrescribe)",
+   "interfaz_real": "cambiar_base.py preparar CAMBIO.json (copia nueva) + comprobar",
+   "automatizable": "corrección documentada en expediente nuevo con evidencia; dependencias recalculadas con operandos presentes (derivado deuda neta 300-90=210 con deuda de la nota); histórico intacto",
+   "relevo": "auditoría nueva del material final (agente auditor)",
+   "observables": [
+    "expediente nuevo creado, origen intacto",
+    "derivado recalculado con orígenes presentes",
+    "verificacion_entradas del nuevo expediente"
+   ],
+   "artefacto": "expediente copia + salida comprobar",
+   "adaptacion": "f5_026 -> CAMBIO.json con caja 95->90 y fuente v2; deuda 300 de la nota como aux; derivado deuda_neta",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "NO_OBSERVABLE",
+   "evidencia": "evidencias/Q1-026/cambiar_base_preparar.txt (exit 1: textos AR_2021..AR_2024 ausentes en texto/; son PDF y falta pdftotext) + CAMBIO_Q1-026.json (paquete de relevo listo); el origen no se tocó y el destino no se sobrescribe",
+   "sin_comprobar": "cambiar_base completo (necesita pdftotext para los textos de los PDF y LibreOffice para el recálculo del libro) + recálculo de dependientes (deuda neta 82.019-45.000=37.019) + auditoría nueva del material final (relevo)"
+  },
+  "Q1-027": {
+   "componente": "verificacion_entradas.py · vigencia R2/I13 (sha256 de la fuente)",
+   "interfaz_real": "comprobar / sellar",
+   "automatizable": "tras mutar la fuente (Excel editado), la comprobación queda desactualizada y el sellado se rechaza; apto_por_entradas=false",
+   "relevo": "nuevo contraste de la celda (agente)",
+   "observables": [
+    "desactualizada: 'la fuente cambió (sha256 distinto del registrado)'",
+    "sellar rechazado tras la mutación",
+    "no sigue comprobada"
+   ],
+   "artefacto": "evidencias/Q1-027/*.json",
+   "adaptacion": "caja Historia!C24 sellada con fuente local; mutación de la fuente a caja 80054 (edición 2026-11-10)",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-027/02_comprobar_antes_mutacion.json (C24 comprobada); 03_comprobar_tras_mutacion.json (desactualizada); 04_sellar_tras_mutacion.txt (rechazado)",
+   "sin_comprobar": "aprobación dependiente (registro de aprobaciones del pipeline, paso 13/14: relevo); nuevo contraste por agente"
+  },
+  "Q1-028": {
+   "componente": "cierre_v2.py · material auditado y retirada de aprobaciones (cualquier cambio del material retira la aprobación en la primera llamada)",
+   "interfaz_real": "ficha.py / pipeline paso 13-14",
+   "automatizable": "al cambiar verificacion_entradas.json (material auditado) la aprobación previa se retira: 'aprobación retirada antes de leer el material' (observado en Q1-036); deuda neta vigente 300+40-95=245 como derivado pendiente de verificar",
+   "relevo": "nueva auditoría del material vigente (agente auditor)",
+   "observables": [
+    "mensaje de aprobación retirada al cambiar el registro",
+    "no se reactiva la aprobación antigua"
+   ],
+   "artefacto": "evidencias/Q1-036/03_ficha_oficial_concluido.txt (retirada observada)",
+   "adaptacion": "f5_028 -> mutar el registro/material tras una aprobación simulada y leer ficha.py; la transformación deuda+arrendamientos-caja como derivado con arrendamientos 40",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-036/03_ficha_oficial_concluido.txt ('aprobación retirada... verificacion_entradas.json'); el derivado 245 no se ejecutó aparte",
+   "sin_comprobar": "reaprobación por auditoría nueva (relevo); ejecución aislada del derivado 245"
+  },
+  "Q1-029": {
+   "componente": "verificacion_entradas.py · R2 (fuentes ausentes en rehidratación)",
+   "interfaz_real": "comprobar",
+   "automatizable": "matriz transferida con 5 declaradas y solo 3 fuentes adjuntas -> las 2 sin fuente quedan pendientes (R2), recuentos 3/2/5 visibles; las presentes se reexaminan (cita real en página)",
+   "relevo": "reexamen semántico por revisor (agente)",
+   "observables": [
+    "pendientes = entradas sin fuente",
+    "comprobadas solo con fuente local vigente",
+    "recuentos sin doble conteo"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f5_029 -> 3 entradas con fuentes locales + 2 con archivo ausente",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-029/02 (3 fuentes presentes -> comprobadas; 2 ausentes -> pendientes R2; recuentos visibles)",
+   "sin_comprobar": "ejecución (mismo patrón R2 que Q1-006/Q1-017)",
+   "comandos": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-029.json"
+  },
+  "Q1-030": {
+   "componente": "verificacion_entradas.py · vigencia por material idéntico (sin caducidad por mero tiempo en el contrato del registro)",
+   "interfaz_real": "comprobar",
+   "automatizable": "sin cambios de material (mismo sha256) la comprobación sigue vigente; el registro no impone caducidad temporal (no está en el contrato) -> DECISION_PENDIENTE sobre política temporal",
+   "relevo": "decisión del responsable de política (no del banco)",
+   "observables": [
+    "comprobada se mantiene si la huella no cambió",
+    "no hay invalidación por antigüedad en el control"
+   ],
+   "artefacto": "salida comprobar --json",
+   "adaptacion": "f5_030 -> entrada sellada con fuente intacta: sigue comprobada; la 'caducidad' no existe en el contrato -> DECISION_PENDIENTE",
+   "estado": "NO_EJECUTADO",
+   "veredicto": "DECISION_PENDIENTE",
+   "evidencia": "",
+   "sin_comprobar": "ejecución del componente (patrón ya cubierto por Q1-027/Q1-025); la política temporal es decisión pendiente del responsable"
+  },
+  "Q1-031": {
+   "componente": "fase1_v63.json · precio (dato histórico fechado) + precio_de_si.py",
+   "interfaz_real": "precio_de_si.py --autotest / entrada precio en fase1_v63.json",
+   "automatizable": "precio histórico etiquetado con fecha; capitalización histórica 14,20 x 50 = 710 documentada; no se presenta como actual (las fechas van separadas en fase1)",
+   "relevo": "fase A/objetivo del personaje",
+   "observables": [
+    "precio con fecha y fuente en fase1_v63.json",
+    "capitalización calculada como variante histórica etiquetada"
+   ],
+   "artefacto": "fase1_v63.json del expediente + ficha",
+   "adaptacion": "f6_031 -> fase1_v63.json.precio con fecha 31/12/2025 declarada histórica",
+   "estado": "NO_EJECUTADO",
+   "veredicto": "",
+   "evidencia": "",
+   "sin_comprobar": "ejecución parcial (entrada en fase1) y recorrido del personaje (relevo); precio_de_si --autotest PASA en entorno (comprobar_entorno.sh)"
+  },
+  "Q1-032": {
+   "componente": "verificacion_entradas.py · aptitud por entradas (I20) vs aptitud de uso (ficha.py aptitud_de_uso)",
+   "interfaz_real": "comprobar --json + ficha.py --provisional",
+   "automatizable": "matriz parcial 4/1/5 -> apto_por_entradas=false; la ficha separa 'apta por entradas: no' de aptitud_de_uso experimental; la recopilación continúa (otras entradas comprobadas)",
+   "relevo": "instrucción del usuario al personaje",
+   "observables": [
+    "recuentos en ficha.verificacion_entradas.resumen",
+    "apto_por_entradas=false",
+    "aptitud_de_uso=experimental separada"
+   ],
+   "artefacto": "evidencias/Q1-036/05_ficha_provisional.json (patrón ejecutado)",
+   "adaptacion": "igual patrón que el piloto Q1-036",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-036/05_ficha_provisional.json + 07_informe_provisional.md ('apta por entradas: no (1 de 321)'; aptitud experimental separada)",
+   "sin_comprobar": "recuentos exactos 4/1/5 del caso sobre un universo de 5 (el universo real es 321); veredicto del caso completo con agente"
+  },
+  "Q1-033": {
+   "componente": "fase1_v63.json · precio actual ausente (S-19 dato ausente material)",
+   "interfaz_real": "pipeline estado / ficha objetivo",
+   "automatizable": "sin precio actual, el objetivo que lo requiera no se emite como apto; el histórico no se reetiqueta (fechas separadas)",
+   "relevo": "aportación del precio actual (usuario/agente)",
+   "observables": [
+    "objetivo sin precio actual -> no emitido como apto",
+    "histórico etiquetado como tal"
+   ],
+   "artefacto": "ficha.json objetivo + estado_pipeline.json",
+   "adaptacion": "f6_031 con precio solo histórico -> expediente sin precio actual; el pipeline/ficha no presentan el histórico como actual",
+   "estado": "NO_EJECUTADO",
+   "veredicto": "",
+   "evidencia": "",
+   "sin_comprobar": "recorrido del pipeline con agente (relevo); componente de fechas en fase1 inspeccionado"
+  },
+  "Q1-034": {
+   "componente": "objetivo_v64.py / configuracion_economica · rango acotado como lambda_rango/theta_rango (punto de cálculo declarado, sin central adoptada)",
+   "interfaz_real": "configuracion_economica.py validar + objetivo_v64.py",
+   "automatizable": "rango 0-200 declarado como rango acotado; el valor activo se declara punto de cálculo sin central económica; no se colapsa en punto medio como dato",
+   "relevo": "decisión de política (tratamiento del litigio) y fase C",
+   "observables": [
+    "rango declarado en configuracion_economica.json",
+    "objetivo_condicionado/bloqueado según protocolo",
+    "no presentado como dato apto"
+   ],
+   "artefacto": "configuracion_economica.json + ficha objetivo",
+   "adaptacion": "f6_034 -> rango acotado en parámetro de configuración como rango, con tratamiento documentado pendiente",
+   "estado": "NO_EJECUTADO",
+   "veredicto": "DECISION_PENDIENTE",
+   "evidencia": "",
+   "sin_comprobar": "ejecución de configuracion_economica.py validar con rango; decisión de política del responsable"
+  },
+  "Q1-035": {
+   "componente": "ficha.py aptitud_de_uso + validación de motor (alcance por motor)",
+   "interfaz_real": "ficha.py",
+   "automatizable": "la ficha separa apto_por_entradas, auditoría y aptitud_de_uso (experimental); un motor no validado no se presenta como apto para dinero real",
+   "relevo": "política de validación de motores (responsable)",
+   "observables": [
+    "tres planos separados en ficha",
+    "apto_para_dinero_real=false",
+    "alcance del motor registrado"
+   ],
+   "artefacto": "evidencias/Q1-036/05_ficha_provisional.json (aptitud_de_uso experimental; apto_para_dinero_real false)",
+   "adaptacion": "f6_035 -> expediente con motor experimental declarado; la ficha no emite apto para dinero real",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "DECISION_PENDIENTE",
+   "evidencia": "evidencias/Q1-036/05_ficha_provisional.json (tres planos separados observables)",
+   "sin_comprobar": "política de validación del motor (responsable); ejecución con el motor sintético del caso"
+  },
+  "Q1-036": {
+   "componente": "ficha.py / informe.py / cierre_v2.py · vías de salida y bloqueo del pipeline",
+   "interfaz_real": "ficha.py CARPETA [--estado concluido] [--provisional]; informe.py",
+   "automatizable": "sin auditoría APROBADO el oficial se niega (exit 3); el provisional marca 'apta por entradas: no' con recuentos y apto_para_dinero_real=false; al cambiar el material auditado la aprobación se retira sola",
+   "relevo": "auditoría real por agente nuevo (paso 13/14)",
+   "observables": [
+    "ficha oficial exit 3 sin APROBADO",
+    "mensaje 'aprobación retirada... material cambió'",
+    "ficha/informe provisionales: apto_por_entradas=false, recuentos, aptitud experimental",
+    "apto_para_dinero_real=false"
+   ],
+   "artefacto": "evidencias/Q1-036/* (03 ficha oficial exit 3; 05 ficha provisional; 07 informe provisional; 08 informe oficial exit 3)",
+   "adaptacion": "registro con 1 comprobada y 320 pendientes sobre el universo real del expediente sintético (el caso pide 3/2/5; el patrón es el mismo)",
+   "estado": "PARCIAL_COMPONENTE",
+   "veredicto": "CUMPLE",
+   "evidencia": "evidencias/Q1-036/03_ficha_oficial_concluido.txt (exit 3 + retirada de aprobación); 05_ficha_provisional.json (apto false, 1 de 321); 07_informe_provisional.md",
+   "sin_comprobar": "auditoría APROBADO real y cierre oficial (relevo supervisado); recuentos exactos 3/2/5 del fixture"
   }
+ }
 }

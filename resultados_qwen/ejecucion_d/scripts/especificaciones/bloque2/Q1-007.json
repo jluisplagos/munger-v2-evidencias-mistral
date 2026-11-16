@@ -1,0 +1,88 @@
+{
+ "id": "Q1-007",
+ "descripcion": "Tabla sin unidad declarada: no se puede fijar la escala; control positivo con unidad declarada (miles) que sí verifica.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f2_007_tabla.txt",
+   "paginas": [
+    "Tabla 1 pág.1, unidad NO declarada, consolidado: ingresos 2025=2500; 2024=2400."
+   ]
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f2_007_nota.txt",
+   "paginas": [
+    "Portada del informe sintético.",
+    "Nota 1: ingresos 2025 = 730833 miles de euros (unidad declarada, consolidado)."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C6",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Tabla sintética ES-2 (f2_007_tabla)",
+    "archivo": "fuentes_sinteticas/f2_007_tabla.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "ingresos 2025",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "sin unidad declarada",
+    "escala": 1,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 2500,
+    "cita": "Tabla 1: ingresos 2025=2500 (unidad NO declarada)"
+   },
+   "incidencia": "unidad no declarada: no se puede fijar si 2500 son miles o millones"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_escala_no_declarada.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C6",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Nota sintética ES-2 (f2_007_nota)",
+    "archivo": "fuentes_sinteticas/f2_007_nota.txt",
+    "version": "sintética v1",
+    "pagina": 2,
+    "ubicacion": "tabla sintética",
+    "concepto": "ingresos 2025",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 730833,
+    "cita": "Nota 1: ingresos 2025 = 730833 miles de euros (unidad declarada, consolidado)"
+   }
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C6"
+   ],
+   "guardar": "02_sellar_unidad_declarada.txt"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "03_comprobar_unidad_declarada.json"
+  }
+ ]
+}

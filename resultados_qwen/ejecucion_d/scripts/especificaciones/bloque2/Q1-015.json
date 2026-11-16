@@ -1,0 +1,88 @@
+{
+ "id": "Q1-015",
+ "descripcion": "Conflicto Excel 120 vs nota 95 (adaptado: 120000 vs 45054 miles): discrepancia registrada con ambas fuentes; no se elige por favorabilidad; corregida con evidencia -> verificada.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f3_015_excel.txt",
+   "paginas": [
+    "caja,120000 (miles, ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f3_015_nota.txt",
+   "paginas": [
+    "Nota 4 pág.2: caja = 45054 miles EUR consolidado; deuda 82019 miles."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Excel sintético (f3_015_excel)",
+    "archivo": "fuentes_sinteticas/f3_015_excel.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "caja (Excel)",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 120000,
+    "cita": "caja,120000 (miles, ejercicio 2016)"
+   },
+   "incidencia": "CONFLICTO: Excel dice caja 120000 miles y la nota 45054 miles; registradas ambas fuentes; no se elige por favorabilidad"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_conflicto.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Nota sintética (f3_015_nota)",
+    "archivo": "fuentes_sinteticas/f3_015_nota.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "caja (nota vigente con evidencia)",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 45054,
+    "cita": "Nota 4 pág.2: caja = 45054 miles EUR consolidado"
+   },
+   "incidencia": "resolución con evidencia: la nota es la fuente vigente; deuda neta 82019-45054=36965 miles documentada"
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C24"
+   ],
+   "guardar": "02_sellar_resuelto.txt"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "03_comprobar_resuelto.json"
+  }
+ ]
+}

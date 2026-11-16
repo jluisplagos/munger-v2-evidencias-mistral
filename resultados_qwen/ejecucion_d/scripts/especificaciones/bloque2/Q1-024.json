@@ -1,0 +1,53 @@
+{
+ "id": "Q1-024",
+ "descripcion": "Acta firmada no convierte hipótesis en dato (N2): celda de tipo dato registrada como hipotesis sin justificacion_clase -> error; con ella -> listada en datos_como_hipotesis.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f4_024_acta.txt",
+   "paginas": [
+    "Acta: el director firma el margen objetivo como dato; su origen es una hipótesis interna no publicada."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C7",
+   "clase": "hipotesis",
+   "comprobacion": "verificada",
+   "hipotesis": {
+    "fundamento": "margen estimado por el analista (acta firmada f4_024: la firma es aprobación interna, no publicación)",
+    "alternativas": [
+     "margen publicado de la sociedad"
+    ],
+    "limites": "no publicado"
+   },
+   "incidencia": "acta firmada registrada como evidencia de aprobación interna, no de publicación"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_dato_como_hipotesis_sin_justificacion.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C7",
+   "clase": "hipotesis",
+   "comprobacion": "verificada",
+   "hipotesis": {
+    "fundamento": "margen estimado por el analista (acta firmada f4_024)",
+    "alternativas": [
+     "margen publicado"
+    ],
+    "limites": "no publicado"
+   },
+   "justificacion_clase": "celda de tipo dato presentada como hipótesis: la firma no la demuestra (contrato de hipótesis)",
+   "incidencia": "acta firmada: aprobación interna, no publicación"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_dato_como_hipotesis_listado.json"
+  }
+ ]
+}

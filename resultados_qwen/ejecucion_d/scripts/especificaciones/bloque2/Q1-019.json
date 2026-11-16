@@ -1,0 +1,180 @@
+{
+ "id": "Q1-019",
+ "descripcion": "Estado parcial 4 verificadas / 1 pendiente: 4 celdas selladas y 1 pendiente material -> recuentos visibles, apto_por_entradas=false, las 4 siguen comprobadas (la actividad no dependiente continúa).",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f4_019_f1.txt",
+   "paginas": [
+    "caja = 45054 miles de euros (2016, consolidado)."
+   ]
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f4_019_f2.txt",
+   "paginas": [
+    "deuda = 82019 miles de euros (2016, consolidado)."
+   ]
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f4_019_f3.txt",
+   "paginas": [
+    "ingresos = 730833 miles de euros (2016, consolidado)."
+   ]
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f4_019_f4.txt",
+   "paginas": [
+    "capex = 80747 miles de euros (2016, consolidado)."
+   ]
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f4_019_nota_minoritarios.txt",
+   "paginas": [
+    "Tabla 4: no publica minoritarios ni nota asociada."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Fuente sintética (f4_019_f1.txt)",
+    "archivo": "fuentes_sinteticas/f4_019_f1.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "caja",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 45054,
+    "cita": "caja = 45054 miles de euros (2016, consolidado)"
+   }
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C22",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Fuente sintética (f4_019_f2.txt)",
+    "archivo": "fuentes_sinteticas/f4_019_f2.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "deuda financiera",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 82019,
+    "cita": "deuda = 82019 miles de euros (2016, consolidado)"
+   }
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C6",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Fuente sintética (f4_019_f3.txt)",
+    "archivo": "fuentes_sinteticas/f4_019_f3.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "ingresos",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 730833,
+    "cita": "ingresos = 730833 miles de euros (2016, consolidado)"
+   }
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C12",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Fuente sintética (f4_019_f4.txt)",
+    "archivo": "fuentes_sinteticas/f4_019_f4.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "capex",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 80747,
+    "cita": "capex = 80747 miles de euros (2016, consolidado)"
+   }
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C26",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Fuente sintética (NO_ADJUNTA.txt)",
+    "archivo": "fuentes_sinteticas/NO_ADJUNTA.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "minoritarios",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 217,
+    "cita": "minoritarios 217",
+    "sha256": null
+   },
+   "incidencia": "minoritarios sin fuente (pendiente material): la valoración no es admisible; el resto continúa"
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C24",
+    "Historia!C22",
+    "Historia!C6",
+    "Historia!C12"
+   ],
+   "guardar": "01_sellar_4.txt"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_parcial_4_1.json"
+  }
+ ]
+}

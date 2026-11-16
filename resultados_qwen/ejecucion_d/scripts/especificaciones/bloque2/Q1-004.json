@@ -1,0 +1,35 @@
+{
+ "id": "Q1-004",
+ "descripcion": "Margen estimado por el analista usado como dato publicado: la celda de dato no puede presentarse como dato_publicado sin fuente publicada; como hipotesis con justificacion_clase queda listada (N2). Límite: detectar semánticamente 'no publicado' es del revisor independiente (U1), no del control mecánico.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f1_004_nota.txt",
+   "paginas": [
+    "Nota 7: margen EBITDA 18% estimado por el analista interno; no publicado por la sociedad."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C7",
+   "clase": "hipotesis",
+   "comprobacion": "verificada",
+   "hipotesis": {
+    "fundamento": "margen 18% estimado por el analista (nota 7, f1_004_nota.txt): estimación interna, no publicada",
+    "alternativas": [
+     "margen publicado de la sociedad"
+    ],
+    "limites": "no es dato publicado"
+   },
+   "justificacion_clase": "celda de dato presentada como hipótesis con fundamento de estimación interna (N2)",
+   "incidencia": "Q1-004: la nota declara estimación interna; la matriz no lo marca como publicado"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_hipotesis_listada.json"
+  }
+ ]
+}

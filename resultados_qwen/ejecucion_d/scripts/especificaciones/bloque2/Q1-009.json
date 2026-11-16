@@ -1,0 +1,81 @@
+{
+ "id": "Q1-009",
+ "descripcion": "Cita con dígitos de otra columna: 480 no acredita ingresos 2025; la cita declarada no está en la página citada y el valor no cuadra.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f2_009_tablas.txt",
+   "paginas": [
+    "Tabla A pág.1 miles de euros: ingresos 2025=730833, 2024=480000.",
+    "Tabla B pág.4 miles de euros: capex 2025=480."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C6",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Extracto sintético (f2_009_extracto)",
+    "archivo": "fuentes_sinteticas/f2_009_tablas.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "ingresos 2025",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 480,
+    "cita": "ingresos 2025 = 480 (columna equivocada del extracto)"
+   }
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_cita_columna_equivocada.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C6",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Tabla A (f2_009_tablas)",
+    "archivo": "fuentes_sinteticas/f2_009_tablas.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "ingresos 2025",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 730833,
+    "cita": "Tabla A pág.1 miles de euros: ingresos 2025=730833, 2024=480000"
+   },
+   "incidencia": "corrección documentada: 480 era la columna 2024 de la Tabla A / capex de la Tabla B, no ingresos 2025"
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C6"
+   ],
+   "guardar": "02_sellar_corregido.txt"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "03_comprobar_corregido.json"
+  }
+ ]
+}

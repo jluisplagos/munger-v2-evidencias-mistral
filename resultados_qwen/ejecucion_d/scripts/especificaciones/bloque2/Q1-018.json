@@ -1,0 +1,115 @@
+{
+ "id": "Q1-018",
+ "descripcion": "Versión vigente v2 (190) usada; v1 (210) histórica; reexpresión 210-190=20 como derivado exacto con versión y nota.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f3_018_v1.txt",
+   "paginas": [
+    "v1 Tabla 2: inventario 210000 miles EUR."
+   ]
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f3_018_v2.txt",
+   "paginas": [
+    "v2 vigente reexpresada: inventario 190000 miles EUR; nota: v1 superada."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:inv_v1",
+   "clase": "dato_publicado",
+   "comprobacion": {
+    "extractor": "extractor de prueba D (arnés externo)",
+    "revisor": "revisor independiente de prueba D (arnés externo)",
+    "fecha": "HOY",
+    "resultado": "pendiente",
+    "fuente_examinada": null,
+    "nota": "versión superada: histórica",
+    "vinculo": null
+   },
+   "fuente": {
+    "documento": "Informe v1 sintético (f3_018_v1)",
+    "archivo": "fuentes_sinteticas/f3_018_v1.txt",
+    "version": "v1 (superada)",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "inventario 2025 v1",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 210000,
+    "cita": "inventario 210000 miles EUR"
+   },
+   "valor_modelo": 210.0
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:inv_v2",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Informe v2 sintético (f3_018_v2)",
+    "archivo": "fuentes_sinteticas/f3_018_v2.txt",
+    "version": "v2 (vigente)",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "inventario 2025 v2 vigente",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 190000,
+    "cita": "inventario 190000 miles EUR"
+   },
+   "valor_modelo": 190.0
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "aux:inv_v2"
+   ],
+   "guardar": "01_sellar_v2.txt"
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:reexpresion",
+   "clase": "derivado",
+   "comprobacion": {
+    "extractor": "extractor de prueba D (arnés externo)",
+    "revisor": "revisor independiente de prueba D (arnés externo)",
+    "fecha": "HOY",
+    "resultado": "pendiente",
+    "fuente_examinada": null,
+    "nota": "cuantificación de la reexpresión",
+    "vinculo": null
+   },
+   "derivacion": {
+    "origenes": [
+     "aux:inv_v1",
+     "aux:inv_v2"
+    ],
+    "formula": "o[\"aux:inv_v1\"] - o[\"aux:inv_v2\"]",
+    "conciliacion": "210 - 190 = 20 (reexpresión cuantificada con versión y nota)"
+   },
+   "valor_modelo": 20.0
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_version_vigente.json"
+  }
+ ]
+}

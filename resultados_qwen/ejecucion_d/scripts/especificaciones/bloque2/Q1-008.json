@@ -1,0 +1,80 @@
+{
+ "id": "Q1-008",
+ "descripcion": "Signo de gasto publicado entre paréntesis (R415-SIGNO): adquisiciones C13=-1.11 como valor_fuente -1110 con cita '(1110)'.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f2_008_estado.txt",
+   "paginas": [
+    "Tabla 3, miles de euros, consolidado, ejercicio 2016: adquisiciones (1110) gasto."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C13",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Estado sintético (f2_008_estado)",
+    "archivo": "fuentes_sinteticas/f2_008_estado.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "adquisiciones (gasto)",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": -1110,
+    "cita": "adquisiciones (1110) gasto"
+   }
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C13"
+   ],
+   "guardar": "01_sellar_signo_parentesis.txt"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_signo_parentesis.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C13",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Estado sintético (f2_008_estado)",
+    "archivo": "fuentes_sinteticas/f2_008_estado.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "adquisiciones (gasto)",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": -1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": -1110,
+    "cita": "adquisiciones (1110) gasto"
+   },
+   "incidencia": "control negativo: signo -1 sin tratamiento declarado (H14)"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "03_comprobar_signo_menos1_sin_tratamiento.json"
+  }
+ ]
+}

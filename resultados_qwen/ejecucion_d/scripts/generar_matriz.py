@@ -45,9 +45,11 @@ def main():
                 "estado_ejecucion": a["estado"],
                 "veredicto": a["veredicto"] or "sin veredicto (no ejecutado)",
                 "evidencia": a["evidencia"] or "-",
-                "comandos_reproducibles": ("python3 scripts/ejecutar_caso.py scripts/especificaciones/piloto/%s.json" % c["id"])
-                                          if os.path.isfile(os.path.join(AQUI, "especificaciones", "piloto", c["id"] + ".json"))
-                                          else "pendiente de especificación ejecutable (bloque 2)",
+                "comandos_reproducibles": next(
+                    (f"python3 scripts/ejecutar_caso.py scripts/especificaciones/{d}/{c['id']}.json"
+                     for d in ("piloto", "bloque2")
+                     if os.path.isfile(os.path.join(AQUI, "especificaciones", d, c["id"] + ".json"))),
+                    "pendiente de especificación ejecutable"),
                 "sin_comprobar": a["sin_comprobar"],
             })
     print(f"{out}: {len(casos)} filas")

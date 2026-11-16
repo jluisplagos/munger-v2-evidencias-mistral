@@ -1,0 +1,87 @@
+{
+ "id": "Q1-010",
+ "descripcion": "Equivalencia 1500 miles = 1,5 millones: escala 0.001 declarada verifica; declarar la misma cifra en millones sin escala -> error de escala incoherente.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f2_010_nota.txt",
+   "paginas": [
+    "Nota 4: caja = 45,054 millones EUR (consolidado, ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f2_010_excel.csv.txt",
+   "paginas": [
+    "caja = 45054 miles de euros (unidad declarada, ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Excel sintético (f2_010_excel.csv)",
+    "archivo": "fuentes_sinteticas/f2_010_excel.csv.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "caja",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 45054,
+    "cita": "caja = 45054 miles de euros (unidad declarada, ejercicio 2016)"
+   }
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C24"
+   ],
+   "guardar": "01_sellar_miles.txt"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_equivalencia_miles.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Nota sintética (f2_010_nota)",
+    "archivo": "fuentes_sinteticas/f2_010_nota.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "caja",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "millones de euros",
+    "escala": 1,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 45054,
+    "cita": "Nota 4: caja = 45,054 millones EUR"
+   },
+   "incidencia": "control negativo: 45054 declarados en millones (escala 1) no equivalen a 45,054 mm del modelo"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "03_comprobar_control_escala_incoherente.json"
+  }
+ ]
+}

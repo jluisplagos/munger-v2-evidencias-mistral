@@ -1,0 +1,80 @@
+{
+ "id": "Q1-023",
+ "descripcion": "Ambigüedad de período: período declarado que no contiene el año de la columna de la Historia -> error del contrato; no se marca verificado.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f4_023_cajas.txt",
+   "paginas": [
+    "Tabla 1, miles EUR: caja 2016=45054; caja 2017=61000."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Documento sintético (f4_023_cajas)",
+    "archivo": "fuentes_sinteticas/f4_023_cajas.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "caja",
+    "columna": "ejercicio 2017",
+    "periodo": "ejercicio 2017",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 45054,
+    "cita": "caja 2016=45054"
+   },
+   "incidencia": "ambigüedad de período (45054 vs 61000): se declara 2017 para la columna C (2016) con el valor de 2016 -> el control de período lo rechaza"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_periodo_incorrecto.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Documento sintético (f4_023_cajas)",
+    "archivo": "fuentes_sinteticas/f4_023_cajas.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "caja 2016",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 45054,
+    "cita": "caja 2016=45054"
+   }
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C24"
+   ],
+   "guardar": "02_sellar_periodo_correcto.txt"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "03_comprobar_periodo_correcto.json"
+  }
+ ]
+}

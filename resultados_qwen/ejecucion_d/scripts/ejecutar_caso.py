@@ -32,7 +32,7 @@ def op_escribir_fuente(caso, exp, paso):
 
 def op_entrada(caso, exp, paso):
     fuente = paso.get("fuente")
-    if fuente and "archivo" in fuente and fuente.get("sha256") is None and os.path.isfile(os.path.join(exp, fuente["archivo"])):
+    if fuente and fuente.get("archivo") and fuente.get("sha256") is None and os.path.isfile(os.path.join(exp, fuente["archivo"])):
         rel = fuente["archivo"]
         fuente = dict(fuente)
         fuente["sha256"] = L.sha256_archivo(os.path.join(exp, rel))
@@ -43,7 +43,7 @@ def op_entrada(caso, exp, paso):
         fuente.setdefault("perimetro", "consolidado")
         fuente.setdefault("reexpresado", "no aplica")
         fuente.setdefault("conservacion", "local" if fuente.get("archivo") else "externa")
-        if "archivo" in fuente and fuente.get("sha256") is None and os.path.isfile(os.path.join(exp, fuente["archivo"])):
+        if fuente.get("archivo") and fuente.get("sha256") is None and os.path.isfile(os.path.join(exp, fuente["archivo"])):
             fuente["sha256"] = L.sha256_archivo(os.path.join(exp, fuente["archivo"]))
     comp = paso.get("comprobacion")
     if comp == "verificada":
@@ -51,10 +51,13 @@ def op_entrada(caso, exp, paso):
         comp = L.comprobacion_verificada(EXTRACTOR, REVISOR, f"{rel} (página {paso.get('fuente', {}).get('pagina', '?')})")
     elif isinstance(comp, dict):
         comp = {k: (L.HOY if v == "HOY" else v) for k, v in comp.items()}
+    extra = {k: v for k, v in paso.items()
+             if k not in ("op", "celda", "clase", "fuente", "derivacion", "hipotesis", "justificacion",
+                          "comprobacion", "incidencia", "material")}
     L.poner_entrada(exp, paso["celda"], clase=paso.get("clase"), fuente=fuente,
                     derivacion=paso.get("derivacion"), hipotesis=paso.get("hipotesis"),
                     justificacion=paso.get("justificacion"), comprobacion=comp,
-                    incidencia=paso.get("incidencia"), material=paso.get("material"))
+                    incidencia=paso.get("incidencia"), material=paso.get("material"), **extra)
     caso._log(f"entrada {paso['celda']}: clase={paso.get('clase')}")
 
 

@@ -1,0 +1,60 @@
+{
+ "id": "Q1-020",
+ "descripcion": "Cambio de hipótesis: fundamento cambiado tras el sellado -> comprobación desactualizada (I13); sellar de nuevo exige fecha de hoy.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "entrada",
+   "celda": "Análisis!C62",
+   "clase": "hipotesis",
+   "comprobacion": {
+    "extractor": "extractor de prueba D (arnés externo)",
+    "revisor": "revisor independiente de prueba D (arnés externo)",
+    "fecha": "HOY",
+    "resultado": "verificado",
+    "fuente_examinada": "registro interno",
+    "nota": null,
+    "vinculo": null
+   },
+   "hipotesis": {
+    "fundamento": "crecimiento 2% (fundamento original, media sintética revisada v1)",
+    "alternativas": [
+     "3%"
+    ],
+    "limites": "sin central adoptada"
+   }
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Análisis!C62"
+   ],
+   "guardar": "01_sellar_hipotesis.json"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_antes_cambio.json"
+  },
+  {
+   "op": "entrada",
+   "celda": "Análisis!C62",
+   "clase": "hipotesis",
+   "comprobacion": "verificada",
+   "hipotesis": {
+    "fundamento": "crecimiento 3% (fundamento NUEVO tras cambio explícito del usuario: media sintética revisada v2)",
+    "alternativas": [
+     "2%"
+    ],
+    "limites": "sin central adoptada"
+   },
+   "incidencia": "cambio explícito 2% -> 3% registrado con fundamento nuevo y dependencias (conclusion_crecimiento, valoracion)"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "03_comprobar_tras_cambio_fundamento.json"
+  }
+ ],
+ "celda_hipotesis": "Análisis!C62"
+}

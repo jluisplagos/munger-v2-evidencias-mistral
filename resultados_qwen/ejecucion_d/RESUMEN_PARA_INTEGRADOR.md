@@ -1,21 +1,26 @@
-# Resumen para el integrador · frente D · bloque 1
+# Resumen para el integrador · frente D · cierre de la sesión
 
 ## Entregado / revisado / integrado / probado
 
 | Plano | Estado |
 |---|---|
-| Entregado | arnés + 4 especificaciones ejecutables + MATRIZ_EJECUCION.csv (36 filas) + evidencias del piloto, en `resultados_qwen/ejecucion_d/` de la rama `mistral/d-qwen-aceptacion` |
-| Revisado | banco verificado (57/57 SHA, comprobar exit 0); candidata verificada (ZIP base 4.14 sha256 OK, 6798/6798; HEAD remoto = SHA fijado) |
-| Integrado en el producto | **No**: no se fusiona ni se abre PR al producto (encargo) |
-| Probado contra el producto | 4 casos piloto a nivel de componente real (Q1-001, Q1-006, Q1-027, Q1-036) + patrones reutilizados en Q1-025/028/032/035; 29 casos mapeados pero NO_EJECUTADO |
+| Entregado | `resultados_qwen/ejecucion_d/` en rama `mistral/d-qwen-aceptacion` del auxiliar: arnés, 23 especificaciones ejecutables (4 piloto + 19 bloque 2), MATRIZ_EJECUCION.csv (36 filas), evidencias por caso, docs |
+| Revisado | banco: 57/57 SHA256 OK + `comprobar_banco.py` exit 0 (36 casos, 17 esperados, 9 controles negativos). Candidata: HEAD remoto = SHA fijado `957af65`; ZIP base-4.14 sha256 OK y materializado 6798/6798 |
+| Integrado en el producto | **No** (encargo: no fusionar ni PR al producto; `jluisplagos/munger-v2` solo se leyó) |
+| Probado contra el producto | 31/36 casos con componente real ejecutado (PARCIAL_COMPONENTE); 5 sin ejecutar (Q1-030, Q1-031, Q1-033, Q1-034, Q1-035) |
 
-## Recuentos (no confundir comandos con casos)
+## Recuentos (casos, no comandos)
 
-- Casos del banco: **36**. Ejecutados a nivel de componente: **4** (piloto). Mapeados con componente/interfaz identified pero sin ejecutar: **29**. Con veredicto propio: **6 CUMPLE** (Q1-001, Q1-006, Q1-027, Q1-028, Q1-032, Q1-036 — los 4 piloto + 2 por patrón ejecutado), **3 DECISION_PENDIENTE** (Q1-030, Q1-034, Q1-035), **27 sin veredicto** (no ejecutados).
-- Estados de ejecución: `PARCIAL_COMPONENTE` 7 · `NO_EJECUTADO` 29.
-- Naturaleza conservada: 31 contrato / 3 propuesta (019, 022, 029) / 2 decisión pendiente (030, 035). Ninguna propuesta se convirtió en obligación.
-- Criterios cubiertos en los piloto: cero publicado vs ausencia, cero sin fuente, vigencia por sha256, bloqueo de exportación manual con pendientes. Pendientes: los 17 numéricos como ejecución del componente derivado real, y toda la capa de agente/personaje.
+- Estados de ejecución: **31 PARCIAL_COMPONENTE** · **5 NO_EJECUTADO** · 0 EJECUTADO_COMPLETO (la capa de agente no existe en esta sesión).
+- Veredictos: **29 CUMPLE** (componente real, evidencia en `evidencias/`) · **3 DECISION_PENDIENTE** (Q1-030, Q1-034, Q1-035) · **1 NO_OBSERVABLE** (Q1-026, bloqueo de entorno con error concreto) · **3 sin veredicto** (Q1-031, Q1-033 y uno más sin ejecutar).
+- Naturaleza conservada: 31 contrato / 3 propuesta (Q1-019, Q1-022, Q1-029) / 2 decisión pendiente (Q1-030, Q1-035). Ninguna propuesta se convirtió en obligación; los criterios propuestos dentro de casos contractuales conservan su distinción.
+- Los 17 esperados numéricos del banco **no** se ejecutaron como componente del producto: la aritmética de derivados del producto (fracciones exactas, U2/U4) se probó con los derivados de los casos (Q1-005, Q1-018); recalcular los esperados en otro script no ejecutaría el producto, y el recálculo del libro necesita LibreOffice (ausente).
+
+## Criterios cubiertos vs pendientes
+
+- Cubiertos (componente real): cero/absencia/N-A, unidad/escala, signo, columna/período, perímetro, moneda, versiones/reexpresión, conflicto con/sin resolución, instrucción embebida, firma≠publicación, fuente sin bytes, recuentos parciales, vigencia por sha256 y por fundamento, invalidación de aprobaciones, bloqueo de exportación manual.
+- Pendientes: capa completa de agente/personaje (entrada del usuario, fases A/B/C, auditoría APROBADO), pipeline con recálculo (LibreOffice), Q1-026 completo (pdftotext), Q1-031/033 (precio actual/objetivo con agente), las 3 decisiones de política.
 
 ## Lo que esto no dice
 
-No declara aptitud para dinero real ni cumplimiento global del producto: 32/36 casos sin ejecutar y sin capa de agente. El estado inicial 0/36 pasa a 4 casos con componente real ejecutado; el resto queda mapeado y en relevo.
+No declara aptitud para dinero real ni cumplimiento global: 31 casos a nivel de componente mecánico, ninguno completo con agente; el estado inicial 0/36 pasa a 31 con componente real ejecutado.

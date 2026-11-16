@@ -1,0 +1,52 @@
+{
+ "id": "Q1-016",
+ "descripcion": "Misma cifra en monedas distintas (U7): unidad 'dólares' no reconocida -> pendiente; no se convierte con tipo de cambio inventado.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f3_016_en.txt",
+   "paginas": [
+    "Reporte EN p.1 Table 1: revenue 730833 thousand EUR."
+   ]
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f3_016_es.txt",
+   "paginas": [
+    "Nota ES pág.2: ingresos 730833 mil dólares USD."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C6",
+   "clase": "dato_publicado",
+   "comprobacion": "verificada",
+   "fuente": {
+    "documento": "Nota sintética ES (f3_016_es)",
+    "archivo": "fuentes_sinteticas/f3_016_es.txt",
+    "version": "sintética v1",
+    "pagina": 1,
+    "ubicacion": "tabla sintética",
+    "concepto": "ingresos",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "dólares",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 730833,
+    "cita": "Nota ES pág.2: ingresos 730833 mil dólares USD"
+   },
+   "incidencia": "conflicto de moneda pese a dígitos iguales; sin tipo de cambio con fuente no se convierte"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "01_comprobar_moneda_no_reconocida.json"
+  }
+ ]
+}

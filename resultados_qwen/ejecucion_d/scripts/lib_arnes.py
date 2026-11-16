@@ -132,13 +132,22 @@ def escribir_registro(exp, reg):
 
 
 def poner_entrada(exp, celda, clase=None, fuente=None, derivacion=None, hipotesis=None, justificacion=None,
-                  comprobacion=None, incidencia=None, material=None, valor_modelo=None):
+                  comprobacion=None, incidencia=None, material=None, valor_modelo=None, **extra):
     reg = leer_registro(exp)
-    reg.setdefault("perimetro_del_expediente", "consolidado")
+    if not (reg.get("perimetro_del_expediente") or "").strip():
+        reg["perimetro_del_expediente"] = "consolidado"
     por = {str(e.get("celda")): e for e in reg["entradas"]}
     e = por.get(celda)
     if e is None:
-        raise KeyError(f"celda {celda} no está en el universo de la plantilla")
+        if not celda.startswith("aux:"):
+            raise KeyError(f"celda {celda} no está en el universo de la plantilla")
+        e = {"celda": celda, "id": celda, "ambito": "auxiliar", "uso": None, "material": True, "clase": None,
+             "valor_modelo": None, "fuente": {}, "derivacion": None, "hipotesis": None, "justificacion": None,
+             "comprobacion": {"extractor": None, "revisor": None, "fecha": None, "resultado": "pendiente",
+                              "fuente_examinada": None, "nota": None, "vinculo": None},
+             "incidencia": None}
+        reg["entradas"].append(e)
+        por[celda] = e
     if clase is not None:
         e["clase"] = clase
     if fuente is not None:
@@ -157,6 +166,9 @@ def poner_entrada(exp, celda, clase=None, fuente=None, derivacion=None, hipotesi
         e["material"] = material
     if valor_modelo is not None:
         e["valor_modelo"] = valor_modelo
+    for k, v in extra.items():
+        if v is not None:
+            e[k] = v
     escribir_registro(exp, reg)
     return e
 

@@ -1,23 +1,21 @@
-# Relevo supervisado · frente D (bloque 1)
+# Relevo supervisado · frente D (cierre de la sesión)
 
-Casos o partes de casos que **no** se pueden ejecutar automáticamente en esta sesión y quedan preparados para un agente/persona. No se ha simulado ningún agente: no se ha respondido uno mismo los prompts del banco.
+No se ha simulado ningún agente: no se ha respondido uno mismo los prompts del banco. Lo que falta, con el paquete exacto.
 
-## Qué falta y por qué
+## Bloqueos de entorno (con error concreto)
 
-- **Runtime de agente del producto:** el recorrido real (extracción V6.3, fase A, fase B, fase C ×2, verificación, auditoría del paso 13) lo resuelven agentes LLM con los prompts generados (`prompts_generados/NN_*.md`) según `GUIA_RECORRIDO_SUPERVISADO.md`. En esta sesión no hay canal de agente; además el pipeline completo necesita LibreOffice (recálculo del libro), ausente aquí.
-- Por tanto, en **todos los casos** la parte "entrada_usuario pegada al personaje y respuesta completa" queda en relevo. Lo ejecutado es el componente mecánico real (registro de entradas, vigencia, salidas ficha/informe).
+- **LibreOffice (`soffice`) ausente** (sin root en el sandbox): el pipeline con recálculo del libro (`recalc.sh`) no corre. Vías afectadas: recorrido completo del expediente, variantes calculadas, Q1-026 recálculo de dependientes.
+- **`pdftotext` ausente:** los textos de los PDF de la base no se re-leen; `cambiar_base.py preparar` se detiene con "«archivo» ausente o inexistente en texto/: 'AR_2021.txt'…'AR_2024.txt'" (evidencia `evidencias/Q1-026/cambiar_base_preparar.txt`, exit 1). Paquete de relevo listo: `evidencias/Q1-026/CAMBIO_Q1-026.json` (corrección caja 45.054→45.000 con evidencia v2; deuda 82.019 presente; deuda neta resultante 37.019).
+- **Sin runtime de agente LLM del producto:** extracción V6.3, fase A, fase B, fase C (2 turnos, mismo agente), verificación y auditoría (agente nuevo por solicitud SA-…) según `GUIA_RECORRIDO_SUPERVISADO.md`.
 
-## Paquetes de relevo por caso (entrada exacta)
+## Paquetes de relevo por caso restante
 
-Para cada caso Q1-001…036: `entrada_usuario` íntegra de `banco_revisado/casos_aceptacion.jsonl`, los archivos de `archivos_sinteticos` materializados como fuentes de prueba (TXT/CSV/JSON, nunca como aprobaciones), y los observables pedidos en `criterios_observables` mapped a: `verificacion_entradas.json`, salida de `verificacion_entradas.py comprobar --json`, `estado_pipeline.json`, `ficha.json`/`informe.md` (oficiales solo tras auditoría APROBADO), `auditoria.md`, recuentos del resumen.
+- **Q1-030 / Q1-034 / Q1-035 (DECISION_PENDIENTE):** decisión del responsable de política (caducidad temporal; tratamiento del rango acotado 0–200; validación de motores). No ejecutar como obligación.
+- **Q1-031 / Q1-033:** precio histórico etiquetado vs precio actual ausente en `fase1_v63.json` (fechas separadas); requiere fase A/objetivo con agente real. El autotest `precio_de_si.py --autotest` pasó (PASA) vía `comprobar_entorno.sh`.
+- **Q1-026:** con pdftotext+soffice: `python3 -I scripts/cambiar_base.py preparar CAMBIO_Q1-026.json` (copia nueva, origen intacto — verificado: no sobrescribe), actualizar registro de entradas de la copia, recalcular dependientes, **auditoría nueva** del material final (agente auditor distinto).
+- **Q1-027/028 (aprobaciones):** tras cambiar material, el pipeline repite paso 12 y exige auditoría nueva (I19); el auditor responde a la solicitud vigente con `Material auditado: <id>`.
+- **Todos los casos:** la `entrada_usuario` íntegra del banco + fixtures materializados como fuentes de prueba + observables mapeados a `verificacion_entradas.json`, `comprobar --json`, `estado_pipeline.json`, `ficha.json`/`informe.md`, `auditoria.md`.
 
-Casos con paquete específico preparado:
+## Reglas del relevo (del producto)
 
-- **Q1-026:** CAMBIO.json (caja 95→90, evidencia f5_026_nota.txt v2, deuda 300 de la nota) → `python3 -I scripts/cambiar_base.py preparar CAMBIO.json` en copia nueva; después actualizar registro y **auditoría nueva** del material final (agente auditor distinto). Falta: ejecución con fase 1 completa + LibreOffice y la auditoría real.
-- **Q1-028 / Q1-027 (aprobaciones):** tras el cambio de material, el pipeline repite paso 12 y pide auditoría nueva (I19); el auditor debe ser un agente nuevo que responda a la solicitud vigente (SA-…) con la línea `Material auditado: <id>`. Falta: agente auditor real.
-- **Q1-031/033:** precio histórico vs actual en `fase1_v63.json` (fechas separadas); falta recorrido de fase A/objetivo con agente.
-- **Q1-034/035:** decisiones de política (rango acotado; validación de motor) — responsable humano, no el banco.
-
-## Reglas del relevo (del producto, no negociables)
-
-Agente por relevo con el modelo/esfuerzo de la config; escribe solo su salida; sin internet ni memoria; no ejecuta pipeline ni LibreOffice; no abre Excel; fase C con el mismo agente dos turnos; cada auditoría con agente nuevo; nunca copiar salidas de otro expediente a uno real.
+Agente por relevo con modelo/esfuerzo de la config; escribe solo su salida; sin internet ni memoria; no ejecuta pipeline ni LibreOffice; no abre Excel; fase C dos turnos con el mismo agente; cada auditoría con agente nuevo; nunca copiar salidas entre expedientes reales.
