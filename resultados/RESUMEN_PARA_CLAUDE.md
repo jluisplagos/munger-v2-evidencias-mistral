@@ -44,3 +44,7 @@ C49 (valor_leido 20.292; medias 6,764/2,254/4,510), L7 (EBIT incluye deterioro 2
 - Revisión externa (integrador/Claude) de citas, datos, derivaciones y compatibilidad antes de incorporar cualquier parte (`resultados/` en la rama; sin PR ni fusión).
 - Consumo/facturación no visible desde la sesión (se declara; no se afirma límite). El encargo recomienda un presupuesto inicial de 25 EUR configurado externamente; **no se ha podido comprobar desde la sesión que esté configurado**, se presenta como recomendación. Modelo real: `mistral-large-4-0` (Vibe Code).
 - No se tocaron Elis/F1, P-M1, probabilidades, k, motor C, precios objetivo ni políticas; no se abrió PR ni se fusionó nada; no se ejecutó LibreOffice ni el pipeline; no hay PDF/XLSX/ZIP en Git.
+
+## Cierre de la revisión externa
+
+Sobre la corrección de Mistral `44641ff`, ChatGPT retiró únicamente dos menciones residuales a «4,510333»; la media de la diferencia es exactamente **4,510 millones** con los operandos citados. No cambia ningún objetivo, hipótesis, libro ni decisión. Hash actual de `lectura_fuentes.jsonl`: `24ea73e46b953051a1299cf737218d8173ee97bf1558fe50434ad49054482bd0`. Véase `revision_externa/REVISION_CHATGPT_2.md` para alcance y límites de la comprobación.

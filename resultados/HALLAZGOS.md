@@ -28,7 +28,7 @@ Clasificación: [ERROR_DATO] [CONFLICTO_FUENTE] [HIPOTESIS] [LIMITE_COBERTURA]. 
 
 ## 5. [HIPOTESIS] Vidrala C49 (arrendamientos): el principal no está publicado
 - **Reproducción**: nota 8 (CF_2024 p.56, CF_2025 p.52, verificación visual de la página) publica solo el **pago total** (5.861 + 6.117 + 8.314 = **20.292 miles**; media = 20.292/3 = **6.764 miles = 6,764 mm**) y el **interés devengado** (2.131 + 2.179 + 2.452 = **6.762 miles**; media = 6.762/3 = **2.254 miles = 2,254 mm**). No hay fila de principal.
-- **Diferencia** (pago total − interés devengado) = 20.292 − 6.762 = **13.530 miles**; media = 13.530/3 = **4.510 miles = 4,510 mm** (4,510333), aproximación del principal — **no acredita el principal pagado**.
+- **Diferencia** (pago total − interés devengado) = 20.292 − 6.762 = **13.530 miles**; media = 13.530/3 = **4.510 miles = 4,510 mm**, aproximación del principal — **no acredita el principal pagado**.
 - **Estado del objetivo**: `HIPOTESIS_O_AUSENCIA`; el valor 4,5 mm del libro es un supuesto heredado. Alternativas cuantificadas: 6,764 mm (media del pago total, igual que la que construye la fase 1) y ≈4,510 mm (diferencia media). C49 se mantiene como hipótesis.
 - **Nota de extracción**: la tabla de resultados por arrendamientos imprime «Expenses related to short-term/low-value 8,314 / 6,117», numéricamente igual a la fila Payments de la tabla de pasivos (confirmado visualmente; no afecta al contraste).
 

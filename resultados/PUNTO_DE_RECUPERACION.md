@@ -27,3 +27,7 @@ Evidencia propuesta por Mistral; pendiente de revisión e incorporación por el 
 - Consumo/facturación: no visible desde la sesión; se declara que no se está limitando ni se afirma límite. El **presupuesto de 25 EUR es una recomendación del encargo**; no se ha podido comprobar desde la sesión que esté configurado externamente.
 - Red: disponible para GitHub (descarga de release verificada con urllib; `curl` bloqueado por el sandbox). Sin LibreOffice ni pipeline (prohibidos). PDF/XLSX/ZIP fuera de Git (`.trabajo/` excluido).
 - No se abrió PR, no hay fusión, no se modificó `munger-v2` ni sus ramas/PR/issues.
+
+## Cierre de la revisión externa
+
+Sobre la corrección de Mistral `44641ff`, ChatGPT retiró únicamente dos menciones residuales a «4,510333»; la media de la diferencia es exactamente **4,510 millones** con los operandos citados. No cambia ningún objetivo, hipótesis, libro ni decisión. Hash actual de `lectura_fuentes.jsonl`: `24ea73e46b953051a1299cf737218d8173ee97bf1558fe50434ad49054482bd0`. Véase `revision_externa/REVISION_CHATGPT_2.md` para alcance y límites de la comprobación.
