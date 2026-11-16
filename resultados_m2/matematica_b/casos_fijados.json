@@ -1,0 +1,1358 @@
+{
+ "meta": {
+  "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+  "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+  "generado_por": "codigo/generar_casos_fijados.py",
+  "nota": "Entradas fijadas; los esperado los calcula el oráculo propio, nunca el código del producto."
+ },
+ "anexo_c": [
+  {
+   "id": "A1",
+   "V": [
+    "60",
+    "100",
+    "150"
+   ],
+   "p": [
+    "1/4",
+    "1/2",
+    "1/4"
+   ],
+   "k": "3",
+   "v_normal": "100",
+   "precio": "90",
+   "proveniencia": {
+    "ruta": "personaje_v2/ANEXO_C_precio_de_si.md",
+    "sha256": "36497345ef86a65a27653b648547df1409dd57aa18f7b0ee83292db01b3bdc54",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   },
+   "nota": "Anexo C §C.5 caso 1 (tramo [MALO, NORMAL])"
+  },
+  {
+   "id": "A2",
+   "V": [
+    "90",
+    "100",
+    "160"
+   ],
+   "p": [
+    "1/5",
+    "3/5",
+    "1/5"
+   ],
+   "k": "3",
+   "v_normal": "100",
+   "precio": "95",
+   "proveniencia": {
+    "ruta": "personaje_v2/ANEXO_C_precio_de_si.md",
+    "sha256": "36497345ef86a65a27653b648547df1409dd57aa18f7b0ee83292db01b3bdc54",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   },
+   "nota": "Anexo C §C.5 caso 2 (tramo [NORMAL, BUENO]; tope NORMAL)"
+  },
+  {
+   "id": "A3",
+   "V": [
+    "100",
+    "100",
+    "100"
+   ],
+   "p": [
+    "1/5",
+    "3/5",
+    "1/5"
+   ],
+   "k": "3",
+   "v_normal": "100",
+   "precio": "100",
+   "proveniencia": {
+    "ruta": "personaje_v2/ANEXO_C_precio_de_si.md",
+    "sha256": "36497345ef86a65a27653b648547df1409dd57aa18f7b0ee83292db01b3bdc54",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   },
+   "nota": "Anexo C §C.5 caso 3 (degenerado)"
+  },
+  {
+   "id": "A4",
+   "V": [
+    "-20",
+    "80",
+    "200"
+   ],
+   "p": [
+    "1/5",
+    "3/5",
+    "1/5"
+   ],
+   "k": "3",
+   "v_normal": "80",
+   "precio": "50",
+   "proveniencia": {
+    "ruta": "personaje_v2/ANEXO_C_precio_de_si.md",
+    "sha256": "36497345ef86a65a27653b648547df1409dd57aa18f7b0ee83292db01b3bdc54",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   },
+   "nota": "Anexo C §C.5 caso 4 (MALO negativo; sin precio del escenario MALO)"
+  },
+  {
+   "id": "A5",
+   "V": [
+    "40",
+    "70",
+    "300"
+   ],
+   "p": [
+    "3/10",
+    "1/2",
+    "1/5"
+   ],
+   "k": "3",
+   "v_normal": "70",
+   "precio": "80",
+   "proveniencia": {
+    "ruta": "personaje_v2/ANEXO_C_precio_de_si.md",
+    "sha256": "36497345ef86a65a27653b648547df1409dd57aa18f7b0ee83292db01b3bdc54",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   },
+   "nota": "Anexo C §C.5 caso 5 (tope NORMAL)"
+  }
+ ],
+ "sinteticos": [
+  {
+   "id": "S1",
+   "V": [
+    "50",
+    "100",
+    "150"
+   ],
+   "p": [
+    "0",
+    "1/2",
+    "1/2"
+   ],
+   "k": "3",
+   "v_normal": "100",
+   "precio": "100",
+   "nota": "masa cero en el MALO: no arrastra a P* (bound relevante: min con p > 0)"
+  },
+  {
+   "id": "S2",
+   "V": [
+    "100",
+    "100",
+    "200"
+   ],
+   "p": [
+    "1/5",
+    "3/5",
+    "1/5"
+   ],
+   "k": "3",
+   "v_normal": "100",
+   "precio": "110",
+   "nota": "dos valores iguales (masa agregada 4/5 en 100)"
+  },
+  {
+   "id": "S3",
+   "V": [
+    "-50",
+    "-10",
+    "0"
+   ],
+   "p": [
+    "1/5",
+    "3/5",
+    "1/5"
+   ],
+   "k": "3",
+   "v_normal": "-10",
+   "precio": "-20",
+   "nota": "valores todos ≤ 0: la matemática admite P* negativo; el producto rechaza precio ≤ 0"
+  },
+  {
+   "id": "S4",
+   "V": [
+    "150",
+    "60",
+    "100"
+   ],
+   "p": [
+    "1/4",
+    "1/4",
+    "1/2"
+   ],
+   "k": "3",
+   "v_normal": "100",
+   "precio": "90",
+   "nota": "entrada desordenada: el oráculo ordena (invariancia por permutación); el producto exige B78≤C78≤D78 (error G19)"
+  },
+  {
+   "id": "S5",
+   "V": [
+    "60",
+    "100",
+    "150"
+   ],
+   "p": [
+    "1/4",
+    "1/2",
+    "1/4"
+   ],
+   "k": "1/2",
+   "v_normal": "100",
+   "precio": "110",
+   "nota": "k < 1: matemáticamente P* > ponderado; el producto rechaza k < 1 (guarda de política)"
+  },
+  {
+   "id": "S6",
+   "V": [
+    "60",
+    "100",
+    "150"
+   ],
+   "p": [
+    "1/5",
+    "3/5",
+    "3/10"
+   ],
+   "k": "3",
+   "v_normal": "100",
+   "precio": "90",
+   "espera_dominio_error": true,
+   "nota": "p no suma 1: fuera del dominio; el producto también se niega (|Σp−1| > 1e-3)"
+  },
+  {
+   "id": "S7",
+   "V": [
+    "80",
+    "120"
+   ],
+   "p": [
+    "1/2",
+    "1/2"
+   ],
+   "k": "3",
+   "v_normal": "120",
+   "precio": "100",
+   "nota": "n = 2 escenarios: el oráculo es general; el producto está cableado a n = 3"
+  }
+ ],
+ "historicos": [
+  {
+   "id": "H1",
+   "V": [
+    "44.3217226721019",
+    "60.1901164149973",
+    "78.4785189164147"
+   ],
+   "p": [
+    "0.2",
+    "0.6",
+    "0.2"
+   ],
+   "k": "3.0",
+   "v_normal": "60.1901164149973",
+   "precio": "90.1",
+   "precio_si_publicado": 56.002005168244615,
+   "zona_publicada": "caro",
+   "P_estrella_publicado": 56.002005168244615,
+   "proveniencia": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/precio.json",
+    "sha256": "bdd2211c49df5d2ee3111331548b6ac2763f61bfe1f62700589d45b3f64e97b0",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+    "variantes": {
+     "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/configuracion_v64_variantes.json",
+     "sha256": "bd15b058c3bce940b726c4e7f728212965809a5d39f11b4c9d023d34a9809491",
+     "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+     "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+    }
+   },
+   "nota": "Vidrala 4.14 expediente final, variante activa (precio 90,10 € a 31-dic-2025, zona publicada «caro»)"
+  },
+  {
+   "id": "H2",
+   "V": [
+    "29.7797012085668",
+    "43.7670991087673",
+    "57.9469537938741"
+   ],
+   "p": [
+    "0.2",
+    "0.6",
+    "0.2"
+   ],
+   "k": "3.0",
+   "v_normal": "43.7670991087673",
+   "precio": "54.7",
+   "precio_si_publicado": 39.79819353512519,
+   "zona_publicada": "caro",
+   "P_estrella_publicado": 39.79819353512519,
+   "proveniencia": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/viscofan_decisiones/Viscofan/precio.json",
+    "sha256": "7ea448ed24327efb705c659096e69a935480fa99ccf7316f6d29deb6f9d73b1b",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+    "variantes": {
+     "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/viscofan_decisiones/Viscofan/configuracion_v64_variantes.json",
+     "sha256": "7e5ea3001209cbc66293abc426959a9aef60bb1f3b943b778b407648a34291d8",
+     "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+     "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+    }
+   },
+   "nota": "Viscofan 4.14 expediente final, variante activa (precio 54,70 €, p = 0,20/0,60/0,20, zona «caro»)"
+  },
+  {
+   "id": "H3",
+   "V": [
+    "30.0158463006955",
+    "44.1839566126552",
+    "58.5486415301981"
+   ],
+   "p": [
+    "0.2",
+    "0.6",
+    "0.2"
+   ],
+   "k": "3.0",
+   "v_normal": "44.1839566126552",
+   "precio": "54.7",
+   "precio_si_publicado": 40.164007181464314,
+   "zona_publicada": "caro",
+   "P_estrella_publicado": null,
+   "proveniencia": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/Viscofan/configuracion_v64_variantes.json",
+    "sha256": "c8e7270f8b174172b2b9d6b525f6b6e8e26c164fa9d36b5f370575d4186913d2",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+    "variantes": {
+     "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/Viscofan/configuracion_v64_variantes.json",
+     "sha256": "c8e7270f8b174172b2b9d6b525f6b6e8e26c164fa9d36b5f370575d4186913d2",
+     "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+     "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+    }
+   },
+   "nota": "Viscofan 4.13 activa (p = 0,20/0,60/0,20); precio de la entrega 4.13"
+  },
+  {
+   "id": "H4",
+   "V": [
+    "30.0408870593671",
+    "44.1839566126552",
+    "59.2219987880685"
+   ],
+   "p": [
+    "0.25",
+    "0.6",
+    "0.15"
+   ],
+   "k": "3.0",
+   "v_normal": "44.1839566126552",
+   "precio": "54.7",
+   "precio_si_publicado": 38.61622605355248,
+   "zona_publicada": "caro",
+   "P_estrella_publicado": null,
+   "proveniencia": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/antecedentes/ejecucion_1_4_13/configuracion_v64_variantes.json",
+    "sha256": "d984c7d467047e9f1b5dc28fab6c553e46dc25a20372a804810655e58d06f364",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+    "variantes": {
+     "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/antecedentes/ejecucion_1_4_13/configuracion_v64_variantes.json",
+     "sha256": "d984c7d467047e9f1b5dc28fab6c553e46dc25a20372a804810655e58d06f364",
+     "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+     "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+    }
+   },
+   "nota": "Viscofan 4.12 (antecedente ejecucion_1_4_13) activa, p = 0,25/0,60/0,15 (desviación de la referencia)"
+  },
+  {
+   "id": "H5",
+   "V": [
+    "30.6924526872033",
+    "44.8547080140724",
+    "59.9959132127419"
+   ],
+   "p": [
+    "0.25",
+    "0.6",
+    "0.15"
+   ],
+   "k": "3.0",
+   "v_normal": "44.8547080140724",
+   "precio": "54.7",
+   "precio_si_publicado": 39.2877008705048,
+   "zona_publicada": "caro",
+   "P_estrella_publicado": null,
+   "proveniencia": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/antecedentes/ejecucion_1_4_13/configuracion_v64_variantes.json",
+    "sha256": "d984c7d467047e9f1b5dc28fab6c553e46dc25a20372a804810655e58d06f364",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+    "variantes": {
+     "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/antecedentes/ejecucion_1_4_13/configuracion_v64_variantes.json",
+     "sha256": "d984c7d467047e9f1b5dc28fab6c553e46dc25a20372a804810655e58d06f364",
+     "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+     "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+    }
+   },
+   "nota": "Viscofan 4.12 variante «perímetro Caja» (p = 0,25/0,60/0,15); base de la descomposición D7"
+  }
+ ],
+ "variantes": [
+  {
+   "grupo": "V-Vidrala-4.14",
+   "k": 3.0,
+   "precio": 90.1,
+   "filas": [
+    {
+     "clave": "heredado",
+     "V": [
+      54.0332042708668,
+      67.9363129452086,
+      87.3570265681175
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 64.75222545947766,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "modo",
+      "N1.tipo",
+      "N1.escudo",
+      "N2.margen",
+      "N3.regla",
+      "N3.circulante",
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.cartera"
+     ]
+    },
+    {
+     "clave": "activa",
+     "V": [
+      44.3217226721019,
+      60.1901164149973,
+      78.4785189164147
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 56.002005168244615,
+     "zona_publicada": "caro",
+     "parametros_variados": []
+    },
+    {
+     "clave": "solo_N1",
+     "V": [
+      52.7041160486585,
+      66.071859818318,
+      84.9460838413726
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 63.03914449175743,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N2.margen",
+      "N3.regla",
+      "N3.circulante",
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.cartera"
+     ]
+    },
+    {
+     "clave": "solo_N2",
+     "V": [
+      54.9622270770876,
+      68.9203834446212,
+      88.3791089452381
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 65.71813435862349,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N1.tipo",
+      "N1.escudo",
+      "N3.regla",
+      "N3.circulante",
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.cartera"
+     ]
+    },
+    {
+     "clave": "solo_R1",
+     "V": [
+      50.871222866891,
+      67.9363129452086,
+      87.3570265681175
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 63.39709057205946,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N1.tipo",
+      "N1.escudo",
+      "N2.margen",
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.cartera"
+     ]
+    },
+    {
+     "clave": "activa_sin_N1",
+     "V": [
+      45.6828783849349,
+      62.0908894348358,
+      80.9299439244548
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 57.75017819768099,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N1.tipo",
+      "N1.escudo"
+     ]
+    },
+    {
+     "clave": "escudo_alternativo",
+     "V": [
+      44.2666313988588,
+      60.1018100254907,
+      78.3486482118597
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 55.9219960692726,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N1.escudo"
+     ]
+    },
+    {
+     "clave": "activa_sin_N2",
+     "V": [
+      43.416036075761,
+      59.2307624105909,
+      77.4821060710473
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 55.06035736144328,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N2.margen"
+     ]
+    },
+    {
+     "clave": "activa_R0_sin_PM1",
+     "V": [
+      53.6098026449993,
+      67.0312138227243,
+      85.9424966867401
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 63.98079229855869,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N3.regla",
+      "N3.circulante",
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.cartera"
+     ]
+    },
+    {
+     "clave": "cartera_legado",
+     "V": [
+      43.7589527061577,
+      59.6533092080781,
+      77.9616008628943
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 55.4569123722288,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.cartera"
+     ]
+    },
+    {
+     "clave": "activa_sin_PM1",
+     "V": [
+      50.4470846924883,
+      67.0312138227243,
+      85.9424966867401
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 62.62534174748255,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.cartera"
+     ]
+    },
+    {
+     "clave": "activa_solo_P0",
+     "V": [
+      50.9364498802658,
+      67.5205790105019,
+      86.4318618745177
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 63.11470693526011,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura"
+     ]
+    },
+    {
+     "clave": "estructura_H",
+     "V": [
+      46.8643650384415,
+      67.5205790105019,
+      86.4318618745177
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 61.36952771733541,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura"
+     ]
+    },
+    {
+     "clave": "estructura_S",
+     "V": [
+      44.3217226721019,
+      59.4814275949826,
+      77.2269286027766
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 55.519482772004295,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura"
+     ]
+    },
+    {
+     "clave": "estructura_SR2",
+     "V": [
+      44.7140258756781,
+      61.5786596952512,
+      80.3060097739691
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 57.02629521239385,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura",
+      "PM1.roic_terminal"
+     ]
+    },
+    {
+     "clave": "estructura_SRF",
+     "V": [
+      45.0312506746073,
+      63.3006809370592,
+      82.6752800768605
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 58.23872498740856,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura"
+     ]
+    },
+    {
+     "clave": "parametro_minimo",
+     "V": [
+      46.5266317414898,
+      62.6336039468322,
+      81.1296332357824
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 58.372905757249775,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.parametro"
+     ]
+    },
+    {
+     "clave": "parametro_maximo",
+     "V": [
+      39.9119045333259,
+      55.3031413513276,
+      73.1762902776794
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 51.26020399023426,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.parametro"
+     ]
+    },
+    {
+     "clave": "convencion_anios_alternativa",
+     "V": [
+      44.5352015133615,
+      59.9015607054697,
+      77.8170996572669
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 55.87534090196578,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.convencion_anios"
+     ]
+    },
+    {
+     "clave": "convencion_terminal_alternativa",
+     "V": [
+      44.0858124032574,
+      60.8580153389557,
+      79.9888041796106
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 90.1,
+     "precio_si_publicado": 56.402898200892835,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.convencion_terminal"
+     ]
+    }
+   ],
+   "proveniencia": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/configuracion_v64_variantes.json",
+    "sha256": "bd15b058c3bce940b726c4e7f728212965809a5d39f11b4c9d023d34a9809491",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   }
+  },
+  {
+   "grupo": "V-Viscofan-4.14",
+   "k": 3.0,
+   "precio": 54.7,
+   "filas": [
+    {
+     "clave": "heredado",
+     "V": [
+      32.5433911132941,
+      47.0961546841516,
+      61.9180059692367
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 42.97666333736768,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "modo",
+      "N1.tipo",
+      "N1.escudo",
+      "N3.regla",
+      "N3.circulante",
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.cartera",
+      "PM1.perimetro"
+     ]
+    },
+    {
+     "clave": "activa",
+     "V": [
+      29.7797012085668,
+      43.7670991087673,
+      57.9469537938741
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 39.79819353512519,
+     "zona_publicada": "caro",
+     "parametros_variados": []
+    },
+    {
+     "clave": "solo_N1",
+     "V": [
+      31.3932105619167,
+      45.4407274921393,
+      59.7871076024002
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 41.469845966366876,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N3.regla",
+      "N3.circulante",
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.perimetro"
+     ]
+    },
+    {
+     "clave": "solo_R1",
+     "V": [
+      32.5433911132941,
+      47.0961546841516,
+      61.9180059692367
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 42.97666333736768,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N1.tipo",
+      "N1.escudo",
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.perimetro"
+     ]
+    },
+    {
+     "clave": "activa_sin_N1",
+     "V": [
+      30.9319657950034,
+      45.4256233384415,
+      60.0819937701823
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 41.307823024359564,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N1.tipo",
+      "N1.escudo"
+     ]
+    },
+    {
+     "clave": "escudo_alternativo",
+     "V": [
+      29.7407575740236,
+      43.7006439171101,
+      57.8519056532873
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 39.739444303812625,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N1.escudo"
+     ]
+    },
+    {
+     "clave": "activa_R0_sin_PM1",
+     "V": [
+      31.3932105619167,
+      45.4407274921393,
+      59.7871076024002
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 41.469845966366876,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "N3.regla",
+      "N3.circulante",
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.perimetro"
+     ]
+    },
+    {
+     "clave": "activa_sin_PM1",
+     "V": [
+      31.3932105619167,
+      45.4407274921393,
+      59.7871076024002
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 41.469845966366876,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura",
+      "PM1.familia",
+      "PM1.parametro",
+      "PM1.convencion_anios",
+      "PM1.convencion_terminal",
+      "PM1.roic_terminal",
+      "PM1.perimetro"
+     ]
+    },
+    {
+     "clave": "estructura_H",
+     "V": [
+      31.3932105619167,
+      45.4407274921393,
+      59.7871076024002
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 41.469845966366876,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura"
+     ]
+    },
+    {
+     "clave": "estructura_S",
+     "V": [
+      29.443757873827,
+      43.0054628115902,
+      56.8896431718819
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 39.17675788973335,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura"
+     ]
+    },
+    {
+     "clave": "estructura_SR2",
+     "V": [
+      30.0513602328228,
+      44.4560063359244,
+      59.0735345920455
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 40.37080489975529,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura",
+      "PM1.roic_terminal"
+     ]
+    },
+    {
+     "clave": "estructura_SRF",
+     "V": [
+      30.9456263861265,
+      46.0161351887978,
+      61.0744863398069
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 41.708538723511396,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.estructura"
+     ]
+    },
+    {
+     "clave": "parametro_minimo",
+     "V": [
+      31.3932105619167,
+      45.4407274921393,
+      59.7871076024002
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 41.469845966366876,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.parametro"
+     ]
+    },
+    {
+     "clave": "parametro_maximo",
+     "V": [
+      28.1661918552168,
+      42.0934707253953,
+      56.1067999853481
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 38.12654110388348,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.parametro"
+     ]
+    },
+    {
+     "clave": "perimetro_alternativo",
+     "V": [
+      30.3962044184589,
+      44.4278571351952,
+      58.6847843506887
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 40.45099557309299,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.perimetro"
+     ]
+    },
+    {
+     "clave": "perimetro_alternativo_parametro_minimo",
+     "V": [
+      31.3932105619167,
+      45.4407274921393,
+      59.7871076024002
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 41.469845966366876,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.parametro",
+      "PM1.perimetro"
+     ]
+    },
+    {
+     "clave": "perimetro_alternativo_parametro_maximo",
+     "V": [
+      29.3991982750011,
+      43.4149867782511,
+      57.5824610989772
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 39.43214517981911,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.parametro",
+      "PM1.perimetro"
+     ]
+    },
+    {
+     "clave": "convencion_anios_alternativa",
+     "V": [
+      29.7114266930032,
+      43.5521063461236,
+      57.5952241188849
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 39.626546176609324,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.convencion_anios"
+     ]
+    },
+    {
+     "clave": "convencion_terminal_alternativa",
+     "V": [
+      29.9068894377967,
+      44.2284960085398,
+      58.7750350987014
+     ],
+     "p": [
+      0.2,
+      0.6,
+      0.2
+     ],
+     "k": 3.0,
+     "precio": 54.7,
+     "precio_si_publicado": 40.168741633958696,
+     "zona_publicada": "caro",
+     "parametros_variados": [
+      "PM1.convencion_terminal"
+     ]
+    }
+   ],
+   "proveniencia": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/viscofan_decisiones/Viscofan/configuracion_v64_variantes.json",
+    "sha256": "7e5ea3001209cbc66293abc426959a9aef60bb1f3b943b778b407648a34291d8",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   }
+  }
+ ],
+ "probabilidades_referencia": {
+  "referencia_mecanica": [
+   0.2,
+   0.6,
+   0.2
+  ],
+  "desviacion_4_12": [
+   0.25,
+   0.6,
+   0.15
+  ],
+  "proveniencia": {
+   "fase_b_vidrala_4_14": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/fase_b.json",
+    "sha256": "bccb91c93575243e08ae08b4b82fbfd7310636f3642afbc6e31698f1d26d081d",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   },
+   "fase_b_viscofan_4_14": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/viscofan_decisiones/Viscofan/fase_b.json",
+    "sha256": "d6319afd4345445b301d176c6d1af43ff5b2157a3ce254e6b9cfd674ed773ef9",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   },
+   "fase_b_viscofan_4_13": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/Viscofan/fase_b.json",
+    "sha256": "8da95a3129a62b24c4b9e4c3ccb221a28ef4b5da6319ee269b89aea57c5bdf7c",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   },
+   "fase_b_viscofan_4_12": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/antecedentes/ejecucion_1_4_13/fase_b.json",
+    "sha256": "fee5370a267ef3a9020a7ac25f85b54161acacafa0786e67a2e478c8f35e0d83",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   },
+   "fase_b_viscofan_4_12_sufijo": {
+    "ruta": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/antecedentes/fase_b.json.4_12",
+    "sha256": "fee5370a267ef3a9020a7ac25f85b54161acacafa0786e67a2e478c8f35e0d83",
+    "commit_producto": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+    "zip_base_4_14_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+   }
+  },
+  "nota": "En todas las fases B publicadas, referencia_mecanica = 0,2/0,6/0,2; la 4.12 se desvió a 0,25/0,6/0,15 (desviacion ±0,05, clase «fundamentada»); la 4.13 y la 4.14 vuelven a la referencia."
+ }
+}
