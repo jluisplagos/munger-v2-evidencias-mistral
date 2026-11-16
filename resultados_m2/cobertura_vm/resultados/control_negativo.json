@@ -1,10 +1,24 @@
 {
   "nota": "Controles negativos en memoria (sin tocar el registro ni el producto). El verificador mecanico solo acredita archivo/pagina/cita/numero/transformacion/libro; las mutaciones de metadatos contextuales pasan desapercibidas para el (como demostro SONDA_A_SEMANTICA.json) y deben atraparlas los chequeos contextuales.",
-  "muestra": 50,
-  "mutaciones": 203,
-  "detectadas_por_contextual": 154,
+  "muestra": 54,
+  "mutaciones": 218,
+  "detectadas_por_contextual": 168,
   "detectadas_por_mecanico": 40,
   "resumen_por_mutacion": {
+    "bilateral: cabecera_miles_pero_escala_1|ctx=True|mec=False": 1,
+    "bilateral: columna_correcta_valor_en_2024|ctx=True|mec=False": 1,
+    "bilateral: columna_equivocada_valor_2025_en_col_2024|ctx=True|mec=False": 1,
+    "bilateral: euros_en_pagina_vs_miles_declarados|ctx=True|mec=False": 1,
+    "bilateral: metadato_anio_unidad_anio|ctx=True|mec=False": 1,
+    "bilateral: miles_en_cabecera_escala_0001|ctx=True|mec=False": 1,
+    "bilateral: miles_en_pagina_escala_0001|ctx=True|mec=False": 1,
+    "bilateral: perimetro_consolidado_correcto|ctx=True|mec=False": 1,
+    "bilateral: perimetro_individual_en_doc_consolidado|ctx=True|mec=False": 1,
+    "bilateral: reexpresion_ambigua_no_localizada|ctx=False|mec=False": 1,
+    "bilateral: reexpresion_confirmada_misma_fila_columna|ctx=True|mec=False": 1,
+    "bilateral: reexpresion_igualdad_declarada_no_reexpresado|ctx=True|mec=False": 1,
+    "bilateral: version_informe_correcto_en_pagina|ctx=True|mec=False": 1,
+    "bilateral: version_informe_inexistente|ctx=True|mec=False": 1,
     "euros frente a miles (sonda del revisor)|ctx=True|mec=False": 1,
     "partida de otra fila|ctx=False|mec=False": 8,
     "partida de otra fila|ctx=True|mec=False": 32,
@@ -2256,6 +2270,171 @@
       "estado_mecanico_mutado": "n/a (sonda)",
       "estado_contextual_base": "OK",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "columna_correcta_valor_en_2024",
+      "mutacion": "bilateral columna (positivo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "OK",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "columna_equivocada_valor_2025_en_col_2024",
+      "mutacion": "bilateral columna (negativo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "perimetro_consolidado_correcto",
+      "mutacion": "bilateral perimetro (positivo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "OK",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "perimetro_individual_en_doc_consolidado",
+      "mutacion": "bilateral perimetro (negativo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "version_informe_correcto_en_pagina",
+      "mutacion": "bilateral version (positivo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "OK",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "version_informe_inexistente",
+      "mutacion": "bilateral version (negativo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "miles_en_pagina_escala_0001",
+      "mutacion": "bilateral unidad/escala (positivo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "OK",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "miles_en_cabecera_escala_0001",
+      "mutacion": "bilateral unidad/escala (positivo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "OK",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "euros_en_pagina_vs_miles_declarados",
+      "mutacion": "bilateral unidad/escala (negativo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "cabecera_miles_pero_escala_1",
+      "mutacion": "bilateral unidad/escala (negativo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "reexpresion_confirmada_misma_fila_columna",
+      "mutacion": "bilateral reexpresion (positivo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "OK",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "reexpresion_igualdad_declarada_no_reexpresado",
+      "mutacion": "bilateral reexpresion (positivo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "NO_APLICA",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "reexpresion_ambigua_no_localizada",
+      "mutacion": "bilateral reexpresion (negativo)",
+      "detectado_por_contextual": false,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "NO_DECIDIBLE",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "importe_2025_monetario_no_pasa_a_no_aplica",
+      "mutacion": "bilateral importe 20xx monetario",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "OK",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "metadato_anio_unidad_anio",
+      "mutacion": "bilateral año metadata (positivo)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "NO_APLICA",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
     }
   ],
   "sondas_revisor": {
@@ -2289,5 +2468,128 @@
       "esperada_CONFLICTO": true,
       "detectada": true
     }
-  }
+  },
+  "sondas_bilaterales": {
+    "columna_correcta_valor_en_2024": {
+      "regla": "columna",
+      "lado": "positivo",
+      "resultado": "OK",
+      "detalle": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024']",
+      "esperado": "OK",
+      "ok": true
+    },
+    "columna_equivocada_valor_2025_en_col_2024": {
+      "regla": "columna",
+      "lado": "negativo",
+      "resultado": "CONFLICTO",
+      "detalle": "posicion 0 -> columna 2025, pero declarado ['2024'] (linea de columnas ['2025', '2024'])",
+      "esperado": "CONFLICTO",
+      "ok": true
+    },
+    "perimetro_consolidado_correcto": {
+      "regla": "perimetro",
+      "lado": "positivo",
+      "resultado": "OK",
+      "detalle": "estados consolidados acreditados en la pagina",
+      "esperado": "OK",
+      "ok": true
+    },
+    "perimetro_individual_en_doc_consolidado": {
+      "regla": "perimetro",
+      "lado": "negativo",
+      "resultado": "CONFLICTO",
+      "detalle": "documento consolidado pero perimetro declarado 'cuentas individuales'",
+      "esperado": "CONFLICTO",
+      "ok": true
+    },
+    "version_informe_correcto_en_pagina": {
+      "regla": "version",
+      "lado": "positivo",
+      "resultado": "OK",
+      "detalle": "el informe declarado (CF_2025.txt, año 2025) figura en la pagina/cabecera del documento",
+      "esperado": "OK",
+      "ok": true
+    },
+    "version_informe_inexistente": {
+      "regla": "version",
+      "lado": "negativo",
+      "resultado": "CONFLICTO",
+      "detalle": "el año del archivo 2099 no aparece en la pagina ni en la cabecera del documento",
+      "esperado": "CONFLICTO",
+      "ok": true
+    },
+    "miles_en_pagina_escala_0001": {
+      "regla": "unidad/escala",
+      "lado": "positivo",
+      "resultado": "OK",
+      "detalle": "unidad en miles confirmada en la pagina: 'in thousands'",
+      "esperado": "OK",
+      "ok": true
+    },
+    "miles_en_cabecera_escala_0001": {
+      "regla": "unidad/escala",
+      "lado": "positivo",
+      "resultado": "OK",
+      "detalle": "unidad en miles acreditada en la cabecera del documento (alcance: tablas del documento en miles; la pagina no declara otra escala)",
+      "esperado": "OK",
+      "ok": true
+    },
+    "euros_en_pagina_vs_miles_declarados": {
+      "regla": "unidad/escala",
+      "lado": "negativo",
+      "resultado": "CONFLICTO",
+      "detalle": "la pagina declara escala 'Amounts in euros' (euros, no miles); no acredita miles de euros ni escala 0,001",
+      "esperado": "CONFLICTO",
+      "ok": true
+    },
+    "cabecera_miles_pero_escala_1": {
+      "regla": "unidad/escala",
+      "lado": "negativo",
+      "resultado": "CONFLICTO",
+      "detalle": "cabecera del documento en miles pero escala declarada 1 != 0.001",
+      "esperado": "CONFLICTO",
+      "ok": true
+    },
+    "reexpresion_confirmada_misma_fila_columna": {
+      "regla": "reexpresion",
+      "lado": "positivo",
+      "resultado": "OK",
+      "detalle": "reexpresion confirmada por columna: el original CF_2024.txt imprime 10000 en la columna 2024 y el comparativo cita 9000; declarado: sí: reexpresado por cambio de clasificación",
+      "esperado": "OK",
+      "ok": true
+    },
+    "reexpresion_igualdad_declarada_no_reexpresado": {
+      "regla": "reexpresion",
+      "lado": "positivo",
+      "resultado": "NO_APLICA",
+      "detalle": "declara no reexpresado y el original CF_2024.txt imprime la misma cita: coherente",
+      "esperado": "OK/NO_APLICA",
+      "ok": true
+    },
+    "reexpresion_ambigua_no_localizada": {
+      "regla": "reexpresion",
+      "lado": "negativo",
+      "resultado": "NO_DECIDIBLE",
+      "detalle": "la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])",
+      "esperado": "NO_DECIDIBLE",
+      "ok": true
+    },
+    "importe_2025_monetario_no_pasa_a_no_aplica": {
+      "regla": "importe 2000-2099 != metadato de año",
+      "lado": "positivo",
+      "resultado": "OK",
+      "detalle": "reexpresion confirmada por columna: el original CF_2024.txt imprime 2000 en la columna 2024 y el comparativo cita 2025; declarado: sí: comparativo reexpresado de 2024",
+      "esperado": "distinto de NO_APLICA-por-año (OK/CONFLICTO/NO_DECIDIBLE via camino normal)",
+      "ok": true
+    },
+    "metadato_anio_unidad_anio": {
+      "regla": "año metadata",
+      "lado": "positivo",
+      "resultado": "NO_APLICA",
+      "detalle": "metadato de año identificado por unidad/concepto (unidad 'año (ejercicio)', concepto 'ejercicio de la columna (cierre a 31 de diciembre)'); un año de columna no se reexpresa como importe. Un importe 2",
+      "esperado": "NO_APLICA",
+      "ok": true
+    }
+  },
+  "bilaterales_ok": true
 }

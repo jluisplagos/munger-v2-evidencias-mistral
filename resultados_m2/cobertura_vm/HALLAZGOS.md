@@ -60,3 +60,10 @@ La revisión externa (`9366bdd`, `SONDA_A_SEMANTICA.json`) demostró que el cont
 - Dimensiones (467 fuentes): columna 463 OK/4 ND; fila 466/1; perímetro 423 OK/40 ND/4 NA; reexpresión 199 OK/179 ND/89 NA; signo 447/7/13; unidad 459/8; versión 467/467 OK. Derivados: 41 REVISADO / 46 PENDIENTE / 14 REUTILIZADO_M1.
 - Negativos: 203 mutaciones, 154 detectadas por el contextual (5/5 sondas del revisor), 40 por el mecánico (solo versión). Límites declarados: unidad 4/34, partida 32/40, columna 33/40, perímetro 37–38/40.
 - Ver `RESPUESTA_A_D_20261116.md`.
+
+## 11. [CIERRE V2 · BLOQUE 1] v3.1: importe 2000–2099 ≠ metadato de año; sondas bilaterales; ENTREGA.json
+
+- `es_metadato_anio` (v3.1): año solo por unidad/concepto que lo identifiquen. Caso real corregido: `Viscofan aux:AR2025_p27_pagos_acciones_2024` (2001 **miles de euros**) ya no es NO_APLICA por parecer año → NO_DECIDIBLE (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024). Reexpresión: 199 OK / 180 ND / 88 NA (antes 199/179/89); totales CSV sin cambio (la fila es piloto M1).
+- 15 sondas bilaterales (positivo+negativo) de columna, perímetro, versión/edición, unidad/escala (página y cabecera), reexpresión (confirmada/igualdad/ambigüedad), importe 20xx monetario y año real: **15/15 ok**; 5/5 sondas del revisor d375d80 en CONFLICTO. Negativos: 218 mutaciones, 168 ctx / 40 mec.
+- Código y salidas coherentes (regenerados en un pase): CSV 282 REVISADO / 229 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / **0 CONFLICTO**; control **PASS exit 0**. Conciliación: 677 = 467 fuentes + 101 derivados + 109 sin fuente; **229 pendientes = 183 fuentes + 46 derivados**.
+- Publicado `ENTREGA.json` según PLANTILLA_ENTREGA.json; control remoto consultado (`coordinacion/cierre-v2` @ ff0c60c): A-CTX revisión pendiente asignada a Claude. Ver `PUNTO_DE_RECUPERACION.md`.

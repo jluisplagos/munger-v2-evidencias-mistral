@@ -95,10 +95,21 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - Lotes L00–L21 regenerados; `RESPUESTA_A_D_20261116.md` con respuesta numerada, comandos y hashes; `HALLAZGOS.md` §10, `MAPA_REGENERACION.md` tabla v3, `RESUMEN_PARA_CLAUDE.md` actualizados; manifiesto regenerado.
 - Pendientes: 183 fuentes PENDIENTE (reexpresión ND 179, perímetro 40, unidad 8, signo 7, columna 4, fila 1 — solapados) y 46 derivados que heredan; 52 HIPOTESIS / 35 CONVENCION / 16 NO_APLICABLE / 6 DATO_AUSENTE sin cambio.
 
+## Programa de cierre v2 · Bloque 1 (cerrar y facilitar revisión) — ejecutado
+
+- Encargo leído con `git show ec707a5ba2bd684381a63ce0f6f6c143aa59f4c0:coordinacion/cierre_v2/PROMPT_MISTRAL_A.md` (+ LEEME/PROGRAMA/INTEGRACION/PLANTILLA_ENTREGA/CONTROL); control remoto consultado también en `ff0c60c` (`coordinacion/cierre-v2`): A-CTX ENTREGADO en `d2419e5`, revisión PENDIENTE (Claude), señal explícita «comprobar importe20xx frente a metadato de año». Rama de revisión `revision/chatgpt-cierre-mistral-01` consultada en solo lectura (afecta a otro frente, no a A).
+- **v3.1** (`verificar_contexto.es_metadato_anio`): metadato de año solo por unidad/concepto; importe monetario 2000–2099 ya no pasa a NO_APLICA por parecer año. Caso real: `Viscofan aux:AR2025_p27_pagos_acciones_2024` (2001 miles de euros) → NO_DECIDIBLE (aparece en CF_2024.txt pero no en la misma fila/columna 2024). Reexpresión: 199 OK / 180 ND / 88 NA (antes 199/179/89).
+- **Sondas bilaterales** (15, todas ok) en `control_negativo.py` §9: columna correcta/equivocada, perímetro consolidado/individual, versión correcta/inexistente, miles en página y en cabecera con escala 0.001 vs euros/escala 1, reexpresión confirmada/igualdad/ambigüedad, importe 2025 monetario (→ OK por camino normal, no NO_APLICA), año real por unidad (→ NO_APLICA). 5/5 sondas del revisor d375d80 en CONFLICTO.
+- Pipeline regenerado en un pase con código definitivo: fuentes 241 REVISADO / 183 PENDIENTE / 43 REUTILIZADO_M1; derivados 41/46/14; CSV **282 / 229 / 60 / 106 / 0 CONFLICTO**; mecánicos sin cambio (568/52/35/16/6); `control_cobertura.py` **PASS exit 0**; negativos 218 mutaciones (168 ctx / 40 mec); lotes L00–L21 regenerados.
+- **Conciliación**: 677 = 467 con fuente + 101 derivados + 109 sin fuente (52H/35C/16NA/6DA). 229 pendientes = **183 fuentes + 46 derivados** (no 229 fuentes). CSV: 282=241+41; 229=183+46; 60=43+14+3 piloto no-aplica; 106=109−3.
+- Publicado `ENTREGA.json` (modelo PLANTILLA_ENTREGA.json), manifiesto regenerado; commit+push en `mistral/m2-cobertura-vm`.
+
 ## Pendiente / siguiente acción exacta
 
-1. **Revisión por otro contexto** sobre el commit congelado final de esta rama (incluida la respuesta A-R1–R3 a `d375d80` en `RESPUESTA_A_D_20261116.md`) (citados, estados, dependencias y compatibilidad antes de incorporar nada).
-2. Nada más en este frente: no ampliar alcance, no PR, no fusión, no tocar el producto, los frentes B/C/D ni los resultados M1 ya revisados. Hallazgos materiales pendientes: los 6 DATO_AUSENTE y las 52 HIPOTESIS quedan como tales (ver `HALLAZGOS.md`).
+1. **Claude coordinador revisa este Bloque 1** (diff v3.1, sondas bilaterales, reproducción del control) — no autoaprobación.
+2. **Bloque 2 del encargo**: cola de las 183 fuentes pendientes + 46 derivados agrupada por documento/página, priorizada por dependencias de entradas materiales del motor; resolver con evidencia o dejar pendiente con motivo preciso; propagar a derivados/mapa/lotes. Termina cuando toda la cola tenga evidencia o bloqueo preciso, no al llegar a cero pendientes.
+3. Bloque 3 (cola G-MANUAL) solo si CONTROL.json lo asigna a A tras terminar el bloque A: rama nueva `mistral/g-manual-traspaso`, carpeta `resultados_cierre/manual_traspaso/`.
+4. Nada más en este frente: no PR, no fusión, no tocar producto/main/B/C/D/E/F ni M1; escritura solo en `resultados_m2/cobertura_vm/` (y la carpeta del bloque 3 si se asigna). Hallazgos materiales pendientes: 6 DATO_AUSENTE y 52 HIPOTESIS quedan como tales (ver `HALLAZGOS.md`).
 
 ## Modelo, herramientas y consumo
 

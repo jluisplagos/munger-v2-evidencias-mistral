@@ -428,6 +428,17 @@ def textos_empresa(emp):
 TEXTO_CACHE = {}
 
 
+def es_metadato_anio(f):
+    """v3.1 (cierre v2, bloque 1): un metadato de año se identifica SOLO por unidad o
+    concepto que lo identifiquen como año (unidad 'año', 'ejercicio de la columna').
+    NUNCA por el valor: un importe monetario 2000-2099 (p. ej. 2001 miles de euros en
+    pagos de acciones) NO es un año y no debe pasar a NO_APLICA por parecer año."""
+    if UNIT_DECLARED_CANON.get(str(f.get('unidad') or '')) == 'anio':
+        return True
+    concepto = str(f.get('concepto') or '')
+    return bool(re.search(r'(año|year|ejercicio)(\s+fiscal)?\s+de la columna|^(año|year|ejercicio)\s*$', concepto, re.IGNORECASE))
+
+
 def check_reexpresion(emp, r, f, col_years, years_in_block):
     """v3 (A-R1/A-R2, revision d375d80):
     - un año de columna es metadato y NO se reexpresa como importe (NO_APLICA);
@@ -442,8 +453,8 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
     ya, yc = columna_year(f.get('columna'), f.get('periodo'), archivo)
     valor = f.get('valor_fuente')
     unidad = str(f.get('unidad') or '')
-    if unidad in ('año', 'año (ejercicio)') or (valor is not None and C.dec(valor) is not None and YEAR_RE.fullmatch(str(int(C.dec(valor))))):
-        return 'NO_APLICA', f'el valor {valor} es un metadato de año (unidad {unidad!r}); un año de columna no se reexpresa como importe'
+    if es_metadato_anio(f):
+        return 'NO_APLICA', f'metadato de año identificado por unidad/concepto (unidad {unidad!r}, concepto {f.get("concepto")!r}); un año de columna no se reexpresa como importe. Un importe 2000-2099 con unidad monetaria no se clasifica aquí por el valor (v3.1)'
     if not ya or not yc:
         return 'NO_DECIDIBLE', 'sin años de informe/columna para contrastar reexpresion'
     if yc == ya:

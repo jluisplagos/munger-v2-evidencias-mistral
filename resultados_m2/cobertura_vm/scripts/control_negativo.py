@@ -153,6 +153,87 @@ def main():
         })
         resumen[(f'sonda: {nombre}', detectada, False)] += 1
 
+    # 9. sondas BILATERALES (cierre v2, bloque 1): ambos lados de cada regla afectada.
+    #    lado=positivo: caso correcto -> OK/NO_APLICA (nunca CONFLICTO).
+    #    lado=negativo: caso erroneo/ambiguo -> CONFLICTO o NO_DECIDIBLE (nunca OK).
+    bilateral = {}
+
+    def add_bilateral(nombre, regla, lado, res, esperado):
+        estado, detalle = res[0], str(res[1])
+        if lado == 'positivo':
+            ok = estado in ('OK', 'NO_APLICA') and 'metadato de a\u00f1o' not in detalle or (nombre == 'metadato_anio_unidad_anio' and estado == 'NO_APLICA')
+        else:
+            ok = estado in ('CONFLICTO', 'NO_DECIDIBLE')
+        bilateral[nombre] = {'regla': regla, 'lado': lado, 'resultado': estado,
+                             'detalle': detalle[:200], 'esperado': esperado, 'ok': ok}
+        resultados.append({
+            'empresa': 'SONDA', 'celda': nombre, 'mutacion': f'bilateral {regla} ({lado})',
+            'detectado_por_contextual': (estado == 'CONFLICTO') if lado == 'negativo' else (estado in ('OK', 'NO_APLICA')),
+            'detectado_por_mecanico': False,
+            'estado_contextual_mutado': estado, 'estado_mecanico_mutado': 'n/a (sonda)',
+            'estado_contextual_base': 'OK', 'estado_mecanico_base': 'COINCIDE_PROPUESTO',
+        })
+        resumen[(f'bilateral: {nombre}', lado == 'negativo' and estado == 'CONFLICTO' or lado == 'positivo' and estado in ('OK', 'NO_APLICA'), False)] += 1
+
+    # columna por posicion (año de columna != año del informe en la descripcion)
+    add_bilateral('columna_correcta_valor_en_2024', 'columna', 'positivo',
+        V.check_columna(1, ['2025 2024', 'Revenue 10000 9000'], ['2025', '2024'], '2025 2024', ['2025', '2024'],
+                        '2024 (columna comparativa del informe 2025)', 'ejercicio 2024', 9000), 'OK')
+    add_bilateral('columna_equivocada_valor_2025_en_col_2024', 'columna', 'negativo',
+        V.check_columna(1, ['2025 2024', 'Revenue 10000 9000'], ['2025', '2024'], '2025 2024', ['2025', '2024'],
+                        '2024 (columna comparativa del informe 2025)', 'ejercicio 2024', 10000), 'CONFLICTO')
+    # perimetro / cambio de edicion (version)
+    add_bilateral('perimetro_consolidado_correcto', 'perimetro', 'positivo',
+        V.check_perimetro(['Consolidated statements of financial position'], 'estados consolidados'), 'OK')
+    add_bilateral('perimetro_individual_en_doc_consolidado', 'perimetro', 'negativo',
+        V.check_perimetro(['Consolidated statements of financial position'], 'cuentas individuales'), 'CONFLICTO')
+    add_bilateral('version_informe_correcto_en_pagina', 'version', 'positivo',
+        V.check_version('CF_2025.txt', ['Informe anual 2025', 'estados consolidados'], ['2025'], {'head': 'Informe 2025'}), 'OK')
+    add_bilateral('version_informe_inexistente', 'version', 'negativo',
+        V.check_version('CF_2099.txt', ['Informe anual 2025'], ['2025'], {'head': 'Informe 2025'}), 'CONFLICTO')
+    # unidad/escala (pagina y cabecera de documento)
+    add_bilateral('miles_en_pagina_escala_0001', 'unidad/escala', 'positivo',
+        V.check_unidad(['Amounts in thousands of euros', 'Revenue 1000'], 1, 'miles de euros', '0.001', 1000, 'Revenue 1000'), 'OK')
+    add_bilateral('miles_en_cabecera_escala_0001', 'unidad/escala', 'positivo',
+        V.check_unidad(['Revenue 1000'], 0, 'miles de euros', '0.001', 1000, 'Revenue 1000', {'miles': True}), 'OK')
+    add_bilateral('euros_en_pagina_vs_miles_declarados', 'unidad/escala', 'negativo',
+        V.check_unidad(['Amounts in euros', 'Revenue 1000'], 1, 'miles de euros', '0.001', 1000, 'Revenue 1000'), 'CONFLICTO')
+    add_bilateral('cabecera_miles_pero_escala_1', 'unidad/escala', 'negativo',
+        V.check_unidad(['Revenue 1000'], 0, 'miles de euros', '1', 1000, 'Revenue 1000', {'miles': True}), 'CONFLICTO')
+    # reexpresion: confirmada / igualdad / ambiguedad / importe 2000-2099 / año real
+    with tempfile.TemporaryDirectory() as td:
+        orig = Path(td) / 'CF_2024.txt'
+        V.TEXTO_CACHE['SINTETICA2'] = {orig.name: orig}
+        base_f = {'archivo': 'CF_2025.txt', 'columna': '2024 (comparativo)', 'periodo': 'ejercicio 2024', 'unidad': 'miles de euros'}
+        orig.write_text('[PDF PAGE 1]\nConsolidated accounts 2024\n2024 2023\nRevenue 10000 8000\n')
+        f = dict(base_f, cita='Revenue 9000', valor_fuente=9000, reexpresado='sí: reexpresado por cambio de clasificación')
+        add_bilateral('reexpresion_confirmada_misma_fila_columna', 'reexpresion', 'positivo',
+            V.check_reexpresion('SINTETICA2', {}, f, ['2025', '2024'], ['2025', '2024']), 'OK')
+        orig.write_text('[PDF PAGE 1]\nConsolidated accounts 2024\n2024 2023\nRevenue 9000 8000\n')
+        f = dict(base_f, cita='Revenue 9000', valor_fuente=9000, reexpresado='no reexpresado; igual al original')
+        add_bilateral('reexpresion_igualdad_declarada_no_reexpresado', 'reexpresion', 'positivo',
+            V.check_reexpresion('SINTETICA2', {}, f, ['2025', '2024'], ['2025', '2024']), 'OK/NO_APLICA')
+        f = dict(base_f, cita='EBIT margin 12 por ciento', valor_fuente=12, reexpresado='sí')
+        add_bilateral('reexpresion_ambigua_no_localizada', 'reexpresion', 'negativo',
+            V.check_reexpresion('SINTETICA2', {}, f, ['2025', '2024'], ['2025', '2024']), 'NO_DECIDIBLE')
+        orig.write_text('[PDF PAGE 1]\nConsolidated accounts 2024\n2024 2023\nDividends 2000 1800\n')
+        f = dict(base_f, cita='Dividends 2025', valor_fuente=2025, reexpresado='sí: comparativo reexpresado de 2024')
+        r20xx = V.check_reexpresion('SINTETICA2', {}, f, ['2025', '2024'], ['2025', '2024'])
+        bilateral['importe_2025_monetario_no_pasa_a_no_aplica'] = {
+            'regla': 'importe 2000-2099 != metadato de año', 'lado': 'positivo',
+            'resultado': r20xx[0], 'detalle': str(r20xx[1])[:200],
+            'esperado': 'distinto de NO_APLICA-por-año (OK/CONFLICTO/NO_DECIDIBLE via camino normal)',
+            'ok': r20xx[0] in ('OK', 'CONFLICTO', 'NO_DECIDIBLE') and 'metadato de a\u00f1o' not in str(r20xx[1])}
+        resultados.append({'empresa': 'SONDA', 'celda': 'importe_2025_monetario_no_pasa_a_no_aplica',
+            'mutacion': 'bilateral importe 20xx monetario', 'detectado_por_contextual': bilateral['importe_2025_monetario_no_pasa_a_no_aplica']['ok'],
+            'detectado_por_mecanico': False, 'estado_contextual_mutado': r20xx[0], 'estado_mecanico_mutado': 'n/a (sonda)',
+            'estado_contextual_base': 'OK', 'estado_mecanico_base': 'COINCIDE_PROPUESTO'})
+        f = {'archivo': 'CF_2025.txt', 'columna': '2024 (comparativo)', 'periodo': 'ejercicio 2024',
+             'unidad': 'año (ejercicio)', 'concepto': 'ejercicio de la columna (cierre a 31 de diciembre)',
+             'cita': '2024', 'valor_fuente': 2024, 'reexpresado': 'no aplica'}
+        add_bilateral('metadato_anio_unidad_anio', 'año metadata', 'positivo',
+            V.check_reexpresion('SINTETICA2', {}, f, ['2025', '2024'], ['2025', '2024']), 'NO_APLICA')
+
     n = len(resultados)
     ok_ctx = sum(1 for x in resultados if x['detectado_por_contextual'])
     ok_mec = sum(1 for x in resultados if x['detectado_por_mecanico'])
@@ -165,9 +246,11 @@ def main():
         'resumen_por_mutacion': {f'{k[0]}|ctx={k[1]}|mec={k[2]}': v for k, v in sorted(resumen.items())},
         'detalle': resultados,
         'sondas_revisor': sondas_out,
+        'sondas_bilaterales': bilateral,
+        'bilaterales_ok': all(v.get('ok', True) for v in bilateral.values()),
     }
     C.dump_json(out, C.RESULTADOS / 'control_negativo.json')
-    print(json.dumps({'muestra': out['muestra'], 'mutaciones': n,
+    print(json.dumps({'muestra': out['muestra'], 'mutaciones': n, 'bilaterales_ok': out['bilaterales_ok'],
                       'detectadas_por_contextual': ok_ctx, 'detectadas_por_mecanico': ok_mec,
                       'resumen': out['resumen_por_mutacion']}, ensure_ascii=False))
 
