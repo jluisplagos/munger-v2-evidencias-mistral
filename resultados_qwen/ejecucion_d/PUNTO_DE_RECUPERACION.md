@@ -15,8 +15,8 @@
   1 NO_OBSERVABLE (Q1-026, bloqueo de entorno documentado con paquete restaurado),
   2 DECISION_PENDIENTE (Q1-030, Q1-035). Q1-027 cerrado con resultado (hueco b);
   paquete Q1-026 restaurado con procedencia verificable (hueco a).
-- Siguiente comando exacto: bloque 2 -> paquetes de relevo en relevo/ + ENTREGA.json;
-  o reproducir todo: bash scripts/preparar_entorno.sh && bash scripts/ejecutar_todo.sh &&
-  python3 -B scripts/pruebas_arnes.py && python3 scripts/generar_matriz.py
+- Siguiente comando exacto (reanudar desde contexto limpio):
+  bash scripts/preparar_entorno.sh && bash scripts/ejecutar_todo.sh && python3 -B scripts/pruebas_arnes.py && python3 scripts/generar_matriz.py && python3 scripts/generar_relevo.py
+- Runtime del coordinador: ejecutar relevo/PAQUETES_RELEVO.json (36 paquetes) con agentes reales y registrar SHA por ejecución.
 - Expedientes de prueba: `/workspace/ejecucion_d_run/<caso>/Viscofan` + `_heredados/`.
 - Sin secretos; sin pycache en el manifiesto.

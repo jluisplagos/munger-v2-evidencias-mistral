@@ -6,7 +6,7 @@
  "base_revisada_sha": "bdcbba789244d167c9cef360d8225ae29275e917",
  "commit_entrega": "el coordinador toma el SHA remoto de este push; no autorreferencia",
  "directorio_entrega": "resultados_qwen/ejecucion_d/",
- "bloque": "Bloque 2 del programa de cierre (PROMPT_MISTRAL_D): paquetes de relevo caso por caso para el runtime del coordinador",
+ "bloque": "Bloques 3/4 del programa de cierre (PROMPT_MISTRAL_D): cierre de la matriz de 36 y transferencia",
  "tareas_control": [
   "D-HARNESS",
   "D-36"
@@ -20,9 +20,9 @@
   "base 4.14: ZIP Release base-4.14 sha256 bb51942c...7b93e, materializado 6798/6798 en copia local de la candidata"
  ],
  "cambios_respecto_entrega_anterior": [
-  "relevo/PAQUETES_RELEVO.json: 36 paquetes (entrada_usuario, archivos, comando exacto de re-ejecución, criterios ya cubiertos por componente, lo que falta de agente/runtime/política)",
-  "Q1-026 incluye paquete_runtime con pasos, artefactos esperados y bloqueo actual (pdftotext/soffice) para el runtime de Claude",
-  "generar_relevo.py genera los paquetes desde banco + evidencias + matriz (fuente única)"
+  "RESUMEN_PARA_INTEGRADOR.md con cierre por categoría desde recuentos.json: 30 PARCIAL_COMPONENTE / 6 NO_EJECUTADO; 56/56 criterios CUMPLE_COMPONENTE; veredicto de caso: 29 pendiente de agente, 1 NO_OBSERVABLE, 4 sin veredicto, 2 DECISION_PENDIENTE",
+  "tareas restantes concretas por caso en relevo/PAQUETES_RELEVO.json (runtime Claude, Q1-026 con pdftotext+soffice, Q1-030/035 política del usuario, revisión externa)",
+  "PUNTO_DE_RECUPERACION.md con siguiente comando exacto para reanudar desde contexto limpio"
  ],
  "pruebas": [
   {
@@ -82,18 +82,18 @@
   "sin pdftotext: Q1-026 se detiene en textos AR_2021..AR_2024 (error exacto en evidencias/Q1-026/cambiar_base_preparar.txt)",
   "sin runtime de agente: fases del personaje y auditorías en relevo"
  ],
- "siguiente_accion_exacta": "Bloque 3/4: matriz de cierre con criterios completos/parciales/no observables/políticas + tareas restantes; ENTREGA final; commit+push. Runtime del coordinador ejecuta los paquetes de relevo/ con agentes reales.",
+ "siguiente_accion_exacta": "Coordinador (Claude): revisar este bloque (diff + reproducción de ejecutar_todo.sh y pruebas_arnes.py), registrar en CONTROL.json D-HARNESS/D-36, y ejecutar relevo/PAQUETES_RELEVO.json en el runtime con agentes reales. Reanudar: bash scripts/preparar_entorno.sh && bash scripts/ejecutar_todo.sh && python3 -B scripts/pruebas_arnes.py && python3 scripts/generar_matriz.py && python3 scripts/generar_relevo.py",
  "integrado_en_producto": false,
  "apto_dinero_real": "No se declara por este formulario",
  "criterios_cubiertos": [
-  "30 casos con componente ejecutado y aserciones CUMPLE (ver matriz)"
+  "30 casos con componente real y aserciones (56 criterios CUMPLE_COMPONENTE); arnés 8/8 PASA"
  ],
  "criterios_pendientes": [
-  "recorrido real del personaje en los 30 casos con componente (runtime Claude)",
-  "Q1-031/Q1-033 precio actual/objetivo con agente",
-  "Q1-026 completo con pdftotext+soffice (paquete listo en relevo/)",
-  "Q1-030/Q1-035 política (usuario)",
-  "revisión externa por Claude"
+  "recorrido real del personaje en los 30 casos (runtime Claude, paquetes en relevo/)",
+  "Q1-026 completo (pdftotext+soffice; paquete listo)",
+  "Q1-031/Q1-033 (precio actual/objetivo con agente)",
+  "Q1-030/Q1-035 (política del usuario)",
+  "revisión externa por Claude de estos bloques"
  ],
- "salida_siguiente": "ENTREGA.json final del bloque 3/4 + matriz regenerada"
+ "salida_siguiente": "registro de revisión en CONTROL.json (solo Claude) + resultados del runtime en los paquetes de relevo"
 }
