@@ -13,9 +13,9 @@
     "CONVENCION": 5
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 17,
-    "NO_APLICA": 10,
-    "PENDIENTE_CONTEXTUAL": 3
+    "REVISADO_CONTEXTUAL": 13,
+    "PENDIENTE_CONTEXTUAL": 7,
+    "NO_APLICA": 10
   },
   "entradas": [
     {
@@ -144,12 +144,12 @@
       "id": "aux:adq_puesta_equivalencia_2024",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Acquisition of companies accounted for using the equity method - (6,000)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
+      "evidencia_contextual": "fila leida: 'Acquisition of companies accounted for using the equity method - (6,000)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: miles → mm; signo de la fuente (pago, negativo) | reexpresado: no (igual que CF_2024 p.7: «Acquisition of companies accounted for using the equity method (6,000) -»; ES 2025 [PDF PAGE 14]: «Adquisición de sociedades integradas por puesta en equivalencia - (6.000)») | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: la fila aparece en CF_2024.txt pero la columna 2024 no se puede mapear (columnas ['2024', '2023'], v",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -157,7 +157,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "OK"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Acquisition of companies accounted for using the equity method - (6,000)",
       "encabezado": "31 December 2025 and 2024",
@@ -248,12 +248,12 @@
       "id": "aux:otros_efectos_venta_2024",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Other effects of disposal - 11,668'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
+      "evidencia_contextual": "fila leida: 'Other effects of disposal - 11,668'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: miles → mm; signo de la fuente (entrada) | reexpresado: no (igual que CF_2024 p.7) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: la fila aparece en CF_2024.txt pero la columna 2024 no se puede mapear (columnas ['2024', '2023'], v",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -261,7 +261,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "OK"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Other effects of disposal - 11,668",
       "encabezado": "31 December 2025 and 2024",
@@ -278,12 +278,12 @@
       "id": "aux:venta_dependientes_2024",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Cash flows from loss of control of subsidiaries - 230,000'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
+      "evidencia_contextual": "fila leida: 'Cash flows from loss of control of subsidiaries - 230,000'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: miles → mm; signo de la fuente (entrada) | reexpresado: no (igual que CF_2024 p.7) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: la fila aparece en CF_2024.txt pero la columna 2024 no se puede mapear (columnas ['2024', '2023'], v",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -291,7 +291,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "OK"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Cash flows from loss of control of subsidiaries - 230,000",
       "encabezado": "31 December 2025 and 2024",
@@ -428,12 +428,12 @@
       "id": "h_arrend",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 52] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Final balance at 12/31 49,300 44,904'; encabezado: '2025 2024'; titulo pagina: 'VIDRALA, S.A. and SUBSIDIARIES | Notes to the Consolidated Annual Accounts | The carrying amounts of'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
+      "evidencia_contextual": "fila leida: 'Final balance at 12/31 49,300 44,904'; encabezado: '2025 2024'; titulo pagina: 'VIDRALA, S.A. and SUBSIDIARIES | Notes to the Consolidated Annual Accounts | The carrying amounts of'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: miles → mm; signo +; = no corriente 41,279 + corriente 3,625 (nota 16, p.66) | reexpresado: no (igual que CF_2024 p.56) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: la fila aparece en CF_2024.txt pero la columna 2024 no se puede mapear (columnas ['2024', '2025', '2",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -441,7 +441,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "OK"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Final balance at 12/31 49,300 44,904",
       "encabezado": "2025 2024",

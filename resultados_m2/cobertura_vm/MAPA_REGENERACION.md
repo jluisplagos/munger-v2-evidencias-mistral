@@ -46,3 +46,16 @@ Qué puede aprovechar Claude para una futura regeneración, qué debe revisarse 
 | Hipótesis / convenciones / no aplicables / ausentes | 109 | NO_APLICA (clase) | No como datos: requieren decisión o fuente |
 
 El control (`control_cobertura.py`) sigue en PASS con 0 violaciones y valida la coherencia CSV↔verificación contextual. Ver `RESPUESTA_SEGUIMIENTO_20261116.md`.
+
+## Estados de las dependencias para regeneración (revisión d375d80, v3) — tabla vigente
+
+| Grupo | n | Estado contextual | ¿Qué puede reutilizar el integrador? |
+|---|---|---|---|
+| Fuentes con todas las dimensiones OK/NO_APLICA | 241 | REVISADO_CONTEXTUAL | Sí: huella vigente + fila/columna (por posición)/unidad+escala/signo/perímetro/versión/reexpresión leídos |
+| Derivados cuyos orígenes están todos revisados | 41 | REVISADO_CONTEXTUAL | Sí: fórmula + hash de entradas vigente |
+| Piloto M1 | 60 | REUTILIZADO_M1 (43 fuentes + 14 derivados; 3 de clase no aplica figuran en NO_APLICA) | Sí, con el alcance y huellas del piloto corregido |
+| Fuentes con alguna dimensión no decidible | 183 | PENDIENTE_CONTEXTUAL | No como revisadas: reexpresión ND 179, perímetro ND 40, unidad ND 8, signo ND 7, columna ND 4, fila ND 1 — solapamientos entre filas |
+| Derivados con orígenes pendientes | 46 | PENDIENTE_CONTEXTUAL | No: heredan `limites_contextuales` (p. ej. `Vidrala Historia!I22` ← `Historia!I23`) |
+| Hipótesis / convenciones / no aplicables / ausentes | 106 | NO_APLICA (clase) | No como datos: requieren decisión o fuente |
+
+Totales CSV (677): 282 REVISADO_CONTEXTUAL / 229 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / **0 CONFLICTO**. Control PASS exit 0 con el código definitivo v3 (coherente con los resultados, a diferencia de la reproducción del revisor sobre `0224b71`). Las 5 sondas del revisor son CONFLICTO 5/5. Ver `RESPUESTA_A_D_20261116.md`.

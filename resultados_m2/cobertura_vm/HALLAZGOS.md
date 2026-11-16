@@ -51,3 +51,12 @@ La revisión externa (`9366bdd`, `SONDA_A_SEMANTICA.json`) demostró que el cont
 - No aplicable (signo de ceros, perímetro «no aplica», columna corriente) separado de no comprobado (→ PENDIENTE).
 - Negativos: 198 mutaciones, 151 detectadas por el contextual (sonda euros/miles 1/1; versión 40/40; reexpresión 3/3; columna 33/40; perímetro 38/40; partida 32/40; unidad 4/34), 40 por el mecánico (solo versión por archivo). Límites del automatismo declarados.
 - Ver `RESPUESTA_SEGUIMIENTO_20261116.md`.
+
+## 10. [REVISION A-D d375d80] Coherencia código/resultados, columna por posición, reexpresión misma fila/columna, escala en cabecera (v3)
+
+- **A-R1 coherente**: semántica v3 reconciliada primero y todas las salidas regeneradas con el código definitivo en un pase; los 20 conflictos del revisor eran metadato de año (`Historia!C5..K5`, `Historia!I23`, `Palancas!C48` → derivada `Historia!I22`): en v3 un año 20xx es NO_APLICA en reexpresión (no se reexpresa como importe); `I23`/`Palancas!C48` quedan PENDIENTE (NO_DECIDIBLE) sin conflicto falso. Totales 677: **282 REVISADO_CONTEXTUAL, 229 PENDIENTE_CONTEXTUAL, 60 REUTILIZADO_M1, 106 NO_APLICA, 0 CONFLICTO**; control **PASS exit 0** (el revisor obtenía exit 1 con 21 conflictos al reproducir `0224b71`). Mecánicos sin cambio (568/52/35/16/6).
+- **A-R2 columna/reexpresión**: `columna_year` separa año del informe del año de columna; el valor se mapea por posición en la línea de columnas (`check_columna`); `check_reexpresion` compara misma fila/ejercicio/columna (posición)/escala/perímetro contra el texto original del año conservado, y contradicción explícita («no reexpresado» con valor distinto) → CONFLICTO nunca OK. Las **5 sondas del revisor pasan a CONFLICTO 5/5** (estaban 1/5) e van incrustadas en `control_negativo.json` (`sondas_revisor`). Positivos: años → NO_APLICA (89 con columna corriente), 0 conflictos falsos en las 677.
+- **A-R3 escala en cabecera**: `check_unidad` valida `escala==0.001` también cuando la unidad viene de la cabecera del documento (sonda `escala_erronea_con_cabecera` → CONFLICTO).
+- Dimensiones (467 fuentes): columna 463 OK/4 ND; fila 466/1; perímetro 423 OK/40 ND/4 NA; reexpresión 199 OK/179 ND/89 NA; signo 447/7/13; unidad 459/8; versión 467/467 OK. Derivados: 41 REVISADO / 46 PENDIENTE / 14 REUTILIZADO_M1.
+- Negativos: 203 mutaciones, 154 detectadas por el contextual (5/5 sondas del revisor), 40 por el mecánico (solo versión). Límites declarados: unidad 4/34, partida 32/40, columna 33/40, perímetro 37–38/40.
+- Ver `RESPUESTA_A_D_20261116.md`.

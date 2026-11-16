@@ -125,6 +125,34 @@ def main():
     })
     resumen[('euros frente a miles (sonda del revisor)', sonda[0] == 'CONFLICTO', False)] += 1
 
+    # 8. sondas del revisor (d375d80, SONDAS.json) como controles permanentes:
+    #    las cinco deben quedar en CONFLICTO (nunca OK) salvo que sean no-aplicables por naturaleza.
+    import tempfile
+    sondas = {}
+    sondas['euros_no_miles'] = V.check_unidad(['Amounts in euros', 'Revenue 10000'], 1, 'miles de euros', '0.001', 10000, 'Revenue 10000')
+    sondas['escala_erronea_con_cabecera'] = V.check_unidad(['Revenue 10000'], 0, 'miles de euros', '1', 10000, 'Revenue 10000', {'miles': True})
+    sondas['columna_equivocada_aceptada'] = V.check_columna(1, ['2025 2024', 'Revenue 10000 9000'], ['2025', '2024'], '2025 2024', ['2025', '2024'], '2024 (columna comparativa del informe 2025)', 'ejercicio 2024', 10000)
+    with tempfile.TemporaryDirectory() as td:
+        orig = Path(td) / 'CF_2024.txt'
+        orig.write_text('[PDF PAGE 1]\nConsolidated accounts 2024\n2024 2023\nRevenue 10000 9000\n')
+        V.TEXTO_CACHE['SINTETICA'] = {orig.name: orig}
+        f = {'archivo': 'CF_2025.txt', 'columna': '2024', 'periodo': 'ejercicio 2024', 'cita': 'Revenue 9000', 'valor_fuente': 9000, 'reexpresado': 'no reexpresado; igual al original'}
+        sondas['reexpresion_toma_otra_columna'] = V.check_reexpresion('SINTETICA', {}, f, ['2025', '2024'], ['2025', '2024'])
+        orig.write_text('[PDF PAGE 1]\nConsolidated accounts 2024\n2024 2023\nRevenue 10000 8000\n')
+        sondas['contradiccion_reexpresion_devuelve_ok'] = V.check_reexpresion('SINTETICA', {}, f, ['2025', '2024'], ['2025', '2024'])
+    esperadas_conflicto = {'euros_no_miles', 'escala_erronea_con_cabecera', 'columna_equivocada_aceptada', 'reexpresion_toma_otra_columna', 'contradiccion_reexpresion_devuelve_ok'}
+    sondas_out = {}
+    for nombre, res in sondas.items():
+        detectada = res[0] == 'CONFLICTO'
+        sondas_out[nombre] = {'resultado': res[0], 'detalle': res[1][:160], 'esperada_CONFLICTO': nombre in esperadas_conflicto, 'detectada': detectada}
+        resultados.append({
+            'empresa': 'SONDA', 'celda': nombre, 'mutacion': 'sonda del revisor d375d80',
+            'detectado_por_contextual': detectada, 'detectado_por_mecanico': False,
+            'estado_contextual_mutado': res[0], 'estado_mecanico_mutado': 'n/a (sonda)',
+            'estado_contextual_base': 'OK', 'estado_mecanico_base': 'COINCIDE_PROPUESTO',
+        })
+        resumen[(f'sonda: {nombre}', detectada, False)] += 1
+
     n = len(resultados)
     ok_ctx = sum(1 for x in resultados if x['detectado_por_contextual'])
     ok_mec = sum(1 for x in resultados if x['detectado_por_mecanico'])
@@ -136,6 +164,7 @@ def main():
         'detectadas_por_mecanico': ok_mec,
         'resumen_por_mutacion': {f'{k[0]}|ctx={k[1]}|mec={k[2]}': v for k, v in sorted(resumen.items())},
         'detalle': resultados,
+        'sondas_revisor': sondas_out,
     }
     C.dump_json(out, C.RESULTADOS / 'control_negativo.json')
     print(json.dumps({'muestra': out['muestra'], 'mutaciones': n,

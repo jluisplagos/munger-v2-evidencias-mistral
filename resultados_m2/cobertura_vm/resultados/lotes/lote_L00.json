@@ -26,7 +26,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:acciones_emitidas_2025\"] - o[\"aux:acciones_propias_2025\"] -> 35.182858 (valor_modelo 35.182858, diff 0.000000)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula o[\"aux:acciones_emitidas_2025\"] - o[\"aux:acciones_propias_2025\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. acciones en circulación a 31-dic-2025 = 35.206.258 emitidas − 23.400 propias = 35.182.858 (35,182858 millones); la sociedad no tiene acciones potencialmente dilutivas (nota 27). No es la media ponderada (35.206 miles).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:acciones_propias_2025: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt', 'ES_2024_informacion_financiera_consol)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -43,7 +43,9 @@
         "exacto": true,
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
-        "limites_contextuales": []
+        "limites_contextuales": [
+          "aux:acciones_propias_2025: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt', 'ES_2024_informacion_financiera_consol)"
+        ]
       }
     },
     {
@@ -486,9 +488,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/ES_2025_informacion_financiera_consolidada.txt [PDF PAGE 67] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Al 31 de diciembre 23.400 -'; encabezado: 'El movimiento de las acciones en circulación durante los ejercicios 2025 y 2024 es como sigue:'; titulo pagina: 'VIDRALA, S.A. Y SOCIEDADES DEPENDIENTES | Memoria de las Cuentas Anuales Consolidadas'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=NO_APLICA, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Al 31 de diciembre 23.400 -'; encabezado: 'El movimiento de las acciones en circulación durante los ejercicios 2025 y 2024 es como sigue:'; titulo pagina: 'VIDRALA, S.A. Y SOCIEDADES DEPENDIENTES | Memoria de las Cuentas Anuales Consolidadas'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=NO_APLICA, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: acciones → millones de acciones (× 1e-6) | reexpresado: no aplica | perimetro: no aplica (capital de la sociedad dominante) | perimetro_justificacion: acciones propias de Vidrala, S.A. | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt', 'ES_2024_informaci",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -496,7 +498,7 @@
         "signo": "OK",
         "perimetro": "NO_APLICA",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Al 31 de diciembre 23.400 -",
       "encabezado": "El movimiento de las acciones en circulación durante los ejercicios 2025 y 2024 es como sigue:",
@@ -879,7 +881,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:CF2024_p9_cfo_2023\"] + o[\"aux:AR2025_p27_cfo_2024\"] + o[\"aux:AR2025_p27_cfo_2025\"]) / 3 -> 192.3003333333333333333333333 (valor_modelo 192.3, diff 0.0003333333333333333333333)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"aux:CF2024_p9_cfo_2023\"] + o[\"aux:AR2025_p27_cfo_2024\"] + o[\"aux:AR2025_p27_cfo_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media 2023–2025 del flujo de explotación (período fijado por el inversor el 23-oct-2026: Control maestro E88): (145,710 + 235,822 + 195,369) / 3 = 192,300 miles. El flujo de explotación ya descuenta impuestos pagados; los intereses pagados van en financiación (C48). Resultado de la fórmula con los orígenes registrados: 192.300333; valor del libro: 192.3.",
-      "limites_contextuales": "aux:CF2024_p9_cfo_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
+      "limites_contextuales": "aux:CF2024_p9_cfo_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -897,7 +899,7 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "aux:CF2024_p9_cfo_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)"
+          "aux:CF2024_p9_cfo_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)"
         ]
       }
     },
@@ -912,7 +914,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"Historia!J12\"] + o[\"Historia!K12\"] + o[\"Historia!L12\"]) / 3 -> 77.53333333333333333333333333 (valor_modelo 77.533, diff 0.00033333333333333333333333)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"Historia!J12\"] + o[\"Historia!K12\"] + o[\"Historia!L12\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media exacta 2023–2025: (77,126 + 75,027 + 80,447) / 3 = 77,533 mm (Historia J12:L12, capex); el libro guarda 77.533 (decisión E1: sustituye el redondeo 77.5 que el inversor escribió en la etapa 1; cambio_de_base.md, «Entradas sustituidas en fase1_v63.json»). La fórmula reproduce el libro (diferencia < 0,001 mm, redondeo a tres decimales).",
-      "limites_contextuales": "Historia!J12: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
+      "limites_contextuales": "Historia!J12: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -930,7 +932,7 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "Historia!J12: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)"
+          "Historia!J12: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)"
         ]
       }
     },
@@ -945,7 +947,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"Historia!J15\"] + o[\"Historia!K15\"] + o[\"Historia!L15\"]) / 3 -> 8.294 (valor_modelo 8.294, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"Historia!J15\"] + o[\"Historia!K15\"] + o[\"Historia!L15\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media exacta 2023–2025: (6,275 + 9,726 + 8,881) / 3 = 8,294 mm (Historia J15:L15, intereses pagados; la fila 16, «Intereses pagados en financiación (IFRS)», tiene los mismos valores); el libro guarda 8.294 (decisión E1: sustituye el redondeo 8.3 que el inversor escribió en la etapa 1; cambio_de_base.md, «Entradas sustituidas en fase1_v63.json»). La fórmula reproduce el libro (diferencia < 0,001 mm, redondeo a tres decimales).",
-      "limites_contextuales": "Historia!J15: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
+      "limites_contextuales": "Historia!J15: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt pero la columna 2023 no se puede mapear (columnas ['2014', '2015', '2016', '2014'], va)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -963,7 +965,7 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "Historia!J15: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)"
+          "Historia!J15: dimension reexpresion no decidible (la fila aparece en CA_2023_es.txt pero la columna 2023 no se puede mapear (columnas ['2014', '2015', '2016', '2014'], va)"
         ]
       }
     },
@@ -978,7 +980,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:CF2024_p9_pagos_arrend_2023\"] + o[\"aux:AR2025_p28_pagos_arrend_2024\"] + o[\"aux:AR2025_p28_pagos_arrend_2025\"]) / 3 -> 5.547333333333333333333333333 (valor_modelo 5.547, diff 0.000333333333333333333333333)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"aux:CF2024_p9_pagos_arrend_2023\"] + o[\"aux:AR2025_p28_pagos_arrend_2024\"] + o[\"aux:AR2025_p28_pagos_arrend_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media exacta 2023–2025: (5,296 + 5,843 + 5,503) / 3 = 5,547 mm (pagos por arrendamientos de CF_2024 p. 9 y AR_2025 p. 28; los mismos valores que la Historia J17:L17); el libro guarda 5.547 (decisión E1: sustituye el redondeo 5.5 que el inversor escribió en la etapa 1; cambio_de_base.md, «Entradas sustituidas en fase1_v63.json»). La fórmula reproduce el libro (diferencia < 0,001 mm, redondeo a tres decimales).",
-      "limites_contextuales": "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita) | aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla) | aux:AR2025_p28_pagos_arrend_2024: dimension unidad no decidible (sin frase de escala en la pagina ni en la cabecera del documento) | aux:AR2025_p28_pagos_arrend_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidible por cita) | aux:AR2025_p28_pagos_arrend_2025: dimension unidad no decidible (sin frase de escala en la pagina ni en la cabecera del documento)",
+      "limites_contextuales": "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible) | aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla) | aux:AR2025_p28_pagos_arrend_2024: dimension unidad no decidible (sin frase de escala en la pagina ni en la cabecera del documento) | aux:AR2025_p28_pagos_arrend_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible) | aux:AR2025_p28_pagos_arrend_2025: dimension unidad no decidible (sin frase de escala en la pagina ni en la cabecera del documento)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -996,10 +998,10 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
+          "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
           "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla)",
           "aux:AR2025_p28_pagos_arrend_2024: dimension unidad no decidible (sin frase de escala en la pagina ni en la cabecera del documento)",
-          "aux:AR2025_p28_pagos_arrend_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidible por cita)",
+          "aux:AR2025_p28_pagos_arrend_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible)",
           "aux:AR2025_p28_pagos_arrend_2025: dimension unidad no decidible (sin frase de escala en la pagina ni en la cabecera del documento)"
         ]
       }
@@ -1015,7 +1017,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:CF2024_p9_pagos_acciones_2023\"] + o[\"aux:AR2025_p27_pagos_acciones_2024\"] + o[\"aux:AR2025_p27_pagos_acciones_2025\"]) / 3 -> 3.707333333333333333333333333 (valor_modelo 3.707, diff 0.000333333333333333333333333)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"aux:CF2024_p9_pagos_acciones_2023\"] + o[\"aux:AR2025_p27_pagos_acciones_2024\"] + o[\"aux:AR2025_p27_pagos_acciones_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media exacta 2023–2025: (2,346 + 2,001 + 6,775) / 3 = 3,707 mm (ajuste «Share-based payment(s)» de CF_2024 p. 9 y AR_2025 p. 27; los mismos valores que la Historia J18:L18); el libro guarda 3.707 (decisión E1: sustituye el redondeo 3.71 que el inversor escribió en la etapa 1; cambio_de_base.md, «Entradas sustituidas en fase1_v63.json»). La fórmula reproduce el libro (diferencia < 0,001 mm, redondeo a tres decimales).",
-      "limites_contextuales": "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita) | aux:AR2025_p27_pagos_acciones_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidible por cita)",
+      "limites_contextuales": "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -1033,8 +1035,7 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
-          "aux:AR2025_p27_pagos_acciones_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidible por cita)"
+          "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible)"
         ]
       }
     },
@@ -1139,7 +1140,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
       "evidencia_contextual": "fila leida: 'Payments for the acquisition of tangible and intangible fixed assets -75,027 -77,126'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: capex = pagos por inmovilizado material e intangible, en positivo | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1291,7 +1292,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
       "evidencia_contextual": "fila leida: 'Interest paid 12.1 -9,726 -6,275'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: intereses pagados, en positivo | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decid",
+      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt pero la columna 2023 no se puede mapear (columnas ['2014', '2015',",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1561,7 +1562,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
       "evidencia_contextual": "fila leida: 'Net cash generated by operating activities 235,822 145,710'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: cifra publicada, de miles a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1651,7 +1652,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
       "evidencia_contextual": "fila leida: 'Payments for right-of-use assets 12.1 -5,843 -5,296'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: pagos por arrendamientos, en positivo | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1681,7 +1682,7 @@
       "evidencia": "texto/AR_2025.txt [PDF PAGE 28] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
       "evidencia_contextual": "fila leida: 'Lease payments for right-of-use assets 12.1 -5,503 -5,843'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=NO_DECIDIBLE, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: pagos por arrendamientos, en positivo | reexpresado: sí: comparativo reexpresado de 2024 en AR_2025; coincide con CF_2024 p. 9 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla | unidad: sin frase de escala en la pagina ni en la cabecera del documento | reexpresion: el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidibl",
+      "limites_contextuales": "columna: fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla | unidad: sin frase de escala en la pagina ni en la cabecera del documento | reexpresion: el valor aparece en CF_2024.txt pero no en la misma fila/columna 2024; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -1741,7 +1742,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
       "evidencia_contextual": "fila leida: 'Share-based payment 2,001 2,346'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: ajuste no monetario del flujo de explotación, en positivo | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1769,9 +1770,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 27] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Share-based payments 6,775 2,001'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Share-based payments 6,775 2,001'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: ajuste no monetario del flujo de explotación, en positivo | reexpresado: sí: comparativo reexpresado de 2024 en AR_2025; coincide con CF_2024 p. 9 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidibl",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1779,7 +1780,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Share-based payments 6,775 2,001",
       "encabezado": "(Thousands of euros) Notes 2025 2024",

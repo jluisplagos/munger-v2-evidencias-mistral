@@ -17,7 +17,7 @@ Universo fijado cubierto completo en `resultados_m2/cobertura_vm/` (rama `mistra
 
 **Estados mecánicos** (sin cambios respecto a la entrega base `08c9799`): 568 COINCIDE_PROPUESTO, 52 HIPOTESIS, 35 CONVENCION, 16 NO_APLICABLE, 6 DATO_AUSENTE.
 
-**Estados contextuales** (tras revisión A1 y corregidos por el seguimiento `63e366b`, columnas separadas en el CSV): 315 REVISADO_CONTEXTUAL, 196 PENDIENTE_CONTEXTUAL, 60 REUTILIZADO_M1, 106 NO_APLICA, 0 CONFLICTO_CONTEXTUAL.
+**Estados contextuales** (tras revisión A1, seguimiento `63e366b` y revisión `d375d80`, columnas separadas en el CSV): 282 REVISADO_CONTEXTUAL, 229 PENDIENTE_CONTEXTUAL, 60 REUTILIZADO_M1, 106 NO_APLICA, 0 CONFLICTO_CONTEXTUAL.
 
 | Concepto | n |
 |---|---|
@@ -53,6 +53,10 @@ Se ejecutó `CORRECCION_A.md`: verificación contextual por entrada leyendo enca
 ## Seguimiento externo `63e366b` (apartado A de SEGUIMIENTO.md)
 
 Corregido el sobrealcance de estados contextuales (REVISADO de 509 → 315; las dimensiones no comprobadas pasan a PENDIENTE), la acreditación de unidad (la sonda «euros» vs «miles» del revisor ahora es CONFLICTO) y la de versión/reexpresión (contraste con el texto original del año comparativo). Negativos ampliados: 198 mutaciones, 151 detectadas por el contextual. Respuesta numerada en `RESPUESTA_SEGUIMIENTO_20261116.md`. Control PASS 0 violaciones.
+
+## Revisión externa `d375d80` (apartado A de REVISION_A_D.md, A-R1–R3)
+
+Ejecutada la corrección dirigida leída con `git show` desde `revision/chatgpt-a-d-20261116` (sin fusionar): **A-R1** coherencia código/resultados — semántica v3 reconciliada primero y todas las salidas regeneradas con el código definitivo (los 20 conflictos del revisor eran metadato de año → NO_APLICA en v3; `Historia!I23`/`Palancas!C48` quedan PENDIENTE, no conflicto falso; derivada `Historia!I22` hereda el límite); control ahora **PASS exit 0** con 0 CONFLICTO en las 677. **A-R2** columna por posición (año de columna ≠ año del informe) y reexpresión misma fila/ejercicio/columna/escala/perímetro contra el texto original del año, contradicción explícita → CONFLICTO nunca OK; **las 5 sondas del revisor pasan a CONFLICTO 5/5** (antes 1/5) e irán en `control_negativo.json`. **A-R3** escala validada también desde la cabecera del documento (sonda escala errónea → CONFLICTO). Totales contextuales: **282 REVISADO / 229 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO** (fuentes 241/183/43; derivados 41/46/14); mecánicos sin cambio. Negativos: 203 mutaciones, 154 detectadas por el contextual. Respuesta numerada, comandos y hashes en `RESPUESTA_A_D_20261116.md`. Conservados 677/60/101, M1, estados mecánicos y regla de todas las dimensiones.
 
 ## Estado de la rama y recuperación
 

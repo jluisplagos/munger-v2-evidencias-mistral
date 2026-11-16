@@ -228,7 +228,10 @@ def check_unidad(page_lines, row_idx, unidad, escala, valor=None, row_line='', d
         if page_euros_only:
             return 'CONFLICTO', f'la pagina declara escala {page_euros_only.group(0)!r} (euros, no miles); no acredita miles de euros ni escala 0,001'
         if doc and doc.get('miles'):
-            return 'OK', 'unidad en miles acreditada en la cabecera del documento (primeras paginas); no se repite en la pagina de nota'
+            # v3 (A-R3): la cabecera del documento tambien valida la escala declarada
+            if escala is not None and C.dec(escala) != C.dec('0.001'):
+                return 'CONFLICTO', f'cabecera del documento en miles pero escala declarada {escala} != 0.001'
+            return 'OK', 'unidad en miles acreditada en la cabecera del documento (alcance: tablas del documento en miles; la pagina no declara otra escala)'
         return 'NO_DECIDIBLE', 'sin frase de escala en la pagina ni en la cabecera del documento'
     if declared == 'eur_accion':
         if valor is not None and any(C.flat_text(v) in C.flat_text(row_line) for v in C.variantes_numero(valor)):
@@ -285,8 +288,28 @@ def check_signo(row_line, valor, signo):
     return 'OK', nota
 
 
-def check_columna(row_idx, page_lines, years_in_block, col_line, col_years, columna, periodo, valor):
-    declared_years = set(YEAR_RE.findall(f'{columna or ""} {periodo or ""}'))
+def columna_year(columna, periodo, archivo):
+    """v3 (A-R2.3): separa el año de la COLUMNA del año del INFORME incluido en la
+    descripcion. Devuelve (año_informe, año_columna)."""
+    ya_m = YEAR_RE.search(Path(archivo or '').name)
+    ya = ya_m.group(0) if ya_m else None
+    m = re.search(r'informe\s+(20\d\d)', columna or '')
+    if m:
+        ya = m.group(1)
+    years = YEAR_RE.findall(f'{columna or ""} {periodo or ""}')
+    if not years:
+        return ya, None
+    ys = list(dict.fromkeys(years))
+    if ya and ya in ys and len(ys) > 1:
+        yc = next(y for y in ys if y != ya)
+    else:
+        yc = ys[0]
+    return ya, yc
+
+
+def check_columna(row_idx, page_lines, years_in_block, col_line, col_years, columna, periodo, valor, archivo=None):
+    ya, yc = columna_year(columna, periodo, archivo)
+    declared_years = {yc} if yc else set()
     if not declared_years:
         return 'NO_DECIDIBLE', 'columna/periodo sin año declarado (fila de texto)'
     row_line = page_lines[row_idx] if row_idx is not None and row_idx < len(page_lines) else ''
@@ -406,80 +429,73 @@ TEXTO_CACHE = {}
 
 
 def check_reexpresion(emp, r, f, col_years, years_in_block):
-    """v2: la reexpresion se contrasta con el texto conservado del año original del
-    comparativo, no se copia del registro. Devuelve (estado, detalle)."""
+    """v3 (A-R1/A-R2, revision d375d80):
+    - un año de columna es metadato y NO se reexpresa como importe (NO_APLICA);
+    - el comparativo se compara con el texto conservado del año de la columna en la
+      MISMA fila, mapeando la columna por posicion (no cualquier numero de la fila);
+    - contradiccion explicita (declara no-reexpresado/igual y el valor difiere) ->
+      CONFLICTO, nunca OK; ambiguedad -> NO_DECIDIBLE (pendiente).
+    """
     declared = str(f.get('reexpresado') or '')
+    dl = declared.lower()
     archivo = f.get('archivo') or ''
-    ya = YEAR_RE.search(Path(archivo).name)
-    ya = ya.group(0) if ya else None
-    columna = f.get('columna') or ''
-    periodo = f.get('periodo') or ''
-    yc_m = YEAR_RE.search(columna + ' ' + periodo)
-    if not ya or not yc_m:
+    ya, yc = columna_year(f.get('columna'), f.get('periodo'), archivo)
+    valor = f.get('valor_fuente')
+    unidad = str(f.get('unidad') or '')
+    if unidad in ('año', 'año (ejercicio)') or (valor is not None and C.dec(valor) is not None and YEAR_RE.fullmatch(str(int(C.dec(valor))))):
+        return 'NO_APLICA', f'el valor {valor} es un metadato de año (unidad {unidad!r}); un año de columna no se reexpresa como importe'
+    if not ya or not yc:
         return 'NO_DECIDIBLE', 'sin años de informe/columna para contrastar reexpresion'
-    yc = yc_m.group(0)
-    if yc < ya and 'no aplica' in declared.lower():
-        return 'CONFLICTO', f'declara reexpresion "no aplica" pero la columna {yc} es un comparativo del informe {ya} (proviene de el)'
     if yc == ya:
-        if 'reexpres' in declared.lower() and 'no' not in declared.lower() and 'no aplica' not in declared.lower():
+        if 'reexpres' in dl and 'no' not in dl:
             return 'CONFLICTO', f'declara reexpresion pero la columna {yc} es el ejercicio corriente del informe {ya}'
-        if 'no aplica' in declared.lower():
+        if 'no aplica' in dl:
             return 'NO_APLICA', declared
         return 'OK', f'columna {yc} = ejercicio corriente del informe {ya}; no hay comparativo que reexpresar'
-    # comparativo: buscar el texto del año original conservado
     key = emp
     if key not in TEXTO_CACHE:
         TEXTO_CACHE[key] = textos_empresa(emp)
     cita = f.get('cita') or ''
     cf = C.flat_text(cita)
-    valor = f.get('valor_fuente')
     variantes = {C.flat_text(v) for v in C.variantes_numero(valor)} - {''}
+    norm_val = normalize_num(str(valor).replace('.', '').replace(',', '')) if valor is not None else None
     candidatos = [name for name in TEXTO_CACHE[key] if YEAR_RE.search(name) and YEAR_RE.search(name).group(0) == yc and name != Path(archivo).name]
     alpha = C.flat_text(re.sub(r'[^A-Za-zÀ-ÿ ]+', ' ', cita))
     labels = [alpha[:L] for L in (80, 60, 40, 25, 12) if len(alpha) >= L]
     if not labels and alpha:
         labels = [alpha]
-    def contradice(declared, reexpresado_detectado):
-        """Solo hay conflicto si se declara explicitement NO reexpresado/igual y la
-        evidencia muestra otro valor. 'sí: comparativo del informe X' describe
-        procedencia de la columna, no cambio de valor por fila: no es conflicto."""
-        d = declared.lower()
-        if reexpresado_detectado and ('no aplica' in d or 'no reexpres' in d or 'igual al original' in d):
-            return True
-        return False
-
     for name in candidatos:
-        p = TEXTO_CACHE[key][name]
-        text = p.read_text(encoding='utf-8')
+        text = TEXTO_CACHE[key][name].read_text(encoding='utf-8')
         tflat = C.flat_text(text)
         if cf and cf in tflat:
-            res = ('OK', f'comparativo {yc} igual al publicado originalmente en {name} (mismo valor): no reexpresado')
-            if contradice(declared, False):
-                return 'CONFLICTO', f'declara reexpresion pero el original {name} imprime el mismo valor: {declared}'
-            return res
+            # cita identica en el original: mismo valor en la misma fila
+            if 'no aplica' in dl or 'no reexpres' in dl or 'igual al original' in dl:
+                return 'NO_APLICA', f'declara no reexpresado y el original {name} imprime la misma cita: coherente'
+            return 'OK', f'comparativo {yc} igual al original en {name} (misma cita y valor): no reexpresado'
         orig_lines = text.splitlines()
         for label in labels:
-            if label and label in tflat:
-                for i, line in enumerate(orig_lines):
-                    fl = C.flat_text(line)
-                    if label in fl:
-                        yb2, _, _ = find_header_block(orig_lines, i)
-                        if yc not in yb2:
-                            continue  # la fila aparecida no corresponde al ejercicio yc
-                        nums = [t for t in NUM_RE.findall(line) if value_like(t)]
-                        norm_val = normalize_num(str(valor).replace('.', '').replace(',', ''))
-                        if any(normalize_num(t) == norm_val for t in nums):
-                            if contradice(declared, False):
-                                return 'CONFLICTO', f'declara reexpresion pero el original {name} imprime el mismo valor ({line.strip()[:80]}): {declared}'
-                            return 'OK', f'comparativo {yc} igual al original en {name} (misma fila y valor): no reexpresado'
-                        if nums:
-                            if contradice(declared, True):
-                                return 'OK', f'reexpresado confirmado y declarado: el original {name} imprime {nums} y el comparativo cita {valor}'
-                            return 'OK', f'reexpresado confirmado: el original {name} imprime {nums} en la misma fila y el comparativo cita {valor}'
-                        if variantes and any(v in fl for v in variantes):
-                            return 'OK', f'comparativo {yc} igual al original en {name}: no reexpresado'
+            if not (label and label in tflat):
+                continue
+            for i, line in enumerate(orig_lines):
+                fl = C.flat_text(line)
+                if label not in fl:
+                    continue
+                yb2, cl2, cy2 = find_header_block(orig_lines, i)
+                if yc not in yb2:
+                    continue
+                nums = [t for t in NUM_RE.findall(line) if value_like(t)]
+                if yc in cy2 and len(nums) == len(cy2):
+                    orig_val = nums[cy2.index(yc)]
+                    if norm_val is not None and normalize_num(orig_val) == norm_val:
+                        if 'no aplica' in dl or 'no reexpres' in dl or 'igual al original' in dl:
+                            return 'NO_APLICA', f'declara no reexpresado y el original {name} confirma el mismo valor en la columna {yc} ({orig_val})'
+                        return 'OK', f'comparativo {yc} igual al original en {name}: columna {yc} imprime {orig_val} en ambos; no reexpresado'
+                    if 'no aplica' in dl or 'no reexpres' in dl or 'igual al original' in dl:
+                        return 'CONFLICTO', f'declara "{declared}" pero el original {name} imprime {orig_val} en la columna {yc} y el comparativo cita {valor}: contradiccion explicita'
+                    return 'OK', f'reexpresion confirmada por columna: el original {name} imprime {orig_val} en la columna {yc} y el comparativo cita {valor}; declarado: {declared}'
+                return 'NO_DECIDIBLE', f'la fila aparece en {name} pero la columna {yc} no se puede mapear (columnas {cy2}, valores {nums})'
         if variantes and any(v and v in tflat for v in variantes):
-            return 'NO_DECIDIBLE', f'el valor aparece en {name} pero no en la misma fila del ejercicio {yc}; reexpresion no decidible por cita'
+            return 'NO_DECIDIBLE', f'el valor aparece en {name} pero no en la misma fila/columna {yc}; reexpresion no decidible'
     if not candidatos:
         return 'NO_DECIDIBLE', f'no hay texto conservado del año {yc} para contrastar la reexpresion del comparativo'
     return 'NO_DECIDIBLE', f'la partida no se localiza en los textos conservados del año {yc} ({candidatos[:3]})'
@@ -512,7 +528,7 @@ def check_entrada(emp, r, pages, doc=None):
     years_in_block, col_line, col_years = find_header_block(lines, ri)
     checks = {}
     checks['fila'] = check_fila(lines, ri, row_line, f.get('concepto'), f.get('valor_fuente'))
-    checks['columna'] = check_columna(ri, lines, years_in_block, col_line, col_years, f.get('columna'), f.get('periodo'), f.get('valor_fuente'))
+    checks['columna'] = check_columna(ri, lines, years_in_block, col_line, col_years, f.get('columna'), f.get('periodo'), f.get('valor_fuente'), f.get('archivo'))
     checks['unidad'] = check_unidad(lines, ri, f.get('unidad'), f.get('escala'), f.get('valor_fuente'), row_line or '', doc)
     checks['signo'] = check_signo(row_line or '', f.get('valor_fuente'), f.get('signo'))
     checks['perimetro'] = check_perimetro(lines, f.get('perimetro'), doc)

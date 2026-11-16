@@ -1,18 +1,24 @@
 {
   "nota": "Controles negativos en memoria (sin tocar el registro ni el producto). El verificador mecanico solo acredita archivo/pagina/cita/numero/transformacion/libro; las mutaciones de metadatos contextuales pasan desapercibidas para el (como demostro SONDA_A_SEMANTICA.json) y deben atraparlas los chequeos contextuales.",
-  "muestra": 49,
-  "mutaciones": 198,
-  "detectadas_por_contextual": 151,
+  "muestra": 50,
+  "mutaciones": 203,
+  "detectadas_por_contextual": 154,
   "detectadas_por_mecanico": 40,
   "resumen_por_mutacion": {
     "euros frente a miles (sonda del revisor)|ctx=True|mec=False": 1,
     "partida de otra fila|ctx=False|mec=False": 8,
     "partida de otra fila|ctx=True|mec=False": 32,
-    "perimetro incorrecto|ctx=False|mec=False": 2,
-    "perimetro incorrecto|ctx=True|mec=False": 38,
+    "perimetro incorrecto|ctx=False|mec=False": 3,
+    "perimetro incorrecto|ctx=True|mec=False": 37,
     "periodo/columna equivocado|ctx=False|mec=False": 7,
     "periodo/columna equivocado|ctx=True|mec=False": 33,
-    "reexpresion declarada como no aplica|ctx=True|mec=False": 3,
+    "reexpresion declarada como no aplica|ctx=False|mec=False": 1,
+    "reexpresion declarada como no aplica|ctx=True|mec=False": 2,
+    "sonda: columna_equivocada_aceptada|ctx=True|mec=False": 1,
+    "sonda: contradiccion_reexpresion_devuelve_ok|ctx=True|mec=False": 1,
+    "sonda: escala_erronea_con_cabecera|ctx=True|mec=False": 1,
+    "sonda: euros_no_miles|ctx=True|mec=False": 1,
+    "sonda: reexpresion_toma_otra_columna|ctx=True|mec=False": 1,
     "unidad incorrecta|ctx=False|mec=False": 30,
     "unidad incorrecta|ctx=True|mec=False": 4,
     "version/informe equivocado|ctx=True|mec=True": 40
@@ -81,7 +87,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -92,7 +98,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -101,9 +107,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -114,7 +120,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -125,7 +131,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1280,7 +1286,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1291,7 +1297,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1302,7 +1308,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1313,7 +1319,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1815,9 +1821,9 @@
       "empresa": "Viscofan",
       "celda": "aux:AR2025_p23_bai_2024",
       "mutacion": "reexpresion declarada como no aplica",
-      "detectado_por_contextual": true,
+      "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -1830,18 +1836,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
       "empresa": "Viscofan",
       "celda": "Historia!I5",
       "mutacion": "perimetro incorrecto",
-      "detectado_por_contextual": true,
+      "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1852,7 +1858,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1863,7 +1869,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1929,7 +1935,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1940,7 +1946,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1949,9 +1955,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1962,7 +1968,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1973,7 +1979,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2094,7 +2100,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2105,7 +2111,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2114,9 +2120,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2127,7 +2133,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2138,7 +2144,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2149,7 +2155,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2160,7 +2166,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2171,7 +2177,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2182,7 +2188,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2195,6 +2201,93 @@
       "estado_mecanico_mutado": "n/a (sonda de unidad)",
       "estado_contextual_base": "OK",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "euros_no_miles",
+      "mutacion": "sonda del revisor d375d80",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "escala_erronea_con_cabecera",
+      "mutacion": "sonda del revisor d375d80",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "columna_equivocada_aceptada",
+      "mutacion": "sonda del revisor d375d80",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "reexpresion_toma_otra_columna",
+      "mutacion": "sonda del revisor d375d80",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "contradiccion_reexpresion_devuelve_ok",
+      "mutacion": "sonda del revisor d375d80",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda)",
+      "estado_contextual_base": "OK",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
     }
-  ]
+  ],
+  "sondas_revisor": {
+    "euros_no_miles": {
+      "resultado": "CONFLICTO",
+      "detalle": "la pagina declara escala 'Amounts in euros' (euros, no miles); no acredita miles de euros ni escala 0,001",
+      "esperada_CONFLICTO": true,
+      "detectada": true
+    },
+    "escala_erronea_con_cabecera": {
+      "resultado": "CONFLICTO",
+      "detalle": "cabecera del documento en miles pero escala declarada 1 != 0.001",
+      "esperada_CONFLICTO": true,
+      "detectada": true
+    },
+    "columna_equivocada_aceptada": {
+      "resultado": "CONFLICTO",
+      "detalle": "posicion 0 -> columna 2025, pero declarado ['2024'] (linea de columnas ['2025', '2024'])",
+      "esperada_CONFLICTO": true,
+      "detectada": true
+    },
+    "reexpresion_toma_otra_columna": {
+      "resultado": "CONFLICTO",
+      "detalle": "declara \"no reexpresado; igual al original\" pero el original CF_2024.txt imprime 10000 en la columna 2024 y el comparativo cita 9000: contradiccion explicita",
+      "esperada_CONFLICTO": true,
+      "detectada": true
+    },
+    "contradiccion_reexpresion_devuelve_ok": {
+      "resultado": "CONFLICTO",
+      "detalle": "declara \"no reexpresado; igual al original\" pero el original CF_2024.txt imprime 10000 en la columna 2024 y el comparativo cita 9000: contradiccion explicita",
+      "esperada_CONFLICTO": true,
+      "detectada": true
+    }
+  }
 }

@@ -86,10 +86,19 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - Negativos: 198 mutaciones → 151 detectadas por contextual (sonda euros/miles 1/1; versión 40/40; reexpresión 3/3; columna 33/40; perímetro 38/40; partida 32/40; unidad 4/34), 40 por mecánico (solo versión). `control_cobertura.py` PASS 0 violaciones.
 - Propagado a 101 derivados (51 REVISADO / 36 PENDIENTE / 14 REUTILIZADO_M1) y al mapa de regeneración. Respuesta numerada en `RESPUESTA_SEGUIMIENTO_20261116.md`.
 
+## Revisión externa d375d80 (apartado A, A-R1–R3) — ejecutado
+
+- Leídos con `git fetch origin revision/chatgpt-a-d-20261116` + `git show d375d80a5df19a661f80bab9cbdd42b39a28742b:...` (sin fusionar): `REVISION_A_D.md` apartados A, `CORRECCION_A.md`, `A_REPRODUCCION.json`, `SONDAS.json`, `sondas_revision.py`. Base `0224b71` = HEAD remoto confirmado.
+- verificar_contexto.py v3: `columna_year` (año de columna ≠ año del informe), columna por posición, reexpresión misma fila/ejercicio/columna/escala/perímetro contra el texto original del año (año 20xx → NO_APLICA; contradicción explícita → CONFLICTO nunca OK), unidad con validación de escala también desde cabecera del documento.
+- Regeneración completa con el código definitivo en un pase: fuentes 241 REVISADO / 183 PENDIENTE / 43 REUTILIZADO_M1; derivados 41/46/14; CSV 677 filas **282 REVISADO_CONTEXTUAL / 229 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO**; mecánicos sin cambio (568/52/35/16/6); `control_cobertura.py` **PASS exit 0** (coherente código=resultados; el revisor obtenía exit 1/21 conflictos sobre `0224b71` por los 20 metadatos de año).
+- 5/5 sondas del revisor → CONFLICTO, incrustadas en `control_negativo.py` (`sondas_revisor` en `resultados/control_negativo.json`); negativos: 203 mutaciones, 154 ctx, 40 mec (solo versión).
+- Lotes L00–L21 regenerados; `RESPUESTA_A_D_20261116.md` con respuesta numerada, comandos y hashes; `HALLAZGOS.md` §10, `MAPA_REGENERACION.md` tabla v3, `RESUMEN_PARA_CLAUDE.md` actualizados; manifiesto regenerado.
+- Pendientes: 183 fuentes PENDIENTE (reexpresión ND 179, perímetro 40, unidad 8, signo 7, columna 4, fila 1 — solapados) y 46 derivados que heredan; 52 HIPOTESIS / 35 CONVENCION / 16 NO_APLICABLE / 6 DATO_AUSENTE sin cambio.
+
 ## Pendiente / siguiente acción exacta
 
-1. **Revisión por otro contexto** sobre el commit congelado final de esta rama (incluida la respuesta a A1 en `RESPUESTA_REVISION_EXTERNA.md`) (citados, estados, dependencias y compatibilidad antes de incorporar nada).
-2. Nada más en este frente: no ampliar alcance, no PR, no fusión, no tocar el producto, los frentes B/C ni los resultados M1 ya revisados. Hallazgos materiales pendientes: los 6 DATO_AUSENTE y las 52 HIPOTESIS quedan como tales (ver `HALLAZGOS.md`).
+1. **Revisión por otro contexto** sobre el commit congelado final de esta rama (incluida la respuesta A-R1–R3 a `d375d80` en `RESPUESTA_A_D_20261116.md`) (citados, estados, dependencias y compatibilidad antes de incorporar nada).
+2. Nada más en este frente: no ampliar alcance, no PR, no fusión, no tocar el producto, los frentes B/C/D ni los resultados M1 ya revisados. Hallazgos materiales pendientes: los 6 DATO_AUSENTE y las 52 HIPOTESIS quedan como tales (ver `HALLAZGOS.md`).
 
 ## Modelo, herramientas y consumo
 

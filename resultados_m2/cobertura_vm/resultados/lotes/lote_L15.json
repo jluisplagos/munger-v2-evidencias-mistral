@@ -9,7 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 30
+    "PENDIENTE_CONTEXTUAL": 29,
+    "REVISADO_CONTEXTUAL": 1
   },
   "entradas": [
     {
@@ -408,12 +409,12 @@
       "id": "h_anios",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2019.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Note 2019 2018'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Note 2019 2018'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: año de la cabecera de la columna, sin transformación | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -421,7 +422,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Note 2019 2018",
       "encabezado": "Note 2019 2018",
@@ -443,7 +444,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Sales and services rendered 5.1 849,697 786,049'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -473,7 +474,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Operating profit 130,283 146,321'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: resultado de explotación publicado = resultado antes de impuestos 147,299 − resultado financiero (309 − 2,134 + 4 + 2,799 = 978); incluye la diferencia negativa de combinaciones de negocios (5,486) | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -503,7 +504,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Result attributable to equity holders of the parent 105,577 123,833'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -533,7 +534,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Profit before tax 130,064 147,299'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -563,7 +564,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Income tax expense 22 (24,487) (23,588)'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: gasto publicado entre paréntesis; en positivo | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -593,7 +594,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 10] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Cash and cash equivalents 15 51,370 31,050'; encabezado: 'Assets Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -623,7 +624,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 11] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Equity attributable to equity holders of the parent 784,366 757,613'; encabezado: 'Equity and liabilities Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -653,7 +654,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 11] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Non-controlling interests - 13'; encabezado: 'Equity and liabilities Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -683,7 +684,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 11] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Current liabilities on Right-of-use assets 11.2 4,903 35'; encabezado: 'Equity and liabilities Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -713,7 +714,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 11] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Non-current liabilities on Right-of-use assets 11.2 14,392 28'; encabezado: 'Equity and liabilities Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -803,7 +804,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 12] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Payments for acquisition of property, plant, equipment and intangible assets 16.1 (62,755) (71,949)'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: capex = pagos por inmovilizado material e intangible, en positivo | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -833,7 +834,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 12] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Acquisition of subsidiaries, net of cash acquired 8 (1,544) (7,128)'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: adquisiciones = −(flujo de adquisiciones de negocios), en positivo | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -863,7 +864,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 12] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Changes in working capital 6,135 (48,180)'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: aumento del circulante = −(subtotal publicado «Changes in working capital»); no incluye la variación de provisiones (2,831) | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -893,7 +894,7 @@
       "evidencia": "texto/AR_2019.txt [PDF PAGE 12] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Interest paid 16.1 (1,909) (2,182)'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: intereses pagados, en positivo | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decid",
+      "limites_contextuales": "reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
