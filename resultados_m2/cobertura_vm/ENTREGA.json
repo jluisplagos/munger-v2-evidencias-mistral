@@ -1,7 +1,7 @@
 {
  "es_plantilla": false,
  "frente": "A",
- "bloque": "cierre v2 · Bloque 2 · v3.2–v3.9 + cola (33 grupos restantes: 68 fuentes + 17 derivados)",
+ "bloque": "cierre v2 · Bloque 2 · v3.2–v3.10 + cola (31 grupos: 66 fuentes + 17 derivados, 36 bloqueados por insumo 2016)",
  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
  "rama": "mistral/m2-cobertura-vm",
  "base_revisada_sha": "d2419e5af2c91d89038a210a77242632d5823950",
@@ -19,9 +19,9 @@
   "ZIP base-4.14: 1.130.912.246 bytes, sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e, descargado con preparar_insumos.py --download"
  ],
  "cambios_respecto_entrega_anterior": [
-  "v3.8: SYNONYMS con familia financiera ES/EN y umbral de tokens >=2 y >= mitad. v3.9: si alguna fila mapeable 1:1 del original confirma el valor (con signo) en la columna yc, esa fila es la corroboración (la partida puede aparecer en balance y nota); solo si ninguna confirma se usa la primera fila distinta. +62 mejoras, 0 regresiones frente a v3.7.",
-  "Resultados: fuentes 356 REVISADO / 68 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO; CSV 677: 426 REVISADO / 85 PENDIENTE (68 fuentes + 17 derivados) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO; mecánicos sin cambio; control PASS exit 0; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes regenerados.",
-  "Registro actualizado (resoluciones_bloque2.json): 68 fuentes pendientes en 33 grupos + 17 derivados. Bloqueos restantes: SIN_ORIGINAL 36 (falta el documento del ejercicio 2016, no está entre los 251 insumos fijados), ALCANCE_SIN_PUENTE 11, AMBIGUEDAD_FILA_COLUMNA 9, NO_MAPEABLE_1a1 5, DECLARA_NO_DIFIERE 4, NO_LOCALIZADA 1, NO_TABULAR 2, CONTINUACION 1, UNIDAD_SIN_FRASE 1."
+  "v3.10: metadatos de norma/moneda acreditados por palabras presentes en el documento (unidad 467/467 OK); valor no numérico -> NO_APLICA en reexpresión (metadato moneda/norma/texto).",
+  "Resultados: fuentes 358 REVISADO / 66 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO; CSV 677: 428 REVISADO / 83 PENDIENTE (66 fuentes + 17 derivados) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO; mecánicos sin cambio; control PASS exit 0; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes regenerados.",
+  "Registro (resoluciones_bloque2.json): 66 fuentes en 31 grupos + 17 derivados. Bloqueos: SIN_ORIGINAL 36 (doc. del ejercicio 2016 no está entre los 251 insumos fijados — bloqueo confirmado, no amplío insumos), ALCANCE_SIN_PUENTE 11, AMBIGÜEDAD 9, NO_MAPEABLE 5, DECLARA_NO_DIFIERE 3, NO_TABULAR 2, CONTINUACIÓN 1, NO_LOCALIZADA 1."
  ],
  "pruebas": [
   {
@@ -90,7 +90,7 @@
   "36 comparativos sin texto del año original: los documentos de esos ejercicios (p. ej. CF_2016.txt de Vidrala) no están entre los 251 insumos fijados (selección parcial verificada del ZIP base-4.14); no amplío insumos.",
   "52 HIPOTESIS / 35 CONVENCION / 16 NO_APLICABLE / 6 DATO_AUSENTE conservados; 7 PDF candidatos sin asociación."
  ],
- "siguiente_accion_exacta": "Continuar bloque 2 por los 33 grupos restantes en orden de prioridad: los 36 SIN_ORIGINAL quedan como bloqueo confirmado (faltan los documentos de 2016 entre los insumos fijados; no amplío insumos); resolver con evidencia los ALCANCE_SIN_PUENTE/AMBIGUEDAD/DECLARA_NO_DIFIERE leyendo la nota citada y el original, o confirmar el bloqueo preciso. Publicar por bloque terminado.",
+ "siguiente_accion_exacta": "Resolver con evidencia los grupos restantes no bloqueados (AR_2019 p.11, IA_2018 p.104, CF_2019 p.12, CF_2025 p.7, CF_2022_compilacion p.25, CF_2020 p.20, CF_2018 p.8/p.10, CF_2023 p.65/p.7, CF_2024 p.7, AR_2020 p.7/p.8, AR_2025 p.22, CF_2021 p.8, AR_2019 p.23, boletín BMadrid) leyendo la nota citada y el original; los SIN_ORIGINAL quedan pendientes con motivo. Publicar por bloque terminado; consultar control común al cerrar cada bloque.",
  "integrado_en_producto": false,
  "apto_dinero_real": "No se declara por este formulario",
  "criterios_cubiertos": [

@@ -1,7 +1,7 @@
 {
   "nota": "Registro del bloque 2: cada pendiente queda con evidencia (resuelto por el código v3.2-v3.6) o con bloqueo preciso y lo que faltaria. No se fuerzan recuentos; una ausencia genuina permanece pendiente. Propuesta de evidencia de Mistral; revisión por Claude coordinador pendiente.",
-  "total_grupos": 33,
-  "total_fuentes_pendientes": 68,
+  "total_grupos": 31,
+  "total_fuentes_pendientes": 66,
   "total_derivados_pendientes": 17,
   "resumen_clasificaciones": {
     "SIN_ORIGINAL": 36,
@@ -9,10 +9,9 @@
     "NO_APLICA_ALCANCE_SIN_PUENTE": 11,
     "AMBIGUEDAD_FILA_COLUMNA": 9,
     "CONTINUACION": 1,
-    "DECLARA_NO_DIFIERE": 4,
+    "DECLARA_NO_DIFIERE": 3,
     "NO_TABULAR": 2,
-    "NO_LOCALIZADA": 1,
-    "UNIDAD_SIN_FRASE": 1
+    "NO_LOCALIZADA": 1
   },
   "grupos": [
     {
@@ -1195,54 +1194,6 @@
               "motivo": "la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])",
               "clasificacion": "NO_LOCALIZADA",
               "que_faltaria": "la partida no aparece en el texto conservado del año original; faltaria esa partida en el documento del ejercicio"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "empresa": "Viscofan",
-      "archivo": "texto/AR_2025.txt",
-      "pagina": 36,
-      "prioridad": 101,
-      "n_pendientes": 1,
-      "entradas": [
-        {
-          "celda": "Control maestro!L4",
-          "id": "norma",
-          "material_declarada": "True",
-          "derivados_materiales_dependientes": 0,
-          "estado_contextual": "PENDIENTE_CONTEXTUAL",
-          "pendientes": [
-            {
-              "dimension": "unidad",
-              "motivo": "metadato 'IFRS (IFRS-EU)' no localizado en la pagina ni en el documento",
-              "clasificacion": "UNIDAD_SIN_FRASE",
-              "que_faltaria": "sin frase de escala en la pagina, en la tabla ni en la cabecera; faltaria la nota de escala del estado"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "empresa": "Viscofan",
-      "archivo": "texto/AR_2025.txt",
-      "pagina": 151,
-      "prioridad": 101,
-      "n_pendientes": 1,
-      "entradas": [
-        {
-          "celda": "Palancas!C48",
-          "id": "moneda_cotizacion",
-          "material_declarada": "True",
-          "derivados_materiales_dependientes": 0,
-          "estado_contextual": "PENDIENTE_CONTEXTUAL",
-          "pendientes": [
-            {
-              "dimension": "reexpresion",
-              "motivo": "declara no reexpresado pero el original CF_2021.txt imprime 32,259 en la columna 2021 frente al comparativo EUR: pendiente (posible reexpresion no declarada o fila distinta en el original)",
-              "clasificacion": "DECLARA_NO_DIFIERE",
-              "que_faltaria": "declara no reexpresado pero el original imprime otro valor en esa columna; faltaria revisar la nota del informe nuevo (posible reexpresion no declarada)"
             }
           ]
         }

@@ -265,9 +265,27 @@ def check_unidad(page_lines, row_idx, unidad, escala, valor=None, row_line='', d
         if valor is not None and C.flat_text(str(valor)) in C.flat_text('\n'.join(page_lines)):
             return 'OK', f'metadato {valor!r} localizado en la pagina'
         pages_all = (doc or {}).get('pages') or {}
-        for pp in sorted(k for k in pages_all if k is not None):
-            if valor is not None and C.flat_text(str(valor)) in C.flat_text(pages_all.get(pp) or ''):
-                return 'OK', f'metadato {valor!r} localizado en el documento (pagina {pp}); no figura en la pagina citada'
+        # v3.10: el metadato se acredita si TODAS sus palabras significativas figuran en
+        # el documento (p. ej. 'IFRS (IFRS-EU)' vale con 'IFRS' presente), con la pagina
+        # de la palabra mas rara como evidencia
+        palabras = [w for w in re.findall(r'[A-Za-zÀ-ÿ]{3,}', str(valor or ''))]
+        if palabras:
+            faltan = []
+            pagina_ev = None
+            for w in palabras:
+                wf = C.flat_text(w)
+                hallada = None
+                for pp in sorted(k for k in pages_all if k is not None):
+                    if wf in C.flat_text(pages_all.get(pp) or ''):
+                        hallada = pp
+                        break
+                if hallada is None:
+                    faltan.append(w)
+                elif pagina_ev is None or hallada > pagina_ev:
+                    pagina_ev = hallada
+            if not faltan:
+                return 'OK', f'metadato {valor!r} acreditado en el documento (palabras {palabras} presentes; pagina {pagina_ev}); no figura en la pagina citada'
+            return 'NO_DECIDIBLE', f'metadato {valor!r}: faltan en el documento {faltan}'
         return 'NO_DECIDIBLE', f'metadato {valor!r} no localizado en la pagina ni en el documento'
     area = '\n'.join(page_lines)
     page_miles = MILES_RE.search(area)
@@ -582,6 +600,16 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
     ya, yc = columna_year(f.get('columna'), f.get('periodo'), archivo)
     valor = f.get('valor_fuente')
     unidad = str(f.get('unidad') or '')
+    if valor is None:
+        vdec = None
+    else:
+        vs = str(valor).strip()
+        vneg = vs.startswith('-') or vs.startswith('−') or (vs.startswith('(') and vs.endswith(')'))
+        vmag = normalize_num(vs.strip('()').lstrip('-').lstrip('−'))
+        vd = C.dec(vmag) if vmag else None
+        vdec = (-vd if (vneg and vd is not None) else vd)
+    if vdec is None and valor is not None:
+        return 'NO_APLICA', f'valor no numerico ({valor!r}): metadato (moneda/norma/texto), no hay importe que contrastar en reexpresion'
     if es_metadato_anio(f):
         return 'NO_APLICA', f'metadato de año identificado por unidad/concepto (unidad {unidad!r}, concepto {f.get("concepto")!r}); un año de columna no se reexpresa como importe. Un importe 2000-2099 con unidad monetaria no se clasifica aquí por el valor (v3.1)'
     if not ya or not yc:
@@ -598,14 +626,7 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
     cita = f.get('cita') or ''
     cf = C.flat_text(cita)
     variantes = {C.flat_text(v) for v in C.variantes_numero(valor)} - {''}
-    if valor is None:
-        vdec = None
-    else:
-        vs = str(valor).strip()
-        vneg = vs.startswith('-') or vs.startswith('−') or (vs.startswith('(') and vs.endswith(')'))
-        vmag = normalize_num(vs.strip('()').lstrip('-').lstrip('−'))
-        vd = C.dec(vmag) if vmag else None
-        vdec = (-vd if (vneg and vd is not None) else vd)
+
     candidatos = [name for name in TEXTO_CACHE[key] if YEAR_RE.search(name) and YEAR_RE.search(name).group(0) == yc and name != Path(archivo).name]
     alpha = C.flat_text(re.sub(r'[^A-Za-zÀ-ÿ ]+', ' ', cita))
     labels = [alpha[:L] for L in (80, 60, 40, 25, 12) if len(alpha) >= L]

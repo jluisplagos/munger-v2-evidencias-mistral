@@ -134,6 +134,10 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - v3.8 léxico financiero ES/EN + umbral de tokens; v3.9 corroboración por fila 1:1 que confirma el valor (con signo) en la columna yc (+62 mejoras, 0 regresiones).
 - Fuentes **356 REVISADO / 68 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO**; CSV **426 / 85 / 60 / 106 / 0** (85 = 68 fuentes + 17 derivados); control **PASS exit 0**; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; lotes regenerados; registro: 33 grupos restantes, bloqueos SIN_ORIGINAL 36 (falta doc. 2016 entre los 251 insumos fijados), ALCANCE_SIN_PUENTE 11, AMBIGÜEDAD 9, NO_MAPEABLE 5, DECLARA_NO_DIFIERE 4, otros 5.
 
+## Cierre v2 · Bloque 2 · v3.10 — ejecutado
+
+- Metadatos de norma/moneda por palabras en el documento (unidad 467/467 OK); valor no numérico → NO_APLICA en reexpresión. Fuentes **358 REVISADO / 66 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO**; CSV **428 / 83 / 60 / 106 / 0** (83 = 66 fuentes + 17 derivados); control **PASS exit 0**; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; lotes regenerados. Registro: 31 grupos restantes; SIN_ORIGINAL 36 confirmado como bloqueo (falta el doc. 2016 entre los 251 insumos fijados).
+
 ## Pendiente / siguiente acción exacta
 
 1. **Claude coordinador revisa Bloque 1 y esta pasada sistemática** — no autoaprobación.
