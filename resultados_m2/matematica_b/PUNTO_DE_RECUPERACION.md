@@ -15,9 +15,11 @@ Evidencia propuesta por Mistral; pendiente de revisión e incorporación por el 
 
 ## Pendiente / siguiente acción exacta
 
-1. Bloque B4: `codigo/protocolos_cobertura.py` + `PROTOCOLOS_COBERTURA.md` (contrato de `objetivo_v64.py`: cobertura aislada/conjunta necesaria/conjunta/sin cobertura; materialidad para acción vs para objetivo; condiciones necesarias y suficientes del tratamiento; ejemplos sintéticos; contraste con las coberturas reales 4.14 de `contraste_objetivo_v64.md`). Commit y push.
-2. Bloque B5: `DOSSIER_D1_D7_D11.md`, `HALLAZGOS.md`, `RESUMEN_PARA_CLAUDE.md`, `MANIFIESTO_SHA256.txt`. Commit y push final. Sin PR ni fusión.
+- Bloque B4 terminado (pendiente de commit en este push): `PROTOCOLOS_COBERTURA.md` + `PROTOCOLOS_COBERTURA.csv` + `codigo/protocolos_cobertura.py`. Re-derivación independiente de la cobertura: coincide con lo publicado en `contraste_objetivo_v64.md` en los 24 parámetros presentes (Vidrala 12 + Viscofan 12). Condiciones necesarias/sucias del tratamiento documentadas en tabla. Ejemplos: E1 acción conservada (todas las variantes 4.14 en «caro») con objetivo material (rangos 51,26–65,72 € Vidrala, 38,13–42,98 € Viscofan; mpa=false ∀, mpo=true en varios); E2 aisladas +0,1333 € c/u y conjunta +0,2667 € = suma (linealidad en V dentro del tramo, T6; P* continua sin saltos) y conjunta no atribuible; E3 sin_cobertura + fs=false ⇒ no determinada ⇒ condiciona (real: PM1.familia Viscofan, PM1.roic_terminal Vidrala); E4 rango calculado cubre solo variantes calculadas y la variante de probabilidades sale exacta sin LibreOffice (40,164007 / 38,536370).
 
+## Pendiente / siguiente acción exacta
+
+1. Bloque B5: `DOSSIER_D1_D7_D11.md`, `HALLAZGOS.md`, `RESUMEN_PARA_CLAUDE.md`, `MANIFIESTO_SHA256.txt`, `COMANDOS.md`; commit y push final. Sin PR ni fusión.
 ## Modelo y limitaciones
 
 - Sesión: Vibe Code de Mistral AI, modelo `mistral-large-4-0` (único modelo expuesto; sin selector de esfuerzo). Herramientas: Python 3.12.15 stdlib; red solo para GitHub (descarga de release vía `gh`); sin LibreOffice ni pipeline; no se abrieron XLSX.
