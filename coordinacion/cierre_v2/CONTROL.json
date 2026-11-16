@@ -433,20 +433,26 @@
       "tarea": "Contraste independiente de cambios Claude",
       "autor": "Antigua Mistral C, nueva F",
       "revisor_propuesto": "Claude revisa hechos del informe, no autoaprueba sus cambios",
-      "entrega": "PENDIENTE",
-      "revision": "PENDIENTE",
+      "entrega": "ENTREGADO",
+      "revision": "CONFORME_CON_LIMITES",
       "integracion": "NO",
-      "commit_origen": null,
+      "commit_origen": "c7716a0871b62a668734ce627130b198a6cb36b8",
       "commit_destino": null,
-      "evidencia": [],
-      "pruebas_autor": "NO_EJECUTADAS",
+      "evidencia": [
+        "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_F1_W1_W3_d519eb0.md @ 90329a1",
+        "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_C20_bf0d5c2.md @ e94ee7c",
+        "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_CSV_77ff89f8.md @ c7716a0"
+      ],
+      "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Cuando exista nuevo SHA W/C20/CSV, fijar y revisar diff. Mientras tanto B-PM1/F-B3/F-C1.",
+      "siguiente_accion": "Siguiente contraste de Mistral C/F sobre entregas de Claude: G-MANUAL (solicitud LISTA), además de responder a CORRECCION_F2.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": null,
-      "alcance_aceptado": [],
+      "commit_revisado": "c7716a0871b62a668734ce627130b198a6cb36b8",
+      "alcance_aceptado": [
+        "contrastes de F1-W, C20 y CSV, aceptados por el coordinador con sus límites declarados"
+      ],
       "solicitud_revision": null
     },
     {
@@ -822,6 +828,11 @@
       "tipo": "ENTREGA",
       "fecha": "2026-11-16",
       "hecho": "G-MANUAL: borrador del manual operativo de 957af65 y tabla de contradicciones de la guía publicados; solicitud de revisión LISTA."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-16",
+      "hecho": "F-REV actualizado: los tres contrastes de Mistral C/F (90329a1, e94ee7c, c7716a0) aceptados con límites."
     }
   ],
   "consulta_remotos_arranque": {
