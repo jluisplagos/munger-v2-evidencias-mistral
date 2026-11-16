@@ -27,8 +27,9 @@ Clasificación: [ERROR_DATO] [CONFLICTO_FUENTE] [HIPOTESIS] [LIMITE_COBERTURA]. 
 - **Qué falta comprobar**: consulta a Vidrala (P9-c1) o desglose del ESEF 2025.
 
 ## 5. [HIPOTESIS] Vidrala C49 (arrendamientos): el principal no está publicado
-- **Reproducción**: nota 8 (CF_2024 p.56, CF_2025 p.52, verificación visual de la página) publica solo el **pago total** (5.861/6.117/8.314 miles) y el **interés devengado** (2.131/2.179/2.452). No hay fila de principal.
-- **Estado del objetivo**: `HIPOTESIS_O_AUSENCIA`; el valor 4,5 mm del libro es un supuesto heredado. Alternativas: 6,831 mm = media del pago total (20.492/3); ≈4,510 mm = pago total − interés devengado ((5.861−2.131 + 6.117−2.179 + 8.314−2.452)/3). El registro menciona 6,764 mm con otros operandos.
+- **Reproducción**: nota 8 (CF_2024 p.56, CF_2025 p.52, verificación visual de la página) publica solo el **pago total** (5.861 + 6.117 + 8.314 = **20.292 miles**; media = 20.292/3 = **6.764 miles = 6,764 mm**) y el **interés devengado** (2.131 + 2.179 + 2.452 = **6.762 miles**; media = 6.762/3 = **2.254 miles = 2,254 mm**). No hay fila de principal.
+- **Diferencia** (pago total − interés devengado) = 20.292 − 6.762 = **13.530 miles**; media = 13.530/3 = **4.510 miles = 4,510 mm** (4,510333), aproximación del principal — **no acredita el principal pagado**.
+- **Estado del objetivo**: `HIPOTESIS_O_AUSENCIA`; el valor 4,5 mm del libro es un supuesto heredado. Alternativas cuantificadas: 6,764 mm (media del pago total, igual que la que construye la fase 1) y ≈4,510 mm (diferencia media). C49 se mantiene como hipótesis.
 - **Nota de extracción**: la tabla de resultados por arrendamientos imprime «Expenses related to short-term/low-value 8,314 / 6,117», numéricamente igual a la fila Payments de la tabla de pasivos (confirmado visualmente; no afecta al contraste).
 
 ## 6. [HIPOTESIS] Vidrala C50 (pagos basados en acciones): cero no publicado como tal
@@ -52,3 +53,13 @@ Clasificación: [ERROR_DATO] [CONFLICTO_FUENTE] [HIPOTESIS] [LIMITE_COBERTURA]. 
 - `DIFERENCIA`: 0 · `NO_ACREDITADO`: 0
 
 No hay hallazgos de error en los datos publicados dentro del universo fijado; los puntos 1-3 son avisos de lectura de la versión inglesa y de reexpresión, y los 4-7 son las ausencias/hipótesis ya declaradas en el registro (E4, C49, C50, E2), ahora verificadas contra los PDF conservados.
+
+## Correcciones aplicadas tras la revisión externa del commit `6b53ef9`
+
+La primera lectura queda conservada íntegramente en el historial (commits `5641bec` y `b278727`); las correcciones se publican en un commit nuevo sobre la misma rama. Auditoría aritmética determinista (`auditar_aritmetica.py`): todas las sumas, medias y conversiones pasan; el único error detectado fue el de C49.
+
+1. **Vidrala C49**: `valor_leido` corregido de 20.492 a **20.292** miles (5.861+6.117+8.314); medias recalculadas: pago total **6.764 mm**, interés devengado **2.254 mm**, diferencia **4.510 mm** (13.530/3). Se retira la atribución de la diferencia con el registro a «otros operandos»: 6,764 mm es exactamente la media del pago total con los mismos operandos. C49 sigue como **hipótesis** (restar el interés devengado no acredita el principal pagado).
+2. **Vidrala Historia!L7**: corregida la explicación — el EBIT publicado de 292.068 miles **incluye** el deterioro de 2.362 miles (línea anterior al EBIT en la cuenta de resultados, p.4); sin él sería 294.430 miles. La línea L8 (D&A del estado de flujos) **sí** excluye el deterioro (línea aparte del ajuste, p.7).
+3. **Vidrala Historia!L14**: nota corregida a «−799 miles = −0,799 millones».
+4. **C55 de Vidrala**: retirada la atribución a D3 (D3 es la decisión de Viscofan: 46.500.000 − 506.601 = 45.993.399).
+5. **Recuperación y resumen**: la rama `mistral/fuentes-vm-01` y sus commits ya están publicados en el auxiliar; el presupuesto de 25 EUR se presenta como **recomendación del encargo**, no como configurado (no se puede comprobar desde la sesión).
