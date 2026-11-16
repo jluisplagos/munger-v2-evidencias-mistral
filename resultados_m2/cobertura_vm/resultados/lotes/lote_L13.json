@@ -11,9 +11,9 @@
     "DATO_AUSENTE": 2
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 17,
+    "PENDIENTE_CONTEXTUAL": 16,
     "NO_APLICA": 3,
-    "REVISADO_CONTEXTUAL": 10
+    "REVISADO_CONTEXTUAL": 11
   },
   "entradas": [
     {
@@ -187,7 +187,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2019_p11_pasivo_fin_nc_2018\"] + o[\"aux:AR2019_p11_pasivo_fin_c_2018\"] + o[\"aux:AR2019_p11_derechos_uso_nc_2018\"] + o[\"aux:AR2019_p11_derechos_uso_c_2018\"] -> 134.924 (valor_modelo 134.924, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2019_p11_pasivo_fin_nc_2018\"] + o[\"aux:AR2019_p11_pasivo_fin_c_2018\"] + o[\"aux:AR2019_p11_derechos_uso_nc_2018\"] + o[\"aux:AR2019_p11_derechos_uso_c_2018\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Deuda financiera 2018 = pasivos financieros no corrientes 56,449 + corrientes 78,412 + arrendamiento financiero NIC 17 (28 + 35) = 134,924 miles (AR_2019 p. 11) = total de la nota 20 (134,861, p. 86) + 63. Excluye derivados (495 + 1,047). En 2018 no hay pasivo NIIF 16: los 63 son el arrendamiento financiero antiguo y van en la deuda, no en la fila 23. Resultado de la fórmula con los orígenes registrados: 134.924000; valor del libro: 134.924.",
-      "limites_contextuales": "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt'])) | aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt'])) | aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 6711) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v) | aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 6711) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)",
+      "limites_contextuales": "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt'])) | aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt'])) | aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v) | aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -207,8 +207,8 @@
         "limites_contextuales": [
           "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
           "aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
-          "aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 6711) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)",
-          "aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 6711) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)"
+          "aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)",
+          "aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)"
         ]
       }
     },
@@ -913,12 +913,12 @@
       "id": "h_arrend",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:CF2024_p3_arrend_lp_2023\"] + o[\"aux:CF2024_p3_arrend_cp_2023\"] -> 11.541 (valor_modelo 11.541, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:CF2024_p3_arrend_lp_2023\"] + o[\"aux:CF2024_p3_arrend_cp_2023\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:CF2024_p3_arrend_lp_2023\"] + o[\"aux:CF2024_p3_arrend_cp_2023\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Pasivo por arrendamientos 2023 = no corriente 6,854 + corriente 4,687 = 11,541 miles (CF_2024 p. 3). Resultado de la fórmula con los orígenes registrados: 11.541000; valor del libro: 11.541.",
-      "limites_contextuales": "aux:CF2024_p3_arrend_lp_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam) | aux:CF2024_p3_arrend_cp_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -934,11 +934,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:CF2024_p3_arrend_lp_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)",
-          "aux:CF2024_p3_arrend_cp_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {

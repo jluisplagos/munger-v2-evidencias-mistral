@@ -125,6 +125,10 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - Fuentes **296 REVISADO / 128 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO**; CSV **339 / 172 / 60 / 106 / 0** (172 = 128 fuentes + 44 derivados); control **PASS exit 0**; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes L00–L21 regenerados.
 - `resolver_bloque2.py` → `resultados/resoluciones_bloque2.json`: 54 grupos documento/página, 128 fuentes + 44 derivados pendientes, cada una con motivo exacto y **qué faltaría**: SIN_ORIGINAL 36 (falta el documento del ejercicio entre los 251 insumos fijados; no amplío insumos), ALCANCE_SIN_PUENTE 49, DECLARA_NO_DIFIERE 18, AMBIGÜEDAD_FILA_COLUMNA 13, NO_MAPEABLE_1:1 6, NO_LOCALIZADA 4, NO_TABULAR 2, CONTINUACIÓN 1, UNIDAD_SIN_FRASE 1.
 
+## Cierre v2 · Bloque 2 · v3.7 (léxico ES/EN) — ejecutado
+
+- SYNONYMS ampliado (arrendamiento/derecho de uso/pasivos/deudas ES↔EN). Grupo top Viscofan CF_2024 p.3: arrend_cp/lp_2023 → REVISADO (igualdad con signo confirmada en CA_2023_es p.3). Fuentes **298 REVISADO / 126 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO**; CSV **342 / 169 / 60 / 106 / 0**; control **PASS exit 0**; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; lotes regenerados; registro actualizado (126 fuentes / 54 grupos / 43 derivados).
+
 ## Pendiente / siguiente acción exacta
 
 1. **Claude coordinador revisa Bloque 1 y esta pasada sistemática** — no autoaprobación.

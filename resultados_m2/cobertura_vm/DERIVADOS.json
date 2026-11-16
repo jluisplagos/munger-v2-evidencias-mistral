@@ -7,9 +7,9 @@
     "COINCIDE_PROPUESTO": 101
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 43,
+    "REVISADO_CONTEXTUAL": 44,
     "REUTILIZADO_M1": 14,
-    "PENDIENTE_CONTEXTUAL": 44
+    "PENDIENTE_CONTEXTUAL": 43
   },
   "ciclos": [],
   "huecos": [],
@@ -3107,7 +3107,6 @@
       "id": "leases_media",
       "estado_contextual": "REUTILIZADO_M1",
       "limites_contextuales": [
-        "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo)); el ori)",
         "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla)"
       ],
       "coherencia_unidades_origenes": true,
@@ -4239,8 +4238,8 @@
       "limites_contextuales": [
         "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
         "aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
-        "aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 6711) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)",
-        "aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 6711) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)"
+        "aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)",
+        "aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
@@ -4762,11 +4761,8 @@
       "empresa": "Viscofan",
       "celda": "Historia!J23",
       "id": "h_arrend",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:CF2024_p3_arrend_lp_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)",
-        "aux:CF2024_p3_arrend_cp_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [

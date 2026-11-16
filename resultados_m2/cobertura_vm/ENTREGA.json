@@ -1,7 +1,7 @@
 {
  "es_plantilla": false,
  "frente": "A",
- "bloque": "cierre v2 · Bloque 2 · v3.2–v3.6 + cola (54 grupos) + registro de resoluciones/bloqueos",
+ "bloque": "cierre v2 · Bloque 2 · v3.2–v3.7 + cola + registro (grupo top CF_2024 p.3 resuelto parcialmente)",
  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
  "rama": "mistral/m2-cobertura-vm",
  "base_revisada_sha": "d2419e5af2c91d89038a210a77242632d5823950",
@@ -19,10 +19,9 @@
   "ZIP base-4.14: 1.130.912.246 bytes, sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e, descargado con preparar_insumos.py --download"
  ],
  "cambios_respecto_entrega_anterior": [
-  "v3.5: columna_year ignora los años de citas de archivo dentro de la descripcion (CF_2018 p.13 no es año de columna) — arregla Historia!D13 y similares.",
-  "v3.6: verificador de puente aritmetico citado en la declaracion ('177,548 = 165,980 − 1,004 + 6,595 + 5,977 (CF_2019 p.9)'): LHS==valor, la expresion suma exacto y cada componente figura en la pagina citada del original -> OK acreditado (ej. Vidrala Historia!F7).",
-  "Resultados: fuentes 296 REVISADO / 128 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO; CSV 677: 339 REVISADO / 172 PENDIENTE (128 fuentes + 44 derivados) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO; mecánicos sin cambio; control PASS exit 0; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec).",
-  "Registro del bloque 2 (scripts/resolver_bloque2.py -> resultados/resoluciones_bloque2.json): 128 fuentes pendientes en 54 grupos documento/página + 44 derivados, cada una con motivo exacto y clasificacion del bloqueo: SIN_ORIGINAL 36 (falta el documento del ejercicio entre los 251 insumos fijados), NO_APLICA_ALCANCE_SIN_PUENTE 49, DECLARA_NO_DIFIERE 18, AMBIGUEDAD_FILA_COLUMNA 13, NO_MAPEABLE_1a1 6, NO_LOCALIZADA 4, NO_TABULAR 2, CONTINUACION 1, UNIDAD_SIN_FRASE 1."
+  "v3.7: SYNONYMS ampliado con léxico ES/EN de arrendamientos y pasivos (right-of-use/lease ↔ derecho de uso/arrendamiento, liabilities/pasivos/deudas). Resuelve el grupo top Viscofan CF_2024 p.3: aux:CF2024_p3_arrend_cp/lp_2023 pasan a REVISADO (igualdad confirmada con signo en CA_2023_es.txt p.3: 4.687 y 6.854 en columna 2023).",
+  "Resultados: fuentes 298 REVISADO / 126 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO; CSV 677: 342 REVISADO / 169 PENDIENTE (126 fuentes + 43 derivados) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO; mecánicos sin cambio; control PASS exit 0; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes regenerados.",
+  "Registro actualizado: 126 fuentes pendientes en 54 grupos + 43 derivados (resoluciones_bloque2.json)."
  ],
  "pruebas": [
   {
@@ -91,7 +90,7 @@
   "36 comparativos sin texto del año original: los documentos de esos ejercicios (p. ej. CF_2016.txt de Vidrala) no están entre los 251 insumos fijados (selección parcial verificada del ZIP base-4.14); no amplío insumos.",
   "52 HIPOTESIS / 35 CONVENCION / 16 NO_APLICABLE / 6 DATO_AUSENTE conservados; 7 PDF candidatos sin asociación."
  ],
- "siguiente_accion_exacta": "Continuar bloque 2 grupo a grupo en orden de prioridad: leer la nota citada en cada declaracion (p. ej. CF_2024 p.25 cambios normativos, AR_2019 p.23 NIIF 16) y el original del año para resolver AMBIGUEDAD/DECLARA_NO_DIFIERE con evidencia, o confirmar el bloqueo. Publicar por bloque terminado.",
+ "siguiente_accion_exacta": "Siguiente bloque documental: resto del grupo Viscofan CF_2024 p.3 (pasivo_fin_c/nc_2023, Historia!J21/J26 — fila en CA_2023_es linea 2197 con columnas no mapeables 1:1) leyendo la tabla completa; luego CF_2022_compilacion p.25 y CF_2017 p.11/p.14 (SIN_ORIGINAL 2016: bloqueo confirmado, falta CF_2016 entre los insumos fijados).",
  "integrado_en_producto": false,
  "apto_dinero_real": "No se declara por este formulario",
  "criterios_cubiertos": [

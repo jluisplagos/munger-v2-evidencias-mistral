@@ -9,8 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 17,
-    "REVISADO_CONTEXTUAL": 13
+    "PENDIENTE_CONTEXTUAL": 15,
+    "REVISADO_CONTEXTUAL": 15
   },
   "entradas": [
     {
@@ -319,12 +319,12 @@
       "id": "CF2024_p3_arrend_cp_2023",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Current liabilities for right-of-use assets 7.2 4,314 4,687'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Current liabilities for right-of-use assets 7.2 4,314 4,687'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -332,7 +332,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Current liabilities for right-of-use assets 7.2 4,314 4,687",
       "encabezado": "(Thousands of euros) Notes 2024 2023",
@@ -349,12 +349,12 @@
       "id": "CF2024_p3_arrend_lp_2023",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Non-current liabilities for right-of-use assets 7.2 7,535 6,854'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Non-current liabilities for right-of-use assets 7.2 7,535 6,854'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -362,7 +362,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Non-current liabilities for right-of-use assets 7.2 7,535 6,854",
       "encabezado": "(Thousands of euros) Notes 2024 2023",

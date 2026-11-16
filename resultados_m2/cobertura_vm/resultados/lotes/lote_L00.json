@@ -980,7 +980,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:CF2024_p9_pagos_arrend_2023\"] + o[\"aux:AR2025_p28_pagos_arrend_2024\"] + o[\"aux:AR2025_p28_pagos_arrend_2025\"]) / 3 -> 5.547333333333333333333333333 (valor_modelo 5.547, diff 0.000333333333333333333333333)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"aux:CF2024_p9_pagos_arrend_2023\"] + o[\"aux:AR2025_p28_pagos_arrend_2024\"] + o[\"aux:AR2025_p28_pagos_arrend_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media exacta 2023–2025: (5,296 + 5,843 + 5,503) / 3 = 5,547 mm (pagos por arrendamientos de CF_2024 p. 9 y AR_2025 p. 28; los mismos valores que la Historia J17:L17); el libro guarda 5.547 (decisión E1: sustituye el redondeo 5.5 que el inversor escribió en la etapa 1; cambio_de_base.md, «Entradas sustituidas en fase1_v63.json»). La fórmula reproduce el libro (diferencia < 0,001 mm, redondeo a tres decimales).",
-      "limites_contextuales": "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo)); el ori) | aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla)",
+      "limites_contextuales": "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -998,7 +998,6 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo)); el ori)",
           "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla)"
         ]
       }
@@ -1647,9 +1646,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Payments for right-of-use assets 12.1 -5,843 -5,296'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Payments for right-of-use assets 12.1 -5,843 -5,296'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: pagos por arrendamientos, en positivo | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1657,7 +1656,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Payments for right-of-use assets 12.1 -5,843 -5,296",
       "encabezado": "(Thousands of euros) Notes 2024 2023",
