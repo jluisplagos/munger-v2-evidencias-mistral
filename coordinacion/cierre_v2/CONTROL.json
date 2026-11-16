@@ -126,23 +126,26 @@
       "autor": "Claude",
       "revisor_propuesto": "Mistral C/F u otro contexto distinto",
       "entrega": "ENTREGADO",
-      "revision": "PENDIENTE",
+      "revision": "CONFORME_CON_LIMITES",
       "integracion": "NO",
       "commit_origen": "bf0d5c25d136ae9b2b1f14e4688081e1792d2363",
       "commit_destino": null,
       "evidencia": [
-        "docs/validacion_economica_paralela/frente_E_F1_elis/revision/RESPUESTA_REVISION_9_C20.md @ bf0d5c2"
+        "docs/validacion_economica_paralela/frente_E_F1_elis/revision/RESPUESTA_REVISION_9_C20.md @ bf0d5c2",
+        "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_C20_bf0d5c2.md @ e94ee7c (mistral/f-alcance-real)"
       ],
       "pruebas_autor": "EJECUTADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "PARCIALES",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Mistral C/F contrasta solo lo afectado (solicitud LISTA); el coordinador sigue con CSV.",
+      "siguiente_accion": "Nada en esta tarea. No es software del producto: no se integra en la candidata; queda en la rama F1.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": null,
-      "alcance_aceptado": [],
+      "commit_revisado": "bf0d5c25d136ae9b2b1f14e4688081e1792d2363",
+      "alcance_aceptado": [
+        "propuesta e investigación F1 en la carpeta del frente (no adoptada, no producto)"
+      ],
       "solicitud_revision": {
-        "estado": "LISTA",
+        "estado": "RESPONDIDA",
         "sha_autor": "bf0d5c25d136ae9b2b1f14e4688081e1792d2363",
         "base_revisada": "d519eb04978e64d04f1d1795c570ca96bdd7ad7f",
         "diff_rutas": [
@@ -166,7 +169,17 @@
           "Las 752 filas reales con salida byte a byte idéntica; test 143/143 y 13/13; sin cambiar tolerancias ni políticas"
         ],
         "revisor_asignado": "Mistral C/F",
-        "informe_revision": null
+        "informe_revision": {
+          "commit": "e94ee7c",
+          "rama": "mistral/f-alcance-real",
+          "ruta": "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_C20_bf0d5c2.md",
+          "veredicto": "CUMPLE en los 5 criterios (U1–U6, 752 filas idénticas); ningún defecto material",
+          "limites": [
+            "test 143/143 no re-ejecutado completo (52 páginas sin exportación por página; sin poppler en su entorno)",
+            "16 filas de texto no reproducibles en su entorno (pdftotext en modo raw); 736/752 idénticas, todas las de tabla"
+          ],
+          "aceptacion_del_coordinador": "Aceptado con esos límites; el coordinador no es autor del informe ni lo modifica"
+        }
       }
     },
     {
@@ -175,25 +188,28 @@
       "autor": "Claude",
       "revisor_propuesto": "Mistral C/F u otro contexto distinto",
       "entrega": "ENTREGADO",
-      "revision": "PENDIENTE",
+      "revision": "CONFORME_CON_LIMITES",
       "integracion": "NO",
       "commit_origen": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
       "commit_destino": null,
       "evidencia": [
-        "docs/validacion_economica_paralela/frente_E_F1_elis/RESPUESTA_BLOQUE_CSV_LECTURAS.md @ 77ff89f"
+        "docs/validacion_economica_paralela/frente_E_F1_elis/RESPUESTA_BLOQUE_CSV_LECTURAS.md @ 77ff89f",
+        "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_CSV_77ff89f8.md @ c7716a0 (mistral/f-alcance-real)"
       ],
       "pruebas_autor": "EJECUTADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "PARCIALES",
       "dependencias": [
         "C20"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Mistral C/F contrasta solo lo afectado por el bloque CSV (solicitud LISTA). Seis columnas por sociedad (Lavartex y «otras adquisiciones») siguen [LECTURA] con motivo; N1 no se aplica.",
+      "siguiente_accion": "Nada en esta tarea. No es software del producto: no se integra en la candidata; queda en la rama F1.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": null,
-      "alcance_aceptado": [],
+      "commit_revisado": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
+      "alcance_aceptado": [
+        "propuesta e investigación F1 en la carpeta del frente (no adoptada, no producto)"
+      ],
       "solicitud_revision": {
-        "estado": "LISTA",
+        "estado": "RESPONDIDA",
         "sha_autor": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
         "base_revisada": "bf0d5c25d136ae9b2b1f14e4688081e1792d2363",
         "diff_rutas": [
@@ -216,7 +232,18 @@
           "N1 no se aplica; no se adopta (1a)–(5b); C48=108, C49=128,1, FCF base=307,933 y E1/D3/E2/E6 se conservan"
         ],
         "revisor_asignado": "Mistral C/F",
-        "informe_revision": null
+        "informe_revision": {
+          "commit": "c7716a0",
+          "rama": "mistral/f-alcance-real",
+          "ruta": "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_CSV_77ff89f8.md",
+          "veredicto": "CUMPLE en los 4 criterios; las 10 filas nuevas OK en su reproducción; controles negativos reconstruidos; ningún defecto material",
+          "limites": [
+            "test_verificar_cifras y cobertura_por_mutacion no re-ejecutados",
+            "lectura del libro por valores en caché (data_only)",
+            "las mismas 16 filas de texto no reproducibles en su entorno"
+          ],
+          "aceptacion_del_coordinador": "Aceptado con esos límites; el coordinador no es autor del informe ni lo modifica"
+        }
       }
     },
     {
@@ -227,7 +254,7 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "2c41d689fde13dbb9e6affbdb470181291ec2519",
+      "commit_origen": "160faf9cc38efa76baf414e7eb804a2fe5c5d7e2",
       "commit_destino": null,
       "evidencia": [
         "resultados_m2/cobertura_vm/PUNTO_DE_RECUPERACION.md @ d2419e5",
@@ -239,8 +266,8 @@
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Mistral A corrige A2-R1…R5 (CORRECCION_A2.md): columna sin posición (32 entradas reales), reexpresión sin escala/perímetro y por prefijo (19+44), escala de página en millones, años sin límites de palabra, textos desfasados. Se conserva la reproducibilidad (51/52 byte a byte, PASS) y el arreglo v3.1.",
-      "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
+      "siguiente_accion": "Mistral A responde a CORRECCION_A2.md (A2-R1…R5) sobre 160faf9; las entradas REVISADO acreditadas con las reglas defectuosas deben regenerarse. El coordinador revisa solo lo afectado cuando haya respuesta.",
+      "observacion": "Seguimiento de A2: 94d1a87 es anterior a CORRECCION_A2 (2fea890) y 160faf9 no la cita. En 160faf9 siguen YEAR_RE sin límites, la salida OK «decidido por año» de check_columna y MILES_RE con «in thousands»; los REVISADO suben a 294 con esas reglas. A2-R1…R5 siguen abiertos. La revisión registrada es la de 2c41d68; 160faf9 no está revisado.",
       "commit_revisado": "2c41d689fde13dbb9e6affbdb470181291ec2519",
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -305,21 +332,40 @@
       "tarea": "Fuentes M1/M2/M6/N2 de Elis",
       "autor": "Antigua Mistral B, nueva E",
       "revisor_propuesto": "Claude",
-      "entrega": "PENDIENTE",
+      "entrega": "ENTREGADO",
       "revision": "PENDIENTE",
       "integracion": "NO",
-      "commit_origen": null,
+      "commit_origen": "93a97801f8c4f6a4dc5cabd4540248390cf113d0",
       "commit_destino": null,
-      "evidencia": [],
-      "pruebas_autor": "NO_EJECUTADAS",
+      "evidencia": [
+        "resultados_cierre/elis_fuentes/ @ 93a9780 (mistral/e-fuentes-elis): ENTREGA.json, LECTURA_FUENTES.jsonl, PREGUNTAS_Y_RESULTADOS.csv, HALLAZGOS_ELIS.md"
+      ],
+      "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
-      "bloqueo": null,
-      "siguiente_accion": "Leer encargo nuevo; inventario de lo ya leído y búsqueda finita de fuentes oficiales.",
+      "bloqueo": "Los 11 PDF nuevos están en PROVISIONAL, solo en el sandbox del autor (subida a la Release con HTTP 401); sin copia duradera accesible. El acceso del coordinador a fr.elis.com no se usa: el programa prohíbe contactar con terceros.",
+      "siguiente_accion": "El coordinador revisa (contexto distinto del autor) ENTREGA.json, citas M1/M2/M6/N2 observables con la base 4.14 y la preservación de los 11 PDF. Elis sigue pendiente_de_datos; nada desbloquea R/θ/λ.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
-      "solicitud_revision": null
+      "solicitud_revision": {
+        "estado": "EN_CURSO",
+        "sha_autor": "93a97801f8c4f6a4dc5cabd4540248390cf113d0",
+        "base_revisada": "ec707a5ba2bd684381a63ce0f6f6c143aa59f4c0",
+        "diff_rutas": [
+          "resultados_cierre/elis_fuentes/"
+        ],
+        "criterios": [
+          "ENTREGA.json completo y honesto",
+          "preservación de los 11 PDF provisionales",
+          "28 citas en su página (las observables con la base 4.14)",
+          "M1/M2/M6/N2 sin ir más allá de la evidencia",
+          "Elis pendiente_de_datos y decisiones vigentes conservadas",
+          "higiene y manifiesto"
+        ],
+        "revisor_asignado": "Claude coordinador (subagente de revisión)",
+        "informe_revision": null
+      }
     },
     {
       "id": "B-PM1",
@@ -675,6 +721,21 @@
       "tipo": "REVISION",
       "fecha": "2026-11-16",
       "hecho": "A @ 2c41d68 revisado por un contexto distinto del autor (subagente del coordinador): reproducción conforme; CORRECCIONES A2-R1…R5. Regla de check_columna comprobada por el coordinador. No aceptado ni integrado."
+    },
+    {
+      "tipo": "REVISION",
+      "hecho": "F-REV contrasta C20 @ bf0d5c2 (e94ee7c) y el bloque CSV @ 77ff89f (c7716a0): CUMPLE con límites; registrados CONFORME_CON_LIMITES.",
+      "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "CONSULTA",
+      "hecho": "Seguimiento de A2: 160faf9 no responde a A2-R1…R5 (defectos presentes en el código). D sin commits nuevos desde 1ac661b: D2 sin respuesta.",
+      "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "ENTREGA",
+      "hecho": "E-ELIS entregado en 93a9780; revisión del coordinador en curso; 11 PDF provisionales sin preservación duradera.",
+      "fecha": "2026-11-16"
     }
   ],
   "consulta_remotos_arranque": {

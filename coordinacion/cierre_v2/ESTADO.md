@@ -11,12 +11,12 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | ID | Dueño | Entregado | Revisado | Integrado | Pruebas autor / externas | Origen |
 |---|---|---|---|---|---|---|
 | F1-W | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | d519eb0 |
-| C20 | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | bf0d5c2 |
-| CSV | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 77ff89f |
-| A-CTX | Mistral A | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 2c41d68 |
+| C20 | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | bf0d5c2 |
+| CSV | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | 77ff89f |
+| A-CTX | Mistral A | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 160faf9 |
 | D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
 | D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
-| E-ELIS | Antigua Mistral B, nueva E | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
+| E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | 93a9780 |
 | B-PM1 | Mistral B (autor previo) | PARCIAL | LIMITADA | NO | DECLARADAS / REPRODUCIDAS | daa7478 |
 | C-C2 | Mistral C (autor previo) | ENTREGADO | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | 1ec4f18 |
 | F-REV | Antigua Mistral C, nueva F | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
@@ -34,15 +34,16 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 ## Próxima acción y dependencias por tarea
 
 - **F1-W · F1 W1–W3 entregada y contrastada por Mistral C/F; propuesta no adoptada**: Nada en esta tarea. La implementación de W1 en el producto depende de las decisiones (1a)–(5b) (F1-IMPL, H-DEC); no se integra en la candidata porque no es software del producto.
-- **C20 · C20: U1–U6 del verificador respondidas; contraste pendiente**: Mistral C/F contrasta solo lo afectado (solicitud LISTA); el coordinador sigue con CSV.
-- **CSV · Cifras [LECTURA] al CSV verificado (bloque CSV de ENCARGO_C20_CSV.md, f5775dc)**: Mistral C/F contrasta solo lo afectado por el bloque CSV (solicitud LISTA). Seis columnas por sociedad (Lavartex y «otras adquisiciones») siguen [LECTURA] con motivo; N1 no se aplica.
+- **C20 · C20: U1–U6 del verificador respondidas; contraste pendiente**: Nada en esta tarea. No es software del producto: no se integra en la candidata; queda en la rama F1.
+- **CSV · Cifras [LECTURA] al CSV verificado (bloque CSV de ENCARGO_C20_CSV.md, f5775dc)**: Nada en esta tarea. No es software del producto: no se integra en la candidata; queda en la rama F1.
   Dependencias: C20.
-- **A-CTX · Evidencia contextual A v3**: Mistral A corrige A2-R1…R5 (CORRECCION_A2.md): columna sin posición (32 entradas reales), reexpresión sin escala/perímetro y por prefijo (19+44), escala de página en millones, años sin límites de palabra, textos desfasados. Se conserva la reproducibilidad (51/52 byte a byte, PASS) y el arreglo v3.1.
+- **A-CTX · Evidencia contextual A v3**: Mistral A responde a CORRECCION_A2.md (A2-R1…R5) sobre 160faf9; las entradas REVISADO acreditadas con las reglas defectuosas deben regenerarse. El coordinador revisa solo lo afectado cuando haya respuesta.
 - **D-HARNESS · Arnés D v2 y paquetes íntegros**: Mistral D corrige D2-R1…R7 (CORRECCION_D2.md): aserciones que aceptan resultados vacíos o forjados, Q1-026 incoherente con el banco, relevos vacíos de Q1-028/032, correspondencia de criterios, manifiesto. Se conserva D-R2 y la detección de las sondas de d375d80.
 - **D-36 · Aceptación completa de 36 casos Qwen**: Ningún caso del personaje ejecutado (0/36). Recuento del revisor: 29 componentes con precondiciones del arnés, 1 bloqueo de entorno (Q1-026), 2 observación compartida, 2 pendientes de agente, 2 de decisión del usuario. El runtime del coordinador ejecuta el personaje cuando D2-R4 dé relevos completos.
   Dependencias: D-HARNESS, T-CAND.
   Bloqueo/límite: Parte del entorno Mistral no expone agentes/pdftotext/soffice según su declaración; transferir al runtime comprobado.
-- **E-ELIS · Fuentes M1/M2/M6/N2 de Elis**: Leer encargo nuevo; inventario de lo ya leído y búsqueda finita de fuentes oficiales.
+- **E-ELIS · Fuentes M1/M2/M6/N2 de Elis**: El coordinador revisa (contexto distinto del autor) ENTREGA.json, citas M1/M2/M6/N2 observables con la base 4.14 y la preservación de los 11 PDF. Elis sigue pendiente_de_datos; nada desbloquea R/θ/λ.
+  Bloqueo/límite: Los 11 PDF nuevos están en PROVISIONAL, solo en el sandbox del autor (subida a la Release con HTTP 401); sin copia duradera accesible. El acceso del coordinador a fr.elis.com no se usa: el programa prohíbe contactar con terceros.
 - **B-PM1 · Dossier P-M1 corregido; contraste documental pendiente**: Contrastar nueve altas corregidas con notas/cabeceras; conservar no identificación de θ/λ.
   Bloqueo/límite: P-M1 no delimitada con evidencia disponible; 4 PDF nuevos con preservación pendiente.
 - **C-C2 · Guarda de perímetros C2**: Integrador registra uso/incorporación limitada; no otra ronda matemática por C2.
@@ -70,8 +71,9 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 ## Solicitudes de revisión
 
 - F1-W: RESPONDIDA; revisor asignado: Mistral C/F; SHA: d519eb04978e64d04f1d1795c570ca96bdd7ad7f.
-- C20: LISTA; revisor asignado: Mistral C/F; SHA: bf0d5c25d136ae9b2b1f14e4688081e1792d2363.
-- CSV: LISTA; revisor asignado: Mistral C/F; SHA: 77ff89f8fe99a1b5f013243ea1ccd4b84512ac51.
+- C20: RESPONDIDA; revisor asignado: Mistral C/F; SHA: bf0d5c25d136ae9b2b1f14e4688081e1792d2363.
+- CSV: RESPONDIDA; revisor asignado: Mistral C/F; SHA: 77ff89f8fe99a1b5f013243ea1ccd4b84512ac51.
+- E-ELIS: EN_CURSO; revisor asignado: Claude coordinador (subagente de revisión); SHA: 93a97801f8c4f6a4dc5cabd4540248390cf113d0.
 
 ## Cómo se decide el cierre
 
