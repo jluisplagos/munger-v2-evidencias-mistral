@@ -9,8 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 24,
-    "REVISADO_CONTEXTUAL": 6
+    "PENDIENTE_CONTEXTUAL": 17,
+    "REVISADO_CONTEXTUAL": 13
   },
   "entradas": [
     {
@@ -199,12 +199,12 @@
       "id": "h_pensiones",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2022_compilacion.txt [PDF PAGE 61] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Defined benefit 16,278 24,779'; encabezado: 'In financial year 2022, after the difference generated in financial year 2021 mentioned in Note 20.1'; titulo pagina: '13. Deferred income | In financial year 2022, after the difference generated in financial year 2021 '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Defined benefit 16,278 24,779'; encabezado: 'In financial year 2022, after the difference generated in financial year 2021 mentioned in Note 20.1'; titulo pagina: '13. Deferred income | In financial year 2022, after the difference generated in financial year 2021 '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones; solo la prestación definida, sin «Other employee benefits / Other staff remuneration» (criterio de la serie 2016–2025) | reexpresado: no: comparativo de 2021 en los estados de 2022 (el que usa la fase 1); el informe (nota 3.4) no reexpresa 2021; misma cifra que CF_2021 p. 49 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CF_2021.txt (linea 1624) pero la columna 2021 no se puede mapear 1:1 (columnas ['",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -212,7 +212,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Defined benefit 16,278 24,779",
       "encabezado": "In financial year 2022, after the difference generated in financial year 2021 mentioned in Note 20.1 it has been charged to results in",
@@ -229,12 +229,12 @@
       "id": "h_caja",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 11 55,143 51,996'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 11 55,143 51,996'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 866) pero la columna 2023 no se puede mapear 1:1 (columnas ",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -242,7 +242,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Cash and cash equivalents 11 55,143 51,996",
       "encabezado": "(Thousands of euros) Notes 2024 2023",
@@ -264,7 +264,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Equity 938,911 957,772'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: patrimonio total = atribuido a la dominante, porque los no dominantes de 2023 son 0 (misma página) | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 992) pero la columna 2023 no se puede mapear 1:1 (columnas ",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -294,7 +294,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Non-controlling interests 1,715 0'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=NO_APLICA, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cero publicado («0») en la columna 2023 | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible",
+      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 2197) pero la columna 2023 no se puede mapear 1:1 (columnas",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -324,7 +324,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Current liabilities for right-of-use assets 7.2 4,314 4,687'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -354,7 +354,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Non-current liabilities for right-of-use assets 7.2 7,535 6,854'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -384,7 +384,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Current financial liabilities 15 174,229 178,048'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -414,7 +414,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Non-current financial liabilities 15 63,776 43,979'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -469,12 +469,12 @@
       "id": "h_ventas",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Sales and rendered services 19.1 1,203,994 1,225,787'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Sales and rendered services 19.1 1,203,994 1,225,787'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 397) pero la columna 2023 no se puede mapear 1:1 (columnas ",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -482,7 +482,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Sales and rendered services 19.1 1,203,994 1,225,787",
       "encabezado": "(Thousands of euros) Notes 2024 2023",
@@ -504,7 +504,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Operating profit 201,540 184,686'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: resultado de explotación publicado = resultado antes de impuestos 168,906 − resultado financiero (846 − 6,900 + 22 − 9,748 = −15,780) | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -534,7 +534,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Profit attributable to parent company 157,019 140,962'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 1089) pero la columna 2023 no se puede mapear 1:1 (columnas",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -559,12 +559,12 @@
       "id": "CF2024_p4_bai_2023",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit before taxes 206,438 168,906'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Profit before taxes 206,438 168,906'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 542) pero la columna 2023 no se puede mapear 1:1 (columnas ",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -572,7 +572,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Profit before taxes 206,438 168,906",
       "encabezado": "(Thousands of euros) Notes 2024 2023",
@@ -594,7 +594,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Income tax expense 17 -49,105 -27,944'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: gasto publicado con signo menos; en positivo | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 1605) pero la columna 2023 no se puede mapear 1:1 (columnas",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -624,7 +624,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Net cash from investing activities -79,080 -75,122'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=NO_APLICA, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cero publicado como «—» en la columna 2023; el total de inversión de 2023 (−75,122) = −77,126 + 1,158 + 846 lo confirma (pasaje del bloque de inversión) | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -684,7 +684,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Adjustment for (decrease) increases in accounts payable -2,639 -18,725'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en la misma fila/columna 2023; reexpresion no decidible",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -714,7 +714,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Adjustment for decrease (increase) in accounts receivable -41,828 -5,314'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 807) pero la columna 2023 no se puede mapear 1:1 (columnas ",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -744,7 +744,7 @@
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Adjustment for inventory write-down (increase) 35,919 -66,607'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 1333) pero la columna 2023 no se puede mapear 1:1 (columnas",
+      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -799,12 +799,12 @@
       "id": "h_pensiones",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 67] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Defined benefit 16,498 17,266'; encabezado: 'Note 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Defined benefit 16,498 17,266'; encabezado: 'Note 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones; solo la prestación definida, sin «Other employee benefits / Other staff remuneration» (criterio de la serie 2016–2025) | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usa la fase 1); nota 4.1: los cambios normativos de 2024 no afectan a 2023; misma cifra que CA_2023_es p. 110 («Prestación definida 17.266 16.278») | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CA_2023_es.txt (linea 1427) pero la columna 2023 no se puede mapear 1:1 (columnas",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -812,7 +812,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Defined benefit 16,498 17,266",
       "encabezado": "Note 2024 2023",
@@ -859,12 +859,12 @@
       "id": "h_ventas",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/IA_2018_es.txt [PDF PAGE 24] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Ventas y prestación de servicios 5.1 786.049 778.136'; encabezado: 'Nota 2018 2017'; titulo pagina: 'VISCOFAN, S.A. Y SOCIEDADES DEPENDIENTES | Cuentas Anuales Consolidadas del ejercicio terminado el 3'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Ventas y prestación de servicios 5.1 786.049 778.136'; encabezado: 'Nota 2018 2017'; titulo pagina: 'VISCOFAN, S.A. Y SOCIEDADES DEPENDIENTES | Cuentas Anuales Consolidadas del ejercicio terminado el 3'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -872,7 +872,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Ventas y prestación de servicios 5.1 786.049 778.136",
       "encabezado": "Nota 2018 2017",
@@ -889,12 +889,12 @@
       "id": "h_ebit",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/IA_2018_es.txt [PDF PAGE 24] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Beneficio de explotación 146.321 154.853'; encabezado: 'Nota 2018 2017'; titulo pagina: 'VISCOFAN, S.A. Y SOCIEDADES DEPENDIENTES | Cuentas Anuales Consolidadas del ejercicio terminado el 3'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Beneficio de explotación 146.321 154.853'; encabezado: 'Nota 2018 2017'; titulo pagina: 'VISCOFAN, S.A. Y SOCIEDADES DEPENDIENTES | Cuentas Anuales Consolidadas del ejercicio terminado el 3'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: beneficio de explotación publicado = beneficio antes de impuestos 145.357 − resultado financiero (279 − 1.846 + 527 − 8.456 = −9.496) | reexpresado: no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -902,7 +902,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Beneficio de explotación 146.321 154.853",
       "encabezado": "Nota 2018 2017",

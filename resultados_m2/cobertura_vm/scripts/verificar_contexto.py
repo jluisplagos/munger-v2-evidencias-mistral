@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import comun as C
 
 YEAR_RE = re.compile(r'20\d\d')
-NUM_RE = re.compile(r'\d[\d.,]*')
+NUM_RE = re.compile(r'\(?\d[\d.,]*\)?|\u2212\d[\d.,]*|-\d[\d.,]*')
 
 UNIDAD_PATTERNS = {
     'miles de euros': r'miles de euros|thousands of euros',
@@ -125,10 +125,11 @@ def normalize_num(tok):
 
 
 def value_like(tok):
-    if re.search(r'[.,]\d{3}\b', tok) or re.search(r'\d,\d{3}', tok):
+    t = str(tok).strip().strip('()').replace('−', '-').lstrip('-')
+    if re.search(r'[.,]\d{3}\b', t) or re.search(r'\d,\d{3}', t):
         return True
     try:
-        return abs(float(tok.replace(',', '.'))) >= 1000
+        return abs(float(t.replace(',', '.'))) >= 1000
     except Exception:
         return False
 
@@ -161,12 +162,39 @@ def find_row_line(page_lines, cita, valor):
     return None, None
 
 
-def find_header_block(page_lines, row_idx):
-    """Bloque de encabezado: toda la pagina hasta la fila; la linea de columnas es la de mas años."""
+def find_header_block(page_lines, row_idx, modo='max'):
+    """Bloque de encabezado: toda la pagina hasta la fila. modo='max': linea de columnas
+    con mas años (pagina citada). modo='near': linea de columnas MAS PROXIMA arriba de la
+    fila con >=2 años (texto original: evita confundir la cabecera del estado con tablas
+    de proyeccion de mas columnas que haya en la misma pagina)."""
     block = page_lines[:row_idx + 1] or page_lines
     years_in_block = []
     col_line = None
     col_years = []
+    if modo == 'near':
+        for line in block:
+            years_in_block.extend(YEAR_RE.findall(line))
+        for line in reversed(block):
+            ys = YEAR_RE.findall(line)
+            if len(ys) >= 2:
+                col_years = ys
+                col_line = line
+                break
+        if col_line is None:
+            for line in reversed(block):
+                ys = YEAR_RE.findall(line)
+                if ys:
+                    col_years = ys
+                    col_line = line
+                    break
+        if col_line is None:
+            for line in page_lines[row_idx + 1:row_idx + 4]:
+                ys = YEAR_RE.findall(line)
+                if ys:
+                    col_years = ys
+                    col_line = line
+                    break
+        return years_in_block, col_line, col_years
     for line in block:
         ys = YEAR_RE.findall(line)
         if ys:
@@ -468,15 +496,19 @@ def es_metadato_anio(f):
 
 
 def check_reexpresion(emp, r, f, col_years, years_in_block):
-    """v3 (A-R1/A-R2, revision d375d80) + v3.3 (cierre v2, bloque 2):
-    - un año de columna es metadato (identificado por unidad/concepto, v3.1) y NO se
-      reexpresa como importe (NO_APLICA);
+    """v3 (A-R1/A-R2, d375d80) + v3.3/v3.4 (cierre v2, bloque 2):
+    - metadato de año (unidad/concepto, v3.1) -> NO_APLICA; nunca por el valor;
     - el comparativo se compara con el texto conservado del año de la columna en la
-      MISMA fila, mapeando la columna por posicion (no cualquier numero de la fila);
-      la fila puede ocupar varias lineas (bloque de continuacion de hasta 3 lineas) y se
-      empareja por prefijo de etiqueta o por solapamiento de tokens canonicos;
-    - contradiccion explicita (declara no-reexpresado/igual y el valor difiere) ->
-      CONFLICTO, nunca OK; ambiguedad -> NO_DECIDIBLE (pendiente) con motivo preciso.
+      MISMA fila, por POSICION de columna (bloque de continuacion de 3 lineas,
+      emparejamiento por prefijo de etiqueta o tokens canonicos, desempate por los
+      numeros citados en el comparativo); comparacion CON SIGNO (los parentesis
+      del original son negativos);
+    - differ + declarado no-reexpresado -> nunca OK: CONFLICTO solo si afirma
+      'igual al original' y el valor no esta en el original, o si no aparece en
+      el original pese a decir 'igual que <pagina>'; NO_DECIDIBLE con motivo
+      preciso en ambigüedad de fila/columna, no-aplica con razón de alcance, o
+      diferencia sin declaración/puente;
+    - differ + declaración afirmativa de reexpresión -> OK confirmada por columna.
     """
     declared = str(f.get('reexpresado') or '')
     dl = declared.lower()
@@ -500,18 +532,42 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
     cita = f.get('cita') or ''
     cf = C.flat_text(cita)
     variantes = {C.flat_text(v) for v in C.variantes_numero(valor)} - {''}
-    norm_val = normalize_num(str(valor).replace('.', '').replace(',', '')) if valor is not None else None
+    if valor is None:
+        vdec = None
+    else:
+        vs = str(valor).strip()
+        vneg = vs.startswith('-') or vs.startswith('−') or (vs.startswith('(') and vs.endswith(')'))
+        vmag = normalize_num(vs.strip('()').lstrip('-').lstrip('−'))
+        vd = C.dec(vmag) if vmag else None
+        vdec = (-vd if (vneg and vd is not None) else vd)
     candidatos = [name for name in TEXTO_CACHE[key] if YEAR_RE.search(name) and YEAR_RE.search(name).group(0) == yc and name != Path(archivo).name]
     alpha = C.flat_text(re.sub(r'[^A-Za-zÀ-ÿ ]+', ' ', cita))
     labels = [alpha[:L] for L in (80, 60, 40, 25, 12) if len(alpha) >= L]
     if not labels and alpha:
         labels = [alpha]
     cita_toks = canon_tokens(cita)
+
+    def signed(tok):
+        t = str(tok).strip()
+        neg = (t.startswith('(') and t.endswith(')')) or t.startswith('-') or t.startswith('−')
+        mag = normalize_num(t.strip('()').lstrip('-').lstrip('−'))
+        d = C.dec(mag) if mag else None
+        return (-d if (neg and d is not None) else d)
+
+    def nums_of(ls):
+        out = []
+        for l in ls:
+            for t in NUM_RE.findall(l):
+                if value_like(t) and not YEAR_RE.fullmatch(t):
+                    out.append((t, signed(t)))
+        return out
+
+    hints = [signed(t) for t in NUM_RE.findall(cita or '') if value_like(t) and not YEAR_RE.fullmatch(t)]
+
     for name in candidatos:
         text = TEXTO_CACHE[key][name].read_text(encoding='utf-8')
         tflat = C.flat_text(text)
         if cf and cf in tflat:
-            # cita identica en el original: mismo valor en la misma fila
             if 'no aplica' in dl or 'no reexpres' in dl or 'igual al original' in dl:
                 return 'NO_APLICA', f'declara no reexpresado y el original {name} imprime la misma cita: coherente'
             return 'OK', f'comparativo {yc} igual al original en {name} (misma cita y valor): no reexpresado'
@@ -525,30 +581,36 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
                 inter = len(cita_toks & toks)
                 if inter >= 3 and inter >= max(2, len(cita_toks) // 2):
                     hit = True
-            if not hit:
+            block = orig_lines[i:i + 3]
+            bn = nums_of(block)
+            hint_hit = any(h is not None and any(h == s for _, s in bn) for h in hints)
+            if not (hit or hint_hit):
                 continue
-            yb2, cl2, cy2 = find_header_block(orig_lines, i)
+            yb2, cl2, cy2 = find_header_block(orig_lines, i, 'near')
             if yc not in yb2:
                 continue
-            nums = [t for t in NUM_RE.findall(line) if value_like(t) and not YEAR_RE.fullmatch(t)]
-            block = [t for l in orig_lines[i:i + 3] for t in NUM_RE.findall(l) if value_like(t) and not YEAR_RE.fullmatch(t)]
+            nums = nums_of([line])
             cand = None
             if yc in cy2:
                 if len(nums) == len(cy2):
                     cand = nums
-                elif len(block) == len(cy2):
-                    cand = block
-            matched.append((i, cy2, cand, nums, block))
-        for (i, cy2, cand, nums, block) in matched:
-            if cand is None or yc not in cy2:
+                elif len(bn) == len(cy2):
+                    cand = bn
+            matched.append({'i': i, 'cy2': cy2, 'cand': cand, 'nums': nums, 'block': bn,
+                            'hit': hit, 'hint': hint_hit})
+        matched.sort(key=lambda m: (not m['hint'], not m['hit'], m['i']))
+        for m in matched:
+            cand = m['cand']
+            if cand is None or yc not in m['cy2']:
                 continue
-            orig_val = cand[cy2.index(yc)]
+            orig_val, orig_sv = cand[m['cy2'].index(yc)]
+            equal = (vdec is not None and orig_sv is not None and orig_sv == vdec)
             no_claim = (('no aplica' in dl) or ('no reexpres' in dl) or ('igual al original' in dl)
                         or ('igual que' in dl) or ('no:' in dl) or re.match(r'^no\b', dl))
             affirm = (not no_claim) and (('reexpresado' in dl) or ('reexpresion' in dl) or re.search(r'\bs[ií]\b', dl))
-            if norm_val is not None and normalize_num(orig_val) == norm_val:
+            if equal:
                 if no_claim:
-                    return 'NO_APLICA', f'declara no reexpresado y el original {name} confirma el mismo valor en la columna {yc} ({orig_val})'
+                    return 'NO_APLICA', f'declara no reexpresado y el original {name} confirma el mismo valor (con signo) en la columna {yc} ({orig_val}); coherente'
                 return 'OK', f'comparativo {yc} igual al original en {name}: columna {yc} imprime {orig_val} en ambos; no reexpresado'
             if no_claim:
                 if 'igual al original' in dl:
@@ -564,8 +626,8 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
                 return 'OK', f'reexpresion confirmada por columna: el original {name} imprime {orig_val} en la columna {yc} y el comparativo cita {valor}; declarado: {declared}'
             return 'NO_DECIDIBLE', f'el original {name} imprime {orig_val} en la columna {yc} y el comparativo cita {valor} sin declaracion de reexpresion: falta puente de significado (un cambio de clasificacion/perimetro no acredita reexpresion de la cifra)'
         if matched:
-            i, cy2, cand, nums, block = matched[0]
-            return 'NO_DECIDIBLE', f'la fila aparece en {name} (linea {i+1}) pero la columna {yc} no se puede mapear 1:1 (columnas {cy2}, valores linea {nums}, bloque {block})'
+            m = matched[0]
+            return 'NO_DECIDIBLE', f'la fila aparece en {name} (linea {m["i"]+1}) pero la columna {yc} no se puede mapear 1:1 (columnas {m["cy2"]}, valores linea {[t for t, _ in m["nums"]]}, bloque {[t for t, _ in m["block"]]})'
         if variantes and any(v and v in tflat for v in variantes):
             return 'NO_DECIDIBLE', f'el valor aparece en {name} pero no en la misma fila/columna {yc}; reexpresion no decidible'
     if not candidatos:

@@ -113,6 +113,12 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - Bloqueos cuantificados (reexpresión ND 250): 36 sin texto del año original (falta el documento del ejercicio; no está en los 251 insumos) · 79 valor en el original pero no en la misma fila/columna 1:1 · 45 fila localizada, columnas no mapeables 1:1 · 44 declara no-reexpresado pero difiere · 40 no-aplica con razón de alcance (falta puente verificado) · 6 partida no localizada. Columna ND 4, fila ND 1, unidad ND 1.
 - ENTREGA.json actualizado con hashes (CSV `dd7d3913…edbf`, control `bc648281…e43e`, cola `26535ee5…cfff`).
 
+## Cierre v2 · Bloque 2 · v3.4 (firma y cabecera de tabla en original) — ejecutada
+
+- Comparación de reexpresión con **signo** (paréntesis = negativo, magnitud ES/EN normalizada) y cabecera de tabla del texto original por **línea más próxima con ≥2 años** (modo 'near'; antes se confundía con tablas de proyección de la misma página). Desempate de filas por los números citados en el comparativo.
+- Fuentes **294 REVISADO / 130 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO**; CSV **337 / 174 / 60 / 106 / 0** (174 = 130 fuentes + 44 derivados); reexpresión 87 OK / 134 ND / 246 NA; control **PASS exit 0**; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes regenerados. Cola: 130 fuentes en **55 grupos** + 44 derivados (`cola_pendientes.json` sha256 `755e208e…0d39`).
+- Grupo top CF_2023 p.7: 5 de 7 pendientes pasan a REVISADO (igualdad confirmada con signo en CF_2022: (117,296), (85,880), (82,341), (84,515), (4,070)); quedan 2 (aux:capex_int_2022 ambigüedad de fila, Historia!I13 columnas no mapeables 1:1).
+
 ## Pendiente / siguiente acción exacta
 
 1. **Claude coordinador revisa Bloque 1 y esta pasada sistemática** — no autoaprobación.

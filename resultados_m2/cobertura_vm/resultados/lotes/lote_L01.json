@@ -13,8 +13,8 @@
   },
   "estados_contextuales": {
     "NO_APLICA": 24,
-    "REVISADO_CONTEXTUAL": 2,
-    "PENDIENTE_CONTEXTUAL": 4
+    "REVISADO_CONTEXTUAL": 3,
+    "PENDIENTE_CONTEXTUAL": 3
   },
   "entradas": [
     {
@@ -276,12 +276,12 @@
       "id": "N1.tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] + o[\"aux:impuesto_2024\"] / o[\"aux:bai_2024\"] + o[\"aux:impuesto_2025\"] / o[\"aux:bai_2025\"]) / 3 -> 0.2205413327698370246600604863 (valor_modelo 0.220541332769837, diff 2.46600604863E-17)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula (o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] + o[\"aux:impuesto_2024\"] / o[\"aux:bai_2024\"] + o[\"aux:impuesto_2025\"] / o[\"aux:bai_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula (o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] + o[\"aux:impuesto_2024\"] / o[\"aux:bai_2024\"] + o[\"aux:impuesto_2025\"] / o[\"aux:bai_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. T1 (propuesta de la 4.7, D-N1 sin firmar) = media del tipo efectivo de continuadas 2023–2025 = (54,813÷268,649 + 64,968÷303,218 + 67,320÷276,661) ÷ 3 = (20,403 % + 21,426 % + 24,333 %) ÷ 3 = 22,0541 %. Coincide con t_rec de …_4_7_1/financiero/matriz.json; «con todas las líneas de la conciliación» significa que no se quita ninguna línea no recurrente.",
-      "limites_contextuales": "aux:impuesto_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 64,968 en la columna 2024 frente al comparativo -64968: pend)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -297,10 +297,8 @@
         "diferencia": "2.46600604863E-17",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:impuesto_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 64,968 en la columna 2024 frente al comparativo -64968: pend)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {

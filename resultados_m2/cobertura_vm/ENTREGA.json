@@ -1,7 +1,7 @@
 {
  "es_plantilla": false,
  "frente": "A",
- "bloque": "cierre v2 · Bloque 2 · pasada sistemática (v3.2/v3.3) + cola de pendientes",
+ "bloque": "cierre v2 · Bloque 2 · sistemática v3.2–v3.4 + cola (130 fuentes en 55 grupos + 44 derivados)",
  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
  "rama": "mistral/m2-cobertura-vm",
  "base_revisada_sha": "d2419e5af2c91d89038a210a77242632d5823950",
@@ -19,10 +19,9 @@
   "ZIP base-4.14: 1.130.912.246 bytes, sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e, descargado con preparar_insumos.py --download"
  ],
  "cambios_respecto_entrega_anterior": [
-  "v3.2: perímetro con raíz 'consolid' (cubre ES 'consolidados' e EN); los 40 NO_DECIDIBLE de perímetro pasan a OK con evidencia de página/cabecera. Unidad: nota de escala de la MISMA tabla (hasta 8 páginas atrás) con control de escala==0.001; metadatos moneda/norma/texto localizables en todo el documento con página citada. Signo: bloque de fila (±2 líneas) y NO_APLICA para valores no numéricos (EUR/IFRS).",
-  "v3.3 reexpresión endurecida: fila con bloque de continuación (3 líneas) y emparejamiento por tokens canónicos; los años 20xx se excluyen de los valores de fila (son cabeceras); differ+declarado-no-reexpresado NUNCA es OK (CONFLICTO si afirma 'igual al original' y el valor no está en el original; NO_DECIDIBLE con motivo preciso en ambigüedad/no-aplica-con-alcance/diferencia sin declaración); differ+declaración afirmativa de reexpresión -> OK confirmada por columna.",
-  "Resultados: fuentes 184 REVISADO / 240 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO; CSV 677: 198 REVISADO (184+14 derivados) / 313 PENDIENTE (240+73) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO. Mecánicos sin cambio (568/52/35/16/6). Control PASS exit 0; sondas bilaterales 15/15 ok; 5/5 sondas del revisor d375d80 en CONFLICTO; negativos 218 mutaciones (169 ctx / 40 mec).",
-  "Cola del bloque 2 generada (scripts/cola_pendientes.py -> resultados/cola_pendientes.json): 240 fuentes pendientes en 81 grupos documento/página + 73 derivados, ordenados por material_declarada + derivados materiales dependientes. Bloqueos cuantificados: 36 sin texto del año original (falta el documento del ejercicio, no está en los 251 insumos); 79 valor en el original pero no en la misma fila/columna; 45 fila localizada pero columnas no mapeables 1:1; 44 declara no-reexpresado pero difiere; 40 no-aplica con razón de alcance (falta puente); 6 partida no localizada."
+  "v3.4: comparación de reexpresión CON SIGNO (paréntesis del original = negativo; magnitud normalizada ES/EN) y cabecera de tabla del texto original por linea mas proxima con >=2 años (modo 'near', evita tablas de proyección); desempate de filas por los numeros citados en el comparativo.",
+  "Resultados: fuentes 294 REVISADO / 130 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO (reexpresión 87 OK / 134 ND / 246 NA); CSV 677: 337 REVISADO (294+43 derivados... 294 fuentes + 43 derivados REVISADO) / 174 PENDIENTE (130+44) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO; mecánicos sin cambio; control PASS exit 0; bilaterales 15/15 ok; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec).",
+  "Cola actualizada: 130 fuentes pendientes en 55 grupos documento/página + 44 derivados. Grupo top resuelto parcialmente con v3.4 (CF_2023 p.7: 5 de 7 passes a REVISADO con igualdad confirmada con signo en CF_2022)."
  ],
  "pruebas": [
   {
@@ -43,7 +42,7 @@
    "criterios_sin_cubrir": [
     "revisión semántica independiente por otro contexto (pendiente, asignada a Claude)"
    ],
-   "evidencia": "resultados/control_cobertura.json sha256 bc6482819835883928857ebd7e097274e7e2588f46e1c1d250e8839eb037e43e (PASS=true, n_violaciones=0, exit 0)",
+   "evidencia": "resultados/control_cobertura.json sha256 2efb837370a23f6820a06bf0342674d3c57ae2e0f5f9589b74b58709d45de654 (PASS=true, exit 0)",
    "sha_material": "insumos .trabajo/insumos_m2 (251 archivos, sha256 verificadas)",
    "resultado": "PASS"
   },
@@ -77,7 +76,7 @@
    "criterios_sin_cubrir": [
     "183 fuentes y 46 derivados pendientes contextuales (ver limites)"
    ],
-   "evidencia": "COBERTURA_677.csv sha256 dd7d3913348c52db34eddca47dfdf7d6f2b242084b3033b87dee35f43682edbf; verificacion_contexto.jsonl sha256 a697399224ef4200745b89abaebe0e06f01777cb91d0a67259b539c7798a61d8; cola_pendientes.json sha256 26535ee51c15405b4f28648f823077b98dc3ca3f8bab3760c4f668b4fb54cfff; DERIVADOS.json sha256 2d36bfd865d9e93946964307e53d1e1f3d3638df13af02755776edd90015f4cb",
+   "evidencia": "COBERTURA_677.csv sha256 2d8f98c4ef101f042e5bac1f3aa299367d9fdbd289780b9495fdfc0f6adcc8ff; verificacion_contexto.jsonl sha256 52d6cbdabab4c35ae0756652e452d70971bf6db44e0a8c6c20995a62208b197e; cola_pendientes.json sha256 755e208ebf42bddf4c80ce4ea60eb8da1714935c05d9e95234cb2c9b39b80d39",
    "sha_material": "registro_base.json de docs/programa_mistral_m2/entrada",
    "resultado": "PASS"
   }
@@ -87,24 +86,20 @@
  ],
  "revision_por_otro_contexto": "PENDIENTE: Claude coordinador (revisor propuesto de A-CTX en CONTROL.json @ ff0c60c). Esta entrega no se autoaprueba.",
  "limites_y_bloqueos": [
-  "313 entradas PENDIENTE_CONTEXTUAL = 240 fuentes + 73 derivados. Bloqueos de reexpresión cuantificados en cola_pendientes.json: 36 sin texto del año original (falta el documento del ejercicio entre los 251 insumos seleccionados); 79 valor presente en el original pero no en la misma fila/columna mapeable 1:1; 45 fila localizada con columnas no mapeables 1:1; 44 declara no-reexpresado pero el valor difiere (posible reexpresión no declarada); 40 no-aplica con razón de alcance documentada (falta puente de significado verificado); 6 partida no localizada en el original. Columna ND 4, fila ND 1, unidad ND 1.",
-  "52 HIPOTESIS / 35 CONVENCION / 16 NO_APLICABLE / 6 DATO_AUSENTE conservados; 7 PDF candidatos sin asociación; selección parcial de insumos (251 de 6.798).",
-  "Negativos: unidad 4/34, partida 32/40, columna 33/40, perímetro resuelto por regex ES (verificación en bilaterales)."
+  "174 entradas PENDIENTE_CONTEXTUAL = 130 fuentes + 44 derivados (cola_pendientes.json, 55 grupos). Bloqueos reexpresión ND 134: sin texto del año original (falta el documento del ejercicio entre los 251 insumos), valor en el original pero no en la misma fila/columna mapeable 1:1, fila localizada pero columnas no mapeables, declara no-reexpresado pero difiere, no-aplica con razón de alcance sin puente verificado, partida no localizada. Columna ND 4, fila ND 1, unidad ND 1.",
+  "52 HIPOTESIS / 35 CONVENCION / 16 NO_APLICABLE / 6 DATO_AUSENTE conservados; 7 PDF candidatos sin asociación; selección parcial (251 de 6.798)."
  ],
- "siguiente_accion_exacta": "Bloque 2 por grupos documentales: resolver cada grupo de cola_pendientes.json (orden de prioridad) examinando página/tabla y texto del año original; registrar resolución con evidencia (cita/huella) o bloqueo preciso en resultados/resoluciones_bloque2.json; regenerar y publicar por bloque terminado. Primer grupo: Vidrala texto/CF_2023.txt p.7 (7 pendientes, prioridad 762, materiales).",
+ "siguiente_accion_exacta": "Bloque 2 por grupos documentales en orden de prioridad de cola_pendientes.json: examinar página/tabla y texto del año original de cada grupo; resolver con evidencia (cita+página+sha256) o registrar bloqueo preciso (qué faltaría). Publicar commit+push por bloque terminado. Top: Vidrala texto/CF_2017.txt p.14 (7 pendientes, prioridad alta, materiales).",
  "integrado_en_producto": false,
  "apto_dinero_real": "No se declara por este formulario",
  "criterios_cubiertos": [
-  "A-CTX coherencia código=salidas (PASS exit 0)",
-  "universo conciliado 677/60/617/101",
-  "sondas bilaterales 15/15",
-  "importe20xx != año (v3.1)",
-  "perímetro/unidad/signo con evidencia ES+EN (v3.2)",
-  "reexpresión estricta nunca-OK-ante-contradicción (v3.3)",
-  "cola de pendientes por documento/página priorizada"
+  " coherencia código=salidas PASS exit 0",
+  "reexpresión con signo y cabecera de tabla correcta (v3.4)",
+  "cola priorizada por materialidad",
+  "sondas bilaterales 15/15 + revisor 5/5"
  ],
  "criterios_pendientes": [
-  "resolución con evidencia o bloqueo preciso de los 81 grupos de la cola (en curso, por bloques)",
+  "resolución con evidencia o bloqueo preciso de los 55 grupos restantes",
   "A-CTX revisión externa por Claude",
   "G-MANUAL (cola G)"
  ],

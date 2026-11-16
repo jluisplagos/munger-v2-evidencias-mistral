@@ -74,3 +74,8 @@ La revisión externa (`9366bdd`, `SONDA_A_SEMANTICA.json`) demostró que el cont
 - v3.2: perímetro ES/EN (`consolid`) resuelve 40 ND; unidad por nota de escala de la misma tabla con control de escala y metadatos en documento; signo en bloque de fila ±2 y NO_APLICA en no-numéricos.
 - v3.3 reexpresión estricta: bloque de continuación + tokens; años 20xx no son valores; differ+no-reexpresado **nunca OK** (CONFLICTO solo con contradicción explícita; NO_DECIDIBLE con motivo en el resto); differ+afirmación → OK por columna.
 - Totales: fuentes 184/240/43, CSV **198 REVISADO / 313 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO**; control PASS exit 0; bilaterales 15/15; sondas revisor 5/5 CONFLICTO. Bloqueos cuantificados: 36 sin texto del año original · 79 valor en otra fila/columna · 45 columnas no mapeables 1:1 · 44 declara no-reexpresado pero difiere · 40 falta puente de alcance · 6 partida no localizada.
+
+## 13. [CIERRE V2 · BLOQUE 2 · v3.4] Reexpresión con signo y cabecera de tabla correcta en el original
+
+- Comparación con signo (paréntesis=negativo) y `find_header_block(..., 'near')` en el texto original (línea de columnas más próxima con ≥2 años; evita tablas de proyección). Desempate por números citados en el comparativo.
+- Fuentes 294 REVISADO / 130 PENDIENTE / 43 REUTILIZADO / 0 CONFLICTO; CSV **337 / 174 / 60 / 106 / 0**; reexpresión 87 OK / 134 ND / 246 NA; control PASS exit 0; sondas 15/15 bilaterales + 5/5 revisor CONFLICTO. Cola: 130 fuentes en 55 grupos + 44 derivados. Ejemplo resuelto: CF_2023 p.7 → 5/7 a REVISADO con igualdad confirmada con signo en CF_2022.

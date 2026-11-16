@@ -9,8 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 22,
-    "REVISADO_CONTEXTUAL": 8
+    "PENDIENTE_CONTEXTUAL": 2,
+    "REVISADO_CONTEXTUAL": 28
   },
   "entradas": [
     {
@@ -79,12 +79,12 @@
       "id": "h_pensiones",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 87] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Defined benefit 14,878 16,498'; encabezado: 'Note 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Defined benefit 14,878 16,498'; encabezado: 'Note 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones; solo la prestación definida, sin «Other employee benefits / Other staff remuneration» (criterio de la serie 2016–2025) | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usa la fase 1); el informe declara reexpresados los estados de 2024 por la asignación definitiva del precio de Brasfibra y Master Couros, pero esta línea coincide con la original (CF_2024 p. 67: 16,498) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CF_2024.txt (linea 2320) pero la columna 2024 no se puede mapear 1:1 (columnas ['",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -92,7 +92,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Defined benefit 14,878 16,498",
       "encabezado": "Note 2025 2024",
@@ -139,12 +139,12 @@
       "id": "AR2025_p109_activacion_BIN_2024",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 109] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Activation of negative tax bases -18,009 -2,493'; encabezado: '2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Activation of negative tax bases -18,009 -2,493'; encabezado: '2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: reducción del gasto por la activación, en positivo (se suma al gasto para quitarla) | reexpresado: sí: comparativo de 2024 en AR_2025 (en CF_2024 p. 85 iba dentro de «ajustes de ejercicios anteriores», 4,412) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CF_2024.txt (linea 935) pero la columna 2024 no se puede mapear 1:1 (columnas ['2",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -152,7 +152,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Activation of negative tax bases -18,009 -2,493",
       "encabezado": "2025 2024",
@@ -229,12 +229,12 @@
       "id": "h_caja",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Efectivo y equivalentes 11 51.996 51.193'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Viscofan, S.A. y sociedades dependientes | Cuentas Anuales Consolidadas del ejercicio terminado el 3'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Efectivo y equivalentes 11 51.996 51.193'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Viscofan, S.A. y sociedades dependientes | Cuentas Anuales Consolidadas del ejercicio terminado el 3'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -242,7 +242,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Efectivo y equivalentes 11 51.996 51.193",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -259,12 +259,12 @@
       "id": "h_patrimonio",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Patrimonio Neto 957.772 906.870'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Situación Financiera | Periodo | (Miles de euros) Notas 2023 2022 | Capital em'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Patrimonio Neto 957.772 906.870'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Situación Financiera | Periodo | (Miles de euros) Notas 2023 2022 | Capital em'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: patrimonio total = atribuido a la dominante: el balance no tiene línea de socios externos en 2022 | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -272,7 +272,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Patrimonio Neto 957.772 906.870",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -289,12 +289,12 @@
       "id": "CA2023_p3_arrend_cp_2022",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Deudas a C.P. por activos por derecho de uso 7.2 4.687 2.978'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Situación Financiera | Periodo | (Miles de euros) Notas 2023 2022 | Capital em'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Deudas a C.P. por activos por derecho de uso 7.2 4.687 2.978'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Situación Financiera | Periodo | (Miles de euros) Notas 2023 2022 | Capital em'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -302,7 +302,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Deudas a C.P. por activos por derecho de uso 7.2 4.687 2.978",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -319,12 +319,12 @@
       "id": "CA2023_p3_arrend_lp_2022",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Deudas a L.P. por activos por derecho de uso 7.2 6.854 7.512'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Situación Financiera | Periodo | (Miles de euros) Notas 2023 2022 | Capital em'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Deudas a L.P. por activos por derecho de uso 7.2 6.854 7.512'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Situación Financiera | Periodo | (Miles de euros) Notas 2023 2022 | Capital em'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -332,7 +332,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Deudas a L.P. por activos por derecho de uso 7.2 6.854 7.512",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -349,12 +349,12 @@
       "id": "CA2023_p3_pasivo_fin_c_2022",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Pasivos financieros corrientes 16 178.048 136.919'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Situación Financiera | Periodo | (Miles de euros) Notas 2023 2022 | Capital em'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Pasivos financieros corrientes 16 178.048 136.919'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Situación Financiera | Periodo | (Miles de euros) Notas 2023 2022 | Capital em'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -362,7 +362,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Pasivos financieros corrientes 16 178.048 136.919",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -379,12 +379,12 @@
       "id": "CA2023_p3_pasivo_fin_nc_2022",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Pasivos financieros no corrientes 16 43.979 46.980'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Situación Financiera | Periodo | (Miles de euros) Notas 2023 2022 | Capital em'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Pasivos financieros no corrientes 16 43.979 46.980'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Situación Financiera | Periodo | (Miles de euros) Notas 2023 2022 | Capital em'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -392,7 +392,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Pasivos financieros no corrientes 16 43.979 46.980",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -439,12 +439,12 @@
       "id": "h_ventas",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Ventas y prestación de servicios 20.1 1.225.787 1.201.028'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Cuenta de Resultados Consolidada | Periodo | (Miles de euros) Notas 2023 2022 | Ventas y prestación '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Ventas y prestación de servicios 20.1 1.225.787 1.201.028'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Cuenta de Resultados Consolidada | Periodo | (Miles de euros) Notas 2023 2022 | Ventas y prestación '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -452,7 +452,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Ventas y prestación de servicios 20.1 1.225.787 1.201.028",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -469,12 +469,12 @@
       "id": "h_ebit",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Beneficio de explotación 184.686 189.026'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Cuenta de Resultados Consolidada | Periodo | (Miles de euros) Notas 2023 2022 | Ventas y prestación '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Beneficio de explotación 184.686 189.026'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Cuenta de Resultados Consolidada | Periodo | (Miles de euros) Notas 2023 2022 | Ventas y prestación '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: beneficio de explotación publicado = beneficio antes de impuestos 183.789 − resultado financiero (1.194 − 1.370 − 17 − 5.044 = −5.237) | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -482,7 +482,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Beneficio de explotación 184.686 189.026",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -499,12 +499,12 @@
       "id": "h_beneficio",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Resultado del ejercicio 140.962 139.430'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Cuenta de Resultados Consolidada | Periodo | (Miles de euros) Notas 2023 2022 | Ventas y prestación '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Resultado del ejercicio 140.962 139.430'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Cuenta de Resultados Consolidada | Periodo | (Miles de euros) Notas 2023 2022 | Ventas y prestación '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: resultado del ejercicio = atribuido a la dominante (sin socios externos en 2022) | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -512,7 +512,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Resultado del ejercicio 140.962 139.430",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -529,12 +529,12 @@
       "id": "CA2023_p4_bai_2022",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Beneficio antes de impuestos 168.906 183.789'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Cuenta de Resultados Consolidada | Periodo | (Miles de euros) Notas 2023 2022 | Ventas y prestación '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Beneficio antes de impuestos 168.906 183.789'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Cuenta de Resultados Consolidada | Periodo | (Miles de euros) Notas 2023 2022 | Ventas y prestación '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -542,7 +542,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Beneficio antes de impuestos 168.906 183.789",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -559,12 +559,12 @@
       "id": "CA2023_p4_impuesto_2022",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Gasto por impuesto sobre las ganancias 18 -27.944 -44.359'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Cuenta de Resultados Consolidada | Periodo | (Miles de euros) Notas 2023 2022 | Ventas y prestación '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Gasto por impuesto sobre las ganancias 18 -27.944 -44.359'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Cuenta de Resultados Consolidada | Periodo | (Miles de euros) Notas 2023 2022 | Ventas y prestación '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: gasto publicado con signo menos; en positivo | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -572,7 +572,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Gasto por impuesto sobre las ganancias 18 -27.944 -44.359",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -619,12 +619,12 @@
       "id": "h_intereses",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Intereses pagados 12.1 -6.275 -1.569'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Flujos de Efectivo | Periodo | (Miles de euros) Notas 2023 2022 | Beneficio de'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Intereses pagados 12.1 -6.275 -1.569'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Flujos de Efectivo | Periodo | (Miles de euros) Notas 2023 2022 | Beneficio de'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: intereses pagados, en positivo | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -632,7 +632,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Intereses pagados 12.1 -6.275 -1.569",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -679,12 +679,12 @@
       "id": "CA2023_p8_var_acreedores_2022",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Ajuste por (reducción) incrementos de cuentas a pagar -18.725 10.674'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Flujos de Efectivo | Periodo | (Miles de euros) Notas 2023 2022 | Beneficio de'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Ajuste por (reducción) incrementos de cuentas a pagar -18.725 10.674'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Flujos de Efectivo | Periodo | (Miles de euros) Notas 2023 2022 | Beneficio de'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -692,7 +692,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Ajuste por (reducción) incrementos de cuentas a pagar -18.725 10.674",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -709,12 +709,12 @@
       "id": "CA2023_p8_var_deudores_2022",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Ajuste por reducción (incrementos) de cuentas a cobrar -5.314 -47.708'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Flujos de Efectivo | Periodo | (Miles de euros) Notas 2023 2022 | Beneficio de'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Ajuste por reducción (incrementos) de cuentas a cobrar -5.314 -47.708'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Flujos de Efectivo | Periodo | (Miles de euros) Notas 2023 2022 | Beneficio de'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -722,7 +722,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Ajuste por reducción (incrementos) de cuentas a cobrar -5.314 -47.708",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -739,12 +739,12 @@
       "id": "CA2023_p8_var_existencias_2022",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Ajuste por reducción (incremento) de inventarios -66.607 -69.069'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Flujos de Efectivo | Periodo | (Miles de euros) Notas 2023 2022 | Beneficio de'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Ajuste por reducción (incremento) de inventarios -66.607 -69.069'; encabezado: '(Miles de euros) Notas 2023 2022'; titulo pagina: 'Estado Consolidado de Flujos de Efectivo | Periodo | (Miles de euros) Notas 2023 2022 | Beneficio de'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2022_compilacion.txt pero no en la misma fila/columna 2022; reexpresion no de",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -752,7 +752,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Ajuste por reducción (incremento) de inventarios -66.607 -69.069",
       "encabezado": "(Miles de euros) Notas 2023 2022",
@@ -799,12 +799,12 @@
       "id": "h_pensiones",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CA_2023_es.txt [PDF PAGE 45] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Defined benefit 17,266 16,278'; encabezado: 'Note 2023 2022'; titulo pagina: 'Thousands of euros | Available cash at 31 December 2023 4,858 | Receipts from customers and debtors '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Defined benefit 17,266 16,278'; encabezado: 'Note 2023 2022'; titulo pagina: 'Thousands of euros | Available cash at 31 December 2023 4,858 | Receipts from customers and debtors '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: solo la prestación definida; la línea del balance (22.308, p. 3) suma otras retribuciones al personal | reexpresado: sí: comparativo de 2022 en las cuentas de 2023 (el que usó el modelo), reexpresado por la modificación de la NIC 12 (impuestos diferidos; CF_2024 p. 25: «did not affect the result»); la cifra coincide con la de los estados de 2022 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CF_2022_compilacion.txt (linea 1444) pero la columna 2022 no se puede mapear 1:1 ",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -812,7 +812,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Defined benefit 17,266 16,278",
       "encabezado": "Note 2023 2022",
@@ -859,12 +859,12 @@
       "id": "CF2021_p3_arrend_cp_2020",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Short term debts by right of use assets 7.2 4,528 4,456'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '3 | Consolidated Statement of Financial Position'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Short term debts by right of use assets 7.2 4,528 4,456'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '3 | Consolidated Statement of Financial Position'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -872,7 +872,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Short term debts by right of use assets 7.2 4,528 4,456",
       "encabezado": "(Thousands of euros) Notes 2021 2020",
@@ -889,12 +889,12 @@
       "id": "CF2021_p3_arrend_lp_2020",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Long term debts by right of use assets 7.2 9,363 11,229'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '3 | Consolidated Statement of Financial Position'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Long term debts by right of use assets 7.2 9,363 11,229'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '3 | Consolidated Statement of Financial Position'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -902,7 +902,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Long term debts by right of use assets 7.2 9,363 11,229",
       "encabezado": "(Thousands of euros) Notes 2021 2020",

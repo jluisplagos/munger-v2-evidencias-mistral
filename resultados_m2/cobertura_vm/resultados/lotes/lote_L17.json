@@ -9,8 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 28,
-    "PENDIENTE_CONTEXTUAL": 2
+    "REVISADO_CONTEXTUAL": 29,
+    "PENDIENTE_CONTEXTUAL": 1
   },
   "entradas": [
     {
@@ -799,12 +799,12 @@
       "id": "h_patrimonio",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 26] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Final balance as at December 31, 2024 32,550 12 810,234 -35,045 157,019 -26,844 -706 937,220 4,551 941,771'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Final balance as at December 31, 2024 32,550 12 810,234 -35,045 157,019 -26,844 -706 937,220 4,551 941,771'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: columna «Total parent company» del estado reexpresado; el original (CF_2024 p. 3) daba 938,911 − 1,715 = 937,196 | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -812,7 +812,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "OK"
       },
       "fila_leida": "Final balance as at December 31, 2024 32,550 12 810,234 -35,045 157,019 -26,844 -706 937,220 4,551 941,771",
       "encabezado": "Consolidated Financial Statements for the year ended December 31, 2025 Management report",

@@ -9,8 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 20,
-    "REVISADO_CONTEXTUAL": 10
+    "REVISADO_CONTEXTUAL": 20,
+    "PENDIENTE_CONTEXTUAL": 10
   },
   "entradas": [
     {
@@ -19,12 +19,12 @@
       "id": "CF2021_p3_pasivo_fin_c_2020",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Other current financial liabilities 16 48,754 71,347'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '3 | Consolidated Statement of Financial Position'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Other current financial liabilities 16 48,754 71,347'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '3 | Consolidated Statement of Financial Position'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -32,7 +32,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Other current financial liabilities 16 48,754 71,347",
       "encabezado": "(Thousands of euros) Notes 2021 2020",
@@ -109,12 +109,12 @@
       "id": "h_ebit",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Operating profit 174,389 162,907'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '4 | Consolidated Income Statement'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Operating profit 174,389 162,907'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '4 | Consolidated Income Statement'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: resultado de explotación publicado = resultado antes de impuestos 159,656 − resultado financiero (524 − 1,475 + 5 − 2,305 = −3,251) | reexpresado: no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en AR_2020.txt (linea 10903) pero la columna 2020 no se puede mapear 1:1 (columnas [",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -122,7 +122,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Operating profit 174,389 162,907",
       "encabezado": "(Thousands of euros) Notes 2021 2020",
@@ -169,12 +169,12 @@
       "id": "CF2021_p4_bai_2020",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit (loss) before tax 176,42 159,656'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '4 | Consolidated Income Statement'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Profit (loss) before tax 176,42 159,656'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '4 | Consolidated Income Statement'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -182,7 +182,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Profit (loss) before tax 176,42 159,656",
       "encabezado": "(Thousands of euros) Notes 2021 2020",
@@ -199,12 +199,12 @@
       "id": "CF2021_p4_impuesto_2020",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Tax income (expense) 18 -43,423 -37,143'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '4 | Consolidated Income Statement'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Tax income (expense) 18 -43,423 -37,143'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '4 | Consolidated Income Statement'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: gasto publicado con signo menos; en positivo | reexpresado: no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -212,7 +212,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Tax income (expense) 18 -43,423 -37,143",
       "encabezado": "(Thousands of euros) Notes 2021 2020",
@@ -259,12 +259,12 @@
       "id": "h_intereses",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Interest paid 12.1 -887 -1,800'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '8 | Consolidated Statement of cash flows'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Interest paid 12.1 -887 -1,800'; encabezado: '(Thousands of euros) Notes 2021 2020'; titulo pagina: '8 | Consolidated Statement of cash flows'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: intereses pagados, en positivo | reexpresado: no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -272,7 +272,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Interest paid 12.1 -887 -1,800",
       "encabezado": "(Thousands of euros) Notes 2021 2020",
@@ -439,12 +439,12 @@
       "id": "h_pensiones",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 49] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Defined benefit 24,779 28,204'; encabezado: 'The movements in grants in 2021 and 2020 were as follows:'; titulo pagina: \"49 | The statement required by current legislation and prepared by the parent's Board of Directors i\"; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Defined benefit 24,779 28,204'; encabezado: 'The movements in grants in 2021 and 2020 were as follows:'; titulo pagina: \"49 | The statement required by current legislation and prepared by the parent's Board of Directors i\"; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones; solo la prestación definida, sin «Other employee benefits / Other staff remuneration» (criterio de la serie 2016–2025) | reexpresado: no: comparativo de 2020 en las cuentas de 2021 (el que usa la fase 1); sin reexpresión declarada; misma cifra que AR_2020 p. 61 («Defined benefit 28,204 29,995») | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en AR_2020.txt (linea 2097) pero la columna 2020 no se puede mapear 1:1 (columnas ['",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -452,7 +452,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Defined benefit 24,779 28,204",
       "encabezado": "The movements in grants in 2021 and 2020 were as follows:",
@@ -679,12 +679,12 @@
       "id": "h_ventas",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2022_compilacion.txt [PDF PAGE 21] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Sales and rendered services 20.1 1,201,028 969,237'; encabezado: '(Thousands of euros) Notes 2022 2021'; titulo pagina: 'Consolidated income statement | Period | (Thousands of euros) Notes 2022 2021 | Sales and rendered s'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Sales and rendered services 20.1 1,201,028 969,237'; encabezado: '(Thousands of euros) Notes 2022 2021'; titulo pagina: 'Consolidated income statement | Period | (Thousands of euros) Notes 2022 2021 | Sales and rendered s'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CF_2021.txt (linea 387) pero la columna 2021 no se puede mapear 1:1 (columnas ['2",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -692,7 +692,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Sales and rendered services 20.1 1,201,028 969,237",
       "encabezado": "(Thousands of euros) Notes 2022 2021",
@@ -769,12 +769,12 @@
       "id": "CF2022_p21_bai_2021",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2022_compilacion.txt [PDF PAGE 21] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit before taxes 183,789 176,420'; encabezado: '(Thousands of euros) Notes 2022 2021'; titulo pagina: 'Consolidated income statement | Period | (Thousands of euros) Notes 2022 2021 | Sales and rendered s'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Profit before taxes 183,789 176,420'; encabezado: '(Thousands of euros) Notes 2022 2021'; titulo pagina: 'Consolidated income statement | Period | (Thousands of euros) Notes 2022 2021 | Sales and rendered s'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -782,7 +782,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Profit before taxes 183,789 176,420",
       "encabezado": "(Thousands of euros) Notes 2022 2021",
@@ -799,12 +799,12 @@
       "id": "CF2022_p21_impuesto_2021",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2022_compilacion.txt [PDF PAGE 21] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Income tax expense 18 -44.359 -43.423'; encabezado: '(Thousands of euros) Notes 2022 2021'; titulo pagina: 'Consolidated income statement | Period | (Thousands of euros) Notes 2022 2021 | Sales and rendered s'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Income tax expense 18 -44.359 -43.423'; encabezado: '(Thousands of euros) Notes 2022 2021'; titulo pagina: 'Consolidated income statement | Period | (Thousands of euros) Notes 2022 2021 | Sales and rendered s'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: gasto publicado con signo menos; en positivo | reexpresado: no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -812,7 +812,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Income tax expense 18 -44.359 -43.423",
       "encabezado": "(Thousands of euros) Notes 2022 2021",
@@ -829,12 +829,12 @@
       "id": "h_capex",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2022_compilacion.txt [PDF PAGE 25] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Payments for the acquisition of tangible and intangible fixed assets -115.566 -95.779'; encabezado: '(Thousands of euros) Notes 2022 2021'; titulo pagina: 'Consolidated statement of cash flows | Period | (Thousands of euros) Notes 2022 2021'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Payments for the acquisition of tangible and intangible fixed assets -115.566 -95.779'; encabezado: '(Thousands of euros) Notes 2022 2021'; titulo pagina: 'Consolidated statement of cash flows | Period | (Thousands of euros) Notes 2022 2021'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: capex = pagos por inmovilizado material e intangible, en positivo | reexpresado: no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: la fila aparece en CF_2021.txt (linea 294) pero la columna 2021 no se puede mapear 1:1 (columnas ['2",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -842,7 +842,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Payments for the acquisition of tangible and intangible fixed assets -115.566 -95.779",
       "encabezado": "(Thousands of euros) Notes 2022 2021",
