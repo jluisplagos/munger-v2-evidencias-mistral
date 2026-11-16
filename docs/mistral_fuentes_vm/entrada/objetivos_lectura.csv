@@ -1,0 +1,27 @@
+empresa,celda,id,tipo_heredado,concepto_declarado,archivo_texto_declarado,pagina_declarada,dependencias_declaradas
+Vidrala,Análisis!C55,acciones,derivado,,,,aux:acciones_emitidas_2025 | aux:acciones_propias_2025
+Vidrala,Análisis!C46,cfo_media,derivado,,,,aux:cfo_2023 | aux:cfo_2024 | aux:cfo_2025
+Vidrala,Análisis!C47,capex_media,derivado,,,,Historia!J12 | Historia!K12 | Historia!L12
+Vidrala,Análisis!C48,int_fin_media,dato_ausente,,,,
+Vidrala,Análisis!C49,leases_media,hipotesis,,,,
+Vidrala,Análisis!C50,sbc_media,hipotesis,,,,
+Vidrala,Historia!L6,h_ventas,dato_publicado,Revenues (importe neto de la cifra de negocios; excluye «Services rendered» y «Other income»),texto/CF_2025.txt,4,
+Vidrala,Historia!L7,h_ebit,dato_publicado,"Profit/loss from operating activities (resultado de explotación, EBIT)",texto/CF_2025.txt,4,
+Vidrala,Historia!L8,h_da,dato_publicado,"Amortisation and depreciation (ajuste del estado de flujos; sin «Impairment of non-current assets», que va en línea aparte)",texto/CF_2025.txt,7,
+Vidrala,Historia!L12,h_capex,derivado,,,,aux:capex_mat_2025 | aux:capex_int_2025
+Vidrala,Historia!K14,h_circulante,dato_publicado,subtotal del bloque «Changes in working capital» (rotulado «Cash used in operating activities» en la traducción),texto/CF_2025.txt,7,
+Vidrala,Historia!L14,h_circulante,dato_publicado,subtotal del bloque «Changes in working capital» (rotulado «Cash used in operating activities» en la traducción),texto/CF_2025.txt,7,
+Vidrala,Historia!L15,h_intereses,dato_publicado,"Interest paid (intereses pagados, clasificados en actividades de explotación)",texto/CF_2025.txt,7,
+Viscofan,Análisis!C55,acciones,derivado,,,,aux:AR2025_p76_acciones_emitidas_2025 | aux:AR2025_p83_acciones_propias_2025
+Viscofan,Análisis!C46,cfo_media,derivado,,,,aux:CF2024_p9_cfo_2023 | aux:AR2025_p27_cfo_2024 | aux:AR2025_p27_cfo_2025
+Viscofan,Análisis!C47,capex_media,derivado,,,,Historia!J12 | Historia!K12 | Historia!L12
+Viscofan,Análisis!C48,int_fin_media,derivado,,,,Historia!J15 | Historia!K15 | Historia!L15
+Viscofan,Análisis!C49,leases_media,derivado,,,,aux:CF2024_p9_pagos_arrend_2023 | aux:AR2025_p28_pagos_arrend_2024 | aux:AR2025_p28_pagos_arrend_2025
+Viscofan,Análisis!C50,sbc_media,derivado,,,,aux:CF2024_p9_pagos_acciones_2023 | aux:AR2025_p27_pagos_acciones_2024 | aux:AR2025_p27_pagos_acciones_2025
+Viscofan,Historia!L6,h_ventas,dato_publicado,ventas y prestación de servicios,texto/AR_2025.txt,23,
+Viscofan,Historia!L7,h_ebit,dato_publicado,resultado de explotación (EBIT),texto/AR_2025.txt,23,
+Viscofan,Historia!L8,h_da,dato_publicado,"ajuste por gastos de amortización (intangible, material y derechos de uso)",texto/AR_2025.txt,27,
+Viscofan,Historia!L12,h_capex,dato_publicado,pagos por la adquisición de inmovilizado material e intangible,texto/AR_2025.txt,27,
+Viscofan,Historia!K14,h_circulante,derivado,,,,aux:AR2025_p27_var_existencias_2024 | aux:AR2025_p27_var_deudores_2024 | aux:AR2025_p27_var_acreedores_2024
+Viscofan,Historia!L14,h_circulante,derivado,,,,aux:AR2025_p27_var_existencias_2025 | aux:AR2025_p27_var_deudores_2025 | aux:AR2025_p27_var_acreedores_2025
+Viscofan,Historia!L15,h_intereses,dato_publicado,intereses pagados,texto/AR_2025.txt,27,
