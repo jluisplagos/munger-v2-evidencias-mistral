@@ -60,6 +60,7 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - `L13` (revision A): 30 entradas; mecanico [COINCIDE_PROPUESTO=27, DATO_AUSENTE=2, NO_APLICABLE=1]; contextual [NO_APLICA=3, REVISADO_CONTEXTUAL=27]; `resultados/lotes/lote_L13.json`
 - `L14` (revision A): 30 entradas; mecanico [COINCIDE_PROPUESTO=11, CONVENCION=2, HIPOTESIS=17]; contextual [NO_APLICA=19, REVISADO_CONTEXTUAL=11]; `resultados/lotes/lote_L14.json`
 - `L15` (revision A): 30 entradas; mecanico [COINCIDE_PROPUESTO=30]; contextual [REVISADO_CONTEXTUAL=30]; `resultados/lotes/lote_L15.json`
+- `L16` (revision A): 30 entradas; mecanico [COINCIDE_PROPUESTO=30]; contextual [REVISADO_CONTEXTUAL=30]; `resultados/lotes/lote_L16.json`
 
 ## Entrega final (universo completo)
 
