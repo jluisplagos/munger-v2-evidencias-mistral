@@ -17,9 +17,11 @@ INDICE_BASE = RAIZ / "docs/programa_mistral_m2/entrada/indice_fuentes.json"
 INDICE_NUEVAS = RAIZ / "resultados_m2/pm1/fuentes_nuevas/INDICE_FUENTES_M2_SHA256.csv"
 
 ESTADO_PDF = ("PROVISIONAL: bytes descargados con TLS verificado el 2026-11-16 y SHA-256 registrada, "
-              "pero NO preservados como asset de la Release fuentes-mistral-m2-20261116 (uploads.github.com "
-              "responde 401 en este sandbox); quedan en .trabajo/fuentes_nuevas/ fuera de Git (PDF prohibido en Git). "
-              "Pendiente de subida y revisión por quien tenga acceso.")
+              "pero NO preservados como asset de la Release fuentes-mistral-m2-20261116: uploads.github.com "
+              "responde HTTP 401 en este sandbox (reintento durante la corrección B el 2026-11-16: mismo 401; "
+              "la revisión externa confirmó los mismos SHA-256/tamaños al redescargarlos). Quedan en "
+              ".trabajo/fuentes_nuevas/ fuera de Git (PDF prohibido en Git). Pendiente de subida con autenticación "
+              "que permita ese endpoint; no se piden tokens en el chat.")
 ESTADO_HTML = ("CONSERvada EN GIT: bytes completos en resultados_m2/pm1/fuentes_nuevas/ (HTML permitido); "
                "SHA-256 verificada; URL final registrada.")
 

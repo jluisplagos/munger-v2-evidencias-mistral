@@ -15,8 +15,16 @@
       "2025": "86941"
     }
   },
+  "clasificacion_calculos": {
+    "datos": "totales y porcentajes por tipo publicados por Viscofan 2021-2025 (INVERSION_VISCOFAN_2016_2025.csv) y capex caja / altas ROU / D&A (PUENTE_CAPEX_DA_ROU.csv); cada operando con cita verificada",
+    "transformacion_sobre_base_publicada": "contraste_amplia_sobre_total_publicado: los porcentajes se aplican al total publicado al que pertenecen (base correcta)",
+    "hipotesis_extrapolacion_de_perimetro": "resultados (estrecha/media/amplia) y sensibilidad sobre (capex caja + altas ROU): los porcentajes publicados se aplican a un perímetro distinto del total publicado; se trata como HIPÓTESIS, no como dato ni como identificación",
+    "diagnostico_condicional": "theta negativa (fuera de [0,1]) y sensibilidad de reclasificación: diagnósticos condicionales; truncar a 0 no valida theta=0",
+    "politica": "ninguna adoptada; una política prudencial solo podría ser propuesta humana explícita, no parámetro identificado"
+  },
   "theta_desglose_viscofan": {
     "definicion_M": "porcentajes publicados por Viscofan aplicados a (capex caja + altas ROU) de cada año",
+    "etiqueta_definicion_M": "HIPÓTESIS (extrapolación de perímetro): base distinta del total publicado al que pertenecen los porcentajes",
     "resultados": {
       "estrecha": {
         "sum_M_miles_eur": "108207.22",
@@ -62,38 +70,70 @@
       }
     },
     "contraste_amplia_sobre_total_publicado": {
+      "etiqueta": "TRANSFORMACIÓN sobre la base correcta: porcentajes aplicados al total publicado al que pertenecen",
       "sum_M_sobre_publicado_miles_eur": "291823.000",
       "exceso_sobre_publicado_miles_eur": "47068.0",
       "theta": "-2.364855103254865301266253080649273391689"
     },
-    "inversion_de_capacidad_2021_2025_miles_eur": "163595.37",
-    "sensibilidad_reclasificacion_capacidad": [
-      {
-        "theta": "0",
-        "M_necesaria_miles_eur": "403132",
-        "capacidad_a_reclasificar_miles_eur": "98672.37",
-        "fraccion_de_la_capacidad_publicada": "0.6031489155224869750286942717266387184429"
-      },
-      {
-        "theta": "0.2",
-        "M_necesaria_miles_eur": "416116.6",
-        "capacidad_a_reclasificar_miles_eur": "111656.97",
-        "fraccion_de_la_capacidad_publicada": "0.6825191324179895800229554173813109747544"
-      },
-      {
-        "theta": "0.5",
-        "M_necesaria_miles_eur": "435593.5",
-        "capacidad_a_reclasificar_miles_eur": "131133.87",
-        "fraccion_de_la_capacidad_publicada": "0.8015744577612434875143471358633193592215"
-      },
-      {
-        "theta": "1",
-        "M_necesaria_miles_eur": "468055",
-        "capacidad_a_reclasificar_miles_eur": "163595.37",
-        "fraccion_de_la_capacidad_publicada": "1"
-      }
-    ],
-    "lectura": "Con la clasificación de la propia empresa, M < D&A en los cinco años bajo las tres definiciones; theta resulta negativa (fuera del dominio [0,1]) y se conserva como diagnóstico de definición/identificación: truncarla a 0 no valida theta=0. Para theta>=0 haría falta tratar como reposición desde el 60% (theta=0) hasta el 100% (theta=1) de lo que la empresa declara como capacidad. Qué fracción es creíble es un juicio económico de la persona responsable; este frente no lo fija."
+    "inversion_de_capacidad_2021_2025_miles_eur": {
+      "hipotesis_perimetro_NIIF16": "163595.37",
+      "sobre_total_publicado_base_correcta": "158377.000"
+    },
+    "sensibilidad_reclasificacion_capacidad": {
+      "hipotesis_extrapolacion_perimetro_NIIF16_capex_caja_mas_altas_ROU": [
+        {
+          "theta": "0",
+          "M_necesaria_miles_eur": "403132",
+          "capacidad_a_reclasificar_miles_eur": "98672.37",
+          "fraccion_de_la_capacidad_publicada": "0.6031489155224869750286942717266387184429"
+        },
+        {
+          "theta": "0.2",
+          "M_necesaria_miles_eur": "416116.6",
+          "capacidad_a_reclasificar_miles_eur": "111656.97",
+          "fraccion_de_la_capacidad_publicada": "0.6825191324179895800229554173813109747544"
+        },
+        {
+          "theta": "0.5",
+          "M_necesaria_miles_eur": "435593.5",
+          "capacidad_a_reclasificar_miles_eur": "131133.87",
+          "fraccion_de_la_capacidad_publicada": "0.8015744577612434875143471358633193592215"
+        },
+        {
+          "theta": "1",
+          "M_necesaria_miles_eur": "468055",
+          "capacidad_a_reclasificar_miles_eur": "163595.37",
+          "fraccion_de_la_capacidad_publicada": "1"
+        }
+      ],
+      "sobre_total_publicado_base_correcta": [
+        {
+          "theta": "0",
+          "M_necesaria_miles_eur": "403132.0",
+          "capacidad_a_reclasificar_miles_eur": "111309.000",
+          "fraccion_de_la_capacidad_publicada": "0.7028103828207378596639663587515864045916"
+        },
+        {
+          "theta": "0.2",
+          "M_necesaria_miles_eur": "412545.60",
+          "capacidad_a_reclasificar_miles_eur": "120722.600",
+          "fraccion_de_la_capacidad_publicada": "0.7622483062565902877311730870012691236733"
+        },
+        {
+          "theta": "0.5",
+          "M_necesaria_miles_eur": "426666.00",
+          "capacidad_a_reclasificar_miles_eur": "134843.000",
+          "fraccion_de_la_capacidad_publicada": "0.8514051914103689298319831793757932022958"
+        },
+        {
+          "theta": "1",
+          "M_necesaria_miles_eur": "450200.0",
+          "capacidad_a_reclasificar_miles_eur": "158377.000",
+          "fraccion_de_la_capacidad_publicada": "1"
+        }
+      ]
+    },
+    "lectura": "Con la clasificación de la propia empresa, M < D&A en los cinco años bajo las tres definiciones sobre el perímetro NIIF16 (hipótesis de extrapolación) y también en el contraste sobre el total publicado; theta resulta negativa (fuera del dominio [0,1]) en todos los casos y se conserva como diagnóstico de definición/identificación: truncarla a 0 no valida theta=0. Una theta negativa no identifica ningún valor de theta, y aceptar la clasificación de la empresa no identifica la estructura ni la familia de P-M1. Para theta>=0 haría falta tratar como reposición desde el ~60% (theta=0) hasta el 100% (theta=1) de lo que la empresa declara como capacidad (sensibilidad, diagnóstico condicional). Conclusión: P-M1 no delimitada con la evidencia disponible y bloqueo de la conclusión afectada (D2 y, de ella, D5/D6, pendientes de la persona responsable). Dato concreto que permitiría avanzar: evidencia publicada (o aceptación humana documentada) de qué fracción de la inversión declarada es reposición y, para Vidrala, el desglose reposición/capacidad de las reconstrucciones de hornos. Qué fracción es creíble es un juicio económico de la persona responsable; este frente no lo fija."
   },
   "lambda_vidrala": {
     "proposito": "rango condicionado a serie primaria y vida útil explícitas; NO adopta lambda",
@@ -270,8 +310,9 @@
       "La vida útil 8-16 años es una pista de la nota contable contrastada, no una distribución adoptada."
     ]
   },
+  "conclusion_frente_B": "P-M1 no delimitada con la evidencia disponible; bloqueo de la conclusión afectada (D2/D5/D6 pendientes de la persona responsable). Datos concretos que permitirían avanzar: desglose por tipo 2017 de Viscofan; desglose reposición/capacidad de las reconstrucciones de hornos de Vidrala (nº de hornos, calendario, coste, capacidad antes/después); evidencia de qué fracción de la inversión declarada es reposición.",
   "pendiente": [
-    "theta y lambda no identificados por la evidencia disponible; no se elige valor.",
+    "theta y lambda no identificados por la evidencia disponible; P-M1 no delimitada y bloqueo de la conclusión afectada; no se elige valor.",
     "Desglose por tipo de 2017 de Viscofan ausente en bytes conservados.",
     "Vidrala no publica desglose reposición/capacidad de las reconstrucciones de hornos (nº de hornos, calendario, coste, capacidad antes/después).",
     "Familia Lambda no contrastada para Viscofan; estructura de P-M1 no delimitada con el desglose."

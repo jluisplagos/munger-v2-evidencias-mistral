@@ -11,7 +11,8 @@ M (reposición) estimada con el desglose por tipo publicado por Viscofan, tres d
 
 NO adopta theta ni lambda: solo delimita. Una theta negativa se conserva como diagnóstico
 de definición/identificación (no se trunca a 0). Lambda se calcula como rango condicionado
-a serie y vida útil explícitas.
+a serie y vida útil explícitas. Conclusión del frente: P-M1 no delimitada con la evidencia
+disponible; se mantiene el bloqueo de la conclusión afectada.
 """
 import csv
 import json
@@ -86,31 +87,51 @@ def main():
             "M_menor_que_DA_en_cada_anio": all(m[a] < da[a] for a in AÑOS),
         }
 
-    # contraste: definición amplia aplicada al total publicado (no al perímetro del modelo)
+    # contraste: definición amplia aplicada al total publicado (base a la que pertenecen los
+    # porcentajes publicados); cálculo SEPARADO del de abajo, que es extrapolación de perímetro
     m_pub = {a: pub[a] * (1 - pct[a]["capacidad"]) for a in AÑOS}
     sum_m_pub = sum(m_pub.values())
     theta_pub = (sum_m_pub - sum_da) / exceso_pub
     contraste = {
+        "etiqueta": "TRANSFORMACIÓN sobre la base correcta: porcentajes aplicados al total publicado al que pertenecen",
         "sum_M_sobre_publicado_miles_eur": str(sum_m_pub),
         "exceso_sobre_publicado_miles_eur": str(exceso_pub),
         "theta": str(theta_pub),
     }
 
-    # sensibilidad: fracción de la inversión de capacidad que habría que reclasificar como reposición
+    # sensibilidad sobre el perímetro NIIF16 (capex caja + altas ROU): HIPÓTESIS de extrapolación
+    # de perímetro (los porcentajes se aplican a una base distinta del total publicado)
     cap = {a: base[a] * pct[a]["capacidad"] for a in AÑOS}
     sum_cap = sum(cap.values())
     m_amplia = M("amplia")
     sum_m_amplia = sum(m_amplia.values())
-    sensibilidad = []
+    sensibilidad_hipotesis = []
     for th in (D("0"), D("0.2"), D("0.5"), D("1")):
         m_necesaria = sum_da + th * exceso
         reclasificar = m_necesaria - sum_m_amplia
-        sensibilidad.append({
+        sensibilidad_hipotesis.append({
             "theta": str(th),
             "M_necesaria_miles_eur": str(m_necesaria),
             "capacidad_a_reclasificar_miles_eur": str(reclasificar),
             "fraccion_de_la_capacidad_publicada": str(reclasificar / sum_cap),
         })
+    # sensibilidad sobre el total publicado (base correcta), calculada aparte y separada
+    cap_pub = {a: pub[a] * pct[a]["capacidad"] for a in AÑOS}
+    sum_cap_pub = sum(cap_pub.values())
+    sensibilidad_publicado = []
+    for th in (D("0"), D("0.2"), D("0.5"), D("1")):
+        m_necesaria_pub = sum_da + th * exceso_pub
+        reclas_pub = m_necesaria_pub - sum_m_pub
+        sensibilidad_publicado.append({
+            "theta": str(th),
+            "M_necesaria_miles_eur": str(m_necesaria_pub),
+            "capacidad_a_reclasificar_miles_eur": str(reclas_pub),
+            "fraccion_de_la_capacidad_publicada": str(reclas_pub / sum_cap_pub),
+        })
+    sensibilidad = {
+        "hipotesis_extrapolacion_perimetro_NIIF16_capex_caja_mas_altas_ROU": sensibilidad_hipotesis,
+        "sobre_total_publicado_base_correcta": sensibilidad_publicado,
+    }
 
     # ---------------- lambda (Vidrala) ----------------
     series = {}
@@ -149,13 +170,21 @@ def main():
             "sum_DA_2021_2025_miles_eur": str(sum_da),
             "base_por_anio_miles_eur": {str(a): str(base[a]) for a in AÑOS},
         },
+        "clasificacion_calculos": {
+            "datos": "totales y porcentajes por tipo publicados por Viscofan 2021-2025 (INVERSION_VISCOFAN_2016_2025.csv) y capex caja / altas ROU / D&A (PUENTE_CAPEX_DA_ROU.csv); cada operando con cita verificada",
+            "transformacion_sobre_base_publicada": "contraste_amplia_sobre_total_publicado: los porcentajes se aplican al total publicado al que pertenecen (base correcta)",
+            "hipotesis_extrapolacion_de_perimetro": "resultados (estrecha/media/amplia) y sensibilidad sobre (capex caja + altas ROU): los porcentajes publicados se aplican a un perímetro distinto del total publicado; se trata como HIPÓTESIS, no como dato ni como identificación",
+            "diagnostico_condicional": "theta negativa (fuera de [0,1]) y sensibilidad de reclasificación: diagnósticos condicionales; truncar a 0 no valida theta=0",
+            "politica": "ninguna adoptada; una política prudencial solo podría ser propuesta humana explícita, no parámetro identificado",
+        },
         "theta_desglose_viscofan": {
             "definicion_M": "porcentajes publicados por Viscofan aplicados a (capex caja + altas ROU) de cada año",
+            "etiqueta_definicion_M": "HIPÓTESIS (extrapolación de perímetro): base distinta del total publicado al que pertenecen los porcentajes",
             "resultados": resultados_theta,
             "contraste_amplia_sobre_total_publicado": contraste,
-            "inversion_de_capacidad_2021_2025_miles_eur": str(sum_cap),
+            "inversion_de_capacidad_2021_2025_miles_eur": {"hipotesis_perimetro_NIIF16": str(sum_cap), "sobre_total_publicado_base_correcta": str(sum_cap_pub)},
             "sensibilidad_reclasificacion_capacidad": sensibilidad,
-            "lectura": "Con la clasificación de la propia empresa, M < D&A en los cinco años bajo las tres definiciones; theta resulta negativa (fuera del dominio [0,1]) y se conserva como diagnóstico de definición/identificación: truncarla a 0 no valida theta=0. Para theta>=0 haría falta tratar como reposición desde el 60% (theta=0) hasta el 100% (theta=1) de lo que la empresa declara como capacidad. Qué fracción es creíble es un juicio económico de la persona responsable; este frente no lo fija.",
+            "lectura": "Con la clasificación de la propia empresa, M < D&A en los cinco años bajo las tres definiciones sobre el perímetro NIIF16 (hipótesis de extrapolación) y también en el contraste sobre el total publicado; theta resulta negativa (fuera del dominio [0,1]) en todos los casos y se conserva como diagnóstico de definición/identificación: truncarla a 0 no valida theta=0. Una theta negativa no identifica ningún valor de theta, y aceptar la clasificación de la empresa no identifica la estructura ni la familia de P-M1. Para theta>=0 haría falta tratar como reposición desde el ~60% (theta=0) hasta el 100% (theta=1) de lo que la empresa declara como capacidad (sensibilidad, diagnóstico condicional). Conclusión: P-M1 no delimitada con la evidencia disponible y bloqueo de la conclusión afectada (D2 y, de ella, D5/D6, pendientes de la persona responsable). Dato concreto que permitiría avanzar: evidencia publicada (o aceptación humana documentada) de qué fracción de la inversión declarada es reposición y, para Vidrala, el desglose reposición/capacidad de las reconstrucciones de hornos. Qué fracción es creíble es un juicio económico de la persona responsable; este frente no lo fija.",
         },
         "lambda_vidrala": {
             "proposito": "rango condicionado a serie primaria y vida útil explícitas; NO adopta lambda",
@@ -167,8 +196,9 @@ def main():
                 "La vida útil 8-16 años es una pista de la nota contable contrastada, no una distribución adoptada.",
             ],
         },
+        "conclusion_frente_B": "P-M1 no delimitada con la evidencia disponible; bloqueo de la conclusión afectada (D2/D5/D6 pendientes de la persona responsable). Datos concretos que permitirían avanzar: desglose por tipo 2017 de Viscofan; desglose reposición/capacidad de las reconstrucciones de hornos de Vidrala (nº de hornos, calendario, coste, capacidad antes/después); evidencia de qué fracción de la inversión declarada es reposición.",
         "pendiente": [
-            "theta y lambda no identificados por la evidencia disponible; no se elige valor.",
+            "theta y lambda no identificados por la evidencia disponible; P-M1 no delimitada y bloqueo de la conclusión afectada; no se elige valor.",
             "Desglose por tipo de 2017 de Viscofan ausente en bytes conservados.",
             "Vidrala no publica desglose reposición/capacidad de las reconstrucciones de hornos (nº de hornos, calendario, coste, capacidad antes/después).",
             "Familia Lambda no contrastada para Viscofan; estructura de P-M1 no delimitada con el desglose.",
@@ -180,8 +210,9 @@ def main():
     for k, v in resultados_theta.items():
         print(k, "sumM", v["sum_M_miles_eur"], "theta", v["theta"])
     print("contraste", contraste["theta"])
-    for s in sensibilidad:
-        print("theta", s["theta"], "frac capacidad", s["fraccion_de_la_capacidad_publicada"])
+    for k, lista in sensibilidad.items():
+        for s in lista:
+            print(k, "theta", s["theta"], "frac capacidad", s["fraccion_de_la_capacidad_publicada"])
     for tag, l in lambdas.items():
         print(tag, "rango lambda:", l["rango_L_8_16"])
 

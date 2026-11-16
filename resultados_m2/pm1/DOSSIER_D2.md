@@ -1,6 +1,7 @@
 # Dossier D2 · ¿Está delimitada de forma defendible la incertidumbre de P-M1?
 
 Frente B (P-M1) · rama `mistral/m2-fundamento-pm1` · 2026-11-16.
+Corregido según la revisión externa de 2026-11-16 (rama `revision/chatgpt-m2-20261116`, commit `9366bdd5…`): hallazgos B1 (clasificación de inversiones de Vidrala) y B2 (conclusión de D2); ver `RESPUESTA_REVISION_EXTERNA.md`.
 Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por el integrador. No APROBADO. Sin recomendaciones de inversión ni autoaprobación. D2 es decisión de la persona responsable; este dossier presenta lo identificado, lo no identificado, las opciones condicionadas y la evidencia ausente.
 
 D2 (según `DECISIONES_PENDIENTES_4_14.md`): «¿Está delimitada de forma defendible la incertidumbre de P-M1 (estructura, familia y parámetro λ o θ)? ¿Qué protocolo rige?» El encargo §6 fija la regla: sin delimitación defendible, el sistema se abstiene de la conclusión afectada.
@@ -39,16 +40,16 @@ Dato sobre el significado de las categorías: solo el texto de 2025 dice que la 
 
 ### 1.3 Límite de θ con el desglose por tipo (derivación; `CALCULOS_PM1.json`)
 
-θ = (ΣM − ΣD&A) / exceso, con M estimada aplicando los porcentajes publicados a (capex caja + altas ROU):
+θ = (ΣM − ΣD&A) / exceso. Las tres primeras filas aplican los porcentajes publicados a (capex caja + altas ROU): eso es una **extrapolación de perímetro, etiquetada como HIPÓTESIS** (los porcentajes pertenecen al total publicado, no a ese perímetro). La última fila (contraste) es la transformación sobre la base correcta —el total publicado— y se conserva separada (`CALCULOS_PM1.json`, campos `clasificacion_calculos` y `sensibilidad_reclasificacion_capacidad` con sus dos bloques):
 
 | Definición de M | ΣM 2021–25 (k€) | θ |
 |---|---|---|
 | estrecha (solo ordinarias) | 108.207 | **−4,5427** |
 | media (ordinarias + EHS) | 218.478 | **−2,8442** |
 | amplia (todo menos capacidad) | 304.460 | **−1,5198** |
-| contraste: amplia sobre el total publicado (exceso 47.068) | 291.813 | −2,3649 |
+| contraste: amplia sobre el total publicado (base correcta; exceso 47.068) | 291.813 | −2,3649 |
 
-En los cinco años M < D&A bajo las tres definiciones. La inversión declarada de capacidad 2021–2025 suma 163.595 k€. Sensibilidad: para θ=0 haría falta reclasificar como reposición el 60,3% de esa capacidad; θ=0,2 → 68,3%; θ=0,5 → 80,2%; θ=1 → 100%.
+En los cinco años M < D&A bajo las tres definiciones (hipótesis de perímetro) y también en el contraste sobre el total publicado. La inversión declarada de capacidad 2021–2025 suma 163.595 k€ sobre el perímetro NIIF16 (hipótesis) y 158.377 k€ sobre el total publicado (base correcta). Sensibilidad (diagnóstico condicional, ambos bloques separados en `CALCULOS_PM1.json`): para θ=0 haría falta reclasificar como reposición el 60,3% de esa capacidad sobre el perímetro NIIF16 (70,3% sobre el total publicado); θ=0,2 → 68,3% (76,2%); θ=0,5 → 80,2% (85,1%); θ=1 → 100%.
 
 Inferencia (discutible): con la clasificación de la propia empresa, el exceso de inversión sobre D&A queda explicado por la inversión de capacidad; lo que no es capacidad ni siquiera cubre la D&A. Una θ negativa se conserva como diagnóstico de definición/identificación — truncarla a cero no valida θ=0, la familia ni el punto actual. El script citado `agentes/B/scripts/theta_desglose_viscofan.py` no está en la base y no se invoca; todo se recalcula en `scripts/calculos_pm1.py`.
 
@@ -57,7 +58,7 @@ Inferencia (discutible): con la clasificación de la propia empresa, el exceso d
 - Vida útil de hornos: «Furnaces, installations and production machinery **8 – 16** años» en la nota de inmovilizado de **todos** los años CF_2017…CF_2025 (y ES_2025 p.14 l.651). Pista contrastada, no distribución adoptada.
 - Renovación de hornos: adiciones 2024 «primarily in the renewal of furnaces» en España, Portugal y UK (CF_2024 p.48); 2025 igual (CF_2025 p.44); ES_2024 p.199 «reconstrucción de varios hornos en el Grupo»; ES_2025 p.72 PERTE descarbonización de hornos Crisnova/Castellar (10.298 y 6.316 k€, inversión desde 2026); ES_2025 p.127 «Horno del futuro» (eficiencia, electrificación).
 - Adiciones de plantas por país (nota PP&E): 2018 Italia 27.958 k€ / UK 33.733 k€ / Castellar 16.329 k€; 2019 Portugal 20.250 / UK 44.247; 2020 UK 77.801 / Portugal 29.031; 2021 UK 32.597 / Portugal 39.792; 2022 UK 23.479 / Portugal 94.557; 2023 Portugal + contribución por combinaciones de negocio (Nota 5). Se distingue «update/modernización de plantas» de reposición de hornos solo donde el texto lo dice; no se fabrica mezcla reposición/capacidad.
-- Adiciones brutas PP&E 2017–2025 (k€): 156.743 / 18.623 / 25.694 / 28.666 / 44.810 / 93.759 / 100.655 / 48.326 / 45.173. Discrepancia registrada sin resolver: comparativo 2023 = 102.795 en CF_2024 vs 100.655 en CF_2023.
+- Adiciones brutas PP&E 2017–2025 (k€, nota *Property, Plant and Equipment*, fila total de Coste, columna Additions): **101.154 / 93.148 / 108.645 / 134.263 / 105.877 / 158.234 / 134.472 / 171.185 / 177.848**, de ellas por combinaciones de negocio 76.170 (2017) y 262.679 (2023). Adiciones de intangibles (nota aparte, columnas separadas en el CSV): 156.743 / 18.623 / 25.694 / 28.666 / 44.810 / 93.759 / 100.655 / 48.326 / 45.173, de las cuales goodwill 150.657 (2017) y derechos de emisión 3.237 / 14.645 / 22.147 / 26.558 / 37.359 / 90.780 / 93.306 / 40.135 / 37.661. **Corrección B1:** los valores antes presentados como PP&E procedían de la nota de intangibles (p. ej. 45.173 en 2025 es la nota 8 p.46; las altas PP&E de 2025 son 177.848, nota 7 p.43); el script exige ahora encabezado de nota + columna Additions + etiqueta de año, contrasta cada año con el comparativo del ejercicio siguiente y lleva un control negativo que reproduce y rechaza el error antiguo. Discrepancias comparativas 2023 registradas sin resolver: en CF_2024 el comparativo PP&E 2023 repite adiciones 134.472 pero reexpresa la combinación de negocios (291.821 vs 262.679) y el cierre de coste (2.131.588 vs 2.102.446); en la nota de intangibles el comparativo 2023 da 102.795 (goodwill 2.170) frente a 100.655 en CF_2023. No se fuerza igualdad entre adiciones, pagos y mantenimiento económico.
 - ROU: altas activo/pasivo no idénticas (2022: 2.165 vs 2.133; 2024: 1.485 vs 1.429; 2025: 2.404 ambos, con «otros» 9.595 activo por actualización de precio de «The Park»); 2023: 46.123 k€ por combinación de negocios («The Park», Bristol) + 645/643 ordinarias; amortización ROU 633/4.624/4.768/6.760 (2022–2025); 2021 sin tabla de movimientos (saldo 770). Sale & leaseback 2022 sobre plantas de España. No se supone que activo y pasivo deban coincidir.
 - Prueba de deterioro (CF_2019…CF_2023): «recurring capex captured in the valuation models», sin cifra.
 - **Capacidad añadida por las reconstrucciones: NO publicada en los bytes conservados.** La afirmación del CFO («more than pure replacement in that CapEx») es de transcripción de terceros sin bytes → queda como cita web provisional, no como documento conservado.
@@ -73,7 +74,7 @@ Límites declarados: miden precios de producción del sector (output), no el pre
 
 ## 3. Qué NO queda identificado (demostrado como límite)
 
-1. θ para Viscofan: la evidencia no identifica qué fracción de «capacidad y maquinaria» es reposición. El método del desglose delimita θ ≤ 0 (acotado a 0) solo si se acepta la clasificación de la empresa; exige 60–100% de reclasificación para θ ≥ 0. La elección de esa fracción es un juicio económico humano.
+1. θ para Viscofan: la evidencia no identifica qué fracción de «capacidad y maquinaria» es reposición. El método del desglose produce θ negativa (fuera de [0,1]) bajo las tres definiciones y también sobre el total publicado; **una θ negativa no identifica θ=0 ni ningún otro valor**, y la aceptación humana de la clasificación de la empresa no identifica la estructura ni la familia de P-M1. La sensibilidad (60–100% de reclasificación para θ ≥ 0 sobre el perímetro NIIF16; 70–100% sobre el total publicado) es un diagnóstico condicional, no una identificación. La elección de esa fracción seguiría siendo un juicio económico humano.
 2. λ para Vidrala: depende de la estructura de P-M1 (familia Λ) que no está delimitada; y de la vida útil efectiva de los hornos (8–16 es un rango contable, no observado por horno).
 3. Vidrala: no hay desglose publicado de reposición vs capacidad añadida en las reconstrucciones de hornos (nº de hornos, calendario, coste, capacidad antes/después) → la incertidumbre de P-M1 de Vidrala **no está delimitada** con lo disponible.
 4. Estructura de P-M1 (SR1/SR2/SRF/H/S) no delimitada con el desglose en ninguna empresa; familia Λ no contrastada en Viscofan.
@@ -81,7 +82,7 @@ Límites declarados: miden precios de producción del sector (output), no el pre
 
 ## 4. Opciones defendibles, condicionadas (ninguna adoptada)
 
-- **Viscofan:** (a) aceptar el método replicable del desglose por tipo como juicio económico → P-M1 delimitable con θ acotado a 0 (extremo inferior del dominio), con la sensibilidad expuesta; (b) no aceptarlo → θ sin delimitar y abstención. En ambos casos la estructura y la familia siguen sin delimitar por esta vía.
+- **Viscofan:** con la evidencia disponible **P-M1 no está delimitada y se mantiene el bloqueo de la conclusión afectada**: ni la aceptación humana de la clasificación del desglose ni una θ negativa identifican θ, la estructura o la familia; la sensibilidad queda como diagnóstico condicional y la extrapolación de perímetro como hipótesis etiquetada. Una política prudencial (p. ej. tratar θ=0) solo puede proponerse como decisión humana con sus límites, no como parámetro identificado ni como cierre del bloqueo. Dato concreto que permitiría avanzar: evidencia publicada de qué fracción de la inversión declarada es reposición (y el desglose 2017, ausente en bytes conservados).
 - **Vidrala:** con lo disponible, la delimitación no es defendible → abstención del objetivo para cualquier uso que no sea el ensayo (coincide con el expediente `vidrala_bloqueo` existente). λ solo tendría sentido condicionado a una estructura aceptada y a serie+vida útil explícitas (rangos en §2.1).
 - Protocolo: por empresa (opción 2 de D2 en la base) es la única defendible con esta evidencia; las formas (i) «bloqueo del objetivo» y (ii) «conclusión sin objetivo» son de la base y no se deciden aquí.
 
@@ -96,5 +97,5 @@ Límites declarados: miden precios de producción del sector (output), no el pre
 ## 6. Consecuencias y decisión que corresponde a la persona responsable
 
 - Efectos calculados ya obran en la base (citados como dato de la base, no recalculados aquí): Viscofan precio de Sí θ=0 → 41,8616 €; θ=1 → 38,4664 €; activa (θ=0,5) → 40,1640 €; todas en «caro» con el precio de 54,70 €. Vidrala rango 51,29–65,72 € con precio 90,10 €.
-- **Decisión D2 (persona responsable):** si P-M1 está delimitada de forma defendible por empresa y qué protocolo rige. Este frente aporta: Viscofan delimitable solo si se acepta el método del desglose (θ ≤ 0, acotado a 0, con 60–100% de reclasificación para θ ≥ 0); Vidrala no delimitada → abstención del objetivo. D5 (config de Viscofan) y D6 (config de Vidrala) quedan pendientes de D2 y no se tocan.
+- **Decisión D2 (persona responsable):** si P-M1 está delimitada de forma defendible por empresa y qué protocolo rige. Este frente aporta: **P-M1 no delimitada con la evidencia disponible en ninguna empresa → bloqueo de la conclusión afectada** (en Viscofan θ negativa fuera de [0,1] como diagnóstico condicional, extrapolación de perímetro etiquetada como hipótesis, estructura y familia sin delimitar; en Vidrala, además, sin desglose reposición/capacidad → abstención del objetivo). D5 (config de Viscofan) y D6 (config de Vidrala) quedan pendientes de D2 y no se tocan.
 - Nada de esto es recomendación de inversión ni aptitud para dinero real.
