@@ -189,6 +189,8 @@ def resumen_caso(V, p, k, v_normal=None, precio=None):
     if v_normal is None:
         s = sorted(Vf)
         v_normal = s[len(s) // 2] if len(s) % 2 == 1 else None
+    else:
+        v_normal = _fraccion(v_normal)
     psi = min(Ps, v_normal) if v_normal is not None else Ps
     malo = precio_escenario_malo(Vf)
     out = {
