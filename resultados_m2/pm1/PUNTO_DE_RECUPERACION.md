@@ -10,16 +10,15 @@ Propuesta de evidencia o especificación de Mistral; pendiente de revisión e in
 
 ## Terminado
 
-- B1 (este commit): inventario de fuentes conservadas (12 PDF y 9 textos de Viscofan, 11 textos de Vidrala, PDF de Vidrala 2016–2025 y BORME/CNMV), fuentes faltantes con estado de acceso medido (CNMV/BOE/Eurostat/INE/informeanual*.viscofan.com OK con TLS; www/public.viscofan.com sin verificación TLS en el proxy), alcance finito B2–B7 y límites.
+- B1 (commit `cb39dc0`): inventario, alcance, plan finito y fuentes disponibles/faltantes con estado de acceso medido.
+- B2+B3 (este commit): `INVERSION_VISCOFAN_2016_2025.csv` y `PUENTE_CAPEX_DA_ROU.csv` generados por `scripts/tablas_viscofan.py` (cada operando verificado por cita en su línea/página; `scripts/extraer_pdfs_viscofan.py` extrae IA_2016/2021/2023 de los PDF conservados tras comprobar SHA-256 contra el índice). Desglose por tipo verificado en bytes conservados para 2016, 2018, 2019, 2020, 2021, 2022, 2023 y 2025; 2017 solo total (107,2 M€, comparativo en IA_2018 p135); 2024 solo total (71,0 M€, comparativo en AR_2025 p143/impresa 123), desglose pendiente de fuente nueva. Puente recalculado: Σcapex caja 2021–2025 = 443.945k€, Σaltas ROU = 24.110k€, ΣD&A = 403.132k€, Σamort ROU = 27.051k€, exceso NIIF 16 = 64.923k€, exceso «Caja» = 40.813k€ (coinciden con la conciliación de la base). Hallazgos del puente: 2022 publicada 125,6 M€ vs capex caja 115.566k€ vs adiciones PP&E brutas 120.362k€; 2025 CapEx taxonomía 90,6 M€ = gestión 84,1 + altas ROU 6,494 (APM Capex p146 excluye ROU; taxonomía p275 lo incluye); en CF_2021 p8 la etiqueta inglesa de la línea de pagos está intercambiada con la de dependientes (la columna comparativa de CF_2022 p25 l337 lo fija).
 
 ## Pendiente / siguiente acción exacta
 
-1. B2: extraer inversión por tipo de Viscofan 2016–2025 de los textos/PDF conservados (`grep` sobre `.trabajo/insumos_m2/.../viscofan_decisiones/Viscofan/texto/*.txt` y extracción PyMuPDF de `IA_2016_es.pdf`, `IA_2021_es.pdf`, `IA_2023_es.pdf`), generar `INVERSION_VISCOFAN_2016_2025.csv` con script, commit+push.
-2. B3: conciliación capex de caja / D&A / altas ROU 2021–2025 (puente 2022: 125,6 M€ publicados frente a 115,566 M€ de capex de caja; perímetro 2025 con ROU), `PUENTE_CAPEX_DA_ROU.csv`, commit+push.
-3. B4: fuentes oficiales nuevas (informe de gestión/anual 2024 y Beat'30) — descargar con TLS verificado, conservar en Release auxiliar `fuentes-mistral-m2-20261116` con índice SHA-256 o declarar provisional; `FUENTES_NUEVAS.csv`/`FUENTES_CONSERVADAS.csv`, commit+push.
-4. B5: Vidrala reposición/capacidad/ROU desde `texto/CF_2017..CF_2025.txt`; `VIDRALA_REPOSICION_CAPACIDAD.csv`, commit+push.
-5. B6: recalcular tablas de θ (script `Decimal`) y rangos de λ condicionados; `CALCULOS_PM1.json`, commit+push.
-6. B7: `DOSSIER_D2.md` + entregas finales (`HALLAZGOS.md`, `RESUMEN_PARA_CLAUDE.md`, `MANIFIESTO_SHA256.txt`), commit+push final.
+1. B4: fuentes oficiales nuevas (informe de gestión/anual 2024 y presentación Beat'30 de Viscofan) — descargar con TLS verificado (informeanual2024.viscofan.com / CNMV), conservar en Release auxiliar `fuentes-mistral-m2-20261116` con índice SHA-256 o declarar provisional; `FUENTES_NUEVAS.csv`/`FUENTES_CONSERVADAS.csv`, commit+push.
+2. B5: Vidrala reposición/capacidad/ROU desde `texto/CF_2017..CF_2025.txt`; `VIDRALA_REPOSICION_CAPACIDAD.csv`, commit+push.
+3. B6: recalcular tablas de θ (script `Decimal` sobre el desglose por tipo) y rangos de λ condicionados a supuestos explícitos; `CALCULOS_PM1.json`, commit+push.
+4. B7: `DOSSIER_D2.md` + entregas finales (`HALLAZGOS.md`, `RESUMEN_PARA_CLAUDE.md`, `MANIFIESTO_SHA256.txt`), commit+push final.
 
 ## Límites
 
