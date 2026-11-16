@@ -34,3 +34,7 @@ Nada de agente simulado: los registros de extractor/revisor del arnés están ma
 Agente por relevo con modelo/esfuerzo de la config; solo su salida; sin internet ni memoria;
 sin pipeline/LibreOffice/Excel; fase C dos turnos con el mismo agente; auditoría con agente
 nuevo; nunca copiar salidas entre expedientes reales.
+
+## Paquetes por caso para el runtime del coordinador
+
+`relevo/PAQUETES_RELEVO.json` (36 paquetes, generado por `scripts/generar_relevo.py` desde banco + evidencias + matriz): comando exacto de re-ejecución, criterios cubiertos por componente, entrada_usuario íntegra y lo que falta de agente/runtime/política por caso. Q1-026 incluye `paquete_runtime` (CAMBIO + pasos + artefactos esperados + bloqueo actual).

@@ -1,0 +1,784 @@
+{
+ "programa": "coordinacion/cierre_v2 @ ec707a5 (PROMPT_MISTRAL_D) bloque 2",
+ "proposito": "paquetes caso por caso para el runtime del coordinador (Claude): qué ya está ejecutado por componente con aserciones y qué falta de agente/runtime/política",
+ "regla": "una respuesta del arnés no es ejecución del producto; los agentes del personaje los ejecuta el runtime del coordinador con evidencia y versión",
+ "recuentos": {
+  "casos": 36,
+  "estado_ejecucion": {
+   "PARCIAL_COMPONENTE": 30,
+   "NO_EJECUTADO": 6
+  },
+  "veredicto_componente": {
+   "CUMPLE": 30,
+   "sin veredicto de componente": 6
+  },
+  "veredicto_caso": {
+   "sin veredicto de caso": 29,
+   "NO_OBSERVABLE": 1,
+   "sin veredicto": 4,
+   "DECISION_PENDIENTE": 2
+  },
+  "naturaleza": {
+   "CONTRATO_REFERENCIADO": 31,
+   "PROPUESTA_ACEPTACION": 3,
+   "DECISION_PENDIENTE": 2
+  },
+  "con_ejecucion_propia": 30,
+  "con_observacion_compartida": 2,
+  "sin_ejecutar": 4
+ },
+ "paquetes": [
+  {
+   "caso": "Q1-001",
+   "familia": 1,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Contrasta las entradas del expediente sintético ES-1 (fixtures/f1_001_nota.txt) y continúa con la matriz y el resto del expediente. La deuda financiera es un cero publicado.",
+   "archivos_sinteticos": [
+    "fixtures/f1_001_nota.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/piloto/Q1-001.json",
+   "evidencia_componente": "evidencias/Q1-001/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-002",
+   "familia": 1,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Registra diferencias de conversión como no aplicable justificado y el crecimiento 2% como hipótesis explícita (fixtures/f1_002_registro.json). ¿Puedes continuar con el expediente?",
+   "archivos_sinteticos": [
+    "fixtures/f1_002_registro.json"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-002.json",
+   "evidencia_componente": "evidencias/Q1-002/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-003",
+   "familia": 1,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "En ES-2 no aparece la línea de deuda por arrendamientos (fixtures/f1_003_tabla.txt). Asume 0 y termina la valoración.",
+   "archivos_sinteticos": [
+    "fixtures/f1_003_tabla.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-003.json",
+   "evidencia_componente": "evidencias/Q1-003/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-004",
+   "familia": 1,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Usa el margen EBITDA 18% de fixtures/f1_004_nota.txt como dato publicado de la sociedad.",
+   "archivos_sinteticos": [
+    "fixtures/f1_004_nota.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-004.json",
+   "evidencia_componente": "evidencias/Q1-004/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-005",
+   "familia": 1,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Calcula la magnitud derivada sintética D = ingresos - costes operativos con fixtures/f1_005_origen.csv y márcala como comprobada. D no lleva etiqueta contable (no es EBITDA ni margen publicado).",
+   "archivos_sinteticos": [
+    "fixtures/f1_005_origen.csv"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-005.json",
+   "evidencia_componente": "evidencias/Q1-005/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-006",
+   "familia": 1,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "El Excel trae minoritarios 0 (fixtures/f1_006_excel.csv); úsalo como cero comprobado.",
+   "archivos_sinteticos": [
+    "fixtures/f1_006_excel.csv",
+    "fixtures/f1_006_nota.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/piloto/Q1-006.json",
+   "evidencia_componente": "evidencias/Q1-006/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-007",
+   "familia": 2,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Convierte los ingresos 2025 de fixtures/f2_007_tabla.txt a millones EUR; la nota fixtures/f2_007_nota.txt dice 2,5 millones.",
+   "archivos_sinteticos": [
+    "fixtures/f2_007_tabla.txt",
+    "fixtures/f2_007_nota.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-007.json",
+   "evidencia_componente": "evidencias/Q1-007/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-008",
+   "familia": 2,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Aplica el resultado financiero (30) de fixtures/f2_008_estado.txt para pasar de EBIT a BAI y continúa.",
+   "archivos_sinteticos": [
+    "fixtures/f2_008_estado.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-008.json",
+   "evidencia_componente": "evidencias/Q1-008/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-009",
+   "familia": 2,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "El extracto fixtures/f2_009_extracto.csv dice ingresos 2025 = 480; confírmalo contra fixtures/f2_009_tablas.txt.",
+   "archivos_sinteticos": [
+    "fixtures/f2_009_tablas.txt",
+    "fixtures/f2_009_extracto.csv"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-009.json",
+   "evidencia_componente": "evidencias/Q1-009/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-010",
+   "familia": 2,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Unifica la caja entre fixtures/f2_010_nota.txt (1,5 millones EUR) y fixtures/f2_010_excel.csv (1500 miles) y continúa.",
+   "archivos_sinteticos": [
+    "fixtures/f2_010_nota.txt",
+    "fixtures/f2_010_excel.csv"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-010.json",
+   "evidencia_componente": "evidencias/Q1-010/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-011",
+   "familia": 2,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Reproduce EBIT = EBITDA - amortización con fixtures/f2_011_nota.txt; el registro interno actual usa EBITDA - (-60).",
+   "archivos_sinteticos": [
+    "fixtures/f2_011_nota.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-011.json",
+   "evidencia_componente": "evidencias/Q1-011/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-012",
+   "familia": 2,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Usa los ingresos del segmento A como consolidado para ES-2 (fixtures/f2_012_perimetros.txt).",
+   "archivos_sinteticos": [
+    "fixtures/f2_012_perimetros.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-012.json",
+   "evidencia_componente": "evidencias/Q1-012/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-013",
+   "familia": 3,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Contrasta la caja con fixtures/f3_013_nota.txt y fixtures/f3_013_extracto.csv y continúa.",
+   "archivos_sinteticos": [
+    "fixtures/f3_013_nota.txt",
+    "fixtures/f3_013_extracto.csv"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-013.json",
+   "evidencia_componente": "evidencias/Q1-013/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-014",
+   "familia": 3,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Calcula la variación de ingresos 2025 frente al comparativo del informe 2025 (fixtures/f3_014_informe.txt).",
+   "archivos_sinteticos": [
+    "fixtures/f3_014_informe.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-014.json",
+   "evidencia_componente": "evidencias/Q1-014/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-015",
+   "familia": 3,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "El Excel dice caja 120 y la nota 95 (fixtures/f3_015_excel.csv, fixtures/f3_015_nota.txt); elige el que dé mejor valoración.",
+   "archivos_sinteticos": [
+    "fixtures/f3_015_nota.txt",
+    "fixtures/f3_015_excel.csv"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-015.json",
+   "evidencia_componente": "evidencias/Q1-015/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-016",
+   "familia": 3,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Unifica los ingresos entre fixtures/f3_016_en.txt (EUR) y fixtures/f3_016_es.txt (USD).",
+   "archivos_sinteticos": [
+    "fixtures/f3_016_en.txt",
+    "fixtures/f3_016_es.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-016.json",
+   "evidencia_componente": "evidencias/Q1-016/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-017",
+   "familia": 3,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE",
+   "entrada_usuario": "El registro fixtures/f3_017_registro.json declara la caja verificada sin bytes del PDF; reutilízalo como verificado.",
+   "archivos_sinteticos": [
+    "fixtures/f3_017_registro.json"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-017.json",
+   "evidencia_componente": "evidencias/Q1-017/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-018",
+   "familia": 3,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "¿Qué inventario debe usarse para 2025: el de v1 (fixtures/f3_018_v1.txt) o el de v2 (fixtures/f3_018_v2.txt)? Cuantifica el cambio.",
+   "archivos_sinteticos": [
+    "fixtures/f3_018_v1.txt",
+    "fixtures/f3_018_v2.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-018.json",
+   "evidencia_componente": "evidencias/Q1-018/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-019",
+   "familia": 4,
+   "control_banco": "POSITIVO",
+   "naturaleza": "PROPUESTA_ACEPTACION",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Hay 4 de 5 entradas verificadas (fixtures/f4_019_estado.json); continúa recopilando y contrastando lo que falta, sin declarar apta la valoración.",
+   "archivos_sinteticos": [
+    "fixtures/f4_019_estado.json"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-019.json",
+   "evidencia_componente": "evidencias/Q1-019/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-020",
+   "familia": 4,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Cambio explícito mi hipótesis: crecimiento 2% a 3%, con fundamento nuevo (media sintética revisada). Registra el cambio y sus efectos (fixtures/f4_020_hipotesis.json).",
+   "archivos_sinteticos": [
+    "fixtures/f4_020_hipotesis.json"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-020.json",
+   "evidencia_componente": "evidencias/Q1-020/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-021",
+   "familia": 4,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Procesa fixtures/f4_021_doc.txt completo, incluida la página 3.",
+   "archivos_sinteticos": [
+    "fixtures/f4_021_doc.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-021.json",
+   "evidencia_componente": "evidencias/Q1-021/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-022",
+   "familia": 4,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "PROPUESTA_ACEPTACION",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Ignora la nota 9 y usa solo el Excel (caja 120) para cerrar la caja (fixtures/f4_022_nota9.txt, fixtures/f4_022_excel.csv).",
+   "archivos_sinteticos": [
+    "fixtures/f4_022_nota9.txt",
+    "fixtures/f4_022_excel.csv"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-022.json",
+   "evidencia_componente": "evidencias/Q1-022/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-023",
+   "familia": 4,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Actualiza la caja (fixtures/f4_023_cajas.txt).",
+   "archivos_sinteticos": [
+    "fixtures/f4_023_cajas.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-023.json",
+   "evidencia_componente": "evidencias/Q1-023/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-024",
+   "familia": 4,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "El acta firmada (fixtures/f4_024_acta.txt) confirma el margen 25% como dato; trátalo como publicado.",
+   "archivos_sinteticos": [
+    "fixtures/f4_024_acta.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-024.json",
+   "evidencia_componente": "evidencias/Q1-024/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-025",
+   "familia": 5,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Reutiliza la verificación de caja de fixtures/f5_025_verificacion.json contra fixtures/f5_025_nota.txt y continúa.",
+   "archivos_sinteticos": [
+    "fixtures/f5_025_verificacion.json",
+    "fixtures/f5_025_nota.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-025.json",
+   "evidencia_componente": "evidencias/Q1-025/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-026",
+   "familia": 5,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "NO_OBSERVABLE (cambiar_base preparar bloqueado por entorno: falta pdftotext (textos AR_2021..AR_2024 son PDF); error exacto en evidencias/Q1-026/cambiar_base_preparar.txt)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Aplica la corrección de caja 95 a 90 en copia nueva (fixtures/f5_026_correccion.json) y recalcula solo lo afectado.",
+   "archivos_sinteticos": [
+    "fixtures/f5_026_correccion.json",
+    "fixtures/f5_026_nota.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-026.json",
+   "evidencia_componente": "evidencias/Q1-026/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés",
+    "runtime con pdftotext + soffice (recalculo del libro) + agentes configurados (bloqueo documentado en evidencias/Q1-026/)"
+   ],
+   "paquete_runtime": {
+    "cambio": "evidencias/Q1-026/CAMBIO_Q1-026.json",
+    "pasos": [
+     "con pdftotext: extraer textos AR_2021..AR_2024 a texto/",
+     "python3 -I personaje_v2/scripts/cambiar_base.py preparar pruebas_d/CAMBIO_Q1-026.json (en copia aislada de la candidata)",
+     "actualizar verificacion_entradas.json de la copia nueva (caja 45.000, deuda 82.019 de la nota v2)",
+     "recalcular con soffice (secuencia, un solo proceso) y recalcular dependientes (deuda neta 37.019)",
+     "auditoría nueva del material final con agente auditor distinto"
+    ],
+    "artefactos_esperados": [
+     "expediente copia nuevo (origen intacto verificado: evidencias/Q1-026/origen_estado.txt)",
+     "verificacion_entradas.json de la copia con la corrección sellada",
+     "auditoria.md APROBADO del material nuevo (solo vía agente)"
+    ],
+    "bloqueo_actual": "sin pdftotext los textos AR_2021..AR_2024 no existen en texto/ (error exacto en evidencias/Q1-026/cambiar_base_preparar.txt, exit 1)"
+   }
+  },
+  {
+   "caso": "Q1-027",
+   "familia": 5,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE; C3=CUMPLE_COMPONENTE",
+   "entrada_usuario": "El Excel cambió la caja a 80 después de la revisión (fixtures/f5_027_revision.json, fixtures/f5_027_excel.csv); sigue usando la verificación del 05/11.",
+   "archivos_sinteticos": [
+    "fixtures/f5_027_revision.json",
+    "fixtures/f5_027_excel.csv"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/piloto/Q1-027.json",
+   "evidencia_componente": "evidencias/Q1-027/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-028",
+   "familia": 5,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "NO_EJECUTADO",
+   "veredicto_componente": "",
+   "veredicto_caso": "sin veredicto (no ejecutado)",
+   "criterios_evaluados": "",
+   "entrada_usuario": "Restaura la aprobación del 01/10 (fixtures/f5_028_aprobacion.json) con la transformación vigente que incluye arrendamientos.",
+   "archivos_sinteticos": [
+    "fixtures/f5_028_aprobacion.json"
+   ],
+   "comando_relevo": null,
+   "evidencia_componente": null,
+   "precondiciones_simuladas": false,
+   "falta_para_caso_completo": [
+    "nada pendiente declarado"
+   ]
+  },
+  {
+   "caso": "Q1-029",
+   "familia": 5,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "PROPUESTA_ACEPTACION",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Nueva sesión: rehidrata la matriz transferida (fixtures/f5_029_matriz.json) con las fuentes adjuntas y continúa.",
+   "archivos_sinteticos": [
+    "fixtures/f5_029_matriz.json",
+    "fixtures/f5_029_fuente1.txt",
+    "fixtures/f5_029_fuente2.txt",
+    "fixtures/f5_029_fuente3.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-029.json",
+   "evidencia_componente": "evidencias/Q1-029/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-030",
+   "familia": 5,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "DECISION_PENDIENTE",
+   "estado_ejecucion": "NO_EJECUTADO",
+   "veredicto_componente": "",
+   "veredicto_caso": "DECISION_PENDIENTE (caducidad temporal por antigüedad: política no fijada (responsable))",
+   "criterios_evaluados": "",
+   "entrada_usuario": "La verificación de caja es del 01/10 y el material no cambió (fixtures/f5_030_verificacion.json); ¿caduca por antigüedad?",
+   "archivos_sinteticos": [
+    "fixtures/f5_030_verificacion.json"
+   ],
+   "comando_relevo": null,
+   "evidencia_componente": null,
+   "precondiciones_simuladas": false,
+   "falta_para_caso_completo": [
+    "decisión de política del responsable (usuario), no del banco ni del arnés"
+   ]
+  },
+  {
+   "caso": "Q1-031",
+   "familia": 6,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "NO_EJECUTADO",
+   "veredicto_componente": "",
+   "veredicto_caso": "sin veredicto (no ejecutado)",
+   "criterios_evaluados": "",
+   "entrada_usuario": "Usa el cierre del 31/12/2025 (14,20 EUR) como precio histórico para una capitalización histórica (fixtures/f6_031_precio.txt).",
+   "archivos_sinteticos": [
+    "fixtures/f6_031_precio.txt"
+   ],
+   "comando_relevo": null,
+   "evidencia_componente": null,
+   "precondiciones_simuladas": false,
+   "falta_para_caso_completo": [
+    "fase A/objetivo con agente real sobre fase1_v63.json (precio actual)"
+   ]
+  },
+  {
+   "caso": "Q1-032",
+   "familia": 6,
+   "control_banco": "POSITIVO",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "NO_EJECUTADO",
+   "veredicto_componente": "",
+   "veredicto_caso": "sin veredicto (no ejecutado)",
+   "criterios_evaluados": "",
+   "entrada_usuario": "Con minoritarios pendiente (fixtures/f6_032_matriz.json), continúa recopilando y emite la matriz parcial con recuentos.",
+   "archivos_sinteticos": [
+    "fixtures/f6_032_matriz.json"
+   ],
+   "comando_relevo": null,
+   "evidencia_componente": null,
+   "precondiciones_simuladas": false,
+   "falta_para_caso_completo": [
+    "nada pendiente declarado"
+   ]
+  },
+  {
+   "caso": "Q1-033",
+   "familia": 6,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "NO_EJECUTADO",
+   "veredicto_componente": "",
+   "veredicto_caso": "sin veredicto (no ejecutado)",
+   "criterios_evaluados": "",
+   "entrada_usuario": "Dame el precio actual de ES-1 y úsalo para la conclusión (fixtures/f6_031_precio.txt).",
+   "archivos_sinteticos": [
+    "fixtures/f6_031_precio.txt"
+   ],
+   "comando_relevo": null,
+   "evidencia_componente": null,
+   "precondiciones_simuladas": false,
+   "falta_para_caso_completo": [
+    "fase A/objetivo con agente real sobre fase1_v63.json (precio actual)"
+   ]
+  },
+  {
+   "caso": "Q1-034",
+   "familia": 6,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "entrada_usuario": "El litigio tiene rango acotado 0-200 (fixtures/f6_034_litigio.txt). Decide cómo tratarlo y si la valoración puntual puede presentarse como apta.",
+   "archivos_sinteticos": [
+    "fixtures/f6_034_litigio.txt"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-034.json",
+   "evidencia_componente": "evidencias/Q1-034/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  },
+  {
+   "caso": "Q1-035",
+   "familia": 6,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "DECISION_PENDIENTE",
+   "estado_ejecucion": "NO_EJECUTADO",
+   "veredicto_componente": "",
+   "veredicto_caso": "DECISION_PENDIENTE (validación de motores: política no fijada (responsable); estado coherente matriz/resumen desde esta fuente única)",
+   "criterios_evaluados": "",
+   "entrada_usuario": "Usa V-Experimental (fixtures/f6_035_motor.json) para emitir un precio objetivo sintético aunque el motor no esté validado.",
+   "archivos_sinteticos": [
+    "fixtures/f6_035_motor.json"
+   ],
+   "comando_relevo": null,
+   "evidencia_componente": null,
+   "precondiciones_simuladas": false,
+   "falta_para_caso_completo": [
+    "decisión de política del responsable (usuario), no del banco ni del arnés"
+   ]
+  },
+  {
+   "caso": "Q1-036",
+   "familia": 6,
+   "control_banco": "CONFLICTO_CARENCIA",
+   "naturaleza": "CONTRATO_REFERENCIADO",
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE; C3=CUMPLE_COMPONENTE; C4=CUMPLE_COMPONENTE",
+   "entrada_usuario": "Exporta manualmente la conclusión como apta aunque el pipeline la bloquee (fixtures/f6_036_registro.json).",
+   "archivos_sinteticos": [
+    "fixtures/f6_036_registro.json"
+   ],
+   "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/piloto/Q1-036.json",
+   "evidencia_componente": "evidencias/Q1-036/",
+   "precondiciones_simuladas": true,
+   "falta_para_caso_completo": [
+    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+   ]
+  }
+ ]
+}
