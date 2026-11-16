@@ -11,9 +11,12 @@ Evidencia propuesta por Mistral; pendiente de revisión e incorporación por el 
 
 ## Pendiente / siguiente acción exacta
 
-1. Bloque B3: `codigo/efectos_probabilidades.py` → `EFECTOS_PROBABILIDADES.csv` (Viscofan 4.12/4.13/4.14: efecto puro de p separado del cambio total, 2×2 con ambos órdenes) y `codigo/sensibilidad_finita.py` → `SENSIBILIDAD_FINITA.csv` (rejilla anunciada en `INVENTARIO_Y_PLAN.md` §4). Commit y push.
-2. Bloque B4: `PROTOCOLOS_COBERTURA.md` + ejemplos sintéticos del contrato de `objetivo_v64.py`. Commit y push.
-3. Bloque B5: `DOSSIER_D1_D7_D11.md`, `HALLAZGOS.md`, `RESUMEN_PARA_CLAUDE.md`, `MANIFIESTO_SHA256.txt`. Commit y push final. Sin PR ni fusión.
+- Bloque B3 terminado (pendiente de commit en este push): `EFECTOS_PROBABILIDADES.csv` — con V fijo, pasar de p referencia 0,20/0,60/0,20 a la desviación 4.12 0,25/0,60/0,15 baja el precio de Sí de Viscofan 4.13 de 40,164007 a 38,536370 (−1,6276 €; D7 cita 38,5364 ✓) y sube el de la 4.12 «Caja» de 39,287701 a 40,948199 (+1,6605 €; D7 cita 40,9482 ✓). Descomposición 4.12→4.13 (activa): cambio total +1,5478 € = efecto p (Shapley, dos órdenes) +1,6412 € + efecto V −0,0934 €; los dos órdenes dan efecto p entre +1,6276 y +1,6547 (D7: «+1,63 a +1,66» ✓). 4.13→4.14: −0,3658 € con p fijo (efecto puro de V). **Discrepancia documentada:** D7 cita «+1,5386 €» como cambio total; con los vectores publicados el total activa 4.12→4.13 es +1,5478 € (diferencia 0,0092 € no reproducible con los datos del paquete). `SENSIBILIDAD_FINITA.csv`: 192 puntos (3 casos × 8 k × 8 p), rejilla la anunciada en `INVENTARIO_Y_PLAN.md` §4; rangos de precio_si: A1 71,54–100,00; H1 48,81–60,19; H2 33,58–43,77; todos los residuos F exactos 0.
+
+## Pendiente / siguiente acción exacta
+
+1. Bloque B4: `codigo/protocolos_cobertura.py` + `PROTOCOLOS_COBERTURA.md` (contrato de `objetivo_v64.py`: cobertura aislada/conjunta necesaria/conjunta/sin cobertura; materialidad para acción vs para objetivo; condiciones necesarias y suficientes del tratamiento; ejemplos sintéticos; contraste con las coberturas reales 4.14 de `contraste_objetivo_v64.md`). Commit y push.
+2. Bloque B5: `DOSSIER_D1_D7_D11.md`, `HALLAZGOS.md`, `RESUMEN_PARA_CLAUDE.md`, `MANIFIESTO_SHA256.txt`. Commit y push final. Sin PR ni fusión.
 
 ## Modelo y limitaciones
 

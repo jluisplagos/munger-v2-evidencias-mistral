@@ -1,0 +1,20 @@
+tabla,comparacion,V,p,k,precio,P_estrella,P_estrella_float,precio_si,ponderado,zona,residuo_F,publicado_paquete,residuo_vs_publicado,nota,delta_eur
+1_p_con_V_fijo,"Viscofan 4.13 activa (H3) con p referencia 0,20/0,60/0,20",30.0158463006955;44.1839566126552;58.5486415301981,1/5;3/5;1/5,3,54.7,1405740251351251/35000000000000,40.164007,40.164007,44.223272,caro,0,40.164007,0.000e+00,entrega 4.13; coincide con precio publicado del paquete,
+1_p_con_V_fijo,"Viscofan 4.13 activa (H3) con p 4.12 0,25/0,60/0,15",30.0158463006955;44.1839566126552;58.5486415301981,1/4;3/5;3/20,3,54.7,963409248710741/25000000000000,38.536370,38.536370,42.796632,caro,0,,,"D7 [cálculo B] cita 38,5364 € para esta celda",
+1_p_con_V_fijo,"Viscofan 4.12 activa (H4) con p 4.12 0,25/0,60/0,15",30.0408870593671;44.1839566126552;59.2219987880685,1/4;3/5;3/20,3,54.7,241351412834703/6250000000000,38.616226,38.616226,42.903896,caro,0,38.616226,0.000e+00,entrega 4.12 (antecedente); coincide con publicado,
+1_p_con_V_fijo,"Viscofan 4.12 activa (H4) con p referencia 0,20/0,60/0,20",30.0408870593671;44.1839566126552;59.2219987880685,1/5;3/5;1/5,3,54.7,201354664145811/5000000000000,40.270933,40.270933,44.362951,caro,0,,,celda cruzada para la descomposición,
+1_p_con_V_fijo,"Viscofan 4.12 «Caja» (H5) con p 4.12 0,25/0,60/0,15",30.6924526872033;44.8547080140724;59.9959132127419,1/4;3/5;3/20,3,54.7,49109626088131/1250000000000,39.287701,39.287701,43.585325,caro,0,39.287701,0.000e+00,perímetro Caja de la 4.12; coincide con publicado,
+1_p_con_V_fijo,"Viscofan 4.12 «Caja» (H5) con p referencia 0,20/0,60/0,20",30.6924526872033;44.8547080140724;59.9959132127419,1/5;3/5;1/5,3,54.7,286637395316569/7000000000000,40.948199,40.948199,45.050498,caro,0,,,"D7 [cálculo B] cita 40,9482 € para esta celda",
+1_p_con_V_fijo,Viscofan 4.14 activa (H2) con p referencia,29.7797012085668;43.7670991087673;57.9469537938741,1/5;3/5;1/5,3,54.7,99495483837813/2500000000000,39.798194,39.798194,43.805590,caro,0,39.798194,7.105e-15,entrega 4.14 vigente; coincide con publicado,
+1_p_con_V_fijo,"Viscofan 4.14 activa (H2) con p 4.12 0,25/0,60/0,15",29.7797012085668;43.7670991087673;57.9469537938741,1/4;3/5;3/20,3,54.7,3819138562717773/100000000000000,38.191386,38.191386,42.397228,caro,0,,,¿qué habría pasado en 4.14 con la desviación de la 4.12?,
+1_p_con_V_fijo,Vidrala 4.14 activa (H1) con p referencia,44.3217226721019;60.1901164149973;78.4785189164147,1/5;3/5;1/5,3,90.1,3920140361777123/70000000000000,56.002005,56.002005,60.674118,caro,0,56.002005,0.000e+00,Vidrala nunca se desvió de la referencia en las fases B publicadas,
+1_p_con_V_fijo,"Vidrala 4.14 activa (H1) con p 4.12 0,25/0,60/0,15 (hipotético)",44.3217226721019;60.1901164149973;78.4785189164147,1/4;3/5;3/20,3,90.1,2704237989684567/50000000000000,54.084760,54.084760,58.966278,caro,0,,,"contrafactual: solo para medir el efecto de p, no una propuesta",
+2_descomposicion_4_12_a_4_13,cambio total 4.12→4.13 (activa),,,,,,,,,,,,,"40.164007 − 38.616226; D7 cita «+1,5386 €» — véase nota de discrepancia abajo",1.547781
+2_descomposicion_4_12_a_4_13,efecto de p (p_412→p_ref) con V de 4.12 fijo,,,,,,,,,,,,,40.270933 − 38.616226,1.654707
+2_descomposicion_4_12_a_4_13,efecto de p (p_412→p_ref) con V de 4.13 fijo,,,,,,,,,,,,,40.164007 − 38.536370,1.627637
+2_descomposicion_4_12_a_4_13,efecto de V (4.12→4.13) con p_ref fijo,,,,,,,,,,,,,40.164007 − 40.270933,-0.106926
+2_descomposicion_4_12_a_4_13,efecto de V (4.12→4.13) con p_412 fijo,,,,,,,,,,,,,38.536370 − 38.616226,-0.079856
+2_descomposicion_4_12_a_4_13,"efecto de p medio (Shapley, dos órdenes)",,,,,,,,,,,,,media de los dos órdenes; la descomposición depende del orden salvo que los efectos sean aditivos,1.641172
+2_descomposicion_4_12_a_4_13,"efecto de V medio (Shapley, dos órdenes)",,,,,,,,,,,,,idem,-0.093391
+3_entregas_4_13_4_14,"cambio total 4.13→4.14 (Viscofan, p fijo en referencia)",,,,,,,,,,,,,"efecto puro de V/palancas: las probabilidades no cambiaron entre 4.13 y 4.14 (ambas 0,20/0,60/0,20 según sus fase_b)",-0.365814
+3_entregas_4_13_4_14,cambio total 4.12→4.14 (Viscofan),,,,,,,,,,,,,39.798194 − 38.616226; suma de la tabla 2 (4.12→4.13) y de esta tabla (4.13→4.14),1.181967
