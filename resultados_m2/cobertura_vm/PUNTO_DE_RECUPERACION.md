@@ -44,6 +44,7 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 
 ## Lotes publicados (revision externa A / correccion de contexto)
 
+- `L00` (revision A): 60 entradas; mecanico [COINCIDE_PROPUESTO=57, DATO_AUSENTE=1, HIPOTESIS=2]; contextual [REUTILIZADO_M1=60]; `resultados/lotes/lote_L00.json`
 - `L05` (revision A): 30 entradas; mecanico [COINCIDE_PROPUESTO=30]; contextual [REVISADO_CONTEXTUAL=30]; `resultados/lotes/lote_L05.json`
 
 ## Entrega final (universo completo)
