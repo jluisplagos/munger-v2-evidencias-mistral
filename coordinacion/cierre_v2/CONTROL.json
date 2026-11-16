@@ -225,20 +225,23 @@
       "autor": "Mistral A",
       "revisor_propuesto": "Claude",
       "entrega": "ENTREGADO",
-      "revision": "PENDIENTE",
+      "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "d2419e5af2c91d89038a210a77242632d5823950",
+      "commit_origen": "2c41d689fde13dbb9e6affbdb470181291ec2519",
       "commit_destino": null,
       "evidencia": [
-        "resultados_m2/cobertura_vm/PUNTO_DE_RECUPERACION.md @ d2419e5"
+        "resultados_m2/cobertura_vm/PUNTO_DE_RECUPERACION.md @ d2419e5",
+        "resultados_m2/cobertura_vm/ @ 2c41d68 (mistral/m2-cobertura-vm)",
+        "coordinacion/cierre_v2/revisiones_coordinador/A_2c41d68/REVISION_A_2c41d68.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/A_2c41d68/CORRECCION_A2.md"
       ],
       "pruebas_autor": "DECLARADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Revisar diff v3 y reproducir; comprobar importe20xx frente a metadato de año.",
+      "siguiente_accion": "Mistral A corrige A2-R1…R5 (CORRECCION_A2.md): columna sin posición (32 entradas reales), reexpresión sin escala/perímetro y por prefijo (19+44), escala de página en millones, años sin límites de palabra, textos desfasados. Se conserva la reproducibilidad (51/52 byte a byte, PASS) y el arreglo v3.1.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": null,
+      "commit_revisado": "2c41d689fde13dbb9e6affbdb470181291ec2519",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -667,6 +670,11 @@
       "tipo": "REVISION",
       "fecha": "2026-11-16",
       "hecho": "D @ 1ac661b revisado por un contexto distinto del autor (subagente del coordinador): CORRECCIONES (D2-R1…R7). Manifiesto y regla de la matriz comprobados por el coordinador. No aceptado ni integrado."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-16",
+      "hecho": "A @ 2c41d68 revisado por un contexto distinto del autor (subagente del coordinador): reproducción conforme; CORRECCIONES A2-R1…R5. Regla de check_columna comprobada por el coordinador. No aceptado ni integrado."
     }
   ],
   "consulta_remotos_arranque": {

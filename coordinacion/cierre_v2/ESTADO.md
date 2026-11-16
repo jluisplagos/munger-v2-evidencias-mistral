@@ -13,7 +13,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | F1-W | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | d519eb0 |
 | C20 | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | bf0d5c2 |
 | CSV | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 77ff89f |
-| A-CTX | Mistral A | ENTREGADO | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | d2419e5 |
+| A-CTX | Mistral A | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 2c41d68 |
 | D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
 | D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
 | E-ELIS | Antigua Mistral B, nueva E | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
@@ -37,7 +37,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - **C20 · C20: U1–U6 del verificador respondidas; contraste pendiente**: Mistral C/F contrasta solo lo afectado (solicitud LISTA); el coordinador sigue con CSV.
 - **CSV · Cifras [LECTURA] al CSV verificado (bloque CSV de ENCARGO_C20_CSV.md, f5775dc)**: Mistral C/F contrasta solo lo afectado por el bloque CSV (solicitud LISTA). Seis columnas por sociedad (Lavartex y «otras adquisiciones») siguen [LECTURA] con motivo; N1 no se aplica.
   Dependencias: C20.
-- **A-CTX · Evidencia contextual A v3**: Revisar diff v3 y reproducir; comprobar importe20xx frente a metadato de año.
+- **A-CTX · Evidencia contextual A v3**: Mistral A corrige A2-R1…R5 (CORRECCION_A2.md): columna sin posición (32 entradas reales), reexpresión sin escala/perímetro y por prefijo (19+44), escala de página en millones, años sin límites de palabra, textos desfasados. Se conserva la reproducibilidad (51/52 byte a byte, PASS) y el arreglo v3.1.
 - **D-HARNESS · Arnés D v2 y paquetes íntegros**: Mistral D corrige D2-R1…R7 (CORRECCION_D2.md): aserciones que aceptan resultados vacíos o forjados, Q1-026 incoherente con el banco, relevos vacíos de Q1-028/032, correspondencia de criterios, manifiesto. Se conserva D-R2 y la detección de las sondas de d375d80.
 - **D-36 · Aceptación completa de 36 casos Qwen**: Ningún caso del personaje ejecutado (0/36). Recuento del revisor: 29 componentes con precondiciones del arnés, 1 bloqueo de entorno (Q1-026), 2 observación compartida, 2 pendientes de agente, 2 de decisión del usuario. El runtime del coordinador ejecuta el personaje cuando D2-R4 dé relevos completos.
   Dependencias: D-HARNESS, T-CAND.
