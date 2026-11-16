@@ -129,6 +129,11 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 
 - SYNONYMS ampliado (arrendamiento/derecho de uso/pasivos/deudas ES↔EN). Grupo top Viscofan CF_2024 p.3: arrend_cp/lp_2023 → REVISADO (igualdad con signo confirmada en CA_2023_es p.3). Fuentes **298 REVISADO / 126 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO**; CSV **342 / 169 / 60 / 106 / 0**; control **PASS exit 0**; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; lotes regenerados; registro actualizado (126 fuentes / 54 grupos / 43 derivados).
 
+## Cierre v2 · Bloque 2 · v3.8/v3.9 — ejecutado
+
+- v3.8 léxico financiero ES/EN + umbral de tokens; v3.9 corroboración por fila 1:1 que confirma el valor (con signo) en la columna yc (+62 mejoras, 0 regresiones).
+- Fuentes **356 REVISADO / 68 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO**; CSV **426 / 85 / 60 / 106 / 0** (85 = 68 fuentes + 17 derivados); control **PASS exit 0**; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; lotes regenerados; registro: 33 grupos restantes, bloqueos SIN_ORIGINAL 36 (falta doc. 2016 entre los 251 insumos fijados), ALCANCE_SIN_PUENTE 11, AMBIGÜEDAD 9, NO_MAPEABLE 5, DECLARA_NO_DIFIERE 4, otros 5.
+
 ## Pendiente / siguiente acción exacta
 
 1. **Claude coordinador revisa Bloque 1 y esta pasada sistemática** — no autoaprobación.

@@ -11,9 +11,9 @@
     "NO_APLICABLE": 2
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 13,
+    "PENDIENTE_CONTEXTUAL": 6,
     "NO_APLICA": 3,
-    "REVISADO_CONTEXTUAL": 14
+    "REVISADO_CONTEXTUAL": 21
   },
   "entradas": [
     {
@@ -145,12 +145,12 @@
       "id": "h_capex",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2017\"] + o[\"aux:capex_int_2017\"] -> 89.020 (valor_modelo 89.02, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2017\"] + o[\"aux:capex_int_2017\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2017\"] + o[\"aux:capex_int_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 86.479 + 2.541 = 89.02 mm. En CF_2018 los rótulos de la columna 2018 están desplazados; la columna 2017 coincide con CF_2017 p.14. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
-      "limites_contextuales": "aux:capex_int_2017: dimension reexpresion no decidible (el valor -2541 figura en CF_2017.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2017 mapeable 1:)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -166,10 +166,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:capex_int_2017: dimension reexpresion no decidible (el valor -2541 figura en CF_2017.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2017 mapeable 1:)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -231,12 +229,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2017\"] - o[\"aux:pasivo_total_2017\"] - o[\"Historia!D21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2017\"] - o[\"aux:pasivo_total_2017\"] - o[\"Historia!D21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2017\"] - o[\"aux:pasivo_total_2017\"] - o[\"Historia!D21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,404,899 − pasivo total 876,763 − patrimonio atribuido a la dominante 528,136 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "aux:pn_y_pasivo_2017: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2017.txt imprime 876,763 en la columna 2017 frente al comparativo 1404899: pe) | aux:pasivo_total_2017: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2017.txt imprime 20,854 en la columna 2017 frente al comparativo 876763: pend)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -252,11 +250,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:pn_y_pasivo_2017: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2017.txt imprime 876,763 en la columna 2017 frente al comparativo 1404899: pe)",
-          "aux:pasivo_total_2017: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2017.txt imprime 20,854 en la columna 2017 frente al comparativo 876763: pend)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -367,7 +362,7 @@
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:inversion_total_2018\"] + o[\"aux:capex_mat_2018\"] + o[\"aux:capex_int_2018\"] - o[\"aux:otros_inv_2018\"]) -> 0.000 (valor_modelo 0, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:inversion_total_2018\"] + o[\"aux:capex_mat_2018\"] + o[\"aux:capex_int_2018\"] - o[\"aux:otros_inv_2018\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: el total de inversión de 2018 es exactamente la suma de las líneas de inmovilizado y la de +13, sin flujo por compras o ventas de negocios. En 2018 la línea «Acquisition of a subsidiary» solo trae el importe de 2017 (CF_2018 p.13). Era un cero PENDIENTE DE VERIFICACIÓN (H1) en 2018.",
-      "limites_contextuales": "aux:capex_mat_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: (99,541) y (2,245))); el original CF_2018.txt imprime 2,428 ) | aux:otros_inv_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: 13)); el original CF_2018.txt imprime (2,245) en la columna )",
+      "limites_contextuales": "aux:capex_mat_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: (99,541) y (2,245))); el original CF_2018.txt imprime 2,428 ) | aux:otros_inv_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: 13)); el original CF_2018.txt imprime 25,136 en la columna 2)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -386,7 +381,7 @@
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
           "aux:capex_mat_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: (99,541) y (2,245))); el original CF_2018.txt imprime 2,428 )",
-          "aux:otros_inv_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: 13)); el original CF_2018.txt imprime (2,245) en la columna )"
+          "aux:otros_inv_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: 13)); el original CF_2018.txt imprime 25,136 en la columna 2)"
         ]
       }
     },
@@ -449,12 +444,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2018\"] - o[\"aux:pasivo_total_2018\"] - o[\"Historia!E21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2018\"] - o[\"aux:pasivo_total_2018\"] - o[\"Historia!E21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2018\"] - o[\"aux:pasivo_total_2018\"] - o[\"Historia!E21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,407,335 − pasivo total 797,337 − patrimonio atribuido a la dominante 609,998 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "aux:pn_y_pasivo_2018: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2018.txt imprime 797,337 en la columna 2018 frente al comparativo 1407335: pe) | aux:pasivo_total_2018: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2018.txt imprime 31,319 en la columna 2018 frente al comparativo 797337: pend)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -470,11 +465,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:pn_y_pasivo_2018: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2018.txt imprime 797,337 en la columna 2018 frente al comparativo 1407335: pe)",
-          "aux:pasivo_total_2018: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2018.txt imprime 31,319 en la columna 2018 frente al comparativo 797337: pend)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -638,12 +630,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2019\"] - o[\"aux:pasivo_total_2019\"] - o[\"Historia!F21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2019\"] - o[\"aux:pasivo_total_2019\"] - o[\"Historia!F21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2019\"] - o[\"aux:pasivo_total_2019\"] - o[\"Historia!F21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,457,861 − pasivo total 734,502 − patrimonio atribuido a la dominante 723,359 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "aux:pn_y_pasivo_2019: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2019.txt imprime 734,502 en la columna 2019 frente al comparativo 1457861: pe) | aux:pasivo_total_2019: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2019.txt imprime 28,350 en la columna 2019 frente al comparativo 734502: pend)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -659,11 +651,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:pn_y_pasivo_2019: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2019.txt imprime 734,502 en la columna 2019 frente al comparativo 1457861: pe)",
-          "aux:pasivo_total_2019: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2019.txt imprime 28,350 en la columna 2019 frente al comparativo 734502: pend)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -799,12 +788,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2020\"] - o[\"aux:pasivo_total_2020\"] - o[\"Historia!G21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2020\"] - o[\"aux:pasivo_total_2020\"] - o[\"Historia!G21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2020\"] - o[\"aux:pasivo_total_2020\"] - o[\"Historia!G21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,521,447 − pasivo total 705,291 − patrimonio atribuido a la dominante 816,156 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "aux:pn_y_pasivo_2020: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2020.txt imprime 705,291 en la columna 2020 frente al comparativo 1521447: pe) | aux:pasivo_total_2020: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2020.txt imprime 20,135 en la columna 2020 frente al comparativo 705291: pend)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -820,11 +809,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:pn_y_pasivo_2020: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2020.txt imprime 705,291 en la columna 2020 frente al comparativo 1521447: pe)",
-          "aux:pasivo_total_2020: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2020.txt imprime 20,135 en la columna 2020 frente al comparativo 705291: pend)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -864,12 +850,12 @@
       "id": "h_capex",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2021\"] + o[\"aux:capex_int_2021\"] -> 109.800 (valor_modelo 109.8, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2021\"] + o[\"aux:capex_int_2021\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2021\"] + o[\"aux:capex_int_2021\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 107.604 + 2.196 = 109.8 mm. Rótulos «Payments from sale of…» en la traducción: son pagos por adquisición (salidas); 107.604 impreso con punto de millar. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
-      "limites_contextuales": "aux:capex_int_2021: dimension reexpresion no decidible (el valor -2196 figura en CF_2021.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2021 mapeable 1:)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -885,10 +871,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:capex_int_2021: dimension reexpresion no decidible (el valor -2196 figura en CF_2021.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2021 mapeable 1:)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -897,12 +881,12 @@
       "id": "h_adquisiciones",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:inversion_total_2021\"] + o[\"aux:capex_mat_2021\"] + o[\"aux:capex_int_2021\"]) -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:inversion_total_2021\"] + o[\"aux:capex_mat_2021\"] + o[\"aux:capex_int_2021\"]) (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:inversion_total_2021\"] + o[\"aux:capex_mat_2021\"] + o[\"aux:capex_int_2021\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: el total de inversión de 2021 es exactamente la suma de las líneas de inmovilizado, sin flujo por compras o ventas de negocios. El bloque de inversión solo tiene las dos líneas de inmovilizado. Era un cero PENDIENTE DE VERIFICACIÓN (H1) en 2021.",
-      "limites_contextuales": "aux:capex_int_2021: dimension reexpresion no decidible (el valor -2196 figura en CF_2021.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2021 mapeable 1:)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -918,10 +902,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:capex_int_2021: dimension reexpresion no decidible (el valor -2196 figura en CF_2021.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2021 mapeable 1:)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {

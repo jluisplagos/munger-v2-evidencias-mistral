@@ -13,7 +13,8 @@
   },
   "estados_contextuales": {
     "NO_APLICA": 26,
-    "PENDIENTE_CONTEXTUAL": 4
+    "REVISADO_CONTEXTUAL": 1,
+    "PENDIENTE_CONTEXTUAL": 3
   },
   "entradas": [
     {
@@ -66,12 +67,12 @@
       "id": "N1.tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:CF2022_p21_impuesto_2021\"] / o[\"aux:CF2022_p21_bai_2021\"] + o[\"aux:CA2023_p4_impuesto_2022\"] / o[\"aux:CA2023_p4_bai_2022\"] + o[\"aux:CF2024_p4_impuesto_2023\"] / o[\"aux:CF2024_p4_bai_2023\"] + (o[\"aux:AR2025_p23_impuesto_2024\"] + o[\"aux:AR2025_p109_activacion_BIN_2024\"]) / o[\"aux:AR2025_p23_bai_2024\"] + (o[\"aux:AR2025_p23_impuesto_2025\"] + o[\"aux:AR2025_p109_activacion_BIN_2025\"]) / o[\"aux:AR2025_p23_bai_2025\"]) / 5 -> 0.2211908380535984913648839826 (valor_modelo 0.22119083805359852, diff -2.86351160174E-17)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula (o[\"aux:CF2022_p21_impuesto_2021\"] / o[\"aux:CF2022_p21_bai_2021\"] + o[\"aux:CA2023_p4_impuesto_2022\"] / o[\"aux:CA2023_p4_bai_2022\"] + o[\"aux:CF2024_p4_impuesto_2023\"] / o[\"aux:CF2024_p4_bai_2023\"] + (o[\"aux:AR2025_p23_impuesto_2024\"] + o[\"aux:AR2025_p109_activacion_BIN_2024\"]) / o[\"aux:AR2025_p23_bai_2024\"] + (o[\"aux:AR2025_p23_impuesto_2025\"] + o[\"aux:AR2025_p109_activacion_BIN_2025\"]) / o[\"aux:AR2025_p23_bai_2025\"]) / 5 (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula (o[\"aux:CF2022_p21_impuesto_2021\"] / o[\"aux:CF2022_p21_bai_2021\"] + o[\"aux:CA2023_p4_impuesto_2022\"] / o[\"aux:CA2023_p4_bai_2022\"] + o[\"aux:CF2024_p4_impuesto_2023\"] / o[\"aux:CF2024_p4_bai_2023\"] + (o[\"aux:AR2025_p23_impuesto_2024\"] + o[\"aux:AR2025_p109_activacion_BIN_2024\"]) / o[\"aux:AR2025_p23_bai_2024\"] + (o[\"aux:AR2025_p23_impuesto_2025\"] + o[\"aux:AR2025_p109_activacion_BIN_2025\"]) / o[\"aux:AR2025_p23_bai_2025\"]) / 5 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. N1 = media 2021–2025 de los tipos anuales (gasto ÷ resultado antes de impuestos), quitando del gasto de 2024 y 2025 la activación de bases imponibles negativas de EE. UU. (2,493 y 18,009; AR_2025 p. 109; la empresa atribuye a ella el 10,1 % de 2025, p. 142): 24,61 % · 24,14 % · 16,54 % · 24,99 % · 20,31 % → 22,12 %. Gasto y resultado se toman de las cuentas de resultados (los mismos importes de las conciliaciones: AR_2025 p. 109, CF_2024 p. 85, CF_2022 p. 74). La deducción de 2023 por ICMS no está cuantificada y no se ajusta; sin además los ajustes de ejercicios anteriores sería 22,66 % (lectura). Resultado de la fórmula con los orígenes registrados: 0.221191; valor del libro: 0.22119083805359852.",
-      "limites_contextuales": "aux:CF2024_p4_impuesto_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -87,10 +88,8 @@
         "diferencia": "-2.86351160174E-17",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:CF2024_p4_impuesto_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {

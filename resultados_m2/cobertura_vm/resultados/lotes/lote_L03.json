@@ -12,8 +12,8 @@
   },
   "estados_contextuales": {
     "NO_APLICA": 13,
-    "PENDIENTE_CONTEXTUAL": 6,
-    "REVISADO_CONTEXTUAL": 11
+    "REVISADO_CONTEXTUAL": 15,
+    "PENDIENTE_CONTEXTUAL": 2
   },
   "entradas": [
     {
@@ -44,12 +44,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2021\"] - o[\"aux:pasivo_total_2021\"] - o[\"Historia!H21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2021\"] - o[\"aux:pasivo_total_2021\"] - o[\"Historia!H21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2021\"] - o[\"aux:pasivo_total_2021\"] - o[\"Historia!H21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,703,246 − pasivo total 736,344 − patrimonio atribuido a la dominante 966,902 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "aux:pn_y_pasivo_2021: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2021.txt imprime 736,344 en la columna 2021 frente al comparativo 1703246: pe) | aux:pasivo_total_2021: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2021.txt imprime 20,087 en la columna 2021 frente al comparativo 736344: pend)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -65,11 +65,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:pn_y_pasivo_2021: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2021.txt imprime 736,344 en la columna 2021 frente al comparativo 1703246: pe)",
-          "aux:pasivo_total_2021: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2021.txt imprime 20,087 en la columna 2021 frente al comparativo 736344: pend)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -109,12 +106,12 @@
       "id": "h_capex",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2022\"] + o[\"aux:capex_int_2022\"] -> 120.200 (valor_modelo 120.2, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2022\"] + o[\"aux:capex_int_2022\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2022\"] + o[\"aux:capex_int_2022\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 117.296 + 2.904 = 120.2 mm. Rótulos «Payments from sale of…»: son pagos por adquisición. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
-      "limites_contextuales": "aux:capex_int_2022: dimension reexpresion no decidible (el valor -2904 figura en CF_2022.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2022 mapeable 1:)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -130,10 +127,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:capex_int_2022: dimension reexpresion no decidible (el valor -2904 figura en CF_2022.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2022 mapeable 1:)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -206,12 +201,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2022\"] - o[\"aux:pasivo_total_2022\"] - o[\"Historia!I21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2022\"] - o[\"aux:pasivo_total_2022\"] - o[\"Historia!I21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2022\"] - o[\"aux:pasivo_total_2022\"] - o[\"Historia!I21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,953,527 − pasivo total 919,903 − patrimonio atribuido a la dominante 1,033,624 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "aux:pn_y_pasivo_2022: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 919,903 en la columna 2022 frente al comparativo 1953527: pe) | aux:pasivo_total_2022: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 26,379 en la columna 2022 frente al comparativo 919903: pend)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -227,11 +222,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:pn_y_pasivo_2022: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 919,903 en la columna 2022 frente al comparativo 1953527: pe)",
-          "aux:pasivo_total_2022: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2022.txt imprime 26,379 en la columna 2022 frente al comparativo 919903: pend)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -428,12 +420,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2024\"] - o[\"aux:pasivo_total_2024\"] - o[\"Historia!K21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2024\"] - o[\"aux:pasivo_total_2024\"] - o[\"Historia!K21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2024\"] - o[\"aux:pasivo_total_2024\"] - o[\"Historia!K21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 2,308,172 − pasivo total 998,342 − patrimonio atribuido a la dominante 1,309,830 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "aux:pn_y_pasivo_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 998,342 en la columna 2024 frente al comparativo 2308172: pe) | aux:pasivo_total_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 30,848 en la columna 2024 frente al comparativo 998342: pend)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -449,11 +441,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:pn_y_pasivo_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 998,342 en la columna 2024 frente al comparativo 2308172: pe)",
-          "aux:pasivo_total_2024: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2024.txt imprime 30,848 en la columna 2024 frente al comparativo 998342: pend)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {

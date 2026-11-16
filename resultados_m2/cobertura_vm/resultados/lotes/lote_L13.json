@@ -11,9 +11,9 @@
     "DATO_AUSENTE": 2
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 16,
-    "NO_APLICA": 3,
-    "REVISADO_CONTEXTUAL": 11
+    "REVISADO_CONTEXTUAL": 25,
+    "PENDIENTE_CONTEXTUAL": 2,
+    "NO_APLICA": 3
   },
   "entradas": [
     {
@@ -22,12 +22,12 @@
       "id": "h_tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:IA2018_p24_impuesto_2017\"] / o[\"aux:IA2018_p24_bai_2017\"] -> 0.1605564231512758243497045206 (valor_modelo 0.1606, diff -0.0000435768487241756502954794)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:IA2018_p24_impuesto_2017\"] / o[\"aux:IA2018_p24_bai_2017\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:IA2018_p24_impuesto_2017\"] / o[\"aux:IA2018_p24_bai_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Tipo impositivo efectivo 2017 = gasto por impuesto sobre las ganancias ÷ resultado antes de impuestos (los dos del mismo estado, consolidado, actividades continuadas); el libro lo guarda redondeado a 4 decimales. Resultado de la fórmula con los orígenes registrados: 0.160556; valor del libro: 0.1606.",
-      "limites_contextuales": "aux:IA2018_p24_impuesto_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex) | aux:IA2018_p24_bai_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -43,11 +43,8 @@
         "diferencia": "-0.0000435768487241756502954794",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:IA2018_p24_impuesto_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex)",
-          "aux:IA2018_p24_bai_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -61,7 +58,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:IA2018_p104_bancos_2017\"] + o[\"aux:IA2018_p104_intereses_2017\"] + o[\"aux:IA2018_p104_arrend_financiero_2017\"] + o[\"aux:IA2018_p104_otros_pasivos_financieros_2017\"] -> 93.698 (valor_modelo 93.698, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:IA2018_p104_bancos_2017\"] + o[\"aux:IA2018_p104_intereses_2017\"] + o[\"aux:IA2018_p104_arrend_financiero_2017\"] + o[\"aux:IA2018_p104_otros_pasivos_financieros_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Deuda financiera 2017 = deudas con entidades de crédito 68.832 + intereses devengados 228 + arrendamiento financiero NIC 17 190 + otros pasivos financieros 24.448 = 93.698 miles (IA_2018_es p. 104, nota 19, columna «Total valor contable» a 31-dic-2017: fuente que cita la fase 1 para 2017) = «Total a 31 de diciembre 2017» 93.722 − derivados 24; igual que AR_2017 p. 83. Mismo criterio que 2016 y 2018–2025 (todos los pasivos financieros salvo derivados). Resultado de la fórmula con los orígenes registrados: 93.698000; valor del libro: 93.698.",
-      "limites_contextuales": "aux:IA2018_p104_bancos_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex) | aux:IA2018_p104_intereses_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible) | aux:IA2018_p104_arrend_financiero_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible) | aux:IA2018_p104_otros_pasivos_financieros_2017: dimension reexpresion no decidible (la fila aparece en AR_2017.txt (linea 4752) pero la columna 2017 no se puede mapear 1:1 (columnas ['2017', '2016'], valo)",
+      "limites_contextuales": "aux:IA2018_p104_bancos_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex) | aux:IA2018_p104_intereses_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible) | aux:IA2018_p104_arrend_financiero_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible) | aux:IA2018_p104_otros_pasivos_financieros_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usa la fase 1); sin reex)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -82,7 +79,7 @@
           "aux:IA2018_p104_bancos_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex)",
           "aux:IA2018_p104_intereses_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)",
           "aux:IA2018_p104_arrend_financiero_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)",
-          "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension reexpresion no decidible (la fila aparece en AR_2017.txt (linea 4752) pero la columna 2017 no se puede mapear 1:1 (columnas ['2017', '2016'], valo)"
+          "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usa la fase 1); sin reex)"
         ]
       }
     },
@@ -114,12 +111,12 @@
       "id": "h_da",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:IA2018_p28_amort_intangible_2017\"] + o[\"aux:IA2018_p28_amort_material_2017\"] -> 56.382 (valor_modelo 56.382, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:IA2018_p28_amort_intangible_2017\"] + o[\"aux:IA2018_p28_amort_material_2017\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:IA2018_p28_amort_intangible_2017\"] + o[\"aux:IA2018_p28_amort_material_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. D&A 2017 = amortización del intangible + del material (estado de flujos, IA_2018 p. 28): 3.488 + 52.894 = 56.382 miles. Resultado de la fórmula con los orígenes registrados: 56.382000; valor del libro: 56.382.",
-      "limites_contextuales": "aux:IA2018_p28_amort_intangible_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex) | aux:IA2018_p28_amort_material_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -135,11 +132,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:IA2018_p28_amort_intangible_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex)",
-          "aux:IA2018_p28_amort_material_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -148,12 +142,12 @@
       "id": "h_tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2019_p8_impuesto_2018\"] / o[\"aux:AR2019_p8_bai_2018\"] -> 0.1601368644729427898356404320 (valor_modelo 0.1601, diff 0.0000368644729427898356404320)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2019_p8_impuesto_2018\"] / o[\"aux:AR2019_p8_bai_2018\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2019_p8_impuesto_2018\"] / o[\"aux:AR2019_p8_bai_2018\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Tipo impositivo efectivo 2018 = gasto por impuesto sobre las ganancias ÷ resultado antes de impuestos (los dos del mismo estado, consolidado, actividades continuadas); el libro lo guarda redondeado a 4 decimales. Resultado de la fórmula con los orígenes registrados: 0.160137; valor del libro: 0.1601.",
-      "limites_contextuales": "aux:AR2019_p8_impuesto_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF ) | aux:AR2019_p8_bai_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF )",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -169,11 +163,8 @@
         "diferencia": "0.0000368644729427898356404320",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:AR2019_p8_impuesto_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF )",
-          "aux:AR2019_p8_bai_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF )"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -187,7 +178,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2019_p11_pasivo_fin_nc_2018\"] + o[\"aux:AR2019_p11_pasivo_fin_c_2018\"] + o[\"aux:AR2019_p11_derechos_uso_nc_2018\"] + o[\"aux:AR2019_p11_derechos_uso_c_2018\"] -> 134.924 (valor_modelo 134.924, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2019_p11_pasivo_fin_nc_2018\"] + o[\"aux:AR2019_p11_pasivo_fin_c_2018\"] + o[\"aux:AR2019_p11_derechos_uso_nc_2018\"] + o[\"aux:AR2019_p11_derechos_uso_c_2018\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Deuda financiera 2018 = pasivos financieros no corrientes 56,449 + corrientes 78,412 + arrendamiento financiero NIC 17 (28 + 35) = 134,924 miles (AR_2019 p. 11) = total de la nota 20 (134,861, p. 86) + 63. Excluye derivados (495 + 1,047). En 2018 no hay pasivo NIIF 16: los 63 son el arrendamiento financiero antiguo y van en la deuda, no en la fila 23. Resultado de la fórmula con los orígenes registrados: 134.924000; valor del libro: 134.924.",
-      "limites_contextuales": "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt'])) | aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt'])) | aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v) | aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)",
+      "limites_contextuales": "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF ) | aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF ) | aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v) | aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -205,8 +196,8 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
-          "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
-          "aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
+          "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF )",
+          "aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF )",
           "aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)",
           "aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)"
         ]
@@ -218,12 +209,12 @@
       "id": "h_da",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2019_p12_amort_intangible_2018\"] + o[\"aux:AR2019_p12_amort_material_2018\"] -> 62.438 (valor_modelo 62.438, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2019_p12_amort_intangible_2018\"] + o[\"aux:AR2019_p12_amort_material_2018\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2019_p12_amort_intangible_2018\"] + o[\"aux:AR2019_p12_amort_material_2018\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. D&A 2018 = amortización del intangible + del material (estado de flujos, AR_2019 p. 12; derechos de uso «-» en 2018): 3,801 + 58,637 = 62,438 miles. Resultado de la fórmula con los orígenes registrados: 62.438000; valor del libro: 62.438.",
-      "limites_contextuales": "aux:AR2019_p12_amort_intangible_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF ) | aux:AR2019_p12_amort_material_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF )",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -239,11 +230,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:AR2019_p12_amort_intangible_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF )",
-          "aux:AR2019_p12_amort_material_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF )"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -283,12 +271,12 @@
       "id": "h_circulante",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:AR2020_p8_var_existencias_2019\"] + o[\"aux:AR2020_p8_var_deudores_2019\"] + o[\"aux:AR2020_p8_var_acreedores_2019\"]) -> -6.135 (valor_modelo -6.135, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:AR2020_p8_var_existencias_2019\"] + o[\"aux:AR2020_p8_var_deudores_2019\"] + o[\"aux:AR2020_p8_var_acreedores_2019\"]) (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:AR2020_p8_var_existencias_2019\"] + o[\"aux:AR2020_p8_var_deudores_2019\"] + o[\"aux:AR2020_p8_var_acreedores_2019\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Aumento del circulante 2019 = −(existencias 15.023 + deudores −6.919 + acreedores −1.969) = −6.135 miles (AR_2020 p. 8, columna 2019, comparativo: fuente que cita la fase 1 para 2019). Coincide, con el signo del modelo, con el subtotal de la empresa AR_2019 p. 12 «Changes in working capital 6,135 (48,180)». La variación de provisiones (5.999) ya no se suma, como en el resto de la serie. Resultado de la fórmula con los orígenes registrados: -6.135000; valor del libro: -6.135.",
-      "limites_contextuales": "aux:AR2020_p8_var_acreedores_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -304,10 +292,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:AR2020_p8_var_acreedores_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -316,12 +302,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2020_p4_pasivo_fin_nc_2019\"] + o[\"aux:AR2020_p4_pasivo_fin_c_2019\"] -> 122.337 (valor_modelo 122.337, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2020_p4_pasivo_fin_nc_2019\"] + o[\"aux:AR2020_p4_pasivo_fin_c_2019\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2020_p4_pasivo_fin_nc_2019\"] + o[\"aux:AR2020_p4_pasivo_fin_c_2019\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Deuda financiera 2019 = pasivos financieros no corrientes 71.909 + corrientes 50.428 = 122.337 miles (AR_2020 p. 4) = total de la nota 20 de AR_2019 (p. 86: bancos 93,737 + intereses 179 + otros 28,421). Sin derivados ni NIIF 16. Resultado de la fórmula con los orígenes registrados: 122.337000; valor del libro: 122.337.",
-      "limites_contextuales": "aux:AR2020_p4_pasivo_fin_c_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -337,10 +323,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:AR2020_p4_pasivo_fin_c_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -349,12 +333,12 @@
       "id": "h_arrend",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2020_p4_arrend_lp_2019\"] + o[\"aux:AR2020_p4_arrend_cp_2019\"] -> 19.295 (valor_modelo 19.295, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2020_p4_arrend_lp_2019\"] + o[\"aux:AR2020_p4_arrend_cp_2019\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2020_p4_arrend_lp_2019\"] + o[\"aux:AR2020_p4_arrend_cp_2019\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Pasivo por arrendamientos 2019 = largo plazo 14.392 + corto plazo 4.903 = 19.295 miles (AR_2020 p. 4). Resultado de la fórmula con los orígenes registrados: 19.295000; valor del libro: 19.295.",
-      "limites_contextuales": "aux:AR2020_p4_arrend_lp_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -370,10 +354,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:AR2020_p4_arrend_lp_2019: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reex)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -413,12 +395,12 @@
       "id": "h_circulante",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:CF2021_p8_var_existencias_2020\"] + o[\"aux:CF2021_p8_var_deudores_2020\"] + o[\"aux:CF2021_p8_var_acreedores_2020\"]) -> 25.178 (valor_modelo 25.178, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:CF2021_p8_var_existencias_2020\"] + o[\"aux:CF2021_p8_var_deudores_2020\"] + o[\"aux:CF2021_p8_var_acreedores_2020\"]) (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:CF2021_p8_var_existencias_2020\"] + o[\"aux:CF2021_p8_var_deudores_2020\"] + o[\"aux:CF2021_p8_var_acreedores_2020\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Aumento del circulante 2020 = −(existencias −20.965 + deudores −15.602 + acreedores 11.389) = 25.178 miles (CF_2021 p. 8, columna 2020, comparativo: fuente que cita la fase 1 para 2020; mismas cifras en AR_2020 p. 8, columna 2020). Sin la variación de provisiones (5.829). Resultado de la fórmula con los orígenes registrados: 25.178000; valor del libro: 25.178.",
-      "limites_contextuales": "aux:CF2021_p8_var_existencias_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree) | aux:CF2021_p8_var_deudores_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree) | aux:CF2021_p8_var_acreedores_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -434,12 +416,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:CF2021_p8_var_existencias_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)",
-          "aux:CF2021_p8_var_deudores_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)",
-          "aux:CF2021_p8_var_acreedores_2020: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2020 en las cuentas de 2021 (el que usó el modelo); sin ree)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -541,12 +519,12 @@
       "id": "h_circulante",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:CF2022_p25_var_existencias_2021\"] + o[\"aux:CF2022_p25_var_deudores_2021\"] + o[\"aux:CF2022_p25_var_acreedores_2021\"]) -> -18.294 (valor_modelo -18.294, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:CF2022_p25_var_existencias_2021\"] + o[\"aux:CF2022_p25_var_deudores_2021\"] + o[\"aux:CF2022_p25_var_acreedores_2021\"]) (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:CF2022_p25_var_existencias_2021\"] + o[\"aux:CF2022_p25_var_deudores_2021\"] + o[\"aux:CF2022_p25_var_acreedores_2021\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Aumento del circulante 2021 = −(existencias −17,593 + deudores −7,660 + acreedores 43,547) = −18,294 miles (CF_2022 p. 25); sin la variación de provisiones (−795). Resultado de la fórmula con los orígenes registrados: -18.294000; valor del libro: -18.294.",
-      "limites_contextuales": "aux:CF2022_p25_var_existencias_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree) | aux:CF2022_p25_var_deudores_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree) | aux:CF2022_p25_var_acreedores_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -562,12 +540,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:CF2022_p25_var_existencias_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
-          "aux:CF2022_p25_var_deudores_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
-          "aux:CF2022_p25_var_acreedores_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -576,12 +550,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:CF2022_p20_pasivo_fin_nc_2021\"] + o[\"aux:CF2022_p20_pasivo_fin_c_2021\"] -> 116.751 (valor_modelo 116.751, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:CF2022_p20_pasivo_fin_nc_2021\"] + o[\"aux:CF2022_p20_pasivo_fin_c_2021\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:CF2022_p20_pasivo_fin_nc_2021\"] + o[\"aux:CF2022_p20_pasivo_fin_c_2021\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Deuda financiera 2021 = pasivos financieros no corrientes 67,997 + corrientes 48,754 = 116,751 miles (CF_2022 p. 20). Sin derivados ni NIIF 16. Resultado de la fórmula con los orígenes registrados: 116.751000; valor del libro: 116.751.",
-      "limites_contextuales": "aux:CF2022_p20_pasivo_fin_c_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -597,10 +571,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:CF2022_p20_pasivo_fin_c_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -609,12 +581,12 @@
       "id": "h_arrend",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:CF2022_p20_arrend_lp_2021\"] + o[\"aux:CF2022_p20_arrend_cp_2021\"] -> 13.891 (valor_modelo 13.891, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:CF2022_p20_arrend_lp_2021\"] + o[\"aux:CF2022_p20_arrend_cp_2021\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:CF2022_p20_arrend_lp_2021\"] + o[\"aux:CF2022_p20_arrend_cp_2021\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Pasivo por arrendamientos 2021 = no corriente 9,363 + corriente 4,528 = 13,891 miles (CF_2022 p. 20). Resultado de la fórmula con los orígenes registrados: 13.891000; valor del libro: 13.891.",
-      "limites_contextuales": "aux:CF2022_p20_arrend_lp_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree) | aux:CF2022_p20_arrend_cp_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -630,11 +602,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:CF2022_p20_arrend_lp_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)",
-          "aux:CF2022_p20_arrend_cp_2021: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin ree)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -811,12 +780,12 @@
       "id": "h_tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:CF2024_p4_impuesto_2023\"] / o[\"aux:CF2024_p4_bai_2023\"] -> 0.1654411329378470865451789753 (valor_modelo 0.1654, diff 0.0000411329378470865451789753)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:CF2024_p4_impuesto_2023\"] / o[\"aux:CF2024_p4_bai_2023\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:CF2024_p4_impuesto_2023\"] / o[\"aux:CF2024_p4_bai_2023\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Tipo impositivo efectivo 2023 = gasto por impuesto sobre las ganancias ÷ resultado antes de impuestos (los dos del mismo estado, consolidado, actividades continuadas); el libro lo guarda redondeado a 4 decimales. Resultado de la fórmula con los orígenes registrados: 0.165441; valor del libro: 0.1654.",
-      "limites_contextuales": "aux:CF2024_p4_impuesto_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -832,10 +801,8 @@
         "diferencia": "0.0000411329378470865451789753",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:CF2024_p4_impuesto_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -844,12 +811,12 @@
       "id": "h_circulante",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:CF2024_p9_var_existencias_2023\"] + o[\"aux:CF2024_p9_var_deudores_2023\"] + o[\"aux:CF2024_p9_var_acreedores_2023\"]) -> 90.646 (valor_modelo 90.646, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:CF2024_p9_var_existencias_2023\"] + o[\"aux:CF2024_p9_var_deudores_2023\"] + o[\"aux:CF2024_p9_var_acreedores_2023\"]) (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:CF2024_p9_var_existencias_2023\"] + o[\"aux:CF2024_p9_var_deudores_2023\"] + o[\"aux:CF2024_p9_var_acreedores_2023\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Aumento del circulante 2023 = −(existencias −66.607 + deudores −5.314 + acreedores −18.725) = 90.646 miles (CF_2024 p. 9, columna 2023, comparativo: fuente que cita la fase 1 para 2023). Sin la variación de provisiones (7.614). Resultado de la fórmula con los orígenes registrados: 90.646000; valor del libro: 90.646.",
-      "limites_contextuales": "aux:CF2024_p9_var_existencias_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam) | aux:CF2024_p9_var_deudores_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam) | aux:CF2024_p9_var_acreedores_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -865,12 +832,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:CF2024_p9_var_existencias_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)",
-          "aux:CF2024_p9_var_deudores_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)",
-          "aux:CF2024_p9_var_acreedores_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -879,12 +842,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:CF2024_p3_pasivo_fin_nc_2023\"] + o[\"aux:CF2024_p3_pasivo_fin_c_2023\"] -> 222.027 (valor_modelo 222.027, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:CF2024_p3_pasivo_fin_nc_2023\"] + o[\"aux:CF2024_p3_pasivo_fin_c_2023\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:CF2024_p3_pasivo_fin_nc_2023\"] + o[\"aux:CF2024_p3_pasivo_fin_c_2023\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Deuda financiera 2023 = pasivos financieros no corrientes 43,979 + corrientes 178,048 = 222,027 miles (CF_2024 p. 3). Sin derivados ni NIIF 16. Resultado de la fórmula con los orígenes registrados: 222.027000; valor del libro: 222.027.",
-      "limites_contextuales": "aux:CF2024_p3_pasivo_fin_nc_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam) | aux:CF2024_p3_pasivo_fin_c_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -900,11 +863,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:CF2024_p3_pasivo_fin_nc_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)",
-          "aux:CF2024_p3_pasivo_fin_c_2023: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cam)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {

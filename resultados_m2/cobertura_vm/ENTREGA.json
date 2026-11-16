@@ -1,7 +1,7 @@
 {
  "es_plantilla": false,
  "frente": "A",
- "bloque": "cierre v2 · Bloque 2 · v3.2–v3.7 + cola + registro (grupo top CF_2024 p.3 resuelto parcialmente)",
+ "bloque": "cierre v2 · Bloque 2 · v3.2–v3.9 + cola (33 grupos restantes: 68 fuentes + 17 derivados)",
  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
  "rama": "mistral/m2-cobertura-vm",
  "base_revisada_sha": "d2419e5af2c91d89038a210a77242632d5823950",
@@ -19,9 +19,9 @@
   "ZIP base-4.14: 1.130.912.246 bytes, sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e, descargado con preparar_insumos.py --download"
  ],
  "cambios_respecto_entrega_anterior": [
-  "v3.7: SYNONYMS ampliado con léxico ES/EN de arrendamientos y pasivos (right-of-use/lease ↔ derecho de uso/arrendamiento, liabilities/pasivos/deudas). Resuelve el grupo top Viscofan CF_2024 p.3: aux:CF2024_p3_arrend_cp/lp_2023 pasan a REVISADO (igualdad confirmada con signo en CA_2023_es.txt p.3: 4.687 y 6.854 en columna 2023).",
-  "Resultados: fuentes 298 REVISADO / 126 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO; CSV 677: 342 REVISADO / 169 PENDIENTE (126 fuentes + 43 derivados) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO; mecánicos sin cambio; control PASS exit 0; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes regenerados.",
-  "Registro actualizado: 126 fuentes pendientes en 54 grupos + 43 derivados (resoluciones_bloque2.json)."
+  "v3.8: SYNONYMS con familia financiera ES/EN y umbral de tokens >=2 y >= mitad. v3.9: si alguna fila mapeable 1:1 del original confirma el valor (con signo) en la columna yc, esa fila es la corroboración (la partida puede aparecer en balance y nota); solo si ninguna confirma se usa la primera fila distinta. +62 mejoras, 0 regresiones frente a v3.7.",
+  "Resultados: fuentes 356 REVISADO / 68 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO; CSV 677: 426 REVISADO / 85 PENDIENTE (68 fuentes + 17 derivados) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO; mecánicos sin cambio; control PASS exit 0; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes regenerados.",
+  "Registro actualizado (resoluciones_bloque2.json): 68 fuentes pendientes en 33 grupos + 17 derivados. Bloqueos restantes: SIN_ORIGINAL 36 (falta el documento del ejercicio 2016, no está entre los 251 insumos fijados), ALCANCE_SIN_PUENTE 11, AMBIGUEDAD_FILA_COLUMNA 9, NO_MAPEABLE_1a1 5, DECLARA_NO_DIFIERE 4, NO_LOCALIZADA 1, NO_TABULAR 2, CONTINUACION 1, UNIDAD_SIN_FRASE 1."
  ],
  "pruebas": [
   {
@@ -90,15 +90,15 @@
   "36 comparativos sin texto del año original: los documentos de esos ejercicios (p. ej. CF_2016.txt de Vidrala) no están entre los 251 insumos fijados (selección parcial verificada del ZIP base-4.14); no amplío insumos.",
   "52 HIPOTESIS / 35 CONVENCION / 16 NO_APLICABLE / 6 DATO_AUSENTE conservados; 7 PDF candidatos sin asociación."
  ],
- "siguiente_accion_exacta": "Siguiente bloque documental: resto del grupo Viscofan CF_2024 p.3 (pasivo_fin_c/nc_2023, Historia!J21/J26 — fila en CA_2023_es linea 2197 con columnas no mapeables 1:1) leyendo la tabla completa; luego CF_2022_compilacion p.25 y CF_2017 p.11/p.14 (SIN_ORIGINAL 2016: bloqueo confirmado, falta CF_2016 entre los insumos fijados).",
+ "siguiente_accion_exacta": "Continuar bloque 2 por los 33 grupos restantes en orden de prioridad: los 36 SIN_ORIGINAL quedan como bloqueo confirmado (faltan los documentos de 2016 entre los insumos fijados; no amplío insumos); resolver con evidencia los ALCANCE_SIN_PUENTE/AMBIGUEDAD/DECLARA_NO_DIFIERE leyendo la nota citada y el original, o confirmar el bloqueo preciso. Publicar por bloque terminado.",
  "integrado_en_producto": false,
  "apto_dinero_real": "No se declara por este formulario",
  "criterios_cubiertos": [
-  "v3.5 años de cita no son columna",
-  "v3.6 puente aritmetico verificado (F7 OK)",
-  "registro de bloqueos preciso de toda la cola",
+  "v3.9 corroboración por fila que confirma igualdad en col yc (0 regresiones)",
+  "426 REVISADO / 85 PENDIENTE / 0 CONFLICTO",
   "control PASS exit 0",
-  "sondas 15/15 + 5/5"
+  "sondas 15/15 + 5/5",
+  "registro de bloqueos actualizado"
  ],
  "criterios_pendientes": [
   "resolver con evidencia los grupos AMBIGUEDAD/DECLARA_NO_DIFIERE de mas prioridad (notas citadas)",

@@ -94,6 +94,8 @@ SYNONYMS = {
     'liabilities': 'pasivo', 'liability': 'pasivo', 'pasivos': 'pasivo', 'pasivo': 'pasivo',
     'deudas': 'deudas', 'deuda': 'deudas', 'corrientes': 'corriente', 'corriente': 'corriente',
     'activo': 'activos',
+    'financial': 'financiero', 'financieros': 'financiero', 'financiero': 'financiero', 'financieras': 'financiero', 'finanzas': 'financiero',
+    'investments': 'inversiones', 'inversiones': 'inversiones', 'inversion': 'inversiones',
     'cost': 'coste', 'coste': 'coste', 'expense': 'gastos', 'expenses': 'gastos',
     'balance': 'saldo', 'saldo': 'saldo', 'final': 'saldo', 'closing': 'saldo',
     'carrying': 'contable', 'amount': 'importe', 'importe': 'importe', 'net': 'neto', 'neto': 'neto',
@@ -643,7 +645,7 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
             if not hit and cita_toks:
                 toks = canon_tokens(line)
                 inter = len(cita_toks & toks)
-                if inter >= 3 and inter >= max(2, len(cita_toks) // 2):
+                if inter >= 2 and inter * 2 >= len(cita_toks):
                     hit = True
             block = orig_lines[i:i + 3]
             bn = nums_of(block)
@@ -663,12 +665,30 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
             matched.append({'i': i, 'cy2': cy2, 'cand': cand, 'nums': nums, 'block': bn,
                             'hit': hit, 'hint': hint_hit})
         matched.sort(key=lambda m: (not m['hint'], not m['hit'], m['i']))
-        for m in matched:
+        # v3.9: si alguna fila mapeable confirma el valor en la columna yc, esa fila es
+        # la corroboracion (la partida puede aparecer en balance y en nota); solo si
+        # ninguna fila mapeable lo confirma se usa la primera fila mapeable distinta
+        def decide(m):
             cand = m['cand']
             if cand is None or yc not in m['cy2']:
-                continue
+                return None
             orig_val, orig_sv = cand[m['cy2'].index(yc)]
             equal = (vdec is not None and orig_sv is not None and orig_sv == vdec)
+            return (orig_val, equal)
+        iguales = [m for m in matched if (lambda d: d is not None and d[1])(decide(m))]
+        if iguales:
+            m = iguales[0]
+            orig_val, _ = decide(m)
+            no_claim0 = (('no aplica' in dl) or ('no reexpres' in dl) or ('igual al original' in dl)
+                         or ('igual que' in dl) or ('no:' in dl) or re.match(r'^no\b', dl))
+            if no_claim0:
+                return 'NO_APLICA', f'declara no reexpresado y el original {name} confirma el mismo valor (con signo) en la columna {yc} ({orig_val}) en la fila {m["i"]+1}; coherente'
+            return 'OK', f'comparativo {yc} igual al original en {name}: columna {yc} imprime {orig_val} en la fila {m["i"]+1}; no reexpresado'
+        for m in matched:
+            d = decide(m)
+            if d is None:
+                continue
+            orig_val, equal = d
             no_claim = (('no aplica' in dl) or ('no reexpres' in dl) or ('igual al original' in dl)
                         or ('igual que' in dl) or ('no:' in dl) or re.match(r'^no\b', dl))
             affirm = (not no_claim) and (('reexpresado' in dl) or ('reexpresion' in dl) or re.search(r'\bs[ií]\b', dl))
