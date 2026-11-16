@@ -1,0 +1,85 @@
+{
+  "es_plantilla": false,
+  "frente": "F · Cola 2 · F-B3 / F-C1 (preparacion de tercer B y primer C reales)",
+  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+  "rama": "mistral/f-alcance-real",
+  "base_revisada_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+  "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+  "directorio_entrega": "resultados_cierre/alcance_real/preparacion_b3_c1/",
+  "tareas_control": ["F-B3", "F-C1"],
+  "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+  "banco_sha": null,
+  "naturaleza": "paquete de preparacion (seleccion de ensayo + protocolo congelado + inventario + mapa de entradas + contrato C propuesto); nada ejecutado con el producto, nada adoptado",
+  "autor_contexto_modelo_herramientas": "Sesion Mistral C/F, modelo mistral-large-4-0 (Vibe Code). Herramientas: gh CLI (API de arboles/contenidos), Python 3.12 stdlib, unzip sobre el ZIP base-4.14 ya descargado. No se ejecuto LibreOffice ni el pipeline. Esfuerzo/consumo no visibles; no declarados.",
+  "fuentes_y_preservacion": [
+    "Release base-4.14 del producto (SHA-256 bb51942c..., 6798/6798 verificados por el hito 2 y por mi listado): inventario de recursos conservados por empresa",
+    "MATRIZ_ALCANCE_4_14.md y HITO_2_4_15.md (producto @ 957af65) leidos via gh api: estado de motores, I19/I20, tercera empresa Elis, Ahold sin insumos",
+    "v6/pruebas/fixtures/LEEME.txt (motor C: 2 fixtures sinteticos con valores esperados)",
+    "patch_v62_base.py @ 716cbd6 linea E62: limite del motor C (no valida solvencia ni capital regulatorio)",
+    "FUENTES_CONSERVADAS.csv @ daa7478 (29 PDF con sha256) verificado por mi en .trabajo/insumos_m2 (29/29 OK)",
+    "RESUMEN_EMPRESAS.md / resumen_v2.csv: 6 empresas en muestra, motores usados",
+    "Producto, main, libros, candidata y ramas de otros frentes intactos"
+  ],
+  "cambios_respecto_entrega_anterior": [
+    "Nueva carpeta preparacion_b3_c1/; los informes de Cola 1 (revisiones_claude/, revisiones_b_pm1/) no se tocan",
+    "COMANDOS.md, PUNTO_DE_RECUPERACION.md y MANIFIESTO_SHA256.txt actualizados"
+  ],
+  "pruebas": [
+    {
+      "tipo": "dato (inventario de recursos conservados)",
+      "comando": "unzip -l .trabajo/base414.zip | python3 scripts/inventario_desde_zip.py /tmp/zip_list.txt INVENTARIO_Y_HUECOS.csv",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["inventario de Excel/etapa1/extraccion/PDF por empresa conservada; huecos declarados (Ahold sin insumos; ninguna financiera para C)"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "INVENTARIO_Y_HUECOS.csv",
+      "sha_material": "base-4.14.zip bb51942c...",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "dato (verificacion de huellas de fuentes)",
+      "comando": "sha256+bytes de los 29 PDF de FUENTES_CONSERVADAS.csv @ daa7478 contra .trabajo/insumos_m2",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["29/29 PDF OK; huellas volcadas en fuentes/huellas_fuentes_conservadas.csv"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "fuentes/huellas_fuentes_conservadas.csv; verificacion registrada en revisiones_b_pm1/evidencias/verificacion_fuentes_y_runs.txt",
+      "sha_material": "daa7478 FUENTES_CONSERVADAS.csv",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "dato (estado de la matriz de alcance y hito 2)",
+      "comando": "gh api contents ... MATRIZ_ALCANCE_4_14.md, HITO_2_4_15.md, RESUMEN_EMPRESAS.md, resumen_v2.csv, fixtures/LEEME.txt, patch_v62_base.py (E62) @ 957af65/716cbd6",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["motor B verificado en 2 recorridos reales (Viscofan V6.4.1, Vidrala V6.4); motor C solo fixtures; Elis third case motor A no_entregable; Ahold reserva sin etapa1; I19/I20 no restaurados; doble PPA: F1 vigente"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "PROTOCOLO_CONGELADO.md §3-4; SELECCION.csv",
+      "sha_material": "957af652... (producto_tecnico), 716cbd6... (F1)",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (ejecucion de recorrido real B o C)",
+      "comando": "NO EJECUTADO: prohibido en este frente (sin LibreOffice/pipeline) y bloqueado por insumos (Ahold sin etapa1; ninguna financiera conservada para C)",
+      "exit_esperado": null, "exit_observado": null,
+      "criterios_cubiertos": [],
+      "criterios_sin_cubrir": ["recorrido real del tercer B y del primer C: dependen de insumos externos (Excel etapa1 de Ahold; fuente oficial de banco/aseguradora) y de la Cola 3 (ejecucion con agentes/pipeline)"],
+      "evidencia": "SELECCION.csv columna bloqueo; PROTOCOLO_CONGELADO.md §3",
+      "sha_material": null,
+      "resultado": "NO_EJECUTADO"
+    }
+  ],
+  "precondiciones_simuladas": [],
+  "revision_por_otro_contexto": "Pendiente: el coordinador (Claude) revisa el paquete; yo no me autoaprobo.",
+  "limites_y_bloqueos": [
+    "F-B3 bloqueado por insumo: Ahold Delhaize (reserva) sin Excel de etapa 1 ni .bat ejecutado; no se fuerza. Ninguna otra empresa fuera de muestra conservada",
+    "F-C1 bloqueado por fuente: ninguna empresa financiera conservada; solo fixtures sinteticos; en este entorno solo GitHub es alcanzable (401 en uploads, TLS no verificado en proxy web, documentado por el frente B)",
+    "No se ejecuto LibreOffice ni el pipeline (prohibido en este frente); la ejecucion es Cola 3",
+    "La seleccion no uso precios de valoracion (prohibido); criterios y protocolo congelados antes de calcular",
+    "Huecos declarados como huecos, no como ceros",
+    "La lista de las 116 empresas del usuario no esta en este repo; se registro como hueco, no se inventaron datos"
+  ],
+  "siguiente_accion_exacta": "Esperar a que el coordinador registre este paquete y a que lleguen insumos (etapa 1 de Ahold o fuente oficial de banco/aseguradora); entonces Cola 3: ejecutar en copia aislada por paquetes Git. Mientras tanto, re-consultar CONTROL.json por si hay nuevas entregas de Claude que contrastar (Cola 1).",
+  "integrado_en_producto": false,
+  "apto_dinero_real": "No se declara por este formulario",
+  "criterios_cubiertos": ["inventario de recursos conservados con huellas", "hasta 3 candidatas por recorrido con elegibilidad y carencias", "criterios y protocolo fijados antes de calcular; principal y reserva por recorrido; exclusiones con motivo", "contrato economico propuesto para el caso C con puentes, hipotesis y limites; datos oficiales y mapa de entradas con huecos como huecos"],
+  "criterios_pendientes": ["recorrido real F-B3 (bloqueado por insumo Ahold)", "recorrido real F-C1 (bloqueado por fuente oficial de entidad financiera)", "inventario de las 116 empresas del usuario (no disponible en este repo)"],
+  "salida_siguiente": "preparacion_b3_c1/ completo: SELECCION.csv, PROTOCOLO_CONGELADO.md, INVENTARIO_Y_HUECOS.csv, MAPA_ENTRADAS.jsonl, CONTRATO_C_PROPUESTA.md, fuentes/huellas, scripts/, ENTREGA_B3_C1.json"
+}

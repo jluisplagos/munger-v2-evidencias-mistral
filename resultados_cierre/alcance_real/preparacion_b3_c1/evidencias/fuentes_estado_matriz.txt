@@ -1,0 +1,27 @@
+== Evidencias Cola 2 (F-B3/F-C1), 2026-11-16T22:07:15Z ==
+-- MATRIZ_ALCANCE_4_14.md (producto @ 957af65, via ZIP base-4.14): motor B verificado en Viscofan/Vidrala; motor C solo fixtures; Elis 3ra empresa motor A no_entregable; Ahold reserva sin etapa1; I19/I20
+| **Motor B** (financiación cambiante) con la plantilla V6.4 experimental | sí: plantillas V6.4 y V6.4.1, `configuracion_economica.json`, variantes | **Recorridos reales en la 4.14, con auditoría APROBADO:**<br>• `v
+| **Motor A** (financiación estable), plantilla V6.3 | sí | Recorridos V6.3 anteriores con auditoría APROBADO: Rational, Hermès, Aarsleff, Nike y Vidrala 4.x (`RESUMEN_EMPRESAS.md`). En la 4.14, `elis_decisiones/Elis
+| **Motor C** (banco o aseguradora) | plantilla V6.3 con reglas propias (B16:D16) | solo los dos fixtures sintéticos del motor C en `v6/` | ningún recorrido real | Empresa financiera real con datos oficiales y recorrid
+| **Verificación completa de las entradas financieras** (requisito obligatorio) | sí: `verificacion_entradas.py`, puerta en el pipeline, invalidación cuando cambian las entradas | Batería 33/33. Los registros de los 
+| Etapa 1 (extracción con fuente y página) | sí | Viscofan: 9 años re-extraídos desde ediciones conservadas; solo cambiaron 16 celdas, todas confirmadas por el revisor. Elis completa. | Ahold Delhaize (reserva): la 
+| Auditoría independiente (paso 13) | sí | Baterías: integridad 103/103 y solicitudes 55/55. Auditorías reales APROBADO de los tres expedientes finales (la de Viscofan, en el 2.º intento tras un REPETIR real) | Las 
+| Continuidad sin historial | sí: `CONTINUIDAD.md`, `PROMPT_NUEVA_VENTANA.md`, guía del recorrido | Agente receptor sin historial sobre el ZIP candidato: verificación completa PASA, control de la 4.14 35/35, relevo re
+  - El expediente final `elis_decisiones/Elis` (E6, base coherente a 31-dic-2025; motor A, V6.3) está en `pendiente_de_datos · APROBADO · Vigilar · sin acción`. Falta el reparto del capex entre reposición y crecimi
+
+-- HITO_2_4_15.md: entorno (ZIP 1.130.912.246 bytes sha256 bb51942c..., 6798/6798), R415-SIGNO corregido
+- ZIP original de la Release `base-4.14`: 1.130.912.246 bytes, SHA-256 `bb51942c…7b93e` (coincide). Materializado con
+  `tools/base_414.py materialize` y verificado con `verify`: **6798/6798**, 0 ausentes, 0 alterados. `main` y el ZIP no se han modificado.
+## 1. R415-SIGNO (hecho: reproducido y corregido)
+- `test_entrada_efectiva_415.py`: **62/62** (40 + R415-SIGNO en C48, I20, U6, H-P1/X2, H8–H10, N1, T6 y, tras la séptima comprobación,
+
+-- fixtures motor C (v6/pruebas/fixtures/LEEME.txt @ 957af65):
+Fixture_motorC_palancas_A.xlsx B78:D78 = 10,9505167043 / 17,2492128343 / 26,7560534971 (solo fixture, no recorrido real)
+
+-- E62 (patch_v62_base.py @ 716cbd6): el motor C no valida solvencia ni capital regulatorio
+    (AN, "E62", " El motor C es un modelo simplificado de patrimonio y ROE: sirve para ver si el "
+                "reparto y el crecimiento del patrimonio son coherentes, y NO valida la solvencia ni "
+                "el capital regulatorio de ningún banco o aseguradora."),
+
+-- resumen_v2.csv: 6 empresas en muestra, motores
+Rational A / Vidrala A(v2.0) / Nike A / Viscofan B / Hermes A / Aarsleff A (todas concluido, APROBADO)

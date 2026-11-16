@@ -25,9 +25,12 @@
     CONFORME_CON_LIMITES en el control. No queda entrega de Claude pendiente de contraste.
     B-PM1 hecho por mí (informe en `revisiones_b_pm1/`); bloqueo P-M1 conservado (θ/λ no
     identificados, 4 PDF con preservación pendiente por el 401 de uploads).
-  - Cola 2: **F-B3 / F-C1** — siguiente: inventario de recursos ya conservados de las 116 empresas,
-    hasta 3 candidatas por recorrido con criterios y protocolo ANTES de calcular, sin usar precios
-    de valoración para seleccionar.
+  - Cola 2: **F-B3 / F-C1 HECHOS como paquete de preparación** (`preparacion_b3_c1/`): inventario
+    de recursos conservados (ZIP base-4.14, 6798/6798), SELECCION.csv (B: principal condicionada
+    Ahold bloqueada por insumo; C: banco/aseguradora con fuente oficial pendiente), protocolo
+    congelado antes de calcular, MAPA_ENTRADAS.jsonl, contrato C propuesto (E62: no valida
+    solvencia). Bloqueos: Ahold sin etapa 1; ninguna financiera conservada; solo GitHub alcanzable.
+    La ejecución real es Cola 3 (agentes/pipeline, copias aisladas).
   - Cola 3: ejecución/relevo solo tras revisión de candidata/contrato/precondiciones — bloqueada salvo que
     Claude publique.
 - **Siguiente acción exacta**: contraste documental dirigido B/P-M1 @ `daa74783d2708fcd46ca7c24ae1ffbb327c35784`

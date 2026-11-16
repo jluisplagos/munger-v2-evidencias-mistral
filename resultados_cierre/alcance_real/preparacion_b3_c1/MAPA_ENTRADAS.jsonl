@@ -1,0 +1,23 @@
+{"recorrido": "B (V6.4 motor B)", "bloque": "Historia", "entrada": "ventas", "frecuencia": "anual 5-10 anos", "fuente": "fuente oficial p./cita", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Historia", "entrada": "EBIT", "frecuencia": "anual", "fuente": "fuente oficial", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Historia", "entrada": "D&A", "frecuencia": "anual", "fuente": "fuente oficial", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Historia", "entrada": "capex propio y compras", "frecuencia": "anual", "fuente": "fuente oficial", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Historia", "entrada": "variacion circulante", "frecuencia": "anual", "fuente": "fuente oficial", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Historia", "entrada": "deuda financiera y caja", "frecuencia": "cierre anual", "fuente": "fuente oficial", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Historia", "entrada": "intereses pagados/cobrados", "frecuencia": "anual", "fuente": "fuente oficial", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Historia", "entrada": "impuesto", "frecuencia": "anual", "fuente": "fuente oficial", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Historia", "entrada": "dividendos y recompras", "frecuencia": "anual", "fuente": "fuente oficial", "nota": "motor B: financiación cambiante"}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Historia", "entrada": "n acciones diluidas", "frecuencia": "fecha de valoracion", "fuente": "fuente oficial", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Palancas", "entrada": "g años 1-5, g∞, margen objetivo", "frecuencia": "escenarios MALO/NORMAL/BUENO", "fuente": "juicio con fundamento o convención declarada", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Palancas", "entrada": "S2C / ancla, ROIC terminal", "frecuencia": "escenarios", "fuente": "juicio", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Palancas", "entrada": "r (tasa descuento), prima si aplica", "frecuencia": "global", "fuente": "convencion declarada", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Palancas", "entrada": "probabilidades de escenarios", "frecuencia": "global", "fuente": "juicio", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Motor", "entrada": "C48/C49 (capex, D&A), C53, C55, C56, C70, C76", "frecuencia": "derivan de Historia+Palancas", "fuente": "verificacion_entradas.py", "nota": ""}
+{"recorrido": "B (V6.4 motor B)", "bloque": "Motor", "entrada": "flujo libre, valor terminal, equity bridge (motor B)", "frecuencia": "calculado", "fuente": "pipeline", "nota": ""}
+{"recorrido": "C (motor C banco/aseguradora)", "bloque": "Patrimonio", "entrada": "patrimonio neto inicio/fin", "frecuencia": "anual 5-10 anos", "fuente": "informe oficial", "nota": ""}
+{"recorrido": "C (motor C banco/aseguradora)", "bloque": "Patrimonio", "entrada": "ROE (BAI/patrimonio medio)", "frecuencia": "anual", "fuente": "informe oficial", "nota": ""}
+{"recorrido": "C (motor C banco/aseguradora)", "bloque": "Patrimonio", "entrada": "dividendos, ampliaciones, otros movimientos", "frecuencia": "anual", "fuente": "informe oficial", "nota": ""}
+{"recorrido": "C (motor C banco/aseguradora)", "bloque": "Patrimonio", "entrada": "OCI y ajustes", "frecuencia": "anual", "fuente": "informe oficial", "nota": "puente contable"}
+{"recorrido": "C (motor C banco/aseguradora)", "bloque": "Regulatorio", "entrada": "capital regulatorio (CET1/Solvency II)", "frecuencia": "cierre anual", "fuente": "informe/SFCR", "nota": "SOLO contexto: el motor C NO valida solvencia ni capital regulatorio (E62)"}
+{"recorrido": "C (motor C banco/aseguradora)", "bloque": "Palancas C", "entrada": "B14/B15 (g, payout) B16 n/a B18 ROE terminal", "frecuencia": "escenarios", "fuente": "juicio con fundamento", "nota": "segun fixtures motor C (v6/pruebas/fixtures/LEEME.txt)"}
+{"recorrido": "C (motor C banco/aseguradora)", "bloque": "Motor C", "entrada": "valor por accion = f(patrimonio, ROE, reparto, crecimiento)", "frecuencia": "calculado", "fuente": "plantilla V6.3 reglas B16:D16", "nota": "contrato específico por entidad; no generalizar"}

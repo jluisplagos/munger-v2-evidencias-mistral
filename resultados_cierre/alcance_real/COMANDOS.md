@@ -120,3 +120,15 @@ python3 -I .trabajo/pm1/extraccion_independiente_pm1.py   # metodo propio (nota+
 gh release view fuentes-mistral-m2-20261116 --repo jluisplagos/munger-v2-evidencias-mistral --json assets   # assets: [] (401 coherente)
 git show daa7478:resultados_m2/pm1/CALCULOS_PM1.json   # conclusion: P-M1 no delimitada, bloqueo; theta/lambda no identificados
 ```
+
+## Bloque Cola 2 (F-B3/F-C1, paquete de preparacion) · 2026-11-16 ~22:30 UTC
+
+```bash
+# estado: matriz de alcance + hito 2 + resumen empresas + fixtures motor C + E62 (via gh api / ZIP base-4.14)
+unzip -l .trabajo/base414.zip > /tmp/zip_list.txt
+python3 preparacion_b3_c1/scripts/inventario_desde_zip.py /tmp/zip_list.txt preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv
+# huellas: 29 PDF de FUENTES_CONSERVADAS.csv @ daa7478 verificados (sha256+bytes) -> fuentes/huellas_fuentes_conservadas.csv
+git show daa7478:resultados_m2/pm1/FUENTES_CONSERVADAS.csv
+# paquete: SELECCION.csv, PROTOCOLO_CONGELADO.md, MAPA_ENTRADAS.jsonl, CONTRATO_C_PROPUESTA.md, README.md, ENTREGA_B3_C1.json
+# NO se ejecuto LibreOffice ni el pipeline; no hay recorrido real ejecutado (bloqueos declarados)
+```
