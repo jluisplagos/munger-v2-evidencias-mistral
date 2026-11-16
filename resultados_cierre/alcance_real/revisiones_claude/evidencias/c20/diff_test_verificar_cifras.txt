@@ -1,0 +1,49 @@
+--- test_verificar_cifras_d519eb0.py	2026-11-16 21:17:20.268607730 +0000
++++ test_verificar_cifras.py	2026-11-16 21:17:11.601609697 +0000
+@@ -443,6 +443,30 @@
+          "columnas lo daba por una cifra de 2023, OK en las seis dimensiones)",
+          [del_pdf("R8_ANIO_ROT", "DEU2024FR", 295, r"^\s*AU 31 DÉCEMBRE 2024\s", "2024", 2023)], "PENDIENTE",
+          dims={"R8_ANIO_ROT": {"ejercicio": "PENDIENTE"}}, motivo="es un año del rótulo de la fila")
++    # ---- revisión n.º 9 (C20): U1–U5 con filas reales, como en contraejemplos_9.py del revisor
++    caso("U1 (U1a): primer «0» de «as at 12/31/2025 · 0 · 92,485» (URD 2025 p.360), declarado 2025: ejercicio OK por la fecha "
++         "del rótulo y sin el motivo falso «el día de la fecha» (C18 localizaba el token dentro de la fecha); recuento: no OK",
++         [del_pdf("R9_U1A", "URD2025", 360, r"^\s*as at 12/31/2025\s+0\s+92,485", "0", 2025)], "PENDIENTE",
++         dims={"R9_U1A": {"ejercicio": "OK"}}, sin_motivo="el día de la fecha")
++    caso("U1 (U1d): primer «0» de «au 31/12/2024 · 0 · 26 718» (DEU 2024 p.306), declarado 2023: FALLO de ejercicio (en C18, PENDIENTE)",
++         [del_pdf("R9_U1D", "DEU2024FR", 306, r"^\s*au 31/12/2024\s+0\s+26 718", "0", 2023)], "FALLO", {"R9_U1D": {"ejercicio"}})
++    caso("U1 (U2a): «Number of fatal accidents · 0(a) · 0 · 0» (URD 2021 p.176), el «0» de 2020 declarado 2021: FALLO de "
++         "ejercicio (antes se localizaba dentro de «0(a)», bajo 2021, y pasaba)",
++         [del_pdf("R9_U2A", "URD2021", 176, r"^\s*Number of fatal accidents\s", "0", 2021)], "FALLO", {"R9_U2A": {"ejercicio"}})
++    caso("U1 (U2b): el mismo «0» declarado 2020, su columna: ejercicio OK",
++         [del_pdf("R9_U2B", "URD2021", 176, r"^\s*Number of fatal accidents\s", "0", 2020)], "FALLO",
++         dims={"R9_U2B": {"ejercicio": "OK"}})
++    caso("U2 (U3b, decisión declarada): «Number of rights outstanding / as at 12/31/2022» (URD 2022 p.294), 548,801 declarado "
++         "2022: los recuentos con fecha toman el ejercicio de su fecha (ejercicio OK); no son OK por unidad y columna",
++         [del_pdf("R9_U3B", "URD2022", 294, r"^\s*as at 12/31/2022\s+-\s+548,801", "548,801", 2022)], "PENDIENTE",
++         dims={"R9_U3B": {"ejercicio": "OK"}})
++    caso("U5 c (U4a): folio del pie de página impar «Elis | Universal Registration Document 2022 | 259» (URD 2022 p.261), "
++         "declarado 2021: no es una fila; ejercicio PENDIENTE (en C18, OK en las seis dimensiones)",
++         [del_pdf("R9_U4A", "URD2022", 261, r"Elis \| Universal Registration Document 2022 \| 259\s*$", "259", 2021)], "PENDIENTE",
++         dims={"R9_U4A": {"ejercicio": "PENDIENTE"}}, motivo="pie de página")
++    caso("U5 c (U4c): el «1» de «As at January 1» (URD 2021 p.218), declarado 2020: el día de la fecha del rótulo, no una cifra",
++         [del_pdf("R9_U4C", "URD2021", 218, r"^\s*As at January 1\s*$", "1", 2020)], "PENDIENTE",
++         dims={"R9_U4C": {"ejercicio": "PENDIENTE"}}, motivo="el día de la fecha del rótulo")
+     caso("T3 (T3a): capital a 31-12-2024 (236,7), fila «SOLDE AU 31 / DÉCEMBRE 2024» (rótulo partido tras el día), DEU 2024 p.274, "
+          "declarado 2024: ejercicio OK por la fecha del rótulo (en C16, PENDIENTE); columna PENDIENTE (T1)",
+          [del_pdf("R8_T3A", "DEU2024FR", 274, r"^\s*DÉCEMBRE 2024\s+236,7", "236,7", 2024)], "PENDIENTE",
+@@ -499,6 +523,15 @@
+          PAISES_SINT, lambda L, k, i: V.cabecera_de_paises(L, 1, -1, i) is None, True),
+         ("S4: columna de Francia de esa cabecera (líneas sintéticas): cabecera de países, perímetro PENDIENTE", None, None,
+          PAISES_SINT, lambda L, k, i: V.cabecera_de_paises(L, 1, -4, i) is not None, True),
++        ("U1: en «as at 12/31/2025   0   92,485» la posición del «0» es la suya, no la del «0» de «2025» (líneas sintéticas)",
++         None, None, ["as at 12/31/2025      0      92,485"], lambda L, k, i: V.spans_numericos(L[0], i)[0][0] == L[0].index("      0") + 6, True),
++        ("U4: «Scandinavia and Eastern» / «5   3» / «Europe»: la línea de cifras de un dígito tiene rótulo contiguo (líneas sintéticas)",
++         None, None, ["Scandinavia and Eastern", "5      3", "Europe"], lambda L, k, i: V.rotulos_sin_rotulo(L, 1, i) != [], True),
++        ("U4: «3   Report on corporate governance» (pestaña seguida de texto): no es una fila sin rótulo (líneas sintéticas)",
++         None, None, ["3      Report on corporate governance      12.5"], lambda L, k, i: V.rotulos_sin_rotulo(L, 0, i) == [], True),
++        ("U5 c: «Elis | Universal Registration Document 2022 | 259» es pie de página; «Revenue 2022 | 259» no (líneas sintéticas)",
++         None, None, ["Elis | Universal Registration Document 2022 | 259", "Revenue      2022      259"],
++         lambda L, k, i: V.es_pie_de_pagina(L[0]) and not V.es_pie_de_pagina(L[1]), True),
+     ]
+ 
+     malos = 0

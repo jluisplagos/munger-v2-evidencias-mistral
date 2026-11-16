@@ -1,0 +1,31 @@
+== Rerun independiente Mistral C/F de las 752 filas reales con verificar_cifras.py @ bf0d5c2 ==
+Comando: PATH=shim:$PATH python3 -I verificar_cifras.py --raiz raiz/munger_v2_r1 --datos cifras_fuente.csv --fuentes fuentes.json --salida out_c20.json
+shim: pdftotext/pdfinfo sirviendo las 73 paginas exportadas (hash-ligadas al PDF por la cabecera '# SHA-256:') y, solo para paginas de contexto previas no exportadas, el texto completo conservado; PDFs reales del ZIP base-4.14 con sha256 == fuentes.json (98c0012c..., 04bfd087..., 94e994f0..., e2d316b3..., 8aac7004...)
+exit observado: 1 (16 FALLO solo en filas tipo=texto por falta de pdftotext en modo raw en el sandbox)
+{"filas": 752, "ok": 722, "pendientes": 14, "fallos": 16, "por_dimension": {"literal": {"OK": 736, "FALLO": 16}, "ejercicio": {"OK": 736, "NO_EVALUADO": 16}, "columna": {"NO_APLICA": 603, "OK": 119, "PENDIENTE": 14, "NO_EVALUADO": 16}, "unidad": {"OK": 699, "PENDIENTE": 14, "NO_EVALUADO": 16, "NO_APLICA": 23}, "perimetro": {"OK": 713, "NO_EVALUADO": 16, "NO_APLICA": 23}, "edicion": {"OK": 736, "NO_EVALUADO": 16}}, "fuentes_verificadas": 5, "fuentes_declaradas": 5}
+
+== Comparacion fila a fila vs publicado @ bf0d5c2 (verificacion_cifras.json, sha256 f17bd8c518c1f53d51c7b11f05f8339b89d7e4343743a5166545ac5857cb7415) ==
+filas: 752 | identicas byte a byte: 736 | diferentes: 16
+todas las diferencias son tipo=texto (literal hallado solo con pdftotext en modo raw, no disponible en el sandbox): True
+ninguna fila tipo=tabla difiere: True
+
+== Salida publicada @ d519eb0 vs @ bf0d5c2 ==
+f17bd8c518c1f53d51c7b11f05f8339b89d7e4343743a5166545ac5857cb7415  verificacion_cifras.json
+f17bd8c518c1f53d51c7b11f05f8339b89d7e4343743a5166545ac5857cb7415  verificacion_cifras_d519eb0.json
+IDÉNTICAS byte a byte (misma sha256) -> criterio '752 filas con salida byte a byte idéntica' confirmado autor-side
+
+== Hashes de artefactos descargados @ bf0d5c2 (via gh api) ==
+c4f8dd23a583892ca2a3c01891d1ddbb4bf2d084dea00fc7a54a6f20017a523c  .trabajo/c20/RESPUESTA_REVISION_9_C20.md
+adacffe4796562ee9872de5717d0e5596de1c75b3ca66fbbdbd47c844c04acb8  .trabajo/c20/barrido_fecha_rotulo.txt
+3f9ae6e6dae3fc013a8ab595bc165168c0d300b5d08ac416a99ebc07b73f1331  .trabajo/c20/cifras_fuente.csv
+052f12fd1e7445bde40a33398162f0bfe25c839f2578eebf58f93c1a9c2d7976  .trabajo/c20/fuentes.json
+03543c134650683d505dfd05e38d719023e3a06ca353cd7b73ca3729d40eb65e  .trabajo/c20/revisor9_contraejemplos_9_sobre_C20.txt
+fc791873d15bb3209227f4d2fc998998435aff8072686b7d2540ebdd430810a4  .trabajo/c20/sondas_metadatos_C20.json
+1b3010ce535923bb07c51d55d5398568f27d2801ebe1757f773a958af0704711  .trabajo/c20/test_verificar_cifras.log
+44a85abea18f85c42a27693f13d2e4d21e444839af2e2c19178c713a078400ed  .trabajo/c20/test_verificar_cifras.py
+48b57565bd7757c3cca1fdd70a83c541d036594e7e661ed0135db585c940788d  .trabajo/c20/test_verificar_cifras_d519eb0.py
+f17bd8c518c1f53d51c7b11f05f8339b89d7e4343743a5166545ac5857cb7415  .trabajo/c20/verificacion_cifras.json
+f17bd8c518c1f53d51c7b11f05f8339b89d7e4343743a5166545ac5857cb7415  .trabajo/c20/verificacion_cifras_d519eb0.json
+f185d9f0b79af2c510e62a77bd763694a670cf41ec0c0d0b3fa71266275b024f  .trabajo/c20/verificar_cifras.log
+06da865b5979bfc7449f08e4078a4cdd7140744c3435e3eac9874b21f7402892  .trabajo/c20/verificar_cifras.py
+9b1fc4c96571d3646539227c1a7b35b36523ece3b6c2f3d5ca02ed4753d42497  .trabajo/c20/verificar_cifras_d519eb0.py

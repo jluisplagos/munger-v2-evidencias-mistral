@@ -1,0 +1,115 @@
+--- verificar_cifras_d519eb0.py	2026-11-16 21:17:18.666608093 +0000
++++ verificar_cifras.py	2026-11-16 21:17:10.812609876 +0000
+@@ -364,13 +364,24 @@
+     if ini < 0 or not re.search(r"[^\W\d_]", r) or not (ini <= a and b <= ini + len(r)):
+         return None
+     tok = lineas[i][a:b]
+-    if re.fullmatch(r"20\d\d,?", tok):
++    if re.fullmatch(r"\(?20\d\d\)?,?", tok):      # (C20, U5 c) también «2023)» y «(2023)»
+         return "el token es un año del rótulo de la fila, no una cifra"
++    if re.fullmatch(r"1(?:er)?,?", tok) and re.search(r"(?i)\b(?:january|janvier)\s+1(?:er)?\b", r):   # (C20, U5 c) «As at January 1»
++        return "el token es el día de la fecha del rótulo de la fila, no una cifra"
+     if re.fullmatch(r"(?:[12]?\d|3[01]),?", tok) and FECHA_DE_SALDO.search(rotulo_multilinea(lineas, i, idioma, alto=3, fecha=True)):
+         return "el token es el día de la fecha del rótulo de la fila, no una cifra"
+     return None
+ 
+ 
++PIE_DE_PAGINA = re.compile(r"(?i)\|\s*(?:Universal Registration Document|Document d.enregistrement universel)\b|"
++                           r"\b(?:Universal Registration Document|Document d.enregistrement universel)\s+20\d\d\s*\|")
++
++
++def es_pie_de_pagina(linea):
++    """(C20, U5 c) Línea del pie de la página: «Elis | Universal Registration Document 2022 | 259» o «260 | Elis | …»."""
++    return bool(PIE_DE_PAGINA.search(linea))
++
++
+ def anio_de_saldo_en_rotulo(lineas, i, idioma, pos=None):
+     """(Revisión n.º 7, S1; revisión n.º 8, T2 y T3) Ejercicio del saldo cuya fecha lleva el rótulo de la fila, aunque esté
+     partido en varias líneas. Solo si la línea es una fila: el rótulo es su primera celda y hay más celdas; si se da `pos`,
+@@ -420,18 +431,44 @@
+     return "dos_columnas"
+ 
+ 
+-def spans_numericos(linea, idioma):
+-    """Posición (inicio, fin) en la línea de cada token numérico, en el mismo orden que tokens_numericos."""
+-    out, desde = [], 0
+-    for t in tokens_numericos(linea, idioma):
+-        k = linea.find(t, desde)
+-        if k < 0:
+-            return None
+-        out.append((k, k + len(t)))
+-        desde = k + len(t)
++def tokens_con_posicion(linea, idioma):
++    """(C20, revisión n.º 9, U1) [(inicio, fin, token)] con la misma regla que tokens_numericos, siguiendo la posición de
++    cada celda y de cada palabra de la celda: la posición sale de la tokenización, no de buscar el texto en la línea
++    (antes, el «0» de una fila se localizaba en el «0» de la fecha del rótulo). Adaptación de `spans_9.py` del revisor."""
++    out = []
++    for c in re.finditer(r"\S+(?:\s\S+)*", linea):
++        t = c.group()
++        if es_numero(t, idioma):
++            out.append((c.start(), c.end(), t))
++            continue
++        partes = [(c.start() + m.start(), c.start() + m.end(), m.group()) for m in re.finditer(r"[^ ]+", t)]
++        cola = []
++        while partes:
++            a, b, cand = partes[-1]
++            if idioma == "fr" and len(partes) >= 2 and re.fullmatch(r"\(?\d{1,3}", partes[-2][2]) and re.fullmatch(r"\d{3}(?:,\d+)?\)?%?", cand):
++                unido = partes[-2][2] + " " + cand
++                if es_numero(unido, idioma) and b - partes[-2][0] == len(unido):
++                    cola.insert(0, (partes[-2][0], b, unido))
++                    partes = partes[:-2]
++                    continue
++            if es_numero(cand, idioma) and cand not in PLACEHOLDER:
++                cola.insert(0, (a, b, cand))
++                partes = partes[:-1]
++            else:
++                break
++        out.extend(cola)
+     return out
+ 
+ 
++def spans_numericos(linea, idioma):
++    """Posición (inicio, fin) en la línea de cada token numérico, en el mismo orden que tokens_numericos (C20, U1: la da la
++    tokenización). None si las dos tokenizaciones no coinciden, que no debería ocurrir."""
++    tp = tokens_con_posicion(linea, idioma)
++    if [x[2] for x in tp] != tokens_numericos(linea, idioma):
++        return None
++    return [(a, b) for a, b, _ in tp]
++
++
+ def es_linea_de_datos(linea, idioma):
+     """Línea con dos o más números que no son años: una fila de datos, no de cabecera."""
+     return len([t for t in tokens_numericos(linea, idioma) if not re.fullmatch(r"20\d\d", t)]) >= 2
+@@ -697,6 +734,9 @@
+     motivo = token_del_rotulo(lineas, i, pos, idioma)
+     if motivo:
+         return "PENDIENTE", motivo
++    # (C20, revisión n.º 9, U5 c) el pie de página no es una fila: su folio y su año no son cifras
++    if es_pie_de_pagina(lineas[i]):
++        return "PENDIENTE", "el token está en el pie de página, no en una fila"
+     if modo == "dos_columnas":
+         # (revisión n.º 7, S1) una fila que lleva en su rótulo la fecha de un saldo («Balance as at December / 31, 2021
+         # restated(a)», «Solde au 31 décembre / 2023, retraité*») es de ese ejercicio, sea cual sea su columna
+@@ -1231,7 +1271,9 @@
+         return []
+     # (revisión n.º 8, T5) una línea que empieza por la pestaña del capítulo no es una fila sin rótulo, ni la que empieza por
+     # un guion seguido de texto en la misma celda: es un rótulo con viñeta («− Matthieu Lecharny»)
+-    if re.fullmatch(r"\d", t[0]):
++    # (C20, revisión n.º 9, U4) el mismo criterio que `rotulo`: el dígito suelto es la pestaña si la línea solo lo lleva o
++    # si le sigue una celda de texto; si le siguen cifras, es una fila de cifras sin rótulo
++    if re.fullmatch(r"\d", t[0]) and (len(t) == 1 or not es_numero(t[1].split(" ")[0], idioma)):
+         return []
+     primera = t[0].split(" ")
+     if primera[0] in PLACEHOLDER and len(primera) > 1 and re.search(r"[^\W\d_]", t[0]):
+@@ -1469,6 +1511,11 @@
+     if e == "OK" and (fila.get("control_anio") or "").strip() == "dos_columnas" and (fila.get("edicion") or "").strip() == "vigente":
+         if any(edicion_de_columna(lineas, x["i"], pos, idioma) == "publicada" for x in vistos):
+             e, d = "FALLO", "la columna es la publicada antes de la reexpresión («published», «reported» o «publié»): cifra de la edición anterior, no la vigente"
++    # (C20, revisión n.º 9, U5 a) lo mismo si lo dice el rótulo de la fila («As at December 31, 2019, published»), en cualquier modo
++    if e == "OK" and (fila.get("edicion") or "").strip() == "vigente" and any(
++            re.search(r"(?i)\b(?:published|reported|publi[ée]e?s?)\b", rotulo_multilinea(lineas, x["i"], idioma, alto=3, fecha=True) or "")
++            for x in vistos):
++        e, d = "FALLO", "el rótulo de la fila dice que es la cifra publicada antes de la reexpresión: edición anterior, no la vigente"
+     dims["edicion"] = {"estado": e, "detalle": d}
+     if info:
+         dims["edicion"]["regla"] = info

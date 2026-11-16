@@ -3,14 +3,16 @@
 - **Base de la rama**: `ff0c60c` (paquete de coordinación `coordinacion/cierre_v2`, contiene el encargo
   `ec707a5ba2bd684381a63ce0f6f6c143aa59f4c0`). Rama creada desde ese commit; escribe solo en
   `resultados_cierre/alcance_real/`.
-- **Este bloque (F-REV, Cola 1)**: contraste independiente dirigido de la entrega Claude F1 W1–W3
-  @ `d519eb04978e64d04f1d1795c570ca96bdd7ad7f` (base `716cbd6794b7fcde8b3862c9d1e7acdaf516d262`).
-  Veredicto: **CUMPLE los 4 criterios** de `solicitud_revision` (W1, W2, W3, conservación/no adopción);
-  **ningún defecto material**. Evidencias en `revisiones_claude/` + `revisiones_claude/evidencias/`.
+- **Bloques F-REV (Cola 1)**: (1) contraste de F1 W1–W3 @ `d519eb0` (base `716cbd6`): CUMPLE los 4
+  criterios, sin defecto material. (2) contraste de **C20 (U1–U6 del verificador) @ `bf0d5c2`**
+  (base `d519eb0`): **CUMPLE los 5 criterios**, sin defecto material; rerun propio de las 752 filas
+  (736/752 byte-idénticas, 0 diferencias en tabla; 16 filas texto solo por falta de poppler raw en el
+  sandbox) + sondas U1–U6 sobre ambas versiones del código + end-to-end en páginas exportadas
+  hash-ligadas. Evidencias en `revisiones_claude/` + `evidencias/c20/`.
   Nada adoptado; producto/libros/candidata intactos; frente C (`mistral/m2-matematica-b` @ 1ec4f18) intacto.
 - **Estado de las colas tras consultar CONTROL.json** (`git fetch origin coordinacion/cierre-v2`):
-  - Cola 1: F-REV hecho por mí (este bloque). C20/CSV siguen **PENDIENTE** → no hay nueva entrega Claude
-    que contrastar; f5775dc no re-revisado. Siguiente independiente: **B-PM1 @ daa7478** (contraste documental
+  - Cola 1: F-REV (W1–W3) y C20 hechos por mí (informes en `revisiones_claude/`). CSV sigue
+    **POR_PREPARAR** → pendiente. Siguiente independiente: **B-PM1 @ daa7478** (contraste documental
     de las nueve altas PP&E corregidas de Vidrala).
   - Cola 2: F-B3 / F-C1 (preparación, protocolo congelado antes de calcular) — pendiente.
   - Cola 3: ejecución/relevo solo tras revisión de candidata/contrato/precondiciones — bloqueada salvo que

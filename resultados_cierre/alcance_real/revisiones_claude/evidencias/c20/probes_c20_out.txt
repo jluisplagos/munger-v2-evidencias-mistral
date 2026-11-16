@@ -1,0 +1,16 @@
+== PARTE A: end-to-end sobre paginas exportadas (hash-ligadas al PDF) ==
+U4a pie impar folio 259 declarado 2021 (URD2022 p.261) | C18: estado=OK dims={'literal': 'OK', 'ejercicio': 'OK', 'columna': 'NO_APLICA', 'unidad': 'OK', 'perimetro': 'OK', 'edicion': 'OK'} motivo='' -> COINCIDE
+U4a pie impar folio 259 declarado 2021 (URD2022 p.261) | C20: estado=PENDIENTE dims={'literal': 'OK', 'ejercicio': 'PENDIENTE', 'columna': 'NO_APLICA', 'unidad': 'OK', 'perimetro': 'OK', 'edicion': 'OK'} motivo='ejercicio: el token está en el pie de página, no en una fila' -> COINCIDE
+U5a deterioro clientes (54.3) declarado 2022 (URD2022 p.284) | C18: estado=OK dims={'literal': 'OK', 'ejercicio': 'OK', 'columna': 'NO_APLICA', 'unidad': 'OK', 'perimetro': 'OK', 'edicion': 'OK'} motivo='' -> COINCIDE
+U5a deterioro clientes (54.3) declarado 2022 (URD2022 p.284) | C20: estado=OK dims={'literal': 'OK', 'ejercicio': 'OK', 'columna': 'NO_APLICA', 'unidad': 'OK', 'perimetro': 'OK', 'edicion': 'OK'} motivo='' -> COINCIDE
+
+== PARTE B: sondas sinteticas in-process (lineas exactas citadas por la revision 9) ==
+U1 spans NEW [(22, 23), (29, 35)] (el '0' en su celda, posicion 22) vs OLD [(13, 14), (29, 35)] (el '0' dentro de '2025', pos 13)
+   U1 corregido: True
+U2a tokens: ['0', '0'] | spans NEW: [(33, 34), (36, 37)] | OLD: [(27, 28), (33, 34)]
+U1d (fr) spans NEW: [(15, 16), (18, 24), (26, 27), (29, 34), (36, 37), (39, 40)] | OLD: [(10, 11), (18, 24), (26, 27), (29, 34), (36, 37), (39, 40)]
+U4 rotulos_sin_rotulo '5      3': NEW=True (esp True) OLD=False (esp False) -> OK
+U4 rotulos_sin_rotulo '3      Report on corporate governance      12.5': NEW=False (esp False) OLD=False (esp False) -> OK
+U5c pie: NEW es_pie_de_pagina(folio)= True  fila normal= False | OLD no tiene la funcion: True
+U4c 'As at January 1' token '1': NEW='el token es el día de la fecha del rótulo de la fila, no una cifra' OLD=None
+U5a rotulo con published detectado por la nueva regla: True | rotulo= 'As at December 31, 2019, published'

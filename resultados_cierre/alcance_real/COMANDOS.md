@@ -66,3 +66,27 @@ cd resultados_cierre/alcance_real && find . -type f | sort | xargs sha256sum > M
 git add resultados_cierre/alcance_real && git commit -m "..." && git push -u origin mistral/f-alcance-real
 git fetch origin coordinacion/cierre-v2   # re-consulta de CONTROL.json tras el bloque
 ```
+
+## Bloque C20 (mismo bloque F-REV, segunda entrega de Claude) · 2026-11-16 ~21:17–21:40 UTC
+
+```bash
+# control actualizado: C20 ENTREGADO @ bf0d5c2, solicitud LISTA (11 rutas, 5 criterios)
+git fetch origin coordinacion/cierre-v2 && git show FETCH_HEAD:coordinacion/cierre_v2/CONTROL.json | python3 -c "...tareas C20..."
+# alcance del diff (12 archivos, solo bajo frente_E_F1_elis/; cifras_fuente.csv sin cambios)
+gh api "repos/jluisplagos/munger-v2/compare/d519eb0...bf0d5c2" --jq '.files[] | [.filename,.status,.additions,.deletions] | @tsv'
+# descarga de artefactos @ bf0d5c2 y @ d519eb0 (scripts, datos, resultados, RESPUESTA) via gh api contents -> .trabajo/c20/
+# PDFs reales desde el release base-4.14 (ya descargado en el frente M2) y verificacion de huellas:
+unzip -o -j .trabajo/base414.zip '.../elis_decisiones/Elis/fuentes_pdf/*.pdf' -d .trabajo/c20/raiz/.../fuentes_pdf/
+sha256sum *.pdf   # == fuentes.json (98c0012c, 04bfd087, 94e994f0, e2d316b3, 8aac7004)
+# 73 paginas exportadas hash-ligadas desde el tarball del repo @ bf0d5c2:
+gh api "repos/jluisplagos/munger-v2/tarball/bf0d5c2..." > /tmp/repo_bf0d5c2.tar.gz
+tar xzf /tmp/repo_bf0d5c2.tar.gz -C .trabajo/c20/repo --wildcards '*/frente_E_F1_elis/{evidencias/paginas,scripts,datos}/*'
+# shims pdftotext/pdfinfo en .trabajo/c20/shim (sirven export hash-ligado; fallback a texto completo solo en paginas de contexto)
+# rerun de las 752 filas con el codigo C20:
+PATH="$PWD/.trabajo/c20/shim:$PATH" python3 -I .trabajo/c20/verificar_cifras.py --raiz .trabajo/c20/raiz/munger_v2_r1 \
+  --datos .trabajo/c20/cifras_fuente.csv --fuentes .trabajo/c20/fuentes.json --salida .trabajo/c20/out_c20.json   # exit 1 (16 filas texto solo por falta de raw)
+# comparacion fila a fila vs publicado y entre commits (736/752 identical; 0 diferencias en tabla; sha256 f17bd8c5 igual en d519eb0 y bf0d5c2)
+# sondas U1-U6 sobre ambas versiones + end-to-end en URD2022 p.261/p.284:
+python3 -I .trabajo/c20/probes_c20.py   # todo COINCIDE con lo que propone la revision 9
+# diffs de codigo y de test, y parches de texto (T14, informe) guardados en evidencias/c20/
+```

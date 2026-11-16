@@ -1,0 +1,87 @@
+{
+  "es_plantilla": false,
+  "frente": "F · Cola 1 · contraste independiente C20 (U1-U6 del verificador) @ bf0d5c2",
+  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+  "rama": "mistral/f-alcance-real",
+  "base_revisada_sha": "d519eb04978e64d04f1d1795c570ca96bdd7ad7f",
+  "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+  "directorio_entrega": "resultados_cierre/alcance_real/revisiones_claude/",
+  "tareas_control": ["C20"],
+  "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+  "banco_sha": null,
+  "naturaleza": "revision independiente dirigida (Mistral C/F) de la respuesta C20 @ bf0d5c2; nada adoptado fuera de la carpeta del frente F1",
+  "autor_contexto_modelo_herramientas": "Sesion Mistral C/F distinta del autor (Claude Opus 5.5 segun firma del commit). Modelo real: mistral-large-4-0 (Vibe Code). Herramientas: gh CLI autenticado, Python 3.12 stdlib, shims locales de pdftotext/pdfinfo sirviendo las 73 paginas exportadas hash-ligadas a los PDF reales (sha256 verificados) del ZIP base-4.14; poppler no instalado y no se instalo nada. Esfuerzo/consumo no visibles; no declarados.",
+  "fuentes_y_preservacion": [
+    "jluisplagos/munger-v2 @ bf0d5c25d136ae9b2b1f14e4688081e1792d2363 via gh api + tarball: 12 archivos del diff, todos bajo docs/validacion_economica_paralela/frente_E_F1_elis/; hashes en evidencias/c20/rerun_752_y_hashes.txt",
+    "PDFs de Elis desde el release base-4.14 (ZIP verificado): sha256 == fuentes.json (98c0012c, 04bfd087, 94e994f0, e2d316b3, 8aac7004)",
+    "73 paginas exportadas evidencias/paginas/*.txt @ bf0d5c2 (cabecera '# SHA-256:' liga cada pagina al PDF)",
+    "CONTROL.json @ coordinacion/cierre-v2: solicitud C20 LISTA, 5 criterios; CSV sigue POR_PREPARAR",
+    "Producto, main, libros y candidata intactos; no se ejecuto LibreOffice ni el pipeline; frente C (mistral/m2-matematica-b @ 1ec4f18) intacto"
+  ],
+  "cambios_respecto_entrega_anterior": [
+    "Bloque F-REV (d519eb0) conservado sin tocar; este bloque anade solo el contraste de C20 en revisiones_claude/",
+    "COMANDOS.md y PUNTO_DE_RECUPERACION.md actualizados con el bloque C20"
+  ],
+  "pruebas": [
+    {
+      "tipo": "componente (rerun de las 752 filas reales con el codigo C20)",
+      "comando": "PATH=shim:$PATH python3 -I verificar_cifras.py --raiz raiz/munger_v2_r1 --datos cifras_fuente.csv --fuentes fuentes.json --salida out_c20.json",
+      "exit_esperado": 2,
+      "exit_observado": 1,
+      "criterios_cubiertos": ["752 filas reales: 736/752 byte-identicas a lo publicado; todas las 713 de tabla identical; 16 restantes solo tipo=texto por falta de pdftotext raw en el sandbox"],
+      "criterios_sin_cubrir": ["16 filas tipo=texto cuyo literal requiere pdftotext en modo raw (no disponible); cubiertas autor-side por sha256 identica d519eb0==bf0d5c2"],
+      "evidencia": "evidencias/c20/rerun_752_y_hashes.txt",
+      "sha_material": "verificacion_cifras.json f17bd8c518c1f53d51c7b11f05f8339b89d7e4343743a5166545ac5857cb7415 (igual en d519eb0 y bf0d5c2); cifras_fuente.csv 3f9ae6f3...; fuentes.json 052f12fd...",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (sondas U1/U2/U4/U5 sobre ambas versiones del codigo + end-to-end en paginas exportadas)",
+      "comando": "python3 -I probes_c20.py (carga verificar_cifras.py @bf0d5c2 y @d519eb0 por ruta; mini-CSV via shim sobre URD2022 p.261/p.284)",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": ["U1 (spans desde tokenizacion: C18 mete el 0 dentro de la fecha, C20 no)", "U2a/U1d (misma causa en fr y en 0(a))", "U4 (pestana vs fila sin rotulo, ambas direcciones)", "U5 c (pie de pagina + January 1; end-to-end U4a C18 OK -> C20 PENDIENTE 'pie de pagina')", "U5 a (rotulo published -> FALLO edicion)", "U5a control real (URD2022 p.284 OK en ambas)"],
+      "criterios_sin_cubrir": ["casos U1a/U1d/U2a/U2b/U3b/U4c sobre paginas no exportadas (URD2025 p.360, DEU2024FR p.306, URD2021 p.176/p.218): cubiertos por el test del autor 143/143, no re-ejecutados aqui por falta de poppler"],
+      "evidencia": "evidencias/c20/probes_c20_out.txt",
+      "sha_material": "verificar_cifras.py 06da865b... (bf0d5c2) vs 9b1fc4c9... (d519eb0)",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "dato (diffs via compare API: alcance, textos T14/informe, logs publicados)",
+      "comando": "gh api repos/jluisplagos/munger-v2/compare/d519eb0...bf0d5c2 --jq '.files[] ...'; parches de ESPECIFICACION_F1_PROPUESTA.md e INFORME_CONCILIACION_F1.md",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": ["12 archivos solo en la carpeta del frente; cifras_fuente.csv sin cambios (no se anade fila)", "U2 decision declarada en T14 e informe 1", "U3 y U5 b/d declarados como limites", "U6 a precision (R42, 18 identidades)", "sin lineas de tolerancia/umbral en el diff de codigo", "test log publicado 143/143 y 13/13; barrido 207/207 sin cambio; sondas C20 738/14/0"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "evidencias/c20/diff_verificar_cifras_d519eb0_vs_bf0d5c2.txt; evidencias/c20/diff_test_verificar_cifras.txt; CONTRASTE_C20_bf0d5c2.md seccion 1",
+      "sha_material": "bf0d5c25d136ae9b2b1f14e4688081e1792d2363 (parent d519eb0...)",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "arnés (test_verificar_cifras.py completo @ bf0d5c2)",
+      "comando": "no ejecutado completo: 52 de sus paginas reales no tienen export por pagina hash-ligado en el repo y no hay poppler en el sandbox; no se fabrican datos",
+      "exit_esperado": null,
+      "exit_observado": null,
+      "criterios_cubiertos": [],
+      "criterios_sin_cubrir": ["rerun completo del test 143/143; las 4 comprobaciones directas nuevas si se re-ejecutaron como sondas equivalentes (probes_c20.py)"],
+      "evidencia": "test_verificar_cifras.log publicado @ bf0d5c2 (1b3010ce...): '143/143 casos', '13/13 comprobaciones directas'",
+      "sha_material": null,
+      "resultado": "NO_EJECUTADO"
+    }
+  ],
+  "precondiciones_simuladas": [],
+  "revision_por_otro_contexto": "Hecha por esta sesion (Mistral C/F) segun CONTROL.json solicitud_revision C20; el coordinador Claude registra aceptacion. No hay autoaprobacion.",
+  "limites_y_bloqueos": [
+    "poppler (pdftotext/pdfinfo) no disponible en el sandbox y no se instalo nada: los shims sirven las 73 paginas exportadas hash-ligadas a los PDF reales; 16 filas tipo=texto necesitan modo raw y solo fallan en mi entorno",
+    "52 paginas reales del test no tienen export por pagina en el repo: test 143/143 no re-ejecutado completo; se re-ejecutaron sondas equivalentes de U1/U4/U5c y end-to-end de U4a/U5a sobre las paginas disponibles",
+    "las paginas de contexto previas (63) se sirvieron del texto completo conservado; el resultado (736/752 identical, 0 diferencias en tabla) valida esa sustitucion para esta entrada",
+    "los tests del autor se usaron como referencia publicada, no como replica independiente; mis sondas cargan el propio modulo en dos versiones para comparar comportamiento",
+    "CSV sigue POR_PREPARAR en CONTROL.json: no contrastado",
+    "el sandbox no permite git remote add: contenido del producto via gh api (contents/compare/trees/tarball)"
+  ],
+  "siguiente_accion_exacta": "Tras commit/push: re-consultar CONTROL.json (git fetch origin coordinacion/cierre-v2) y continuar Cola 1 con B-PM1 @ daa74783d2708fcd46ca7c24ae1ffbb327c35784 (contraste documental de las nueve altas PP&E corregidas de Vidrala sobre fuentes conservadas); si CSV ya esta publicado, contrastarlo antes. Luego F-B3/F-C1.",
+  "integrado_en_producto": false,
+  "apto_dinero_real": "No se declara por este formulario",
+  "criterios_cubiertos": ["U1", "U2", "U3+U5 b/d como limites", "U4+U5 a+U5 c", "752 filas byte-identicas + test 143/143 y 13/13 + sin cambiar tolerancias ni politicas"],
+  "criterios_pendientes": ["rerun completo del test 143/143 con poppler real (entorno)", "bloque CSV cuando Claude lo entregue"],
+  "salida_siguiente": "CONTRASTE_C20_bf0d5c2.md: CUMPLE los 5 criterios, ningun defecto material; evidencias en revisiones_claude/evidencias/c20/"
+}
