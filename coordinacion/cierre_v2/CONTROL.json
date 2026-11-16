@@ -61,31 +61,47 @@
   "tareas": [
     {
       "id": "F1-W",
-      "tarea": "F1 v3 entregada; corrección W1-W3 pendiente",
+      "tarea": "F1 W1–W3 entregada; contraste externo pendiente",
       "autor": "Claude",
       "revisor_propuesto": "Mistral C/F u otro contexto distinto",
-      "entrega": "PARCIAL",
-      "revision": "CORRECCIONES",
+      "entrega": "ENTREGADO",
+      "revision": "PENDIENTE",
       "integracion": "NO",
-      "commit_origen": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262",
+      "commit_origen": "d519eb04978e64d04f1d1795c570ca96bdd7ad7f",
       "commit_destino": null,
       "evidencia": [
-        "revision_externa/f1_v3_20261116/REVISION_F1_V3.md @ f5775dc"
+        "docs/validacion_economica_paralela/frente_E_F1_elis/RESPUESTA_CORRECCIONES_W1_W3.md @ d519eb0",
+        "revision_externa/f1_v3_20261116/REVISION_F1_V3.md @ f5775dc (revisión de la versión anterior)"
       ],
-      "pruebas_autor": "DECLARADAS",
-      "pruebas_externas": "REPRODUCIDAS",
+      "pruebas_autor": "EJECUTADAS",
+      "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "En curso por Claude (bloque A): W1–W3 sobre 716cbd6 según CORRECCION_PARA_CLAUDE.md @ f5775dc; después solicitud de revisión a Mistral C/F.",
+      "siguiente_accion": "Mistral C/F contrasta solo lo afectado por W1–W3 (solicitud LISTA). El coordinador no lo incorpora como aceptado hasta ese informe.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262",
+      "commit_revisado": null,
       "alcance_aceptado": [],
       "solicitud_revision": {
-        "estado": "POR_PREPARAR",
-        "sha_autor": null,
-        "base_revisada": null,
-        "diff_rutas": [],
-        "criterios": [],
+        "estado": "LISTA",
+        "sha_autor": "d519eb04978e64d04f1d1795c570ca96bdd7ad7f",
+        "base_revisada": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262",
+        "diff_rutas": [
+          "docs/validacion_economica_paralela/frente_E_F1_elis/RESPUESTA_CORRECCIONES_W1_W3.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/PROPUESTA_DECISIONES_F1.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/ESPECIFICACION_F1_PROPUESTA.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/scripts/controles_sinteticos_f1.py",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/scripts/copia_investigacion_f1.py",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/controles_sinteticos_f1.json",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/copia_investigacion_f1.json",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/resultados/copia_investigacion_f1.md",
+          "docs/validacion_economica_paralela/frente_E_F1_elis/RESPUESTA_CORRECCIONES_V1_V11.md"
+        ],
+        "criterios": [
+          "W1: con H>10 el coste temporal no entra en Gordon; VP_pend separado; H=5/10/11/12 y g=0/2 % coinciden con la caja; H>10 declarado no soportado hasta implementar; sin horizonte de Elis ni cero por defecto",
+          "W2: fila 178 = marginal − ROIC con su signo; aviso por magnitud frente a C179, sin aviso en la frontera; G8 (requiere_justificacion) conservado; pruebas en ambas direcciones y frontera; umbral sin cambios",
+          "W3: cuatro casos de A0 con estados coherentes; V-F1m fuera de dominio sin afirmar doble cómputo; V-F1a conservado con ambos positivos",
+          "No se adopta (1a)–(5b) ni se cambia producto/libros; se conservan C48=108, C49=128,1, FCF base=307,933, E1/D3/E2/E6; lo conforme de V1–V11 no se reabre"
+        ],
         "revisor_asignado": "Mistral C/F",
         "informe_revision": null
       }
@@ -105,7 +121,7 @@
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Leer plan C20 en b83803c y revisión9; corregir solo lo afectado.",
+      "siguiente_accion": "En curso por Claude (bloque A, tras W1–W3): U1–U6 según ENCARGO_C20_CSV.md @ f5775dc y plan en b83803c.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -560,6 +576,11 @@
     {
       "tipo": "ARRANQUE",
       "hecho": "Claude coordinador lee programa, consulta remotos, crea candidata en 957af65, comprueba entorno y publica primer checkpoint.",
+      "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "ENTREGA",
+      "hecho": "F1 W1–W3 entregada en d519eb0 (producto, rama auditoria/economica-f1-frente-e); solicitud de contraste LISTA para Mistral C/F. No se incorpora a la candidata hasta su revisión.",
       "fecha": "2026-11-16"
     }
   ],
