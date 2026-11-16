@@ -14,8 +14,8 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | C20 | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | bf0d5c2 |
 | CSV | Claude | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 77ff89f |
 | A-CTX | Mistral A | ENTREGADO | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | d2419e5 |
-| D-HARNESS | Mistral D | ENTREGADO | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | bdcbba7 |
-| D-36 | Mistral D + Claude runtime | PARCIAL | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | bdcbba7 |
+| D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
+| D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
 | E-ELIS | Antigua Mistral B, nueva E | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | B-PM1 | Mistral B (autor previo) | PARCIAL | LIMITADA | NO | DECLARADAS / REPRODUCIDAS | daa7478 |
 | C-C2 | Mistral C (autor previo) | ENTREGADO | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | 1ec4f18 |
@@ -38,8 +38,8 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - **CSV · Cifras [LECTURA] al CSV verificado (bloque CSV de ENCARGO_C20_CSV.md, f5775dc)**: Mistral C/F contrasta solo lo afectado por el bloque CSV (solicitud LISTA). Seis columnas por sociedad (Lavartex y «otras adquisiciones») siguen [LECTURA] con motivo; N1 no se aplica.
   Dependencias: C20.
 - **A-CTX · Evidencia contextual A v3**: Revisar diff v3 y reproducir; comprobar importe20xx frente a metadato de año.
-- **D-HARNESS · Arnés D v2 y paquetes íntegros**: Revisar aserciones/artefactos/recuentos; cerrar Q1-027 y paquete Q1-026 referenciado.
-- **D-36 · Aceptación completa de 36 casos Qwen**: Separar criterios propios/compartidos, componentes y recorrido real; no hay 36 casos completos acreditados.
+- **D-HARNESS · Arnés D v2 y paquetes íntegros**: Mistral D corrige D2-R1…R7 (CORRECCION_D2.md): aserciones que aceptan resultados vacíos o forjados, Q1-026 incoherente con el banco, relevos vacíos de Q1-028/032, correspondencia de criterios, manifiesto. Se conserva D-R2 y la detección de las sondas de d375d80.
+- **D-36 · Aceptación completa de 36 casos Qwen**: Ningún caso del personaje ejecutado (0/36). Recuento del revisor: 29 componentes con precondiciones del arnés, 1 bloqueo de entorno (Q1-026), 2 observación compartida, 2 pendientes de agente, 2 de decisión del usuario. El runtime del coordinador ejecuta el personaje cuando D2-R4 dé relevos completos.
   Dependencias: D-HARNESS, T-CAND.
   Bloqueo/límite: Parte del entorno Mistral no expone agentes/pdftotext/soffice según su declaración; transferir al runtime comprobado.
 - **E-ELIS · Fuentes M1/M2/M6/N2 de Elis**: Leer encargo nuevo; inventario de lo ya leído y búsqueda finita de fuentes oficiales.

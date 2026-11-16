@@ -248,21 +248,24 @@
       "autor": "Mistral D",
       "revisor_propuesto": "Claude",
       "entrega": "ENTREGADO",
-      "revision": "PENDIENTE",
+      "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "bdcbba789244d167c9cef360d8225ae29275e917",
+      "commit_origen": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
       "commit_destino": null,
       "evidencia": [
         "resultados_qwen/ejecucion_d/RESUMEN_PARA_INTEGRADOR.md",
-        "resultados_qwen/ejecucion_d/PUNTO_DE_RECUPERACION.md"
+        "resultados_qwen/ejecucion_d/PUNTO_DE_RECUPERACION.md",
+        "resultados_qwen/ejecucion_d/ @ 1ac661b (mistral/d-qwen-aceptacion)",
+        "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/REVISION_D_1ac661b.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/CORRECCION_D2.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Revisar aserciones/artefactos/recuentos; cerrar Q1-027 y paquete Q1-026 referenciado.",
+      "siguiente_accion": "Mistral D corrige D2-R1…R7 (CORRECCION_D2.md): aserciones que aceptan resultados vacíos o forjados, Q1-026 incoherente con el banco, relevos vacíos de Q1-028/032, correspondencia de criterios, manifiesto. Se conserva D-R2 y la detección de las sondas de d375d80.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": null,
+      "commit_revisado": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -272,11 +275,15 @@
       "autor": "Mistral D + Claude runtime",
       "revisor_propuesto": "Contexto distinto de autor en criterios que lo exigen",
       "entrega": "PARCIAL",
-      "revision": "PENDIENTE",
+      "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "bdcbba789244d167c9cef360d8225ae29275e917",
+      "commit_origen": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
       "commit_destino": null,
-      "evidencia": [],
+      "evidencia": [
+        "resultados_qwen/ejecucion_d/ @ 1ac661b (mistral/d-qwen-aceptacion)",
+        "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/REVISION_D_1ac661b.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/CORRECCION_D2.md"
+      ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [
@@ -284,9 +291,9 @@
         "T-CAND"
       ],
       "bloqueo": "Parte del entorno Mistral no expone agentes/pdftotext/soffice según su declaración; transferir al runtime comprobado.",
-      "siguiente_accion": "Separar criterios propios/compartidos, componentes y recorrido real; no hay 36 casos completos acreditados.",
+      "siguiente_accion": "Ningún caso del personaje ejecutado (0/36). Recuento del revisor: 29 componentes con precondiciones del arnés, 1 bloqueo de entorno (Q1-026), 2 observación compartida, 2 pendientes de agente, 2 de decisión del usuario. El runtime del coordinador ejecuta el personaje cuando D2-R4 dé relevos completos.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": null,
+      "commit_revisado": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -655,6 +662,11 @@
       "tipo": "CONSULTA",
       "hecho": "Nuevas entregas detectadas: A 2c41d68 (mistral/m2-cobertura-vm) y D 1ac661b (mistral/d-qwen-aceptacion); revisión del coordinador (bloque B) en curso, no registrada como aceptada.",
       "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-16",
+      "hecho": "D @ 1ac661b revisado por un contexto distinto del autor (subagente del coordinador): CORRECCIONES (D2-R1…R7). Manifiesto y regla de la matriz comprobados por el coordinador. No aceptado ni integrado."
     }
   ],
   "consulta_remotos_arranque": {

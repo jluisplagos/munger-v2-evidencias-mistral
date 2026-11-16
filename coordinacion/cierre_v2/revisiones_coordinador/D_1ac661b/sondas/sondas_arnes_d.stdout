@@ -1,0 +1,129 @@
+{
+ "alcance": "sondas del arnés con candidata falsa (stubs); no son resultados del producto",
+ "R1_sin_scripts_producto": {
+  "exit_arnes": 2,
+  "stdout": "ERROR Q1-001: entorno inválido: ['falta /tmp/tmpq0_ed392/r1/cand/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py (CANDIDATA_DIR=/tmp/tmpq0_ed392/r1/cand)']",
+  "estado_caso": "ERROR_ENTORNO",
+  "esperado_revisor": "exit != 0 y estado no positivo",
+  "veredicto": "DETECTA"
+ },
+ "R2_matriz_sin_evidencias": {
+  "exit": 1,
+  "carpeta_evidencias_existe": false,
+  "filas": 36,
+  "veredicto_componente": {
+   "(vacío)": 36
+  },
+  "stderr_ultima_linea": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpq0_ed392/r2/d/evidencias/recuentos.json'",
+  "veredicto": "DETECTA (sin CUMPLE)"
+ },
+ "P1_especificacion_vacia": {
+  "exit_arnes": 0,
+  "estado_caso": "COMPONENTE_OK",
+  "criterios": [],
+  "esperado_revisor": "un resultado vacío debe fallar",
+  "veredicto": "FALSO POSITIVO"
+ },
+ "P2_criterio_sin_aserciones": {
+  "exit_arnes": 0,
+  "estado_caso": "COMPONENTE_OK",
+  "criterios": [
+   [
+    "C1",
+    "NO_EVALUADO"
+   ]
+  ],
+  "veredicto": "FALSO POSITIVO"
+ },
+ "P3_evidencia_de_otro_caso": {
+  "exit_arnes": 0,
+  "estado_caso": "COMPONENTE_OK",
+  "criterios": [
+   [
+    "C1",
+    "CUMPLE_COMPONENTE",
+    [
+     "../Q1-036/07_informe_provisional.md contiene 'apta por entradas: no' -> OK"
+    ]
+   ]
+  ],
+  "veredicto": "FALSO POSITIVO (sin aislamiento por caso)"
+ },
+ "P4_resultado_forjado_en_matriz": {
+  "exit": 0,
+  "Q1-031": {
+   "estado_ejecucion": "PARCIAL_COMPONENTE",
+   "veredicto_componente": "CUMPLE",
+   "criterios_evaluados": "",
+   "comandos_reproducibles": "pendiente de especificación ejecutable"
+  },
+  "recuentos_veredicto_componente": {
+   "CUMPLE": 31,
+   "sin veredicto de componente": 5
+  },
+  "veredicto": "FALSO POSITIVO"
+ },
+ "P5_Q1-034_sin_rango": {
+  "exit_arnes": 0,
+  "estado_caso": "COMPONENTE_OK",
+  "salida_01": "{\"comprobadas\": [], \"pendientes\": [\"aux:litigio: no est\\u00e1 acreditado (sin menci\\u00f3n de rango)\"]}",
+  "menciona_0_200": false,
+  "criterios": [
+   [
+    "C1",
+    "CUMPLE_COMPONENTE"
+   ],
+   [
+    "C2",
+    "CUMPLE_COMPONENTE"
+   ]
+  ],
+  "veredicto": "FALSO POSITIVO en C1"
+ },
+ "P6_salida_obsoleta_Q1-036": {
+  "exit_arnes": 1,
+  "estado_caso": "ERROR",
+  "copiados": [],
+  "exits": [
+   0,
+   1,
+   1,
+   3,
+   2
+  ],
+  "veredicto": "DETECTA"
+ },
+ "P7_Q1-026": {
+  "exit_arnes": 0,
+  "estado_caso": "COMPONENTE_OK",
+  "criterios": [
+   [
+    "C1",
+    "CUMPLE_COMPONENTE"
+   ],
+   [
+    "C2",
+    "CUMPLE_COMPONENTE"
+   ]
+  ],
+  "origen_reutilizado": "{\"origen\": \"PREEXISTENTE Y MUTADO\"}",
+  "escribe_en_candidata (git status)": [
+   "?? munger_v2_r1/pruebas_d/"
+  ],
+  "veredicto": "FALSO POSITIVO (C1 acepta cualquier fallo con la subcadena; origen preexistente reutilizado; escribe en la candidata)"
+ },
+ "P8_candidata_sucia": {
+  "exit_arnes": 0,
+  "estado_caso": "COMPONENTE_OK",
+  "candidata_sha_registrado": "9939e58ca5bacf8b5dade4710e7a0dded85b6cdd",
+  "git_status": [
+   "M munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py",
+   "?? munger_v2_r1/pruebas_d/"
+  ],
+  "veredicto": "NO DETECTA (árbol modificado aceptado)"
+ },
+ "P9_log_acumulado": {
+  "ejecuciones_en_un_log": 2,
+  "veredicto": "ACUMULA (procedencia del log mezclada)"
+ }
+}
