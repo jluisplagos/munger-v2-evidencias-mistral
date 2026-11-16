@@ -4,26 +4,27 @@ Evidencia propuesta por Mistral; pendiente de revisión e incorporación por el 
 
 ## Estado actual
 
-- Repositorio auxiliar: `jluisplagos/munger-v2-evidencias-mistral` (origin verificado). Rama: `mistral/fuentes-vm-01`. Base: `main` @ `e137b854dc592bcad9ed3e51275f7b80d35d210e`.
-- Insumos: `python3 docs/mistral_fuentes_vm/herramientas/preparar_insumos.py --download` ejecutado; ZIP base-4.14 (1.130.912.246 bytes, sha256 `bb51942c…b7b93e` verificado) descargado una vez y 15 insumos copiados a `.trabajo/insumos/` con sha256 conformes al índice. `producto_completo_verificado: false` (selección parcial, no materialización de los 6.798 archivos).
-- Asociaciones texto↔PDF verificadas con pypdf (cobertura 100% de tokens numéricos en cada página citada): CF_2025.txt↔2355_en-2025 (p.4,7); CF_2024.txt↔2145_en-2024 (p.7); ES_2025.txt↔2308_es (p.67); AR_2025.txt↔AR_2025.pdf (p.23,27,28,76,83); CF_2024.txt(Viscofan)↔CF_2024.pdf (p.9).
+- Repositorio auxiliar: `jluisplagos/munger-v2-evidencias-mistral` (origin verificado: `https://github.com/jluisplagos/munger-v2-evidencias-mistral.git`). Rama local: `mistral/fuentes-vm-01`. Base: `main` @ `e137b854dc592bcad9ed3e51275f7b80d35d210e`.
+- Insumos: `preparar_insumos.py --download` ejecutado; ZIP base-4.14 (1.130.912.246 bytes, sha256 `bb51942c…b7b93e` verificado) y 15 insumos en `.trabajo/insumos/` con sha256 conformes. Selección parcial (`producto_completo_verificado: false`).
+- Asociaciones texto↔PDF verificadas (pypdf, 100% tokens numéricos por página) y verificación visual con PyMuPDF en EN2025 p.52 y ES2025 p.14.
 
 ## Terminado
 
-- Bloque 2: 44 observaciones restantes añadidas a `resultados/lectura_fuentes.jsonl` (total 60 entradas = 26 objetivos + 34 dependencias, sin duplicados). Hash del bloque 2: sha256 `8a7a518f7734a015ddc255fccfd0522a5ec33ddcc828640c3a44ddc561429c2c`; hash del fichero completo tras bloque 2: `5905e415e71422fc4d5cf04e32a0b0fc4136210df7d0bfac9b52220547f3d8dc`. Verificación visual (PyMuPDF+imagen) de EN2025 p.52 (nota 8 arrendamientos) y ES2025 p.14 (flujos en español).
-- Bloque 1 (10 objetivos iniciales: Historia L6/L7/L8/L12 y Análisis C55 de Vidrala y Viscofan) + sus 6 dependencias: primera lectura registrada en `resultados/lectura_fuentes.jsonl` (16 observaciones) ANTES de comparar con valores heredados.
-  - Hash de esa primera lectura (bloque 1): sha256 `5571ee7f9a5b021da59f99d6ac61f9feb3a4723af92a240556f3e1ef20c90f51`.
+- Bloque 1 (10 objetivos iniciales + 6 dependencias): primera lectura en `resultados/lectura_fuentes.jsonl` antes del contraste; hash `5571ee7f9a5b021da59f99d6ac61f9feb3a4723af92a240556f3e1ef20c90f51`. Commit local `5641bec`.
+- Bloque 2 (44 observaciones restantes; total 60 = 26 objetivos + 34 dependencias): hash bloque 2 `8a7a518f7734a015ddc255fccfd0522a5ec33ddcc828640c3a44ddc561429c2c`; hash fichero completo `5905e415e71422fc4d5cf04e32a0b0fc4136210df7d0bfac9b52220547f3d8dc`. Commit local `b278727`.
+- XLSX de ambos expedientes leídos en solo lectura (openpyxl; huellas `82ff7fb8…` Vidrala, `95a78291…` Viscofan): celdas objetivo hardcodeadas; Vidrala C48 vacío (None).
+- Contraste: `resultados/contraste_objetivos.csv` con 26 filas — 23 `COINCIDE_EN_REVISION_MISTRAL`, 3 `HIPOTESIS_O_AUSENCIA` (Vidrala C48/C49/C50), 0 DIFERENCIA, 0 NO_ACREDITADO. Derivados recalculados desde fuentes verificadas (detalle en HALLAZGOS.md punto 9).
+- Entregables completos: `lectura_fuentes.jsonl`, `contraste_objetivos.csv`, `HALLAZGOS.md`, `RESUMEN_PARA_CLAUDE.md`, este archivo, `MANIFIESTO_SHA256.txt`. `comprobar_entrega.py` ejecutado (resultado abajo).
 
 ## Pendiente / siguiente acción exacta
 
-1. Bloque 2: leer en los PDF conservados los 16 objetivos restantes (Vidrala C46–C50, K14, L14, L15, J12, K12; Viscofan C46–C50, J12, J15, K14, K15, L14, L15) y las 28 dependencias restantes; añadir observaciones a `resultados/lectura_fuentes.jsonl` (bloque2) y registrar su hash.
-2. Comparar con `entrada/declaraciones_historicas.json` y con las celdas reales de los XLSX (openpyxl, solo lectura; distinguir valor almacenado y fórmula; huella del libro ya registrada).
-3. Recalcular los 34 derivados desde dependencias verificadas (expresión, operandos, unidad, signo, redondeo).
-4. Entregables: `resultados/contraste_objetivos.csv` (26 filas), `HALLAZGOS.md`, `RESUMEN_PARA_CLAUDE.md`, actualizar este archivo, `MANIFIESTO_SHA256.txt`; ejecutar `python3 docs/mistral_fuentes_vm/herramientas/comprobar_entrega.py`; commit y push por bloque.
+1. **Bloqueo de push remoto**: `git push origin mistral/fuentes-vm-01` → `403 Permission to jluisplagos/munger-v2-evidencias-mistral.git denied to jluisplagos` (también 403 vía `github_app_create_branch` «Resource not accessible by integration»; las mutaciones `gh` API y `github_app_push_files` están bloqueadas por el sandbox). Acción requerida de la persona responsable: autorizar la GitHub App (mistralai) con **Contents: write** sobre `jluisplagos/munger-v2-evidencias-mistral` (https://github.com/apps/mistralai/installations/new) y reintentar el push de la rama local (commits `5641bec`, `b278727` y el de entrega).
+2. Tras el push: verificar el commit remoto y entregar el enlace al commit final.
+3. Revisión externa (integrador/Claude) de citas, datos, derivaciones y compatibilidad antes de incorporar cualquier parte.
 
 ## Modelo y limitaciones
 
-- Sesión: Vibe Code de Mistral AI, modelo `mistral-large-4-0` (único modelo expuesto por esta sesión; no se declara nivel de esfuerzo porque la interfaz no lo ofrece). Herramientas deterministas usadas para huellas/extracción/aritmética: Python stdlib + pypdf 7.1.0 + openpyxl 3.1.5 (instaladas vía pip en el sandbox).
-- Consumo/facturación: no visible desde la sesión; se declara que no se está limitando ni afirma límite alguno. Presupuesto recomendado por el encargo (25 EUR) configurado externamente, no por mí.
-- Límites de acceso: red disponible para GitHub (descarga de la release verificada); `curl` bloqueado por política del sandbox (se usó urllib). Sin LibreOffice ni pipeline (prohibidos por el encargo). PDF/XLSX/ZIP permanecen fuera de Git (`.trabajo/` excluido).
-- No se han abierto PR, no se ha tocado `munger-v2`, ni ramas/PR/issues del original.
+- Sesión: Vibe Code de Mistral AI, modelo `mistral-large-4-0` (único modelo expuesto; sin nivel de esfuerzo porque la interfaz no lo ofrece). Herramientas deterministas: Python stdlib + pypdf 7.1.0 + openpyxl 3.1.5 + PyMuPDF (pip en el sandbox) para huellas, extracción, verificación visual y aritmética.
+- Consumo/facturación: no visible desde la sesión; se declara que no se está limitando. El presupuesto recomendado (25 EUR) está configurado externamente.
+- Red: disponible para GitHub (descarga de release verificada con urllib; `curl` bloqueado por el sandbox). Sin LibreOffice ni pipeline (prohibidos). PDF/XLSX/ZIP fuera de Git (`.trabajo/` en `.git/info/exclude`).
+- No se abrió PR, no hay fusión, no se modificó `munger-v2` ni ramas/PR/issues del original.
