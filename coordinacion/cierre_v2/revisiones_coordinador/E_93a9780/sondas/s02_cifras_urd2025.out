@@ -1,0 +1,24 @@
+OK    M1.capex_bruto_p312 | URD25 p.312 contiene la frase del capex bruto 2023/24/25 (misma frase citada por la entrega en el brochure CGM p.15)
+OK    M1.crec_mant_p312 | URD25 p.312 contiene 'covers investments for both growth ... and maintenance' (la entrega lo cita del brochure CGM p.15)
+OK    M1.initial_outlay_p312 | URD25 p.312 contiene 'initial outlay required to set up a new customer' (la entrega lo cita del brochure CGM p.15)
+OK    M6.bodensee_major_p312 | URD25 p.312: Wäscherei Bodensee figura entre las 'six major acquisitions' de 2025
+OK    M1.identidad_bruto_2025 | 26.2 + 864.0 = 890.2 (p.311) frente a 890,2 (p.312)
+OK    M1.net_capex_874_7_p311 | p.311 net capex 2025 874.7, 2024 876.0
+OK    M1.identidad_neto_2025 | 890.2 - 15.3 (cobros por bajas de PP&E) - 0.2 (subvenciones) = 874.7 = 874.7: el net capex ya descuenta los cobros por bajas
+OK    M1.ratio_18_2_p311 | URD25 p.311 publica ya 18,2% / 19,2% (la entrega lo cita del comunicado FY2025 EN p.6)
+OK    M1.taxonomia_p215 | p.215: CapEx taxonomia 1.160,0; 86,0% elegible; 842,0 (72,6%) alineado; mitigacion climatica 1,9%
+OK    M1.taxonomia_ce_70_7 | p.215: economia circular 70,7% del CapEx (el grueso del alineado)
+OK    M1.taxonomia_perimetro_p217 | denominador taxonomia = IAS38 26.2 + IFRS16 (derechos de uso) 183.9 + IAS16 887.1 + combinaciones 62.7 = 1159.9 (~1.160,0): incluye ROU y altas por combinaciones; perimetro distinto del capex propio 890,2
+OK    INFO.M1.taxonomia_mitigacion_aprox | 1,9% x 1.160,0 = 22.0 (orden de magnitud del CapEx alineado con mitigacion climatica; ilustrativo, redondeo del porcentaje publicado)
+OK    M6.umbral_p313 | p.313 umbral 'major acquisitions'
+OK    M6.organico_excluye_major_p313 | p.313: el organico excluye solo el efecto perimetro de las 'major' + divisa
+OK    M6.caja_adquisiciones_p327 | EFE p.327: Acquisition of subsidiaries, net of cash acquired                                              2.4            (117.6)            (183.3)
+OK    N2.retiro_25_7_p350 | Net gain (loss) related to retirement of fixed assets                                                         25.7             (1.5)
+OK    N2.nota_4_6_p350 | p.350 es la nota 4.6
+OK    N2.desglose_suma_p350 | suma de los 'of which' 2025 = -3.1 = OOIE -3.1; {'of which monetary items': Decimal('-28.2'), 'of which asset impairments included': Decimal('-0.1'), 'of which additions, net of reversals': Decimal('-0.6'), 'of which net gain (loss) on disposal of non-current assets': Decimal('25.7'), 'of which earnout adjustments': Decimal('-0.2'), 'of which other income and expenses with no impact on cash': Decimal('0.3')}
+OK    N2.25_7_fuera_de_monetary_items | el +25,7 es una fila propia, separada de 'of which monetary items' (-28,2): la nota NO lo clasifica como partida monetaria
+OK    N2.efe_resta_plusvalia_p327 | EFE p.327: la plusvalia neta por bajas (23.1) se RESTA del flujo operativo (partida sin caja)
+OK    N2.cobros_bajas_inversion_p327 | EFE p.327 (inversion): Proceeds from disposal of property, plant and equipment                                                          15.3                7.3
+OK    N2.cxc_por_bajas_p349 | p.349 nota 4.4: Change in receivables on disposal of fixed assets                                                                    16.9              (0.1) (cuenta a cobrar nacida de bajas de inmovilizado en 2025)
+TOTAL 22 FALLOS 0
+exit=0

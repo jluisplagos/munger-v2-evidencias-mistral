@@ -16,7 +16,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | A-CTX | Mistral A | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 160faf9 |
 | D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
 | D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
-| E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | 93a9780 |
+| E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | CORRECCIONES | NO | DECLARADAS / PARCIALES | 93a9780 |
 | B-PM1 | Mistral B (autor previo) | PARCIAL | LIMITADA | NO | DECLARADAS / REPRODUCIDAS | daa7478 |
 | C-C2 | Mistral C (autor previo) | ENTREGADO | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | 1ec4f18 |
 | F-REV | Antigua Mistral C, nueva F | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
@@ -42,7 +42,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - **D-36 · Aceptación completa de 36 casos Qwen**: Ningún caso del personaje ejecutado (0/36). Recuento del revisor: 29 componentes con precondiciones del arnés, 1 bloqueo de entorno (Q1-026), 2 observación compartida, 2 pendientes de agente, 2 de decisión del usuario. El runtime del coordinador ejecuta el personaje cuando D2-R4 dé relevos completos.
   Dependencias: D-HARNESS, T-CAND.
   Bloqueo/límite: Parte del entorno Mistral no expone agentes/pdftotext/soffice según su declaración; transferir al runtime comprobado.
-- **E-ELIS · Fuentes M1/M2/M6/N2 de Elis**: El coordinador revisa (contexto distinto del autor) ENTREGA.json, citas M1/M2/M6/N2 observables con la base 4.14 y la preservación de los 11 PDF. Elis sigue pendiente_de_datos; nada desbloquea R/θ/λ.
+- **E-ELIS · Fuentes M1/M2/M6/N2 de Elis**: Mistral E corrige E-R1…E-R9 (CORRECCION_E1.md). Tras la corrección, N2 y M6 quedan ABIERTOS; M1 y M2, ABIERTOS. Elis sigue pendiente_de_datos. El almacén duradero de los 11 PDF lo decide el usuario.
   Bloqueo/límite: Los 11 PDF nuevos están en PROVISIONAL, solo en el sandbox del autor (subida a la Release con HTTP 401); sin copia duradera accesible. El acceso del coordinador a fr.elis.com no se usa: el programa prohíbe contactar con terceros.
 - **B-PM1 · Dossier P-M1 corregido; contraste documental pendiente**: Contrastar nueve altas corregidas con notas/cabeceras; conservar no identificación de θ/λ.
   Bloqueo/límite: P-M1 no delimitada con evidencia disponible; 4 PDF nuevos con preservación pendiente.
@@ -73,7 +73,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - F1-W: RESPONDIDA; revisor asignado: Mistral C/F; SHA: d519eb04978e64d04f1d1795c570ca96bdd7ad7f.
 - C20: RESPONDIDA; revisor asignado: Mistral C/F; SHA: bf0d5c25d136ae9b2b1f14e4688081e1792d2363.
 - CSV: RESPONDIDA; revisor asignado: Mistral C/F; SHA: 77ff89f8fe99a1b5f013243ea1ccd4b84512ac51.
-- E-ELIS: EN_CURSO; revisor asignado: Claude coordinador (subagente de revisión); SHA: 93a97801f8c4f6a4dc5cabd4540248390cf113d0.
+- E-ELIS: RESPONDIDA; revisor asignado: Claude coordinador (subagente de revisión); SHA: 93a97801f8c4f6a4dc5cabd4540248390cf113d0.
 
 ## Cómo se decide el cierre
 

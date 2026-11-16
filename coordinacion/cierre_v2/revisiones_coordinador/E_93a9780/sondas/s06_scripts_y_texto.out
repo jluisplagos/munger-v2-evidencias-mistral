@@ -1,0 +1,34 @@
+cita 16 urd2025 p313: casa_con_patron=False alternativa=False .*=False len=86
+   patron: annual revenue of more than .5\.0. million in France and .3\.0. million in other countries
+   cita  : annual revenue of more than €5.0 million in France and €3.0 million in other countries ...
+   hallazgo: URD 2025 p.313 (def. APM): 'major acquisitions/disposals' = empresas con ingresos anuales en la adquisicion > 5,0 M EUR en Francia y > 3,0 M EUR en otros paises (Note 2.4); el crecimiento organico sol
+cita 20 q1_2025_revenue p1: casa_con_patron=False alternativa=False .*=True len=400
+   patron: Carsan in Spain, Ernst in .* with annual combined revenue of c\. 55 million euros in 2024
+   cita  : Carsan in Spain, Ernst in Germany and Bodensee in Switzerland; their combined revenue was c. 55 million euros in 2024 o Q1 2025 external growth is at +2.1% Elis ...
+   hallazgo: Q1 2025 p.1: 3 bolt-ons consolidadas desde 1-ene-2025 (Carsan Espagne, Ernst Alemania, Bodensee Suiza), ingresos combinados 2024 c. 55 M EUR; contribuyeron al crecimiento externo +2,1%
+cita 21 q3_2026_revenue p1: casa_con_patron=True alternativa=True .*=False len=46
+   patron: RS10 in Spain|acquisitions contributed 1\.5 percentage points
+   cita  : acquisitions contributed 1.5 percentage points ...
+   hallazgo: Q3 2026 p.1: adquisiciones contribuyeron +1,5 pp en Q3 2026 (RS10 en Espana consolidada desde 1-jun-2026; Muller +0,5 pp); pipeline 'remains strong'
+citas con '.*' en el patron: 4
+dependencias: {"inventario_bloque1.py": {"usa_.trabajo": true, "red_urllib": false, "git_show": true, "mkdir": false, "abre_en_modo_w_salida": true, "lee_y_reescribe_csv_propio": false}, "descargar_fuentes_elis.py": {"usa_.trabajo": true, "red_urllib": true, "git_show": false, "mkdir": false, "abre_en_modo_w_salida": true, "lee_y_reescribe_csv_propio": false}, "lectura_bloque2.py": {"usa_.trabajo": true, "red_urllib": false, "git_show": false, "mkdir": false, "abre_en_modo_w_salida": true, "lee_y_reescribe_csv_propio": true}}
+objetos: {'716cbd6 en auxiliar': 'AUSENTE', '716cbd6 en producto': 'commit', 'f5775dc en auxiliar': 'commit', 'ff0c60cd en auxiliar': 'commit'}
+cruce fuentes.json@716cbd6 vs seleccion_fuentes.json@f5775dc: {'URD2022': True, 'URD2025': True, 'DEU2024FR': True, 'URD2021': True, 'URD2023': True, 'libro': True}
+FUENTES_Y_BUSQUEDA.csv contiene las 6 huellas base: {'URD2022': True, 'URD2025': True, 'DEU2024FR': True, 'URD2021': True, 'URD2023': True, 'libro': True}
+ENTREGA.json | 'no localizado en esta busqueda': 0 | 'ninguna parte': 0
+     absoluta: finalidad reposicion/crecimiento no publicada",
+FUENTES_Y_BUSQUEDA.csv | 'no localizado en esta busqueda': 0 | 'ninguna parte': 0
+HALLAZGOS_ELIS.md | 'no localizado en esta busqueda': 3 | 'ninguna parte': 0
+LECTURA_FUENTES.jsonl | 'no localizado en esta busqueda': 0 | 'ninguna parte': 0
+     absoluta: or mejor gestion de la inversion en lino", "no_demuestra": "sigue sin publicar el desglose mantenimiento/crecimiento",
+     absoluta: mplo de compras pequenas dentro del perimetro organico/externo publicado", "salida_afecta": "m6"}
+PREGUNTAS_Y_RESULTADOS.csv | 'no localizado en esta busqueda': 4 | 'ninguna parte': 0
+     absoluta: finalidad (reposición vs crecimiento) no publicada
+PUNTO_DE_RECUPERACION.md | 'no localizado en esta busqueda': 4 | 'ninguna parte': 1
+     absoluta: la finalidad reposición vs crecimiento **no publicada**
+     absoluta: md`), nunca «no publicado en ninguna parte»
+README.md | 'no localizado en esta busqueda': 0 | 'ninguna parte': 0
+RESUMEN_PARA_INTEGRADOR.md | 'no localizado en esta busqueda': 0 | 'ninguna parte': 0
+     absoluta: **sigue sin publicarse el reparto mantenimiento/crecimiento en
+     absoluta: la finalidad reposición-vs-crecimiento no está publicada
+exit=0

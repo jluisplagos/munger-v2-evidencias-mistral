@@ -1,0 +1,32 @@
+campos_faltan = []
+campos_extra = []
+campos_nulos = []
+claves_prueba_faltan = [[], [], []]
+apto_dinero_real = No se declara por este formulario
+apto_igual_plantilla = True
+integrado_en_producto = False
+revision_por_otro_contexto = None
+sha_por_archivo_en_ENTREGA = True
+n_documentos = 12
+n_citas = 28
+n_registros = 40
+csv_sin_jsonl = []
+menciones_autoaprobacion = [' no se abren ciclos recursivos ni se autoaprueba']
+hashes en ENTREGA.json = ['04bfd08724e768804e7110093d3ec2cf017a7e7fe2983bacd75656d3a95cd62e']
+prueba: {'comando': 'python3 resultados_cierre/elis_fuentes/scripts/inventario_bloque1.py', 'exit_esperado': 0, 'exit_observado': 0, 'resultado': 'EJECUTADO_OK'}
+prueba: {'comando': 'python3 resultados_cierre/elis_fuentes/scripts/descargar_fuentes_elis.py', 'exit_esperado': 0, 'exit_observado': 0, 'resultado': 'EJECUTADO_OK'}
+prueba: {'comando': 'python3 resultados_cierre/elis_fuentes/scripts/lectura_bloque2.py', 'exit_esperado': 0, 'exit_observado': 0, 'resultado': 'EJECUTADO_OK'}
+id | bytes | pags | sha16 | csv(sha,bytes,pags,url) | en ENTREGA | citas | citas sha/pag ok | copias locales
+fy2025_presentacion_en | 13742386 | 53 | b3642606567cb4d9 | True True True True | False | 4 | True True | 0
+fy2025_comunicado_en | 493029 | 16 | e9dcd1bc48ae775d | True True True True | False | 5 | True True | 0
+urd2025 | 18963024 | 468 | 04bfd08724e76880 | True True True True | True | 7 | True True | urd2025 copias=12
+cgmbrochure2026 | 1389987 | 132 | dcd8949267b4e558 | True True True True | False | 5 | True True | 0
+factsheet2026 | 643129 | 2 | ef17a28f4b95abcc | True True True True | False | 1 | True True | 0
+fy2024_presentacion_en | 5522280 | 54 | d733b56d6fd25e53 | True True True True | False | 1 | True True | 0
+fy2024_comunicado_en | 360913 | 15 | 87684906caf1f325 | True True True True | False | 1 | True True | 0
+fy2024_revenue_en | 175461 | 5 | 07a29d70aa53f09e | True True True True | False | 0 | True True | 0
+q1_2025_revenue | 144522 | 4 | 2cdc713aa63a658a | True True True True | False | 1 | True True | 0
+h1_2025_comunicado_fr | 413358 | 13 | 1347fc21135ebd6a | True True True True | False | 0 | True True | 0
+q3_2026_revenue | 229631 | 5 | 24271931bf7da33a | True True True True | False | 2 | True True | 0
+h1_2026_comunicado_en | 498753 | 13 | 5a84458c26fc5b06 | True True True True | False | 1 | True True | 0
+exit=0
