@@ -105,3 +105,7 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - Sesión Vibe Code de Mistral AI, modelo **`mistral-large-4-0`** (único modelo expuesto por la interfaz; no hay selector de esfuerzo). Herramientas: Python 3.12 (stdlib) + openpyxl 3.1.5 + pypdf 7.1.0 instalados en `.trabajo/pylibs` (pip del sandbox), git/gh, sha256. Sin LibreOffice ni pipeline (prohibidos y no ejecutados). XLSX solo lectura.
 - Consumo/facturación: **no visible desde la sesión**; no se afirma ningún límite ni tope. No se compraron créditos ni recargas.
 - Red: usada solo para GitHub (clon del auxiliar y descarga verificada de la release base-4.14 con la herramienta preparada).
+
+## Commit congelado de esta ronda (d375d80)
+
+- `615b29241bf2e886f1ee344bef3867e894c563ab` en `mistral/m2-cobertura-vm`, publicado en origin (verificado con `git ls-remote`: HEAD local = remoto). Rama de revisión `revision/chatgpt-a-d-20261116` leída solo con `git fetch` + `git show`, sin fusionar. Diff respecto a la base revisada `0224b71` confinado a `resultados_m2/cobertura_vm/` (comprobado con `git diff --name-only 0224b71..HEAD`).
