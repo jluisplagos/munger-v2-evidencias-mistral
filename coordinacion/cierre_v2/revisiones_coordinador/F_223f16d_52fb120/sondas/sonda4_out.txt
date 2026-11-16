@@ -1,0 +1,28 @@
+== Producto: significado de Palancas 14/15/18 en el motor C ==
+  Palancas!X14: id='crec' cond='siempre' periodo='años 1–5'
+  Palancas!X15: id='margen' cond='siempre (margen objetivo; ROE objetivo en C)' periodo='año 5 en adelante'
+  Palancas!X16: id='s2c' cond='A y B (reinversión)' periodo='años 1–10'
+  Palancas!X18: id='roic' cond='siempre (rentabilidad terminal)' periodo='año 11 en adelante'
+  build_v6.py fila 15 (R_MARG) en C: True
+  build_v6.py fila 18 (R_ROIC) en C: True
+  Historia fila 34: ROE (beneficio ÷ patrimonio)
+  Historia fila 9 / 21: Beneficio neto atribuible / Patrimonio neto atribuible
+  test_fill: ROE0 = beneficio L9 / patrimonio L21 de cierre: True
+  test_fill: flujo C = B(t-1)*ROE - (B(t)-B(t-1)): True
+  test_fill: terminal C = B10*(ROE_lp - g_inf)/(r - g_inf): True
+  g_inf en Analisis B68:D68 (no en Palancas B14): True
+== Contrato / mapa propuestos ==
+  contrato contiene 'g∞ del patrimonio \\(B14\\)': True
+  contrato contiene 'payout \\(B15\\)': True
+  contrato contiene 'BAI / patrimonio medio': True
+  contrato contiene 'BAI \\+ OCI \\+ dividendos': True
+  contrato contiene 'múltiplos': True
+  contrato contiene 'valor liquidativo': True
+  mapa: ROE (BAI/patrimonio medio)
+  mapa: B14/B15 (g, payout) B16 n/a B18 ROE terminal
+  mapa: valor por accion = f(patrimonio, ROE, reparto, crecimiento)
+== Contraejemplo minimo del puente de patrimonio propuesto ==
+  E0=1000, beneficio neto=100, impuesto=30 (BAI=130), dividendos=40: E1 real=1060; puente del contrato=1170; diferencia que "otros movimientos" tendria que absorber=-110
+  ROE producto (L9/L21)=0.094340; ROE contrato (BAI/patrimonio medio)=0.126214
+== Efecto de leer B15 como payout (replica de la formula del motor C de test_fill.py, valores ilustrativos) ==
+  B15 = ROE objetivo 10 %: valor = 115.06; B15 rellenado con un payout de 40 % (se lee como ROE objetivo 40 %): valor = 278.45 (x2.42)

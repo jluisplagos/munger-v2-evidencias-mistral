@@ -382,22 +382,25 @@
       "autor": "Mistral B (autor previo)",
       "revisor_propuesto": "Mistral C/F + Claude",
       "entrega": "PARCIAL",
-      "revision": "LIMITADA",
+      "revision": "CONFORME_CON_LIMITES",
       "integracion": "NO",
       "commit_origen": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
       "commit_destino": null,
       "evidencia": [
         "resultados_m2/pm1/RESPUESTA_REVISION_EXTERNA.md",
-        "resultados_cierre/alcance_real/ @ 223f16d (mistral/f-alcance-real)"
+        "resultados_cierre/alcance_real/ @ 223f16d (mistral/f-alcance-real)",
+        "coordinacion/cierre_v2/revisiones_coordinador/F_223f16d_52fb120/REVISION_F_223f16d_52fb120.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "P-M1 no delimitada con evidencia disponible; 4 PDF nuevos con preservación pendiente.",
-      "siguiente_accion": "Contraste documental de Mistral C/F (223f16d): CONFIRMADO, bloqueo P-M1 conservado. Es evidencia adicional de otra sesión Mistral, no la revisión de Claude: el coordinador la revisa (en curso). Revisión anterior LIMITADA se mantiene hasta entonces.",
+      "siguiente_accion": "Dato de las nueve altas aceptado con límites (revisión del coordinador sobre daa7478 y contraste 223f16d). P-M1 sigue bloqueado: no se identifica θ/λ ni se adopta política. Nada que integrar en el producto sin decisión.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
-      "alcance_aceptado": [],
+      "alcance_aceptado": [
+        "nueve altas de PP&E corregidas de Vidrala, verificadas en sus páginas PDF con huella; bloqueo P-M1 y no identificación de θ/λ conservados"
+      ],
       "solicitud_revision": null
     },
     {
@@ -450,20 +453,22 @@
       "autor": "Mistral C/F prepara; Claude orquesta",
       "revisor_propuesto": "Contexto distinto de extractor/autor",
       "entrega": "PARCIAL",
-      "revision": "PENDIENTE",
+      "revision": "CORRECCIONES",
       "integracion": "NO",
       "commit_origen": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
       "commit_destino": null,
       "evidencia": [
-        "resultados_cierre/alcance_real/ @ 52fb120 (mistral/f-alcance-real)"
+        "resultados_cierre/alcance_real/ @ 52fb120 (mistral/f-alcance-real)",
+        "coordinacion/cierre_v2/revisiones_coordinador/F_223f16d_52fb120/REVISION_F_223f16d_52fb120.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/F_223f16d_52fb120/CORRECCION_F2.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
-      "bloqueo": null,
-      "siguiente_accion": "Paquete de preparación entregado (52fb120); tercer caso B declarado bloqueado (Ahold sin Excel de la etapa 1). Revisión del coordinador en curso.",
+      "bloqueo": "Datos de la persona responsable: el Excel evaluado de la etapa 1 de Ahold con su respuesta y sus fuentes, u otra empresa fuera de muestra designada (la lista de las 116 no está conservada).",
+      "siguiente_accion": "Mistral C/F corrige F2-D1, D2 y D4–D7. Bloqueo real: el Excel de la etapa 1 de Ahold y sus fuentes, u otra empresa fuera de muestra designada por la persona responsable.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": null,
+      "commit_revisado": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -473,20 +478,22 @@
       "autor": "Mistral C/F prepara; Claude orquesta",
       "revisor_propuesto": "Contexto distinto de extractor/autor",
       "entrega": "PARCIAL",
-      "revision": "PENDIENTE",
+      "revision": "CORRECCIONES",
       "integracion": "NO",
       "commit_origen": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
       "commit_destino": null,
       "evidencia": [
-        "resultados_cierre/alcance_real/ @ 52fb120 (mistral/f-alcance-real)"
+        "resultados_cierre/alcance_real/ @ 52fb120 (mistral/f-alcance-real)",
+        "coordinacion/cierre_v2/revisiones_coordinador/F_223f16d_52fb120/REVISION_F_223f16d_52fb120.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/F_223f16d_52fb120/CORRECCION_F2.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
-      "bloqueo": null,
-      "siguiente_accion": "Paquete de preparación y contrato C propuesto (52fb120, no adoptado); sin financiera conservada para C. Revisión del coordinador en curso.",
+      "bloqueo": "Datos de la persona responsable: un banco o aseguradora concretos, sus informes oficiales (cuentas, Pilar 3 o SFCR) con huellas y, si existe, el Excel de la etapa 1.",
+      "siguiente_accion": "Mistral C/F corrige F2-D3 (contrato C frente al motor real) y F2-D1/D2/D5/D6. Bloqueo real: un banco o aseguradora designados y sus informes oficiales.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": null,
+      "commit_revisado": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -770,6 +777,11 @@
       "tipo": "PRUEBA",
       "hecho": "Candidata 957af65: materialización y manifiesto 7762/7762; verificación completa relanzada tras reinicio del contenedor.",
       "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-16",
+      "hecho": "F revisado sin red por un contexto distinto del autor: B-PM1 CONFORME_CON_LIMITES (nueve altas verificadas en PDF); F-B3/F-C1 CORRECCIONES (F2-D1…D7; D3 comprobado por el coordinador frente a Palancas y test_fill). F no escribió el control común."
     }
   ],
   "consulta_remotos_arranque": {

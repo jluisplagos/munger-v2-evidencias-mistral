@@ -17,11 +17,11 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
 | D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
 | E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | CORRECCIONES | NO | DECLARADAS / PARCIALES | 93a9780 |
-| B-PM1 | Mistral B (autor previo) | PARCIAL | LIMITADA | NO | DECLARADAS / REPRODUCIDAS | daa7478 |
+| B-PM1 | Mistral B (autor previo) | PARCIAL | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | daa7478 |
 | C-C2 | Mistral C (autor previo) | ENTREGADO | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | 1ec4f18 |
 | F-REV | Antigua Mistral C, nueva F | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
-| F-B3 | Mistral C/F prepara; Claude orquesta | PARCIAL | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
-| F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
+| F-B3 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
+| F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
 | G-MANUAL | Mistral A cuando termine bloqueA (cola G) | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | T-CAND | Claude coordinador | PARCIAL | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | 957af65 |
 | T-EXP | Claude runtime + extractores/revisores reales | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
@@ -44,12 +44,14 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Bloqueo/límite: Parte del entorno Mistral no expone agentes/pdftotext/soffice según su declaración; transferir al runtime comprobado.
 - **E-ELIS · Fuentes M1/M2/M6/N2 de Elis**: Mistral E corrige E-R1…E-R9 (CORRECCION_E1.md). Tras la corrección, N2 y M6 quedan ABIERTOS; M1 y M2, ABIERTOS. Elis sigue pendiente_de_datos. El almacén duradero de los 11 PDF lo decide el usuario.
   Bloqueo/límite: Los 11 PDF nuevos están en PROVISIONAL, solo en el sandbox del autor (subida a la Release con HTTP 401); sin copia duradera accesible. El acceso del coordinador a fr.elis.com no se usa: el programa prohíbe contactar con terceros.
-- **B-PM1 · Dossier P-M1 corregido; contraste documental pendiente**: Contraste documental de Mistral C/F (223f16d): CONFIRMADO, bloqueo P-M1 conservado. Es evidencia adicional de otra sesión Mistral, no la revisión de Claude: el coordinador la revisa (en curso). Revisión anterior LIMITADA se mantiene hasta entonces.
+- **B-PM1 · Dossier P-M1 corregido; contraste documental pendiente**: Dato de las nueve altas aceptado con límites (revisión del coordinador sobre daa7478 y contraste 223f16d). P-M1 sigue bloqueado: no se identifica θ/λ ni se adopta política. Nada que integrar en el producto sin decisión.
   Bloqueo/límite: P-M1 no delimitada con evidencia disponible; 4 PDF nuevos con preservación pendiente.
 - **C-C2 · Guarda de perímetros C2**: Integrador registra uso/incorporación limitada; no otra ronda matemática por C2.
 - **F-REV · Contraste independiente de cambios Claude**: Cuando exista nuevo SHA W/C20/CSV, fijar y revisar diff. Mientras tanto B-PM1/F-B3/F-C1.
-- **F-B3 · Tercer B real fuera de muestra**: Paquete de preparación entregado (52fb120); tercer caso B declarado bloqueado (Ahold sin Excel de la etapa 1). Revisión del coordinador en curso.
-- **F-C1 · Primer recorrido C real y contrato específico**: Paquete de preparación y contrato C propuesto (52fb120, no adoptado); sin financiera conservada para C. Revisión del coordinador en curso.
+- **F-B3 · Tercer B real fuera de muestra**: Mistral C/F corrige F2-D1, D2 y D4–D7. Bloqueo real: el Excel de la etapa 1 de Ahold y sus fuentes, u otra empresa fuera de muestra designada por la persona responsable.
+  Bloqueo/límite: Datos de la persona responsable: el Excel evaluado de la etapa 1 de Ahold con su respuesta y sus fuentes, u otra empresa fuera de muestra designada (la lista de las 116 no está conservada).
+- **F-C1 · Primer recorrido C real y contrato específico**: Mistral C/F corrige F2-D3 (contrato C frente al motor real) y F2-D1/D2/D5/D6. Bloqueo real: un banco o aseguradora designados y sus informes oficiales.
+  Bloqueo/límite: Datos de la persona responsable: un banco o aseguradora concretos, sus informes oficiales (cuentas, Pilar 3 o SFCR) con huellas y, si existe, el Excel de la etapa 1.
 - **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: Preparación puede avanzar antes; prueba operativa depende de candidata y runtime comprobado.
   Dependencias: T-CAND.
 - **T-CAND · Candidata única de integración técnica**: Binarios materializados en el worktree de la candidata (1008 copiados desde la base 4.14 verificada, ninguno sobrescrito); manifiesto propio 7762/7762, 0 ausentes, 0 de más. verificar_paquete.sh completa: primer intento interrumpido por reinicio del contenedor (todo PASA hasta test_integracion_v64.py); segundo intento en curso sobre copia nueva, con flock. Después, integrar solo lo aceptado.
