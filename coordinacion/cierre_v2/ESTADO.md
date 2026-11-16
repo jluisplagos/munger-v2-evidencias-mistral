@@ -22,7 +22,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | F-REV | Antigua Mistral C, nueva F | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | F-B3 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
 | F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
-| G-MANUAL | Mistral A cuando termine bloqueA (cola G) | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
+| G-MANUAL | Claude coordinador (borrador por un subagente de redacción) | PARCIAL | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | 341831f |
 | T-CAND | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 957af65 |
 | T-EXP | Claude runtime + extractores/revisores reales | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | T-CAMBIOS | Claude runtime + Mistral D | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
@@ -52,7 +52,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Bloqueo/límite: Datos de la persona responsable: el Excel evaluado de la etapa 1 de Ahold con su respuesta y sus fuentes, u otra empresa fuera de muestra designada (la lista de las 116 no está conservada).
 - **F-C1 · Primer recorrido C real y contrato específico**: Mistral C/F corrige F2-D3 (contrato C frente al motor real) y F2-D1/D2/D5/D6. Bloqueo real: un banco o aseguradora designados y sus informes oficiales.
   Bloqueo/límite: Datos de la persona responsable: un banco o aseguradora concretos, sus informes oficiales (cuentas, Pilar 3 o SFCR) con huellas y, si existe, el Excel de la etapa 1.
-- **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: Preparación puede avanzar antes; prueba operativa depende de candidata y runtime comprobado.
+- **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: Borrador del manual operativo de la candidata 957af65 (solo lectura de documentos, 358 citas archivo:línea; 12 [NO DOCUMENTADO] y 13 [CONTRADICCIÓN]). Revisión por un contexto distinto; después, prueba T-TRASPASO por un receptor sin historial y corrección de los textos desfasados del producto (C-01…C-13, G-1…G-9) como cambio documental de la candidata, revisado.
   Dependencias: T-CAND.
 - **T-CAND · Candidata única de integración técnica**: Candidata 957af65 materializada (manifiesto 7762/7762) y verificada: verificar_paquete.sh completa, código 0, RESULTADO GLOBAL PASA (15 baterías); control 4.14 29/35, lo esperado sobre clon Git. Nada aceptado es software del producto: no hay integración pendiente. Reproducción por otro contexto: pendiente (requiere LibreOffice; el entorno Mistral no lo declara). Al aceptar software de A/D, integrar por archivo con origen, destino y pruebas.
 - **T-EXP · Expedientes nuevos regenerados y auditados**: Regenerar entradas/fuentes/derivados, sin sustituir hipótesis o ausencias; auditoría del material nuevo.
@@ -76,6 +76,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - C20: RESPONDIDA; revisor asignado: Mistral C/F; SHA: bf0d5c25d136ae9b2b1f14e4688081e1792d2363.
 - CSV: RESPONDIDA; revisor asignado: Mistral C/F; SHA: 77ff89f8fe99a1b5f013243ea1ccd4b84512ac51.
 - E-ELIS: RESPONDIDA; revisor asignado: Claude coordinador (subagente de revisión); SHA: 93a97801f8c4f6a4dc5cabd4540248390cf113d0.
+- G-MANUAL: LISTA; revisor asignado: Primera sesión Mistral libre (PROGRAMA, F) u otro contexto distinto; SHA: 341831fd8b4c9081c09f1ebe7b31799042402d0f.
 
 ## Cómo se decide el cierre
 

@@ -502,25 +502,44 @@
     {
       "id": "G-MANUAL",
       "tarea": "Manual, instalación y recuperación desde contexto limpio",
-      "autor": "Mistral A cuando termine bloqueA (cola G)",
+      "autor": "Claude coordinador (borrador por un subagente de redacción)",
       "revisor_propuesto": "Claude + receptor distinto",
-      "entrega": "PENDIENTE",
+      "entrega": "PARCIAL",
       "revision": "PENDIENTE",
       "integracion": "NO",
-      "commit_origen": null,
+      "commit_origen": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "commit_destino": null,
-      "evidencia": [],
+      "evidencia": [
+        "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_957af65.md",
+        "coordinacion/cierre_v2/manual/CONTRADICCIONES_GUIA.md"
+      ],
       "pruebas_autor": "NO_EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [
         "T-CAND"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Preparación puede avanzar antes; prueba operativa depende de candidata y runtime comprobado.",
+      "siguiente_accion": "Borrador del manual operativo de la candidata 957af65 (solo lectura de documentos, 358 citas archivo:línea; 12 [NO DOCUMENTADO] y 13 [CONTRADICCIÓN]). Revisión por un contexto distinto; después, prueba T-TRASPASO por un receptor sin historial y corrección de los textos desfasados del producto (C-01…C-13, G-1…G-9) como cambio documental de la candidata, revisado.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
-      "solicitud_revision": null
+      "solicitud_revision": {
+        "estado": "LISTA",
+        "sha_autor": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
+        "base_revisada": "957af652cdc3bef3d67e8623c9572138bac685e9",
+        "diff_rutas": [
+          "coordinacion/cierre_v2/manual/"
+        ],
+        "criterios": [
+          "Cada afirmación operativa sale de su fuente archivo:línea en 957af65; ningún comando inventado",
+          "No reintroduce límites I19/I20 corregidos; H9/I19 marcado pendiente de verificar por cambio afectado",
+          "No adopta política ni valores (R, θ, λ, probabilidades, k, umbrales); experimental supervisado, no apto para dinero real",
+          "La tabla de textos desfasados de la guía (G-1…G-9) y de continuidad (O-1…O-18) es correcta y completa en lo afectado",
+          "La lista T-TRASPASO es ejecutable por un receptor sin historial y separa lo que exige LibreOffice o agentes reales"
+        ],
+        "revisor_asignado": "Primera sesión Mistral libre (PROGRAMA, F) u otro contexto distinto",
+        "informe_revision": null
+      }
     },
     {
       "id": "T-CAND",
@@ -798,6 +817,11 @@
       "tipo": "INTEGRACION",
       "fecha": "2026-11-16",
       "hecho": "C-C2 no se incorpora a la candidata (herramienta del auxiliar; decisión y enlace registrados). Nada integrado en la candidata."
+    },
+    {
+      "tipo": "ENTREGA",
+      "fecha": "2026-11-16",
+      "hecho": "G-MANUAL: borrador del manual operativo de 957af65 y tabla de contradicciones de la guía publicados; solicitud de revisión LISTA."
     }
   ],
   "consulta_remotos_arranque": {
