@@ -13,7 +13,7 @@
   },
   "estados_contextuales": {
     "NO_APLICA": 26,
-    "REVISADO_CONTEXTUAL": 4
+    "PENDIENTE_CONTEXTUAL": 4
   },
   "entradas": [
     {
@@ -66,12 +66,12 @@
       "id": "N1.tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:CF2022_p21_impuesto_2021\"] / o[\"aux:CF2022_p21_bai_2021\"] + o[\"aux:CA2023_p4_impuesto_2022\"] / o[\"aux:CA2023_p4_bai_2022\"] + o[\"aux:CF2024_p4_impuesto_2023\"] / o[\"aux:CF2024_p4_bai_2023\"] + (o[\"aux:AR2025_p23_impuesto_2024\"] + o[\"aux:AR2025_p109_activacion_BIN_2024\"]) / o[\"aux:AR2025_p23_bai_2024\"] + (o[\"aux:AR2025_p23_impuesto_2025\"] + o[\"aux:AR2025_p109_activacion_BIN_2025\"]) / o[\"aux:AR2025_p23_bai_2025\"]) / 5 -> 0.2211908380535984913648839826 (valor_modelo 0.22119083805359852, diff -2.86351160174E-17)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula (o[\"aux:CF2022_p21_impuesto_2021\"] / o[\"aux:CF2022_p21_bai_2021\"] + o[\"aux:CA2023_p4_impuesto_2022\"] / o[\"aux:CA2023_p4_bai_2022\"] + o[\"aux:CF2024_p4_impuesto_2023\"] / o[\"aux:CF2024_p4_bai_2023\"] + (o[\"aux:AR2025_p23_impuesto_2024\"] + o[\"aux:AR2025_p109_activacion_BIN_2024\"]) / o[\"aux:AR2025_p23_bai_2024\"] + (o[\"aux:AR2025_p23_impuesto_2025\"] + o[\"aux:AR2025_p109_activacion_BIN_2025\"]) / o[\"aux:AR2025_p23_bai_2025\"]) / 5 (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula (o[\"aux:CF2022_p21_impuesto_2021\"] / o[\"aux:CF2022_p21_bai_2021\"] + o[\"aux:CA2023_p4_impuesto_2022\"] / o[\"aux:CA2023_p4_bai_2022\"] + o[\"aux:CF2024_p4_impuesto_2023\"] / o[\"aux:CF2024_p4_bai_2023\"] + (o[\"aux:AR2025_p23_impuesto_2024\"] + o[\"aux:AR2025_p109_activacion_BIN_2024\"]) / o[\"aux:AR2025_p23_bai_2024\"] + (o[\"aux:AR2025_p23_impuesto_2025\"] + o[\"aux:AR2025_p109_activacion_BIN_2025\"]) / o[\"aux:AR2025_p23_bai_2025\"]) / 5 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. N1 = media 2021–2025 de los tipos anuales (gasto ÷ resultado antes de impuestos), quitando del gasto de 2024 y 2025 la activación de bases imponibles negativas de EE. UU. (2,493 y 18,009; AR_2025 p. 109; la empresa atribuye a ella el 10,1 % de 2025, p. 142): 24,61 % · 24,14 % · 16,54 % · 24,99 % · 20,31 % → 22,12 %. Gasto y resultado se toman de las cuentas de resultados (los mismos importes de las conciliaciones: AR_2025 p. 109, CF_2024 p. 85, CF_2022 p. 74). La deducción de 2023 por ICMS no está cuantificada y no se ajusta; sin además los ajustes de ejercicios anteriores sería 22,66 % (lectura). Resultado de la fórmula con los orígenes registrados: 0.221191; valor del libro: 0.22119083805359852.",
-      "limites_contextuales": "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina) | aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+      "limites_contextuales": "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento) | aux:CA2023_p4_impuesto_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci) | aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento) | aux:CA2023_p4_bai_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci) | aux:CF2024_p4_bai_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita) | aux:AR2025_p109_activacion_BIN_2024: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt']))",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -87,10 +87,14 @@
         "diferencia": "-2.86351160174E-17",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
-          "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-          "aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+          "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+          "aux:CA2023_p4_impuesto_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)",
+          "aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+          "aux:CA2023_p4_bai_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)",
+          "aux:CF2024_p4_bai_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
+          "aux:AR2025_p109_activacion_BIN_2024: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt']))"
         ]
       }
     },
@@ -584,12 +588,12 @@
       "id": "h_tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2017_p8_impuesto_2016\"] / o[\"aux:AR2017_p8_bai_2016\"] -> 0.1948020997713439180702714888 (valor_modelo 0.1948, diff 0.0000020997713439180702714888)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2017_p8_impuesto_2016\"] / o[\"aux:AR2017_p8_bai_2016\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2017_p8_impuesto_2016\"] / o[\"aux:AR2017_p8_bai_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Tipo impositivo efectivo 2016 = gasto por impuesto sobre las ganancias ÷ resultado antes de impuestos (los dos del mismo estado, consolidado, actividades continuadas); el libro lo guarda redondeado a 4 decimales. Resultado de la fórmula con los orígenes registrados: 0.194802; valor del libro: 0.1948.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:AR2017_p8_impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:AR2017_p8_bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -605,8 +609,11 @@
         "diferencia": "0.0000020997713439180702714888",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:AR2017_p8_impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+          "aux:AR2017_p8_bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        ]
       }
     },
     {
@@ -615,12 +622,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2017_p83_total_pasivos_financieros_2016\"] - o[\"aux:AR2017_p83_derivados_2016\"] -> 82.019 (valor_modelo 82.019, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2017_p83_total_pasivos_financieros_2016\"] - o[\"aux:AR2017_p83_derivados_2016\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2017_p83_total_pasivos_financieros_2016\"] - o[\"aux:AR2017_p83_derivados_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Deuda financiera 2016 = total de pasivos financieros (84,986) − derivados (2,967) = 82,019 miles: bancos 53,321 + intereses 181 + arrendamiento financiero (NIC 17) 342 + otros pasivos financieros 28,175 (AR_2017 p. 83). Resultado de la fórmula con los orígenes registrados: 82.019000; valor del libro: 82.019.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:AR2017_p83_total_pasivos_financieros_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:AR2017_p83_derivados_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -636,8 +643,11 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:AR2017_p83_total_pasivos_financieros_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+          "aux:AR2017_p83_derivados_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        ]
       }
     },
     {
@@ -690,12 +700,12 @@
       "id": "h_da",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2017_p12_amort_intangible_2016\"] + o[\"aux:AR2017_p12_amort_material_2016\"] -> 49.699 (valor_modelo 49.699, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2017_p12_amort_intangible_2016\"] + o[\"aux:AR2017_p12_amort_material_2016\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2017_p12_amort_intangible_2016\"] + o[\"aux:AR2017_p12_amort_material_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. D&A 2016 = amortización del intangible + del material (estado de flujos, AR_2017 p. 12); sin deterioros. 3,282 + 46,417 = 49,699 miles. Resultado de la fórmula con los orígenes registrados: 49.699000; valor del libro: 49.699.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:AR2017_p12_amort_intangible_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:AR2017_p12_amort_material_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -711,8 +721,11 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:AR2017_p12_amort_intangible_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+          "aux:AR2017_p12_amort_material_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        ]
       }
     }
   ],

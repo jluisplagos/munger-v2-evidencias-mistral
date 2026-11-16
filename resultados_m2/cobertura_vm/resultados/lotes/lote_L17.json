@@ -9,7 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 30
+    "REVISADO_CONTEXTUAL": 23,
+    "PENDIENTE_CONTEXTUAL": 7
   },
   "entradas": [
     {
@@ -21,7 +22,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 21] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Trade and other receivables 9 321,044 305,643'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Trade and other receivables 9 321,044 305,643'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: línea del balance (incluye administraciones públicas y periodificaciones en deudores: nota 9, p. 70) | reexpresado: no aplica: ejercicio corriente | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -30,7 +31,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Trade and other receivables 9 321,044 305,643",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -50,7 +52,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 21] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 11 62,790 55,143'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 11 62,790 55,143'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: solo efectivo y equivalentes; no incluye otros activos financieros corrientes (974 / 945, p. 21) | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -59,7 +61,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Cash and cash equivalents 11 62,790 55,143",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -79,7 +82,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 21] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 11 62,790 55,143'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 11 62,790 55,143'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: solo efectivo y equivalentes; no incluye otros activos financieros corrientes (974 / 945, p. 21) | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -88,7 +91,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Cash and cash equivalents 11 62,790 55,143",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -108,7 +112,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Trade creditors and other accounts payable 14 103,388 126,164'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Trade creditors and other accounts payable 14 103,388 126,164'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: línea del balance (incluye administraciones públicas acreedoras: nota 14, p. 95) | reexpresado: no aplica: ejercicio corriente | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -117,7 +121,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Trade creditors and other accounts payable 14 103,388 126,164",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -134,19 +139,20 @@
       "id": "h_minoritarios",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Minority interests 5,422 4,551'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Minority interests 5,422 4,551'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra publicada; el original de CF_2024 p. 3 daba 1,715 (reexpresión por la asignación del precio de Brasfibra y Master Couros) | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Minority interests 5,422 4,551",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -166,7 +172,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Minority interests 5,422 4,551'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Minority interests 5,422 4,551'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra publicada | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -175,7 +181,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Minority interests 5,422 4,551",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -192,19 +199,20 @@
       "id": "AR2025_p22_arrend_cp_2024",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Short-term debts for right-of-use assets 7.2 4,731 4,314'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Short-term debts for right-of-use assets 7.2 4,731 4,314'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidibl",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Short-term debts for right-of-use assets 7.2 4,731 4,314",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -224,7 +232,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Short-term debts for right-of-use assets 7.2 4,731 4,314'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Short-term debts for right-of-use assets 7.2 4,731 4,314'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -233,7 +241,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Short-term debts for right-of-use assets 7.2 4,731 4,314",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -250,19 +259,20 @@
       "id": "AR2025_p22_arrend_lp_2024",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Long-term debts for right-of-use assets 7.2 7,512 7,535'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Long-term debts for right-of-use assets 7.2 7,512 7,535'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidibl",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Long-term debts for right-of-use assets 7.2 7,512 7,535",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -282,7 +292,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Long-term debts for right-of-use assets 7.2 7,512 7,535'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Long-term debts for right-of-use assets 7.2 7,512 7,535'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -291,7 +301,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Long-term debts for right-of-use assets 7.2 7,512 7,535",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -311,7 +322,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Current financial liabilities 15 251,008 174,229'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Current financial liabilities 15 251,008 174,229'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -320,7 +331,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Current financial liabilities 15 251,008 174,229",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -340,7 +352,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Current financial liabilities 15 251,008 174,229'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Current financial liabilities 15 251,008 174,229'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -349,7 +361,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Current financial liabilities 15 251,008 174,229",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -366,19 +379,20 @@
       "id": "AR2025_p22_pasivo_fin_nc_2024",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Non-current financial liabilities 15 53,067 63,776'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Non-current financial liabilities 15 53,067 63,776'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidibl",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Non-current financial liabilities 15 53,067 63,776",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -398,7 +412,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 22] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Non-current financial liabilities 15 53,067 63,776'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Non-current financial liabilities 15 53,067 63,776'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -407,7 +421,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Non-current financial liabilities 15 53,067 63,776",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -424,10 +439,10 @@
       "id": "moneda_modelo",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=None",
-      "evidencia_contextual": "fila leida: '(Thousands of euros) Notes 2025 2024'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=NO_DECIDIBLE, signo=NO_DECIDIBLE, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: '(Thousands of euros) Notes 2025 2024'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=NO_DECIDIBLE, signo=NO_DECIDIBLE, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: moneda de presentación (euros) escrita con su código ISO | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "unidad: metadato 'EUR' no localizado en la pagina | signo: magnitud no localizada en la fila",
       "checks_contextuales": {
@@ -436,7 +451,8 @@
         "unidad": "NO_DECIDIBLE",
         "signo": "NO_DECIDIBLE",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "(Thousands of euros) Notes 2025 2024",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -456,7 +472,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: '(Thousands of euros) Notes 2025 2024'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: '(Thousands of euros) Notes 2025 2024'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: año de la cabecera de la columna, sin transformación | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -465,7 +481,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "(Thousands of euros) Notes 2025 2024",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -482,19 +499,20 @@
       "id": "h_ventas",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Sales and provision of services 19.1 1,251,983 1,203,994'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Sales and provision of services 19.1 1,251,983 1,203,994'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidibl",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Sales and provision of services 19.1 1,251,983 1,203,994",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -514,7 +532,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Operating profit 204,794 201,540'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Operating profit 204,794 201,540'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: resultado de explotación publicado = resultado antes de impuestos 206,438 − resultado financiero (2,535 − 10,370 − 248 + 12,981 = 4,898) | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -523,7 +541,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Operating profit 204,794 201,540",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -543,7 +562,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit attributable to the parent company 159,917 157,019'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit attributable to the parent company 159,917 157,019'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -552,7 +571,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Profit attributable to the parent company 159,917 157,019",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -572,7 +592,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: '(Thousands of euros) Notes 2025 2024'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: '(Thousands of euros) Notes 2025 2024'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: año de la cabecera de la columna, sin transformación | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -581,7 +601,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "(Thousands of euros) Notes 2025 2024",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -601,7 +622,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit attributable to the parent company 159,917 157,019'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit attributable to the parent company 159,917 157,019'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -610,7 +631,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Profit attributable to the parent company 159,917 157,019",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -630,7 +652,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit before tax 176,254 206,438'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit before tax 176,254 206,438'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -639,7 +661,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Profit before tax 176,254 206,438",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -659,7 +682,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit before tax 176,254 206,438'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit before tax 176,254 206,438'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -668,7 +691,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Profit before tax 176,254 206,438",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -688,7 +712,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Income tax expense 17 -17,784 -49,105'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Income tax expense 17 -17,784 -49,105'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: gasto publicado con signo menos; en positivo | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -697,7 +721,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Income tax expense 17 -17,784 -49,105",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -717,7 +742,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Income tax expense 17 -17,784 -49,105'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Income tax expense 17 -17,784 -49,105'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: gasto publicado con signo menos; en positivo | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -726,7 +751,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Income tax expense 17 -17,784 -49,105",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -746,7 +772,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 25] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Final balance as at December 31, 2025 32,550 12 781,218 -23,641 159,917 -22,344 -82 927,630 5,422 933,052'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Final balance as at December 31, 2025 32,550 12 781,218 -23,641 159,917 -22,344 -82 927,630 5,422 933,052'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: columna «Total parent company»; el balance (p. 22) solo imprime el patrimonio total (933,052) con los minoritarios (5,422) | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -755,7 +781,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Final balance as at December 31, 2025 32,550 12 781,218 -23,641 159,917 -22,344 -82 927,630 5,422 933,052",
       "encabezado": "Consolidated Financial Statements for the year ended December 31, 2025 Management report",
@@ -772,19 +799,20 @@
       "id": "h_patrimonio",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 26] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Final balance as at December 31, 2024 32,550 12 810,234 -35,045 157,019 -26,844 -706 937,220 4,551 941,771'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Final balance as at December 31, 2024 32,550 12 810,234 -35,045 157,019 -26,844 -706 937,220 4,551 941,771'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: columna «Total parent company» del estado reexpresado; el original (CF_2024 p. 3) daba 938,911 − 1,715 = 937,196 | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Final balance as at December 31, 2024 32,550 12 810,234 -35,045 157,019 -26,844 -706 937,220 4,551 941,771",
       "encabezado": "Consolidated Financial Statements for the year ended December 31, 2025 Management report",
@@ -804,7 +832,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 27] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Acquisition of subsidiaries, net of cash acquired 2.1 -8,948 -7,213'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Acquisition of subsidiaries, net of cash acquired 2.1 -8,948 -7,213'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: adquisiciones = −(flujo de adquisiciones de negocios), en positivo; sin línea de ventas de negocios; Brasfibra y Master Couros, 50 % del precio aplazado (no incluido) | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -813,7 +841,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Acquisition of subsidiaries, net of cash acquired 2.1 -8,948 -7,213",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -833,7 +862,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 27] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Adjustment for amortization expenses 85,196 83,794'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Adjustment for amortization expenses 85,196 83,794'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: línea publicada (4,587 + 73,364 + 5,843 = 83,794, cuenta de resultados p. 23) | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -842,7 +871,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Adjustment for amortization expenses 85,196 83,794",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -862,7 +892,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 27] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Acquisition of subsidiaries, net of cash acquired 2.1 -8,948 -7,213'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Acquisition of subsidiaries, net of cash acquired 2.1 -8,948 -7,213'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: adquisiciones = −(flujo de adquisiciones de negocios), en positivo; sin línea de ventas de negocios | reexpresado: no aplica: ejercicio corriente del informe de 2025 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -871,7 +901,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Acquisition of subsidiaries, net of cash acquired 2.1 -8,948 -7,213",
       "encabezado": "(Thousands of euros) Notes 2025 2024",

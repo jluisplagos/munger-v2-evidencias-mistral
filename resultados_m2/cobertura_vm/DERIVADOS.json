@@ -7,9 +7,9 @@
     "COINCIDE_PROPUESTO": 101
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 86,
+    "REVISADO_CONTEXTUAL": 51,
     "REUTILIZADO_M1": 14,
-    "PENDIENTE_CONTEXTUAL": 1
+    "PENDIENTE_CONTEXTUAL": 36
   },
   "ciclos": [],
   "huecos": [],
@@ -202,8 +202,12 @@
       "empresa": "Vidrala",
       "celda": "Historia!C7",
       "id": "h_ebit",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+        "aux:ing_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+        "aux:gto_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -352,8 +356,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!C10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+        "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -762,8 +769,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!C12",
       "id": "h_capex",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+        "aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1172,8 +1182,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!I14",
       "id": "h_circulante",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:circ_2022_l5: dimension reexpresion no decidible (el valor aparece en CF_2022.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio (aumento del circulante); motores A: A (cadena_trazabilidad, D-h_circulante). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1240,8 +1252,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!C22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:lyb_nc_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+        "aux:lyb_c_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1706,8 +1721,12 @@
       "empresa": "Vidrala",
       "celda": "Historia!C26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+        "aux:pasivo_total_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+        "Historia!C21: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2584,14 +2603,7 @@
       "celda": "Configuración V6.4!B21",
       "id": "N2.margen",
       "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:italia_ingresos_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
-        "aux:italia_bai_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
-        "aux:italia_gto_fin_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
-        "aux:italia_ingresos_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
-        "aux:italia_bai_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
-        "aux:italia_gto_fin_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto)"
-      ],
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "Configuración V6.4 (N2.margen): entra en el motor B experimental (bases de «Configuración V6.4»); materialidad en configuracion_v64_variantes.json",
       "origenes": [
@@ -2811,10 +2823,9 @@
       "empresa": "Viscofan",
       "celda": "Análisis!C41",
       "id": "capitalizacion",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
         "Análisis!C37: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2050', '2072', '2095'] no corresponden a encabezado de tabla)",
-        "Análisis!C37: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
         "unidades/escalas de los orígenes no homogeneas"
       ],
       "coherencia_unidades_origenes": false,
@@ -2898,7 +2909,9 @@
       "celda": "Análisis!C46",
       "id": "cfo_media",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [],
+      "limites_contextuales": [
+        "aux:CF2024_p9_cfo_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "C-cfo_media · flujo (media de ejercicios) · motores A: siempre en A (FCF base)",
       "origenes": [
@@ -2948,7 +2961,9 @@
       "celda": "Análisis!C47",
       "id": "capex_media",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [],
+      "limites_contextuales": [
+        "Historia!J12: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "C-capex_media · flujo (media de ejercicios) · motores A: siempre en A",
       "origenes": [
@@ -2998,7 +3013,9 @@
       "celda": "Análisis!C48",
       "id": "int_fin_media",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [],
+      "limites_contextuales": [
+        "Historia!J15: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "C-int_fin_media · flujo (media de ejercicios) · motores A: siempre en A (0 explícito si no hay)",
       "origenes": [
@@ -3049,9 +3066,11 @@
       "id": "leases_media",
       "estado_contextual": "REUTILIZADO_M1",
       "limites_contextuales": [
+        "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
         "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla)",
-        "aux:AR2025_p28_pagos_arrend_2024: dimension unidad no decidible (unidad no decidible en esta pagina; evidencia: [\"anio:'year'\"])",
-        "aux:AR2025_p28_pagos_arrend_2025: dimension unidad no decidible (unidad no decidible en esta pagina; evidencia: [\"anio:'year'\"])"
+        "aux:AR2025_p28_pagos_arrend_2024: dimension unidad no decidible (sin frase de escala en la pagina ni en la cabecera del documento)",
+        "aux:AR2025_p28_pagos_arrend_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidible por cita)",
+        "aux:AR2025_p28_pagos_arrend_2025: dimension unidad no decidible (sin frase de escala en la pagina ni en la cabecera del documento)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-leases_media · flujo (media de ejercicios) · motores A: siempre en A (0 explícito si no hay)",
@@ -3102,7 +3121,10 @@
       "celda": "Análisis!C50",
       "id": "sbc_media",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [],
+      "limites_contextuales": [
+        "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
+        "aux:AR2025_p27_pagos_acciones_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "C-sbc_media · flujo (media de ejercicios) · motores A: siempre en A (0 explícito si no hay)",
       "origenes": [
@@ -3151,8 +3173,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!C8",
       "id": "h_da",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2017_p12_amort_intangible_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+        "aux:AR2017_p12_amort_material_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_da · flujo del ejercicio · motores A: A",
       "origenes": [
@@ -3192,10 +3217,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!D8",
       "id": "h_da",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:IA2018_p28_amort_intangible_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:IA2018_p28_amort_material_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+        "aux:IA2018_p28_amort_intangible_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:IA2018_p28_amort_intangible_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila del ejercicio 2017; reexpresion no decidible por cita)",
+        "aux:IA2018_p28_amort_material_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:IA2018_p28_amort_material_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila del ejercicio 2017; reexpresion no decidible por cita)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_da · flujo del ejercicio · motores A: A",
@@ -3236,8 +3263,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!E8",
       "id": "h_da",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2019_p12_amort_intangible_2018: dimension reexpresion no decidible (el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decidible por cita)",
+        "aux:AR2019_p12_amort_material_2018: dimension reexpresion no decidible (el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_da · flujo del ejercicio · motores A: A",
       "origenes": [
@@ -3277,8 +3307,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!C10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2017_p8_impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+        "aux:AR2017_p8_bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
@@ -3318,10 +3351,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!D10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:IA2018_p24_impuesto_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:IA2018_p24_bai_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+        "aux:IA2018_p24_impuesto_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:IA2018_p24_impuesto_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila del ejercicio 2017; reexpresion no decidible por cita)",
+        "aux:IA2018_p24_bai_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:IA2018_p24_bai_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila del ejercicio 2017; reexpresion no decidible por cita)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
@@ -3362,8 +3397,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!E10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2019_p8_impuesto_2018: dimension reexpresion no decidible (el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decidible por cita)",
+        "aux:AR2019_p8_bai_2018: dimension reexpresion no decidible (el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
@@ -3403,8 +3441,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!F10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2020_p5_impuesto_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita)",
+        "aux:AR2020_p5_bai_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
@@ -3444,8 +3485,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!G10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2021_p4_impuesto_2020: dimension reexpresion no decidible (el valor aparece en AR_2020.txt pero no en la misma fila del ejercicio 2020; reexpresion no decidible por cita)",
+        "aux:CF2021_p4_bai_2020: dimension reexpresion no decidible (el valor aparece en AR_2020.txt pero no en la misma fila del ejercicio 2020; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
@@ -3526,10 +3570,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!I10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+        "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p4_impuesto_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)",
+        "aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p4_bai_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
@@ -3570,8 +3616,10 @@
       "empresa": "Viscofan",
       "celda": "Historia!J10",
       "id": "h_tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2024_p4_bai_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
@@ -3693,8 +3741,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!F14",
       "id": "h_circulante",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2020_p8_var_existencias_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita)",
+        "aux:AR2020_p8_var_deudores_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita)",
+        "aux:AR2020_p8_var_acreedores_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
@@ -3843,11 +3895,14 @@
       "empresa": "Viscofan",
       "celda": "Historia!I14",
       "id": "h_circulante",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CA2023_p8_var_existencias_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:CA2023_p8_var_deudores_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:CA2023_p8_var_acreedores_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+        "aux:CA2023_p8_var_existencias_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p8_var_existencias_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)",
+        "aux:CA2023_p8_var_deudores_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p8_var_deudores_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)",
+        "aux:CA2023_p8_var_acreedores_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p8_var_acreedores_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
@@ -3897,8 +3952,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!J14",
       "id": "h_circulante",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2024_p9_var_existencias_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
+        "aux:CF2024_p9_var_deudores_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
+        "aux:CF2024_p9_var_acreedores_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
@@ -4047,8 +4106,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!C22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2017_p83_total_pasivos_financieros_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+        "aux:AR2017_p83_derivados_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
@@ -4088,12 +4150,16 @@
       "empresa": "Viscofan",
       "celda": "Historia!D22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:IA2018_p104_bancos_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:IA2018_p104_intereses_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:IA2018_p104_arrend_financiero_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+        "aux:IA2018_p104_bancos_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:IA2018_p104_bancos_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila del ejercicio 2017; reexpresion no decidible por cita)",
+        "aux:IA2018_p104_intereses_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:IA2018_p104_intereses_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila del ejercicio 2017; reexpresion no decidible por cita)",
+        "aux:IA2018_p104_arrend_financiero_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:IA2018_p104_arrend_financiero_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila del ejercicio 2017; reexpresion no decidible por cita)",
+        "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila del ejercicio 2017; reexpresion no decidible por cita)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
@@ -4152,8 +4218,13 @@
       "empresa": "Viscofan",
       "celda": "Historia!E22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
+        "aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
+        "aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decidible por cita)",
+        "aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
@@ -4211,8 +4282,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!F22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2020_p4_pasivo_fin_nc_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita)",
+        "aux:AR2020_p4_pasivo_fin_c_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
@@ -4252,8 +4326,10 @@
       "empresa": "Viscofan",
       "celda": "Historia!G22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2021_p3_pasivo_fin_nc_2020: dimension reexpresion no decidible (el valor aparece en AR_2020.txt pero no en la misma fila del ejercicio 2020; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
@@ -4293,8 +4369,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!H22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2022_p20_pasivo_fin_nc_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en la misma fila del ejercicio 2021; reexpresion no decidible por cita)",
+        "aux:CF2022_p20_pasivo_fin_c_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en la misma fila del ejercicio 2021; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
@@ -4334,10 +4413,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!I22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CA2023_p3_pasivo_fin_nc_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:CA2023_p3_pasivo_fin_c_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+        "aux:CA2023_p3_pasivo_fin_nc_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p3_pasivo_fin_nc_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)",
+        "aux:CA2023_p3_pasivo_fin_c_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p3_pasivo_fin_c_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
@@ -4378,8 +4459,10 @@
       "empresa": "Viscofan",
       "celda": "Historia!J22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2024_p3_pasivo_fin_nc_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
@@ -4419,8 +4502,10 @@
       "empresa": "Viscofan",
       "celda": "Historia!K22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2025_p22_pasivo_fin_nc_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
@@ -4501,8 +4586,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!F23",
       "id": "h_arrend",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2020_p4_arrend_lp_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita)",
+        "aux:AR2020_p4_arrend_cp_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
@@ -4583,8 +4671,10 @@
       "empresa": "Viscofan",
       "celda": "Historia!H23",
       "id": "h_arrend",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2022_p20_arrend_lp_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en la misma fila del ejercicio 2021; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
@@ -4624,10 +4714,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!I23",
       "id": "h_arrend",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CA2023_p3_arrend_lp_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:CA2023_p3_arrend_cp_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+        "aux:CA2023_p3_arrend_lp_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p3_arrend_lp_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)",
+        "aux:CA2023_p3_arrend_cp_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p3_arrend_cp_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
@@ -4668,8 +4760,10 @@
       "empresa": "Viscofan",
       "celda": "Historia!J23",
       "id": "h_arrend",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CF2024_p3_arrend_lp_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
@@ -4709,8 +4803,11 @@
       "empresa": "Viscofan",
       "celda": "Historia!K23",
       "id": "h_arrend",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:AR2025_p22_arrend_lp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidible por cita)",
+        "aux:AR2025_p22_arrend_cp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en la misma fila del ejercicio 2024; reexpresion no decidible por cita)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
@@ -4791,10 +4888,14 @@
       "empresa": "Viscofan",
       "celda": "Configuración V6.4!B11",
       "id": "N1.tipo",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
-        "aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+        "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p4_impuesto_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)",
+        "aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina ni en la cabecera del documento)",
+        "aux:CA2023_p4_bai_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por ci)",
+        "aux:CF2024_p4_bai_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita)",
+        "aux:AR2025_p109_activacion_BIN_2024: dimension reexpresion no decidible (la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt']))"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-config-N1.tipo · tasa (parámetro) · motores B: modo experimental",

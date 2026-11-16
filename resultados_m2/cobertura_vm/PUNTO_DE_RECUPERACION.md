@@ -79,6 +79,13 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - Ejecutado: `verificar_contexto.py` (677 entradas; 509 REVISADO_CONTEXTUAL / 60 REUTILIZADO_M1 / 2 PENDIENTE / 106 NO_APLICA / 0 CONFLICTO), `derivaciones.py` (límites propagados a 101 nodos), `construir_cobertura.py` (columnas `estado_mecanico` + `estado_contextual`), `control_negativo.py` (154 mutaciones: 108 detectadas por contextual, 0 por mecánico), `control_cobertura.py` PASS 0 violaciones, `revisar_lote.py L00..L21` con commit+push por lote, `RESPUESTA_REVISION_EXTERNA.md`.
 - Pendientes contextuales declarados: `Vidrala Historia!G22`/`G23` (fila de continuación ambigua, CF_2019 p.19); unidad no decidible en 8 páginas de nota; perímetro no decidible en 51 páginas; columna no decidible en 3 filas no tabulares.
 
+## Seguimiento externo 63e366b (apartado A) — ejecutado
+
+- Leídos con `git show 63e366b:...` (rama `revision/chatgpt-seguimiento-20261116`, sin fusionar): PROMPTS.md («Mistral A») y SEGUIMIENTO.md apartado A. Base `54c8ddc` = HEAD remoto confirmado.
+- verificar_contexto.py v2: REVISADO_CONTEXTUAL exige todas las dimensiones OK/NO_APLICA (fuentes 423→264; totales 315 REVISADO / 196 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO); unidad exige escala explícita (sonda euros/miles del revisor → CONFLICTO); versión con año del informe en página/cabecera (467 OK); reexpresión contrastada con el texto original del año comparativo (238 OK / 158 no decidible / 71 no aplica); signo de ceros y perímetro «no aplica» como NO_APLICA.
+- Negativos: 198 mutaciones → 151 detectadas por contextual (sonda euros/miles 1/1; versión 40/40; reexpresión 3/3; columna 33/40; perímetro 38/40; partida 32/40; unidad 4/34), 40 por mecánico (solo versión). `control_cobertura.py` PASS 0 violaciones.
+- Propagado a 101 derivados (51 REVISADO / 36 PENDIENTE / 14 REUTILIZADO_M1) y al mapa de regeneración. Respuesta numerada en `RESPUESTA_SEGUIMIENTO_20261116.md`.
+
 ## Pendiente / siguiente acción exacta
 
 1. **Revisión por otro contexto** sobre el commit congelado final de esta rama (incluida la respuesta a A1 en `RESPUESTA_REVISION_EXTERNA.md`) (citados, estados, dependencias y compatibilidad antes de incorporar nada).

@@ -13,7 +13,8 @@
   },
   "estados_contextuales": {
     "NO_APLICA": 24,
-    "REVISADO_CONTEXTUAL": 6
+    "REVISADO_CONTEXTUAL": 3,
+    "PENDIENTE_CONTEXTUAL": 3
   },
   "entradas": [
     {
@@ -333,7 +334,7 @@
       "evidencia": "derivado recalculado con Decimal: ((o[\"Historia!G7\"] - (o[\"aux:italia_bai_2020\"] - o[\"aux:italia_gto_fin_2020\"] - o[\"aux:italia_ing_fin_2020\"])) / (o[\"Historia!G6\"] - o[\"aux:italia_ingresos_2020\"]) + (o[\"Historia!H7\"] - (o[\"aux:italia_bai_2021\"] - o[\"aux:italia_gto_fin_2021\"])) / (o[\"Historia!H6\"] - o[\"aux:italia_ingresos_2021\"]) + (o[\"Historia!I7\"] - (o[\"aux:italia_bai_2022\"] - o[\"aux:italia_gto_fin_2022\"])) / (o[\"Historia!I6\"] - o[\"aux:italia_ingresos_2022\"]) + o[\"Historia!J7\"] / o[\"Historia!J6\"] + o[\"Historia!K7\"] / o[\"Historia!K6\"] + o[\"Historia!L7\"] / o[\"Historia!L6\"]) / 6 -> 0.185466721361995183870150322 (valor_modelo 0.18546672136199518, diff 3.870150322E-18)",
       "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula ((o[\"Historia!G7\"] - (o[\"aux:italia_bai_2020\"] - o[\"aux:italia_gto_fin_2020\"] - o[\"aux:italia_ing_fin_2020\"])) / (o[\"Historia!G6\"] - o[\"aux:italia_ingresos_2020\"]) + (o[\"Historia!H7\"] - (o[\"aux:italia_bai_2021\"] - o[\"aux:italia_gto_fin_2021\"])) / (o[\"Historia!H6\"] - o[\"aux:italia_ingresos_2021\"]) + (o[\"Historia!I7\"] - (o[\"aux:italia_bai_2022\"] - o[\"aux:italia_gto_fin_2022\"])) / (o[\"Historia!I6\"] - o[\"aux:italia_ingresos_2022\"]) + o[\"Historia!J7\"] / o[\"Historia!J6\"] + o[\"Historia!K7\"] / o[\"Historia!K6\"] + o[\"Historia!L7\"] / o[\"Historia!L6\"]) / 6 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. M1 (propuesta de la 4.7, D-N2 sin firmar) = media 2020–2025 del margen EBIT de continuadas: 2020–2022 = (EBIT consolidado − EBIT aproximado de Italia) ÷ (ventas − ingresos de Italia), con EBIT de Italia = BAI del segmento − gastos financieros − ingresos financieros (2020: 9,833 + 1,271 − 22 = 11,082; 2021: 2,905 + 1,691 = 4,596; 2022: 4,421 + 1,600 = 6,021; ingresos financieros de Italia «-» en 2021 y 2022); 2023–2025 = Historia J, K y L. Márgenes: 19,996 %, 17,394 %, 14,375 %, 18,740 %, 20,841 %, 19,934 % → 18,5467 %. Aproximaciones declaradas: los ingresos del segmento incluyen servicios; el EBIT del segmento se reconstruye desde su BAI.",
-      "limites_contextuales": "aux:italia_ingresos_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto) | aux:italia_bai_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto) | aux:italia_gto_fin_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto) | aux:italia_ingresos_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto) | aux:italia_bai_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto) | aux:italia_gto_fin_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -350,14 +351,7 @@
         "exacto": false,
         "reutilizado_piloto": false,
         "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:italia_ingresos_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
-          "aux:italia_bai_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
-          "aux:italia_gto_fin_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
-          "aux:italia_ingresos_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
-          "aux:italia_bai_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
-          "aux:italia_gto_fin_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto)"
-        ]
+        "limites_contextuales": []
       }
     },
     {
@@ -630,12 +624,12 @@
       "id": "h_tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:impuesto_2016\"] / o[\"aux:bai_2016\"] -> 0.1967071057192374350086655113 (valor_modelo 0.1967, diff 0.0000071057192374350086655113)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2016\"] / o[\"aux:bai_2016\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2016\"] / o[\"aux:bai_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. tipo efectivo = gasto por impuesto ÷ resultado antes de impuestos del mismo estado (consolidado); el libro redondea a 4 decimales: 0.1967",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -651,8 +645,11 @@
         "diferencia": "0.0000071057192374350086655113",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+          "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        ]
       }
     },
     {
@@ -661,12 +658,12 @@
       "id": "h_capex",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2016\"] + o[\"aux:capex_int_2016\"] -> 54.904 (valor_modelo 54.904, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2016\"] + o[\"aux:capex_int_2016\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2016\"] + o[\"aux:capex_int_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 51.364 + 3.540 = 54.904 mm. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -682,8 +679,11 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+          "aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        ]
       }
     },
     {
@@ -692,12 +692,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2016\"] + o[\"aux:lyb_c_2016\"] -> 322.690 (valor_modelo 322.69, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2016\"] + o[\"aux:lyb_c_2016\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2016\"] + o[\"aux:lyb_c_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2016 = préstamos no corrientes 310,288 + corrientes 12,402 (balance; antes de NIIF 16, sin línea de arrendamientos).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:lyb_nc_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:lyb_c_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -713,8 +713,11 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:lyb_nc_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+          "aux:lyb_c_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        ]
       }
     },
     {

@@ -10,8 +10,9 @@
     "DATO_AUSENTE": 1
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 29,
-    "NO_APLICA": 1
+    "REVISADO_CONTEXTUAL": 27,
+    "NO_APLICA": 1,
+    "PENDIENTE_CONTEXTUAL": 2
   },
   "entradas": [
     {
@@ -23,7 +24,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Interest paid (32,100) (12,320)'; encabezado: '31 December 2024 and 2023'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Interest paid (32,100) (12,320)'; encabezado: '31 December 2024 and 2023'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo −1: pago registrado en positivo | reexpresado: no (igual que el informe original) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -32,7 +33,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Interest paid (32,100) (12,320)",
       "encabezado": "31 December 2024 and 2023",
@@ -52,7 +54,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Amortisation and depreciation 7&8 117,720 87,210'; encabezado: '31 December 2024 and 2023'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Amortisation and depreciation 7&8 117,720 87,210'; encabezado: '31 December 2024 and 2023'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; el deterioro de inmovilizado no se incluye | reexpresado: sí: 2023 reexpresado sin Italia (original 97,865, CF_2023 p.7) | perimetro: consolidado · operaciones continuadas | perimetro_justificacion: comparativo reexpresado por la venta de Vidrala Italia (operación interrumpida en 2024, nota 2(b) del informe 2024): la cuenta de resultados de 2023 y 2024 solo recoge operaciones continuadas; el libro toma la cifra más reciente publicada (comparativo del informe siguiente); la amortización de 2023/2024 coincide con la de la cuenta de resultados de continuadas | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -61,7 +63,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Amortisation and depreciation 7&8 117,720 87,210",
       "encabezado": "31 December 2024 and 2023",
@@ -103,7 +106,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 56] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Final balance at 12/31 44,904 45,382'; encabezado: '2024 2023'; titulo pagina: 'VIDRALA, S.A. and SUBSIDIARIES | Notes to the Consolidated Annual Accounts | The carrying amounts of'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Final balance at 12/31 44,904 45,382'; encabezado: '2024 2023'; titulo pagina: 'VIDRALA, S.A. and SUBSIDIARIES | Notes to the Consolidated Annual Accounts | The carrying amounts of'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; = no corriente 42,269 + corriente 3,113 (misma página) | reexpresado: no (igual que CF_2023 p.65: 42,269 + 3,113) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -112,7 +115,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Final balance at 12/31 44,904 45,382",
       "encabezado": "2024 2023",
@@ -132,7 +136,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 77] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'At 31 December 2023 70,658 4,355 13,380 88,393'; encabezado: 'Provision of Law 15/2010 of 5 July 2010'; titulo pagina: 'VIDRALA, S.A. and SUBSIDIARIES | Notes to the Consolidated Annual Accounts | During 2024, there have'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'At 31 December 2023 70,658 4,355 13,380 88,393'; encabezado: 'Provision of Law 15/2010 of 5 July 2010'; titulo pagina: 'VIDRALA, S.A. and SUBSIDIARIES | Notes to the Consolidated Annual Accounts | During 2024, there have'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; el informe no separa el déficit neto NIAS 19 de otras obligaciones con empleados | reexpresado: sí: tabla 2023 reexpresada (otras provisiones 8,172 → 13,380); la columna «Personnel» no cambia | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -141,7 +145,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "At 31 December 2023 70,658 4,355 13,380 88,393",
       "encabezado": "Provision of Law 15/2010 of 5 July 2010",
@@ -158,10 +163,10 @@
       "id": "norma",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 1] sha256 conforme=True; cita localizada=True; valor localizado=None",
-      "evidencia_contextual": "fila leida: 'Standards as adopted by the European Union'; encabezado: '31 December 2025'; titulo pagina: 'Vidrala, S.A. | and | Subsidiaries | Consolidated Annual Accounts | 31 December 2025'; checks: fila=OK, columna=OK, unidad=NO_DECIDIBLE, signo=NO_DECIDIBLE, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Standards as adopted by the European Union'; encabezado: '31 December 2025'; titulo pagina: 'Vidrala, S.A. | and | Subsidiaries | Consolidated Annual Accounts | 31 December 2025'; checks: fila=OK, columna=OK, unidad=NO_DECIDIBLE, signo=NO_DECIDIBLE, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: NIIF-UE → «IFRS» | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "unidad: metadato 'IFRS' no localizado en la pagina | signo: magnitud no localizada en la fila",
       "checks_contextuales": {
@@ -170,7 +175,8 @@
         "unidad": "NO_DECIDIBLE",
         "signo": "NO_DECIDIBLE",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Standards as adopted by the European Union",
       "encabezado": "31 December 2025",
@@ -190,7 +196,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Inventories 11 252,454 249,077'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Inventories 11 252,454 249,077'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo +; circulante comercial de N3 = existencias + deudores − acreedores | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -199,7 +205,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Inventories 11 252,454 249,077",
       "encabezado": "31 December 2025 and 2024",
@@ -219,7 +226,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Trade and other receivables 12 315,821 342,215'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Trade and other receivables 12 315,821 342,215'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo +; circulante comercial de N3 = existencias + deudores − acreedores | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -228,7 +235,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Trade and other receivables 12 315,821 342,215",
       "encabezado": "31 December 2025 and 2024",
@@ -245,10 +253,10 @@
       "id": "moneda_modelo",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=None",
-      "evidencia_contextual": "fila leida: '(Expressed in thousands of Euros)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=NO_DECIDIBLE, signo=NO_DECIDIBLE, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: '(Expressed in thousands of Euros)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=NO_DECIDIBLE, signo=NO_DECIDIBLE, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: «Euros» → código ISO EUR | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "unidad: metadato 'EUR' no localizado en la pagina | signo: magnitud no localizada en la fila",
       "checks_contextuales": {
@@ -257,7 +265,8 @@
         "unidad": "NO_DECIDIBLE",
         "signo": "NO_DECIDIBLE",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "(Expressed in thousands of Euros)",
       "encabezado": "31 December 2025 and 2024",
@@ -277,7 +286,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 108,352 100,094'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 108,352 100,094'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; solo efectivo y equivalentes (el activo corriente no tiene depósitos ni inversiones financieras a corto) | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -286,7 +295,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Cash and cash equivalents 108,352 100,094",
       "encabezado": "31 December 2025 and 2024",
@@ -306,7 +316,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: '31 December 2025 and 2024'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: '31 December 2025 and 2024'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: identifica el ejercicio de la columna de la Historia; cierre fiscal en diciembre | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -315,7 +325,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "31 December 2025 and 2024",
       "encabezado": "31 December 2025 and 2024",
@@ -335,7 +346,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 108,352 100,094'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 108,352 100,094'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo +; solo efectivo y equivalentes (el activo corriente no tiene depósitos ni inversiones financieras a corto) | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -344,7 +355,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Cash and cash equivalents 108,352 100,094",
       "encabezado": "31 December 2025 and 2024",
@@ -364,7 +376,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: '31 December 2025 and 2024'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: '31 December 2025 and 2024'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: identifica el ejercicio de la columna de la Historia; cierre fiscal en diciembre | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -373,7 +385,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "31 December 2025 and 2024",
       "encabezado": "31 December 2025 and 2024",
@@ -393,7 +406,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Trade and other payables 17 352,841 354,952'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Trade and other payables 17 352,841 354,952'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo +; circulante comercial de N3 = existencias + deudores − acreedores | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -402,7 +415,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Trade and other payables 17 352,841 354,952",
       "encabezado": "31 December 2025 and 2024",
@@ -422,7 +436,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Equity attributed to equity holders of the Parent 1,412,878 1,309,830'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Equity attributed to equity holders of the Parent 1,412,878 1,309,830'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -431,7 +445,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Equity attributed to equity holders of the Parent 1,412,878 1,309,830",
       "encabezado": "31 December 2025 and 2024",
@@ -451,7 +466,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Equity attributed to equity holders of the Parent 1,412,878 1,309,830'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Equity attributed to equity holders of the Parent 1,412,878 1,309,830'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -460,7 +475,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Equity attributed to equity holders of the Parent 1,412,878 1,309,830",
       "encabezado": "31 December 2025 and 2024",
@@ -480,7 +496,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Loans and borrowings 16 66,833 92,688'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Loans and borrowings 16 66,833 92,688'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -489,7 +505,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Loans and borrowings 16 66,833 92,688",
       "encabezado": "31 December 2025 and 2024",
@@ -509,7 +526,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Loans and borrowings 16 66,833 92,688'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Loans and borrowings 16 66,833 92,688'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -518,7 +535,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Loans and borrowings 16 66,833 92,688",
       "encabezado": "31 December 2025 and 2024",
@@ -538,7 +556,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Loans and borrowings 16 196,080 300,624'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Loans and borrowings 16 196,080 300,624'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -547,7 +565,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Loans and borrowings 16 196,080 300,624",
       "encabezado": "31 December 2025 and 2024",
@@ -567,7 +586,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Loans and borrowings 16 196,080 300,624'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Loans and borrowings 16 196,080 300,624'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -576,7 +595,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Loans and borrowings 16 196,080 300,624",
       "encabezado": "31 December 2025 and 2024",
@@ -596,7 +616,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Total liabilities 901,354 998,342'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Total liabilities 901,354 998,342'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -605,7 +625,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Total liabilities 901,354 998,342",
       "encabezado": "31 December 2025 and 2024",
@@ -625,7 +646,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Total liabilities 901,354 998,342'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Total liabilities 901,354 998,342'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -634,7 +655,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Total liabilities 901,354 998,342",
       "encabezado": "31 December 2025 and 2024",
@@ -654,7 +676,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Total equity and liabilities 2,314,232 2,308,172'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Total equity and liabilities 2,314,232 2,308,172'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -663,7 +685,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Total equity and liabilities 2,314,232 2,308,172",
       "encabezado": "31 December 2025 and 2024",
@@ -683,7 +706,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Total equity and liabilities 2,314,232 2,308,172'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Total equity and liabilities 2,314,232 2,308,172'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2025 and 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -692,7 +715,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Total equity and liabilities 2,314,232 2,308,172",
       "encabezado": "31 December 2025 and 2024",
@@ -712,7 +736,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Revenues 4 & 22 1,465,160 1,588,267'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Revenues 4 & 22 1,465,160 1,588,267'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no (igual que CF_2024 p.4) | perimetro: consolidado · operaciones continuadas | perimetro_justificacion: comparativo reexpresado por la venta de Vidrala Italia (operación interrumpida en 2024, nota 2(b) del informe 2024): la cuenta de resultados de 2023 y 2024 solo recoge operaciones continuadas; el libro toma la cifra más reciente publicada (comparativo del informe siguiente) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -721,7 +745,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Revenues 4 & 22 1,465,160 1,588,267",
       "encabezado": "31 December 2025 and 2024",
@@ -741,7 +766,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit loss from operating activities 292,068 331,008'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit loss from operating activities 292,068 331,008'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; incluye deterioro de inmovilizado | reexpresado: no (igual que CF_2024 p.4) | perimetro: consolidado · operaciones continuadas | perimetro_justificacion: comparativo reexpresado por la venta de Vidrala Italia (operación interrumpida en 2024, nota 2(b) del informe 2024): la cuenta de resultados de 2023 y 2024 solo recoge operaciones continuadas; el libro toma la cifra más reciente publicada (comparativo del informe siguiente) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -750,7 +775,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Profit loss from operating activities 292,068 331,008",
       "encabezado": "31 December 2025 and 2024",
@@ -770,7 +796,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit for the year attributable to equity holders of the Parent 209,341 298,315'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit for the year attributable to equity holders of the Parent 209,341 298,315'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; total del ejercicio (en 2023 y 2024 incluye el resultado de Italia: 19,559 y 60,065 miles) | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -779,7 +805,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Profit for the year attributable to equity holders of the Parent 209,341 298,315",
       "encabezado": "31 December 2025 and 2024",
@@ -799,7 +826,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit for the year attributable to equity holders of the Parent 209,341 298,315'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit for the year attributable to equity holders of the Parent 209,341 298,315'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo +; total del ejercicio (en 2023 y 2024 incluye el resultado de Italia: 19,559 y 60,065 miles) | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -808,7 +835,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Profit for the year attributable to equity holders of the Parent 209,341 298,315",
       "encabezado": "31 December 2025 and 2024",
@@ -828,7 +856,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit before income tax from continuing operations 276,661 303,218'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit before income tax from continuing operations 276,661 303,218'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado · operaciones continuadas | perimetro_justificacion: comparativo reexpresado por la venta de Vidrala Italia (operación interrumpida en 2024, nota 2(b) del informe 2024): la cuenta de resultados de 2023 y 2024 solo recoge operaciones continuadas; el libro toma la cifra más reciente publicada (comparativo del informe siguiente) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -837,7 +865,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Profit before income tax from continuing operations 276,661 303,218",
       "encabezado": "31 December 2025 and 2024",
@@ -857,7 +886,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit before income tax from continuing operations 276,661 303,218'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit before income tax from continuing operations 276,661 303,218'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -866,7 +895,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Profit before income tax from continuing operations 276,661 303,218",
       "encabezado": "31 December 2025 and 2024",

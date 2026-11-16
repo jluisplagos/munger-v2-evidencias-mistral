@@ -1,18 +1,21 @@
 {
   "nota": "Controles negativos en memoria (sin tocar el registro ni el producto). El verificador mecanico solo acredita archivo/pagina/cita/numero/transformacion/libro; las mutaciones de metadatos contextuales pasan desapercibidas para el (como demostro SONDA_A_SEMANTICA.json) y deben atraparlas los chequeos contextuales.",
-  "muestra": 38,
-  "mutaciones": 154,
-  "detectadas_por_contextual": 108,
-  "detectadas_por_mecanico": 0,
+  "muestra": 49,
+  "mutaciones": 198,
+  "detectadas_por_contextual": 151,
+  "detectadas_por_mecanico": 40,
   "resumen_por_mutacion": {
+    "euros frente a miles (sonda del revisor)|ctx=True|mec=False": 1,
     "partida de otra fila|ctx=False|mec=False": 8,
     "partida de otra fila|ctx=True|mec=False": 32,
-    "perimetro incorrecto|ctx=False|mec=False": 3,
-    "perimetro incorrecto|ctx=True|mec=False": 37,
+    "perimetro incorrecto|ctx=False|mec=False": 2,
+    "perimetro incorrecto|ctx=True|mec=False": 38,
     "periodo/columna equivocado|ctx=False|mec=False": 7,
     "periodo/columna equivocado|ctx=True|mec=False": 33,
-    "unidad incorrecta|ctx=False|mec=False": 28,
-    "unidad incorrecta|ctx=True|mec=False": 6
+    "reexpresion declarada como no aplica|ctx=True|mec=False": 3,
+    "unidad incorrecta|ctx=False|mec=False": 30,
+    "unidad incorrecta|ctx=True|mec=False": 4,
+    "version/informe equivocado|ctx=True|mec=True": 40
   },
   "detalle": [
     {
@@ -23,7 +26,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -34,7 +37,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -43,9 +46,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -54,9 +57,20 @@
       "mutacion": "partida de otra fila",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!C13",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -65,7 +79,7 @@
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -105,13 +119,24 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "Historia!D13",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "aux:pn_y_pasivo_2016",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -122,7 +147,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -131,9 +156,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -142,9 +167,20 @@
       "mutacion": "partida de otra fila",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "aux:pn_y_pasivo_2016",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -188,6 +224,17 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "aux:bai_2017",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
@@ -237,6 +284,17 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "Historia!E14",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "aux:bai_2018",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": true,
@@ -276,6 +334,17 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "aux:bai_2018",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
@@ -325,6 +394,17 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "aux:pasivo_total_2018",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "Historia!F8",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": true,
@@ -369,11 +449,22 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "Historia!F8",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "aux:italia_bai_2020",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -408,6 +499,17 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "aux:italia_bai_2020",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
@@ -457,6 +559,17 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "Historia!G21",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "aux:capex_mat_2020",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": true,
@@ -501,11 +614,22 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "aux:capex_mat_2020",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "Configuración V6.4!B46",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -525,9 +649,9 @@
       "empresa": "Vidrala",
       "celda": "Configuración V6.4!B46",
       "mutacion": "unidad incorrecta",
-      "detectado_por_contextual": true,
+      "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -540,6 +664,17 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Configuración V6.4!B46",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
@@ -589,6 +724,17 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "Historia!H9",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "aux:lyb_nc_2021",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": true,
@@ -633,11 +779,22 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "aux:lyb_nc_2021",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "Historia!I25",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -672,6 +829,17 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!I25",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
@@ -721,6 +889,17 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "aux:circ_2022_l2",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "Historia!J14",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": true,
@@ -756,6 +935,28 @@
       "empresa": "Vidrala",
       "celda": "Historia!J14",
       "mutacion": "partida de otra fila",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!J14",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!J14",
+      "mutacion": "reexpresion declarada como no aplica",
       "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
@@ -809,11 +1010,22 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "Historia!J9",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "Configuración V6.4!B44",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -833,9 +1045,9 @@
       "empresa": "Vidrala",
       "celda": "Configuración V6.4!B44",
       "mutacion": "unidad incorrecta",
-      "detectado_por_contextual": true,
+      "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -853,11 +1065,22 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "Configuración V6.4!B44",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "Historia!K25",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
@@ -892,6 +1115,17 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!K25",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
@@ -930,6 +1164,17 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "Historia!L5",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "aux:lyb_nc_2024",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": true,
@@ -974,13 +1219,24 @@
     },
     {
       "empresa": "Vidrala",
+      "celda": "aux:lyb_nc_2024",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
       "celda": "Palancas!C48",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -989,9 +1245,9 @@
       "mutacion": "perimetro incorrecto",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1002,7 +1258,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Palancas!C48",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1013,7 +1280,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1024,7 +1291,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1035,7 +1302,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!C5",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1046,7 +1324,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1057,7 +1335,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1066,9 +1344,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1079,7 +1357,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!E12",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1090,7 +1379,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1101,7 +1390,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1110,9 +1399,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1123,7 +1412,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!E6",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1134,7 +1434,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1145,7 +1445,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1154,9 +1454,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1167,7 +1467,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "aux:AR2019_p8_impuesto_2018",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1178,7 +1489,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1189,7 +1500,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1198,9 +1509,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1211,7 +1522,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!F7",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1222,7 +1544,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1233,7 +1555,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1242,9 +1564,9 @@
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1253,9 +1575,20 @@
       "mutacion": "partida de otra fila",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "aux:AR2020_p4_pasivo_fin_nc_2019",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1266,7 +1599,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1277,7 +1610,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1288,7 +1621,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Control maestro!H4",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1337,13 +1681,35 @@
     },
     {
       "empresa": "Viscofan",
+      "celda": "Historia!K8",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!K8",
+      "mutacion": "reexpresion declarada como no aplica",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
       "celda": "aux:AR2025_p109_activacion_BIN_2024",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1354,7 +1720,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1365,7 +1731,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1376,7 +1742,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "aux:AR2025_p109_activacion_BIN_2024",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1416,6 +1793,28 @@
       "empresa": "Viscofan",
       "celda": "aux:AR2025_p23_bai_2024",
       "mutacion": "partida de otra fila",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "aux:AR2025_p23_bai_2024",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "aux:AR2025_p23_bai_2024",
+      "mutacion": "reexpresion declarada como no aplica",
       "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
@@ -1431,18 +1830,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
       "empresa": "Viscofan",
       "celda": "Historia!I5",
       "mutacion": "perimetro incorrecto",
-      "detectado_por_contextual": false,
+      "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1453,7 +1852,18 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!I5",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1464,7 +1874,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1473,9 +1883,9 @@
       "mutacion": "perimetro incorrecto",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1486,12 +1896,67 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
       "empresa": "Viscofan",
       "celda": "aux:CA2023_p4_impuesto_2022",
+      "mutacion": "partida de otra fila",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "aux:CA2023_p4_impuesto_2022",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!G7",
+      "mutacion": "periodo/columna equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!G7",
+      "mutacion": "perimetro incorrecto",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!G7",
+      "mutacion": "unidad incorrecta",
+      "detectado_por_contextual": false,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!G7",
       "mutacion": "partida de otra fila",
       "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
@@ -1503,44 +1968,11 @@
     {
       "empresa": "Viscofan",
       "celda": "Historia!G7",
-      "mutacion": "periodo/columna equivocado",
+      "mutacion": "version/informe equivocado",
       "detectado_por_contextual": true,
-      "detectado_por_mecanico": false,
+      "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
-      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
-      "estado_mecanico_base": "COINCIDE_PROPUESTO"
-    },
-    {
-      "empresa": "Viscofan",
-      "celda": "Historia!G7",
-      "mutacion": "perimetro incorrecto",
-      "detectado_por_contextual": true,
-      "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
-      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
-      "estado_mecanico_base": "COINCIDE_PROPUESTO"
-    },
-    {
-      "empresa": "Viscofan",
-      "celda": "Historia!G7",
-      "mutacion": "unidad incorrecta",
-      "detectado_por_contextual": false,
-      "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
-      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
-      "estado_mecanico_base": "COINCIDE_PROPUESTO"
-    },
-    {
-      "empresa": "Viscofan",
-      "celda": "Historia!G7",
-      "mutacion": "partida de otra fila",
-      "detectado_por_contextual": true,
-      "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
-      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
@@ -1590,13 +2022,24 @@
     },
     {
       "empresa": "Viscofan",
+      "celda": "aux:CF2021_p8_var_deudores_2020",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
       "celda": "Historia!H6",
       "mutacion": "periodo/columna equivocado",
       "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1607,12 +2050,67 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
       "empresa": "Viscofan",
       "celda": "Historia!H6",
+      "mutacion": "unidad incorrecta",
+      "detectado_por_contextual": false,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!H6",
+      "mutacion": "partida de otra fila",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!H6",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "aux:CF2022_p21_impuesto_2021",
+      "mutacion": "periodo/columna equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "aux:CF2022_p21_impuesto_2021",
+      "mutacion": "perimetro incorrecto",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "aux:CF2022_p21_impuesto_2021",
       "mutacion": "unidad incorrecta",
       "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
@@ -1623,7 +2121,7 @@
     },
     {
       "empresa": "Viscofan",
-      "celda": "Historia!H6",
+      "celda": "aux:CF2022_p21_impuesto_2021",
       "mutacion": "partida de otra fila",
       "detectado_por_contextual": true,
       "detectado_por_mecanico": false,
@@ -1635,44 +2133,11 @@
     {
       "empresa": "Viscofan",
       "celda": "aux:CF2022_p21_impuesto_2021",
-      "mutacion": "periodo/columna equivocado",
+      "mutacion": "version/informe equivocado",
       "detectado_por_contextual": true,
-      "detectado_por_mecanico": false,
+      "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
-      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
-      "estado_mecanico_base": "COINCIDE_PROPUESTO"
-    },
-    {
-      "empresa": "Viscofan",
-      "celda": "aux:CF2022_p21_impuesto_2021",
-      "mutacion": "perimetro incorrecto",
-      "detectado_por_contextual": true,
-      "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
-      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
-      "estado_mecanico_base": "COINCIDE_PROPUESTO"
-    },
-    {
-      "empresa": "Viscofan",
-      "celda": "aux:CF2022_p21_impuesto_2021",
-      "mutacion": "unidad incorrecta",
-      "detectado_por_contextual": false,
-      "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "REVISADO_CONTEXTUAL",
-      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
-      "estado_mecanico_base": "COINCIDE_PROPUESTO"
-    },
-    {
-      "empresa": "Viscofan",
-      "celda": "aux:CF2022_p21_impuesto_2021",
-      "mutacion": "partida de otra fila",
-      "detectado_por_contextual": true,
-      "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
-      "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
       "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
@@ -1684,7 +2149,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1695,7 +2160,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1706,7 +2171,29 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!J5",
+      "mutacion": "version/informe equivocado",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": true,
+      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_mutado": "NO_ACREDITADO",
+      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_mecanico_base": "COINCIDE_PROPUESTO"
+    },
+    {
+      "empresa": "SONDA",
+      "celda": "check_unidad(euros frente a miles)",
+      "mutacion": "euros frente a miles (sonda del revisor)",
+      "detectado_por_contextual": true,
+      "detectado_por_mecanico": false,
+      "estado_contextual_mutado": "CONFLICTO",
+      "estado_mecanico_mutado": "n/a (sonda de unidad)",
+      "estado_contextual_base": "OK",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     }
   ]

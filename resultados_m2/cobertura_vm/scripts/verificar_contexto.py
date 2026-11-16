@@ -199,7 +199,15 @@ UNIT_DECLARED_CANON = {
 }
 
 
-def check_unidad(page_lines, row_idx, unidad, escala, valor=None, row_line=''):
+MILES_RE = re.compile(r'miles de euros|thousands of euros|mil(?:es)? de euros|in thousands|thousand euros', re.IGNORECASE)
+EUROS_ONLY_RE = re.compile(r'\bin euros\b|amounts? in euros|expressed in euros\b|figures in euros', re.IGNORECASE)
+
+
+def check_unidad(page_lines, row_idx, unidad, escala, valor=None, row_line='', doc=None):
+    """v2 (seguimiento 63e366b): mencionar euros NO acredita miles de euros ni escala 0,001.
+    Se exige frase de escala explicita en la pagina ('miles/thousands of euros') o, en su
+    defecto, en la cabecera del documento (primeras paginas). Si la pagina declara otra
+    escala explicita ('in euros'), es CONFLICTO para miles declarados."""
     declared = UNIT_DECLARED_CANON.get(str(unidad))
     if declared is None:
         return 'NO_DECIDIBLE', f'unidad no mapeada: {unidad}'
@@ -210,6 +218,32 @@ def check_unidad(page_lines, row_idx, unidad, escala, valor=None, row_line=''):
             return 'OK', f'metadato {valor!r} localizado en la pagina'
         return 'NO_DECIDIBLE', f'metadato {valor!r} no localizado en la pagina'
     area = '\n'.join(page_lines)
+    page_miles = MILES_RE.search(area)
+    page_euros_only = EUROS_ONLY_RE.search(area)
+    if declared == 'miles_euros':
+        if page_miles:
+            if escala is not None and C.dec(escala) != C.dec('0.001'):
+                return 'CONFLICTO', f'pagina en miles pero escala declarada {escala} != 0.001'
+            return 'OK', f'unidad en miles confirmada en la pagina: {page_miles.group(0)!r}'
+        if page_euros_only:
+            return 'CONFLICTO', f'la pagina declara escala {page_euros_only.group(0)!r} (euros, no miles); no acredita miles de euros ni escala 0,001'
+        if doc and doc.get('miles'):
+            return 'OK', 'unidad en miles acreditada en la cabecera del documento (primeras paginas); no se repite en la pagina de nota'
+        return 'NO_DECIDIBLE', 'sin frase de escala en la pagina ni en la cabecera del documento'
+    if declared == 'eur_accion':
+        if valor is not None and any(C.flat_text(v) in C.flat_text(row_line) for v in C.variantes_numero(valor)):
+            return 'OK', f'precio {valor} en la fila; unidad EUR por accion por contexto de cotizacion'
+        if re.search(r'por acci\u00f3n|per share', area, re.IGNORECASE):
+            return 'OK', 'pagina con unidad por accion confirmada'
+        return 'NO_DECIDIBLE', 'unidad por accion no decidible en la pagina'
+    if declared == 'acciones':
+        if re.search(UNIT_CANON['acciones'], area, re.IGNORECASE):
+            return 'OK', 'pagina menciona acciones/numero de acciones'
+        if page_miles or page_euros_only:
+            return 'CONFLICTO', 'unidad declarada acciones pero la pagina esta en euros y no menciona acciones'
+        if doc and re.search(UNIT_CANON['acciones'], doc.get('head', ''), re.IGNORECASE):
+            return 'OK', 'mencion de acciones en la cabecera del documento'
+        return 'NO_DECIDIBLE', 'unidad acciones no decidible en la pagina'
     found = set()
     evidencia = []
     for canon, pat in UNIT_CANON.items():
@@ -218,28 +252,16 @@ def check_unidad(page_lines, row_idx, unidad, escala, valor=None, row_line=''):
             found.add(canon)
             evidencia.append(f'{canon}:{m.group(0)!r}')
     if declared in found:
-        if str(unidad) == 'miles de euros' and escala is not None and C.dec(escala) != C.dec('0.001'):
-            return 'CONFLICTO', f'unidad pagina en miles pero escala declarada {escala} != 0.001'
         return 'OK', f'unidad declarada confirmada en pagina: {evidencia}'
-    if declared == 'miles_euros' and re.search(r'euro', area, re.IGNORECASE):
-        return 'OK', 'la pagina menciona euros; la frase de miles no se repite en la pagina de nota'
-    if declared == 'eur_accion' and valor is not None and any(C.flat_text(v) in C.flat_text(row_line) for v in C.variantes_numero(valor)):
-        return 'OK', f'precio {valor} en la fila; unidad EUR por accion por contexto de cotizacion'
-    specific = found & {'miles_euros', 'acciones', 'norma'}
-    if specific and declared not in found:
-        return 'CONFLICTO', f'unidad declarada {unidad!r} pero la pagina evidencia {evidencia}'
-    if declared == 'acciones' and 'miles_euros' not in found and re.search(r'euro', area, re.IGNORECASE):
-        return 'CONFLICTO', f'unidad declarada acciones pero la pagina esta en euros y no menciona acciones: {evidencia}'
-    if declared == 'miles_euros' and 'acciones' in found and 'miles_euros' not in found and not re.search(r'euro', area, re.IGNORECASE):
-        return 'CONFLICTO', f'unidad declarada miles de euros pero la pagina solo menciona acciones: {evidencia}'
     return 'NO_DECIDIBLE', f'unidad no decidible en esta pagina; evidencia: {evidencia}'
 
 
 def check_signo(row_line, valor, signo):
     """El signo impreso se registra como evidencia; el campo signo es una convencion
-    de transformacion del modelo (puede diferir del impreso), no un error de fuente."""
+    de transformacion del modelo (puede diferir del impreso), no un error de fuente.
+    v2: un cero no tiene signo aplicable (NO_APLICA, no 'no comprobado')."""
     if valor is None or C.dec(valor) == 0:
-        return 'NO_DECIDIBLE', 'valor cero o nulo: el signo no se decide por posicion'
+        return 'NO_APLICA', 'valor cero: el signo no es aplicable'
     variants = {C.flat_text(v) for v in C.variantes_numero(valor)} - {''}
     fl = C.flat_text(row_line)
     pos = None
@@ -328,34 +350,158 @@ def check_fila(page_lines, row_idx, row_line, concepto, valor=None):
     return 'CONFLICTO', f'fila leida {sorted(row_toks)[:6]} sin solapamiento (con sinonimos) con concepto {sorted(con_toks)[:6]}'
 
 
-def check_perimetro(page_lines, perimetro):
+def check_perimetro(page_lines, perimetro, doc=None):
+    """v2: el perimetro se acredita en la pagina o en la cabecera del documento
+    (titulo de los estados), no solo en la pagina citada."""
     p = str(perimetro or '')
     if 'no aplica' in p:
         return 'NO_APLICA', p
     area = '\n'.join(page_lines)
     consolidated = bool(re.search(r'consolidat', area, re.IGNORECASE))
+    doc_consolidated = bool(doc and re.search(r'consolidat', doc.get('head', ''), re.IGNORECASE))
     if 'segmento' in p:
         seg = re.search(r'segmento\s*«?([^»]+)»?', p)
         word = seg.group(1).strip() if seg else ''
-        if word and re.search(re.escape(word), area, re.IGNORECASE):
-            return 'OK', f'pagina con referencia al segmento {word!r} en estados consolidados'
-        return 'NO_DECIDIBLE', 'la pagina no menciona el segmento en texto'
-    if consolidated and 'consolidado' in p:
-        return 'OK', 'estados consolidados (marca en la pagina)'
-    if consolidated and 'consolidado' not in p:
-        return 'CONFLICTO', f'pagina consolidada pero perimetro declarado {p!r}'
-    return 'NO_DECIDIBLE', 'sin marca de perimetro en la pagina'
+        hay = re.search(re.escape(word), area, re.IGNORECASE) if word else None
+        if not hay and doc and word:
+            hay = re.search(re.escape(word), doc.get('head', ''), re.IGNORECASE)
+        if hay:
+            return 'OK', f'segmento {word!r} localizado en la pagina o cabecera del documento'
+        return 'NO_DECIDIBLE', 'el segmento no aparece en la pagina ni en la cabecera del documento'
+    if (consolidated or doc_consolidated) and 'consolidado' in p:
+        ev = 'pagina' if consolidated else 'cabecera del documento (titulo de los estados)'
+        return 'OK', f'estados consolidados acreditados en la {ev}'
+    if (consolidated or doc_consolidated) and 'consolidado' not in p:
+        return 'CONFLICTO', f'documento consolidado pero perimetro declarado {p!r}'
+    return 'NO_DECIDIBLE', 'sin marca de perimetro en la pagina ni en la cabecera del documento'
 
 
-def check_entrada(emp, r, pages):
-    """Devuelve dict con checks contextuales de una entrada con fuente."""
+def check_version(archivo, page_lines, years_in_block, doc=None):
+    """v2: la version necesita evidencia independiente (el año del informe declarado debe
+    aparecer en la pagina o en la cabecera del documento), no metadatos copiados."""
+    m = YEAR_RE.search(Path(archivo or '').name)
+    archivo_year = m.group(0) if m else None
+    head = '\n'.join(page_lines[:6])
+    titulo_doc = (doc or {}).get('head', '')
+    if archivo_year and (archivo_year in set(years_in_block) or re.search(archivo_year, head) or re.search(archivo_year, titulo_doc)):
+        return 'OK', f'el informe declarado ({archivo}, año {archivo_year}) figura en la pagina/cabecera del documento'
+    if archivo_year:
+        return 'CONFLICTO', f'el año del archivo {archivo_year} no aparece en la pagina ni en la cabecera del documento'
+    return 'NO_DECIDIBLE', 'archivo sin año en el nombre; version no comprobable'
+
+
+def textos_empresa(emp):
+    """Todos los .txt conservados de la empresa (para contraste de reexpresion)."""
+    folder = C.INSUMOS / C.CARPETA_EMPRESA[emp]
+    out = {}
+    for sub in ('texto', 'fuentes_mercado'):
+        d = folder / sub
+        if d.exists():
+            for p in sorted(d.glob('*.txt')):
+                out[p.name] = p
+    return out
+
+
+TEXTO_CACHE = {}
+
+
+def check_reexpresion(emp, r, f, col_years, years_in_block):
+    """v2: la reexpresion se contrasta con el texto conservado del año original del
+    comparativo, no se copia del registro. Devuelve (estado, detalle)."""
+    declared = str(f.get('reexpresado') or '')
+    archivo = f.get('archivo') or ''
+    ya = YEAR_RE.search(Path(archivo).name)
+    ya = ya.group(0) if ya else None
+    columna = f.get('columna') or ''
+    periodo = f.get('periodo') or ''
+    yc_m = YEAR_RE.search(columna + ' ' + periodo)
+    if not ya or not yc_m:
+        return 'NO_DECIDIBLE', 'sin años de informe/columna para contrastar reexpresion'
+    yc = yc_m.group(0)
+    if yc < ya and 'no aplica' in declared.lower():
+        return 'CONFLICTO', f'declara reexpresion "no aplica" pero la columna {yc} es un comparativo del informe {ya} (proviene de el)'
+    if yc == ya:
+        if 'reexpres' in declared.lower() and 'no' not in declared.lower() and 'no aplica' not in declared.lower():
+            return 'CONFLICTO', f'declara reexpresion pero la columna {yc} es el ejercicio corriente del informe {ya}'
+        if 'no aplica' in declared.lower():
+            return 'NO_APLICA', declared
+        return 'OK', f'columna {yc} = ejercicio corriente del informe {ya}; no hay comparativo que reexpresar'
+    # comparativo: buscar el texto del año original conservado
+    key = emp
+    if key not in TEXTO_CACHE:
+        TEXTO_CACHE[key] = textos_empresa(emp)
+    cita = f.get('cita') or ''
+    cf = C.flat_text(cita)
+    valor = f.get('valor_fuente')
+    variantes = {C.flat_text(v) for v in C.variantes_numero(valor)} - {''}
+    candidatos = [name for name in TEXTO_CACHE[key] if YEAR_RE.search(name) and YEAR_RE.search(name).group(0) == yc and name != Path(archivo).name]
+    alpha = C.flat_text(re.sub(r'[^A-Za-zÀ-ÿ ]+', ' ', cita))
+    labels = [alpha[:L] for L in (80, 60, 40, 25, 12) if len(alpha) >= L]
+    if not labels and alpha:
+        labels = [alpha]
+    def contradice(declared, reexpresado_detectado):
+        """Solo hay conflicto si se declara explicitement NO reexpresado/igual y la
+        evidencia muestra otro valor. 'sí: comparativo del informe X' describe
+        procedencia de la columna, no cambio de valor por fila: no es conflicto."""
+        d = declared.lower()
+        if reexpresado_detectado and ('no aplica' in d or 'no reexpres' in d or 'igual al original' in d):
+            return True
+        return False
+
+    for name in candidatos:
+        p = TEXTO_CACHE[key][name]
+        text = p.read_text(encoding='utf-8')
+        tflat = C.flat_text(text)
+        if cf and cf in tflat:
+            res = ('OK', f'comparativo {yc} igual al publicado originalmente en {name} (mismo valor): no reexpresado')
+            if contradice(declared, False):
+                return 'CONFLICTO', f'declara reexpresion pero el original {name} imprime el mismo valor: {declared}'
+            return res
+        orig_lines = text.splitlines()
+        for label in labels:
+            if label and label in tflat:
+                for i, line in enumerate(orig_lines):
+                    fl = C.flat_text(line)
+                    if label in fl:
+                        yb2, _, _ = find_header_block(orig_lines, i)
+                        if yc not in yb2:
+                            continue  # la fila aparecida no corresponde al ejercicio yc
+                        nums = [t for t in NUM_RE.findall(line) if value_like(t)]
+                        norm_val = normalize_num(str(valor).replace('.', '').replace(',', ''))
+                        if any(normalize_num(t) == norm_val for t in nums):
+                            if contradice(declared, False):
+                                return 'CONFLICTO', f'declara reexpresion pero el original {name} imprime el mismo valor ({line.strip()[:80]}): {declared}'
+                            return 'OK', f'comparativo {yc} igual al original en {name} (misma fila y valor): no reexpresado'
+                        if nums:
+                            if contradice(declared, True):
+                                return 'OK', f'reexpresado confirmado y declarado: el original {name} imprime {nums} y el comparativo cita {valor}'
+                            return 'OK', f'reexpresado confirmado: el original {name} imprime {nums} en la misma fila y el comparativo cita {valor}'
+                        if variantes and any(v in fl for v in variantes):
+                            return 'OK', f'comparativo {yc} igual al original en {name}: no reexpresado'
+        if variantes and any(v and v in tflat for v in variantes):
+            return 'NO_DECIDIBLE', f'el valor aparece en {name} pero no en la misma fila del ejercicio {yc}; reexpresion no decidible por cita'
+    if not candidatos:
+        return 'NO_DECIDIBLE', f'no hay texto conservado del año {yc} para contrastar la reexpresion del comparativo'
+    return 'NO_DECIDIBLE', f'la partida no se localiza en los textos conservados del año {yc} ({candidatos[:3]})'
+
+
+def doc_info(emp, arch, pages_all):
+    """Cabecera del documento: primeras paginas del .txt (titulo de los estados)."""
+    head = '\n'.join((pages_all.get(i) or '') for i in range(1, 9))
+    return {'head': head, 'miles': bool(MILES_RE.search(head)), 'arch': arch}
+
+
+def check_entrada(emp, r, pages, doc=None):
+    """Devuelve dict con checks contextuales de una entrada con fuente.
+    v2 (seguimiento 63e366b): REVISADO_CONTEXTUAL exige que TODAS las dimensiones
+    pertinentes esten OK o NO_APLICA; cualquier NO_DECIDIBLE pasa a PENDIENTE."""
     f = r.get('fuente') or {}
     pg = f.get('pagina')
     ptext = pages.get(pg)
     out = {'empresa': emp, 'celda': r['celda'], 'id': r['id'], 'clase': r['clase'],
            'archivo': f.get('archivo'), 'pagina': pg, 'checks': {}, 'evidencia': {}}
     if ptext is None:
-        out['checks'] = {k: 'NO_DECIDIBLE' for k in ('fila', 'columna', 'unidad', 'signo', 'perimetro', 'version')}
+        out['checks'] = {k: 'NO_DECIDIBLE' for k in ('fila', 'columna', 'unidad', 'signo', 'perimetro', 'version', 'reexpresion')}
         out['checks']['fila'] = 'CONFLICTO'
         out['estado_contextual'] = 'CONFLICTO_CONTEXTUAL'
         out['nota'] = 'pagina no localizada'
@@ -367,10 +513,11 @@ def check_entrada(emp, r, pages):
     checks = {}
     checks['fila'] = check_fila(lines, ri, row_line, f.get('concepto'), f.get('valor_fuente'))
     checks['columna'] = check_columna(ri, lines, years_in_block, col_line, col_years, f.get('columna'), f.get('periodo'), f.get('valor_fuente'))
-    checks['unidad'] = check_unidad(lines, ri, f.get('unidad'), f.get('escala'), f.get('valor_fuente'), row_line or '')
+    checks['unidad'] = check_unidad(lines, ri, f.get('unidad'), f.get('escala'), f.get('valor_fuente'), row_line or '', doc)
     checks['signo'] = check_signo(row_line or '', f.get('valor_fuente'), f.get('signo'))
-    checks['perimetro'] = check_perimetro(lines, f.get('perimetro'))
-    checks['version'] = ('OK', f"version declarada: {str(f.get('version'))[:120]}; reexpresado declarado: {f.get('reexpresado')} (no decidible desde una pagina)")
+    checks['perimetro'] = check_perimetro(lines, f.get('perimetro'), doc)
+    checks['version'] = check_version(f.get('archivo'), lines, years_in_block, doc)
+    checks['reexpresion'] = check_reexpresion(emp, r, f, col_years, years_in_block)
     out['checks'] = checks
     titulo = ' | '.join(C.norm_text(l) for l in lines[:6] if l.strip())[:250]
     out['evidencia'] = {
@@ -386,15 +533,16 @@ def check_entrada(emp, r, pages):
         'concepto_declarado': f.get('concepto'),
         'cita': f.get('cita'),
     }
-    vals = [c[0] for c in checks.values()]
-    if 'CONFLICTO' in vals:
+    vals = {k: c[0] for k, c in checks.items()}
+    if 'CONFLICTO' in vals.values():
         estado = 'CONFLICTO_CONTEXTUAL'
-    elif vals.count('OK') + vals.count('NO_APLICA') >= 3 and checks['fila'][0] == 'OK':
-        estado = 'REVISADO_CONTEXTUAL'
-    else:
+    elif 'NO_DECIDIBLE' in vals.values():
+        # v2: no se presenta como plenamente revisada si falta una dimension pertinente
         estado = 'PENDIENTE_CONTEXTUAL'
+    else:
+        estado = 'REVISADO_CONTEXTUAL'
     out['estado_contextual'] = estado
-    out['pendientes'] = [k for k, (v, _) in checks.items() if v in ('NO_DECIDIBLE', 'CONFLICTO')]
+    out['pendientes'] = [k for k, v in vals.items() if v in ('NO_DECIDIBLE', 'CONFLICTO')]
     out['detalle'] = {k: c[1] for k, c in checks.items()}
     return out
 
@@ -402,6 +550,7 @@ def check_entrada(emp, r, pages):
 def main():
     registro = C.load_registro()
     pages_cache = {}
+    doc_cache = {}
 
     def get_pages(emp, arch):
         key = (emp, arch)
@@ -410,13 +559,19 @@ def main():
             pages_cache[key] = C.extract_pages(p.read_text(encoding='utf-8')) if p.exists() else {}
         return pages_cache[key]
 
+    def get_doc(emp, arch):
+        key = (emp, arch)
+        if key not in doc_cache:
+            doc_cache[key] = doc_info(emp, arch, get_pages(emp, arch))
+        return doc_cache[key]
+
     filas = []
     obs = {}
     for emp, r in C.iter_entradas(registro):
         if r['clase'] in ('dato_publicado', 'cero_comprobado'):
             f = r.get('fuente') or {}
             arch = f.get('archivo')
-            res = check_entrada(emp, r, get_pages(emp, arch)) if arch else {
+            res = check_entrada(emp, r, get_pages(emp, arch), get_doc(emp, arch)) if arch else {
                 'empresa': emp, 'celda': r['celda'], 'id': r['id'], 'clase': r['clase'],
                 'estado_contextual': 'CONFLICTO_CONTEXTUAL', 'checks': {'fuente': 'CONFLICTO'},
                 'pendientes': ['fuente'], 'evidencia': {}, 'detalle': {}}

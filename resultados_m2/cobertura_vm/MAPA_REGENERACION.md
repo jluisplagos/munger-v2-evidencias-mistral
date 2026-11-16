@@ -34,14 +34,15 @@ Qué puede aprovechar Claude para una futura regeneración, qué debe revisarse 
 2. Si cambian bytes de una fuente, recalcular todo lo dependiente: el control rechaza resultados reutilizados tras cambiar operarios sin recalcular (hash de entradas por nodo y por fuente).
 3. No fijar como objetivo 677 coincidencias; los estados honestos incluyen DIFERENCIA/NO_ACREDITADO cuando aparezcan.
 
-## Estados de las dependencias para regeneración (tras la corrección A1)
+## Estados de las dependencias para regeneración (seguimiento 63e366b, v2)
 
 | Grupo | n | Estado contextual | ¿Qué puede reutilizar el integrador? |
 |---|---|---|---|
-| Datos/ceros con fuente, revisados contextualmente | 423 | REVISADO_CONTEXTUAL | Sí: huella vigente + fila/encabezado/columna/unidad/signo/perímetro leídos |
-| Derivados cuyos orígenes están revisados | 86 | REVISADO_CONTEXTUAL | Sí: fórmula + hash de entradas vigente; significado económico aparte |
+| Datos/ceros con fuente, todas las dimensiones acreditadas | 264 | REVISADO_CONTEXTUAL | Sí: huella vigente + fila/columna/unidad/signo/perímetro/versión/reexpresión leídos |
+| Derivados cuyos orígenes están todos revisados | 51 | REVISADO_CONTEXTUAL | Sí: fórmula + hash de entradas vigente |
 | Piloto M1 (datos y derivados) | 60 | REUTILIZADO_M1 | Sí, con el alcance y huellas del piloto corregido |
-| Pendientes contextuales | 2 | PENDIENTE_CONTEXTUAL | No: `Vidrala Historia!G22`/`G23` (fila de continuación ambigua, CF_2019 p.19) |
+| Fuentes con alguna dimensión no comprobada | 160 | PENDIENTE_CONTEXTUAL | No como revisadas: reexpresión no decidible (158), perímetro (40), unidad (8), signo (7), columna (3), fila (1) — solapamientos entre filas |
+| Derivados con orígenes pendientes | 36 | PENDIENTE_CONTEXTUAL | No: heredan los límites de los orígenes (`limites_contextuales`) |
 | Hipótesis / convenciones / no aplicables / ausentes | 109 | NO_APLICA (clase) | No como datos: requieren decisión o fuente |
 
-El control (`control_cobertura.py`) rechaza REVISADO_CONTEXTUAL sin evidencia contextual y valida la coherencia CSV↔verificación contextual. Ver `RESPUESTA_REVISION_EXTERNA.md`.
+El control (`control_cobertura.py`) sigue en PASS con 0 violaciones y valida la coherencia CSV↔verificación contextual. Ver `RESPUESTA_SEGUIMIENTO_20261116.md`.

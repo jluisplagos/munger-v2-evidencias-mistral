@@ -11,9 +11,9 @@
     "NO_APLICABLE": 2
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 26,
+    "PENDIENTE_CONTEXTUAL": 3,
     "NO_APLICA": 3,
-    "PENDIENTE_CONTEXTUAL": 1
+    "REVISADO_CONTEXTUAL": 24
   },
   "entradas": [
     {
@@ -22,12 +22,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2016\"] - o[\"aux:pasivo_total_2016\"] - o[\"Historia!C21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2016\"] - o[\"aux:pasivo_total_2016\"] - o[\"Historia!C21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2016\"] - o[\"aux:pasivo_total_2016\"] - o[\"Historia!C21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,096,243 − pasivo total 621,309 − patrimonio atribuido a la dominante 474,934 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:pn_y_pasivo_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:pasivo_total_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | Historia!C21: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -43,8 +43,12 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:pn_y_pasivo_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+          "aux:pasivo_total_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+          "Historia!C21: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        ]
       }
     },
     {
@@ -75,12 +79,12 @@
       "id": "h_ebit",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:bai_2016\"] - o[\"aux:ing_fin_2016\"] - o[\"aux:gto_fin_2016\"] -> 93.039 (valor_modelo 93.039, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:bai_2016\"] - o[\"aux:ing_fin_2016\"] - o[\"aux:gto_fin_2016\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:bai_2016\"] - o[\"aux:ing_fin_2016\"] - o[\"aux:gto_fin_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. La cuenta de resultados de 2016 no imprime el subtotal de explotación: EBIT = BAI − ingresos financieros − gastos financieros = 84.242 − 0.979 + 9.776 = 93.039 mm.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:ing_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo) | aux:gto_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -96,8 +100,12 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+          "aux:ing_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)",
+          "aux:gto_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo)"
+        ]
       }
     },
     {

@@ -12,7 +12,8 @@
   },
   "estados_contextuales": {
     "NO_APLICA": 13,
-    "REVISADO_CONTEXTUAL": 17
+    "REVISADO_CONTEXTUAL": 16,
+    "PENDIENTE_CONTEXTUAL": 1
   },
   "entradas": [
     {
@@ -136,12 +137,12 @@
       "id": "h_circulante",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:circ_2022_l1\"] + o[\"aux:circ_2022_l2\"] + o[\"aux:circ_2022_l3\"] + o[\"aux:circ_2022_l4\"] + o[\"aux:circ_2022_l5\"]) -> 117.546 (valor_modelo 117.546, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:circ_2022_l1\"] + o[\"aux:circ_2022_l2\"] + o[\"aux:circ_2022_l3\"] + o[\"aux:circ_2022_l4\"] + o[\"aux:circ_2022_l5\"]) (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:circ_2022_l1\"] + o[\"aux:circ_2022_l2\"] + o[\"aux:circ_2022_l3\"] + o[\"aux:circ_2022_l4\"] + o[\"aux:circ_2022_l5\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. aumento del circulante 2022 = −(suma de las cinco líneas de CF_2023 p.7, columna 2022) = −(−117,546) = 117,546 miles. El subtotal impreso en CF_2023 es (117,545) (1 miles de redondeo) y el del informe original (CF_2022 p.7) (117,546), con «Trade and other payables» 132,341, que no cuadra.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:circ_2022_l5: dimension reexpresion no decidible (el valor aparece en CF_2022.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por cita)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -157,8 +158,10 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:circ_2022_l5: dimension reexpresion no decidible (el valor aparece en CF_2022.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por cita)"
+        ]
       }
     },
     {

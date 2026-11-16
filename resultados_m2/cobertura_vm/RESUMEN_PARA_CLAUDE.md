@@ -17,7 +17,7 @@ Universo fijado cubierto completo en `resultados_m2/cobertura_vm/` (rama `mistra
 
 **Estados mecánicos** (sin cambios respecto a la entrega base `08c9799`): 568 COINCIDE_PROPUESTO, 52 HIPOTESIS, 35 CONVENCION, 16 NO_APLICABLE, 6 DATO_AUSENTE.
 
-**Estados contextuales** (nuevo tras la revisión externa A1, columnas separadas en el CSV): 509 REVISADO_CONTEXTUAL, 60 REUTILIZADO_M1, 2 PENDIENTE_CONTEXTUAL, 106 NO_APLICA, 0 CONFLICTO_CONTEXTUAL.
+**Estados contextuales** (tras revisión A1 y corregidos por el seguimiento `63e366b`, columnas separadas en el CSV): 315 REVISADO_CONTEXTUAL, 196 PENDIENTE_CONTEXTUAL, 60 REUTILIZADO_M1, 106 NO_APLICA, 0 CONFLICTO_CONTEXTUAL.
 
 | Concepto | n |
 |---|---|
@@ -49,6 +49,10 @@ Comandos: `python3 resultados_m2/cobertura_vm/scripts/{inventario,verificar_fuen
 ## Corrección de la revisión externa (commit `9366bdd`, rama `revision/chatgpt-m2-20261116`)
 
 Se ejecutó `CORRECCION_A.md`: verificación contextual por entrada leyendo encabezados/filas/columnas/unidad/signo/perímetro de los bytes conservados (`scripts/verificar_contexto.py`), estados mecánico y contextual en columnas separadas, límites propagados a los 101 derivados, controles negativos (`scripts/control_negativo.py`: 154 mutaciones, 108 detectadas por el contextual, 0 por el mecánico) y respuesta numerada en `RESPUESTA_REVISION_EXTERNA.md`. Lotes L00–L21 republicados con commit+push cada uno. Control PASS con 0 violaciones.
+
+## Seguimiento externo `63e366b` (apartado A de SEGUIMIENTO.md)
+
+Corregido el sobrealcance de estados contextuales (REVISADO de 509 → 315; las dimensiones no comprobadas pasan a PENDIENTE), la acreditación de unidad (la sonda «euros» vs «miles» del revisor ahora es CONFLICTO) y la de versión/reexpresión (contraste con el texto original del año comparativo). Negativos ampliados: 198 mutaciones, 151 detectadas por el contextual. Respuesta numerada en `RESPUESTA_SEGUIMIENTO_20261116.md`. Control PASS 0 violaciones.
 
 ## Estado de la rama y recuperación
 

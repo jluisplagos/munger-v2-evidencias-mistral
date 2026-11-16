@@ -65,7 +65,8 @@ def main():
     resumen = Counter()
     for emp, r in muestra:
         arch = r['fuente']['archivo']
-        base_ctx = V.check_entrada(emp, r, get_pages(emp, arch))
+        doc = V.doc_info(emp, arch, get_pages(emp, arch))
+        base_ctx = V.check_entrada(emp, r, get_pages(emp, arch), doc)
         base_mec = mecanico_estado(emp, r)
         mutaciones = []
         # 1. periodo/columna a un año que no esta en el encabezado
@@ -86,8 +87,18 @@ def main():
         m = copy.deepcopy(r)
         m['fuente']['concepto'] = 'dividendos pagados «Dividends»'
         mutaciones.append(('partida de otra fila', m))
+        # 5. version: archivo de otro año (no aparece en la pagina)
+        m = copy.deepcopy(r)
+        import re as _re
+        m['fuente']['archivo'] = _re.sub(r'20\d\d', '2099', str(r['fuente']['archivo']), count=1)
+        mutaciones.append(('version/informe equivocado', m))
+        # 6. reexpresion: declarar 'no aplica' donde la evidencia muestra reexpresado
+        if 'reexpres' in str(r['fuente'].get('reexpresado') or '').lower() and 'no' not in str(r['fuente'].get('reexpresado') or '').lower():
+            m = copy.deepcopy(r)
+            m['fuente']['reexpresado'] = 'no aplica (mutado)'
+            mutaciones.append(('reexpresion declarada como no aplica', m))
         for nombre, rm in mutaciones:
-            ctx_m = V.check_entrada(emp, rm, get_pages(emp, arch))
+            ctx_m = V.check_entrada(emp, rm, get_pages(emp, arch), doc)
             mec_m = mecanico_estado(emp, rm)
             detectado_ctx = ctx_m['estado_contextual'] == 'CONFLICTO_CONTEXTUAL'
             detectado_mec = mec_m != 'COINCIDE_PROPUESTO'
@@ -101,6 +112,18 @@ def main():
                 'estado_mecanico_base': base_mec,
             })
             resumen[(nombre, detectado_ctx, detectado_mec)] += 1
+
+    # 7. negativo externo (sonda del revisor, seguimiento 63e366b): pagina que solo dice
+    # 'Amounts in euros' con unidad declarada 'miles de euros' debe ser CONFLICTO (v2)
+    sonda = V.check_unidad(['Amounts in euros', 'Revenue 1000'], 1, 'miles de euros', '0.001', 1000, 'Revenue 1000')
+    resultados.append({
+        'empresa': 'SONDA', 'celda': 'check_unidad(euros frente a miles)', 'mutacion': 'euros frente a miles (sonda del revisor)',
+        'detectado_por_contextual': sonda[0] == 'CONFLICTO',
+        'detectado_por_mecanico': False,
+        'estado_contextual_mutado': sonda[0], 'estado_mecanico_mutado': 'n/a (sonda de unidad)',
+        'estado_contextual_base': 'OK', 'estado_mecanico_base': 'COINCIDE_PROPUESTO',
+    })
+    resumen[('euros frente a miles (sonda del revisor)', sonda[0] == 'CONFLICTO', False)] += 1
 
     n = len(resultados)
     ok_ctx = sum(1 for x in resultados if x['detectado_por_contextual'])

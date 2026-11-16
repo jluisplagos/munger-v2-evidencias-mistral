@@ -9,7 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 30
+    "REVISADO_CONTEXTUAL": 28,
+    "PENDIENTE_CONTEXTUAL": 2
   },
   "entradas": [
     {
@@ -21,7 +22,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2020.txt [PDF PAGE 39] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'operations 110,533 9,833 68,800 189,166'; encabezado: 'ended 31 December 2020 and 2019:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Plants in Spain and Por'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'operations 110,533 9,833 68,800 189,166'; encabezado: 'ended 31 December 2020 and 2019:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Plants in Spain and Por'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: segmento Italia | perimetro_justificacion: dato de segmento: se resta del consolidado para aproximar el perímetro de continuadas de 2020–2022 (N2, margen M1) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -30,7 +31,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "operations 110,533 9,833 68,800 189,166",
       "encabezado": "ended 31 December 2020 and 2019:",
@@ -50,7 +52,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2020.txt [PDF PAGE 39] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Finance costs (5,487) (1,271) (90) (6,848)'; encabezado: 'ended 31 December 2020 and 2019:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Plants in Spain and Por'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Finance costs (5,487) (1,271) (90) (6,848)'; encabezado: 'ended 31 December 2020 and 2019:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Plants in Spain and Por'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo de la fuente (negativo) | reexpresado: no | perimetro: segmento Italia | perimetro_justificacion: dato de segmento: se resta del consolidado para aproximar el perímetro de continuadas de 2020–2022 (N2, margen M1) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -59,7 +61,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Finance costs (5,487) (1,271) (90) (6,848)",
       "encabezado": "ended 31 December 2020 and 2019:",
@@ -79,7 +82,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2020.txt [PDF PAGE 39] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Finance income 739 22 985 1,746'; encabezado: 'ended 31 December 2020 and 2019:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Plants in Spain and Por'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Finance income 739 22 985 1,746'; encabezado: 'ended 31 December 2020 and 2019:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Plants in Spain and Por'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: segmento Italia | perimetro_justificacion: dato de segmento: se resta del consolidado para aproximar el perímetro de continuadas de 2020–2022 (N2, margen M1) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -88,7 +91,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Finance income 739 22 985 1,746",
       "encabezado": "ended 31 December 2020 and 2019:",
@@ -108,7 +112,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2020.txt [PDF PAGE 39] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Revenues 564,797 72,273 351,854 988,924'; encabezado: 'ended 31 December 2020 and 2019:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Plants in Spain and Por'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Revenues 564,797 72,273 351,854 988,924'; encabezado: 'ended 31 December 2020 and 2019:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Plants in Spain and Por'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: segmento Italia | perimetro_justificacion: dato de segmento: se resta del consolidado para aproximar el perímetro de continuadas de 2020–2022 (N2, margen M1) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -117,7 +121,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Revenues 564,797 72,273 351,854 988,924",
       "encabezado": "ended 31 December 2020 and 2019:",
@@ -137,7 +142,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2020.txt [PDF PAGE 74] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'At 31 December 2019 21,951 6,244 7,063 35,258'; encabezado: 'Provision of Law 15/2010 of 5 July 2010'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'At 31 December 2019 21,951 6,244 7,063 35,258'; encabezado: 'Provision of Law 15/2010 of 5 July 2010'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; el informe no separa el déficit neto NIAS 19 de otras obligaciones con empleados | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -146,7 +151,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "At 31 December 2019 21,951 6,244 7,063 35,258",
       "encabezado": "Provision of Law 15/2010 of 5 July 2010",
@@ -166,7 +172,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 160,540 112,178'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 160,540 112,178'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; solo efectivo y equivalentes (el activo corriente no tiene depósitos ni inversiones financieras a corto) | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -175,7 +181,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Cash and cash equivalents 160,540 112,178",
       "encabezado": "31 December 2021 and 2020",
@@ -192,19 +199,20 @@
       "id": "h_anios",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: '31 December 2021 and 2020'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: '31 December 2021 and 2020'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: identifica el ejercicio de la columna de la Historia; cierre fiscal en diciembre | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en CF_2020.txt pero no en la misma fila del ejercicio 2020; reexpresion no decidibl",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "31 December 2021 and 2020",
       "encabezado": "31 December 2021 and 2020",
@@ -224,7 +232,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Equity attributed to equity holders of the Parent 966,902 816,156'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Equity attributed to equity holders of the Parent 966,902 816,156'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -233,7 +241,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Equity attributed to equity holders of the Parent 966,902 816,156",
       "encabezado": "31 December 2021 and 2020",
@@ -253,7 +262,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Loans and borrowings 15 73,613 160,142'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Loans and borrowings 15 73,613 160,142'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -262,7 +271,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Loans and borrowings 15 73,613 160,142",
       "encabezado": "31 December 2021 and 2020",
@@ -282,7 +292,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Loans and borrowings 15 184,003 185,518'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Loans and borrowings 15 184,003 185,518'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -291,7 +301,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Loans and borrowings 15 184,003 185,518",
       "encabezado": "31 December 2021 and 2020",
@@ -311,7 +322,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Total liabilities 736,344 705,291'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Total liabilities 736,344 705,291'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -320,7 +331,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Total liabilities 736,344 705,291",
       "encabezado": "31 December 2021 and 2020",
@@ -340,7 +352,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Total equity and liabilities 1,703,246 1,521,447'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Total equity and liabilities 1,703,246 1,521,447'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2021 and 2020'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -349,7 +361,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Total equity and liabilities 1,703,246 1,521,447",
       "encabezado": "31 December 2021 and 2020",
@@ -369,7 +382,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Revenues 4 & 21 1,084,166 988,370'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Revenues 4 & 21 1,084,166 988,370'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no (igual que CF_2020 p.10) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -378,7 +391,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Revenues 4 & 21 1,084,166 988,370",
       "encabezado": "31 December 2021 and 2020",
@@ -398,7 +412,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit loss from operating activities 178,573 194,268'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit loss from operating activities 178,573 194,268'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; incluye deterioro de inmovilizado | reexpresado: no (igual que CF_2020 p.10) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -407,7 +421,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Profit loss from operating activities 178,573 194,268",
       "encabezado": "31 December 2021 and 2020",
@@ -427,7 +442,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit for the year attributable to equity holders of the Parent 145,157 159,463'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit for the year attributable to equity holders of the Parent 145,157 159,463'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; total del ejercicio (en 2023 y 2024 incluye el resultado de Italia: 19,559 y 60,065 miles) | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -436,7 +451,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Profit for the year attributable to equity holders of the Parent 145,157 159,463",
       "encabezado": "31 December 2021 and 2020",
@@ -456,7 +472,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit before income tax from continuing operations 172,514 189,166'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Profit before income tax from continuing operations 172,514 189,166'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -465,7 +481,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Profit before income tax from continuing operations 172,514 189,166",
       "encabezado": "31 December 2021 and 2020",
@@ -485,7 +502,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Income tax expense 9 (27,357) (29,703)'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Income tax expense 9 (27,357) (29,703)'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo −1: el gasto impreso entre paréntesis se registra en positivo | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -494,7 +511,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Income tax expense 9 (27,357) (29,703)",
       "encabezado": "31 December 2021 and 2020",
@@ -514,7 +532,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Cash used in operating activities 1,749 9,125'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Cash used in operating activities 1,749 9,125'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; aumento del circulante = −(subtotal de variación del circulante) (convención de la Historia, fase1_decisiones.json); conciliación con las líneas: 14,318 + 18,113 − 5,554 − 21,033 + 3,281 = 9,125 | reexpresado: no (igual que CF_2020 p.13) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -523,7 +541,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Cash used in operating activities 1,749 9,125",
       "encabezado": "31 December 2021 and 2020",
@@ -543,7 +562,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Interest paid (3,260) (5,279)'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Interest paid (3,260) (5,279)'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo −1: pago registrado en positivo | reexpresado: no (igual que el informe original) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -552,7 +571,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Interest paid (3,260) (5,279)",
       "encabezado": "31 December 2021 and 2020",
@@ -572,7 +592,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Amortisation and depreciation 6&7 86,284 84,144'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Amortisation and depreciation 6&7 86,284 84,144'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; el deterioro de inmovilizado no se incluye | reexpresado: no (igual que CF_2020 p.13) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -581,7 +601,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Amortisation and depreciation 6&7 86,284 84,144",
       "encabezado": "31 December 2021 and 2020",
@@ -601,7 +622,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Acquisition of property, plant and equipment (2,196) (2,131)'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Acquisition of property, plant and equipment (2,196) (2,131)'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo −1: pago (salida) registrado en positivo | reexpresado: no (igual que CF_2020 p.13) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -610,7 +631,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Acquisition of property, plant and equipment (2,196) (2,131)",
       "encabezado": "31 December 2021 and 2020",
@@ -630,7 +652,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Proceeds from sale of property, plant and equipment (107.604) (132,117)'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Proceeds from sale of property, plant and equipment (107.604) (132,117)'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo −1: pago (salida) registrado en positivo | reexpresado: no (igual que CF_2020 p.13) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -639,7 +661,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Proceeds from sale of property, plant and equipment (107.604) (132,117)",
       "encabezado": "31 December 2021 and 2020",
@@ -659,7 +682,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Net cash used in investing activities (109,800) (134,248)'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Net cash used in investing activities (109,800) (134,248)'; encabezado: '31 December 2021 and 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | VIDRALA, S.A. AND SUBSI'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; se conserva el signo de la fuente (salida negativa) | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -668,7 +691,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Net cash used in investing activities (109,800) (134,248)",
       "encabezado": "31 December 2021 and 2020",
@@ -688,16 +712,17 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 30] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'operations 104,530 2,905 65,079 172,514'; encabezado: 'ended 31 December 2021 and 2020:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Segment information rel'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=NO_DECIDIBLE, version=OK",
+      "evidencia_contextual": "fila leida: 'operations 104,530 2,905 65,079 172,514'; encabezado: 'ended 31 December 2021 and 2020:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Segment information rel'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: segmento Italia | perimetro_justificacion: dato de segmento: se resta del consolidado para aproximar el perímetro de continuadas de 2020–2022 (N2, margen M1) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "perimetro: la pagina no menciona el segmento en texto",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
-        "perimetro": "NO_DECIDIBLE",
-        "version": "OK"
+        "perimetro": "OK",
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "operations 104,530 2,905 65,079 172,514",
       "encabezado": "ended 31 December 2021 and 2020:",
@@ -717,16 +742,17 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 30] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Finance costs (2,295) (1,691) (2,187) (6,173)'; encabezado: 'ended 31 December 2021 and 2020:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Segment information rel'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=NO_DECIDIBLE, version=OK",
+      "evidencia_contextual": "fila leida: 'Finance costs (2,295) (1,691) (2,187) (6,173)'; encabezado: 'ended 31 December 2021 and 2020:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Segment information rel'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo de la fuente (negativo) | reexpresado: no | perimetro: segmento Italia | perimetro_justificacion: dato de segmento: se resta del consolidado para aproximar el perímetro de continuadas de 2020–2022 (N2, margen M1) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "perimetro: la pagina no menciona el segmento en texto",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
-        "perimetro": "NO_DECIDIBLE",
-        "version": "OK"
+        "perimetro": "OK",
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Finance costs (2,295) (1,691) (2,187) (6,173)",
       "encabezado": "ended 31 December 2021 and 2020:",
@@ -746,16 +772,17 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 30] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Revenues 607,969 83,933 392,797 1,084,699'; encabezado: 'ended 31 December 2021 and 2020:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Segment information rel'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=NO_DECIDIBLE, version=OK",
+      "evidencia_contextual": "fila leida: 'Revenues 607,969 83,933 392,797 1,084,699'; encabezado: 'ended 31 December 2021 and 2020:'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | Segment information rel'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: segmento Italia | perimetro_justificacion: dato de segmento: se resta del consolidado para aproximar el perímetro de continuadas de 2020–2022 (N2, margen M1) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "perimetro: la pagina no menciona el segmento en texto",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
-        "perimetro": "NO_DECIDIBLE",
-        "version": "OK"
+        "perimetro": "OK",
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Revenues 607,969 83,933 392,797 1,084,699",
       "encabezado": "ended 31 December 2021 and 2020:",
@@ -775,7 +802,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2021.txt [PDF PAGE 62] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'At 31 December 2020 18,403 9,071 9,629 37,103'; encabezado: '2021 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | 16. Trade and Other Pay'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'At 31 December 2020 18,403 9,071 9,629 37,103'; encabezado: '2021 2020'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | 16. Trade and Other Pay'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; el informe no separa el déficit neto NIAS 19 de otras obligaciones con empleados | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -784,7 +811,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "At 31 December 2020 18,403 9,071 9,629 37,103",
       "encabezado": "2021 2020",
@@ -804,7 +832,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2022.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 154,029 160,540'; encabezado: '31 December 2022 and 2021'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2022 and 2021'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Cash and cash equivalents 154,029 160,540'; encabezado: '31 December 2022 and 2021'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2022 and 2021'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; solo efectivo y equivalentes (el activo corriente no tiene depósitos ni inversiones financieras a corto) | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -813,7 +841,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Cash and cash equivalents 154,029 160,540",
       "encabezado": "31 December 2022 and 2021",
@@ -830,19 +859,20 @@
       "id": "h_anios",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2022.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: '31 December 2022 and 2021'; encabezado: '31 December 2022 and 2021'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2022 and 2021'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: '31 December 2022 and 2021'; encabezado: '31 December 2022 and 2021'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2022 and 2021'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: identifica el ejercicio de la columna de la Historia; cierre fiscal en diciembre | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en CF_2021.txt pero no en la misma fila del ejercicio 2021; reexpresion no decidibl",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "31 December 2022 and 2021",
       "encabezado": "31 December 2022 and 2021",
@@ -862,7 +892,7 @@
       "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2022.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Equity attributed to equity holders of the Parent 1,033,624 966,902'; encabezado: '31 December 2022 and 2021'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2022 and 2021'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK",
+      "evidencia_contextual": "fila leida: 'Equity attributed to equity holders of the Parent 1,033,624 966,902'; encabezado: '31 December 2022 and 2021'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2022 and 2021'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -871,7 +901,8 @@
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
-        "version": "OK"
+        "version": "OK",
+        "reexpresion": "OK"
       },
       "fila_leida": "Equity attributed to equity holders of the Parent 1,033,624 966,902",
       "encabezado": "31 December 2022 and 2021",

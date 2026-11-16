@@ -42,3 +42,12 @@ La revisión externa (`9366bdd`, `SONDA_A_SEMANTICA.json`) demostró que el cont
 - Controles negativos (`resultados/control_negativo.json`): 154 mutaciones en memoria; 108 detectadas por el verificador contextual, **0 por el mecánico** (reproduce el límite de la sonda). Límites del automatismo declarados: unidad no decidible en 8 páginas de nota sin frase de unidad; columna no decidible en 3 filas no tabulares; perímetro no decidible en 51 páginas sin marca; 1 fila de continuación pendiente.
 - Los límites de los orígenes se propagan a los 101 derivados (`estado_contextual`, `limites_contextuales`, `coherencia_unidades_origenes` en `DERIVADOS.json`).
 - Ver `RESPUESTA_REVISION_EXTERNA.md` para la respuesta numerada completa.
+
+## 9. [SEGUIMIENTO 63e366b] Corrección del sobrealcance contextual, unidad y versión/reexpresión
+
+- Regla v2: REVISADO_CONTEXTUAL exige todas las dimensiones pertinentes OK/NO_APLICA; las fuentes revisadas bajan 423 → 264 (totales 677: 315 REVISADO_CONTEXTUAL, 196 PENDIENTE_CONTEXTUAL, 60 REUTILIZADO_M1, 106 NO_APLICA, 0 CONFLICTO).
+- Unidad: fuera la aceptación «menciona euros ⇒ miles»; se exige frase de escala explícita en página o cabecera del documento; la sonda del revisor («Amounts in euros» vs miles declarados) ahora es CONFLICTO (negativo 1/1).
+- Versión/reexpresión: versión OK solo con el año del informe en página/cabecera (467/467); reexpresión contrastada con el texto original del año comparativo conservado (238 OK incl. reexpresados confirmados como acreedores 2024 de Viscofan; 158 no decidible; 71 no aplica).
+- No aplicable (signo de ceros, perímetro «no aplica», columna corriente) separado de no comprobado (→ PENDIENTE).
+- Negativos: 198 mutaciones, 151 detectadas por el contextual (sonda euros/miles 1/1; versión 40/40; reexpresión 3/3; columna 33/40; perímetro 38/40; partida 32/40; unidad 4/34), 40 por el mecánico (solo versión por archivo). Límites del automatismo declarados.
+- Ver `RESPUESTA_SEGUIMIENTO_20261116.md`.
