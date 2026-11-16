@@ -1,0 +1,10 @@
+{
+  "ejecutado": false,
+  "version_banco": "v2_corregida",
+  "motivo": "La sesion de Qwen que preparo esta correccion no expone ejecucion de Python ni sistema de archivos; no se ha ejecutado el comprobador ni los controles negativos sobre v2. La ejecucion previa del integrador corresponde a v1.",
+  "comando_previsto": ["python", "comprobar_banco.py", "--autocontroles", "--resultado", "--generar-manifiesto"],
+  "codigo_salida": null,
+  "fecha_de_sesion_declarada": "2026-11-16 (fecha indicada por el entorno de la sesion; NO es marca de tiempo de ejecucion)",
+  "autocontroles_disenados": ["ausencia_de_caso", "esperado_numerico_erroneo", "id_duplicado", "operacion_constante_ignora_operandos", "resultado_booleano", "calculo_no_finito", "operando_booleano"],
+  "aviso": "Validacion estructural del banco; no es evidencia sobre el producto Munger V2. Los esperados numericos fueron calculados a mano con operandos explicitos y presentes en los fixtures de cada caso; seran recalculados por el comprobador al ejecutarse."
+}

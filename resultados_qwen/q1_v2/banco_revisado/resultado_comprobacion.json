@@ -1,0 +1,69 @@
+{
+  "ejecutado": true,
+  "comando": [
+    "comprobar_banco.py",
+    "--autocontroles",
+    "--resultado",
+    "--generar-manifiesto"
+  ],
+  "codigo_salida": 0,
+  "fecha_utc": "2026-11-16T12:45:27.437515+00:00",
+  "aviso": "Validacion estructural del banco; no es evidencia sobre el producto.",
+  "casos": 36,
+  "por_familia": {
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6,
+    "6": 6
+  },
+  "positivos_por_familia": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2
+  },
+  "esperados_numericos": 17,
+  "errores": [],
+  "autocontroles": [
+    {
+      "control": "ausencia_de_caso",
+      "detectado": true
+    },
+    {
+      "control": "esperado_numerico_erroneo",
+      "detectado": true
+    },
+    {
+      "control": "id_duplicado",
+      "detectado": true
+    },
+    {
+      "control": "operacion_constante_ignora_operandos",
+      "detectado": true
+    },
+    {
+      "control": "resultado_booleano",
+      "detectado": true
+    },
+    {
+      "control": "calculo_no_finito",
+      "detectado": true
+    },
+    {
+      "control": "operando_booleano",
+      "detectado": true
+    },
+    {
+      "control": "constante_disfrazada",
+      "detectado": true
+    },
+    {
+      "control": "cancelacion_operando_repetido",
+      "detectado": true
+    }
+  ]
+}
