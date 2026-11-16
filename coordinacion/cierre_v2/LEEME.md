@@ -2,6 +2,8 @@
 
 Preparado el 16-nov-2026. Objetivo: una candidata integrada, revisada y probada, con evidencia económica suficiente para cada uso que se declare. No es una garantía de terminar en una noche/semana ni de evitar pérdidas.
 
+Los cinco mensajes listos, sin editar: **[ARRANQUE_COPIAR_Y_PEGAR.md](ARRANQUE_COPIAR_Y_PEGAR.md)**.
+
 ## Puesta en marcha: cinco mensajes, una vez
 
 | Sesión que ya existe | Archivo que debe leer y ejecutar | Papel desde ahora |
