@@ -22,7 +22,7 @@
     "rama": "integracion/candidata-cierre-v2",
     "base": "957af652cdc3bef3d67e8623c9572138bac685e9",
     "head": "957af652cdc3bef3d67e8623c9572138bac685e9",
-    "estado": "Creada y publicada sin cambios sobre la base técnica; binarios aún no materializados en su worktree; nada integrado"
+    "estado": "Binarios materializados y manifiesto 7762/7762; verificación completa en curso; nada integrado"
   },
   "estado_global": "Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud económica global acreditada.",
   "colas_propias": {
@@ -254,7 +254,7 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "160faf9cc38efa76baf414e7eb804a2fe5c5d7e2",
+      "commit_origen": "9d676cefdfeb3771a43414fcb93f430e9340fae0",
       "commit_destino": null,
       "evidencia": [
         "resultados_m2/cobertura_vm/PUNTO_DE_RECUPERACION.md @ d2419e5",
@@ -267,7 +267,7 @@
       "dependencias": [],
       "bloqueo": null,
       "siguiente_accion": "Mistral A responde a CORRECCION_A2.md (A2-R1…R5) sobre 160faf9; las entradas REVISADO acreditadas con las reglas defectuosas deben regenerarse. El coordinador revisa solo lo afectado cuando haya respuesta.",
-      "observacion": "Seguimiento de A2: 94d1a87 es anterior a CORRECCION_A2 (2fea890) y 160faf9 no la cita. En 160faf9 siguen YEAR_RE sin límites, la salida OK «decidido por año» de check_columna y MILES_RE con «in thousands»; los REVISADO suben a 294 con esas reglas. A2-R1…R5 siguen abiertos. La revisión registrada es la de 2c41d68; 160faf9 no está revisado.",
+      "observacion": "Seguimiento de A2: 94d1a87, 160faf9, f046b3e, 51d87e9, bda0b1e y 9d676ce no citan CORRECCION_A2. En 9d676ce siguen YEAR_RE sin límites (l.24), MILES_RE con «in thousands» (l.236) y la salida OK «decidido por año» de check_columna (l.420); los REVISADO suben a 428 con esas reglas. A2-R1…R5 siguen abiertos; la revisión registrada es la de 2c41d68 y lo posterior no está revisado ni aceptado.",
       "commit_revisado": "2c41d689fde13dbb9e6affbdb470181291ec2519",
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -387,13 +387,14 @@
       "commit_origen": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
       "commit_destino": null,
       "evidencia": [
-        "resultados_m2/pm1/RESPUESTA_REVISION_EXTERNA.md"
+        "resultados_m2/pm1/RESPUESTA_REVISION_EXTERNA.md",
+        "resultados_cierre/alcance_real/ @ 223f16d (mistral/f-alcance-real)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "P-M1 no delimitada con evidencia disponible; 4 PDF nuevos con preservación pendiente.",
-      "siguiente_accion": "Contrastar nueve altas corregidas con notas/cabeceras; conservar no identificación de θ/λ.",
+      "siguiente_accion": "Contraste documental de Mistral C/F (223f16d): CONFIRMADO, bloqueo P-M1 conservado. Es evidencia adicional de otra sesión Mistral, no la revisión de Claude: el coordinador la revisa (en curso). Revisión anterior LIMITADA se mantiene hasta entonces.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
       "alcance_aceptado": [],
@@ -448,17 +449,19 @@
       "tarea": "Tercer B real fuera de muestra",
       "autor": "Mistral C/F prepara; Claude orquesta",
       "revisor_propuesto": "Contexto distinto de extractor/autor",
-      "entrega": "PENDIENTE",
+      "entrega": "PARCIAL",
       "revision": "PENDIENTE",
       "integracion": "NO",
-      "commit_origen": null,
+      "commit_origen": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
       "commit_destino": null,
-      "evidencia": [],
-      "pruebas_autor": "NO_EJECUTADAS",
+      "evidencia": [
+        "resultados_cierre/alcance_real/ @ 52fb120 (mistral/f-alcance-real)"
+      ],
+      "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Inventario existente, elegibilidad y selección previa a resultados; no forzar motor.",
+      "siguiente_accion": "Paquete de preparación entregado (52fb120); tercer caso B declarado bloqueado (Ahold sin Excel de la etapa 1). Revisión del coordinador en curso.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -469,17 +472,19 @@
       "tarea": "Primer recorrido C real y contrato específico",
       "autor": "Mistral C/F prepara; Claude orquesta",
       "revisor_propuesto": "Contexto distinto de extractor/autor",
-      "entrega": "PENDIENTE",
+      "entrega": "PARCIAL",
       "revision": "PENDIENTE",
       "integracion": "NO",
-      "commit_origen": null,
+      "commit_origen": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
       "commit_destino": null,
-      "evidencia": [],
-      "pruebas_autor": "NO_EJECUTADAS",
+      "evidencia": [
+        "resultados_cierre/alcance_real/ @ 52fb120 (mistral/f-alcance-real)"
+      ],
+      "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Preparar banco/aseguradora con fuentes y contrato propuesto, no declarar validado por plantilla.",
+      "siguiente_accion": "Paquete de preparación y contrato C propuesto (52fb120, no adoptado); sin financiera conservada para C. Revisión del coordinador en curso.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -525,7 +530,7 @@
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Materializar binarios en el worktree de la candidata por el procedimiento del producto (sin sobrescribir código 4.15) y verificar su manifiesto; después incorporar solo lo aceptado.",
+      "siguiente_accion": "Binarios materializados en el worktree de la candidata (1008 copiados desde la base 4.14 verificada, ninguno sobrescrito); manifiesto propio 7762/7762, 0 ausentes, 0 de más. verificar_paquete.sh completa: primer intento interrumpido por reinicio del contenedor (todo PASA hasta test_integracion_v64.py); segundo intento en curso sobre copia nueva, con flock. Después, integrar solo lo aceptado.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -750,6 +755,21 @@
       "tipo": "REVISION",
       "fecha": "2026-11-16",
       "hecho": "E-ELIS @ 93a9780 revisado sin red por un contexto distinto del autor: CORRECCIONES (E-R1…E-R9). N2 comprobado por el coordinador en el URD 2025 local (p.350 y p.327). 11 PDF sin copia duradera."
+    },
+    {
+      "tipo": "CONSULTA",
+      "hecho": "A sigue sin responder a A2 (9d676ce; defectos presentes en el código); D sin commits desde 1ac661b; E sin commits desde 93a9780.",
+      "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "ENTREGA",
+      "hecho": "F entrega el contraste de B-PM1 (223f16d) y la preparación de F-B3/F-C1 (52fb120); revisión del coordinador en curso.",
+      "fecha": "2026-11-16"
+    },
+    {
+      "tipo": "PRUEBA",
+      "hecho": "Candidata 957af65: materialización y manifiesto 7762/7762; verificación completa relanzada tras reinicio del contenedor.",
+      "fecha": "2026-11-16"
     }
   ],
   "consulta_remotos_arranque": {
