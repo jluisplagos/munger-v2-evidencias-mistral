@@ -1,0 +1,29 @@
+{
+  "id": "Q1-026",
+  "harness_version": "2.0",
+  "descripcion": "Cambio en copia nueva (correcci\u00f3n de caja 45.054 -> 45.000 por errata de v1, evidencia nota v2; deuda 82.019 presente en la misma nota). En este entorno falta pdftotext (los textos AR_2021..AR_2024 son PDF), as\u00ed que cambiar_base preparar se detiene con exit 1 esperado y error concreto; se afirma adem\u00e1s que el origen queda intacto y que nunca se sobrescribe el destino. El paquete (CAMBIO + log) queda en evidencias/Q1-026/ para el runtime del coordinador.",
+  "pasos": [
+    {"op": "preparar_cambio", "guardar": "cambiar_base_preparar.txt", "esperado": [1], "criterio": "C1",
+     "cambio": {
+       "tipo": "cambio_de_base", "version_formato": 1,
+       "empresa": "Viscofan",
+       "base_economica": {"fecha": "2025-12-31", "descripcion": "Copia de prueba D (Q1-026): correccion de caja 45.054 -> 45.000 por errata de v1, evidencia nota v2 (fixture f5_026)."},
+       "fechas": {"ejecucion": "real", "precio": "2026-11-03", "acciones": "2025-12-31", "publicacion_fuentes": "AR 2025"},
+       "conservar": ["etapa1", "texto", "fase1_partes", "fase1_fuentes.json", "fuentes_mercado", "verificacion_entradas.json"],
+       "fuentes_adicionales": [],
+       "metadatos": {}, "nota_metadatos": "prueba aislada del frente D (sintetica, no es un expediente real)",
+       "notas_que_se_retiran": [],
+       "analisis": {"C24": {"valor": 45.0, "fuente": "Nota 4 v2 sintetica (f5_026_nota.txt): caja 45000 miles; errata de v1 (45054) corregida; deuda 82019 miles de la misma nota", "pagina": 2, "periodo": "2016", "unidad": "mm", "vaciar_en_etapa1": true, "evidencia": {"M": "caja corregida 45.000 mm (fixture f5_026 adaptado: 95->90)", "N": "[Clase: dato publicado corregido] [Confianza: alta] Nota v2 con errata declarada; deuda 82.019 mm presente en la misma nota"}}},
+       "analisis_que_se_conservan": {"C42": "se conserva del origen (prueba D: solo cambia C24)"},
+       "textos_prohibidos": [],
+       "alcance": {"tipo": "ensayo_exploratorio", "aviso": "PRUEBA AISLADA FRENTE D Q1-026 (sintetica, no es un expediente real)", "fuente": "arnes externo", "fecha": "2026-11-16"},
+       "configuracion_economica": null
+     }}
+  ],
+  "criterios": [
+    {"id": "C1", "texto": "bloqueo de entorno concreto: textos de PDF ausentes sin pdftotext (exit 1 esperado, no es fallo del producto)",
+     "afirma": [{"tipo": "texto_contiene", "archivo": "cambiar_base_preparar.txt", "contiene": "ausente o inexistente en texto/"}]},
+    {"id": "C2", "texto": "el origen queda intacto (mismo sha256 de fase1_v63.json antes y despues) y no se sobrescribe",
+     "afirma": [{"tipo": "texto_contiene", "archivo": "origen_estado.txt", "contiene": "intacto=true"}]}
+  ]
+}

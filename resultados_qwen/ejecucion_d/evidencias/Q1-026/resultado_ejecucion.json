@@ -1,0 +1,47 @@
+{
+ "caso": "Q1-026",
+ "harness_version": "2.0",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+ "pasos": [
+  {
+   "descripcion": "cambiar_base.py preparar (copia nueva; nunca sobrescribe)",
+   "comando": [
+    "/usr/local/bin/python3",
+    "-B",
+    "/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/cambiar_base.py",
+    "preparar",
+    "/workspace/base_414_main/munger_v2_r1/pruebas_d/CAMBIO_Q1-026.json"
+   ],
+   "exit": 1,
+   "esperado": [
+    1
+   ],
+   "criterio": "C1",
+   "stdout": "",
+   "stderr": "fase1_historia.py construir falló: ipal: «cero» sin «cita» literal de la página 12\nAR_2019: sbc: «cero» sin «cita» literal de la página 13\nAR_2019: arrendamientos: «cero» sin «cita» literal de la página 62\nAR_2019: minoritarios: «cero» sin «cita» literal de la página 11\nAR_2020: minoritarios: «cero» sin «cita» literal de la página 4\nAR_2021: AR_2021: «archivo» ausente o inexistente en texto/: 'AR_2021.txt'\nAR_2022: AR_2022: «archivo» ausente o inexistente en texto/: 'AR_2022.txt'\nAR_2023: AR_2023: «archivo» ausente o inexistente en texto/: 'AR_2023.txt'\nAR_2024: AR_2024: «archivo» ausente o inexistente en texto/: 'AR_2024.txt'\n\n"
+  }
+ ],
+ "estado_caso": "COMPONENTE_OK",
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "bloqueo de entorno concreto: textos de PDF ausentes sin pdftotext (exit 1 esperado, no es fallo del producto)",
+   "estado": "CUMPLE_COMPONENTE",
+   "detalle": [
+    "cambiar_base_preparar.txt contiene 'ausente o inexistente en texto/' -> OK"
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "el origen queda intacto (mismo sha256 de fase1_v63.json antes y despues) y no se sobrescribe",
+   "estado": "CUMPLE_COMPONENTE",
+   "detalle": [
+    "origen_estado.txt contiene 'intacto=true' -> OK"
+   ]
+  }
+ ],
+ "artefactos": [],
+ "errores": [],
+ "afirmaciones_fallidas": []
+}

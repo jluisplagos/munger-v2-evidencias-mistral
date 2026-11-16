@@ -10,8 +10,13 @@
   `/workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado` (nivel banco_revisado).
 - Reproducir: `bash scripts/preparar_entorno.sh && bash scripts/ejecutar_todo.sh &&
   python3 -B scripts/pruebas_arnes.py && python3 scripts/generar_matriz.py`.
-- Estado: 27/36 con ejecución propia COMPONENTE_OK (aserción por criterio); veredicto de
-  componente CUMPLE en esos 27; veredicto de caso pendiente de agente en todos ellos;
-  1 NO_OBSERVABLE (Q1-026, entorno), 2 DECISION_PENDIENTE (Q1-030, Q1-035).
+- Estado (bloque 1 del programa de cierre): 30/36 con ejecución propia COMPONENTE_OK;
+  veredicto de componente CUMPLE en esos 30; veredicto de caso pendiente de agente en 29;
+  1 NO_OBSERVABLE (Q1-026, bloqueo de entorno documentado con paquete restaurado),
+  2 DECISION_PENDIENTE (Q1-030, Q1-035). Q1-027 cerrado con resultado (hueco b);
+  paquete Q1-026 restaurado con procedencia verificable (hueco a).
+- Siguiente comando exacto: bloque 2 -> paquetes de relevo en relevo/ + ENTREGA.json;
+  o reproducir todo: bash scripts/preparar_entorno.sh && bash scripts/ejecutar_todo.sh &&
+  python3 -B scripts/pruebas_arnes.py && python3 scripts/generar_matriz.py
 - Expedientes de prueba: `/workspace/ejecucion_d_run/<caso>/Viscofan` + `_heredados/`.
 - Sin secretos; sin pycache en el manifiesto.

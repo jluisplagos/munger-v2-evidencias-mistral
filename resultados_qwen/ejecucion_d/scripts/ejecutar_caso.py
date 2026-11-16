@@ -175,6 +175,42 @@ def ejecutar(spec_path):
         elif op == "informe":
             caso.producto("informe.py", [exp] + paso.get("args", []), "informe.py (artefacto exportable)",
                           guardar=paso.get("guardar"), esperado=esperado, criterio=paso.get("criterio"))
+        elif op == "preparar_cambio":
+            # Q1-026: prepara el CAMBIO en una copia de prueba DENTRO de la copia local de la
+            # candidata (pruebas_d/, no commiteada) y ejecuta cambiar_base.py preparar.
+            # Escribe en evidencias el CAMBIO y el estado del origen (intacto o no).
+            import shutil as _sh
+            pd = os.path.join(L.CANDIDATA, "munger_v2_r1", "pruebas_d")
+            os.makedirs(pd, exist_ok=True)
+            origen = os.path.join(pd, caso.id + "_origen")
+            if not os.path.isdir(origen):
+                _sh.copytree(L.PLANTILLA_EXP, origen, ignore=L.IGNORAR_COPIA)
+                # los textos de los PDF faltan sin pdftotext: se copia lo disponible
+                tsrc = os.path.join(L.PLANTILLA_EXP, "texto")
+                if os.path.isdir(tsrc):
+                    _sh.copytree(tsrc, os.path.join(origen, "texto"), dirs_exist_ok=True)
+            cambio = dict(paso["cambio"])
+            cambio["origen"] = f"pruebas_d/{caso.id}_origen"
+            cambio["destino"] = f"pruebas_d/{caso.id}_copia"
+            _sh.rmtree(os.path.join(pd, caso.id + "_copia"), ignore_errors=True)
+            cpath = os.path.join(pd, f"CAMBIO_{caso.id}.json")
+            with open(cpath, "w", encoding="utf-8") as f:
+                json.dump(cambio, f, ensure_ascii=False, indent=1)
+            _sh.copyfile(cpath, os.path.join(caso.ev_dir, "CAMBIO_" + caso.id + ".json"))
+            f1 = os.path.join(origen, "fase1_v63.json")
+            sha_antes = L.sha256_archivo(f1)
+            r_cambio = caso.producto("cambiar_base.py", ["preparar", cpath],
+                                     "cambiar_base.py preparar (copia nueva; nunca sobrescribe)",
+                                     esperado=esperado or (1,), criterio=paso.get("criterio"))
+            with open(os.path.join(caso.ev_dir, paso.get("guardar", "cambiar_base_preparar.txt")), "w", encoding="utf-8") as f:
+                f.write("--- stdout ---\n" + r_cambio.stdout + "\n--- stderr ---\n" + r_cambio.stderr)
+            sha_despues = L.sha256_archivo(f1)
+            existe_copia = os.path.isdir(os.path.join(pd, caso.id + "_copia"))
+            with open(os.path.join(caso.ev_dir, "origen_estado.txt"), "w", encoding="utf-8") as f:
+                f.write(f"origen={cambio['origen']}\nsha256_fase1_antes={sha_antes}\nsha256_fase1_despues={sha_despues}\n"
+                        f"intacto={'true' if sha_antes == sha_despues else 'false'}\n"
+                        f"destino_existe_tras_fallo={'true' if existe_copia else 'false'}\n")
+            caso._log(f"origen intacto={sha_antes == sha_despues}; destino existe tras fallo={existe_copia}\n")
         elif op == "copiar_artefacto":
             ok = caso.copiar_artefacto(exp, paso["archivo"], paso["guardar"],
                                       caso.resultados["pasos"][-1] if caso.resultados["pasos"] else None)

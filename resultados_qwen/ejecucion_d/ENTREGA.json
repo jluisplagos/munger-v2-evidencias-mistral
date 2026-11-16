@@ -1,0 +1,36 @@
+{
+  "es_plantilla": false,
+  "frente": "D (aceptacion Qwen Q1)",
+  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+  "rama": "mistral/d-qwen-aceptacion",
+  "base_revisada_sha": "bdcbba789244d167c9cef360d8225ae29275e917",
+  "commit_entrega": "el coordinador toma el SHA remoto de este push; no autorreferencia",
+  "directorio_entrega": "resultados_qwen/ejecucion_d/",
+  "bloque": "Bloque 1 del programa de cierre (PROMPT_MISTRAL_D): cierre trazable de v2 y huecos documentales",
+  "tareas_control": ["D-HARNESS", "D-36"],
+  "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9 (verificado en ejecucion por el arnes: git rev-parse HEAD)",
+  "banco_sha": "4745f3887f7fd86bb3052f5d5e32285862df18e3 (57/57 SHA256 OK, comprobar_banco exit 0)",
+  "naturaleza": "componente (pruebas de arnes con aserciones); no recorrido completo del personaje",
+  "autor_contexto_modelo_herramientas": "Mistral D, modelo mistral-large-4-0; Python 3.12.15 + openpyxl/lxml/pypdf/jsonschema; sin soffice ni pdftotext (sin root); sin agentes del producto",
+  "fuentes_y_preservacion": ["banco desde origin/revision/qwen-q1-v2 (manifiesto verificado)", "base 4.14: ZIP Release base-4.14 sha256 bb51942c...7b93e, materializado 6798/6798 en copia local de la candidata"],
+  "cambios_respecto_entrega_anterior": [
+    "Q1-027 reejecutado con arnes v2: ahora tiene resultado_ejecucion.json COMPONENTE_OK (3 criterios CUMPLE_COMPONENTE) — cierra el hueco (b) del programa",
+    "Q1-026: paquete restaurado con procedencia verificable via nueva op preparar_cambio (evidencias/Q1-026/CAMBIO_Q1-026.json, cambiar_base_preparar.txt, origen_estado.txt intacto=true) — cierra el hueco (a)",
+    "Q1-025 ejecutado (positivo de vigencia: fuente intacta sigue comprobada en dos comprobaciones seguidas)",
+    "30/36 con ejecucion propia COMPONENTE_OK (antes 27); veredicto de componente CUMPLE en esos 30; veredicto de caso pendiente de agente en 29, NO_OBSERVABLE en Q1-026, DECISION_PENDIENTE en Q1-030/Q1-035"
+  ],
+  "pruebas": [
+    {"tipo": "componente", "comando": "python3 scripts/ejecutar_caso.py scripts/especificaciones/<dir>/Q1-xxx.json", "exit_esperado": 0, "exit_observado": 0, "criterios_cubiertos": "ver MATRIZ_EJECUCION.csv columna criterios_evaluados (30 casos)", "criterios_sin_cubrir": "capa de agente/personaje de todos los casos; Q1-031/Q1-033 (precio/objetivo)", "evidencia": "evidencias/Q1-*/resultado_ejecucion.json", "sha_material": "MANIFIESTO_SHA256.txt", "resultado": "COMPONENTE_OK en 30/36 especificaciones ejecutables"},
+    {"tipo": "arnes", "comando": "python3 -B scripts/pruebas_arnes.py", "exit_esperado": 0, "exit_observado": 0, "criterios_cubiertos": ["positivo real", "negativo esperado real", "candidata incompleta", "artefacto heredado tras fallo", "evidencias ausentes", "resultado mutado", "recuentos/precondiciones compartidas"], "criterios_sin_cubrir": [], "evidencia": "evidencias/pruebas_arnes.log", "sha_material": null, "resultado": "8/8 PASA"},
+    {"tipo": "componente (bloqueo de entorno documentado)", "comando": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-026.json", "exit_esperado": 0, "exit_observado": 0, "criterios_cubiertos": ["error concreto de cambiar_base (textos PDF ausentes sin pdftotext)", "origen intacto (sha256 igual antes/despues)"], "criterios_sin_cubrir": ["cambio de base completo con recálculo (necesita pdftotext + soffice)", "auditoría nueva del material final (agente)"], "evidencia": "evidencias/Q1-026/", "sha_material": null, "resultado": "COMPONENTE_OK como documentacion del bloqueo; caso NO_OBSERVABLE en este entorno"}
+  ],
+  "precondiciones_simuladas": ["extractor/revisor escritos por el arnes en cada registro (marcados _simulada/SIMULADA); no son revision independiente ejecutada"],
+  "revision_por_otro_contexto": null,
+  "limites_y_bloqueos": ["sin soffice: pipeline con recálculo no corre aqui", "sin pdftotext: Q1-026 se detiene en textos AR_2021..AR_2024 (error exacto en evidencias/Q1-026/cambiar_base_preparar.txt)", "sin runtime de agente: fases del personaje y auditorías en relevo"],
+  "siguiente_accion_exacta": "Bloque 2: publicar paquetes de relevo caso por caso en resultados_qwen/ejecucion_d/relevo/ para el runtime del coordinador (Claude), con ENTREGA.json; commit+push",
+  "integrado_en_producto": false,
+  "apto_dinero_real": "No se declara por este formulario",
+  "criterios_cubiertos": ["30 casos con componente ejecutado y aserciones CUMPLE (ver matriz)"],
+  "criterios_pendientes": ["capa de agente en los 30 ejecutados", "Q1-031, Q1-033 (precio actual/objetivo con agente)", "Q1-026 completo con pdftotext+soffice", "Q1-030/Q1-035 decisiones de política (usuario)", "revisión externa por Claude de este bloque"],
+  "salida_siguiente": "relevo/PAQUETES_RELEVO.json + ENTREGA.json del bloque 2"
+}
