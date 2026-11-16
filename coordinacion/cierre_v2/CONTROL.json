@@ -22,7 +22,7 @@
     "rama": "integracion/candidata-cierre-v2",
     "base": "957af652cdc3bef3d67e8623c9572138bac685e9",
     "head": "957af652cdc3bef3d67e8623c9572138bac685e9",
-    "estado": "Binarios materializados y manifiesto 7762/7762; verificación completa en curso; nada integrado"
+    "estado": "Sin cambios sobre 957af65: binarios materializados, manifiesto 7762/7762, verificación completa PASA y control 4.14 29/35 (esperado); nada integrado porque nada aceptado es software del producto"
   },
   "estado_global": "Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud económica global acreditada.",
   "colas_propias": {
@@ -420,10 +420,12 @@
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Integrador registra uso/incorporación limitada; no otra ronda matemática por C2.",
+      "siguiente_accion": "Decisión del integrador: no se incorpora a la candidata. Es herramienta de contraste del auxiliar, no software del producto, y conserva C1 y D1/D7/D11 pendientes. Se conserva el enlace (1ec4f18, SEGUIMIENTO.md @ b049777); se usa como oráculo de contraste solo dentro de su alcance.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": "1ec4f18f950aecdda10c0e48c946c71cedcd644e",
-      "alcance_aceptado": [],
+      "alcance_aceptado": [
+        "guarda de perímetros C2 del oráculo matemático del auxiliar (resultados_m2/matematica_b), conforme para el auxiliar"
+      ],
       "solicitud_revision": null
     },
     {
@@ -525,19 +527,23 @@
       "tarea": "Candidata única de integración técnica",
       "autor": "Claude coordinador",
       "revisor_propuesto": "Revisor distinto para sus cambios",
-      "entrega": "PARCIAL",
+      "entrega": "ENTREGADO",
       "revision": "PENDIENTE",
       "integracion": "NO",
       "commit_origen": "957af652cdc3bef3d67e8623c9572138bac685e9",
       "commit_destino": null,
       "evidencia": [
-        "rama integracion/candidata-cierre-v2 @ 957af652 (sin cambios)"
+        "rama integracion/candidata-cierre-v2 @ 957af652 (sin cambios)",
+        "coordinacion/cierre_v2/pruebas_candidata/957af65/README.md",
+        "coordinacion/cierre_v2/pruebas_candidata/957af65/verificar_paquete_completa.log",
+        "coordinacion/cierre_v2/pruebas_candidata/957af65/comprobar_entrega_4_14.log",
+        "coordinacion/cierre_v2/pruebas_candidata/957af65/copia_binarios_candidata.json"
       ],
-      "pruebas_autor": "NO_EJECUTADAS",
+      "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Binarios materializados en el worktree de la candidata (1008 copiados desde la base 4.14 verificada, ninguno sobrescrito); manifiesto propio 7762/7762, 0 ausentes, 0 de más. verificar_paquete.sh completa: primer intento interrumpido por reinicio del contenedor (todo PASA hasta test_integracion_v64.py); segundo intento en curso sobre copia nueva, con flock. Después, integrar solo lo aceptado.",
+      "siguiente_accion": "Candidata 957af65 materializada (manifiesto 7762/7762) y verificada: verificar_paquete.sh completa, código 0, RESULTADO GLOBAL PASA (15 baterías); control 4.14 29/35, lo esperado sobre clon Git. Nada aceptado es software del producto: no hay integración pendiente. Reproducción por otro contexto: pendiente (requiere LibreOffice; el entorno Mistral no lo declara). Al aceptar software de A/D, integrar por archivo con origen, destino y pruebas.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -782,6 +788,16 @@
       "tipo": "REVISION",
       "fecha": "2026-11-16",
       "hecho": "F revisado sin red por un contexto distinto del autor: B-PM1 CONFORME_CON_LIMITES (nueve altas verificadas en PDF); F-B3/F-C1 CORRECCIONES (F2-D1…D7; D3 comprobado por el coordinador frente a Palancas y test_fill). F no escribió el control común."
+    },
+    {
+      "tipo": "PRUEBA",
+      "fecha": "2026-11-16",
+      "hecho": "Candidata 957af65: verificar_paquete.sh completa, código 0, PASA (22:18–23:18 UTC, flock); control 4.14 29/35, las 6 FALLA documentadas."
+    },
+    {
+      "tipo": "INTEGRACION",
+      "fecha": "2026-11-16",
+      "hecho": "C-C2 no se incorpora a la candidata (herramienta del auxiliar; decisión y enlace registrados). Nada integrado en la candidata."
     }
   ],
   "consulta_remotos_arranque": {

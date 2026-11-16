@@ -1,0 +1,38 @@
+== versión
+munger_v2 · r1 · entrega 4.15 · hito 2 (corrección técnica tras la revisión externa del hito 1: R415-SIGNO —la cifra publicada se contrasta con su signo, leída en la línea de la página; la transformación justificada sigue valiendo—, límites U1–U7 de la cuarta revisión, aptitud por entradas y modo de la entrada efectiva en las salidas de todas las plantillas (I20), relevo caducado (I19), prueba de H-P1/X2 y empaquetado sin doble clasificación del manifiesto; C48 de Elis sigue en 108,0 con la conversión de los pagos declarada; seis revisiones independientes y dos comprobaciones dirigidas (séptima, con sus correcciones X1, X2 y X5, y octava, conforme en el código); sin regenerar expedientes ni F1, que se concilia en otra tarea; aptitud: uso supervisado experimental, no apto para decisiones con dinero real; sobre la 4.15 · hito 1, rama revision/4.15-hito1, y la entrega 4.14, ZIP SHA-256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e) · 2026-11-16 · base SHA-256 61c70800d0faa7c4a98888b7413820ec8041153e53484c32b0c549b26b6af87d
+== manifiesto (MANIFIESTO_SHA256.txt)
+7762 archivos en el manifiesto · modificados 0 · ausentes 0 · de más 0
+RESULTADO manifiesto: PASA
+== entorno (personaje_v2/scripts/comprobar_entorno.sh)
+autotest precio_de_si: PASA (5 casos + propiedades)
+RESULTADO entorno: PASA
+== contraste del piloto Vidrala 2025 (solo lectura; salida idéntica a la de referencia)
+35 comprobaciones CUMPLEN · salida idéntica a resultados/contraste_salida.txt
+RESULTADO piloto: PASA
+== pruebas de la reparación
+== test_comprobadores.py
+114/114 comprobaciones PASAN
+== test_pipeline_sintetico.py (LibreOffice, en secuencia)
+30/30 pruebas PASAN
+== mismos nombres de comprobación que la línea de base v2.2
+línea de base 30 · ahora 30 · faltan 0 · nuevas 0
+RESULTADO: PASA
+== batería de vigencia H5 (personaje_v2/pruebas/test_vigencia_h5.py; obligatoria en «completa»; reparación 4.13.1)
+59/59 pruebas de vigencia H5 (4.13.1) PASAN
+RESULTADO vigencia H5: PASA
+== batería del juicio sobre el objetivo (personaje_v2/pruebas/test_juicio_objetivo_414.py; obligatoria en «completa»; contrato 4.14)
+27/27 pruebas del juicio sobre el objetivo (4.14) PASAN
+RESULTADO juicio sobre el objetivo: PASA
+== batería de la verificación de las entradas (personaje_v2/pruebas/test_verificacion_entradas_414.py; obligatoria en «completa»; requisito de cierre 4.14)
+33/33 pruebas de la verificación de las entradas (4.14) PASAN
+RESULTADO verificación de las entradas: PASA
+== batería de la corrección de la verificación de las entradas (personaje_v2/pruebas/test_verificacion_entradas_415.py; obligatoria en «completa»; encargo correctivo 4.15: R1–R3, I13, I8 e I9)
+190/190 pruebas de la corrección de la verificación de las entradas (4.15) PASAN
+RESULTADO verificación de las entradas 4.15: PASA
+== batería de la entrada efectiva del FCF base (personaje_v2/pruebas/test_entrada_efectiva_415.py; obligatoria en «completa»; encargo correctivo 4.15: C48 de Elis)
+62/62 pruebas de la entrada efectiva (4.15) PASAN
+RESULTADO entrada efectiva: PASA
+== batería del relevo caducado (personaje_v2/pruebas/test_relevo_i19_415.py; obligatoria en «completa»; 4.15, hito 2: I19)
+5/5 pruebas del relevo caducado (4.15) PASAN
+RESULTADO relevo caducado: PASA
+== batería de la integración V6.4 experimental (personaje_v2/pruebas/test_integracion_v64.py; obligatoria en «completa»; encargos 4.11, 4.12 y 4.13)
