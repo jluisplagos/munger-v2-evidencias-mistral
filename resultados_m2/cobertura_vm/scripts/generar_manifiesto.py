@@ -9,7 +9,7 @@ import comun as C
 def main():
     lineas = []
     for p in sorted(C.OUT.rglob('*')):
-        if p.is_file() and p.name != 'MANIFIESTO_SHA256.txt':
+        if p.is_file() and p.name != 'MANIFIESTO_SHA256.txt' and '__pycache__' not in p.parts:
             rel = p.relative_to(C.OUT).as_posix()
             lineas.append(f'{C.sha256_file(p)}  {rel}')
     (C.OUT / 'MANIFIESTO_SHA256.txt').write_text('\n'.join(lineas) + '\n', encoding='utf-8')
