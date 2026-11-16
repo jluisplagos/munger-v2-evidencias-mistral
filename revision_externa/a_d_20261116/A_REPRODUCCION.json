@@ -1,0 +1,301 @@
+{
+  "sha_a": "0224b7182dd05d1e396223781d6f5db8b325ce2e",
+  "sha_zip": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+  "seleccion_insumos": "251 archivos verificados mediante preparar_insumos.py --zip, selección parcial",
+  "comandos": [
+    "python3 -B scripts/verificar_contexto.py",
+    "python3 -B scripts/derivaciones.py",
+    "python3 -B scripts/construir_cobertura.py",
+    "python3 -B scripts/control_negativo.py",
+    "python3 -B scripts/control_cobertura.py"
+  ],
+  "estados_csv_publicados": {
+    "REVISADO_CONTEXTUAL": 315,
+    "REUTILIZADO_M1": 60,
+    "PENDIENTE_CONTEXTUAL": 196,
+    "NO_APLICA": 106
+  },
+  "estados_csv_reproducidos": {
+    "REVISADO_CONTEXTUAL": 307,
+    "REUTILIZADO_M1": 60,
+    "CONFLICTO_CONTEXTUAL": 21,
+    "PENDIENTE_CONTEXTUAL": 183,
+    "NO_APLICA": 106
+  },
+  "control_reproducido": {
+    "PASS": false,
+    "n_violaciones": 1,
+    "violaciones": [
+      "derivado Vidrala Historia!I22: mecanico OK pero contexto CONFLICTO (propagado de orígenes)"
+    ],
+    "comprobaciones": [
+      "677 filas unicas e iguales al conjunto del registro",
+      "estados dentro del conjunto permitido y coherentes con la clase",
+      "60 filas M1_REUTILIZADA = piloto",
+      "fuentes de COINCIDE_PROPUESTO existentes y con huella conforme",
+      "DERIVADOS: 101 nodos (14 piloto/87 nuevos), orígenes existentes, sin ciclos, resultado recalculado igual al registrado, hash de entradas vigente",
+      "estados del CSV iguales a un recalculo independiente",
+      "recuentos conciliados con 677/60/617/101/14/87"
+    ],
+    "recuentos": {
+      "total": 677,
+      "por_empresa": {
+        "Vidrala": 347,
+        "Viscofan": 330
+      },
+      "por_clase": {
+        "dato_publicado": 454,
+        "derivado": 101,
+        "dato_ausente": 6,
+        "hipotesis": 52,
+        "no_aplicable": 16,
+        "convencion": 35,
+        "cero_comprobado": 13
+      },
+      "por_estado": {
+        "COINCIDE_PROPUESTO": 568,
+        "DATO_AUSENTE": 6,
+        "HIPOTESIS": 52,
+        "NO_APLICABLE": 16,
+        "CONVENCION": 35
+      },
+      "por_empresa_estado": {
+        "Vidrala": {
+          "COINCIDE_PROPUESTO": 294,
+          "DATO_AUSENTE": 4,
+          "HIPOTESIS": 27,
+          "NO_APLICABLE": 5,
+          "CONVENCION": 17
+        },
+        "Viscofan": {
+          "COINCIDE_PROPUESTO": 274,
+          "NO_APLICABLE": 11,
+          "DATO_AUSENTE": 2,
+          "CONVENCION": 18,
+          "HIPOTESIS": 25
+        }
+      },
+      "por_empresa_clase": {
+        "Vidrala": {
+          "dato_publicado": 233,
+          "derivado": 56,
+          "dato_ausente": 4,
+          "hipotesis": 27,
+          "no_aplicable": 5,
+          "convencion": 17,
+          "cero_comprobado": 5
+        },
+        "Viscofan": {
+          "dato_publicado": 221,
+          "derivado": 45,
+          "no_aplicable": 11,
+          "cero_comprobado": 8,
+          "dato_ausente": 2,
+          "convencion": 18,
+          "hipotesis": 25
+        }
+      },
+      "piloto_reutilizadas": 60,
+      "nuevas": 617,
+      "derivados_total": 101,
+      "derivados_piloto": 14,
+      "derivados_nuevos": 87,
+      "por_estado_contextual": {
+        "REVISADO_CONTEXTUAL": 307,
+        "REUTILIZADO_M1": 60,
+        "CONFLICTO_CONTEXTUAL": 21,
+        "PENDIENTE_CONTEXTUAL": 183,
+        "NO_APLICA": 106
+      }
+    },
+    "nota": "Autocomprobacion reproducible del propio frente; no es revision independiente ni acredita economia."
+  },
+  "deltas_reexpresion": [
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!C5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2016 es un comparativo del informe 2017 (proviene de el)"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!D5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "el valor aparece en CF_2017.txt pero no en la misma fila del ejercicio 2017; reexpresion no decidible por cita",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2017 es un comparativo del informe 2018 (proviene de el)"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!E5",
+      "publicado": "REVISADO_CONTEXTUAL",
+      "detalle_publicado": "comparativo 2018 igual al original en CF_2018.txt (misma fila y valor): no reexpresado",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2018 es un comparativo del informe 2019 (proviene de el)"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!F5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "el valor aparece en CF_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2019 es un comparativo del informe 2020 (proviene de el)"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!G5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "el valor aparece en CF_2020.txt pero no en la misma fila del ejercicio 2020; reexpresion no decidible por cita",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2020 es un comparativo del informe 2021 (proviene de el)"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!H5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "el valor aparece en CF_2021.txt pero no en la misma fila del ejercicio 2021; reexpresion no decidible por cita",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2021 es un comparativo del informe 2022 (proviene de el)"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!I5",
+      "publicado": "REVISADO_CONTEXTUAL",
+      "detalle_publicado": "reexpresado confirmado y declarado: el original CF_2022.txt imprime ['2021'] y el comparativo cita 2022",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2022 es un comparativo del informe 2023 (proviene de el)"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!J5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "el valor aparece en CF_2023.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2023 es un comparativo del informe 2024 (proviene de el)"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!K5",
+      "publicado": "REVISADO_CONTEXTUAL",
+      "detalle_publicado": "reexpresado confirmado y declarado: el original CF_2024.txt imprime ['2023,'] y el comparativo cita 2024",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2024 es un comparativo del informe 2025 (proviene de el)"
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!I23",
+      "publicado": "REVISADO_CONTEXTUAL",
+      "detalle_publicado": "reexpresado confirmado y declarado: el original CF_2022.txt imprime ['62,364', '20,462'] y el comparativo cita 2346",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2022 es un comparativo del informe 2023 (proviene de el)"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!C5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "no hay texto conservado del año 2016 para contrastar la reexpresion del comparativo",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2016 es un comparativo del informe 2017 (proviene de el)"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!D5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "el valor aparece en AR_2017.txt pero no en la misma fila del ejercicio 2017; reexpresion no decidible por cita",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2017 es un comparativo del informe 2018 (proviene de el)"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!E5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "el valor aparece en IA_2018_es.txt pero no en la misma fila del ejercicio 2018; reexpresion no decidible por cita",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2018 es un comparativo del informe 2019 (proviene de el)"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!F5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "el valor aparece en AR_2019.txt pero no en la misma fila del ejercicio 2019; reexpresion no decidible por cita",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2019 es un comparativo del informe 2020 (proviene de el)"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!G5",
+      "publicado": "REVISADO_CONTEXTUAL",
+      "detalle_publicado": "comparativo 2020 igual al original en AR_2020.txt (misma fila y valor): no reexpresado",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2020 es un comparativo del informe 2021 (proviene de el)"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!H5",
+      "publicado": "REVISADO_CONTEXTUAL",
+      "detalle_publicado": "comparativo 2021 igual al original en CF_2021.txt (misma fila y valor): no reexpresado",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2021 es un comparativo del informe 2022 (proviene de el)"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!I5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "el valor aparece en CF_2022_compilacion.txt pero no en la misma fila del ejercicio 2022; reexpresion no decidible por cita",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2022 es un comparativo del informe 2023 (proviene de el)"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!J5",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "el valor aparece en CA_2023_es.txt pero no en la misma fila del ejercicio 2023; reexpresion no decidible por cita",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2023 es un comparativo del informe 2024 (proviene de el)"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!K5",
+      "publicado": "REVISADO_CONTEXTUAL",
+      "detalle_publicado": "comparativo 2024 igual al original en CF_2024.txt (misma fila y valor): no reexpresado",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2024 es un comparativo del informe 2025 (proviene de el)"
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Palancas!C48",
+      "publicado": "PENDIENTE_CONTEXTUAL",
+      "detalle_publicado": "la partida no se localiza en los textos conservados del año 2021 (['CF_2021.txt'])",
+      "reproducido": "CONFLICTO_CONTEXTUAL",
+      "detalle_reproducido": "declara reexpresion \"no aplica\" pero la columna 2021 es un comparativo del informe 2025 (proviene de el)"
+    }
+  ],
+  "hashes": {
+    "COBERTURA_677.csv": {
+      "publicado": "04aa84d8c88ab569698e6b59cec70510b2b381a6e450f2f3683c4b65ce6b6b2a",
+      "reproducido": "804eb2670b71f5ecb989f565b0133135819729580f59d8ffd750368e10d45b68"
+    },
+    "DERIVADOS.json": {
+      "publicado": "5139869801720228baedc3007524222307c8bf49729ec498a9e00f78367b90f5",
+      "reproducido": "01250cf5680723680b4d29291420a0b9e342f82f103c21a57e21ca3224c11a2a"
+    },
+    "OBSERVACIONES.jsonl": {
+      "publicado": "541796a1f84a03ea549e3f85bc75f989e2bb7b547c4dd6373da731eb8d3fcbc8",
+      "reproducido": "18e5dbce9f32221d0ea6cb5c94a0dc1f1307d9561366382f0806d8c9b35824b9"
+    },
+    "resultados/verificacion_contexto.jsonl": {
+      "publicado": "627db98199dd9bf168902358246bd942d4707d5c25f155647dbe9c6aebef9902",
+      "reproducido": "df3858984620920af8a64cdc03e32598abc9900a5bcf214a4f786311b02c0c7f"
+    },
+    "resultados/control_cobertura.json": {
+      "publicado": "5ecaafe2f1f10b45c2ce9994dee317dc752513cd1de3270482975ad7dc87c6ad",
+      "reproducido": "f9e90ce3794624f2026adb9c4721ab3859a1f6bbd73fe26bcbadc781146fefd3"
+    },
+    "resultados/recuentos.json": {
+      "publicado": "67d2871d9cdde4b01575b63f1a3da474771dbada9655a53b8a7af5c262e75422",
+      "reproducido": "84cc2f40cdb378fec1e5a0f2aab16223e3c59333648b7b9568d9bf2542f9fe0c"
+    }
+  }
+}

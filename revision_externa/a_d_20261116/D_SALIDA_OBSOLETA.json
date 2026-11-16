@@ -1,0 +1,53 @@
+{
+  "tipo": "sonda de dependencia ausente; no fallo financiero del producto",
+  "exit_arnes": 0,
+  "pasos": [
+    {
+      "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
+      "exit": 0,
+      "salida_si_falla": ""
+    },
+    {
+      "descripcion": "sellar (revisor vincula la comprobación al fundamento)",
+      "exit": 0,
+      "salida_si_falla": ""
+    },
+    {
+      "descripcion": "comprobación del registro de entradas (comando documentado del producto)",
+      "exit": 1,
+      "salida_si_falla": ""
+    },
+    {
+      "descripcion": "ficha.py (salida del producto)",
+      "exit": 3,
+      "salida_si_falla": ""
+    },
+    {
+      "descripcion": "ficha.py (salida del producto)",
+      "exit": 2,
+      "salida_si_falla": "ficha.py: SELECCIÓN DE PLANTILLA DETENIDA: la selección registrada (V6.4.1 experimental, config_v2_v641_experimental.json) no corresponde a los archivos actuales: la configuración config_v2_v641_experimental.json apunta a archivos que no existen: plantilla.archivo: no se escribe ninguna ficha\n"
+    },
+    {
+      "descripcion": "informe.py (artefacto exportable)",
+      "exit": 2,
+      "salida_si_falla": "informe.py: SELECCIÓN DE PLANTILLA DETENIDA: la selección registrada (V6.4.1 experimental, config_v2_v641_experimental.json) no corresponde a los archivos actuales: la configuración config_v2_v641_experimental.json apunta a archivos que no existen: plantilla.archivo: no se escribe ningún informe\n"
+    },
+    {
+      "descripcion": "informe.py (artefacto exportable)",
+      "exit": 3,
+      "salida_si_falla": ""
+    }
+  ],
+  "artefactos": [
+    {
+      "archivo": "05_ficha_provisional.json",
+      "copiado": true,
+      "igual_al_preexistente_en_plantilla": true
+    },
+    {
+      "archivo": "07_informe_provisional.md",
+      "copiado": true,
+      "igual_al_preexistente_en_plantilla": true
+    }
+  ]
+}
