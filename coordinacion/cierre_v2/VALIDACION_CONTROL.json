@@ -1,0 +1,33 @@
+{
+  "registro_inicial_valido": true,
+  "tareas": 20,
+  "controles_negativos": [
+    {
+      "caso": "integracion_sin_revision_destino",
+      "detectado": true,
+      "errores": [
+        "F1-W: incorporación sin revisión aceptable",
+        "F1-W: incorporación sin destino/alcance"
+      ]
+    },
+    {
+      "caso": "solicitud_lista_sin_sha_criterios",
+      "detectado": true,
+      "errores": [
+        "F1-W: solicitud lista sin sha_autor",
+        "F1-W: solicitud lista sin base_revisada",
+        "F1-W: solicitud lista sin diff_rutas",
+        "F1-W: solicitud lista sin criterios"
+      ]
+    },
+    {
+      "caso": "ciclo_de_dependencias",
+      "detectado": true,
+      "errores": [
+        "ciclo de dependencias en F1-W",
+        "ciclo de dependencias en F1-W"
+      ]
+    }
+  ],
+  "limite": "Control de consistencia del registro; no valida evidencia económica ni prueba ejecución de tareas."
+}
