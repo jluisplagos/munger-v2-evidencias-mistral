@@ -119,6 +119,12 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - Fuentes **294 REVISADO / 130 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO**; CSV **337 / 174 / 60 / 106 / 0** (174 = 130 fuentes + 44 derivados); reexpresión 87 OK / 134 ND / 246 NA; control **PASS exit 0**; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes regenerados. Cola: 130 fuentes en **55 grupos** + 44 derivados (`cola_pendientes.json` sha256 `755e208e…0d39`).
 - Grupo top CF_2023 p.7: 5 de 7 pendientes pasan a REVISADO (igualdad confirmada con signo en CF_2022: (117,296), (85,880), (82,341), (84,515), (4,070)); quedan 2 (aux:capex_int_2022 ambigüedad de fila, Historia!I13 columnas no mapeables 1:1).
 
+## Cierre v2 · Bloque 2 · v3.5/v3.6 + registro de resoluciones — ejecutado
+
+- v3.5: `columna_year` ignora años de citas de archivo en la descripción (D13 → REVISADO). v3.6: puente aritmético citado verificado (F7: 177,548 = 165,980 − 1,004 + 6,595 + 5,977, componentes en CF_2019 p.9 → OK).
+- Fuentes **296 REVISADO / 128 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO**; CSV **339 / 172 / 60 / 106 / 0** (172 = 128 fuentes + 44 derivados); control **PASS exit 0**; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes L00–L21 regenerados.
+- `resolver_bloque2.py` → `resultados/resoluciones_bloque2.json`: 54 grupos documento/página, 128 fuentes + 44 derivados pendientes, cada una con motivo exacto y **qué faltaría**: SIN_ORIGINAL 36 (falta el documento del ejercicio entre los 251 insumos fijados; no amplío insumos), ALCANCE_SIN_PUENTE 49, DECLARA_NO_DIFIERE 18, AMBIGÜEDAD_FILA_COLUMNA 13, NO_MAPEABLE_1:1 6, NO_LOCALIZADA 4, NO_TABULAR 2, CONTINUACIÓN 1, UNIDAD_SIN_FRASE 1.
+
 ## Pendiente / siguiente acción exacta
 
 1. **Claude coordinador revisa Bloque 1 y esta pasada sistemática** — no autoaprobación.

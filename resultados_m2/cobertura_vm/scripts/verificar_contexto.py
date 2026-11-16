@@ -351,7 +351,10 @@ def columna_year(columna, periodo, archivo):
     m = re.search(r'informe\s+(20\d\d)', columna or '')
     if m:
         ya = m.group(1)
-    years = YEAR_RE.findall(f'{columna or ""} {periodo or ""}')
+    # v3.5: los años de una CITA de archivo dentro de la descripcion (CF_2018, AR_2019.txt,
+    # 'p. 2013' no es año) no son año de columna: se eliminan antes de contar
+    texto_col = re.sub(r'[A-Za-z_]+20\d\d(?:\.(?:txt|pdf))?', ' ', f'{columna or ""} {periodo or ""}')
+    years = YEAR_RE.findall(texto_col)
     if not years:
         return ya, None
     ys = list(dict.fromkeys(years))
@@ -495,6 +498,63 @@ def es_metadato_anio(f):
     return bool(re.search(r'(año|year|ejercicio)(\s+fiscal)?\s+de la columna|^(año|year|ejercicio)\s*$', concepto, re.IGNORECASE))
 
 
+def verificar_puente(declared, vdec, valor, candidatos, textos_cache):
+    """v3.6 (bloque 2): si la declaracion trae un puente aritmetico citado
+    ('177,548 = 165,980 - 1,004 + 6,595 + 5,977 (CF_2019 p.9)'), se verifica:
+    LHS == valor del comparativo, la expresion RHS suma exactamente LHS, y cada
+    componente figura en la pagina citada del documento original. Si todo cuadra,
+    la reexpresion queda acreditada con puente documentado (OK); si no, None."""
+    m = re.search(r'([\u2212\-]?[\d.,]+)\s*=\s*([\u2212\-+\d.,()\s]+?)\s*\(\s*([A-Za-z_0-9]+(?:\.txt|\.pdf)?)\s*p\.?\s*(\d+)', declared)
+    if not m or vdec is None:
+        return None
+    lhs_tok, rhs, fname, pg = m.group(1), m.group(2), m.group(3), int(m.group(4))
+    if not fname.lower().endswith(('.txt', '.pdf')):
+        fname = fname + '.txt'
+    lhs = normalize_num(lhs_tok.strip().strip('()').lstrip('\u2212').lstrip('-'))
+    if C.dec(lhs) != abs(vdec):
+        return None
+    rhs2 = rhs.replace('\u2212', '-')
+    rhs2 = re.sub(r'\(([\d.,\-\u2212]+)\)', r'(-\1)', rhs2)
+    parts = re.findall(r'[+\-]?\s*[\d.,]+', rhs2)
+    total = C.dec(0)
+    comps = []
+    for t in parts:
+        raw = t.strip()
+        neg = raw.startswith('-')
+        mag = normalize_num(raw.lstrip('+-'))
+        d = C.dec(mag) if mag else None
+        if d is None:
+            return None
+        comps.append((raw, mag, d))
+        total += (-d if neg else d)
+    if abs(total - vdec) > C.dec('0.0005') and abs(total - abs(vdec)) > C.dec('0.0005'):
+        return None
+    if fname not in textos_cache or fname not in candidatos:
+        return None
+    pages = C.extract_pages(textos_cache[fname].read_text(encoding='utf-8'))
+    ptext = pages.get(pg)
+    if ptext is None:
+        return None
+    pflat = C.flat_text(ptext)
+    def fvariants(mag):
+        out = {mag}
+        m = mag
+        if len(m) > 3:
+            parts = []
+            while m:
+                parts.append(m[-3:])
+                m = m[:-3]
+            out.add(','.join(reversed(parts)))
+            out.add('.'.join(reversed(parts)))
+        return out
+    for raw, mag, _ in comps:
+        if not mag:
+            return None
+        if not any(C.flat_text(v) in pflat for v in fvariants(mag)) and C.flat_text(raw) not in pflat:
+            return None
+    return 'OK', f'reexpresion acreditada por puente aritmetico documentado en la declaracion ({lhs_tok} = {rhs.strip()}, {fname} p.{pg}); la expresion suma {total} y cada componente figura en la pagina citada del original'
+
+
 def check_reexpresion(emp, r, f, col_years, years_in_block):
     """v3 (A-R1/A-R2, d375d80) + v3.3/v3.4 (cierre v2, bloque 2):
     - metadato de año (unidad/concepto, v3.1) -> NO_APLICA; nunca por el valor;
@@ -620,7 +680,10 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
                         return 'NO_DECIDIBLE', f'el valor {valor} figura en {name} (pagina citada en la declaracion) pero no en la misma fila/columna {yc} mapeable 1:1 (la fila encontrada imprime {orig_val} en la columna {yc}): ambiguedad de fila/columna, no OK'
                     return 'CONFLICTO', f'declara "{declared}" pero {valor} no aparece en {name}: contradiccion explicita'
                 if '(' in declared:
-                    return 'NO_DECIDIBLE', f'declarado no-aplica con razon de alcance ({declared}); el original {name} imprime {orig_val} en la columna {yc} y el comparativo cita {valor}: falta puente de significado entre ambos conceptos (p. ej. desglose del ejercicio {yc} en el informe original)'
+                    puente = verificar_puente(declared, vdec, valor, candidatos, TEXTO_CACHE[key])
+                    if puente:
+                        return puente
+                    return 'NO_DECIDIBLE', f'declarado no-aplica con razon de alcance ({declared}); el original {name} imprime {orig_val} en la columna {yc} y el comparativo cita {valor}: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio {yc} en el informe original o nota citada)'
                 return 'NO_DECIDIBLE', f'declara no reexpresado pero el original {name} imprime {orig_val} en la columna {yc} frente al comparativo {valor}: pendiente (posible reexpresion no declarada o fila distinta en el original)'
             if affirm:
                 return 'OK', f'reexpresion confirmada por columna: el original {name} imprime {orig_val} en la columna {yc} y el comparativo cita {valor}; declarado: {declared}'

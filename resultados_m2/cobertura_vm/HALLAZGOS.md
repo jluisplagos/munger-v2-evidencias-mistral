@@ -79,3 +79,8 @@ La revisión externa (`9366bdd`, `SONDA_A_SEMANTICA.json`) demostró que el cont
 
 - Comparación con signo (paréntesis=negativo) y `find_header_block(..., 'near')` en el texto original (línea de columnas más próxima con ≥2 años; evita tablas de proyección). Desempate por números citados en el comparativo.
 - Fuentes 294 REVISADO / 130 PENDIENTE / 43 REUTILIZADO / 0 CONFLICTO; CSV **337 / 174 / 60 / 106 / 0**; reexpresión 87 OK / 134 ND / 246 NA; control PASS exit 0; sondas 15/15 bilaterales + 5/5 revisor CONFLICTO. Cola: 130 fuentes en 55 grupos + 44 derivados. Ejemplo resuelto: CF_2023 p.7 → 5/7 a REVISADO con igualdad confirmada con signo en CF_2022.
+
+## 14. [CIERRE V2 · BLOQUE 2 · v3.5/v3.6 + registro] Cola clasificada con bloqueos precisos
+
+- v3.5: años de citas de archivo en la descripción no son año de columna. v3.6: puente aritmético citado verificado en el original (F7 → OK: componentes en CF_2019 p.9).
+- Fuentes 296 REVISADO / 128 PENDIENTE / 43 REUTILIZADO / 0 CONFLICTO; CSV **339 / 172 / 60 / 106 / 0**; control PASS exit 0. Registro `resoluciones_bloque2.json`: 54 grupos, 128 fuentes + 44 derivados con motivo y qué faltaría (SIN_ORIGINAL 36, ALCANCE_SIN_PUENTE 49, DECLARA_NO_DIFIERE 18, AMBIGÜEDAD 13, NO_MAPEABLE 6, NO_LOCALIZADA 4, NO_TABULAR 2, CONTINUACIÓN 1, UNIDAD 1). Sin forzar recuentos.

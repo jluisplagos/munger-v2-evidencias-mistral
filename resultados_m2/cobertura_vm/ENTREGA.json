@@ -1,7 +1,7 @@
 {
  "es_plantilla": false,
  "frente": "A",
- "bloque": "cierre v2 · Bloque 2 · sistemática v3.2–v3.4 + cola (130 fuentes en 55 grupos + 44 derivados)",
+ "bloque": "cierre v2 · Bloque 2 · v3.2–v3.6 + cola (54 grupos) + registro de resoluciones/bloqueos",
  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
  "rama": "mistral/m2-cobertura-vm",
  "base_revisada_sha": "d2419e5af2c91d89038a210a77242632d5823950",
@@ -19,9 +19,10 @@
   "ZIP base-4.14: 1.130.912.246 bytes, sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e, descargado con preparar_insumos.py --download"
  ],
  "cambios_respecto_entrega_anterior": [
-  "v3.4: comparación de reexpresión CON SIGNO (paréntesis del original = negativo; magnitud normalizada ES/EN) y cabecera de tabla del texto original por linea mas proxima con >=2 años (modo 'near', evita tablas de proyección); desempate de filas por los numeros citados en el comparativo.",
-  "Resultados: fuentes 294 REVISADO / 130 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO (reexpresión 87 OK / 134 ND / 246 NA); CSV 677: 337 REVISADO (294+43 derivados... 294 fuentes + 43 derivados REVISADO) / 174 PENDIENTE (130+44) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO; mecánicos sin cambio; control PASS exit 0; bilaterales 15/15 ok; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec).",
-  "Cola actualizada: 130 fuentes pendientes en 55 grupos documento/página + 44 derivados. Grupo top resuelto parcialmente con v3.4 (CF_2023 p.7: 5 de 7 passes a REVISADO con igualdad confirmada con signo en CF_2022)."
+  "v3.5: columna_year ignora los años de citas de archivo dentro de la descripcion (CF_2018 p.13 no es año de columna) — arregla Historia!D13 y similares.",
+  "v3.6: verificador de puente aritmetico citado en la declaracion ('177,548 = 165,980 − 1,004 + 6,595 + 5,977 (CF_2019 p.9)'): LHS==valor, la expresion suma exacto y cada componente figura en la pagina citada del original -> OK acreditado (ej. Vidrala Historia!F7).",
+  "Resultados: fuentes 296 REVISADO / 128 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO; CSV 677: 339 REVISADO / 172 PENDIENTE (128 fuentes + 44 derivados) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO; mecánicos sin cambio; control PASS exit 0; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec).",
+  "Registro del bloque 2 (scripts/resolver_bloque2.py -> resultados/resoluciones_bloque2.json): 128 fuentes pendientes en 54 grupos documento/página + 44 derivados, cada una con motivo exacto y clasificacion del bloqueo: SIN_ORIGINAL 36 (falta el documento del ejercicio entre los 251 insumos fijados), NO_APLICA_ALCANCE_SIN_PUENTE 49, DECLARA_NO_DIFIERE 18, AMBIGUEDAD_FILA_COLUMNA 13, NO_MAPEABLE_1a1 6, NO_LOCALIZADA 4, NO_TABULAR 2, CONTINUACION 1, UNIDAD_SIN_FRASE 1."
  ],
  "pruebas": [
   {
@@ -86,20 +87,22 @@
  ],
  "revision_por_otro_contexto": "PENDIENTE: Claude coordinador (revisor propuesto de A-CTX en CONTROL.json @ ff0c60c). Esta entrega no se autoaprueba.",
  "limites_y_bloqueos": [
-  "174 entradas PENDIENTE_CONTEXTUAL = 130 fuentes + 44 derivados (cola_pendientes.json, 55 grupos). Bloqueos reexpresión ND 134: sin texto del año original (falta el documento del ejercicio entre los 251 insumos), valor en el original pero no en la misma fila/columna mapeable 1:1, fila localizada pero columnas no mapeables, declara no-reexpresado pero difiere, no-aplica con razón de alcance sin puente verificado, partida no localizada. Columna ND 4, fila ND 1, unidad ND 1.",
-  "52 HIPOTESIS / 35 CONVENCION / 16 NO_APLICABLE / 6 DATO_AUSENTE conservados; 7 PDF candidatos sin asociación; selección parcial (251 de 6.798)."
+  "172 entradas PENDIENTE_CONTEXTUAL = 128 fuentes + 44 derivados, cada una con bloqueo preciso en resoluciones_bloque2.json (qué faltaría). No se fuerzan recuentos.",
+  "36 comparativos sin texto del año original: los documentos de esos ejercicios (p. ej. CF_2016.txt de Vidrala) no están entre los 251 insumos fijados (selección parcial verificada del ZIP base-4.14); no amplío insumos.",
+  "52 HIPOTESIS / 35 CONVENCION / 16 NO_APLICABLE / 6 DATO_AUSENTE conservados; 7 PDF candidatos sin asociación."
  ],
- "siguiente_accion_exacta": "Bloque 2 por grupos documentales en orden de prioridad de cola_pendientes.json: examinar página/tabla y texto del año original de cada grupo; resolver con evidencia (cita+página+sha256) o registrar bloqueo preciso (qué faltaría). Publicar commit+push por bloque terminado. Top: Vidrala texto/CF_2017.txt p.14 (7 pendientes, prioridad alta, materiales).",
+ "siguiente_accion_exacta": "Continuar bloque 2 grupo a grupo en orden de prioridad: leer la nota citada en cada declaracion (p. ej. CF_2024 p.25 cambios normativos, AR_2019 p.23 NIIF 16) y el original del año para resolver AMBIGUEDAD/DECLARA_NO_DIFIERE con evidencia, o confirmar el bloqueo. Publicar por bloque terminado.",
  "integrado_en_producto": false,
  "apto_dinero_real": "No se declara por este formulario",
  "criterios_cubiertos": [
-  " coherencia código=salidas PASS exit 0",
-  "reexpresión con signo y cabecera de tabla correcta (v3.4)",
-  "cola priorizada por materialidad",
-  "sondas bilaterales 15/15 + revisor 5/5"
+  "v3.5 años de cita no son columna",
+  "v3.6 puente aritmetico verificado (F7 OK)",
+  "registro de bloqueos preciso de toda la cola",
+  "control PASS exit 0",
+  "sondas 15/15 + 5/5"
  ],
  "criterios_pendientes": [
-  "resolución con evidencia o bloqueo preciso de los 55 grupos restantes",
+  "resolver con evidencia los grupos AMBIGUEDAD/DECLARA_NO_DIFIERE de mas prioridad (notas citadas)",
   "A-CTX revisión externa por Claude",
   "G-MANUAL (cola G)"
  ],
