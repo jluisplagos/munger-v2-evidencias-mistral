@@ -11,9 +11,9 @@
     "CONVENCION": 2
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 6,
-    "NO_APLICA": 19,
-    "PENDIENTE_CONTEXTUAL": 5
+    "REVISADO_CONTEXTUAL": 4,
+    "PENDIENTE_CONTEXTUAL": 7,
+    "NO_APLICA": 19
   },
   "entradas": [
     {
@@ -53,12 +53,12 @@
       "id": "h_arrend",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2025_p22_arrend_lp_2024\"] + o[\"aux:AR2025_p22_arrend_cp_2024\"] -> 11.849 (valor_modelo 11.849, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2025_p22_arrend_lp_2024\"] + o[\"aux:AR2025_p22_arrend_cp_2024\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:AR2025_p22_arrend_lp_2024\"] + o[\"aux:AR2025_p22_arrend_cp_2024\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Pasivo por arrendamientos 2024 = largo plazo 7,535 + corto plazo 4,314 miles (AR_2025 p. 22). Resultado de la fórmula con los orígenes registrados: 11.849000; valor del libro: 11.849.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:AR2025_p22_arrend_lp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion ) | aux:AR2025_p22_arrend_cp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -74,8 +74,11 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:AR2025_p22_arrend_lp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )",
+          "aux:AR2025_p22_arrend_cp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )"
+        ]
       }
     },
     {
@@ -598,9 +601,9 @@
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "fuentes_mercado/BMadrid_boletin_20261103_seccion_16.txt [PDF PAGE 3] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'MC VIS VISCOFAN F 54,3000 02-11-26 55,3000 54,5000 54,7000 54,8454 72.546 3.978.817,50'; encabezado: 'MC MDF DURO FELGUERA F 0,2115 02-11-26 0,2145 0,2050 0,2095 0,2072 148.019 30.668,66'; titulo pagina: 'BOLETÍN DE COTIZACIÓN DAILY BULLETIN BOLSA DE MADRID MADRID STOCK EXCHANGE | Renta Variable Equities'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'MC VIS VISCOFAN F 54,3000 02-11-26 55,3000 54,5000 54,7000 54,8454 72.546 3.978.817,50'; encabezado: 'None'; titulo pagina: 'BOLETÍN DE COTIZACIÓN DAILY BULLETIN BOLSA DE MADRID MADRID STOCK EXCHANGE | Renta Variable Equities'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: precio de cierre, sin transformación | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila no tabular con columnas de años; años en pagina ['2050', '2072', '2095'] no corresponden a enca",
+      "limites_contextuales": "columna: sin años de ejercicio en la pagina (fila de texto/mercado)",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -611,7 +614,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "MC VIS VISCOFAN F 54,3000 02-11-26 55,3000 54,5000 54,7000 54,8454 72.546 3.978.817,50",
-      "encabezado": "MC MDF DURO FELGUERA F 0,2115 02-11-26 0,2145 0,2050 0,2095 0,2072 148.019 30.668,66",
+      "encabezado": null,
       "titulo_pagina": "BOLETÍN DE COTIZACIÓN DAILY BULLETIN BOLSA DE MADRID MADRID STOCK EXCHANGE | Renta Variable Equities | NEGOCIACIÓN EN EL SISTEMA DE INTERCONEXIÓN BURSÁTIL | INTERCONNECTION TRADING SYSTEM",
       "transformacion": "54.7 x 1 x 1 = 54.7",
       "comparacion_libro": "XLSX(solo lectura) Análisis!C37 = 54.7 (coincide)",
@@ -625,15 +628,15 @@
       "id": "h_anios",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2017.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Note 2017 2016'; encabezado: 'Note 2017 2016'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2017'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Note 2017 2016'; encabezado: 'Note 2017 2016'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2017'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: año de la cabecera de la columna, sin transformación | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "columna: fila sin valores numericos que mapear",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "OK",
+        "columna": "NO_DECIDIBLE",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",

@@ -47,15 +47,21 @@ Qué puede aprovechar Claude para una futura regeneración, qué debe revisarse 
 
 El control (`control_cobertura.py`) sigue en PASS con 0 violaciones y valida la coherencia CSV↔verificación contextual. Ver `RESPUESTA_SEGUIMIENTO_20261116.md`.
 
-## Estados de las dependencias para regeneración (revisión d375d80, v3) — tabla vigente
+<!-- RECUENTOS_VIGENTES:INICIO -->
+
+## Estados vigentes para regeneración (GENERADO por `scripts/generar_recuentos_doc.py` · 2026-11-16T22:37:16Z; fuente: `resultados/RECUENTOS_VIGENTES.md`)
 
 | Grupo | n | Estado contextual | ¿Qué puede reutilizar el integrador? |
 |---|---|---|---|
-| Fuentes con todas las dimensiones OK/NO_APLICA | 241 | REVISADO_CONTEXTUAL | Sí: huella vigente + fila/columna (por posición)/unidad+escala/signo/perímetro/versión/reexpresión leídos |
-| Derivados cuyos orígenes están todos revisados | 41 | REVISADO_CONTEXTUAL | Sí: fórmula + hash de entradas vigente |
-| Piloto M1 | 60 | REUTILIZADO_M1 (43 fuentes + 14 derivados; 3 de clase no aplica figuran en NO_APLICA) | Sí, con el alcance y huellas del piloto corregido |
-| Fuentes con alguna dimensión no decidible | 183 | PENDIENTE_CONTEXTUAL | No como revisadas: reexpresión ND 179, perímetro ND 40, unidad ND 8, signo ND 7, columna ND 4, fila ND 1 — solapamientos entre filas |
-| Derivados con orígenes pendientes | 46 | PENDIENTE_CONTEXTUAL | No: heredan `limites_contextuales` (p. ej. `Vidrala Historia!I22` ← `Historia!I23`) |
-| Hipótesis / convenciones / no aplicables / ausentes | 106 | NO_APLICA (clase) | No como datos: requieren decisión o fuente |
+| Fuentes con todas las dimensiones OK/NO_APLICA | 148 | REVISADO_CONTEXTUAL | Sí: huella vigente + fila/columna (posición)/unidad+escala/signo/perímetro/versión/reexpresión leídos |
+| Fuentes con alguna dimensión no decidible | 183 | PENDIENTE_CONTEXTUAL | No como revisadas: ver desglose por dimensión abajo |
+| Fuentes con contradicción documentada (A2-R2) | 93 | CONFLICTO_CONTEXTUAL | No: contradicción acreditada; requiere resolución humana, no forzar |
+| Piloto M1 (fuentes) | 43 | REUTILIZADO_M1 | Sí, con el alcance y huellas del piloto |
+| Derivados (propagación de orígenes) | 101 | CONFLICTO_CONTEXTUAL 40 / PENDIENTE_CONTEXTUAL 26 / REUTILIZADO_M1 14 / REVISADO_CONTEXTUAL 21 | Según orígenes: CONFLICTO/PENDIENTE se propagan (A2-R2); REVISADO solo si todos los orígenes lo están |
+| Clases sin fuente (hipótesis/convenciones/no aplicables/ausentes) | 106 | NO_APLICA (clase) | No como datos: requieren decisión o fuente |
 
-Totales CSV (677): 282 REVISADO_CONTEXTUAL / 229 PENDIENTE / 60 REUTILIZADO_M1 / 106 NO_APLICA / **0 CONFLICTO**. Control PASS exit 0 con el código definitivo v3 (coherente con los resultados, a diferencia de la reproducción del revisor sobre `0224b71`). Las 5 sondas del revisor son CONFLICTO 5/5. Ver `RESPUESTA_A_D_20261116.md`.
+Totales CSV (677): CONFLICTO_CONTEXTUAL 133 / NO_APLICA 106 / PENDIENTE_CONTEXTUAL 209 / REUTILIZADO_M1 60 / REVISADO_CONTEXTUAL 169. Control `control_cobertura.py`: PASS=True, 0 violaciones (exit 0). Sondas del revisor d375d80: CONFLICTO 5/5; bilaterales 15/15 ok.
+
+Desglose de dimensiones no decidibles/conflicto entre las fuentes: columna CONFLICTO 79 / NO_DECIDIBLE 115 / OK 273; fila NO_DECIDIBLE 1 / OK 466; perimetro NO_APLICA 4 / OK 463; reexpresion CONFLICTO 24 / NO_APLICA 248 / NO_DECIDIBLE 144 / OK 51; signo NO_APLICA 19 / OK 448; unidad OK 467; version OK 467
+
+<!-- RECUENTOS_VIGENTES:FIN -->

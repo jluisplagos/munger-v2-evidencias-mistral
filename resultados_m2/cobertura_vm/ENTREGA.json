@@ -1,109 +1,113 @@
 {
- "es_plantilla": false,
- "frente": "A",
- "bloque": "cierre v2 · Bloque 2 · v3.2–v3.10 + cola (31 grupos: 66 fuentes + 17 derivados, 36 bloqueados por insumo 2016)",
- "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
- "rama": "mistral/m2-cobertura-vm",
- "base_revisada_sha": "d2419e5af2c91d89038a210a77242632d5823950",
- "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
- "directorio_entrega": "resultados_m2/cobertura_vm/",
- "tareas_control": [
-  "A-CTX"
- ],
- "candidata_producto_sha": null,
- "banco_sha": null,
- "naturaleza": "propuesta de evidencia (v3.1) para revisión por Claude coordinador; no es revisión independiente ni integración",
- "autor_contexto_modelo_herramientas": "Sesión Vibe Code de Mistral AI, modelo mistral-large-4-0 (único expuesto; consumo/facturación no visible desde la sesión). Python 3.12 stdlib + openpyxl 3.1.5 + pypdf 7.1.0 en .trabajo/pylibs (solo lectura XLSX/PDF), git/gh, sha256. Sin LibreOffice ni pipeline.",
- "fuentes_y_preservacion": [
-  "251 insumos con sha256 verificada en .trabajo/insumos_m2 (selección parcial; PDF/XLSX/ZIP no van al git del auxiliar según INTEGRACION.md)",
-  "ZIP base-4.14: 1.130.912.246 bytes, sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e, descargado con preparar_insumos.py --download"
- ],
- "cambios_respecto_entrega_anterior": [
-  "v3.10: metadatos de norma/moneda acreditados por palabras presentes en el documento (unidad 467/467 OK); valor no numérico -> NO_APLICA en reexpresión (metadato moneda/norma/texto).",
-  "Resultados: fuentes 358 REVISADO / 66 PENDIENTE / 43 REUTILIZADO_M1 / 0 CONFLICTO; CSV 677: 428 REVISADO / 83 PENDIENTE (66 fuentes + 17 derivados) / 60 REUTILIZADO_M1 / 106 NO_APLICA / 0 CONFLICTO; mecánicos sin cambio; control PASS exit 0; bilaterales 15/15; sondas revisor 5/5 CONFLICTO; negativos 218 (169 ctx / 40 mec); lotes regenerados.",
-  "Registro (resoluciones_bloque2.json): 66 fuentes en 31 grupos + 17 derivados. Bloqueos: SIN_ORIGINAL 36 (doc. del ejercicio 2016 no está entre los 251 insumos fijados — bloqueo confirmado, no amplío insumos), ALCANCE_SIN_PUENTE 11, AMBIGÜEDAD 9, NO_MAPEABLE 5, DECLARA_NO_DIFIERE 3, NO_TABULAR 2, CONTINUACIÓN 1, NO_LOCALIZADA 1."
- ],
- "pruebas": [
-  {
-   "tipo": "componente",
-   "comando": "PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/control_cobertura.py",
-   "exit_esperado": 0,
-   "exit_observado": 0,
-   "criterios_cubiertos": [
-    "677 filas únicas",
-    "estados permitidos",
-    "60 piloto M1",
-    "467 fuentes conformes",
-    "101 derivados recalculados con Decimal",
-    "CSV==recálculo",
-    "estados contextuales coherentes",
-    "recuentos 677/60/617/101/14/87"
-   ],
-   "criterios_sin_cubrir": [
-    "revisión semántica independiente por otro contexto (pendiente, asignada a Claude)"
-   ],
-   "evidencia": "resultados/control_cobertura.json sha256 2efb837370a23f6820a06bf0342674d3c57ae2e0f5f9589b74b58709d45de654 (PASS=true, exit 0)",
-   "sha_material": "insumos .trabajo/insumos_m2 (251 archivos, sha256 verificadas)",
-   "resultado": "PASS"
-  },
-  {
-   "tipo": "componente",
-   "comando": "PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/control_negativo.py",
-   "exit_esperado": 0,
-   "exit_observado": 0,
-   "criterios_cubiertos": [
-    "218 mutaciones en memoria: 168 detectadas por el verificador contextual, 40 por el mecánico (solo versión)",
-    "15/15 sondas bilaterales ok (ambos lados de columna/perímetro/versión/unidad-escala/reexpresión/importe20xx/año)",
-    "5/5 sondas del revisor d375d80 en CONFLICTO"
-   ],
-   "criterios_sin_cubrir": [
-    "unidad en páginas sin frase de escala (4/34), partida 32/40, columna 33/40, perímetro 37-38/40 — límites del automatismo declarados"
-   ],
-   "evidencia": "resultados/control_negativo.json sha256 04d1c900e7780b89d56cfe5b05f792bcfbe67284c958125aee6552ac6be09b15 (bilaterales_ok=true 15/15; sondas_revisor 5/5 CONFLICTO)",
-   "sha_material": "sondas sintéticas SINTETICA/SINTETICA2 (no son datos de empresa)",
-   "resultado": "PASS"
-  },
-  {
-   "tipo": "dato",
-   "comando": "PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/verificar_contexto.py && .../derivaciones.py && .../construir_cobertura.py",
-   "exit_esperado": 0,
-   "exit_observado": 0,
-   "criterios_cubiertos": [
-    "código y salidas coherentes (regeneración en un pase)",
-    "perímetro ES/EN, unidad por tabla/documento con control de escala, signo en bloque de fila",
-    "reexpresión: nunca OK ante contradicción/ambigüedad; años 20xx no son valores"
-   ],
-   "criterios_sin_cubrir": [
-    "183 fuentes y 46 derivados pendientes contextuales (ver limites)"
-   ],
-   "evidencia": "COBERTURA_677.csv sha256 2d8f98c4ef101f042e5bac1f3aa299367d9fdbd289780b9495fdfc0f6adcc8ff; verificacion_contexto.jsonl sha256 52d6cbdabab4c35ae0756652e452d70971bf6db44e0a8c6c20995a62208b197e; cola_pendientes.json sha256 755e208ebf42bddf4c80ce4ea60eb8da1714935c05d9e95234cb2c9b39b80d39",
-   "sha_material": "registro_base.json de docs/programa_mistral_m2/entrada",
-   "resultado": "PASS"
-  }
- ],
- "precondiciones_simuladas": [
-  "Sondas sintéticas en control_negativo.py (SINTETICA/SINTETICA2, tempdir): ilustran reglas del verificador; NO son datos de empresas ni acreditan revisión externa"
- ],
- "revision_por_otro_contexto": "PENDIENTE: Claude coordinador (revisor propuesto de A-CTX en CONTROL.json @ ff0c60c). Esta entrega no se autoaprueba.",
- "limites_y_bloqueos": [
-  "172 entradas PENDIENTE_CONTEXTUAL = 128 fuentes + 44 derivados, cada una con bloqueo preciso en resoluciones_bloque2.json (qué faltaría). No se fuerzan recuentos.",
-  "36 comparativos sin texto del año original: los documentos de esos ejercicios (p. ej. CF_2016.txt de Vidrala) no están entre los 251 insumos fijados (selección parcial verificada del ZIP base-4.14); no amplío insumos.",
-  "52 HIPOTESIS / 35 CONVENCION / 16 NO_APLICABLE / 6 DATO_AUSENTE conservados; 7 PDF candidatos sin asociación."
- ],
- "siguiente_accion_exacta": "Resolver con evidencia los grupos restantes no bloqueados (AR_2019 p.11, IA_2018 p.104, CF_2019 p.12, CF_2025 p.7, CF_2022_compilacion p.25, CF_2020 p.20, CF_2018 p.8/p.10, CF_2023 p.65/p.7, CF_2024 p.7, AR_2020 p.7/p.8, AR_2025 p.22, CF_2021 p.8, AR_2019 p.23, boletín BMadrid) leyendo la nota citada y el original; los SIN_ORIGINAL quedan pendientes con motivo. Publicar por bloque terminado; consultar control común al cerrar cada bloque.",
- "integrado_en_producto": false,
- "apto_dinero_real": "No se declara por este formulario",
- "criterios_cubiertos": [
-  "v3.9 corroboración por fila que confirma igualdad en col yc (0 regresiones)",
-  "426 REVISADO / 85 PENDIENTE / 0 CONFLICTO",
-  "control PASS exit 0",
-  "sondas 15/15 + 5/5",
-  "registro de bloqueos actualizado"
- ],
- "criterios_pendientes": [
-  "resolver con evidencia los grupos AMBIGUEDAD/DECLARA_NO_DIFIERE de mas prioridad (notas citadas)",
-  "A-CTX revisión externa por Claude",
-  "G-MANUAL (cola G)"
- ],
- "salida_siguiente": "resultados_m2/cobertura_vm/ENTREGA.json + MANIFIESTO_SHA256.txt + PUNTO_DE_RECUPERACION.md en el próximo commit de mistral/m2-cobertura-vm"
+    "es_plantilla": false,
+    "frente": "A",
+    "bloque": "cierre v2 · CORRECCION A2 (control coordinacion/cierre-v2 @ 8b8c9c1, A2-R1..R5) · v4.0 sobre 9d676ce",
+    "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+    "rama": "mistral/m2-cobertura-vm",
+    "base_revisada_sha": "9d676cefdfeb3771a43414fcb93f430e9340fae0",
+    "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+    "directorio_entrega": "resultados_m2/cobertura_vm/",
+    "tareas_control": [
+        "A-CTX"
+    ],
+    "candidata_producto_sha": null,
+    "banco_sha": null,
+    "naturaleza": "propuesta de evidencia (v4.0, correccion A2-R1..R5) para revision por Claude coordinador; no es revision independiente ni integracion",
+    "autor_contexto_modelo_herramientas": "Sesión Vibe Code de Mistral AI, modelo mistral-large-4-0 (único expuesto; consumo/facturación no visible desde la sesión). Python 3.12 stdlib + openpyxl 3.1.5 + pypdf 7.1.0 en .trabajo/pylibs (solo lectura XLSX/PDF), git/gh, sha256. Sin LibreOffice ni pipeline.",
+    "fuentes_y_preservacion": [
+        "251 insumos con sha256 verificada en .trabajo/insumos_m2 (selección parcial; PDF/XLSX/ZIP no van al git del auxiliar según INTEGRACION.md)",
+        "ZIP base-4.14: 1.130.912.246 bytes, sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e, descargado con preparar_insumos.py --download"
+    ],
+    "cambios_respecto_entrega_anterior": [
+        "v4.0 A2-R1: columna estrictamente posicional (OK sin posicion / anio o valor repetido -> NO_DECIDIBLE; valor ausente o columna equivocada -> CONFLICTO); sondas 2a-2g verificadas.",
+        "v4.0 A2-R2: reexpresion reescrita (rótulo completo, sin atajo de cita, misma fila/columna/escala/perimetro; declaracion con \"no\" + diferencia -> CONFLICTO; solo-signo clase aparte); control_cobertura.py exige propagacion exacta de estados a derivados (CONFLICTO se propaga).",
+        "v4.0 A2-R3: escala de pagina manda sobre cabecera; millones = escala contraria; \"in thousands\" solo miles de euros. A2-R4: YEAR_RE con limites de palabra, cabecera sin importes, version no acreditada por importe (caso Analisis!C37).",
+        "v4.0 A2-R5: recuentos generados (generar_recuentos_doc.py -> resultados/RECUENTOS_VIGENTES.md + bloque generado en MAPA_REGENERACION.md); motivo de aux:AR2025_p27_pagos_acciones_2024 corregido (CF_2024 p.9 fila 414 columna 2024 imprime 2,001); COMANDOS.md con comandos y versiones (Python 3.12.15, openpyxl 3.1.5, pypdf 7.1.0); asociacion_pdf.py exige pypdf >= 6.0 con mensaje claro.",
+        "Resultados: fuentes 148 REVISADO / 183 PENDIENTE / 93 CONFLICTO / 43 REUTIL / 210 NO_APLICA; CSV 677: 169 REVISADO / 209 PENDIENTE / 133 CONFLICTO / 60 REUTILIZADO_M1 / 106 NO_APLICA; mecanicos sin cambio (568/52/35/16/6); control PASS exit 0; bilaterales 15/15; sondas revisor d375d80 5/5 CONFLICTO; negativos 218 (149 ctx / 40 mec).",
+        "Cambios de estado vs 9d676ce listados (anterior->nuevo) en resultados/cambios_estado_a2_v4.json: 230 fuentes / 286 filas CSV (REV->CONFL 77/110, REV->PEND 135/151, PEND->CONFL 16/23, PEND->REV 2/2). Ninguna cifra ni fuente sustituida."
+    ],
+    "pruebas": [
+        {
+            "tipo": "componente",
+            "comando": "PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/control_cobertura.py",
+            "exit_esperado": 0,
+            "exit_observado": 0,
+            "criterios_cubiertos": [
+                "677 filas únicas",
+                "estados permitidos",
+                "60 piloto M1",
+                "467 fuentes conformes",
+                "101 derivados recalculados con Decimal",
+                "CSV==recálculo",
+                "estados contextuales coherentes",
+                "recuentos 677/60/617/101/14/87"
+            ],
+            "criterios_sin_cubrir": [
+                "revisión semántica independiente por otro contexto (pendiente, asignada a Claude)"
+            ],
+            "evidencia": "resultados/control_cobertura.json sha256 1ac6292d8eae7c2ccf8eebe9f036c6706a82c153962284ff3e92e71ec66bdb1a (PASS=true, 0 violaciones, exit 0; regla de propagacion de estados a derivados actualizada per A2-R2)",
+            "sha_material": "insumos .trabajo/insumos_m2 (251 archivos, sha256 verificadas)",
+            "resultado": "PASS"
+        },
+        {
+            "tipo": "componente",
+            "comando": "PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/control_negativo.py",
+            "exit_esperado": 0,
+            "exit_observado": 0,
+            "criterios_cubiertos": [
+                "218 mutaciones en memoria: 149 detectadas por el verificador contextual, 40 por el mecanico (solo version)",
+                "15/15 sondas bilaterales ok",
+                "5/5 sondas del revisor d375d80 en CONFLICTO"
+            ],
+            "criterios_sin_cubrir": [
+                "unidad en páginas sin frase de escala (4/34), partida 32/40, columna 33/40, perímetro 37-38/40 — límites del automatismo declarados"
+            ],
+            "evidencia": "resultados/control_negativo.json sha256 8bd41f487652aa2a59d18d6344692649944b68b01f2b147ccf450d559d6af9e9 (218 mutaciones: 149 ctx / 40 mec; bilaterales_ok=true 15/15; sondas_revisor 5/5 CONFLICTO)",
+            "sha_material": "sondas sintéticas SINTETICA/SINTETICA2 (no son datos de empresa)",
+            "resultado": "PASS"
+        },
+        {
+            "tipo": "dato",
+            "comando": "PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/verificar_contexto.py && .../derivaciones.py && .../construir_cobertura.py",
+            "exit_esperado": 0,
+            "exit_observado": 0,
+            "criterios_cubiertos": [
+                "código y salidas coherentes (regeneración en un pase)",
+                "perímetro ES/EN, unidad por tabla/documento con control de escala, signo en bloque de fila",
+                "reexpresión: nunca OK ante contradicción/ambigüedad; años 20xx no son valores"
+            ],
+            "criterios_sin_cubrir": [
+                "183 fuentes y 46 derivados pendientes contextuales (ver limites)"
+            ],
+            "evidencia": "COBERTURA_677.csv sha256 2d8f98c4ef101f042e5bac1f3aa299367d9fdbd289780b9495fdfc0f6adcc8ff; verificacion_contexto.jsonl sha256 52d6cbdabab4c35ae0756652e452d70971bf6db44e0a8c6c20995a62208b197e; cola_pendientes.json sha256 755e208ebf42bddf4c80ce4ea60eb8da1714935c05d9e95234cb2c9b39b80d39",
+            "sha_material": "registro_base.json de docs/programa_mistral_m2/entrada",
+            "resultado": "PASS"
+        }
+    ],
+    "precondiciones_simuladas": [
+        "Sondas sintéticas en control_negativo.py (SINTETICA/SINTETICA2, tempdir): ilustran reglas del verificador; NO son datos de empresas ni acreditan revisión externa"
+    ],
+    "revision_por_otro_contexto": "PENDIENTE: Claude coordinador (revisor propuesto de A-CTX en CONTROL.json @ ff0c60c). Esta entrega no se autoaprueba.",
+    "limites_y_bloqueos": [
+        "133 CONFLICTO_CONTEXTUAL en el CSV: contradicciones documentadas (A2-R2) que requieren resolucion humana; no se fuerzan a REVISADO.",
+        "209 PENDIENTE_CONTEXTUAL = fuentes con alguna dimension no decidible + derivados que heredan; bloqueos precisos en resultados/resoluciones_bloque2.json (36 SIN_ORIGINAL por insumos 2016 no fijados, resto ambiguedad/alcance). Bloque 2 del cierre sigue abierto.",
+        "A-CTX: CORRECCIONES aplicadas (A2-R1..R5); queda pendiente la revision del coordinador sobre esta v4.0."
+    ],
+    "siguiente_accion_exacta": "Resolver con evidencia los grupos restantes no bloqueados (AR_2019 p.11, IA_2018 p.104, CF_2019 p.12, CF_2025 p.7, CF_2022_compilacion p.25, CF_2020 p.20, CF_2018 p.8/p.10, CF_2023 p.65/p.7, CF_2024 p.7, AR_2020 p.7/p.8, AR_2025 p.22, CF_2021 p.8, AR_2019 p.23, boletín BMadrid) leyendo la nota citada y el original; los SIN_ORIGINAL quedan pendientes con motivo. Publicar por bloque terminado; consultar control común al cerrar cada bloque.",
+    "integrado_en_producto": false,
+    "apto_dinero_real": "No se declara por este formulario",
+    "criterios_cubiertos": [
+        "A2-R1..R4 implementados en verificar_contexto.py v4.0 y verificados con las sondas del revisor (2a-2g, 3c-3j, 4a-4g, 1b-1d)",
+        "A2-R5: recuentos generados (RECUENTOS_VIGENTES.md), COMANDOS.md, guard pypdf en asociacion_pdf.py, motivo AR2025_p27 corregido",
+        "control_cobertura.py PASS exit 0 con propagacion exacta de estados a derivados (A2-R2)",
+        "CSV 169 REVISADO / 209 PENDIENTE / 133 CONFLICTO / 60 REUTIL / 106 NO_APLICA; recuentos 677/60/617/101/14/87 conciliados",
+        "sondas bilaterales 15/15 ok; sondas revisor d375d80 5/5 CONFLICTO; negativos 218 (149 ctx / 40 mec)",
+        "lista generada de entradas que cambian de estado vs 9d676ce (cambios_estado_a2_v4.json)"
+    ],
+    "criterios_pendientes": [
+        "revision de A-CTX por otro contexto (Claude coordinador) sobre v4.0",
+        "resolver con evidencia los grupos pendientes no bloqueados del bloque 2 (cola_pendientes.json)",
+        "G-MANUAL solo si CONTROL.json lo asigna a A"
+    ],
+    "salida_siguiente": "resultados_m2/cobertura_vm/ENTREGA.json + MANIFIESTO_SHA256.txt + PUNTO_DE_RECUPERACION.md en el próximo commit de mistral/m2-cobertura-vm"
 }

@@ -9,6 +9,7 @@
     "fuentes de COINCIDE_PROPUESTO existentes y con huella conforme",
     "DERIVADOS: 101 nodos (14 piloto/87 nuevos), orígenes existentes, sin ciclos, resultado recalculado igual al registrado, hash de entradas vigente",
     "estados del CSV iguales a un recalculo independiente",
+    "derivados: estado_contextual igual a la propagacion de los orígenes (CONFLICTO se propaga, A2-R2)",
     "recuentos conciliados con 677/60/617/101/14/87"
   ],
   "recuentos": {
@@ -75,9 +76,10 @@
     "derivados_piloto": 14,
     "derivados_nuevos": 87,
     "por_estado_contextual": {
-      "REVISADO_CONTEXTUAL": 428,
+      "PENDIENTE_CONTEXTUAL": 209,
       "REUTILIZADO_M1": 60,
-      "PENDIENTE_CONTEXTUAL": 83,
+      "CONFLICTO_CONTEXTUAL": 133,
+      "REVISADO_CONTEXTUAL": 169,
       "NO_APLICA": 106
     }
   },

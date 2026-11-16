@@ -176,10 +176,20 @@ def main():
         cx = ctxmap.get((r['empresa'], r['celda']))
         if r['clase'] in ('dato_publicado', 'cero_comprobado') and cx and r['estado_contextual'] != cx['estado_contextual'] and r['origen_revision'] != 'M1_REUTILIZADA':
             violaciones.append(f"{r['empresa']} {r['celda']}: estado_contextual del CSV {r['estado_contextual']} != verificacion_contexto {cx['estado_contextual']}")
-    # derivados: estado_contextual propagado de orígenes
+    # derivados: estado_contextual debe ser exactamente la propagacion de los orígenes
+    # (A2-R2: una contradiccion acreditada en un origen se propaga como CONFLICTO_CONTEXTUAL,
+    #  no es una violacion del derivado; solo se rechaza si no consta en ningun origen)
     for n in nodos:
-        if n['estado'] == 'COINCIDE_PROPUESTO' and n['estado_contextual'] == 'CONFLICTO_CONTEXTUAL':
-            violaciones.append(f"derivado {n['empresa']} {n['celda']}: mecanico OK pero contexto CONFLICTO (propagado de orígenes)")
+        estados_orig = [ctxmap.get((n['empresa'], o['celda']), {}).get('estado_contextual', 'NO_APLICA')
+                        for o in n['origenes']]
+        if any(s == 'CONFLICTO_CONTEXTUAL' for s in estados_orig):
+            esperado_ctx = 'CONFLICTO_CONTEXTUAL'
+        elif any(s == 'PENDIENTE_CONTEXTUAL' for s in estados_orig):
+            esperado_ctx = 'PENDIENTE_CONTEXTUAL'
+        else:
+            esperado_ctx = 'REVISADO_CONTEXTUAL'
+        if n['estado_contextual'] != 'REUTILIZADO_M1' and n['estado_contextual'] != esperado_ctx:
+            violaciones.append(f"derivado {n['empresa']} {n['celda']}: estado_contextual {n['estado_contextual']} != propagacion de orígenes {esperado_ctx}")
 
     # 7. recuentos conciliados
     recuentos = {
@@ -213,6 +223,7 @@ def main():
             'fuentes de COINCIDE_PROPUESTO existentes y con huella conforme',
             'DERIVADOS: 101 nodos (14 piloto/87 nuevos), orígenes existentes, sin ciclos, resultado recalculado igual al registrado, hash de entradas vigente',
             'estados del CSV iguales a un recalculo independiente',
+            'derivados: estado_contextual igual a la propagacion de los orígenes (CONFLICTO se propaga, A2-R2)',
             'recuentos conciliados con 677/60/617/101/14/87',
         ],
         'recuentos': recuentos,

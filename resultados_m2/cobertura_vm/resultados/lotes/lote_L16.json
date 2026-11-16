@@ -9,8 +9,9 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 27,
-    "PENDIENTE_CONTEXTUAL": 3
+    "PENDIENTE_CONTEXTUAL": 14,
+    "CONFLICTO_CONTEXTUAL": 5,
+    "REVISADO_CONTEXTUAL": 11
   },
   "entradas": [
     {
@@ -19,12 +20,12 @@
       "id": "AR2019_p12_amort_intangible_2018",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2019.txt [PDF PAGE 12] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Amortization of intangible assets 9 4,087 3,801'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Amortization of intangible assets 9 4,087 3,801'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: SOLO_SIGNO: magnitudes iguales (3801) pero signo distinto (original (3.801) en IA_2018_es.txt col 20",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -32,7 +33,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Amortization of intangible assets 9 4,087 3,801",
       "encabezado": "Note 2019 2018",
@@ -49,12 +50,12 @@
       "id": "AR2019_p12_amort_material_2018",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2019.txt [PDF PAGE 12] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Depreciation of property, plant and equipment 10 62,071 58,637'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Depreciation of property, plant and equipment 10 62,071 58,637'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: declara no reexpresado (\"no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NI",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -62,7 +63,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "CONFLICTO"
       },
       "fila_leida": "Depreciation of property, plant and equipment 10 62,071 58,637",
       "encabezado": "Note 2019 2018",
@@ -82,9 +83,9 @@
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2019.txt [PDF PAGE 23] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'from previous years have been restated.'; encabezado: 'Notes to the consolidated financial statements at 31 December 2019'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=NO_APLICA, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'from previous years have been restated.'; encabezado: 'Notes to the consolidated financial statements at 31 December 2019'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=NO_APLICA, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: cero por ausencia contable explícita: NIIF 16 adoptada el 1-ene-2019 por el método retrospectivo modificado, sin reexpresar 2018; los 63 de arrendamiento financiero NIC 17 que el comparativo de 2019 presenta como pasivo por derechos de uso (28 + 35, p. 11) se cuentan en la deuda (E22) | reexpresado: no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila no tabular con columnas de años; años en pagina ['2019'] no corresponden a encabezado de tabla | reexpresion: el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible",
+      "limites_contextuales": "columna: años declarados ['2018'] no figuran en la pagina ['2019'] (fila no tabular o año fuera de tabla)",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -92,7 +93,7 @@
         "signo": "NO_APLICA",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "NO_APLICA"
       },
       "fila_leida": "from previous years have been restated.",
       "encabezado": "Notes to the consolidated financial statements at 31 December 2019",
@@ -139,12 +140,12 @@
       "id": "h_patrimonio",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Total equity attributable to owners of parent 736.246 784.366'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of Financial Position | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Total equity attributable to owners of parent 736.246 784.366'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of Financial Position | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -152,7 +153,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Total equity attributable to owners of parent 736.246 784.366",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -229,12 +230,12 @@
       "id": "AR2020_p4_arrend_cp_2019",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Short term debts by right of use assets 7.2 4.456 4.903'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of Financial Position | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Short term debts by right of use assets 7.2 4.456 4.903'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of Financial Position | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -242,7 +243,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Short term debts by right of use assets 7.2 4.456 4.903",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -259,12 +260,12 @@
       "id": "AR2020_p4_arrend_lp_2019",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Long term debts by right of use assets 7.2 11.229 14.392'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of Financial Position | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Long term debts by right of use assets 7.2 11.229 14.392'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of Financial Position | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -272,7 +273,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Long term debts by right of use assets 7.2 11.229 14.392",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -289,12 +290,12 @@
       "id": "AR2020_p4_pasivo_fin_c_2019",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Other current financial liabilities 16 71.347 50.428'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of Financial Position | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Other current financial liabilities 16 71.347 50.428'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of Financial Position | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: declara no reexpresado (\"no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin r",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -302,7 +303,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "CONFLICTO"
       },
       "fila_leida": "Other current financial liabilities 16 71.347 50.428",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -319,12 +320,12 @@
       "id": "AR2020_p4_pasivo_fin_nc_2019",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Other non-current financial liabilities 16 48.244 71.909'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of Financial Position | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Other non-current financial liabilities 16 48.244 71.909'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of Financial Position | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: declara no reexpresado (\"no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin r",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -332,7 +333,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "CONFLICTO"
       },
       "fila_leida": "Other non-current financial liabilities 16 48.244 71.909",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -349,15 +350,15 @@
       "id": "h_anios",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 5] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: '(Thousands of euros) Notes 2020 2019'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Income Statement | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: '(Thousands of euros) Notes 2020 2019'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Income Statement | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: año de la cabecera de la columna, sin transformación | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "columna: fila sin valores numericos que mapear",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "OK",
+        "columna": "NO_DECIDIBLE",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
@@ -379,12 +380,12 @@
       "id": "h_ventas",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 5] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Revenue 20.1 912.160 849.697'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Income Statement | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Revenue 20.1 912.160 849.697'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Income Statement | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: declara no reexpresado (\"no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin r",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -392,7 +393,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "CONFLICTO"
       },
       "fila_leida": "Revenue 20.1 912.160 849.697",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -409,12 +410,12 @@
       "id": "h_ebit",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 5] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit (loss) from operating activities 162.907 130.283'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Income Statement | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Profit (loss) from operating activities 162.907 130.283'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Income Statement | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: resultado de explotación publicado = resultado antes de impuestos 130.064 − resultado financiero (597 − 1.966 + 15 + 1.135 = −219); incluye el deterioro del fondo de comercio (−3.520) y la diferencia negativa de combinaciones (10.889), con rótulos desplazados en la edición | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -422,7 +423,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Profit (loss) from operating activities 162.907 130.283",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -439,12 +440,12 @@
       "id": "h_beneficio",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 5] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit (loss), attributable to owners of parent 122.513 105.577'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Income Statement | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Profit (loss), attributable to owners of parent 122.513 105.577'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Income Statement | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -452,7 +453,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Profit (loss), attributable to owners of parent 122.513 105.577",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -499,12 +500,12 @@
       "id": "AR2020_p5_bai_2019",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 5] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit (loss) before tax 159.656 130.064'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Income Statement | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Profit (loss) before tax 159.656 130.064'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Income Statement | Period | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: cifra tal como se publica, de miles de euros a millones | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -512,7 +513,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Profit (loss) before tax 159.656 130.064",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -559,20 +560,20 @@
       "id": "h_minoritarios",
       "clase": "cero_comprobado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Closing balance at December 31, 2019 32.550 12 681.179 (6.487) 105.577 (30.127) 1.662 784.366 - 784.366'; encabezado: '2020 Consolidated Statement of Changes in Equity'; titulo pagina: '2020 Consolidated Statement of Changes in Equity | Components of equity | Equity | Equity attributab'; checks: fila=OK, columna=OK, unidad=OK, signo=NO_APLICA, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
+      "evidencia_contextual": "fila leida: 'Closing balance at December 31, 2019 32.550 12 681.179 (6.487) 105.577 (30.127) 1.662 784.366 - 784.366'; encabezado: '2020 Consolidated Statement of Changes in Equity'; titulo pagina: '2020 Consolidated Statement of Changes in Equity | Components of equity | Equity | Equity attributab'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=NO_APLICA, perimetro=OK, version=OK, reexpresion=CONFLICTO",
       "limites": "tratamiento: cero publicado como «-» en la columna de no dominantes (penúltima), con patrimonio total = atribuido a la dominante (784.366); el balance (p. 4) imprime también «-» | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó ",
+      "limites_contextuales": "columna: valor cero: la posicion no es decidible (sin mapeo posicional no hay OK) | reexpresion: declara no reexpresado (\"no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin r",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "OK",
+        "columna": "NO_DECIDIBLE",
         "unidad": "OK",
         "signo": "NO_APLICA",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_DECIDIBLE"
+        "reexpresion": "CONFLICTO"
       },
       "fila_leida": "Closing balance at December 31, 2019 32.550 12 681.179 (6.487) 105.577 (30.127) 1.662 784.366 - 784.366",
       "encabezado": "2020 Consolidated Statement of Changes in Equity",
@@ -589,15 +590,15 @@
       "id": "h_minoritarios",
       "clase": "cero_comprobado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Closing balance at December 31, 2020 32.550 12 651.076 (6.031) 122.513 (64.905) 1.031 736.246 - 736.246'; encabezado: '2020 Consolidated Statement of Changes in Equity'; titulo pagina: '2020 Consolidated Statement of Changes in Equity | Components of equity | Equity | Equity attributab'; checks: fila=OK, columna=OK, unidad=OK, signo=NO_APLICA, perimetro=OK, version=OK, reexpresion=OK",
+      "evidencia_contextual": "fila leida: 'Closing balance at December 31, 2020 32.550 12 651.076 (6.031) 122.513 (64.905) 1.031 736.246 - 736.246'; encabezado: '2020 Consolidated Statement of Changes in Equity'; titulo pagina: '2020 Consolidated Statement of Changes in Equity | Components of equity | Equity | Equity attributab'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=NO_APLICA, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: cero publicado como «-» en la columna de no dominantes (penúltima), con patrimonio total = atribuido (736.246); CF_2021 no tiene línea de no dominantes | reexpresado: no: se cita el informe de 2020 (ejercicio corriente); CF_2021 no presenta línea de no dominantes (ausencia) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "columna: valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "OK",
+        "columna": "NO_DECIDIBLE",
         "unidad": "OK",
         "signo": "NO_APLICA",
         "perimetro": "OK",
@@ -714,7 +715,7 @@
       "evidencia": "texto/AR_2020.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'Ajustment for amortization and depreciation cost 71.526 70.674'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of cash flows | Periodo | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: línea publicada (4.087 + 62.071 + 4.516 = 70.674, cuenta de resultados p. 5); sin deterioros | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó ",
+      "limites_contextuales": "reexpresion: el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -769,12 +770,12 @@
       "id": "AR2020_p8_var_acreedores_2019",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Adjustment for decrease (increase) of payables 11.389 -1.969'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of cash flows | Periodo | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Adjustment for decrease (increase) of payables 11.389 -1.969'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of cash flows | Periodo | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -782,7 +783,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Adjustment for decrease (increase) of payables 11.389 -1.969",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -799,12 +800,12 @@
       "id": "AR2020_p8_var_deudores_2019",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Adjustment for decrease (increase) of receivables -15.602 -6.919'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of cash flows | Periodo | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Adjustment for decrease (increase) of receivables -15.602 -6.919'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of cash flows | Periodo | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -812,7 +813,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Adjustment for decrease (increase) of receivables -15.602 -6.919",
       "encabezado": "(Thousands of euros) Notes 2020 2019",
@@ -829,12 +830,12 @@
       "id": "AR2020_p8_var_existencias_2019",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2020.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Adjustment for decrease (increase) of inventories -20.965 15.023'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of cash flows | Periodo | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Adjustment for decrease (increase) of inventories -20.965 15.023'; encabezado: '(Thousands of euros) Notes 2020 2019'; titulo pagina: 'Consolidated Statement of cash flows | Periodo | (Thousands of euros) Notes 2020 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -842,7 +843,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Adjustment for decrease (increase) of inventories -20.965 15.023",
       "encabezado": "(Thousands of euros) Notes 2020 2019",

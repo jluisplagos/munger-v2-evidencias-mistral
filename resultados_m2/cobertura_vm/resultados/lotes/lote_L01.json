@@ -13,8 +13,8 @@
   },
   "estados_contextuales": {
     "NO_APLICA": 24,
-    "REVISADO_CONTEXTUAL": 3,
-    "PENDIENTE_CONTEXTUAL": 3
+    "PENDIENTE_CONTEXTUAL": 3,
+    "CONFLICTO_CONTEXTUAL": 3
   },
   "entradas": [
     {
@@ -67,12 +67,12 @@
       "id": "capitalizacion",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"Análisis!C37\"] * o[\"Análisis!C55\"] -> 3169.9755058 (valor_modelo 3169.9755058, diff 0E-7)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: False; formula o[\"Análisis!C37\"] * o[\"Análisis!C55\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: False; formula o[\"Análisis!C37\"] * o[\"Análisis!C55\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capitalización = 90,10 € × 35,182858 millones de acciones en circulación = 3.169,9755 mm; la compañía da 3.172 mm sobre las acciones emitidas (ES 2025 p.97), un 0,07 % más por las 23.400 propias.",
-      "limites_contextuales": "unidades/escalas de los orígenes no homogeneas",
+      "limites_contextuales": "Análisis!C37: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | unidades/escalas de los orígenes no homogeneas",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -88,8 +88,9 @@
         "diferencia": "0E-7",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
+          "Análisis!C37: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "unidades/escalas de los orígenes no homogeneas"
         ]
       }
@@ -276,12 +277,12 @@
       "id": "N1.tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] + o[\"aux:impuesto_2024\"] / o[\"aux:bai_2024\"] + o[\"aux:impuesto_2025\"] / o[\"aux:bai_2025\"]) / 3 -> 0.2205413327698370246600604863 (valor_modelo 0.220541332769837, diff 2.46600604863E-17)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula (o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] + o[\"aux:impuesto_2024\"] / o[\"aux:bai_2024\"] + o[\"aux:impuesto_2025\"] / o[\"aux:bai_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual CONFLICTO_CONTEXTUAL; coherencia de unidades: True; formula (o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] + o[\"aux:impuesto_2024\"] / o[\"aux:bai_2024\"] + o[\"aux:impuesto_2025\"] / o[\"aux:bai_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. T1 (propuesta de la 4.7, D-N1 sin firmar) = media del tipo efectivo de continuadas 2023–2025 = (54,813÷268,649 + 64,968÷303,218 + 67,320÷276,661) ÷ 3 = (20,403 % + 21,426 % + 24,333 %) ÷ 3 = 22,0541 %. Coincide con t_rec de …_4_7_1/financiero/matriz.json; «con todas las líneas de la conciliación» significa que no se quita ninguna línea no recurrente.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:impuesto_2023: dimension columna no decidible (el valor declarado -54813 no esta en la fila ['(64,968)', '(54,813)'] (cabecera ['2024', '2023']); declarado ['2023']) | aux:impuesto_2024: dimension columna no decidible (el valor declarado -64968 no esta en la fila ['(67,320)', '(64,968)'] (cabecera ['2025', '2024']); declarado ['2024']) | aux:impuesto_2025: dimension columna no decidible (el valor declarado -67320 no esta en la fila ['(67,320)', '(64,968)'] (cabecera ['2025', '2024']); declarado ['2025'])",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -297,8 +298,12 @@
         "diferencia": "2.46600604863E-17",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "CONFLICTO_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:impuesto_2023: dimension columna no decidible (el valor declarado -54813 no esta en la fila ['(64,968)', '(54,813)'] (cabecera ['2024', '2023']); declarado ['2023'])",
+          "aux:impuesto_2024: dimension columna no decidible (el valor declarado -64968 no esta en la fila ['(67,320)', '(64,968)'] (cabecera ['2025', '2024']); declarado ['2024'])",
+          "aux:impuesto_2025: dimension columna no decidible (el valor declarado -67320 no esta en la fila ['(67,320)', '(64,968)'] (cabecera ['2025', '2024']); declarado ['2025'])"
+        ]
       }
     },
     {
@@ -329,12 +334,12 @@
       "id": "N2.margen",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: ((o[\"Historia!G7\"] - (o[\"aux:italia_bai_2020\"] - o[\"aux:italia_gto_fin_2020\"] - o[\"aux:italia_ing_fin_2020\"])) / (o[\"Historia!G6\"] - o[\"aux:italia_ingresos_2020\"]) + (o[\"Historia!H7\"] - (o[\"aux:italia_bai_2021\"] - o[\"aux:italia_gto_fin_2021\"])) / (o[\"Historia!H6\"] - o[\"aux:italia_ingresos_2021\"]) + (o[\"Historia!I7\"] - (o[\"aux:italia_bai_2022\"] - o[\"aux:italia_gto_fin_2022\"])) / (o[\"Historia!I6\"] - o[\"aux:italia_ingresos_2022\"]) + o[\"Historia!J7\"] / o[\"Historia!J6\"] + o[\"Historia!K7\"] / o[\"Historia!K6\"] + o[\"Historia!L7\"] / o[\"Historia!L6\"]) / 6 -> 0.185466721361995183870150322 (valor_modelo 0.18546672136199518, diff 3.870150322E-18)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula ((o[\"Historia!G7\"] - (o[\"aux:italia_bai_2020\"] - o[\"aux:italia_gto_fin_2020\"] - o[\"aux:italia_ing_fin_2020\"])) / (o[\"Historia!G6\"] - o[\"aux:italia_ingresos_2020\"]) + (o[\"Historia!H7\"] - (o[\"aux:italia_bai_2021\"] - o[\"aux:italia_gto_fin_2021\"])) / (o[\"Historia!H6\"] - o[\"aux:italia_ingresos_2021\"]) + (o[\"Historia!I7\"] - (o[\"aux:italia_bai_2022\"] - o[\"aux:italia_gto_fin_2022\"])) / (o[\"Historia!I6\"] - o[\"aux:italia_ingresos_2022\"]) + o[\"Historia!J7\"] / o[\"Historia!J6\"] + o[\"Historia!K7\"] / o[\"Historia!K6\"] + o[\"Historia!L7\"] / o[\"Historia!L6\"]) / 6 (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula ((o[\"Historia!G7\"] - (o[\"aux:italia_bai_2020\"] - o[\"aux:italia_gto_fin_2020\"] - o[\"aux:italia_ing_fin_2020\"])) / (o[\"Historia!G6\"] - o[\"aux:italia_ingresos_2020\"]) + (o[\"Historia!H7\"] - (o[\"aux:italia_bai_2021\"] - o[\"aux:italia_gto_fin_2021\"])) / (o[\"Historia!H6\"] - o[\"aux:italia_ingresos_2021\"]) + (o[\"Historia!I7\"] - (o[\"aux:italia_bai_2022\"] - o[\"aux:italia_gto_fin_2022\"])) / (o[\"Historia!I6\"] - o[\"aux:italia_ingresos_2022\"]) + o[\"Historia!J7\"] / o[\"Historia!J6\"] + o[\"Historia!K7\"] / o[\"Historia!K6\"] + o[\"Historia!L7\"] / o[\"Historia!L6\"]) / 6 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. M1 (propuesta de la 4.7, D-N2 sin firmar) = media 2020–2025 del margen EBIT de continuadas: 2020–2022 = (EBIT consolidado − EBIT aproximado de Italia) ÷ (ventas − ingresos de Italia), con EBIT de Italia = BAI del segmento − gastos financieros − ingresos financieros (2020: 9,833 + 1,271 − 22 = 11,082; 2021: 2,905 + 1,691 = 4,596; 2022: 4,421 + 1,600 = 6,021; ingresos financieros de Italia «-» en 2021 y 2022); 2023–2025 = Historia J, K y L. Márgenes: 19,996 %, 17,394 %, 14,375 %, 18,740 %, 20,841 %, 19,934 % → 18,5467 %. Aproximaciones declaradas: los ingresos del segmento incluyen servicios; el EBIT del segmento se reconstruye desde su BAI.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:italia_ingresos_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional) | aux:italia_bai_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional) | aux:italia_gto_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional) | aux:italia_ing_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional) | Historia!G6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional) | aux:italia_ingresos_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional) | aux:italia_bai_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional) | aux:italia_gto_fin_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional) | Historia!H6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional) | aux:italia_ingresos_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional) | aux:italia_bai_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional) | aux:italia_gto_fin_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional) | Historia!I6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional) | Historia!J6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional) | Historia!K6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional) | Historia!L6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -350,8 +355,25 @@
         "diferencia": "3.870150322E-18",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:italia_ingresos_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+          "aux:italia_bai_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+          "aux:italia_gto_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+          "aux:italia_ing_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+          "Historia!G6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+          "aux:italia_ingresos_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+          "aux:italia_bai_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+          "aux:italia_gto_fin_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+          "Historia!H6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+          "aux:italia_ingresos_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+          "aux:italia_bai_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+          "aux:italia_gto_fin_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+          "Historia!I6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional)",
+          "Historia!J6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional)",
+          "Historia!K6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
+          "Historia!L6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)"
+        ]
       }
     },
     {
@@ -624,12 +646,12 @@
       "id": "h_tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:impuesto_2016\"] / o[\"aux:bai_2016\"] -> 0.1967071057192374350086655113 (valor_modelo 0.1967, diff 0.0000071057192374350086655113)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2016\"] / o[\"aux:bai_2016\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual CONFLICTO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2016\"] / o[\"aux:bai_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. tipo efectivo = gasto por impuesto ÷ resultado antes de impuestos del mismo estado (consolidado); el libro redondea a 4 decimales: 0.1967",
-      "limites_contextuales": "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+      "limites_contextuales": "aux:impuesto_2016: dimension columna no decidible (el valor declarado -16571 no esta en la fila ['(20,616)', '(16,571)'] (cabecera ['2017', '2016']); declarado ['2016']) | aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -645,8 +667,9 @@
         "diferencia": "0.0000071057192374350086655113",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "estado_contextual": "CONFLICTO_CONTEXTUAL",
         "limites_contextuales": [
+          "aux:impuesto_2016: dimension columna no decidible (el valor declarado -16571 no esta en la fila ['(20,616)', '(16,571)'] (cabecera ['2017', '2016']); declarado ['2016'])",
           "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
           "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
         ]
@@ -658,12 +681,12 @@
       "id": "h_capex",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2016\"] + o[\"aux:capex_int_2016\"] -> 54.904 (valor_modelo 54.904, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2016\"] + o[\"aux:capex_int_2016\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual CONFLICTO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2016\"] + o[\"aux:capex_int_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 51.364 + 3.540 = 54.904 mm. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
-      "limites_contextuales": "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+      "limites_contextuales": "aux:capex_mat_2016: dimension columna no decidible (el valor declarado -51364 no esta en la fila ['(86,479)', '(51,364)'] (cabecera ['2017', '2016']); declarado ['2016']) | aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | aux:capex_int_2016: dimension columna no decidible (el valor declarado -3540 no esta en la fila ['(2,541)', '(3,540)'] (cabecera ['2017', '2016']); declarado ['2016']) | aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -679,9 +702,11 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "estado_contextual": "CONFLICTO_CONTEXTUAL",
         "limites_contextuales": [
+          "aux:capex_mat_2016: dimension columna no decidible (el valor declarado -51364 no esta en la fila ['(86,479)', '(51,364)'] (cabecera ['2017', '2016']); declarado ['2016'])",
           "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+          "aux:capex_int_2016: dimension columna no decidible (el valor declarado -3540 no esta en la fila ['(2,541)', '(3,540)'] (cabecera ['2017', '2016']); declarado ['2016'])",
           "aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
         ]
       }

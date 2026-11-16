@@ -31,7 +31,14 @@ def main():
     pdfs = indice['pdf_candidatos']
     pdf_by_sha = {p['sha256']: p for p in pdfs}
 
-    from pypdf import PdfReader
+    try:
+        import pypdf
+        from pypdf import PdfReader
+    except ImportError as e:
+        sys.exit('asociacion_pdf.py requiere pypdf (ejecutar con PYTHONPATH=.trabajo/pylibs); error: ' + str(e))
+    _v = tuple(int(x) for x in pypdf.__version__.split('.')[:2] if x.isdigit())
+    if _v < (6, 0):
+        sys.exit(f'asociacion_pdf.py requiere pypdf >= 6.0 (probado con 7.1.0); version instalada: {pypdf.__version__}')
     pdf_pages_cache = {}
 
     def pdf_pages(pdf_item):

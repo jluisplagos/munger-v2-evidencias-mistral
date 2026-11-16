@@ -155,3 +155,12 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 ## Commit congelado de esta ronda (d375d80)
 
 - `615b29241bf2e886f1ee344bef3867e894c563ab` en `mistral/m2-cobertura-vm`, publicado en origin (verificado con `git ls-remote`: HEAD local = remoto). Rama de revisión `revision/chatgpt-a-d-20261116` leída solo con `git fetch` + `git show`, sin fusionar. Diff respecto a la base revisada `0224b71` confinado a `resultados_m2/cobertura_vm/` (comprobado con `git diff --name-only 0224b71..HEAD`).
+
+## Correccion A2 (control coordinacion/cierre-v2 @ 8b8c9c1, A2-R1..R5) — v4.0 ejecutada
+
+- Encargo leido con `git fetch origin coordinacion/cierre-v2` + `git show 8b8c9c17481abfa3c5e94e8a7906b4bcc6897715:coordinacion/cierre_v2/revisiones_coordinador/A_2c41d68/{CORRECCION_A2.md,REVISION_A_2c41d68.md}` (sin fusionar). A-CTX = CORRECCIONES sobre 2c41d68; base publicada corregida: `9d676ce`.
+- v4.0 en `verificar_contexto.py`: A2-R1 columna posicional estricta; A2-R2 reexpresion reescrita (rotulo completo, sin atajo de cita, no-claim+differ -> CONFLICTO, SOLO_SIGNO aparte); A2-R3 pagina manda sobre cabecera y "thousands" solo euros; A2-R4 YEAR_RE con limites de palabra + cabecera sin importes + version no por importe. `control_cobertura.py` exige propagacion exacta del estado_contextual a los 101 derivados (CONFLICTO se propaga per A2-R2).
+- A2-R5: `generar_recuentos_doc.py` -> `resultados/RECUENTOS_VIGENTES.md` + bloque generado en `MAPA_REGENERACION.md`; motivo `aux:AR2025_p27_pagos_acciones_2024` corregido (HALLAZGOS §11: CF_2024 p.9 fila 414 columna 2024 = 2,001, misma fila/columna); `COMANDOS.md`; guard pypdf>=6.0 en `asociacion_pdf.py`.
+- Resultados regenerados en un pase: fuentes 148 REVISADO / 183 PENDIENTE / 93 CONFLICTO / 43 REUTIL / 210 NO_APLICA; CSV 677 = **169 REVISADO / 209 PENDIENTE / 133 CONFLICTO / 60 REUTILIZADO_M1 / 106 NO_APLICA**; mecanicos sin cambio; `control_cobertura.py` **PASS 0 violaciones exit 0**; negativos 218 (149 ctx/40 mec), bilaterales 15/15, sondas revisor 5/5 CONFLICTO.
+- Cambios de estado vs `9d676ce` generados: `resultados/cambios_estado_a2_v4.json` (230 fuentes / 286 filas CSV; transiciones listadas anterior->nuevo). Ver `RESPUESTA_A2_CIERRE_V2.md`, `HALLAZGOS.md` §15, `ENTREGA.json`, `COMANDOS.md`.
+- Pendiente: revision de A-CTX por Claude sobre v4.0; bloque 2 del cierre sigue con su cola (`cola_pendientes.json`); G-MANUAL solo si CONTROL.json lo asigna.

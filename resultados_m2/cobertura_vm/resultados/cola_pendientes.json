@@ -1,20 +1,20 @@
 {
   "nota": "Cola del bloque 2. Prioridad = materialidad declarada + derivados materiales dependientes (transitivamente) + usuarios; no es una política económica. Resolver con evidencia o dejar pendiente con motivo.",
-  "total_fuentes_pendientes": 66,
-  "total_derivados_pendientes": 17,
-  "grupos_documento_pagina": 31,
+  "total_fuentes_pendientes": 183,
+  "total_derivados_pendientes": 26,
+  "grupos_documento_pagina": 89,
   "cola": [
     {
-      "empresa": "Vidrala",
-      "archivo": "texto/CF_2017.txt",
-      "pagina": 11,
+      "empresa": "Viscofan",
+      "archivo": "texto/CA_2023_es.txt",
+      "pagina": 4,
       "n_pendientes": 6,
-      "prioridad": 661,
+      "prioridad": 650,
       "entradas": [
         {
-          "empresa": "Vidrala",
-          "celda": "aux:bai_2016",
-          "id": "aux:bai_2016",
+          "empresa": "Viscofan",
+          "celda": "aux:CA2023_p4_bai_2022",
+          "id": "CA2023_p4_bai_2022",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -23,16 +23,16 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 2,
           "usuarios_totales": 2
         },
         {
-          "empresa": "Vidrala",
-          "celda": "aux:gto_fin_2016",
-          "id": "aux:gto_fin_2016",
+          "empresa": "Viscofan",
+          "celda": "aux:CA2023_p4_impuesto_2022",
+          "id": "CA2023_p4_impuesto_2022",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -41,51 +41,33 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
-          "derivados_materiales_dependientes": 1,
-          "usuarios_totales": 1
+          "derivados_materiales_dependientes": 2,
+          "usuarios_totales": 2
         },
         {
-          "empresa": "Vidrala",
-          "celda": "aux:impuesto_2016",
-          "id": "aux:impuesto_2016",
+          "empresa": "Viscofan",
+          "celda": "Historia!I5",
+          "id": "h_anios",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "fila sin valores numericos que mapear"
             ]
           },
-          "derivados_materiales_dependientes": 1,
-          "usuarios_totales": 1
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
         },
         {
-          "empresa": "Vidrala",
-          "celda": "aux:ing_fin_2016",
-          "id": "aux:ing_fin_2016",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
-            ]
-          },
-          "derivados_materiales_dependientes": 1,
-          "usuarios_totales": 1
-        },
-        {
-          "empresa": "Vidrala",
-          "celda": "Historia!C6",
+          "empresa": "Viscofan",
+          "celda": "Historia!I6",
           "id": "h_ventas",
           "clase": "dato_publicado",
           "material_declarada": "True",
@@ -95,15 +77,33 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 0,
           "usuarios_totales": 0
         },
         {
-          "empresa": "Vidrala",
-          "celda": "Historia!C9",
+          "empresa": "Viscofan",
+          "celda": "Historia!I7",
+          "id": "h_ebit",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!I9",
           "id": "h_beneficio",
           "clase": "dato_publicado",
           "material_declarada": "True",
@@ -113,124 +113,7 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
-            ]
-          },
-          "derivados_materiales_dependientes": 0,
-          "usuarios_totales": 0
-        }
-      ]
-    },
-    {
-      "empresa": "Vidrala",
-      "archivo": "texto/CF_2017.txt",
-      "pagina": 14,
-      "n_pendientes": 6,
-      "prioridad": 628,
-      "entradas": [
-        {
-          "empresa": "Vidrala",
-          "celda": "aux:capex_int_2016",
-          "id": "aux:capex_int_2016",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
-            ]
-          },
-          "derivados_materiales_dependientes": 1,
-          "usuarios_totales": 1
-        },
-        {
-          "empresa": "Vidrala",
-          "celda": "aux:capex_mat_2016",
-          "id": "aux:capex_mat_2016",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
-            ]
-          },
-          "derivados_materiales_dependientes": 1,
-          "usuarios_totales": 1
-        },
-        {
-          "empresa": "Vidrala",
-          "celda": "Historia!C13",
-          "id": "h_adquisiciones",
-          "clase": "cero_comprobado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
-            ]
-          },
-          "derivados_materiales_dependientes": 0,
-          "usuarios_totales": 0
-        },
-        {
-          "empresa": "Vidrala",
-          "celda": "Historia!C14",
-          "id": "h_circulante",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
-            ]
-          },
-          "derivados_materiales_dependientes": 0,
-          "usuarios_totales": 0
-        },
-        {
-          "empresa": "Vidrala",
-          "celda": "Historia!C15",
-          "id": "h_intereses",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
-            ]
-          },
-          "derivados_materiales_dependientes": 0,
-          "usuarios_totales": 0
-        },
-        {
-          "empresa": "Vidrala",
-          "celda": "Historia!C8",
-          "id": "h_da",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -240,15 +123,15 @@
     },
     {
       "empresa": "Viscofan",
-      "archivo": "texto/AR_2017.txt",
-      "pagina": 12,
+      "archivo": "texto/CA_2023_es.txt",
+      "pagina": 8,
       "n_pendientes": 6,
-      "prioridad": 628,
+      "prioridad": 639,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "aux:AR2017_p12_amort_intangible_2016",
-          "id": "AR2017_p12_amort_intangible_2016",
+          "celda": "aux:CA2023_p8_var_acreedores_2022",
+          "id": "CA2023_p8_var_acreedores_2022",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -257,7 +140,7 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -265,8 +148,8 @@
         },
         {
           "empresa": "Viscofan",
-          "celda": "aux:AR2017_p12_amort_material_2016",
-          "id": "AR2017_p12_amort_material_2016",
+          "celda": "aux:CA2023_p8_var_deudores_2022",
+          "id": "CA2023_p8_var_deudores_2022",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -275,7 +158,7 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -283,7 +166,25 @@
         },
         {
           "empresa": "Viscofan",
-          "celda": "Historia!C12",
+          "celda": "aux:CA2023_p8_var_existencias_2022",
+          "id": "CA2023_p8_var_existencias_2022",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!I12",
           "id": "h_capex",
           "clase": "dato_publicado",
           "material_declarada": "True",
@@ -293,7 +194,7 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -301,43 +202,7 @@
         },
         {
           "empresa": "Viscofan",
-          "celda": "Historia!C13",
-          "id": "h_adquisiciones",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
-            ]
-          },
-          "derivados_materiales_dependientes": 0,
-          "usuarios_totales": 0
-        },
-        {
-          "empresa": "Viscofan",
-          "celda": "Historia!C14",
-          "id": "h_circulante",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
-            ]
-          },
-          "derivados_materiales_dependientes": 0,
-          "usuarios_totales": 0
-        },
-        {
-          "empresa": "Viscofan",
-          "celda": "Historia!C15",
+          "celda": "Historia!I15",
           "id": "h_intereses",
           "clase": "dato_publicado",
           "material_declarada": "True",
@@ -347,7 +212,25 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!I8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -456,15 +339,15 @@
     },
     {
       "empresa": "Viscofan",
-      "archivo": "texto/AR_2019.txt",
-      "pagina": 11,
+      "archivo": "texto/CA_2023_es.txt",
+      "pagina": 3,
       "n_pendientes": 5,
       "prioridad": 549,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "aux:AR2019_p11_derechos_uso_c_2018",
-          "id": "AR2019_p11_derechos_uso_c_2018",
+          "celda": "aux:CA2023_p3_arrend_cp_2022",
+          "id": "CA2023_p3_arrend_cp_2022",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -473,7 +356,7 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], valores linea [], bloque [])"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -481,8 +364,8 @@
         },
         {
           "empresa": "Viscofan",
-          "celda": "aux:AR2019_p11_derechos_uso_nc_2018",
-          "id": "AR2019_p11_derechos_uso_nc_2018",
+          "celda": "aux:CA2023_p3_arrend_lp_2022",
+          "id": "CA2023_p3_arrend_lp_2022",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -491,7 +374,7 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], valores linea [], bloque [])"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -499,8 +382,8 @@
         },
         {
           "empresa": "Viscofan",
-          "celda": "aux:AR2019_p11_pasivo_fin_c_2018",
-          "id": "AR2019_p11_pasivo_fin_c_2018",
+          "celda": "aux:CA2023_p3_pasivo_fin_c_2022",
+          "id": "CA2023_p3_pasivo_fin_c_2022",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -509,7 +392,7 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23)); el original IA_2018_es.txt imprime 56.971 en la columna 2018 y el comparativo cita 78412: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2018 en el informe original o nota citada)"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -517,8 +400,8 @@
         },
         {
           "empresa": "Viscofan",
-          "celda": "aux:AR2019_p11_pasivo_fin_nc_2018",
-          "id": "AR2019_p11_pasivo_fin_nc_2018",
+          "celda": "aux:CA2023_p3_pasivo_fin_nc_2022",
+          "id": "CA2023_p3_pasivo_fin_nc_2022",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -527,7 +410,7 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF 16 se aplicó desde el 1-ene-2019 sin reexpresar comparativos (AR_2019 p. 23)); el original IA_2018_es.txt imprime 56.971 en la columna 2018 y el comparativo cita 56449: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2018 en el informe original o nota citada)"
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -535,8 +418,8 @@
         },
         {
           "empresa": "Viscofan",
-          "celda": "Historia!E26",
-          "id": "h_minoritarios",
+          "celda": "Historia!I21",
+          "id": "h_patrimonio",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -545,7 +428,210 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible"
+              "la fila con rotulo completo aparece en CF_2022_compilacion.txt (linea 874) pero la columna 2022 no se puede mapear 1:1 (columnas ['2018', '2020'], valores [])"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/CF_2024.txt",
+      "pagina": 9,
+      "n_pendientes": 5,
+      "prioridad": 539,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:CF2024_p9_var_acreedores_2023",
+          "id": "CF2024_p9_var_acreedores_2023",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:CF2024_p9_var_deudores_2023",
+          "id": "CF2024_p9_var_deudores_2023",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:CF2024_p9_var_existencias_2023",
+          "id": "CF2024_p9_var_existencias_2023",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!J13",
+          "id": "h_adquisiciones",
+          "clase": "cero_comprobado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!J8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/CF_2024.txt",
+      "pagina": 4,
+      "n_pendientes": 5,
+      "prioridad": 527,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:CF2024_p4_bai_2023",
+          "id": "CF2024_p4_bai_2023",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 2,
+          "usuarios_totales": 2
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!J5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!J6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CA_2023_es.txt (linea 3596) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], valores [])"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!J7",
+          "id": "h_ebit",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!J9",
+          "id": "h_beneficio",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CA_2023_es.txt (linea 3747) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], valores ['140,962'])"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -558,7 +644,7 @@
       "archivo": "texto/AR_2017.txt",
       "pagina": 8,
       "n_pendientes": 5,
-      "prioridad": 527,
+      "prioridad": 516,
       "entradas": [
         {
           "empresa": "Viscofan",
@@ -580,21 +666,21 @@
         },
         {
           "empresa": "Viscofan",
-          "celda": "aux:AR2017_p8_impuesto_2016",
-          "id": "AR2017_p8_impuesto_2016",
+          "celda": "Historia!C5",
+          "id": "h_anios",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "fila sin valores numericos que mapear"
             ]
           },
-          "derivados_materiales_dependientes": 1,
-          "usuarios_totales": 1
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
         },
         {
           "empresa": "Viscofan",
@@ -655,14 +741,14 @@
     {
       "empresa": "Viscofan",
       "archivo": "texto/IA_2018_es.txt",
-      "pagina": 104,
-      "n_pendientes": 4,
-      "prioridad": 448,
+      "pagina": 24,
+      "n_pendientes": 5,
+      "prioridad": 516,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "aux:IA2018_p104_arrend_financiero_2017",
-          "id": "IA2018_p104_arrend_financiero_2017",
+          "celda": "aux:IA2018_p24_bai_2017",
+          "id": "IA2018_p24_bai_2017",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -671,7 +757,111 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible"
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!D5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!D6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!D7",
+          "id": "h_ebit",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!D9",
+          "id": "h_beneficio",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/IA_2018_es.txt",
+      "pagina": 104,
+      "n_pendientes": 4,
+      "prioridad": 451,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:IA2018_p104_arrend_financiero_2017",
+          "id": "IA2018_p104_arrend_financiero_2017",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla)"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -684,12 +874,17 @@
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
+            "columna",
             "reexpresion"
           ],
           "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla)"
+            ],
             "reexpresion": [
               "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reexpresión declarada); el original AR_2017.txt imprime 6,517 en la columna 2017 y el comparativo cita 68832: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2017 en el informe original o nota citada)"
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -702,12 +897,17 @@
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
+            "columna",
             "reexpresion"
           ],
           "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla)"
+            ],
             "reexpresion": [
               "NO_DECIDIBLE",
-              "el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible"
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -720,12 +920,12 @@
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usa la fase 1); sin reexpresión declarada; misma cifra que AR_2017 p. 83 («Other financial liabilities 7,363 5,429 8,617 3,039 24,448 24,448»)); el original AR_2017.txt imprime 74,336 en la columna 2017 y el comparativo cita 24448: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2017 en el informe original o nota citada)"
+              "años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla)"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -735,15 +935,96 @@
     },
     {
       "empresa": "Vidrala",
-      "archivo": "texto/CF_2019.txt",
-      "pagina": 12,
-      "n_pendientes": 2,
-      "prioridad": 235,
+      "archivo": "texto/CF_2020.txt",
+      "pagina": 39,
+      "n_pendientes": 4,
+      "prioridad": 448,
       "entradas": [
         {
           "empresa": "Vidrala",
-          "celda": "aux:capex_mat_2018",
-          "id": "aux:capex_mat_2018",
+          "celda": "aux:italia_bai_2020",
+          "id": "aux:italia_bai_2020",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:italia_gto_fin_2020",
+          "id": "aux:italia_gto_fin_2020",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:italia_ing_fin_2020",
+          "id": "aux:italia_ing_fin_2020",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:italia_ingresos_2020",
+          "id": "aux:italia_ingresos_2020",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2017.txt",
+      "pagina": 11,
+      "n_pendientes": 4,
+      "prioridad": 437,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:bai_2016",
+          "id": "aux:bai_2016",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -752,7 +1033,7 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no (CF_2018 p.13: (99,541) y (2,245))); el original CF_2018.txt imprime 2,428 en la columna 2018 y el comparativo cita -99541: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2018 en el informe original o nota citada)"
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
             ]
           },
           "derivados_materiales_dependientes": 2,
@@ -760,8 +1041,8 @@
         },
         {
           "empresa": "Vidrala",
-          "celda": "aux:otros_inv_2018",
-          "id": "aux:otros_inv_2018",
+          "celda": "aux:ing_fin_2016",
+          "id": "aux:ing_fin_2016",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -770,7 +1051,508 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no (CF_2018 p.13: 13)); el original CF_2018.txt imprime 25,136 en la columna 2018 y el comparativo cita 13: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2018 en el informe original o nota citada)"
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!C6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!C9",
+          "id": "h_beneficio",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2020.txt",
+      "pagina": 8,
+      "n_pendientes": 4,
+      "prioridad": 437,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2020_p8_var_acreedores_2019",
+          "id": "AR2020_p8_var_acreedores_2019",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2020_p8_var_deudores_2019",
+          "id": "AR2020_p8_var_deudores_2019",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2020_p8_var_existencias_2019",
+          "id": "AR2020_p8_var_existencias_2019",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!F8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2025.txt",
+      "pagina": 7,
+      "n_pendientes": 4,
+      "prioridad": 429,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:adq_puesta_equivalencia_2024",
+          "id": "aux:adq_puesta_equivalencia_2024",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CF_2024.txt (linea 301) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2023'], valores ['(6,000)'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:venta_dependientes_2024",
+          "id": "aux:venta_dependientes_2024",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!K8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:otros_efectos_venta_2024",
+          "id": "aux:otros_efectos_venta_2024",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CF_2024.txt (linea 303) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2023'], valores ['11,668'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2020.txt",
+      "pagina": 5,
+      "n_pendientes": 4,
+      "prioridad": 415,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2020_p5_bai_2019",
+          "id": "AR2020_p5_bai_2019",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!F5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!F7",
+          "id": "h_ebit",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!F9",
+          "id": "h_beneficio",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2025.txt",
+      "pagina": 23,
+      "n_pendientes": 4,
+      "prioridad": 404,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Control maestro!H4",
+          "id": "moneda_modelo",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!K5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!K6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!L5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2021.txt",
+      "pagina": 30,
+      "n_pendientes": 3,
+      "prioridad": 336,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:italia_bai_2021",
+          "id": "aux:italia_bai_2021",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:italia_gto_fin_2021",
+          "id": "aux:italia_gto_fin_2021",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:italia_ingresos_2021",
+          "id": "aux:italia_ingresos_2021",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2022.txt",
+      "pagina": 30,
+      "n_pendientes": 3,
+      "prioridad": 336,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:italia_bai_2022",
+          "id": "aux:italia_bai_2022",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:italia_gto_fin_2022",
+          "id": "aux:italia_gto_fin_2022",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:italia_ingresos_2022",
+          "id": "aux:italia_ingresos_2022",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -780,10 +1562,728 @@
     },
     {
       "empresa": "Viscofan",
+      "archivo": "texto/CF_2024.txt",
+      "pagina": 3,
+      "n_pendientes": 3,
+      "prioridad": 326,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:CF2024_p3_arrend_cp_2023",
+          "id": "CF2024_p3_arrend_cp_2023",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CA_2023_es.txt (linea 1249) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], valores [])"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:CF2024_p3_arrend_lp_2023",
+          "id": "CF2024_p3_arrend_lp_2023",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CA_2023_es.txt (linea 1249) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], valores [])"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!J26",
+          "id": "h_minoritarios",
+          "clase": "cero_comprobado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CA_2023_es.txt (linea 1119) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], valores [])"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2017.txt",
+      "pagina": 12,
+      "n_pendientes": 3,
+      "prioridad": 325,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2017_p12_amort_intangible_2016",
+          "id": "AR2017_p12_amort_intangible_2016",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2017_p12_amort_material_2016",
+          "id": "AR2017_p12_amort_material_2016",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!C13",
+          "id": "h_adquisiciones",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2019.txt",
+      "pagina": 11,
+      "n_pendientes": 3,
+      "prioridad": 325,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2019_p11_pasivo_fin_c_2018",
+          "id": "AR2019_p11_pasivo_fin_c_2018",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el rotulo completo de la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2019_p11_pasivo_fin_nc_2018",
+          "id": "AR2019_p11_pasivo_fin_nc_2018",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el rotulo completo de la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!E26",
+          "id": "h_minoritarios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2019', '2018']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2020.txt",
+      "pagina": 4,
+      "n_pendientes": 3,
+      "prioridad": 325,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2020_p4_arrend_cp_2019",
+          "id": "AR2020_p4_arrend_cp_2019",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2020_p4_arrend_lp_2019",
+          "id": "AR2020_p4_arrend_lp_2019",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!F21",
+          "id": "h_patrimonio",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2025.txt",
+      "pagina": 22,
+      "n_pendientes": 3,
+      "prioridad": 325,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2025_p22_arrend_cp_2024",
+          "id": "AR2025_p22_arrend_cp_2024",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2025_p22_arrend_lp_2024",
+          "id": "AR2025_p22_arrend_lp_2024",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!K26",
+          "id": "h_minoritarios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/CF_2022_compilacion.txt",
+      "pagina": 21,
+      "n_pendientes": 3,
+      "prioridad": 325,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:CF2022_p21_bai_2021",
+          "id": "CF2022_p21_bai_2021",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 2,
+          "usuarios_totales": 2
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!H5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!H6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2023.txt",
+      "pagina": 7,
+      "n_pendientes": 3,
+      "prioridad": 316,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:circ_2022_l5",
+          "id": "aux:circ_2022_l5",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2022.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!I13",
+          "id": "h_adquisiciones",
+          "clase": "cero_comprobado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2022.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!I8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2022.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/CF_2022_compilacion.txt",
+      "pagina": 25,
+      "n_pendientes": 3,
+      "prioridad": 314,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:CF2022_p25_var_acreedores_2021",
+          "id": "CF2022_p25_var_acreedores_2021",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!H8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!I13",
+          "id": "h_adquisiciones",
+          "clase": "cero_comprobado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2017.txt",
+      "pagina": 14,
+      "n_pendientes": 3,
+      "prioridad": 305,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!C13",
+          "id": "h_adquisiciones",
+          "clase": "cero_comprobado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!C8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2017', '2016']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!D13",
+          "id": "h_adquisiciones",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2017', '2016']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2025.txt",
+      "pagina": 2,
+      "n_pendientes": 3,
+      "prioridad": 303,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Control maestro!H4",
+          "id": "moneda_modelo",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!K5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!L5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2025.txt",
+      "pagina": 46,
+      "n_pendientes": 3,
+      "prioridad": 303,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Configuración V6.4!B44",
+          "id": "PM1.cartera",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 5 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Configuración V6.4!B45",
+          "id": "PM1.cartera",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 8 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Configuración V6.4!B50",
+          "id": "PM1.cartera",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 5 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
       "archivo": "texto/AR_2017.txt",
       "pagina": 83,
       "n_pendientes": 2,
-      "prioridad": 224,
+      "prioridad": 226,
       "entradas": [
         {
           "empresa": "Viscofan",
@@ -792,9 +2292,14 @@
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
+            "columna",
             "reexpresion"
           ],
           "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "años declarados ['2016'] no figuran en la pagina ['2017'] (fila no tabular o año fuera de tabla)"
+            ],
             "reexpresion": [
               "NO_DECIDIBLE",
               "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
@@ -810,9 +2315,14 @@
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
+            "columna",
             "reexpresion"
           ],
           "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 7 valores no alineable 1:1 con 1 columnas ['2017']: sin mapeo posicional"
+            ],
             "reexpresion": [
               "NO_DECIDIBLE",
               "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
@@ -826,23 +2336,28 @@
     {
       "empresa": "Vidrala",
       "archivo": "texto/CF_2025.txt",
-      "pagina": 7,
+      "pagina": 52,
       "n_pendientes": 2,
-      "prioridad": 213,
+      "prioridad": 225,
       "entradas": [
         {
           "empresa": "Vidrala",
-          "celda": "aux:adq_puesta_equivalencia_2024",
-          "id": "aux:adq_puesta_equivalencia_2024",
+          "celda": "Historia!K23",
+          "id": "h_arrend",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
+            "columna",
             "reexpresion"
           ],
           "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ],
             "reexpresion": [
               "NO_DECIDIBLE",
-              "el valor -6000 figura en CF_2024.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2024 mapeable 1:1 (la fila encontrada imprime (8,737) en la columna 2024): ambiguedad de fila/columna, no OK"
+              "el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -850,8 +2365,35 @@
         },
         {
           "empresa": "Vidrala",
-          "celda": "aux:otros_efectos_venta_2024",
-          "id": "aux:otros_efectos_venta_2024",
+          "celda": "Historia!L23",
+          "id": "h_arrend",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/IA_2018_es.txt",
+      "pagina": 28,
+      "n_pendientes": 2,
+      "prioridad": 224,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:IA2018_p28_amort_intangible_2017",
+          "id": "IA2018_p28_amort_intangible_2017",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -860,7 +2402,365 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "el valor 11668 figura en CF_2024.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2024 mapeable 1:1 (la fila encontrada imprime 230,000 en la columna 2024): ambiguedad de fila/columna, no OK"
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:IA2018_p28_amort_material_2017",
+          "id": "IA2018_p28_amort_material_2017",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2018.txt",
+      "pagina": 10,
+      "n_pendientes": 2,
+      "prioridad": 213,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:ing_fin_2017",
+          "id": "aux:ing_fin_2017",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CF_2017.txt (linea 153) pero la columna 2017 no se puede mapear 1:1 (columnas ['2017', '2016'], valores ['1,964'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!D6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2018', '2017']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/ES_2025_informacion_financiera_consolidada.txt",
+      "pagina": 97,
+      "n_pendientes": 2,
+      "prioridad": 213,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Análisis!C37",
+          "id": "precio",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "sin linea de columnas de encabezado identificable en la pagina"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Palancas!C48",
+          "id": "moneda_cotizacion",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "sin linea de columnas de encabezado identificable en la pagina"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2020.txt",
+      "pagina": 13,
+      "n_pendientes": 2,
+      "prioridad": 204,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!F8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:amort_2019",
+          "id": "aux:amort_2019",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2024.txt",
+      "pagina": 7,
+      "n_pendientes": 2,
+      "prioridad": 204,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!J13",
+          "id": "h_adquisiciones",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CF_2023.txt (linea 295) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], valores ['(254,086)'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!J8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el rotulo completo de la partida no se localiza en los textos conservados del año 2023 (['CF_2023.txt'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2025.txt",
+      "pagina": 71,
+      "n_pendientes": 2,
+      "prioridad": 203,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!K25",
+          "id": "h_pensiones",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 5 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CF_2024.txt (linea 2652) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2023'], valores ['1,722', '83,656', '12,236', '36,927', '275,144', '410,310'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!L25",
+          "id": "h_pensiones",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 5 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2017.txt",
+      "pagina": 9,
+      "n_pendientes": 2,
+      "prioridad": 202,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!C24",
+          "id": "h_caja",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!C5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2017', '2016']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2020.txt",
+      "pagina": 10,
+      "n_pendientes": 2,
+      "prioridad": 202,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!F6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!F7",
+          "id": "h_ebit",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el rotulo completo de la partida no se localiza en los textos conservados del año 2019 (['CF_2019.txt'])"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -915,24 +2815,24 @@
     },
     {
       "empresa": "Viscofan",
-      "archivo": "texto/CF_2022_compilacion.txt",
-      "pagina": 25,
+      "archivo": "texto/CF_2021.txt",
+      "pagina": 4,
       "n_pendientes": 2,
       "prioridad": 202,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "Historia!H13",
-          "id": "h_adquisiciones",
-          "clase": "cero_comprobado",
+          "celda": "Historia!G5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin reexpresión declarada); el original CF_2021.txt imprime 132,975 en la columna 2021 y el comparativo cita 0: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2021 en el informe original o nota citada)"
+              "fila sin valores numericos que mapear"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -940,8 +2840,8 @@
         },
         {
           "empresa": "Viscofan",
-          "celda": "Historia!H15",
-          "id": "h_intereses",
+          "celda": "Historia!G7",
+          "id": "h_ebit",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -950,7 +2850,52 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "la fila aparece en CF_2021.txt (linea 301) pero la columna 2021 no se puede mapear 1:1 (columnas ['2021', '2020'], valores linea ['−1,800'], bloque ['−1,800', '−5,123', '−4,833', '−3,519'])"
+              "la fila con rotulo completo aparece en AR_2020.txt (linea 10903) pero la columna 2020 no se puede mapear 1:1 (columnas ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'], valores ['162,907', '130,283'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/IA_2018_es.txt",
+      "pagina": 27,
+      "n_pendientes": 2,
+      "prioridad": 202,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!D21",
+          "id": "h_patrimonio",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        },
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!D26",
+          "id": "h_minoritarios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -963,7 +2908,7 @@
       "archivo": "texto/CF_2020.txt",
       "pagina": 20,
       "n_pendientes": 1,
-      "prioridad": 113,
+      "prioridad": 114,
       "entradas": [
         {
           "empresa": "Vidrala",
@@ -973,6 +2918,7 @@
           "material_declarada": "True",
           "pendientes": [
             "fila",
+            "columna",
             "reexpresion"
           ],
           "detalle_pendientes": {
@@ -980,36 +2926,13 @@
               "NO_DECIDIBLE",
               "fila de continuacion sin etiqueta propia; contexto leido: ['contract', 'contracts', 'diciembre', 'disposal', 'disposals', 'expens']"
             ],
+            "columna": [
+              "NO_DECIDIBLE",
+              "sin linea de columnas de encabezado identificable en la pagina"
+            ],
             "reexpresion": [
               "NO_DECIDIBLE",
-              "la fila aparece en CF_2019.txt (linea 657) pero la columna 2019 no se puede mapear 1:1 (columnas ['2015', '2017'], valores linea [], bloque [])"
-            ]
-          },
-          "derivados_materiales_dependientes": 1,
-          "usuarios_totales": 1
-        }
-      ]
-    },
-    {
-      "empresa": "Vidrala",
-      "archivo": "texto/CF_2018.txt",
-      "pagina": 10,
-      "n_pendientes": 1,
-      "prioridad": 112,
-      "entradas": [
-        {
-          "empresa": "Vidrala",
-          "celda": "aux:ing_fin_2017",
-          "id": "aux:ing_fin_2017",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "declara no reexpresado pero el original CF_2017.txt imprime (1,253) en la columna 2017 frente al comparativo 1964: pendiente (posible reexpresion no declarada o fila distinta en el original)"
+              "el rotulo completo de la partida no se localiza en los textos conservados del año 2019 (['CF_2019.txt'])"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -1022,7 +2945,7 @@
       "archivo": "texto/CF_2023.txt",
       "pagina": 65,
       "n_pendientes": 1,
-      "prioridad": 112,
+      "prioridad": 113,
       "entradas": [
         {
           "empresa": "Vidrala",
@@ -1031,12 +2954,184 @@
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
+            "columna",
             "reexpresion"
           ],
           "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 5 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional"
+            ],
             "reexpresion": [
               "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no aplica (el informe 2022 no separaba el NIIF 16: la nota 15 de CF_2022 p.60 da «Finance lease» 62,364 + 274)); el original CF_2022.txt imprime 62,364 en la columna 2022 y el comparativo cita 2346: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2022 en el informe original o nota citada)"
+              "el rotulo completo de la partida no se localiza en los textos conservados del año 2022 (['CF_2022.txt'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2024.txt",
+      "pagina": 56,
+      "n_pendientes": 1,
+      "prioridad": 113,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!J23",
+          "id": "h_arrend",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2023.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2021.txt",
+      "pagina": 4,
+      "n_pendientes": 1,
+      "prioridad": 112,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!G6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2022.txt",
+      "pagina": 4,
+      "n_pendientes": 1,
+      "prioridad": 112,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!H6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2023.txt",
+      "pagina": 4,
+      "n_pendientes": 1,
+      "prioridad": 112,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!I6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2024.txt",
+      "pagina": 4,
+      "n_pendientes": 1,
+      "prioridad": 112,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!J6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2025.txt",
+      "pagina": 4,
+      "n_pendientes": 1,
+      "prioridad": 112,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!K6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -1063,7 +3158,7 @@
           "detalle_pendientes": {
             "columna": [
               "NO_DECIDIBLE",
-              "fila no tabular con columnas de años; años en pagina ['2050', '2072', '2095'] no corresponden a encabezado de tabla"
+              "sin años de ejercicio en la pagina (fila de texto/mercado)"
             ]
           },
           "derivados_materiales_dependientes": 1,
@@ -1074,14 +3169,260 @@
     {
       "empresa": "Viscofan",
       "archivo": "texto/AR_2019.txt",
-      "pagina": 23,
+      "pagina": 12,
+      "n_pendientes": 1,
+      "prioridad": 112,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2019_p12_amort_intangible_2018",
+          "id": "AR2019_p12_amort_intangible_2018",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "SOLO_SIGNO: magnitudes iguales (3801) pero signo distinto (original (3.801) en IA_2018_es.txt col 2018, comparativo 3801); es convencion de signo, no reexpresion"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2025.txt",
+      "pagina": 109,
+      "n_pendientes": 1,
+      "prioridad": 112,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "aux:AR2025_p109_activacion_BIN_2024",
+          "id": "AR2025_p109_activacion_BIN_2024",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 1,
+          "usuarios_totales": 1
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2017.txt",
+      "pagina": 69,
+      "n_pendientes": 1,
+      "prioridad": 102,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!C25",
+          "id": "h_pensiones",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 5 valores no alineable 1:1 con 2 columnas ['2017', '2016']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2018.txt",
+      "pagina": 66,
+      "n_pendientes": 1,
+      "prioridad": 102,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!D25",
+          "id": "h_pensiones",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 5 valores no alineable 1:1 con 2 columnas ['2018', '2017']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "la fila con rotulo completo aparece en CF_2017.txt (linea 1999) pero la columna 2017 no se puede mapear 1:1 (columnas ['2017', '2016'], valores ['1,031', '59,233', '5,494', '5,126', '71,243'])"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2019.txt",
+      "pagina": 12,
+      "n_pendientes": 1,
+      "prioridad": 102,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!E8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2019', '2018']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2018.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2018; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2019.txt",
+      "pagina": 70,
+      "n_pendientes": 1,
+      "prioridad": 102,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!E25",
+          "id": "h_pensiones",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 5 valores no alineable 1:1 con 2 columnas ['2019', '2018']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2018.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2018; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2021.txt",
+      "pagina": 7,
+      "n_pendientes": 1,
+      "prioridad": 102,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!G8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2020.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2020; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2022.txt",
+      "pagina": 7,
+      "n_pendientes": 1,
+      "prioridad": 102,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!H8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna",
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional"
+            ],
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/CF_2021.txt",
+      "pagina": 8,
       "n_pendientes": 1,
       "prioridad": 102,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "Historia!E23",
-          "id": "h_arrend",
+          "celda": "Historia!G13",
+          "id": "h_adquisiciones",
           "clase": "cero_comprobado",
           "material_declarada": "True",
           "pendientes": [
@@ -1091,65 +3432,11 @@
           "detalle_pendientes": {
             "columna": [
               "NO_DECIDIBLE",
-              "fila no tabular con columnas de años; años en pagina ['2019'] no corresponden a encabezado de tabla"
+              "valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)"
             ],
             "reexpresion": [
               "NO_DECIDIBLE",
-              "el valor aparece en IA_2018_es.txt pero no en la misma fila/columna 2018; reexpresion no decidible"
-            ]
-          },
-          "derivados_materiales_dependientes": 0,
-          "usuarios_totales": 0
-        }
-      ]
-    },
-    {
-      "empresa": "Vidrala",
-      "archivo": "texto/CF_2017.txt",
-      "pagina": 9,
-      "n_pendientes": 1,
-      "prioridad": 101,
-      "entradas": [
-        {
-          "empresa": "Vidrala",
-          "celda": "Historia!C24",
-          "id": "h_caja",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
-            ]
-          },
-          "derivados_materiales_dependientes": 0,
-          "usuarios_totales": 0
-        }
-      ]
-    },
-    {
-      "empresa": "Vidrala",
-      "archivo": "texto/CF_2017.txt",
-      "pagina": 69,
-      "n_pendientes": 1,
-      "prioridad": 101,
-      "entradas": [
-        {
-          "empresa": "Vidrala",
-          "celda": "Historia!C25",
-          "id": "h_pensiones",
-          "clase": "dato_publicado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016) para contrastar la reexpresion del comparativo"
+              "el valor aparece en AR_2020.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2020; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -1166,17 +3453,179 @@
       "entradas": [
         {
           "empresa": "Vidrala",
-          "celda": "Historia!D24",
-          "id": "h_caja",
+          "celda": "Historia!D5",
+          "id": "h_anios",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "declara no reexpresado pero el original CF_2017.txt imprime 41,619 en la columna 2017 frente al comparativo 42043: pendiente (posible reexpresion no declarada o fila distinta en el original)"
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2018', '2017']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2018.txt",
+      "pagina": 13,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!D8",
+          "id": "h_da",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2018', '2017']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2019.txt",
+      "pagina": 7,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!E5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2019', '2018']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2019.txt",
+      "pagina": 9,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!E6",
+          "id": "h_ventas",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 4 valores no alineable 1:1 con 2 columnas ['2019', '2018']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2020.txt",
+      "pagina": 8,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!F5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2021.txt",
+      "pagina": 2,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!G5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2022.txt",
+      "pagina": 2,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!H5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -1187,23 +3636,50 @@
     {
       "empresa": "Vidrala",
       "archivo": "texto/CF_2023.txt",
-      "pagina": 7,
+      "pagina": 2,
       "n_pendientes": 1,
       "prioridad": 101,
       "entradas": [
         {
           "empresa": "Vidrala",
-          "celda": "Historia!I13",
-          "id": "h_adquisiciones",
+          "celda": "Historia!I5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2023.txt",
+      "pagina": 46,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Configuración V6.4!B48",
+          "id": "PM1.cartera",
           "clase": "cero_comprobado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "declara no reexpresado pero el original CF_2022.txt imprime 114,123 en la columna 2022 frente al comparativo 0: pendiente (posible reexpresion no declarada o fila distinta en el original)"
+              "valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -1214,23 +3690,104 @@
     {
       "empresa": "Vidrala",
       "archivo": "texto/CF_2024.txt",
-      "pagina": 7,
+      "pagina": 2,
       "n_pendientes": 1,
       "prioridad": 101,
       "entradas": [
         {
           "empresa": "Vidrala",
-          "celda": "Historia!J13",
-          "id": "h_adquisiciones",
+          "celda": "Historia!J5",
+          "id": "h_anios",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "el valor -254086 figura en CF_2023.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2023 mapeable 1:1 (la fila encontrada imprime (143,848) en la columna 2023): ambiguedad de fila/columna, no OK"
+              "fila con 1 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2024.txt",
+      "pagina": 77,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Historia!J25",
+          "id": "h_pensiones",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "años repetidos en la cabecera ['2010', '2010']: hay varios bloques (consolidado/individual u otros) y la columna no es inequivoca sin identificar el bloque"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2025.txt",
+      "pagina": 1,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "Control maestro!L4",
+          "id": "norma",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/ES_2024_informacion_financiera_consolidada.txt",
+      "pagina": 114,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Vidrala",
+          "celda": "aux:mar_adquisicion_enajenacion_2024",
+          "id": "aux:mar_adquisicion_enajenacion_2024",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -1294,24 +3851,51 @@
     },
     {
       "empresa": "Viscofan",
-      "archivo": "texto/AR_2020.txt",
-      "pagina": 7,
+      "archivo": "texto/AR_2019.txt",
+      "pagina": 8,
       "n_pendientes": 1,
       "prioridad": 101,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "Historia!F26",
-          "id": "h_minoritarios",
+          "celda": "Historia!E5",
+          "id": "h_anios",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2019.txt",
+      "pagina": 23,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!E23",
+          "id": "h_arrend",
           "clase": "cero_comprobado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada); el original AR_2019.txt imprime 2,027 en la columna 2019 y el comparativo cita 0: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2019 en el informe original o nota citada)"
+              "años declarados ['2018'] no figuran en la pagina ['2019'] (fila no tabular o año fuera de tabla)"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -1322,23 +3906,23 @@
     {
       "empresa": "Viscofan",
       "archivo": "texto/AR_2020.txt",
-      "pagina": 8,
+      "pagina": 7,
       "n_pendientes": 1,
       "prioridad": 101,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "Historia!F8",
-          "id": "h_da",
-          "clase": "dato_publicado",
+          "celda": "Historia!G26",
+          "id": "h_minoritarios",
+          "clase": "cero_comprobado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no: comparativo de 2019 en el informe de 2020 (el que usó el modelo); sin reexpresión declarada); el original AR_2019.txt imprime (2016 en la columna 2019 y el comparativo cita 70674: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2019 en el informe original o nota citada)"
+              "valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -1349,14 +3933,68 @@
     {
       "empresa": "Viscofan",
       "archivo": "texto/AR_2025.txt",
-      "pagina": 22,
+      "pagina": 25,
       "n_pendientes": 1,
       "prioridad": 101,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "Historia!K26",
-          "id": "h_minoritarios",
+          "celda": "Historia!L21",
+          "id": "h_patrimonio",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 11 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2025.txt",
+      "pagina": 26,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!K21",
+          "id": "h_patrimonio",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 11 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2025.txt",
+      "pagina": 27,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!K13",
+          "id": "h_adquisiciones",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -1365,7 +4003,142 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])"
+              "el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2025.txt",
+      "pagina": 36,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Control maestro!L4",
+          "id": "norma",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2025.txt",
+      "pagina": 67,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Configuración V6.4!B151",
+          "id": "PM1.perimetro",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 3 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/AR_2025.txt",
+      "pagina": 151,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Palancas!C48",
+          "id": "moneda_cotizacion",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila sin valores numericos que mapear"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/CA_2023_es.txt",
+      "pagina": 2,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!I24",
+          "id": "h_caja",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/CA_2023_es.txt",
+      "pagina": 35,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Configuración V6.4!B149",
+          "id": "PM1.perimetro",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "columna"
+          ],
+          "detalle_pendientes": {
+            "columna": [
+              "NO_DECIDIBLE",
+              "fila con 3 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -1376,23 +4149,23 @@
     {
       "empresa": "Viscofan",
       "archivo": "texto/CF_2021.txt",
-      "pagina": 8,
+      "pagina": 39,
       "n_pendientes": 1,
       "prioridad": 101,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "Historia!G13",
-          "id": "h_adquisiciones",
-          "clase": "cero_comprobado",
+          "celda": "Configuración V6.4!B147",
+          "id": "PM1.perimetro",
+          "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "el valor aparece en AR_2020.txt pero no en la misma fila/columna 2020; reexpresion no decidible"
+              "fila con 3 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -1402,51 +4175,24 @@
     },
     {
       "empresa": "Viscofan",
-      "archivo": "texto/CF_2024.txt",
-      "pagina": 3,
+      "archivo": "texto/CF_2022_compilacion.txt",
+      "pagina": 51,
       "n_pendientes": 1,
       "prioridad": 101,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "Historia!J26",
-          "id": "h_minoritarios",
-          "clase": "cero_comprobado",
+          "celda": "Configuración V6.4!B148",
+          "id": "PM1.perimetro",
+          "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
-            "reexpresion"
+            "columna"
           ],
           "detalle_pendientes": {
-            "reexpresion": [
+            "columna": [
               "NO_DECIDIBLE",
-              "la fila aparece en CA_2023_es.txt (linea 2197) pero la columna 2023 no se puede mapear 1:1 (columnas ['2023', '2022'], valores linea [], bloque ['1,108', '1,521', '2,629', '2,629', '1,715', '1,715', '1,715'])"
-            ]
-          },
-          "derivados_materiales_dependientes": 0,
-          "usuarios_totales": 0
-        }
-      ]
-    },
-    {
-      "empresa": "Viscofan",
-      "archivo": "texto/CF_2024.txt",
-      "pagina": 9,
-      "n_pendientes": 1,
-      "prioridad": 101,
-      "entradas": [
-        {
-          "empresa": "Viscofan",
-          "celda": "Historia!J13",
-          "id": "h_adquisiciones",
-          "clase": "cero_comprobado",
-          "material_declarada": "True",
-          "pendientes": [
-            "reexpresion"
-          ],
-          "detalle_pendientes": {
-            "reexpresion": [
-              "NO_DECIDIBLE",
-              "declarado no-aplica con razon de alcance (no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25)); el original CA_2023_es.txt imprime 145.710 en la columna 2023 y el comparativo cita 0: falta puente de significado verificado entre ambos conceptos (p. ej. desglose del ejercicio 2023 en el informe original o nota citada)"
+              "sin linea de columnas de encabezado identificable en la pagina"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -1457,14 +4203,14 @@
     {
       "empresa": "Viscofan",
       "archivo": "texto/IA_2018_es.txt",
-      "pagina": 27,
+      "pagina": 26,
       "n_pendientes": 1,
       "prioridad": 101,
       "entradas": [
         {
           "empresa": "Viscofan",
-          "celda": "Historia!D26",
-          "id": "h_minoritarios",
+          "celda": "Historia!D24",
+          "id": "h_caja",
           "clase": "dato_publicado",
           "material_declarada": "True",
           "pendientes": [
@@ -1473,7 +4219,34 @@
           "detalle_pendientes": {
             "reexpresion": [
               "NO_DECIDIBLE",
-              "el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible"
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
+            ]
+          },
+          "derivados_materiales_dependientes": 0,
+          "usuarios_totales": 0
+        }
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "archivo": "texto/IA_2018_es.txt",
+      "pagina": 95,
+      "n_pendientes": 1,
+      "prioridad": 101,
+      "entradas": [
+        {
+          "empresa": "Viscofan",
+          "celda": "Historia!D25",
+          "id": "h_pensiones",
+          "clase": "dato_publicado",
+          "material_declarada": "True",
+          "pendientes": [
+            "reexpresion"
+          ],
+          "detalle_pendientes": {
+            "reexpresion": [
+              "NO_DECIDIBLE",
+              "el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion no decidible"
             ]
           },
           "derivados_materiales_dependientes": 0,
@@ -1485,22 +4258,36 @@
   "derivados_pendientes": [
     {
       "empresa": "Vidrala",
-      "celda": "Historia!C10",
-      "id": "h_tipo",
+      "celda": "Análisis!C41",
+      "id": "capitalizacion",
       "material_declarada": "True",
       "limites_contextuales": [
-        "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
-        "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
+        "Análisis!C37: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "unidades/escalas de los orígenes no homogeneas"
       ]
     },
     {
       "empresa": "Vidrala",
-      "celda": "Historia!C12",
-      "id": "h_capex",
+      "celda": "Configuración V6.4!B21",
+      "id": "N2.margen",
       "material_declarada": "True",
       "limites_contextuales": [
-        "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
-        "aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
+        "aux:italia_ingresos_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+        "aux:italia_bai_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+        "aux:italia_gto_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+        "aux:italia_ing_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+        "Historia!G6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+        "aux:italia_ingresos_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+        "aux:italia_bai_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+        "aux:italia_gto_fin_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+        "Historia!H6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+        "aux:italia_ingresos_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+        "aux:italia_bai_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+        "aux:italia_gto_fin_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+        "Historia!I6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional)",
+        "Historia!J6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional)",
+        "Historia!K6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
+        "Historia!L6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)"
       ]
     },
     {
@@ -1526,51 +4313,13 @@
     },
     {
       "empresa": "Vidrala",
-      "celda": "Historia!C7",
-      "id": "h_ebit",
-      "material_declarada": "True",
-      "limites_contextuales": [
-        "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
-        "aux:ing_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
-        "aux:gto_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
-      ]
-    },
-    {
-      "empresa": "Vidrala",
-      "celda": "Historia!D7",
-      "id": "h_ebit",
-      "material_declarada": "True",
-      "limites_contextuales": [
-        "aux:ing_fin_2017: dimension reexpresion no decidible (declara no reexpresado pero el original CF_2017.txt imprime (1,253) en la columna 2017 frente al comparativo 1964: pendi)"
-      ]
-    },
-    {
-      "empresa": "Vidrala",
-      "celda": "Historia!E12",
-      "id": "h_capex",
-      "material_declarada": "True",
-      "limites_contextuales": [
-        "aux:capex_mat_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: (99,541) y (2,245))); el original CF_2018.txt imprime 2,428 )"
-      ]
-    },
-    {
-      "empresa": "Vidrala",
-      "celda": "Historia!E13",
-      "id": "h_adquisiciones",
-      "material_declarada": "True",
-      "limites_contextuales": [
-        "aux:capex_mat_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: (99,541) y (2,245))); el original CF_2018.txt imprime 2,428 )",
-        "aux:otros_inv_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no (CF_2018 p.13: 13)); el original CF_2018.txt imprime 25,136 en la columna 2)"
-      ]
-    },
-    {
-      "empresa": "Vidrala",
       "celda": "Historia!G22",
       "id": "h_deuda",
       "material_declarada": "True",
       "limites_contextuales": [
         "Historia!G23: dimension fila no decidible (fila de continuacion sin etiqueta propia; contexto leido: ['contract', 'contracts', 'diciembre', 'disposal', 'disposals')",
-        "Historia!G23: dimension reexpresion no decidible (la fila aparece en CF_2019.txt (linea 657) pero la columna 2019 no se puede mapear 1:1 (columnas ['2015', '2017'], valor)"
+        "Historia!G23: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "Historia!G23: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2019 (['CF_2019.txt']))"
       ]
     },
     {
@@ -1579,7 +4328,18 @@
       "id": "h_deuda",
       "material_declarada": "True",
       "limites_contextuales": [
-        "Historia!I23: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no aplica (el informe 2022 no separaba el NIIF 16: la nota 15 de CF_2022 p.60 )"
+        "Historia!I23: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional)",
+        "Historia!I23: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2022 (['CF_2022.txt']))"
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!J22",
+      "id": "h_deuda",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "Historia!J23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional)",
+        "Historia!J23: dimension reexpresion no decidible (el valor aparece en CF_2023.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion )"
       ]
     },
     {
@@ -1588,7 +4348,28 @@
       "id": "h_adquisiciones",
       "material_declarada": "True",
       "limites_contextuales": [
-        "aux:adq_puesta_equivalencia_2024: dimension reexpresion no decidible (el valor -6000 figura en CF_2024.txt (pagina citada en la declaracion) pero no en la misma fila/columna 2024 mapeable 1:)"
+        "aux:venta_dependientes_2024: dimension columna no decidible (fila con 1 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
+        "aux:adq_puesta_equivalencia_2024: dimension columna no decidible (fila con 1 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
+        "aux:adq_puesta_equivalencia_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 301) pero la columna 2024 no se puede mapear 1:1 (columnas ['2)"
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!K22",
+      "id": "h_deuda",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "Historia!K23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
+        "Historia!K23: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )"
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Historia!L22",
+      "id": "h_deuda",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "Historia!L23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)"
       ]
     },
     {
@@ -1597,18 +4378,8 @@
       "id": "capitalizacion",
       "material_declarada": "True",
       "limites_contextuales": [
-        "Análisis!C37: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2050', '2072', '2095'] no corresponden a encabezado de tabla)",
+        "Análisis!C37: dimension columna no decidible (sin años de ejercicio en la pagina (fila de texto/mercado))",
         "unidades/escalas de los orígenes no homogeneas"
-      ]
-    },
-    {
-      "empresa": "Viscofan",
-      "celda": "Historia!C10",
-      "id": "h_tipo",
-      "material_declarada": "True",
-      "limites_contextuales": [
-        "aux:AR2017_p8_impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
-        "aux:AR2017_p8_bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ]
     },
     {
@@ -1617,7 +4388,9 @@
       "id": "h_deuda",
       "material_declarada": "True",
       "limites_contextuales": [
+        "aux:AR2017_p83_total_pasivos_financieros_2016: dimension columna no decidible (fila con 7 valores no alineable 1:1 con 1 columnas ['2017']: sin mapeo posicional)",
         "aux:AR2017_p83_total_pasivos_financieros_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:AR2017_p83_derivados_2016: dimension columna no decidible (años declarados ['2016'] no figuran en la pagina ['2017'] (fila no tabular o año fuera de tabla))",
         "aux:AR2017_p83_derivados_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ]
     },
@@ -1637,10 +4410,23 @@
       "id": "h_deuda",
       "material_declarada": "True",
       "limites_contextuales": [
-        "aux:IA2018_p104_bancos_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usó el modelo); sin reex)",
-        "aux:IA2018_p104_intereses_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)",
-        "aux:IA2018_p104_arrend_financiero_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en la misma fila/columna 2017; reexpresion no decidible)",
-        "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2017 en el informe de 2018 (el que usa la fase 1); sin reex)"
+        "aux:IA2018_p104_bancos_2017: dimension columna no decidible (años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla))",
+        "aux:IA2018_p104_bancos_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
+        "aux:IA2018_p104_intereses_2017: dimension columna no decidible (años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla))",
+        "aux:IA2018_p104_intereses_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
+        "aux:IA2018_p104_arrend_financiero_2017: dimension columna no decidible (años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla))",
+        "aux:IA2018_p104_arrend_financiero_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
+        "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension columna no decidible (años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla))"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!D8",
+      "id": "h_da",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:IA2018_p28_amort_intangible_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
+        "aux:IA2018_p28_amort_material_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )"
       ]
     },
     {
@@ -1649,10 +4435,110 @@
       "id": "h_deuda",
       "material_declarada": "True",
       "limites_contextuales": [
-        "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF )",
-        "aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (declarado no-aplica con razon de alcance (no: comparativo de 2018 en el informe de 2019 (el que usó el modelo); la NIIF )",
-        "aux:AR2019_p11_derechos_uso_nc_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)",
-        "aux:AR2019_p11_derechos_uso_c_2018: dimension reexpresion no decidible (la fila aparece en IA_2018_es.txt (linea 1501) pero la columna 2018 no se puede mapear 1:1 (columnas ['2018', '2017'], v)"
+        "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
+        "aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!F10",
+      "id": "h_tipo",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:AR2020_p5_bai_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion )"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!F14",
+      "id": "h_circulante",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:AR2020_p8_var_existencias_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion )",
+        "aux:AR2020_p8_var_deudores_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion )",
+        "aux:AR2020_p8_var_acreedores_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion )"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!F23",
+      "id": "h_arrend",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:AR2020_p4_arrend_lp_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion )",
+        "aux:AR2020_p4_arrend_cp_2019: dimension reexpresion no decidible (el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion )"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!I10",
+      "id": "h_tipo",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:CA2023_p4_impuesto_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )",
+        "aux:CA2023_p4_bai_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!I14",
+      "id": "h_circulante",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:CA2023_p8_var_existencias_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )",
+        "aux:CA2023_p8_var_deudores_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )",
+        "aux:CA2023_p8_var_acreedores_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!I22",
+      "id": "h_deuda",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:CA2023_p3_pasivo_fin_nc_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )",
+        "aux:CA2023_p3_pasivo_fin_c_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!I23",
+      "id": "h_arrend",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:CA2023_p3_arrend_lp_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )",
+        "aux:CA2023_p3_arrend_cp_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!J14",
+      "id": "h_circulante",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:CF2024_p9_var_existencias_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)",
+        "aux:CF2024_p9_var_deudores_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)",
+        "aux:CF2024_p9_var_acreedores_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!J23",
+      "id": "h_arrend",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:CF2024_p3_arrend_lp_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CA_2023_es.txt (linea 1249) pero la columna 2023 no se puede mapear 1:1 (columnas)",
+        "aux:CF2024_p3_arrend_cp_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CA_2023_es.txt (linea 1249) pero la columna 2023 no se puede mapear 1:1 (columnas)"
+      ]
+    },
+    {
+      "empresa": "Viscofan",
+      "celda": "Historia!K23",
+      "id": "h_arrend",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:AR2025_p22_arrend_lp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )",
+        "aux:AR2025_p22_arrend_cp_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )"
       ]
     }
   ]
