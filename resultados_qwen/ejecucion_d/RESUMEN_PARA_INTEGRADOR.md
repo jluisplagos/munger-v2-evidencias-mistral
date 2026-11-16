@@ -1,26 +1,29 @@
-# Resumen para el integrador · frente D · cierre de la sesión
+# Resumen para el integrador · frente D · v2 (CORRECCION_D) · recuentos desde evidencias/recuentos.json (fuente única)
 
-## Entregado / revisado / integrado / probado
+## Planos
 
 | Plano | Estado |
 |---|---|
-| Entregado | `resultados_qwen/ejecucion_d/` en rama `mistral/d-qwen-aceptacion` del auxiliar: arnés, 23 especificaciones ejecutables (4 piloto + 19 bloque 2), MATRIZ_EJECUCION.csv (36 filas), evidencias por caso, docs |
-| Revisado | banco: 57/57 SHA256 OK + `comprobar_banco.py` exit 0 (36 casos, 17 esperados, 9 controles negativos). Candidata: HEAD remoto = SHA fijado `957af65`; ZIP base-4.14 sha256 OK y materializado 6798/6798 |
-| Integrado en el producto | **No** (encargo: no fusionar ni PR al producto; `jluisplagos/munger-v2` solo se leyó) |
-| Probado contra el producto | 31/36 casos con componente real ejecutado (PARCIAL_COMPONENTE); 5 sin ejecutar (Q1-030, Q1-031, Q1-033, Q1-034, Q1-035) |
+| Entregado | arnés v2 + 28 especificaciones + evidencias reejecutadas + matriz 36 filas, rama `mistral/d-qwen-aceptacion` |
+| Revisado | banco 57/57 SHA + comprobar exit 0; candidata SHA verificado en ejecución = `957af65` |
+| Integrado en el producto | **No** (encargo) |
+| Probado | 27 casos con componente real y aserciones (COMPONENTE_OK); 8/8 pruebas del arnés PASA |
 
-## Recuentos (casos, no comandos)
+## Recuentos (de recuentos.json, igual que el CSV)
 
-- Estados de ejecución: **31 PARCIAL_COMPONENTE** · **5 NO_EJECUTADO** · 0 EJECUTADO_COMPLETO (la capa de agente no existe en esta sesión).
-- Veredictos: **29 CUMPLE** (componente real, evidencia en `evidencias/`) · **3 DECISION_PENDIENTE** (Q1-030, Q1-034, Q1-035) · **1 NO_OBSERVABLE** (Q1-026, bloqueo de entorno con error concreto) · **3 sin veredicto** (Q1-031, Q1-033 y uno más sin ejecutar).
-- Naturaleza conservada: 31 contrato / 3 propuesta (Q1-019, Q1-022, Q1-029) / 2 decisión pendiente (Q1-030, Q1-035). Ninguna propuesta se convirtió en obligación; los criterios propuestos dentro de casos contractuales conservan su distinción.
-- Los 17 esperados numéricos del banco **no** se ejecutaron como componente del producto: la aritmética de derivados del producto (fracciones exactas, U2/U4) se probó con los derivados de los casos (Q1-005, Q1-018); recalcular los esperados en otro script no ejecutaría el producto, y el recálculo del libro necesita LibreOffice (ausente).
+- Casos: 36. Estados: **27 PARCIAL_COMPONENTE** (ejecución propia COMPONENTE_OK) · **9 NO_EJECUTADO**
+  (Q1-026 con bloqueo de entorno documentado; Q1-030/031/033/035 y los que no tienen spec ejecutable).
+- Veredicto de **componente**: **27 CUMPLE** · 9 sin veredicto (sin evidencia no hay positivo).
+- Veredicto de **caso**: 27 "sin veredicto de caso" (pendiente de agente) · 6 sin veredicto ·
+  **1 NO_OBSERVABLE** (Q1-026, entorno) · **2 DECISION_PENDIENTE** (Q1-030, Q1-035).
+- Naturaleza (del banco, intacta): **31 CONTRATO_REFERENCIADO / 3 PROPUESTA_ACEPTACION / 2 DECISION_PENDIENTE**.
+  Q1-034 sigue contrato y se ejecutó como tal. Ninguna propuesta se convirtió en obligación.
+- Observaciones compartidas declaradas: Q1-028 y Q1-032 (sobre Q1-036), no contadas como propias.
+- Precondiciones de extractor/revisor: SIMULADAS (D-R4), declaradas en cada resultado.
+- Los 17 esperados numéricos del banco no se ejecutaron vía producto (requiere recálculo con
+  LibreOffice, ausente); la aritmética de derivados del producto se probó en Q1-005/Q1-018.
 
-## Criterios cubiertos vs pendientes
+## No dicho
 
-- Cubiertos (componente real): cero/absencia/N-A, unidad/escala, signo, columna/período, perímetro, moneda, versiones/reexpresión, conflicto con/sin resolución, instrucción embebida, firma≠publicación, fuente sin bytes, recuentos parciales, vigencia por sha256 y por fundamento, invalidación de aprobaciones, bloqueo de exportación manual.
-- Pendientes: capa completa de agente/personaje (entrada del usuario, fases A/B/C, auditoría APROBADO), pipeline con recálculo (LibreOffice), Q1-026 completo (pdftotext), Q1-031/033 (precio actual/objetivo con agente), las 3 decisiones de política.
-
-## Lo que esto no dice
-
-No declara aptitud para dinero real ni cumplimiento global: 31 casos a nivel de componente mecánico, ninguno completo con agente; el estado inicial 0/36 pasa a 31 con componente real ejecutado.
+Ningún caso completo de personaje acreditado; no aptitud para dinero real. 27 CUMPLE son de
+componente mecánico con aserciones, no de aceptación completa.

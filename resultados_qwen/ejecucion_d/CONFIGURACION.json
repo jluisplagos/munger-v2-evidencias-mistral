@@ -1,45 +1,64 @@
 {
-  "fecha_ejecucion": "2026-11-16",
-  "sesion": "Mistral D · aceptacion Qwen Q1 · rama mistral/d-qwen-aceptacion del auxiliar",
-  "modelo_de_sesion": "mistral-large-4-0",
-  "producto": {
-    "repositorio": "https://github.com/jluisplagos/munger-v2",
-    "solo_lectura": true,
-    "rama_candidata": "claude/hopeful-bardeen-qap6y0",
-    "sha_candidata": "957af652cdc3bef3d67e8623c9572138bac685e9",
-    "head_remoto_consultado": "957af652cdc3bef3d67e8623c9572138bac685e9 (coincide con el encargo; sin cambios posteriores en la rama)",
-    "copia_de_trabajo": "/workspace/base_414_main (main d69d4837f0e99ce30f38d3461f15cceee9a58730 + base 4.14 materializada + checkout 957af65)",
-    "base_414": {
-      "release": "base-4.14",
-      "zip": "munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip",
-      "zip_bytes": 1130912246,
-      "zip_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
-      "verificacion": "tools/base_414.py verify sobre main materializado: complete=true, 6798/6798, 0 ausentes, 0 alterados; sobre la candidata los 18 archivos de texto cambiados respecto a 4.14 son las correcciones 4.15 esperadas (el README de la rama indica que la verificacion de 4.14 no aplica al codigo modificado de 4.15)"
-    }
+ "fecha_ejecucion": "2026-11-16",
+ "sesion": "Mistral D · aceptacion Qwen Q1 · rama mistral/d-qwen-aceptacion del auxiliar",
+ "modelo_de_sesion": "mistral-large-4-0",
+ "producto": {
+  "repositorio": "https://github.com/jluisplagos/munger-v2",
+  "solo_lectura": true,
+  "rama_candidata": "claude/hopeful-bardeen-qap6y0",
+  "sha_candidata": "957af652cdc3bef3d67e8623c9572138bac685e9",
+  "head_remoto_consultado": "957af652cdc3bef3d67e8623c9572138bac685e9 (coincide con el encargo; sin cambios posteriores en la rama)",
+  "copia_de_trabajo": "/workspace/base_414_main (main d69d4837f0e99ce30f38d3461f15cceee9a58730 + base 4.14 materializada + checkout 957af65)",
+  "base_414": {
+   "release": "base-4.14",
+   "zip": "munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip",
+   "zip_bytes": 1130912246,
+   "zip_sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+   "verificacion": "tools/base_414.py verify sobre main materializado: complete=true, 6798/6798, 0 ausentes, 0 alterados; sobre la candidata los 18 archivos de texto cambiados respecto a 4.14 son las correcciones 4.15 esperadas (el README de la rama indica que la verificacion de 4.14 no aplica al codigo modificado de 4.15)"
+  }
+ },
+ "banco": {
+  "repositorio": "https://github.com/jluisplagos/munger-v2-evidencias-mistral",
+  "rama": "revision/qwen-q1-v2",
+  "sha_banco": "4745f3887f7fd86bb3052f5d5e32285862df18e3",
+  "head_remoto_consultado": "4745f3887f7fd86bb3052f5d5e32285862df18e3 (coincide; sin cambios posteriores)",
+  "ruta_normativa": "resultados_qwen/q1_v2/banco_revisado/",
+  "verificacion": "sha256sum -c MANIFIESTO_SHA256.txt: 57/57 OK; python3 comprobar_banco.py: exit 0, 36 casos, 17 esperados, 9 controles negativos, errores []",
+  "originales_conservados_sin_cambios": true
+ },
+ "entorno": {
+  "python": "3.12.15",
+  "paquetes": {
+   "openpyxl": "3.1.5",
+   "lxml": "6.1.3",
+   "pypdf": "7.1.0",
+   "jsonschema": "4.26.0"
   },
-  "banco": {
-    "repositorio": "https://github.com/jluisplagos/munger-v2-evidencias-mistral",
-    "rama": "revision/qwen-q1-v2",
-    "sha_banco": "4745f3887f7fd86bb3052f5d5e32285862df18e3",
-    "head_remoto_consultado": "4745f3887f7fd86bb3052f5d5e32285862df18e3 (coincide; sin cambios posteriores)",
-    "ruta_normativa": "resultados_qwen/q1_v2/banco_revisado/",
-    "verificacion": "sha256sum -c MANIFIESTO_SHA256.txt: 57/57 OK; python3 comprobar_banco.py: exit 0, 36 casos, 17 esperados, 9 controles negativos, errores []",
-    "originales_conservados_sin_cambios": true
-  },
-  "entorno": {
-    "python": "3.12.15",
-    "paquetes": {"openpyxl": "3.1.5", "lxml": "6.1.3", "pypdf": "7.1.0", "jsonschema": "4.26.0"},
-    "fecha_sistema": "2026-11-16",
-    "sin": ["soffice/LibreOffice (sin root en el sandbox; no instalable)", "pdftotext"],
-    "consecuencia": "el pipeline completo con recálculo de libros (recalc.sh/LibreOffice) no se ejecuta aquí; se ejecutan las vías reales del producto que no necesitan recálculo: verificacion_entradas.py (plantilla/comprobar/sellar), ficha.py, informe.py, y la lógica de cierre (cierre_v2) vía ficha.py. Las fuentes de prueba son TXT/CSV/JSON con marcas [PDF PAGE n], no PDF.",
-    "red": "PyPI y GitHub accesibles; la descarga del ZIP de 1,13 GB se hizo una vez y se verificó por SHA-256"
-  },
-  "alcance_de_la_copia_materializada": "base 4.14 completa (ZIP verificado y materializado: 6798 archivos) + código de la candidata 957af65; no es una selección parcial",
-  "herramientas_del_producto_ejecutadas": [
-    "scripts/verificacion_entradas.py plantilla|comprobar --json|sellar",
-    "scripts/ficha.py [--estado concluido] [--provisional]",
-    "scripts/informe.py [--provisional]",
-    "scripts/precio_de_si.py --autotest (vía comprobar_entorno.sh: PASA)"
+  "fecha_sistema": "2026-11-16",
+  "sin": [
+   "soffice/LibreOffice (sin root en el sandbox; no instalable)",
+   "pdftotext"
   ],
-  "sin_ejecutar": ["pipeline.py completo (requiere LibreOffice para recálculo)", "agentes del personaje (fases A/B/C, extracción, auditoría): no hay runtime de agente LLM del producto en esta sesión; quedan como relevo supervisado", "pdf_a_texto.py sobre PDF (sin pdftotext)"]
+  "consecuencia": "el pipeline completo con recálculo de libros (recalc.sh/LibreOffice) no se ejecuta aquí; se ejecutan las vías reales del producto que no necesitan recálculo: verificacion_entradas.py (plantilla/comprobar/sellar), ficha.py, informe.py, y la lógica de cierre (cierre_v2) vía ficha.py. Las fuentes de prueba son TXT/CSV/JSON con marcas [PDF PAGE n], no PDF.",
+  "red": "PyPI y GitHub accesibles; la descarga del ZIP de 1,13 GB se hizo una vez y se verificó por SHA-256"
+ },
+ "alcance_de_la_copia_materializada": "base 4.14 completa (ZIP verificado y materializado: 6798 archivos) + código de la candidata 957af65; no es una selección parcial",
+ "herramientas_del_producto_ejecutadas": [
+  "scripts/verificacion_entradas.py plantilla|comprobar --json|sellar",
+  "scripts/ficha.py [--estado concluido] [--provisional]",
+  "scripts/informe.py [--provisional]",
+  "scripts/precio_de_si.py --autotest (vía comprobar_entorno.sh: PASA)"
+ ],
+ "sin_ejecutar": [
+  "pipeline.py completo (requiere LibreOffice para recálculo)",
+  "agentes del personaje (fases A/B/C, extracción, auditoría): no hay runtime de agente LLM del producto en esta sesión; quedan como relevo supervisado",
+  "pdf_a_texto.py sobre PDF (sin pdftotext)"
+ ],
+ "harness_version": "2.0 (CORRECCION_D D-R1..R5)",
+ "verificacion_en_ejecucion": "el arnés verifica SHA de la candidata (git rev-parse HEAD == 957af65...) y presencia del banco (casos_aceptacion.jsonl en BANCO_DIR) antes de cada ejecución; falla con ERROR_ENTORNO si no",
+ "nivel_BANCO_DIR": "BANCO_DIR apunta a .../resultados_qwen/q1_v2/banco_revisado (contiene casos_aceptacion.jsonl); el preparador lo fija así y el ejecutor lo exige",
+ "precondiciones": "extractor/revisor del arnés = SIMULADOS (test de componentes), declarados en cada resultado_ejecucion.json",
+ "veredictos": "derivados solo de evidencias/*/resultado_ejecucion.json (harness 2.0, estado COMPONENTE_OK) + evidencias/recuentos.json; veredicto_componente y veredicto_caso separados; sin evidencia no hay veredicto positivo",
+ "pruebas_del_arnes": "scripts/pruebas_arnes.py: 8/8 PASA (log en evidencias/pruebas_arnes.log)",
+ "manifiesto": "MANIFIESTO_SHA256.txt regenerado excluyendo __pycache__/*.pyc"
 }
