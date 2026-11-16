@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "fecha_corte": "2026-11-16; consulta remota al preparar este programa",
+  "fecha_corte": "2026-11-16 ~21:05 Europe/Amsterdam; consulta remota del coordinador Claude (arranque)",
   "zona_usuario": "Europe/Amsterdam",
   "mantenedor": "Claude coordinador, único escritor",
   "repositorio_control": "jluisplagos/munger-v2-evidencias-mistral",
@@ -17,7 +17,13 @@
     "revision_F1": "f5775dc07a61b829df2b0e7a4a97c556869ae0f4",
     "revision_AD": "d375d80a5df19a661f80bab9cbdd42b39a28742b"
   },
-  "candidata_integrada": null,
+  "candidata_integrada": {
+    "repositorio": "jluisplagos/munger-v2",
+    "rama": "integracion/candidata-cierre-v2",
+    "base": "957af652cdc3bef3d67e8623c9572138bac685e9",
+    "head": "957af652cdc3bef3d67e8623c9572138bac685e9",
+    "estado": "Creada y publicada sin cambios sobre la base técnica; binarios aún no materializados en su worktree; nada integrado"
+  },
   "estado_global": "Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud económica global acreditada.",
   "colas_propias": {
     "A": [
@@ -70,7 +76,7 @@
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Corregir horizonte temporal posterior al año10, signo/G8 y dominio A0; conservar lo conforme.",
+      "siguiente_accion": "En curso por Claude (bloque A): W1–W3 sobre 716cbd6 según CORRECCION_PARA_CLAUDE.md @ f5775dc; después solicitud de revisión a Mistral C/F.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262",
       "alcance_aceptado": [],
@@ -373,17 +379,19 @@
       "tarea": "Candidata única de integración técnica",
       "autor": "Claude coordinador",
       "revisor_propuesto": "Revisor distinto para sus cambios",
-      "entrega": "PENDIENTE",
+      "entrega": "PARCIAL",
       "revision": "PENDIENTE",
       "integracion": "NO",
-      "commit_origen": null,
+      "commit_origen": "957af652cdc3bef3d67e8623c9572138bac685e9",
       "commit_destino": null,
-      "evidencia": [],
+      "evidencia": [
+        "rama integracion/candidata-cierre-v2 @ 957af652 (sin cambios)"
+      ],
       "pruebas_autor": "NO_EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Crear integracion/candidata-cierre-v2 desde957af65 y fijar componentes; conservar main/históricos.",
+      "siguiente_accion": "Materializar binarios en el worktree de la candidata por el procedimiento del producto (sin sobrescribir código 4.15) y verificar su manifiesto; después incorporar solo lo aceptado.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -548,6 +556,44 @@
     {
       "hecho": "Programa preparado por ChatGPT a partir de ramas consultadas y recuperaciones; prompts no enviados.",
       "tipo": "PREPARACION"
+    },
+    {
+      "tipo": "ARRANQUE",
+      "hecho": "Claude coordinador lee programa, consulta remotos, crea candidata en 957af65, comprueba entorno y publica primer checkpoint.",
+      "fecha": "2026-11-16"
     }
-  ]
+  ],
+  "consulta_remotos_arranque": {
+    "producto": {
+      "main": "d69d4837f0e99ce30f38d3461f15cceee9a58730",
+      "tecnica_fuente claude/hopeful-bardeen-qap6y0": "957af652cdc3bef3d67e8623c9572138bac685e9",
+      "f1 auditoria/economica-f1-frente-e": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262",
+      "revision_dirigida_P1P4": "8fcc7fd792f065cf29e2dc915bda92faeff1d45a"
+    },
+    "auxiliar": {
+      "coordinacion/cierre-v2": "9d0dc83 (antes de este checkpoint)",
+      "A mistral/m2-cobertura-vm": "d2419e5af2c91d89038a210a77242632d5823950",
+      "D mistral/d-qwen-aceptacion": "bdcbba789244d167c9cef360d8225ae29275e917",
+      "B mistral/m2-fundamento-pm1": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
+      "C mistral/m2-matematica-b": "1ec4f18f950aecdda10c0e48c946c71cedcd644e",
+      "revision_F1 revision/chatgpt-f1-v3-20261116": "f5775dc07a61b829df2b0e7a4a97c556869ae0f4",
+      "revision_AD revision/chatgpt-a-d-20261116": "d375d80a5df19a661f80bab9cbdd42b39a28742b",
+      "E mistral/e-fuentes-elis": "no existe todavía",
+      "F mistral/f-alcance-real": "no existe todavía"
+    },
+    "nota": "A y D no han avanzado desde lo fijado en el programa; E y F no han publicado rama."
+  },
+  "entorno_coordinador": {
+    "comprobado_con_comandos": "2026-11-16",
+    "python": "3.13.18",
+    "openpyxl": "3.1.5",
+    "pypdf": "6.17.0",
+    "pdftotext": "24.02.0",
+    "soffice": "LibreOffice 24.2.7.2",
+    "python3-uno": "importable",
+    "flock": "disponible",
+    "zip_base_414": "presente en el contenedor (descarga previa del frente E); huella por comprobar antes de usar",
+    "agentes_del_producto": "no verificado: no hay credenciales de API del producto en el entorno (solo nombres comprobados); la sesión puede lanzar subagentes y sesiones de Claude Code, que no equivalen al runtime del personaje",
+    "limite": "las capacidades del entorno Mistral no se observan desde aquí"
+  }
 }

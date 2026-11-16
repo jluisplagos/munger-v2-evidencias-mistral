@@ -1,12 +1,12 @@
 # Estado único de Munger V2
 
-Corte: 2026-11-16; consulta remota al preparar este programa.
+Corte: 2026-11-16 ~21:05 Europe/Amsterdam; consulta remota del coordinador Claude (arranque).
 
 Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud económica global acreditada.
 
 **Fuente:** CONTROL.json. Este panel resume evidencia registrada; no observa sesiones privadas, no ejecuta agentes y no acredita por sí solo aptitud económica.
 
-Candidata integrada: todavía no registrada. Mantenedor: Claude coordinador, único escritor.
+Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integracion/candidata-cierre-v2', 'base': '957af652cdc3bef3d67e8623c9572138bac685e9', 'head': '957af652cdc3bef3d67e8623c9572138bac685e9', 'estado': 'Creada y publicada sin cambios sobre la base técnica; binarios aún no materializados en su worktree; nada integrado'}. Mantenedor: Claude coordinador, único escritor.
 
 | ID | Dueño | Entregado | Revisado | Integrado | Pruebas autor / externas | Origen |
 |---|---|---|---|---|---|---|
@@ -23,7 +23,7 @@ Candidata integrada: todavía no registrada. Mantenedor: Claude coordinador, ún
 | F-B3 | Mistral C/F prepara; Claude orquesta | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | F-C1 | Mistral C/F prepara; Claude orquesta | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | G-MANUAL | Mistral A cuando termine bloqueA (cola G) | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
-| T-CAND | Claude coordinador | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
+| T-CAND | Claude coordinador | PARCIAL | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | 957af65 |
 | T-EXP | Claude runtime + extractores/revisores reales | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | T-CAMBIOS | Claude runtime + Mistral D | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | T-TRASPASO | Claude + receptor sin historial | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
@@ -33,7 +33,7 @@ Candidata integrada: todavía no registrada. Mantenedor: Claude coordinador, ún
 
 ## Próxima acción y dependencias por tarea
 
-- **F1-W · F1 v3 entregada; corrección W1-W3 pendiente**: Corregir horizonte temporal posterior al año10, signo/G8 y dominio A0; conservar lo conforme.
+- **F1-W · F1 v3 entregada; corrección W1-W3 pendiente**: En curso por Claude (bloque A): W1–W3 sobre 716cbd6 según CORRECCION_PARA_CLAUDE.md @ f5775dc; después solicitud de revisión a Mistral C/F.
 - **C20 · Responder U1-U6 del verificador**: Leer plan C20 en b83803c y revisión9; corregir solo lo afectado.
 - **CSV · Acreditar cifras LECTURA por procedimiento CSV**: Fijar verificador/CSV y acreditar filas nuevas con fuentes y edición; no aplicar N1.
   Dependencias: C20.
@@ -51,7 +51,7 @@ Candidata integrada: todavía no registrada. Mantenedor: Claude coordinador, ún
 - **F-C1 · Primer recorrido C real y contrato específico**: Preparar banco/aseguradora con fuentes y contrato propuesto, no declarar validado por plantilla.
 - **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: Preparación puede avanzar antes; prueba operativa depende de candidata y runtime comprobado.
   Dependencias: T-CAND.
-- **T-CAND · Candidata única de integración técnica**: Crear integracion/candidata-cierre-v2 desde957af65 y fijar componentes; conservar main/históricos.
+- **T-CAND · Candidata única de integración técnica**: Materializar binarios en el worktree de la candidata por el procedimiento del producto (sin sobrescribir código 4.15) y verificar su manifiesto; después incorporar solo lo aceptado.
 - **T-EXP · Expedientes nuevos regenerados y auditados**: Regenerar entradas/fuentes/derivados, sin sustituir hipótesis o ausencias; auditoría del material nuevo.
   Dependencias: T-CAND, A-CTX.
 - **T-CAMBIOS · Vigencia, invalidación, recuperación y H9**: Ensayar cambio anterior y punto real de reanudación; no reintroducir límites I19/I20 ya corregidos.
