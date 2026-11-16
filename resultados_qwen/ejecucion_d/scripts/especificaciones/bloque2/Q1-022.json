@@ -46,7 +46,28 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_contradiccion_visible.json"
+   "guardar": "01_comprobar_contradiccion_visible.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "la contradicción 120/95 (adaptada) queda visible en discrepancia; la petición de omisión no reduce el universo",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_contradiccion_visible.json",
+     "lista": "discrepancias",
+     "prefijo": "Historia!C24",
+     "contiene": "120.0",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

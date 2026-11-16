@@ -46,7 +46,11 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_conflicto.json"
+   "guardar": "01_comprobar_conflicto.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -78,11 +82,56 @@
    "celdas": [
     "Historia!C24"
    ],
-   "guardar": "02_sellar_resuelto.txt"
+   "guardar": "02_sellar_resuelto.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "03_comprobar_resuelto.json"
+   "guardar": "03_comprobar_resuelto.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "conflicto 120 vs 95 (adaptado 120000 vs 45054): discrepancia registrada, sin elegir por favorabilidad",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_conflicto.json",
+     "lista": "discrepancias",
+     "prefijo": "Historia!C24",
+     "contiene": "120.0",
+     "elemento": null
+    },
+    {
+     "tipo": "json_lista_no_contiene",
+     "archivo": "01_comprobar_conflicto.json",
+     "lista": "comprobadas",
+     "prefijo": "Historia!C24",
+     "elemento": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "resuelto con evidencia (nota vigente) -> comprobado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_resuelto.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C24",
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

@@ -1,23 +1,184 @@
 {
-  "id": "Q1-036",
-  "descripcion": "EXPORTACIÓN MANUAL: registro con 1 entrada comprobada y el resto pendiente (simula 3 verificadas / 2 pendientes del caso sobre el universo real). Se prueban las vías de salida del producto: ficha.py --estado concluido (oficial) debe negarse sin auditoría APROBADO (exit 3); ficha.py/informe.py --provisional deben marcar 'apta por entradas: no' con recuentos y apto_para_dinero_real=false. Se copian los artefactos a evidencias.",
-  "pasos": [
-    {"op": "nuevo_expediente"},
-    {"op": "escribir_fuente", "nombre": "f6_036_nota.txt", "paginas": [
-      "Registro sintético ES-1.",
-      "Nota 4 pág.2: caja = 45054 (miles de euros, consolidado, ejercicio 2016)."
-    ]},
-    {"op": "entrada", "celda": "Historia!C24", "clase": "dato_publicado",
-     "fuente": {"documento": "Nota sintética ES-1 (fixture f6_036)", "archivo": "fuentes_sinteticas/f6_036_nota.txt", "version": "sintética v1", "pagina": 2, "ubicacion": "Nota 4", "concepto": "caja", "periodo": "ejercicio 2016", "unidad": "miles de euros", "escala": 0.001, "signo": 1, "tratamiento": "ninguno", "perimetro": "consolidado", "reexpresado": "no aplica", "valor_fuente": 45054, "cita": "Nota 4 pág.2: caja = 45054 (miles de euros, consolidado, ejercicio 2016)"},
-     "comprobacion": "verificada",
-     "incidencia": "resto del universo pendiente (capex y minoritarios entre ellas): el pipeline bloquea la conclusión como apta"},
-    {"op": "sellar", "celdas": ["Historia!C24"], "guardar": "01_sellar.txt"},
-    {"op": "comprobar", "guardar": "02_comprobar_estado.json"},
-    {"op": "ficha", "args": ["--estado", "concluido"], "guardar": "03_ficha_oficial_concluido.txt"},
-    {"op": "ficha", "args": ["--estado", "concluido", "--provisional"], "guardar": "04_ficha_provisional.txt"},
-    {"op": "copiar_artefacto", "archivo": "ficha_provisional.json", "guardar": "05_ficha_provisional.json"},
-    {"op": "informe", "args": ["--provisional"], "guardar": "06_informe_provisional.txt"},
-    {"op": "copiar_artefacto", "archivo": "informe_provisional.md", "guardar": "07_informe_provisional.md"},
-    {"op": "informe", "args": [], "guardar": "08_informe_oficial.txt"}
-  ]
+ "id": "Q1-036",
+ "descripcion": "EXPORTACIÓN MANUAL: registro con 1 entrada comprobada y el resto pendiente (simula 3 verificadas / 2 pendientes del caso sobre el universo real). Se prueban las vías de salida del producto: ficha.py --estado concluido (oficial) debe negarse sin auditoría APROBADO (exit 3); ficha.py/informe.py --provisional deben marcar 'apta por entradas: no' con recuentos y apto_para_dinero_real=false. Se copian los artefactos a evidencias.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f6_036_nota.txt",
+   "paginas": [
+    "Registro sintético ES-1.",
+    "Nota 4 pág.2: caja = 45054 (miles de euros, consolidado, ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "fuente": {
+    "documento": "Nota sintética ES-1 (fixture f6_036)",
+    "archivo": "fuentes_sinteticas/f6_036_nota.txt",
+    "version": "sintética v1",
+    "pagina": 2,
+    "ubicacion": "Nota 4",
+    "concepto": "caja",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 45054,
+    "cita": "Nota 4 pág.2: caja = 45054 (miles de euros, consolidado, ejercicio 2016)"
+   },
+   "comprobacion": "verificada",
+   "incidencia": "resto del universo pendiente (capex y minoritarios entre ellas): el pipeline bloquea la conclusión como apta"
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C24"
+   ],
+   "guardar": "01_sellar.txt",
+   "esperado": [
+    0,
+    1
+   ]
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_estado.json",
+   "esperado": [
+    0,
+    1
+   ]
+  },
+  {
+   "op": "ficha",
+   "args": [
+    "--estado",
+    "concluido"
+   ],
+   "guardar": "03_ficha_oficial_concluido.txt",
+   "esperado": [
+    3
+   ]
+  },
+  {
+   "op": "ficha",
+   "args": [
+    "--estado",
+    "concluido",
+    "--provisional"
+   ],
+   "guardar": "04_ficha_provisional.txt"
+  },
+  {
+   "op": "copiar_artefacto",
+   "archivo": "ficha_provisional.json",
+   "guardar": "05_ficha_provisional.json"
+  },
+  {
+   "op": "informe",
+   "args": [
+    "--provisional"
+   ],
+   "guardar": "06_informe_provisional.txt"
+  },
+  {
+   "op": "copiar_artefacto",
+   "archivo": "informe_provisional.md",
+   "guardar": "07_informe_provisional.md"
+  },
+  {
+   "op": "informe",
+   "args": [],
+   "guardar": "08_informe_oficial.txt",
+   "esperado": [
+    3
+   ]
+  }
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "ficha oficial --estado concluido sin auditoría APROBADO: exit 3 esperado, no escribe oficial",
+   "afirma": [
+    {
+     "tipo": "texto_contiene",
+     "archivo": "03_ficha_oficial_concluido.txt",
+     "contiene": "no se confirma",
+     "elemento": null,
+     "prefijo": null
+    },
+    {
+     "tipo": "texto_contiene",
+     "archivo": "03_ficha_oficial_concluido.txt",
+     "contiene": "aprobaci",
+     "elemento": null,
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "ficha provisional nueva (artefacto actual, no heredado) marca apto_por_entradas=false",
+   "afirma": [
+    {
+     "tipo": "archivo_existe",
+     "archivo": "05_ficha_provisional.json",
+     "elemento": null,
+     "prefijo": null
+    },
+    {
+     "tipo": "json_campo",
+     "archivo": "05_ficha_provisional.json",
+     "ruta": "verificacion_entradas.apto_por_entradas",
+     "op": "eq",
+     "valor": false,
+     "elemento": null,
+     "prefijo": null
+    },
+    {
+     "tipo": "json_campo",
+     "archivo": "05_ficha_provisional.json",
+     "ruta": "verificacion_entradas.apto_para_dinero_real",
+     "op": "eq",
+     "valor": false,
+     "elemento": null,
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C3",
+   "texto": "informe provisional lleva el recuento 'apta por entradas: no'",
+   "afirma": [
+    {
+     "tipo": "texto_contiene",
+     "archivo": "07_informe_provisional.md",
+     "contiene": "apta por entradas: no",
+     "elemento": null,
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C4",
+   "texto": "informe oficial sin ficha oficial: exit 3 esperado",
+   "afirma": [
+    {
+     "tipo": "texto_contiene",
+     "archivo": "08_informe_oficial.txt",
+     "contiene": "no hay ficha.json oficial",
+     "elemento": null,
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

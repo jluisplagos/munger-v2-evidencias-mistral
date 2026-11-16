@@ -54,12 +54,58 @@
    "celdas": [
     "Análisis!C62"
    ],
-   "guardar": "01_sellar_hipotesis.txt"
+   "guardar": "01_sellar_hipotesis.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_na_e_hipotesis.json"
+   "guardar": "02_comprobar_na_e_hipotesis.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
  ],
- "celda_hipotesis": "Análisis!C62"
+ "celda_hipotesis": "Análisis!C62",
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "no_aplicable justificado queda contado aparte (por_clase) y no como verificado",
+   "afirma": [
+    {
+     "tipo": "json_campo",
+     "archivo": "02_comprobar_na_e_hipotesis.json",
+     "ruta": "por_clase.no_aplicable",
+     "op": "eq",
+     "valor": 1,
+     "elemento": null,
+     "prefijo": null
+    },
+    {
+     "tipo": "json_lista_no_contiene",
+     "archivo": "02_comprobar_na_e_hipotesis.json",
+     "lista": "comprobadas",
+     "prefijo": "aux:conversion",
+     "elemento": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "hipótesis explícita con fundamento/alternativas/límites, no publicada",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_na_e_hipotesis.json",
+     "lista": "comprobadas",
+     "elemento": "Análisis!C62",
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

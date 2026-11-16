@@ -41,11 +41,19 @@
    "celdas": [
     "Historia!C13"
    ],
-   "guardar": "01_sellar_signo_parentesis.txt"
+   "guardar": "01_sellar_signo_parentesis.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_signo_parentesis.json"
+   "guardar": "02_comprobar_signo_parentesis.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -74,7 +82,41 @@
   },
   {
    "op": "comprobar",
-   "guardar": "03_comprobar_signo_menos1_sin_tratamiento.json"
+   "guardar": "03_comprobar_signo_menos1_sin_tratamiento.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "gasto publicado entre paréntesis (valor_fuente negativo) -> comprobado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_signo_parentesis.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C13",
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "control negativo (signo -1 sin tratamiento sobre valor negativo) -> rechazado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "03_comprobar_signo_menos1_sin_tratamiento.json",
+     "lista": "discrepancias",
+     "prefijo": "Historia!C13",
+     "contiene": "valor del modelo",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

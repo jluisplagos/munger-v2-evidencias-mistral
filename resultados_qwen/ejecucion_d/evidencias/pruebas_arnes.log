@@ -1,0 +1,52 @@
+{
+ "pruebas": [
+  {
+   "prueba": "positivo real Q1-001 (COMPONENTE_OK, aserciones CUMPLE)",
+   "ok": true,
+   "detalle": "rc=0 estado=COMPONENTE_OK"
+  },
+  {
+   "prueba": "negativo esperado real Q1-006 (sellar exit 1 está en esperado; aserciones pasan)",
+   "ok": true,
+   "detalle": "rc=0"
+  },
+  {
+   "prueba": "candidata incompleta -> error propagado (rc!=0, ERROR_ENTORNO, errores registrados)",
+   "ok": true,
+   "detalle": "rc=2 estado=ERROR_ENTORNO"
+  },
+  {
+   "prueba": "artefacto heredado tras fallo de generación -> detectado, NO copiado, rc!=0",
+   "ok": true,
+   "detalle": "rc=1 estado=ERROR copiado=False criterios=['FALLA_COMPONENTE']"
+  },
+  {
+   "prueba": "carpeta de evidencias ausente -> 36 filas, 0 ejecuciones propias, ningún CUMPLE de componente",
+   "ok": true,
+   "detalle": "rc=0 filas=36 propias=0"
+  },
+  {
+   "prueba": "resultado mutado que incumple el predicado -> aserción FALLA detectada",
+   "ok": true,
+   "detalle": "03_comprobar_sellado.json:comprobadas contiene 'Historia!C23' -> FALLA"
+  },
+  {
+   "prueba": "recuentos desde fuente única (recuentos.json == CSV) y Q1-035 coherente matriz/recuentos",
+   "ok": true,
+   "detalle": "recuentos={'sin veredicto de caso': 27, 'sin veredicto': 6, 'NO_OBSERVABLE': 1, 'DECISION_PENDIENTE': 2}"
+  },
+  {
+   "prueba": "observación compartida declarada (Q1-028) y precondiciones simuladas registradas (D-R4)",
+   "ok": true,
+   "detalle": "obs=observación compartida con Q1-036 (retirada de apr"
+  }
+ ],
+ "todo_ok": true
+}PASA positivo real Q1-001 (COMPONENTE_OK, aserciones CUMPLE) · rc=0 estado=COMPONENTE_OK
+PASA negativo esperado real Q1-006 (sellar exit 1 está en esperado; aserciones pasan) · rc=0
+PASA candidata incompleta -> error propagado (rc!=0, ERROR_ENTORNO, errores registrados) · rc=2 estado=ERROR_ENTORNO
+PASA artefacto heredado tras fallo de generación -> detectado, NO copiado, rc!=0 · rc=1 estado=ERROR copiado=False criterios=['FALLA_COMPONENTE']
+PASA carpeta de evidencias ausente -> 36 filas, 0 ejecuciones propias, ningún CUMPLE de componente · rc=0 filas=36 propias=0
+PASA resultado mutado que incumple el predicado -> aserción FALLA detectada · 03_comprobar_sellado.json:comprobadas contiene 'Historia!C23' -> FALLA
+PASA recuentos desde fuente única (recuentos.json == CSV) y Q1-035 coherente matriz/recuentos · recuentos={'sin veredicto de caso': 27, 'sin veredicto': 6, 'NO_OBSERVABLE': 1, 'DECISION_PENDIENTE': 2}
+PASA observación compartida declarada (Q1-028) y precondiciones simuladas registradas (D-R4) · obs=observación compartida con Q1-036 (retirada de apr

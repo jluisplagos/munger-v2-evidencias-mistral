@@ -30,7 +30,11 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_dato_ausente.json"
+   "guardar": "01_comprobar_dato_ausente.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -59,7 +63,49 @@
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_cero_no_publicado.json"
+   "guardar": "02_comprobar_cero_no_publicado.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "dato_ausente sobre celda con valor (incluido 0) en el libro -> error: hay que contrastar",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_dato_ausente.json",
+     "lista": "errores",
+     "prefijo": "Historia!C23",
+     "contiene": "dato ausente con un valor en el libro",
+     "elemento": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "cero no publicado (sin cita del 0 en la página) -> discrepancia, no verificado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_cero_no_publicado.json",
+     "lista": "discrepancias",
+     "prefijo": "Historia!C23",
+     "contiene": "no contiene el valor",
+     "elemento": null
+    },
+    {
+     "tipo": "json_lista_no_contiene",
+     "archivo": "02_comprobar_cero_no_publicado.json",
+     "lista": "comprobadas",
+     "prefijo": "Historia!C23",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

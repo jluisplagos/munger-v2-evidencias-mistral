@@ -42,11 +42,19 @@
    "celdas": [
     "Historia!C14"
    ],
-   "guardar": "01_sellar_reexpresado.txt"
+   "guardar": "01_sellar_reexpresado.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_reexpresado.json"
+   "guardar": "02_comprobar_reexpresado.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -83,7 +91,41 @@
   },
   {
    "op": "comprobar",
-   "guardar": "03_comprobar_historico_conservado.json"
+   "guardar": "03_comprobar_historico_conservado.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "comparativo reexpresado con versión declarada -> comprobado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_reexpresado.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C14",
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "valor original 2024 conservado como histórico (auxiliar pendiente, no vigente)",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "03_comprobar_historico_conservado.json",
+     "lista": "pendientes",
+     "prefijo": "aux:circulante_2024_original",
+     "contiene": "pendiente",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

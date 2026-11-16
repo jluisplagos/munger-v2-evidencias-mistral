@@ -40,7 +40,11 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_lectura_externa.json"
+   "guardar": "01_comprobar_lectura_externa.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -77,7 +81,36 @@
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_lectura_externa_declarada.json"
+   "guardar": "02_comprobar_lectura_externa_declarada.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "verificado declarado sin bytes conservados -> NO comprobado y apto false",
+   "afirma": [
+    {
+     "tipo": "json_lista_no_contiene",
+     "archivo": "02_comprobar_lectura_externa_declarada.json",
+     "lista": "comprobadas",
+     "prefijo": "Historia!C24",
+     "elemento": null
+    },
+    {
+     "tipo": "json_campo",
+     "archivo": "02_comprobar_lectura_externa_declarada.json",
+     "ruta": "apto_por_entradas",
+     "op": "eq",
+     "valor": false,
+     "elemento": null,
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

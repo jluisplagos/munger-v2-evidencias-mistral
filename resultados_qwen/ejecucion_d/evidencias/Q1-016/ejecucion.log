@@ -1,17 +1,23 @@
 # Caso Q1-016 · Misma cifra en monedas distintas (U7): unidad 'dólares' no reconocida -> pendiente; no se convierte con tipo de cambio inventado.
-# candidato: /workspace/base_414_main · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+# precondiciones: extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)
+
+heredados archivados en /workspace/ejecucion_d_run/Q1-016/_heredados: ['auditoria.md', 'auditorias_conocidas.json', 'cierre_vigente.json', 'ficha.json', 'ficha_provisional.json', 'historial_cierres', 'informe.md', 'informe_provisional.md', 'material_auditoria.json', 'publicaciones_resumen.json']
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py plantilla /workspace/ejecucion_d_run/Q1-016/Viscofan   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
-exit=0
+exit=0 (esperado [0])
 --- stdout ---
 plantilla con 321 entradas
 
 
 fuente escrita: fuentes_sinteticas/f3_016_en.txt (1 páginas) sha256=6f0fd8d500e199db14402eb66de6d72abda8cb92dcbdf86fda768a1ec3f0ad8e
+
 fuente escrita: fuentes_sinteticas/f3_016_es.txt (1 páginas) sha256=ff828f5028e32264a1812368a151d18b23450a31029c890fc4a9ec7c1d002d67
-entrada Historia!C6: clase=dato_publicado
+
+entrada Historia!C6: clase=dato_publicado (comprobación preescrita = simulada)
+
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py comprobar /workspace/ejecucion_d_run/Q1-016/Viscofan --json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
-exit=1
+exit=1 (esperado [0, 1])
 --- stdout ---
 {
  "formato": "4.15",

@@ -39,7 +39,11 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_perimetro_segmento_sin_justificacion.json"
+   "guardar": "01_comprobar_perimetro_segmento_sin_justificacion.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -68,7 +72,41 @@
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_perimetro_segmento_justificado.json"
+   "guardar": "02_comprobar_perimetro_segmento_justificado.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "perímetro de segmento sin justificación -> error del contrato",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_perimetro_segmento_sin_justificacion.json",
+     "lista": "errores",
+     "prefijo": "Historia!C6",
+     "contiene": "per",
+     "elemento": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "con justificación explícita pasa el control de perímetro",
+   "afirma": [
+    {
+     "tipo": "json_lista_no_contiene",
+     "archivo": "02_comprobar_perimetro_segmento_justificado.json",
+     "lista": "errores",
+     "prefijo": "Historia!C6",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

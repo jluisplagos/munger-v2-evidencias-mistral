@@ -29,7 +29,27 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_hipotesis_listada.json"
+   "guardar": "01_comprobar_hipotesis_listada.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "dato presentado como hipótesis con justificacion_clase -> listado en datos_como_hipotesis, no publicado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "01_comprobar_hipotesis_listada.json",
+     "lista": "datos_como_hipotesis",
+     "elemento": "Historia!C7",
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

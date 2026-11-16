@@ -49,11 +49,35 @@
    "celdas": [
     "Historia!C24"
    ],
-   "guardar": "01_sellar_trazabilidad.txt"
+   "guardar": "01_sellar_trazabilidad.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_trazabilidad_completa.json"
+   "guardar": "02_comprobar_trazabilidad_completa.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "coincidencia con trazabilidad completa -> verificado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_trazabilidad_completa.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C24",
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

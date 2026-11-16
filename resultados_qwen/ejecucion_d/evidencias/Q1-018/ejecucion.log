@@ -1,37 +1,33 @@
 # Caso Q1-018 · Versión vigente v2 (190) usada; v1 (210) histórica; reexpresión 210-190=20 como derivado exacto con versión y nota.
-# candidato: /workspace/base_414_main · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+# precondiciones: extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)
+
+heredados archivados en /workspace/ejecucion_d_run/Q1-018/_heredados: ['auditoria.md', 'auditorias_conocidas.json', 'cierre_vigente.json', 'ficha.json', 'ficha_provisional.json', 'historial_cierres', 'informe.md', 'informe_provisional.md', 'material_auditoria.json', 'publicaciones_resumen.json']
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py plantilla /workspace/ejecucion_d_run/Q1-018/Viscofan   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
-exit=0
+exit=0 (esperado [0])
 --- stdout ---
 plantilla con 321 entradas
 
 
-fuente escrita: fuentes_sinteticas/f3_018_v1.txt (1 páginas) sha256=8e6c68d6d283bed4b5c65199447253bffcaa2305f2c7ac1c489c319f5c6b26fa
-fuente escrita: fuentes_sinteticas/f3_018_v2.txt (1 páginas) sha256=7454ba2f05306a0699df12f6c78b36914ec89c04e7f723be2cd673b6cc2b75b9
-# Caso Q1-018 · Versión vigente v2 (190) usada; v1 (210) histórica; reexpresión 210-190=20 como derivado exacto con versión y nota.
-# candidato: /workspace/base_414_main · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+fuente escrita: fuentes_sinteticas/f3_018_v1.txt (1 páginas) sha256=8e18b4613128c1bb0ee1f032ac321b4d17f72c1d69b3ab419be9b05755cc791b
 
-$ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py plantilla /workspace/ejecucion_d_run/Q1-018/Viscofan   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
-exit=0
+fuente escrita: fuentes_sinteticas/f3_018_v2.txt (1 páginas) sha256=c9c32bf6eed3b8dd0e5c604f9782b48c256d5c6b9f5cc712e66084b29d259f83
+
+entrada aux:inv_v1: clase=dato_publicado (comprobación preescrita = simulada)
+
+entrada aux:inv_v2: clase=dato_publicado (comprobación preescrita = simulada)
+
+$ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py sellar /workspace/ejecucion_d_run/Q1-018/Viscofan aux:inv_v2 --revisor revisor independiente de prueba D (arnés externo) [SIMULADO] --fecha 2026-11-16   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
+exit=0 (esperado [0, 1])
 --- stdout ---
-plantilla con 321 entradas
+selladas 1 · rechazadas 0
 
 
-fuente escrita: fuentes_sinteticas/f3_018_v1.txt (1 páginas) sha256=8e6c68d6d283bed4b5c65199447253bffcaa2305f2c7ac1c489c319f5c6b26fa
-fuente escrita: fuentes_sinteticas/f3_018_v2.txt (1 páginas) sha256=7454ba2f05306a0699df12f6c78b36914ec89c04e7f723be2cd673b6cc2b75b9
-entrada aux:inv_v1: clase=dato_publicado
-entrada aux:inv_v2: clase=dato_publicado
-$ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py sellar /workspace/ejecucion_d_run/Q1-018/Viscofan aux:inv_v2 --revisor revisor independiente de prueba D (arnés externo) --fecha 2026-11-16   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
-exit=1
---- stdout ---
-selladas 0 · rechazadas 1
-  aux:inv_v2: no pasa los controles automáticos (aux:inv_v2: la cita no está en la página 1 de fuentes_sinteticas/f3_018_v2.txt)
+entrada aux:reexpresion: clase=derivado (comprobación preescrita = simulada)
 
-
-entrada aux:reexpresion: clase=derivado
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py comprobar /workspace/ejecucion_d_run/Q1-018/Viscofan --json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
-exit=1
+exit=1 (esperado [0, 1])
 --- stdout ---
 {
  "formato": "4.15",
@@ -43,15 +39,15 @@ exit=1
   "dato_publicado": 2,
   "derivado": 1
  },
- "comprobadas": [],
+ "comprobadas": [
+  "aux:inv_v2"
+ ],
  "pendientes": [
   "aux:inv_v1: comprobación pendiente",
   "aux:reexpresion: el origen aux:inv_v1 no está comprobado (pendiente)"
  ],
  "desactualizadas": [],
- "discrepancias": [
-  "aux:inv_v2: la cita no está en la página 1 de fuentes_sinteticas/f3_018_v2.txt"
- ],
+ "discrepancias": [],
  "errores": [
   "Análisis!C37: clase None no es una de ('dato_publicado', 'derivado', 'cero_comprobado', 'dato_ausente', 'no_aplicable', 'hipotesis', 'convencion')",
   "Análisis!C41: clase None no es una de ('dato_publicado', 'derivado', 'cero_comprobado', 'dato_ausente', 'no_aplicable', 'hipotesis', 'convencion')",
@@ -703,7 +699,7 @@ exit=1
   "Palancas!B32"
  ],
  "apto_por_entradas": false,
- "motivo": "0 de 321 celdas del universo comprobadas (0 de 232 de cálculo y 0 de 89 de juicio; +3 datos de origen auxiliares); 0 lecturas externas sin bytes; 4 entradas del FCF base no reproducibles; 0 datos tratados como hipótesis o convención; 0 entradas de juicio no materiales (0 sin el juicio de materialidad revisado); 0 no aplicables; 321 entradas materiales sin comprobar; 0 desactualizadas; 1 discrepancias; 321 errores del contrato; 0 sin entrada",
+ "motivo": "0 de 321 celdas del universo comprobadas (0 de 232 de cálculo y 0 de 89 de juicio; +3 datos de origen auxiliares); 0 lecturas externas sin bytes; 4 entradas del FCF base no reproducibles; 0 datos tratados como hipótesis o convención; 0 entradas de juicio no materiales (0 sin el juicio de materialidad revisado); 0 no aplicables; 321 entradas materiales sin comprobar; 0 desactualizadas; 0 discrepancias; 321 errores del contrato; 0 sin entrada",
  "lecturas_externas": [],
  "universo_calculo": 232,
  "universo_juicio": 89,
@@ -729,27 +725,35 @@ exit=1
 
 
 # Caso Q1-018 · Versión vigente v2 (190) usada; v1 (210) histórica; reexpresión 210-190=20 como derivado exacto con versión y nota.
-# candidato: /workspace/base_414_main · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+# precondiciones: extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)
+
+heredados archivados en /workspace/ejecucion_d_run/Q1-018/_heredados: ['auditoria.md', 'auditorias_conocidas.json', 'cierre_vigente.json', 'ficha.json', 'ficha_provisional.json', 'historial_cierres', 'informe.md', 'informe_provisional.md', 'material_auditoria.json', 'publicaciones_resumen.json']
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py plantilla /workspace/ejecucion_d_run/Q1-018/Viscofan   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
-exit=0
+exit=0 (esperado [0])
 --- stdout ---
 plantilla con 321 entradas
 
 
 fuente escrita: fuentes_sinteticas/f3_018_v1.txt (1 páginas) sha256=8e18b4613128c1bb0ee1f032ac321b4d17f72c1d69b3ab419be9b05755cc791b
+
 fuente escrita: fuentes_sinteticas/f3_018_v2.txt (1 páginas) sha256=c9c32bf6eed3b8dd0e5c604f9782b48c256d5c6b9f5cc712e66084b29d259f83
-entrada aux:inv_v1: clase=dato_publicado
-entrada aux:inv_v2: clase=dato_publicado
+
+entrada aux:inv_v1: clase=dato_publicado (comprobación preescrita = simulada)
+
+entrada aux:inv_v2: clase=dato_publicado (comprobación preescrita = simulada)
+
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py sellar /workspace/ejecucion_d_run/Q1-018/Viscofan aux:inv_v2 --revisor revisor independiente de prueba D (arnés externo) --fecha 2026-11-16   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
-exit=0
+exit=0 (esperado [0, 1])
 --- stdout ---
 selladas 1 · rechazadas 0
 
 
-entrada aux:reexpresion: clase=derivado
+entrada aux:reexpresion: clase=derivado (comprobación preescrita = simulada)
+
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py comprobar /workspace/ejecucion_d_run/Q1-018/Viscofan --json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
-exit=1
+exit=1 (esperado [0, 1])
 --- stdout ---
 {
  "formato": "4.15",

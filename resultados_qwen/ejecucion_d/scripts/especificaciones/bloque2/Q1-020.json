@@ -31,11 +31,19 @@
    "celdas": [
     "Análisis!C62"
    ],
-   "guardar": "01_sellar_hipotesis.json"
+   "guardar": "01_sellar_hipotesis.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_antes_cambio.json"
+   "guardar": "02_comprobar_antes_cambio.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -53,8 +61,41 @@
   },
   {
    "op": "comprobar",
-   "guardar": "03_comprobar_tras_cambio_fundamento.json"
+   "guardar": "03_comprobar_tras_cambio_fundamento.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
  ],
- "celda_hipotesis": "Análisis!C62"
+ "celda_hipotesis": "Análisis!C62",
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "hipótesis sellada queda comprobada antes del cambio",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_antes_cambio.json",
+     "lista": "comprobadas",
+     "elemento": "Análisis!C62",
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "tras cambiar el fundamento: la comprobación ya no vale (no comprobada)",
+   "afirma": [
+    {
+     "tipo": "json_lista_no_contiene",
+     "archivo": "03_comprobar_tras_cambio_fundamento.json",
+     "lista": "comprobadas",
+     "prefijo": "Análisis!C62",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

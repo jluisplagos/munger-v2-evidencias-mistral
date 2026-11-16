@@ -76,7 +76,11 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_derivado_origen_pendiente.json"
+   "guardar": "01_comprobar_derivado_origen_pendiente.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -103,7 +107,11 @@
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_control_formula_trivial.json"
+   "guardar": "02_comprobar_control_formula_trivial.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "escribir_fuente",
@@ -143,11 +151,57 @@
     "aux:ingresos",
     "aux:costes"
    ],
-   "guardar": "03_sellar_origenes.txt"
+   "guardar": "03_sellar_origenes.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "04_comprobar_formula_trivial_origenes_comprobados.json"
+   "guardar": "04_comprobar_formula_trivial_origenes_comprobados.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "derivado con origen sin comprobar -> pendiente, no comprobado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_derivado_origen_pendiente.json",
+     "lista": "pendientes",
+     "prefijo": "aux:D",
+     "contiene": "origen",
+     "elemento": null
+    },
+    {
+     "tipo": "json_lista_no_contiene",
+     "archivo": "01_comprobar_derivado_origen_pendiente.json",
+     "lista": "comprobadas",
+     "prefijo": "aux:D",
+     "elemento": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "fórmula trivial (operando que no influye, U4) -> error",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "04_comprobar_formula_trivial_origenes_comprobados.json",
+     "lista": "errores",
+     "prefijo": "aux:D",
+     "contiene": "no influyen",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

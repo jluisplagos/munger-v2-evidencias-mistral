@@ -1,25 +1,155 @@
 {
-  "id": "Q1-027",
-  "descripcion": "CAMBIO POSTERIOR A REVISIÓN: caja verificada y sellada el día de la revisión; después el 'Excel' (fuente local) cambia (caja 45054 -> 80054 miles, edición 2026-11-10). El producto debe invalidar la comprobación (fuente cambió, sha256 distinto del registrado) y dejar la celda desactualizada, no comprobada.",
-  "pasos": [
-    {"op": "nuevo_expediente"},
-    {"op": "escribir_fuente", "nombre": "f5_027_excel.txt", "paginas": [
-      "Extracto sintético ES-1 (simula el Excel de partida, revisión 2026-11-05).",
-      "Tabla 4 pág.2: caja = 45054 (miles de euros, consolidado, ejercicio 2016).",
-      "Nota 5 pág.3: deuda financiera = 82019 (miles de euros, consolidado, ejercicio 2016)."
-    ]},
-    {"op": "entrada", "celda": "Historia!C24", "clase": "dato_publicado",
-     "fuente": {"documento": "Extracto sintético ES-1 (fixture f5_027_excel.csv)", "archivo": "fuentes_sinteticas/f5_027_excel.txt", "version": "sintética v1 (revisión 2026-11-05)", "pagina": 2, "ubicacion": "Tabla 4", "concepto": "caja", "periodo": "ejercicio 2016", "unidad": "miles de euros", "escala": 0.001, "signo": 1, "tratamiento": "ninguno", "perimetro": "consolidado", "reexpresado": "no aplica", "valor_fuente": 45054, "cita": "Tabla 4 pág.2: caja = 45054 (miles de euros, consolidado, ejercicio 2016)"},
-     "comprobacion": "verificada"},
-    {"op": "sellar", "celdas": ["Historia!C24"], "guardar": "01_sellar.txt"},
-    {"op": "comprobar", "guardar": "02_comprobar_antes_mutacion.json"},
-    {"op": "mutar_fuente", "archivo": "fuentes_sinteticas/f5_027_excel.txt", "paginas": [
-      "Extracto sintético ES-1 (edición 2026-11-10, después de la revisión del 2026-11-05).",
-      "Tabla 4 pág.2: caja = 80054 (miles de euros, consolidado, ejercicio 2016).",
-      "Nota 5 pág.3: deuda financiera = 82019 (miles de euros, consolidado, ejercicio 2016)."
-    ]},
-    {"op": "comprobar", "guardar": "03_comprobar_tras_mutacion.json"},
-    {"op": "sellar", "celdas": ["Historia!C24"], "guardar": "04_sellar_tras_mutacion.txt"},
-    {"op": "comprobar", "guardar": "05_comprobar_final.json"}
-  ]
+ "id": "Q1-027",
+ "descripcion": "CAMBIO POSTERIOR A REVISIÓN: caja verificada y sellada el día de la revisión; después el 'Excel' (fuente local) cambia (caja 45054 -> 80054 miles, edición 2026-11-10). El producto debe invalidar la comprobación (fuente cambió, sha256 distinto del registrado) y dejar la celda desactualizada, no comprobada.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f5_027_excel.txt",
+   "paginas": [
+    "Extracto sintético ES-1 (simula el Excel de partida, revisión 2026-11-05).",
+    "Tabla 4 pág.2: caja = 45054 (miles de euros, consolidado, ejercicio 2016).",
+    "Nota 5 pág.3: deuda financiera = 82019 (miles de euros, consolidado, ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "fuente": {
+    "documento": "Extracto sintético ES-1 (fixture f5_027_excel.csv)",
+    "archivo": "fuentes_sinteticas/f5_027_excel.txt",
+    "version": "sintética v1 (revisión 2026-11-05)",
+    "pagina": 2,
+    "ubicacion": "Tabla 4",
+    "concepto": "caja",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 45054,
+    "cita": "Tabla 4 pág.2: caja = 45054 (miles de euros, consolidado, ejercicio 2016)"
+   },
+   "comprobacion": "verificada"
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C24"
+   ],
+   "guardar": "01_sellar.txt",
+   "esperado": [
+    0,
+    1
+   ]
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_antes_mutacion.json",
+   "esperado": [
+    0,
+    1
+   ]
+  },
+  {
+   "op": "mutar_fuente",
+   "archivo": "fuentes_sinteticas/f5_027_excel.txt",
+   "paginas": [
+    "Extracto sintético ES-1 (edición 2026-11-10, después de la revisión del 2026-11-05).",
+    "Tabla 4 pág.2: caja = 80054 (miles de euros, consolidado, ejercicio 2016).",
+    "Nota 5 pág.3: deuda financiera = 82019 (miles de euros, consolidado, ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "comprobar",
+   "guardar": "03_comprobar_tras_mutacion.json",
+   "esperado": [
+    0,
+    1
+   ]
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C24"
+   ],
+   "guardar": "04_sellar_tras_mutacion.txt",
+   "esperado": [
+    0,
+    1
+   ]
+  },
+  {
+   "op": "comprobar",
+   "guardar": "05_comprobar_final.json",
+   "esperado": [
+    0,
+    1
+   ]
+  }
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "antes de la mutación la caja queda comprobada (sellada)",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_antes_mutacion.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C24",
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "tras mutar la fuente: desactualizada por sha256, ya no comprobada, apto false",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "03_comprobar_tras_mutacion.json",
+     "lista": "desactualizadas",
+     "prefijo": "Historia!C24",
+     "contiene": "sha256",
+     "elemento": null
+    },
+    {
+     "tipo": "json_lista_no_contiene",
+     "archivo": "03_comprobar_tras_mutacion.json",
+     "lista": "comprobadas",
+     "prefijo": "Historia!C24",
+     "elemento": null
+    },
+    {
+     "tipo": "json_campo",
+     "archivo": "03_comprobar_tras_mutacion.json",
+     "ruta": "apto_por_entradas",
+     "op": "eq",
+     "valor": false,
+     "elemento": null,
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C3",
+   "texto": "re-sellar tras la mutación se rechaza",
+   "afirma": [
+    {
+     "tipo": "texto_contiene",
+     "archivo": "04_sellar_tras_mutacion.txt",
+     "contiene": "rechazadas 1",
+     "elemento": null,
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

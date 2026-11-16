@@ -28,7 +28,11 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_dato_como_hipotesis_sin_justificacion.json"
+   "guardar": "01_comprobar_dato_como_hipotesis_sin_justificacion.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -47,7 +51,41 @@
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_dato_como_hipotesis_listado.json"
+   "guardar": "02_comprobar_dato_como_hipotesis_listado.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "dato como hipótesis sin justificacion_clase -> error N2",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_dato_como_hipotesis_sin_justificacion.json",
+     "lista": "errores",
+     "prefijo": "Historia!C7",
+     "contiene": "justificacion_clase",
+     "elemento": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "con justificacion_clase: listado en datos_como_hipotesis, no como publicado (la firma no demuestra)",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_dato_como_hipotesis_listado.json",
+     "lista": "datos_como_hipotesis",
+     "elemento": "Historia!C7",
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

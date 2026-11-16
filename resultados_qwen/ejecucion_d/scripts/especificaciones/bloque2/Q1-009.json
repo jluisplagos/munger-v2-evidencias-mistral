@@ -39,7 +39,11 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_cita_columna_equivocada.json"
+   "guardar": "01_comprobar_cita_columna_equivocada.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -71,11 +75,49 @@
    "celdas": [
     "Historia!C6"
    ],
-   "guardar": "02_sellar_corregido.txt"
+   "guardar": "02_sellar_corregido.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "03_comprobar_corregido.json"
+   "guardar": "03_comprobar_corregido.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "cita con dígitos de otra columna no acredita (discrepancia de valor)",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_cita_columna_equivocada.json",
+     "lista": "discrepancias",
+     "prefijo": "Historia!C6",
+     "contiene": "0.48",
+     "elemento": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "corregido con la tabla/columna correcta -> comprobado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_corregido.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C6",
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

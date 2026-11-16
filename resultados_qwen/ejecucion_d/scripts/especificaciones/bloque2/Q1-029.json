@@ -157,11 +157,71 @@
     "Historia!C22",
     "Historia!C6"
    ],
-   "guardar": "01_sellar_3_presentes.txt"
+   "guardar": "01_sellar_3_presentes.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_rehidratacion.json"
+   "guardar": "02_comprobar_rehidratacion.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "3 fuentes presentes se reexaminan y quedan comprobadas",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_rehidratacion.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C24",
+     "prefijo": null
+    },
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_rehidratacion.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C22",
+     "prefijo": null
+    },
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_rehidratacion.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C6",
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "2 fuentes declaradas pero ausentes quedan pendientes (R2)",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_rehidratacion.json",
+     "lista": "pendientes",
+     "prefijo": "Historia!C12",
+     "contiene": "no est",
+     "elemento": null
+    },
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_rehidratacion.json",
+     "lista": "pendientes",
+     "prefijo": "Historia!C26",
+     "contiene": "no est",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

@@ -47,7 +47,11 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_escala_no_declarada.json"
+   "guardar": "01_comprobar_escala_no_declarada.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -78,11 +82,49 @@
    "celdas": [
     "Historia!C6"
    ],
-   "guardar": "02_sellar_unidad_declarada.txt"
+   "guardar": "02_sellar_unidad_declarada.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "03_comprobar_unidad_declarada.json"
+   "guardar": "03_comprobar_unidad_declarada.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "unidad no declarada: no se asume escala (discrepancia de valor)",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_escala_no_declarada.json",
+     "lista": "discrepancias",
+     "prefijo": "Historia!C6",
+     "contiene": "2500",
+     "elemento": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "unidad declarada (miles, escala 0.001) -> comprobada",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_unidad_declarada.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C6",
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

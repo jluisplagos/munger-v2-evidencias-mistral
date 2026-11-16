@@ -82,7 +82,11 @@
    "celdas": [
     "aux:inv_v2"
    ],
-   "guardar": "01_sellar_v2.txt"
+   "guardar": "01_sellar_v2.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -109,7 +113,49 @@
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_version_vigente.json"
+   "guardar": "02_comprobar_version_vigente.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "versión vigente v2 comprobada",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_version_vigente.json",
+     "lista": "comprobadas",
+     "elemento": "aux:inv_v2",
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "v1 superada queda histórica (pendiente); reexpresión 210-190=20 declarada en el derivado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_version_vigente.json",
+     "lista": "pendientes",
+     "prefijo": "aux:inv_v1",
+     "contiene": "pendiente",
+     "elemento": null
+    },
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_version_vigente.json",
+     "lista": "pendientes",
+     "prefijo": "aux:reexpresion",
+     "contiene": "origen",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

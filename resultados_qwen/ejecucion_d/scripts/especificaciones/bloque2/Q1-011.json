@@ -42,11 +42,19 @@
    "celdas": [
     "Historia!C8"
    ],
-   "guardar": "01_sellar_signo_tratamiento.txt"
+   "guardar": "01_sellar_signo_tratamiento.txt",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "comprobar",
-   "guardar": "02_comprobar_signo_tratamiento.json"
+   "guardar": "02_comprobar_signo_tratamiento.json",
+   "esperado": [
+    0,
+    1
+   ]
   },
   {
    "op": "entrada",
@@ -75,7 +83,41 @@
   },
   {
    "op": "comprobar",
-   "guardar": "03_comprobar_doble_negacion.json"
+   "guardar": "03_comprobar_doble_negacion.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "signo -1 con tratamiento declarado cuadra con el modelo -> comprobado",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_signo_tratamiento.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C8",
+     "prefijo": null
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "doble negación (signo -1 sobre valor positivo) -> discrepancia",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "03_comprobar_doble_negacion.json",
+     "lista": "discrepancias",
+     "prefijo": "Historia!C8",
+     "contiene": "-49.699",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

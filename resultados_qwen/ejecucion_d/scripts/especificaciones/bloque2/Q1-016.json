@@ -46,7 +46,28 @@
   },
   {
    "op": "comprobar",
-   "guardar": "01_comprobar_moneda_no_reconocida.json"
+   "guardar": "01_comprobar_moneda_no_reconocida.json",
+   "esperado": [
+    0,
+    1
+   ]
   }
- ]
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "moneda no reconocida (USD) -> pendiente U7, sin conversión inventada",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_moneda_no_reconocida.json",
+     "lista": "pendientes",
+     "prefijo": "Historia!C6",
+     "contiene": "unidad monetaria no reconocida",
+     "elemento": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "2.0"
 }

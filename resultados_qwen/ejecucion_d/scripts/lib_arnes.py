@@ -1,9 +1,16 @@
-"""Biblioteca del arnés externo del frente D (Mistral D · aceptación Qwen Q1).
+"""Biblioteca del arnés externo del frente D (Mistral D · aceptación Qwen Q1) · v2.
 
-Ejecuta comandos documentados del producto Munger V2 (rama candidata fijada) sobre
-copias locales de prueba aisladas. No modifica el producto: solo lee sus scripts y
-escribe en expedientes de prueba copiados aparte. Todo comando ejecutado queda
-registrado con su código de salida y salida en resultados_qwen/ejecucion_d/evidencias/.
+Ejecuta comandos documentados del producto Munger V2 (candidata fijada) sobre copias
+locales de prueba aisladas y evalúa aserciones por criterio sobre las salidas reales.
+No modifica el producto. Cambios v2 (CORRECCION_D D-R1..R5):
+- verifica en ejecución el SHA de la candidata y la presencia del banco (D-R5);
+- archiva las salidas heredadas del expediente plantilla fuera del estado de prueba
+  y registra sus huellas (D-R2);
+- no usa la mera existencia de un artefacto como éxito: exige que lo haya producido
+  un comando con exit esperado y que su huella difiera de la heredada (D-R2);
+- registra resultados por criterio y errores inesperados que se propagan al estado
+  del caso y al exit global (D-R1);
+- declara las precondiciones de extractor/revisor como SIMULADAS (D-R4).
 """
 import datetime as dt
 import hashlib
@@ -13,27 +20,57 @@ import shutil
 import subprocess
 import sys
 
+sys.dont_write_bytecode = True
+
 AUX = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # resultados_qwen/ejecucion_d
-REPO_AUX = os.path.dirname(AUX)
-EVIDENCIAS = os.path.join(AUX, "evidencias")
+EVIDENCIAS = os.environ.get("EVIDENCIAS_DIR", os.path.join(AUX, "evidencias"))
 
 CANDIDATA = os.environ.get("CANDIDATA_DIR", "/workspace/base_414_main")
+SHA_CANDIDATA_ESPERADO = os.environ.get("SHA_CANDIDATA_ESPERADO", "957af652cdc3bef3d67e8623c9572138bac685e9")
 PERSONAJE = os.path.join(CANDIDATA, "munger_v2_r1", "personaje_v2")
 SCRIPTS = os.path.join(PERSONAJE, "scripts")
 PLANTILLA_EXP = os.environ.get(
     "PLANTILLA_EXP",
     os.path.join(PERSONAJE, "empresas_v2_correcciones", "2026-11_Vidrala_ensayo_4_13", "viscofan", "Viscofan"),
 )
+# BANCO_DIR apunta a la carpeta banco_revisado (la que contiene casos_aceptacion.jsonl)
 BANCO = os.environ.get("BANCO_DIR", "/workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado")
 RUN_DIR = os.environ.get("RUN_DIR", "/workspace/ejecucion_d_run")
 
 HOY = dt.datetime.now().astimezone().date().isoformat()
 IGNORAR_COPIA = shutil.ignore_patterns(".lo_perfil", "variantes_v64", "recalc", "prompts_generados", "__pycache__", ".downloads")
 
+# Salidas heredadas del expediente histórico que NO forman parte del estado de prueba:
+# se archivan en <run>/<caso>/_heredados/ antes de ejecutar (D-R2).
+ARTEFACTOS_HEREDADOS = [
+    "ficha.json", "ficha_provisional.json", "informe.md", "informe_provisional.md",
+    "auditoria.md", "material_auditoria.json", "diagnostico.md", "historial_cierres",
+    "publicaciones_resumen.json", "cierre_vigente.json", "auditorias_conocidas.json",
+]
+
+PRECONDICION_SIMULADA = ("extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; "
+                         "no es revisión independiente ejecutada (D-R4)")
+
 
 def sha256_archivo(p):
     with open(p, "rb") as f:
         return hashlib.sha256(f.read()).hexdigest()
+
+
+def verificar_entorno():
+    """D-R5: comprueba SHA real de la candidata y presencia del banco antes de ejecutar."""
+    problemas = []
+    script = os.path.join(SCRIPTS, "verificacion_entradas.py")
+    if not os.path.isfile(script):
+        problemas.append(f"falta {script} (CANDIDATA_DIR={CANDIDATA})")
+    else:
+        r = subprocess.run(["git", "-C", CANDIDATA, "rev-parse", "HEAD"], capture_output=True, text=True)
+        sha = r.stdout.strip()
+        if r.returncode != 0 or sha != SHA_CANDIDATA_ESPERADO:
+            problemas.append(f"SHA candidata {sha!r} != esperado {SHA_CANDIDATA_ESPERADO}")
+    if not os.path.isfile(os.path.join(BANCO, "casos_aceptacion.jsonl")):
+        problemas.append(f"BANCO_DIR={BANCO} no contiene casos_aceptacion.jsonl (debe apuntar a .../banco_revisado)")
+    return problemas
 
 
 class Caso:
@@ -42,64 +79,112 @@ class Caso:
         self.ev_dir = os.path.join(EVIDENCIAS, caso_id)
         os.makedirs(self.ev_dir, exist_ok=True)
         self.log = os.path.join(self.ev_dir, "ejecucion.log")
-        self.resultados = {"caso": caso_id, "pasos": []}
+        self.heredados = {}          # nombre -> sha256 de artefactos archivados (D-R2)
+        self.artefactos = []         # artefactos copiados a evidencias con su procedencia
+        self.errores = []            # errores inesperados (exit no esperado)
+        self.afirmaciones_fallidas = []
+        self.resultados = {"caso": caso_id, "harness_version": "2.0",
+                           "precondiciones_simuladas": PRECONDICION_SIMULADA,
+                           "candidata_sha": SHA_CANDIDATA_ESPERADO, "pasos": []}
 
     def _log(self, texto):
         with open(self.log, "a", encoding="utf-8") as f:
             f.write(texto + "\n")
 
-    def ejecutar(self, args, descripcion, cwd=SCRIPTS, guardar=None, exit_esperado=None):
-        """Ejecuta un comando real del producto y registra todo."""
+    def ejecutar(self, args, descripcion, cwd=SCRIPTS, guardar=None, esperado=(0,), criterio=None):
+        """Ejecuta un comando real del producto. exit fuera de `esperado` -> error inesperado (D-R1)."""
         env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
         r = subprocess.run(args, cwd=cwd, env=env, capture_output=True, text=True)
         self._log(f"$ {' '.join(args)}   (cwd={cwd})")
-        self._log(f"exit={r.returncode}")
+        self._log(f"exit={r.returncode} (esperado {list(esperado)})")
         if r.stdout:
             self._log("--- stdout ---\n" + r.stdout)
         if r.stderr:
             self._log("--- stderr ---\n" + r.stderr)
-        paso = {"descripcion": descripcion, "comando": args, "cwd": cwd, "exit": r.returncode,
+        paso = {"descripcion": descripcion, "comando": args, "exit": r.returncode,
+                "esperado": list(esperado), "criterio": criterio,
                 "stdout": r.stdout[-20000:], "stderr": r.stderr[-20000:]}
         if guardar:
             with open(os.path.join(self.ev_dir, guardar), "w", encoding="utf-8") as f:
                 f.write(r.stdout)
             paso["guardado_en"] = guardar
-        if exit_esperado is not None and r.returncode != exit_esperado:
-            paso["AVISO"] = f"exit {r.returncode} != esperado {exit_esperado}"
+        if r.returncode not in esperado:
+            paso["error_inesperado"] = True
+            self.errores.append(f"{descripcion}: exit {r.returncode} no está en esperado {list(esperado)}")
+            self._log(f"!! ERROR INESPERADO: exit {r.returncode} (esperado {list(esperado)})\n")
         self.resultados["pasos"].append(paso)
         self._log("")
         return r
 
-    def producto(self, script, args, descripcion, guardar=None, exit_esperado=None):
+    def producto(self, script, args, descripcion, guardar=None, esperado=(0,), criterio=None):
         return self.ejecutar([sys.executable, "-B", os.path.join(SCRIPTS, script)] + args,
-                             descripcion, guardar=guardar, exit_esperado=exit_esperado)
+                             descripcion, guardar=guardar, esperado=esperado, criterio=criterio)
 
-    def guardar_resultados(self):
+    def copiar_artefacto(self, exp, archivo, guardar, paso_productor):
+        """D-R2: solo copia si el comando productor terminó con exit esperado y la huella
+        difiere de la heredada (o no existía). Si no, registra artefacto heredado/rechazado."""
+        src = os.path.join(exp, archivo)
+        nombre = os.path.basename(archivo)
+        if not os.path.isfile(src):
+            self.afirmaciones_fallidas.append(f"artefacto {archivo} no existe tras el paso productor")
+            return False
+        sha = sha256_archivo(src)
+        heredado = self.heredados.get(nombre)
+        nuevo = heredado is None or sha != heredado
+        productor_ok = paso_productor is not None and not paso_productor.get("error_inesperado")
+        if not (productor_ok and nuevo):
+            self.afirmaciones_fallidas.append(
+                f"artefacto {nombre} rechazado: productor_ok={productor_ok}, nuevo={nuevo} "
+                f"(heredado_sha={heredado})")
+            self._log(f"!! ARTEFACTO RECHAZADO (heredado o productor fallido): {archivo} sha={sha}\n")
+            return False
+        shutil.copyfile(src, os.path.join(self.ev_dir, guardar))
+        self.artefactos.append({"archivo": nombre, "guardado_en": guardar, "sha256": sha,
+                               "productor": paso_productor.get("descripcion"), "nuevo": True})
+        self._log(f"artefacto copiado (nuevo, sha={sha[:16]}…): {guardar}\n")
+        return True
+
+    def guardar_resultados(self, estado_caso, criterios):
+        self.resultados["estado_caso"] = estado_caso
+        self.resultados["criterios"] = criterios
+        self.resultados["artefactos"] = self.artefactos
+        self.resultados["errores"] = self.errores
+        self.resultados["afirmaciones_fallidas"] = self.afirmaciones_fallidas
         with open(os.path.join(self.ev_dir, "resultado_ejecucion.json"), "w", encoding="utf-8") as f:
             json.dump(self.resultados, f, ensure_ascii=False, indent=1)
 
 
 def nuevo_expediente(caso):
-    """Copia limpia del expediente plantilla del producto en un directorio aislado."""
+    """Copia limpia del expediente plantilla; archiva las salidas heredadas fuera del
+    estado de prueba y registra sus huellas (D-R2)."""
     destino = os.path.join(RUN_DIR, caso.id, "Viscofan")
     shutil.rmtree(os.path.join(RUN_DIR, caso.id), ignore_errors=True)
     os.makedirs(os.path.dirname(destino), exist_ok=True)
     shutil.copytree(PLANTILLA_EXP, destino, ignore=IGNORAR_COPIA)
+    arch = os.path.join(RUN_DIR, caso.id, "_heredados")
+    os.makedirs(arch, exist_ok=True)
+    for nombre in ARTEFACTOS_HEREDADOS:
+        p = os.path.join(destino, nombre)
+        if os.path.exists(p):
+            if os.path.isdir(p):
+                shutil.move(p, os.path.join(arch, nombre))
+                caso.heredados[nombre] = "dir"
+            else:
+                shutil.move(p, os.path.join(arch, nombre))
+                caso.heredados[nombre] = sha256_archivo(os.path.join(arch, nombre))
+    caso._log(f"heredados archivados en {arch}: {sorted(caso.heredados)}\n")
     caso.ejecutar([sys.executable, "-B", os.path.join(SCRIPTS, "verificacion_entradas.py"), "plantilla", destino],
-                  "plantilla del registro de entradas (comando documentado del producto)", guardar=None)
+                  "plantilla del registro de entradas (comando documentado del producto)")
     return destino
 
 
 def materializar_fuente(caso, exp, nombre, texto, con_paginas=True):
-    """Guarda una fuente sintética local con marcas [PDF PAGE n] como hace pdf_a_texto.py."""
     d = os.path.join(exp, "fuentes_sinteticas")
     os.makedirs(d, exist_ok=True)
     p = os.path.join(d, nombre)
     if con_paginas:
-        lineas = texto.splitlines() or [""]
-        # las páginas del fixture se separan por líneas en blanco dobles o se numeran en orden
         bloques, actual = [], []
-        for ln in lineas:
+        for ln in texto.splitlines() or [""]:
             if ln.strip() == "" and actual:
                 bloques.append("\n".join(actual))
                 actual = []
@@ -199,14 +284,17 @@ def fuente_local(exp, rel_archivo, documento, pagina, concepto, periodo, unidad,
 
 
 def comprobacion_verificada(extractor, revisor, fuente_examinada, fecha=None, nota=None):
+    """D-R4: registro preescrito por el arnés = precondición SIMULADA (no revisión real)."""
     return {"extractor": extractor, "revisor": revisor, "fecha": fecha or HOY, "resultado": "verificado",
-            "fuente_examinada": fuente_examinada, "nota": nota, "vinculo": None}
+            "fuente_examinada": fuente_examinada, "nota": nota, "vinculo": None,
+            "_simulada": True}
 
 
-def comprobar(caso, exp, guardar):
+def comprobar(caso, exp, guardar, esperado=(0, 1), criterio=None):
+    # exit 0 solo si apto; 1 si no apto: ambos son resultados esperados de una comprobación
     return caso.producto("verificacion_entradas.py", ["comprobar", exp, "--json"],
-                          "comprobación del registro de entradas (comando documentado del producto)",
-                          guardar=guardar)
+                         "comprobación del registro de entradas (comando documentado del producto)",
+                         guardar=guardar, esperado=esperado, criterio=criterio)
 
 
 def leer_comprobacion(ev_dir, nombre):
