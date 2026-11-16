@@ -1,0 +1,102 @@
+{
+  "es_plantilla": false,
+  "frente": "F · Cola 1 · contraste independiente del bloque CSV @ 77ff89f8",
+  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+  "rama": "mistral/f-alcance-real",
+  "base_revisada_sha": "bf0d5c25d136ae9b2b1f14e4688081e1792d2363",
+  "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+  "directorio_entrega": "resultados_cierre/alcance_real/revisiones_claude/",
+  "tareas_control": ["CSV"],
+  "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+  "banco_sha": null,
+  "naturaleza": "revision independiente dirigida (Mistral C/F) del bloque CSV @ 77ff89f8; nada adoptado",
+  "autor_contexto_modelo_herramientas": "Sesion Mistral C/F distinta del autor (Claude Opus 5.5). Modelo real: mistral-large-4-0 (Vibe Code). Herramientas: gh CLI, Python 3.12 stdlib, shim pdftotext/pdfinfo con las 79 paginas exportadas hash-ligadas a los PDF reales (sha256 == fuentes.json), shim openpyxl stdlib (solo valores cacheados) para el libro Elis_v63_evaluada.xlsx (sha256 d2593777... == SHA_LIBRO). Nada instalado; sin LibreOffice ni pipeline. Esfuerzo/consumo no visibles; no declarados.",
+  "fuentes_y_preservacion": [
+    "jluisplagos/munger-v2 @ 77ff89f8fe99a1b5f013243ea1ccd4b84512ac51 via gh api: 19 archivos del diff, todos bajo docs/validacion_economica_paralela/frente_E_F1_elis/; hashes en evidencias/csv/rerun_csv_y_hashes.txt",
+    "verificar_cifras.py identico en bf0d5c2 y 77ff89f8 (sha256 06da865b...)",
+    "PDFs de Elis del release base-4.14 (sha256 == fuentes.json); libro Elis_v63_evaluada.xlsx del mismo ZIP (sha256 d2593777... == SHA_LIBRO del script)",
+    "CONTROL.json @ coordinacion/cierre-v2: CSV solicitud LISTA, 4 criterios; F1-W ya CONFORME_CON_LIMITES/RESPONDIDA",
+    "Producto, main, libros, candidata y frente C (mistral/m2-matematica-b @ 1ec4f18) intactos"
+  ],
+  "cambios_respecto_entrega_anterior": [
+    "Se anade el contraste del bloque CSV a los informes F-REV (W1-W3) y C20 ya entregados; no se toca su material",
+    "COMANDOS.md y PUNTO_DE_RECUPERACION.md actualizados"
+  ],
+  "pruebas": [
+    {
+      "tipo": "dato (diff del CSV)",
+      "comando": "python3: DictReader c20/cifras_fuente.csv vs csv/cifras_fuente.csv (ambos @ sus commits)",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["10 filas nuevas, 0 de las 752 cambiadas; todas tabla/grupo/nota N1"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "evidencias/csv/rerun_csv_y_hashes.txt seccion 1",
+      "sha_material": "cifras_fuente.csv @77ff89f8 6cb33b9d... (752 filas @bf0d5c2 3f9ae6f3...)",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (rerun de las 762 filas con el verificador sin cambios)",
+      "comando": "PATH=c20/shim:$PATH python3 csv/verificar_cifras_77ff89f8.py --raiz c20/raiz/munger_v2_r1 --datos csv/cifras_fuente.csv --fuentes c20/fuentes.json --salida csv/out_csv.json",
+      "exit_esperado": 2, "exit_observado": 1,
+      "criterios_cubiertos": ["las 10 nuevas dan OK en mi run; 746/762 byte-identicas a lo publicado; 0 diferencias en filas de tabla; 752 anteriores identicas salvo las 16 texto de entorno"],
+      "criterios_sin_cubrir": ["16 filas tipo=texto por falta de pdftotext raw en el sandbox (igual que en C20)"],
+      "evidencia": "evidencias/csv/rerun_csv_y_hashes.txt seccion 3",
+      "sha_material": "verificacion_cifras.json @77ff89f8 0c3cdd1f...",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (contraste re-ejecutado con libro real)",
+      "comando": "PYTHONPATH=csv/shimlib PATH=c20/shim:$PATH python3 csv/contraste_f1.py --cifras csv/cifras_fuente.csv --verificacion csv/verificacion_cifras.json --libro csv/libro/Elis_v63_evaluada.xlsx --salida csv/contraste_out.json --informe csv/contraste_out.md --caja-no-nula csv/caja_no_nula.json",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["292 comprobaciones / 0 fallidas; salida byte-identica a la publicada @77ff89f8 (e identica a bf0d5c2) -> el contraste no cambia"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "csv/contraste_out.log; cmp byte-identical registrado en evidencias/csv/rerun_csv_y_hashes.txt seccion 4",
+      "sha_material": "contraste_f1.json 147f4f49... (igual en bf0d5c2 y 77ff89f8); libro d2593777...",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (copia de investigacion re-ejecutada)",
+      "comando": "PYTHONPATH=csv/shimlib PATH=c20/shim:$PATH python3 csv/copia_investigacion_f1.py --cifras ... --verificacion ... --libro ... --contraste csv/contraste_f1.json --salida csv/copia_out.json --informe csv/copia_out.md --raiz c20/raiz/munger_v2_r1 --fuentes c20/fuentes.json",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["67 controles / 0 fallidos; salida byte-identica a la publicada; 8 lecturas desde las filas verificadas; sensibilidades V3-V4 con las mismas cifras"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "csv/copia_out.log; evidencias/csv/rerun_csv_y_hashes.txt seccion 4",
+      "sha_material": "copia_investigacion_f1.json @77ff89f8 8ca74722...",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "arnés (controles negativos: columna por sociedad como grupo, anio y edicion equivocados)",
+      "comando": "python3 csv/mutantes_csv.py (mini-CSV con 4 mutantes sobre DEU2024FR p.288 y URD2025 p.342 + filas base; verificador via shim)",
+      "exit_esperado": 1, "exit_observado": 1,
+      "criterios_cubiertos": ["Lavartex 2023 y otras adquisiciones 2024 declaradas grupo -> PENDIENTE 'token no bajo ninguna columna reconocida' (no OK); 5.6 como 2025 -> FALLO ejercicio; 2.1 URD2022 vigente -> FALLO edicion"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "evidencias/csv/mutantes_out.txt",
+      "sha_material": null,
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "dato (textos y limites: N1, no adopcion, invariantes)",
+      "comando": "gh api compare bf0d5c2...77ff89f8 --jq '.files[] | select(.filename|test('INFORME|README')) | .patch'",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["solo recuentos 752->762, 530->538, 111->119 + enlace README; N1 no se aplica; no se adopta (1a)-(5b); C48/C49/FCF/E1-D3-E2-E6 conservados"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "evidencias/csv/rerun_csv_y_hashes.txt seccion 7; CONTRASTE_CSV_77ff89f8.md criterio 4",
+      "sha_material": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
+      "resultado": "EJECUTADO"
+    }
+  ],
+  "precondiciones_simuladas": [],
+  "revision_por_otro_contexto": "Hecha por esta sesion (Mistral C/F) segun CONTROL.json solicitud CSV; el coordinador registra aceptacion. Sin autoaprobacion.",
+  "limites_y_bloqueos": [
+    "16 filas tipo=texto no reproducibles en el sandbox (sin poppler raw); no afectan al bloque CSV (las 10 nuevas son de tabla)",
+    "shim openpyxl lee solo valores cacheados del XLSX; validado por salida byte-identica del contraste y de la copia",
+    "test_verificar_cifras.py y cobertura_por_mutacion.py no re-ejecutados completos (mismas limitaciones de entorno que en C20); sus salidas publicadas solo cambiaron en recuentos coherentes",
+    "B-PM1 @ daa7478 sigue pendiente: bloqueo P-M1 (theta/lambda no delimitados; 4 PDF nuevos con preservacion pendiente) se conserva",
+    "el sandbox no permite git remote add: contenido del producto via gh api"
+  ],
+  "siguiente_accion_exacta": "Tras commit/push: re-consultar CONTROL.json y ejecutar B-PM1 @ daa74783d2708fcd46ca7c24ae1ffbb327c35784 (contraste documental de las nueve altas PP&E corregidas de Vidrala sobre fuentes conservadas, sin elegir theta/lambda); luego F-B3/F-C1.",
+  "integrado_en_producto": false,
+  "apto_dinero_real": "No se declara por este formulario",
+  "criterios_cubiertos": ["10 filas nuevas OK con verificador sin cambios y 752 sin cambiar", "seis columnas por sociedad no son grupo y el mutante no queda OK", "contraste 292/0 byte-identico y copia 67/0 con filas verificadas", "N1 no aplicado, nada adoptado, invariantes conservados"],
+  "criterios_pendientes": [],
+  "salida_siguiente": "CONTRASTE_CSV_77ff89f8.md: CUMPLE los 4 criterios, sin defecto material; evidencias en revisiones_claude/evidencias/csv/"
+}

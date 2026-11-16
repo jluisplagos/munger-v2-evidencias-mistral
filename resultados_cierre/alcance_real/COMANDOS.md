@@ -90,3 +90,20 @@ PATH="$PWD/.trabajo/c20/shim:$PATH" python3 -I .trabajo/c20/verificar_cifras.py 
 python3 -I .trabajo/c20/probes_c20.py   # todo COINCIDE con lo que propone la revision 9
 # diffs de codigo y de test, y parches de texto (T14, informe) guardados en evidencias/c20/
 ```
+
+## Bloque CSV (F-REV, tercera entrega de Claude) · 2026-11-16 ~21:33–21:55 UTC
+
+```bash
+git fetch origin coordinacion/cierre-v2   # CSV ENTREGADO @ 77ff89f8, solicitud LISTA (4 criterios)
+gh api "repos/jluisplagos/munger-v2/compare/bf0d5c2...77ff89f8" --jq '.files[] | [.filename,.status,.additions,.deletions] | @tsv'   # 19 archivos, solo frente_E_F1_elis/
+# descarga @77ff89f8 via gh api contents a .trabajo/csv/ (CSV, verificacion, contraste, copia, respuesta, 6 paginas nuevas, cobertura, sondas)
+# verificador identico: sha256 verificar_cifras.py @bf0d5c2 == @77ff89f8 (06da865b...)
+# libro real del ZIP base-4.14: elis_decisiones/Elis/Elis_v63_evaluada.xlsx sha256 d2593777... == SHA_LIBRO
+# 6 paginas nuevas copiadas al shim; rerun de las 762 filas:
+PATH="$PWD/.trabajo/c20/shim:$PATH" python3 .trabajo/csv/verificar_cifras_77ff89f8.py --raiz .trabajo/c20/raiz/munger_v2_r1 --datos .trabajo/csv/cifras_fuente.csv --fuentes .trabajo/c20/fuentes.json --salida .trabajo/csv/out_csv.json   # 10 nuevas OK; 746/762 identicas (16 texto = limite de entorno)
+# contraste y copia con libro real via shim openpyxl stdlib (solo valores cacheados):
+PYTHONPATH=.trabajo/csv/shimlib PATH=.trabajo/c20/shim:$PATH python3 .trabajo/csv/contraste_f1.py --cifras ... --verificacion ... --libro ... --salida contraste_out.json --informe contraste_out.md --caja-no-nula caja_no_nula.json   # exit 0, 292/0, byte-identical
+PYTHONPATH=.trabajo/csv/shimlib PATH=.trabajo/c20/shim:$PATH python3 .trabajo/csv/copia_investigacion_f1.py --cifras ... --verificacion ... --libro ... --contraste ... --salida copia_out.json --informe copia_out.md --raiz ... --fuentes ...   # exit 0, 67/0, byte-identical
+# 4 controles negativos reconstruidos:
+python3 .trabajo/csv/mutantes_csv.py   # Lavartex/otras adquisiciones como grupo -> PENDIENTE (no OK); anio/edicion equivocados -> FALLO
+```

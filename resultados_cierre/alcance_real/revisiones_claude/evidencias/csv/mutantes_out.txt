@@ -1,0 +1,9 @@
+exit: 1
+MUT_LAV_2023: estado=PENDIENTE dims={'literal': 'OK', 'ejercicio': 'PENDIENTE', 'columna': 'NO_APLICA', 'unidad': 'OK', 'perimetro': 'OK', 'edicion': 'OK'} COINCIDE | motivo: ejercicio: columna del ejercicio no acreditada: el token no está bajo ninguna columna reconocida
+   -> no queda OK: True
+MUT_OTRAS_2024: estado=PENDIENTE dims={'literal': 'OK', 'ejercicio': 'PENDIENTE', 'columna': 'NO_APLICA', 'unidad': 'OK', 'perimetro': 'OK', 'edicion': 'OK'} COINCIDE | motivo: ejercicio: columna del ejercicio no acreditada: el token no está bajo ninguna columna reconocida
+   -> no queda OK: True
+MUT_ANIO_2025: estado=FALLO dims={'literal': 'OK', 'ejercicio': 'FALLO', 'columna': 'NO_APLICA', 'unidad': 'OK', 'perimetro': 'OK', 'edicion': 'OK'} NO COINCIDE | motivo: ejercicio: la columna es de 2024, no de 2025
+   -> no queda OK: True
+MUT_EDIC_VIGENTE: estado=FALLO dims={'literal': 'OK', 'ejercicio': 'OK', 'columna': 'NO_APLICA', 'unidad': 'OK', 'perimetro': 'OK', 'edicion': 'FALLO'} NO COINCIDE | motivo: edicion: declarada vigente, pero la regla exige la publicación 2023 para 2022 y esta es la 2022
+   -> no queda OK: True

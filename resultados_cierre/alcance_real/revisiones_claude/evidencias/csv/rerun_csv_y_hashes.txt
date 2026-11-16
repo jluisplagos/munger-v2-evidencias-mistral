@@ -1,0 +1,50 @@
+== Bloque CSV @ 77ff89f8 (base bf0d5c2) — evidencia de contraste Mistral C/F ==
+fecha: 2026-11-16T21:40:10Z
+
+== 1. Diff del CSV: 752 filas identicas + 10 nuevas (ninguna de las 752 cambia) ==
+viejas=752 nuevas=762 ids_nuevos=10 cambiados_de_los_752=[]
+ids nuevos: FIN_ACTMEX_2025, FIN_ACTMEX_2024, FIN_ACTMEX_FR_2023, FIN_ACTMEX_FR_2024, OOIE_EARN_U22_2021, OOIE_EARN_U22_2022, OOIE_EARN_U23_2022, ADQ_EARNDIF_FR_2023, ADQ_EARNDIF_2024, ADQ_EARNDIF_2025
+todas las nuevas son tipo=tabla, perimetro grupo, nota '[LECTURA] pasada al CSV ... no se aplica a N1': True
+
+== 2. Verificador identico: sha256 verificar_cifras.py @bf0d5c2 == @77ff89f8 ==
+06da865b5979bfc7449f08e4078a4cdd7140744c3435e3eac9874b21f7402892  c20/verificar_cifras.py
+06da865b5979bfc7449f08e4078a4cdd7140744c3435e3eac9874b21f7402892  csv/verificar_cifras_77ff89f8.py
+
+== 3. Rerun propio de las 762 filas con el verificador (shim pdftotext sirviendo las 79 paginas exportadas hash-ligadas; PDFs reales del ZIP base-4.14 con sha256 == fuentes.json) ==
+comando: PATH=c20/shim:$PATH python3 ../csv/verificar_cifras_77ff89f8.py --raiz c20/raiz/munger_v2_r1 --datos csv/cifras_fuente.csv --fuentes c20/fuentes.json --salida csv/out_csv.json
+exit observado: 1 (las mismas 16 filas tipo=texto que en C20, solo por falta de pdftotext en modo raw en el sandbox)
+{"filas": 762, "ok": 732, "pendientes": 14, "fallos": 16, "por_dimension": {"literal": {"OK": 746, "FALLO": 16}, "ejercicio": {"OK": 746, "NO_EVALUADO": 16}, "columna": {"NO_APLICA": 613, "OK": 119, "PENDIENTE": 14, "NO_EVALUADO": 16}, "unidad": {"OK": 709, "PENDIENTE": 14, "NO_EVALUADO": 16, "NO_APLICA": 23}, "perimetro": {"OK": 723, "NO_EVALUADO": 16, "NO_APLICA": 23}, "edicion": {"OK": 746, "NO_EVALUADO": 16}}, "fuentes_verificadas": 5, "fuentes_declaradas": 5}
+vs publicado @77ff89f8: 746/762 filas identicas; diferencias solo tipo=texto: True -> ['TXT_CAPEX_AMBOS', 'TXT_LINO_CRECIM', 'TXT_PRECIO_2023', 'TXT_VOLUMEN_2025', 'TXT_VOLUMEN_COSTES', 'TXT_LINO_2TERCIOS_2025', 'TXT_LINO_2TERCIOS_2024', 'TXT_LINO_2TERCIOS_2023', 'TXT_LINO_2TERCIOS_2022', 'TXT_LINO_2TERCIOS_2021', 'TXT_PRECIO_2025_LATAM', 'TXT_INVERSIONES_FUTURAS', 'TXT_CAPEX_CONTROL', 'TXT_CAPEX_CONTENIDO', 'TXT_CAPEX_NORMAL', 'TXT_CONTRATOS_4A']
+de las 752 anteriores, identicas a la salida publicada @bf0d5c2: 736/752 (las 16 restantes son las mismas tipo=texto)
+10 filas nuevas en mi run: {'FIN_ACTMEX_2025': 'OK', 'FIN_ACTMEX_2024': 'OK', 'FIN_ACTMEX_FR_2023': 'OK', 'FIN_ACTMEX_FR_2024': 'OK', 'OOIE_EARN_U22_2021': 'OK', 'OOIE_EARN_U22_2022': 'OK', 'OOIE_EARN_U23_2022': 'OK', 'ADQ_EARNDIF_FR_2023': 'OK', 'ADQ_EARNDIF_2024': 'OK', 'ADQ_EARNDIF_2025': 'OK'}
+resumen publicado @77ff89f8: {'filas': 762, 'ok': 748, 'pendientes': 14, 'fallos': 0, 'por_dimension': {'literal': {'OK': 762}, 'ejercicio': {'OK': 762}, 'columna': {'NO_APLICA': 629, 'OK': 119, 'PENDIENTE': 14}, 'unidad': {'OK': 709, 'PENDIENTE': 14, 'NO_APLICA': 39}, 'perimetro': {'OK': 723, 'NO_APLICA': 39}, 'edicion': {'OK': 762}}, 'fuentes_verificadas': 5, 'fuentes_declaradas': 5}
+
+== 4. Contraste y copia de investigacion re-ejecutados con el libro real (sha256 d2593777... == SHA_LIBRO) via shim openpyxl stdlib ==
+contraste_f1.py: exit 0, 292 comprobaciones / 0 fallidas; salida BYTE-IDENTICAL a resultados/contraste_f1.json @77ff89f8 (que es identica a la de bf0d5c2)
+copia_investigacion_f1.py: exit 0, 67 controles / 0 fallidos; copia_out.json BYTE-IDENTICAL a resultados/copia_investigacion_f1.json @77ff89f8
+
+== 5. Controles negativos reconstruidos (ver mutantes_out.txt) ==
+MUT_LAV_2023 / MUT_OTRAS_2024 (columna por sociedad declarada como grupo): PENDIENTE 'el token no esta bajo ninguna columna reconocida' -> no queda OK
+MUT_ANIO_2025 (5.6 declarado 2025): FALLO ejercicio 'la columna es de 2024, no de 2025'
+MUT_EDIC_VIGENTE (2.1 del URD 2022 declarado vigente): FALLO edicion 'la regla exige la publicacion 2023 para 2022'
+
+== 6. Hashes de artefactos @ 77ff89f8 descargados via gh api ==
+26bd7257db96c5006f876d415ffb1bf9fcc35698c8ac6a7b1a20e8774f9473eb  RESPUESTA_BLOQUE_CSV_LECTURAS.md
+6cb33b9da8aee79b390845a7c5f20acfccd02b1a084e1aba8a03f87716eccaa4  cifras_fuente.csv
+0c3cdd1fce2d462ded22444ef8034f31a0ca6ad39d29387f93feca19cca370e4  verificacion_cifras.json
+d74dc6a8f9ac9ee4a07a241799f42fb479b1cf0bfa70b60a2d25ed6fba0064fc  contraste_f1.py
+147f4f4936c3e1f50745dc563072ab46e0245d346f91ceda969f465e67543024  contraste_f1.json
+b915a462c919e0032cad98a9cd6fd821e43532e2f1606d3bd9af684a6b30322e  copia_investigacion_f1.py
+8ca747222cf37e5937f798a774814a6c52faa90b0504fa2314c3526f19aadfac  copia_investigacion_f1.json
+0e172f896157da11a0c1529e8000b4fed63cf37e8cd00b416e99020c8f1698f9  cobertura_por_mutacion.txt
+f9365ee4d36ed2f65809f5eec032fd1ca774c9a87364a2c6b99eb5fa6fe96b55  sondas_metadatos_CSV.json
+06da865b5979bfc7449f08e4078a4cdd7140744c3435e3eac9874b21f7402892  verificar_cifras_77ff89f8.py
+d2593777650f1d9d77bcc7b9eaa6f4c0c12a742fa4706bd20b35808f99c92385  libro/Elis_v63_evaluada.xlsx
+e5ddc6af817b32c2ab6be4babc4008ba1b2bd725604d410ee22dad3e6b066e14  DEU2024FR_p288.txt
+b427a23a32ef366a90216278a3822786f8281ed39e698d7f4b5c3cf4c9d25a12  URD2022_p285.txt
+9d6c34932f748653be052e446b296b0b328a32e8c001382b15156279a27ef5ce  URD2023_p302.txt
+8d7c0afdebff7b90d947dc9eb23350eda88311de0771f781acbbd887c3afe507  URD2025_p313.txt
+7c4f605fd0dcb3726bcc9320141c1a43dc098dc98da7ebb20a04ba924400c948  URD2025_p341.txt
+bd0b8bcc11313a8ec58da7ee49c5ca52e92ac061bc4c933eeedbb2ea2c4e9dc3  URD2025_p342.txt
+
+== 7. Textos: solo recuentos (752->762, 530->538, 111->119) + enlace README; N1 no se aplica; no se adopta (1a)-(5b) ==
