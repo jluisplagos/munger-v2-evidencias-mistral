@@ -18,3 +18,35 @@ Una sola cola breve de decisiones realmente bloqueantes: ID, decisión anterior 
 Para datos no públicos: presentar la pregunta preparada y por qué importa, indicando lo buscado. No afirmar que el dato existe ni prometer conseguirlo. Una estimación necesita método/rango/evidencia/revisión y conserva su naturaleza. Aprobar una hipótesis no la transforma en dato publicado ni garantiza aptitud para dinero real.
 
 La autorización de trabajo contenida en un prompt no puede convertirse en aprobación económica. Copiar el encargo maestro permite trabajo técnico y de evidencia; las decisiones anteriores siguen separadas.
+
+## Cola actual de decisiones bloqueantes (coordinador, 16-nov-2026)
+
+Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **no se vuelven a pedir aquí**:
+- (1a)–(5b) de F1, con la propuesta de la rama F1;
+- P-M1, k y las probabilidades;
+- E1/D3/E2/E6, que ya están registradas.
+
+### U1 · Dónde se conservan los 11 PDF nuevos de Elis (E-ELIS) · operativa, no económica
+
+- **Situación.** Los bytes solo están en el sandbox de Mistral E. La subida a la Release dio HTTP 401. El coordinador no los descarga, porque el programa no autoriza contactar con terceros. Por eso 21 de las 28 citas de E no se pueden verificar.
+- **Recomendada:** que la persona responsable suba los 11 PDF a una Release del repositorio auxiliar (por ejemplo `fuentes-mistral-m2-20261116`, hoy vacía) o los deje en una carpeta que comparta. El coordinador comprobaría entonces SHA-256, bytes, páginas y citas.
+- **Alternativas:**
+  - (b) autorizar expresamente descargas GET de documentos públicos de `fr.elis.com`, solo para verificar. Ya existe un entorno personal «munger-v2 (fuentes Elis)» con ese único host, sin usar;
+  - (c) dejarlos provisionales y las 21 citas en NO OBSERVABLE.
+- **Qué no se valida aunque se resuelva:** M1, M2, M6 y N2 siguen ABIERTOS según la revisión (E-R1…E-R9). Elis sigue `pendiente_de_datos`.
+
+### U2 · Tercer caso B fuera de muestra (F-B3) · dato de la persona responsable
+
+- **Situación.** En el ZIP no está el Excel evaluado de la etapa 1 de Ahold; solo hay un `.bat` de descarga sin ejecutar. La lista de las 116 empresas no está conservada. Hermès y Aarsleff no sirven: ya están en la muestra.
+- **Recomendada:** aportar el Excel de la etapa 1 de Ahold, su respuesta y sus fuentes (informes 2016–2025 y el folleto NIIF 16 de 2018), en bytes y con SHA-256.
+- **Alternativas:**
+  - (b) designar otra empresa fuera de muestra y aportar sus fuentes;
+  - (c) reducir el alcance a dos casos B. Esto exige una decisión explícita de reducir el alcance.
+- **Qué no se valida aunque se resuelva:** el recorrido con agentes reales y la auditoría de otro contexto siguen pendientes.
+
+### U3 · Primer caso C real (F-C1) · dato y alcance
+
+- **Situación.** No se conserva ninguna financiera. El contrato C propuesto describe mal el motor C (F2-D3) y hay que corregirlo antes de usarlo.
+- **Recomendada:** designar un banco o una aseguradora concretos y aportar sus informes oficiales (cuentas, Pilar 3 o SFCR) con SHA-256, y su Excel de la etapa 1 si existe.
+- **Alternativa:** (b) sacar el motor C real del alcance de este cierre. Es una reducción de alcance y exige decisión.
+- **Qué no se valida aunque se resuelva:** la solvencia y el capital regulatorio, que el contrato C declara no validar.
