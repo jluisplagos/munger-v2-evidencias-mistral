@@ -1,0 +1,50 @@
+{
+  "es_plantilla": false,
+  "frente": "E (antigua sesion B, nueva etapa E)",
+  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+  "rama": "mistral/e-fuentes-elis",
+  "base_revisada_sha": "ec707a5ba2bd684381a63ce0f6f6c143aa59f4c0 (paquete de coordinacion; rama creada desde aqui)",
+  "commit_entrega": "El coordinador toma el SHA remoto tras el push; este bloque no se autorreferencia",
+  "directorio_entrega": "resultados_cierre/elis_fuentes/",
+  "tareas_control": ["E-ELIS"],
+  "candidata_producto_sha": null,
+  "banco_sha": null,
+  "naturaleza": "evidencia / busqueda acotada (bloque 1: inventario de preguntas M1/M2/M6/N2 y de recursos ya examinados vs candidatos nuevos)",
+  "autor_contexto_modelo_herramientas": "Vibe Code de Mistral AI, modelo mistral-large-4-0; Python 3.12.15; consumo no visible desde la sesion; git show de solo lectura sobre producto 716cbd6, revision f5775dc y control ff0c60cd; sin escribir en el repo producto",
+  "fuentes_y_preservacion": [
+    "5 URD/DEU de Elis 2021-2025 + libro Elis_v63_evaluada.xlsx: YA conservados en la Release base-4.14 (tag base-4.14, repo producto); sha256 verificados cruzando datos/fuentes.json (producto 716cbd6) con seleccion_fuentes.json (revision f5775dc); ZIP base-4.14 local verificado (sha256 bb51942c...)",
+    "comunicado de resultados 2025 y documentos S1-2026 de Elis: ya usados como alcance de busqueda previa (INFORME F1 §6.1); no son fuente verificada ni se re-buscan sin pista nueva",
+    "candidatos nuevos: hasta 12 documentos oficiales en el bloque 2 (presentaciones resultados/CMD, regulatorios AMF, Q&A IR publicados); URL+hash no equivalen a documento preservado; PDF/XLSX/ZIP fuera del Git del auxiliar"
+  ],
+  "cambios_respecto_entrega_anterior": [
+    "Ninguno sobre B/P-M1: la entrega anterior se conserva intacta en la rama mistral/m2-fundamento-pm1 @ daa7478 (el control comun ya la fija como B=daa7478)",
+    "Rama nueva creada desde el commit del paquete de coordinacion ec707a5; escritura solo en resultados_cierre/elis_fuentes/"
+  ],
+  "pruebas": [
+    {
+      "tipo": "dato",
+      "comando": "python3 resultados_cierre/elis_fuentes/scripts/inventario_bloque1.py",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": ["inventario reproducible desde SHAs fijados"],
+      "criterios_sin_cubrir": ["busqueda de fuentes nuevas (bloque 2)", "lectura de documentos nuevos", "cualquier estimacion"],
+      "evidencia": "salida del script: sha256 de los 6 archivos coinciden entre fuentes.json y seleccion_fuentes.json; sha256 del ZIP base-4.14 OK; fila E-ELIS del control leida en ff0c60cd",
+      "sha_material": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262 / f5775dc07a61b829df2b0e7a4a97c556869ae0f4 / ff0c60cd2901c42f9462acd19ed74c4192a13bfb",
+      "resultado": "EJECUTADO_OK"
+    }
+  ],
+  "precondiciones_simuladas": [],
+  "revision_por_otro_contexto": null,
+  "limites_y_bloqueos": [
+    "M1, M2, M6, N2 siguen ABIERTOS: la busqueda previa (URD 2016-2023 y 2025, DEU 2024, comunicado 2025, docs S1-2026) no hallo importes de reparto mantenimiento/crecimiento ni tasa de bajas; no se repite sin pista nueva",
+    "No se elige R (ni en 736,0-867,2), theta, lambda, k ni probabilidad para desbloquear valoraciones; Elis sigue pendiente_de_datos",
+    "Cambios posteriores comprobados: frente F1 del producto paso de 716cbd6 a bf0d5c2 (W1-W3 d519eb0 + C20); datos/fuentes.json sin cambios; control comun en ff0c60cd (rama coordinacion/cierre-v2) fija f1=716cbd6, revision_F1=f5775dc, B=daa7478",
+    "Subida de assets a Releases del auxiliar sigue con HTTP 401 en uploads.github.com (bloqueo conocido de la sesion B); si se descarga algo nuevo en el bloque 2 se registra provisional con URL+SHA+bytes y script reproducible"
+  ],
+  "siguiente_accion_exacta": "Bloque 2: seleccionar hasta 12 documentos oficiales nuevos relacionados con M1/M2/M6/N2 (presentaciones oficiales de resultados/CMD, regulatorios AMF, Q&A de IR publicados), descargar con TLS verificado registrando URL final/titulo/fecha/ejercicio/idioma/bytes/SHA256/estado de preservacion, y leer cabeceras/tablas/notas con pagina PDF y columna; generar LECTURA_FUENTES.jsonl",
+  "integrado_en_producto": false,
+  "apto_dinero_real": "No se declara por este formulario",
+  "criterios_cubiertos": ["E-ELIS bloque 1: inventario de preguntas y recursos ya examinados, reproducible"],
+  "criterios_pendientes": ["E-ELIS bloque 2 (busqueda finita y lectura)", "E-ELIS bloque 3 (entrega: LECTURA_FUENTES.jsonl, hallazgos/limites, resumen integrador, manifiesto, recuperacion)"],
+  "salida_siguiente": "resultados_cierre/elis_fuentes/PREGUNTAS_Y_RESULTADOS.csv; FUENTES_Y_BUSQUEDA.csv; scripts/inventario_bloque1.py; PUNTO_DE_RECUPERACION.md; MANIFIESTO_SHA256.txt"
+}
