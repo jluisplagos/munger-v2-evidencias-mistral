@@ -21,6 +21,8 @@ SALIDA = RAIZ / "resultados_m2/pm1"
 T = {n: TEXTO / n for n in ["AR_2017.txt", "IA_2018_es.txt", "AR_2019.txt", "AR_2020.txt", "CF_2021.txt",
                            "CF_2022_compilacion.txt", "CA_2023_es.txt", "CF_2024.txt", "AR_2025.txt"]}
 E = {n: EXT / (n + ".txt") for n in ["IA_2016_es.pdf", "IA_2021_es.pdf", "IA_2023_es.pdf"]}
+# Fuente nueva conservada en el repo (bloque B4): página oficial EN de la Memoria Anual 2024
+HTML_IA2024 = RAIZ / "resultados_m2/pm1/fuentes_nuevas/viscofan_ia2024_en_financial_and_management_results.html"
 
 _cache = {}
 
@@ -131,10 +133,10 @@ INVERSION.append({
 
 INVERSION.append({
     "anio": 2024, "total_meur": D("71.0"),
-    "cita_total": citar(T["AR_2025.txt"], 5948, 5949, r"Investments in 2025 totalled .*84\.1.*million.*71\.0 million in 2024", "total inversión 2024 (comparativo en AR 2025)"),
-    "desglose": None,
-    "cita_desglose": None,
-    "estado": "solo total publicado (comparativo en AR 2025 p143/impresa 123); desglose por tipo AUSENTE en bytes conservados (CF_2024 son solo cuentas; pendiente fuente nueva B4)",
+    "cita_total": citar(HTML_IA2024, 343, 343, r"Investment in 2024 amounted to .?71\.0 million ..77\.5 million in 2023.", "total inversión 2024 (fuente nueva B4, HTML oficial)") if HTML_IA2024.exists() else citar(T["AR_2025.txt"], 5948, 5949, r"Investments in 2025 totalled .*84\.1.*million.*71\.0 million in 2024", "total inversión 2024 (comparativo en AR 2025)"),
+    "desglose": {"capacidad": D("34"), "proceso": D("14"), "ehs": D("35"), "ordinaria": D("17")},
+    "cita_desglose": citar(HTML_IA2024, 346, 349, r"34% of the investment was earmarked for investments in capacity and machinery.*35% of the investment was earmarked for improvements in sustainability.*14% of the investment was earmarked for process improvements and new technology.*remaining 17% was spent on ordinary investments", "desglose 2024 (fuente nueva B4, HTML oficial informeanual2024.viscofan.com; PDF gestión 2024 p.8 verificado por OCR)") if HTML_IA2024.exists() else None,
+    "estado": "conservado en fuente nueva B4: página HTML oficial de la Memoria Anual 2024 (bytes en resultados_m2/pm1/fuentes_nuevas/, SHA-256 bd139bde…); total también comparativo en AR 2025 p143/impresa 123; PDF informe de gestión 2024 (sha256 1dc3ef18…/195fa418…) en cobertura provisional (no subible como asset)",
 })
 
 INVERSION.append({
