@@ -1,0 +1,124 @@
+"""Controles NEGATIVOS sobre los errores que el metodo afirma detectar (A1/A6).
+
+Toma una muestra de entradas con fuente y, sobre copias en memoria, muta UNA
+dimension cada vez (periodo/columna a un año inexistente, perimetro a cuentas
+individuales, unidad a acciones, concepto/partida a otra fila) y comprueba que:
+  - el verificador CONTEXTUAL (verificar_contexto.check_entrada) la detecta
+    (estado CONFLICTO_CONTEXTUAL en la dimension mutada), y
+  - el verificador MECANICO antiguo (verificar_fuentes) NO la detecta (sigue
+    COINCIDE_PROPUESTO), que es justo lo que demostro SONDA_A_SEMANTICA.json.
+
+Genera resultados/control_negativo.json. No modifica ningun archivo del
+producto ni del registro: las mutaciones son en memoria.
+"""
+import copy
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import comun as C
+import verificar_contexto as V
+
+N_MUESTRA = 40
+
+
+def mecanico_estado(emp, r):
+    """Replica la regla mecanica de verificar_fuentes sobre la fila (mutada o no)."""
+    f = r.get('fuente') or {}
+    p = C.ruta_insumo(emp, f.get('archivo'))
+    if not p.exists():
+        return 'NO_ACREDITADO'
+    pages = C.extract_pages(p.read_text(encoding='utf-8'))
+    ptext = pages.get(f.get('pagina'))
+    if ptext is None:
+        return 'NO_ACREDITADO'
+    if not C.buscar_cita_en_pagina(ptext, f.get('cita')):
+        return 'NO_ACREDITADO'
+    vf = f.get('valor_fuente')
+    if C.variantes_numero(vf) and not C.buscar_valor_en_pagina(ptext, vf):
+        return 'NO_ACREDITADO'
+    return 'COINCIDE_PROPUESTO'
+
+
+def main():
+    registro = C.load_registro()
+    con_fuente = [(e, r) for e, r in C.iter_entradas(registro)
+                  if r['clase'] in ('dato_publicado', 'cero_comprobado') and not r.get('cubierta_en_piloto')
+                  and (r.get('fuente') or {}).get('archivo')]
+    # muestra determinista repartida por empresa y archivo
+    con_fuente.sort(key=lambda x: (x[0], (x[1].get('fuente') or {}).get('archivo'), x[1]['celda']))
+    paso = max(1, len(con_fuente) // N_MUESTRA)
+    muestra = con_fuente[::paso][:N_MUESTRA]
+
+    pages_cache = {}
+
+    def get_pages(emp, arch):
+        key = (emp, arch)
+        if key not in pages_cache:
+            p = C.ruta_insumo(emp, arch)
+            pages_cache[key] = C.extract_pages(p.read_text(encoding='utf-8')) if p.exists() else {}
+        return pages_cache[key]
+
+    resultados = []
+    resumen = Counter()
+    for emp, r in muestra:
+        arch = r['fuente']['archivo']
+        base_ctx = V.check_entrada(emp, r, get_pages(emp, arch))
+        base_mec = mecanico_estado(emp, r)
+        mutaciones = []
+        # 1. periodo/columna a un año que no esta en el encabezado
+        m = copy.deepcopy(r)
+        m['fuente']['periodo'] = 'ejercicio 2099 (mutado)'
+        m['fuente']['columna'] = 'columna de otro ejercicio, 2099'
+        mutaciones.append(('periodo/columna equivocado', m))
+        # 2. perimetro a cuentas individuales
+        m = copy.deepcopy(r)
+        m['fuente']['perimetro'] = 'cuentas individuales de otra empresa'
+        mutaciones.append(('perimetro incorrecto', m))
+        # 3. unidad a acciones (en pagina de miles de euros)
+        m = copy.deepcopy(r)
+        if str(r['fuente'].get('unidad')) == 'miles de euros':
+            m['fuente']['unidad'] = 'acciones'
+            mutaciones.append(('unidad incorrecta', m))
+        # 4. concepto/partida a otra fila
+        m = copy.deepcopy(r)
+        m['fuente']['concepto'] = 'dividendos pagados «Dividends»'
+        mutaciones.append(('partida de otra fila', m))
+        for nombre, rm in mutaciones:
+            ctx_m = V.check_entrada(emp, rm, get_pages(emp, arch))
+            mec_m = mecanico_estado(emp, rm)
+            detectado_ctx = ctx_m['estado_contextual'] == 'CONFLICTO_CONTEXTUAL'
+            detectado_mec = mec_m != 'COINCIDE_PROPUESTO'
+            resultados.append({
+                'empresa': emp, 'celda': r['celda'], 'mutacion': nombre,
+                'detectado_por_contextual': detectado_ctx,
+                'detectado_por_mecanico': detectado_mec,
+                'estado_contextual_mutado': ctx_m['estado_contextual'],
+                'estado_mecanico_mutado': mec_m,
+                'estado_contextual_base': base_ctx['estado_contextual'],
+                'estado_mecanico_base': base_mec,
+            })
+            resumen[(nombre, detectado_ctx, detectado_mec)] += 1
+
+    n = len(resultados)
+    ok_ctx = sum(1 for x in resultados if x['detectado_por_contextual'])
+    ok_mec = sum(1 for x in resultados if x['detectado_por_mecanico'])
+    out = {
+        'nota': 'Controles negativos en memoria (sin tocar el registro ni el producto). El verificador mecanico solo acredita archivo/pagina/cita/numero/transformacion/libro; las mutaciones de metadatos contextuales pasan desapercibidas para el (como demostro SONDA_A_SEMANTICA.json) y deben atraparlas los chequeos contextuales.',
+        'muestra': n // 4,
+        'mutaciones': n,
+        'detectadas_por_contextual': ok_ctx,
+        'detectadas_por_mecanico': ok_mec,
+        'resumen_por_mutacion': {f'{k[0]}|ctx={k[1]}|mec={k[2]}': v for k, v in sorted(resumen.items())},
+        'detalle': resultados,
+    }
+    C.dump_json(out, C.RESULTADOS / 'control_negativo.json')
+    print(json.dumps({'muestra': out['muestra'], 'mutaciones': n,
+                      'detectadas_por_contextual': ok_ctx, 'detectadas_por_mecanico': ok_mec,
+                      'resumen': out['resumen_por_mutacion']}, ensure_ascii=False))
+
+
+if __name__ == '__main__':
+    main()

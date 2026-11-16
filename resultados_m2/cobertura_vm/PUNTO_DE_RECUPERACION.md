@@ -42,6 +42,10 @@ Propuesta de evidencia de Mistral; pendiente de revisión e incorporación por e
 - `L20`: 30 entradas (NUEVO); estados COINCIDE_PROPUESTO=30; archivo `resultados/lotes/lote_L20.json`
 - `L21`: 17 entradas (NUEVO); estados COINCIDE_PROPUESTO=17; archivo `resultados/lotes/lote_L21.json`
 
+## Lotes publicados (revision externa A / correccion de contexto)
+
+- `L05` (revision A): 30 entradas; mecanico [COINCIDE_PROPUESTO=30]; contextual [REVISADO_CONTEXTUAL=30]; `resultados/lotes/lote_L05.json`
+
 ## Entrega final (universo completo)
 
 - Lotes L00–L21 publicados con commit+push tras cada lote (ver sección anterior); asociación texto↔PDF ejecutada (`resultados/asociacion_pdf_texto.json`: 21 textos, 426 valores en muestra, 100% en página alineada, offset 0).

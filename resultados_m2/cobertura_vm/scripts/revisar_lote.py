@@ -26,6 +26,11 @@ def main():
             ver[(d['empresa'], d['celda'])] = d
     der = C.load_json(C.OUT / 'DERIVADOS.json')
     dermap = {(n['empresa'], n['celda']): n for n in der['nodos']}
+    ctx = {}
+    with open(C.RESULTADOS / 'verificacion_contexto.jsonl', encoding='utf-8') as f:
+        for line in f:
+            d = json.loads(line)
+            ctx[(d['empresa'], d['celda'])] = d
     cob = {}
     import csv
     with open(C.OUT / 'COBERTURA_677.csv', encoding='utf-8') as f:
@@ -48,34 +53,48 @@ def main():
     entradas = []
     from collections import Counter
     estados = Counter()
+    estados_ctx = Counter()
     for c in lote['celdas']:
         emp, celda = c.split('|', 1)
         r = mapa[(emp, celda)]
         row = cob[(emp, celda)]
         v = ver.get((emp, celda))
         d = dermap.get((emp, celda))
-        estados[row['estado_propuesto']] += 1
+        cx = ctx.get((emp, celda)) or {}
+        estados[row['estado_mecanico']] += 1
+        estados_ctx[row['estado_contextual']] += 1
+        cev = cx.get('evidencia') or {}
         entradas.append({
             'empresa': emp, 'celda': celda, 'id': r['id'], 'clase': r['clase'],
-            'estado_propuesto': row['estado_propuesto'],
+            'estado_mecanico': row['estado_mecanico'],
+            'estado_contextual': row['estado_contextual'],
             'origen_revision': row['origen_revision'],
             'evidencia': row['evidencia'],
+            'evidencia_contextual': row['evidencia_contextual'],
             'limites': row['limites'],
+            'limites_contextuales': row['limites_contextuales'],
+            'checks_contextuales': {k: (c[0] if isinstance(c, (list, tuple)) else c) for k, c in (cx.get('checks') or {}).items()},
+            'fila_leida': cev.get('fila_leida'),
+            'encabezado': cev.get('encabezado'),
+            'titulo_pagina': cev.get('titulo_pagina'),
             'transformacion': row['transformacion'],
             'comparacion_libro': row['comparacion_libro'],
             'dependencia': row['dependencia'],
             'fragmento_pagina': snippet(emp, r),
             'derivado': ({'formula': d['formula'], 'resultado': d['resultado'],
                           'valor_modelo': d['valor_modelo'], 'diferencia': d['diferencia'],
-                          'exacto': d['exacto'], 'reutilizado_piloto': d['reutilizado_piloto']}
+                          'exacto': d['exacto'], 'reutilizado_piloto': d['reutilizado_piloto'],
+                          'estado_contextual': d.get('estado_contextual'),
+                          'limites_contextuales': d.get('limites_contextuales')}
                          if d else None),
         })
     out = {
         'lote': lote_id, 'tipo': lote['tipo'], 'n': lote['n'],
         'empresas': lote.get('empresas', ['Vidrala', 'Viscofan']),
-        'estados': dict(estados),
+        'estados_mecanicos': dict(estados),
+        'estados_contextuales': dict(estados_ctx),
         'entradas': entradas,
-        'nota': 'Propuesta de evidencia de Mistral; pendiente de revision por otro contexto. Fragmentos acotados de las paginas citadas, no volcado de documentos.',
+        'nota': 'Propuesta de evidencia de Mistral; pendiente de revision por otro contexto. Estados mecanicos y contextuales en columnas separadas. Fragmentos acotados de las paginas citadas, no volcado de documentos.',
     }
     path = C.RESULTADOS / 'lotes' / f'lote_{lote_id}.json'
     C.dump_json(out, path)

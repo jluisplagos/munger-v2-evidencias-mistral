@@ -1,10 +1,15 @@
 {
-  "nota": "Propuesta de evidencia de Mistral; pendiente de revision. Los 14 nodos del piloto se referencian (M1_REUTILIZADA) y solo se revisarian si cambiara un origen; aqui ningun origen cambio (hash de entradas vigente).",
+  "nota": "Propuesta de evidencia de Mistral; pendiente de revision. Los 14 nodos del piloto se referencian (M1_REUTILIZADA) y solo se revisarian si cambiara un origen; aqui ningun origen cambio (hash de entradas vigente). Recalcular la formula solo demuestra aritmetica; el significado economico y la coherencia de unidades quedan en estado_contextual/limites_contextuales propagados de los orígenes.",
   "total_nodos": 101,
   "reutilizados_piloto": 14,
   "nuevos": 87,
   "estados": {
     "COINCIDE_PROPUESTO": 101
+  },
+  "estados_contextuales": {
+    "REVISADO_CONTEXTUAL": 86,
+    "REUTILIZADO_M1": 14,
+    "PENDIENTE_CONTEXTUAL": 1
   },
   "ciclos": [],
   "huecos": [],
@@ -13,6 +18,11 @@
       "empresa": "Vidrala",
       "celda": "Análisis!C41",
       "id": "capitalizacion",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "unidades/escalas de los orígenes no homogeneas"
+      ],
+      "coherencia_unidades_origenes": false,
       "significado": "stock en una fecha; motores ABC: siempre (bloquea el valor si falta; peso de financiación en B) (cadena_trazabilidad, C-capitalizacion). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -51,6 +61,9 @@
       "empresa": "Vidrala",
       "celda": "Análisis!C55",
       "id": "acciones",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "número de acciones en una fecha; motores ABC: siempre (cadena_trazabilidad, C-acciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -89,6 +102,9 @@
       "empresa": "Vidrala",
       "celda": "Análisis!C46",
       "id": "cfo_media",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo (media de ejercicios); motores A: siempre en A (FCF base) (cadena_trazabilidad, C-cfo_media). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -136,6 +152,9 @@
       "empresa": "Vidrala",
       "celda": "Análisis!C47",
       "id": "capex_media",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo (media de ejercicios); motores A: siempre en A (cadena_trazabilidad, C-capex_media). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -183,6 +202,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!C7",
       "id": "h_ebit",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -230,6 +252,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!D7",
       "id": "h_ebit",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -277,6 +302,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!E7",
       "id": "h_ebit",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -324,6 +352,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!C10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -362,6 +393,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!D10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -400,6 +434,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!E10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -438,6 +475,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!F10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -476,6 +516,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!G10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -514,6 +557,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!H10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -552,6 +598,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!I10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -590,6 +639,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!J10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -628,6 +680,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!K10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -666,6 +721,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!L10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -704,6 +762,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!C12",
       "id": "h_capex",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -742,6 +803,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!D12",
       "id": "h_capex",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -780,6 +844,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!E12",
       "id": "h_capex",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -818,6 +885,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!F12",
       "id": "h_capex",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -856,6 +926,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!G12",
       "id": "h_capex",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -894,6 +967,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!H12",
       "id": "h_capex",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -932,6 +1008,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!I12",
       "id": "h_capex",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -970,6 +1049,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!J12",
       "id": "h_capex",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1008,6 +1090,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!K12",
       "id": "h_capex",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1046,6 +1131,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!L12",
       "id": "h_capex",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1084,6 +1172,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!I14",
       "id": "h_circulante",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio (aumento del circulante); motores A: A (cadena_trazabilidad, D-h_circulante). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1149,6 +1240,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!C22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1187,6 +1281,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!D22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1225,6 +1322,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!E22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1263,6 +1363,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!F22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1310,6 +1413,11 @@
       "empresa": "Vidrala",
       "celda": "Historia!G22",
       "id": "h_deuda",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "Historia!G23: dimension fila no decidible (fila de continuacion sin etiqueta propia; contexto leido: ['contract', 'contracts', 'diciembre', 'disposal', 'disposals')"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1357,6 +1465,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!H22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1395,6 +1506,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!I22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1442,6 +1556,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!J22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1489,6 +1606,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!K22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1536,6 +1656,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!L22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1583,6 +1706,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!C26",
       "id": "h_minoritarios",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1630,6 +1756,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!D26",
       "id": "h_minoritarios",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1677,6 +1806,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!E26",
       "id": "h_minoritarios",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1724,6 +1856,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!F26",
       "id": "h_minoritarios",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1771,6 +1906,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!G26",
       "id": "h_minoritarios",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1818,6 +1956,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!H26",
       "id": "h_minoritarios",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1865,6 +2006,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!I26",
       "id": "h_minoritarios",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1912,6 +2056,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!J26",
       "id": "h_minoritarios",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -1959,6 +2106,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!K26",
       "id": "h_minoritarios",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -2006,6 +2156,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!L26",
       "id": "h_minoritarios",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -2053,6 +2206,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!E13",
       "id": "h_adquisiciones",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -2109,6 +2265,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!F13",
       "id": "h_adquisiciones",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -2156,6 +2315,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!G13",
       "id": "h_adquisiciones",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -2203,6 +2365,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!H13",
       "id": "h_adquisiciones",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -2250,6 +2415,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!K13",
       "id": "h_adquisiciones",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -2288,6 +2456,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!L13",
       "id": "h_adquisiciones",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
         {
@@ -2335,6 +2506,9 @@
       "empresa": "Vidrala",
       "celda": "Configuración V6.4!B11",
       "id": "N1.tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "Configuración V6.4 (N1.tipo): entra en el motor B experimental (bases de «Configuración V6.4»); materialidad en configuracion_v64_variantes.json",
       "origenes": [
         {
@@ -2409,6 +2583,16 @@
       "empresa": "Vidrala",
       "celda": "Configuración V6.4!B21",
       "id": "N2.margen",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:italia_ingresos_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
+        "aux:italia_bai_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
+        "aux:italia_gto_fin_2021: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
+        "aux:italia_ingresos_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
+        "aux:italia_bai_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto)",
+        "aux:italia_gto_fin_2022: dimension perimetro no decidible (la pagina no menciona el segmento en texto)"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "Configuración V6.4 (N2.margen): entra en el motor B experimental (bases de «Configuración V6.4»); materialidad en configuracion_v64_variantes.json",
       "origenes": [
         {
@@ -2627,6 +2811,13 @@
       "empresa": "Viscofan",
       "celda": "Análisis!C41",
       "id": "capitalizacion",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "Análisis!C37: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2050', '2072', '2095'] no corresponden a encabezado de tabla)",
+        "Análisis!C37: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "unidades/escalas de los orígenes no homogeneas"
+      ],
+      "coherencia_unidades_origenes": false,
       "significado": "C-capitalizacion · stock en una fecha · motores ABC: siempre (bloquea el valor si falta; peso de financiación en B)",
       "origenes": [
         {
@@ -2665,6 +2856,9 @@
       "empresa": "Viscofan",
       "celda": "Análisis!C55",
       "id": "acciones",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-acciones · número de acciones en una fecha · motores ABC: siempre · D3: acciones en circulación a 31-dic-2025 (emitidas − propias)",
       "origenes": [
         {
@@ -2703,6 +2897,9 @@
       "empresa": "Viscofan",
       "celda": "Análisis!C46",
       "id": "cfo_media",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-cfo_media · flujo (media de ejercicios) · motores A: siempre en A (FCF base)",
       "origenes": [
         {
@@ -2750,6 +2947,9 @@
       "empresa": "Viscofan",
       "celda": "Análisis!C47",
       "id": "capex_media",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-capex_media · flujo (media de ejercicios) · motores A: siempre en A",
       "origenes": [
         {
@@ -2797,6 +2997,9 @@
       "empresa": "Viscofan",
       "celda": "Análisis!C48",
       "id": "int_fin_media",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-int_fin_media · flujo (media de ejercicios) · motores A: siempre en A (0 explícito si no hay)",
       "origenes": [
         {
@@ -2844,6 +3047,13 @@
       "empresa": "Viscofan",
       "celda": "Análisis!C49",
       "id": "leases_media",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [
+        "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (fila no tabular con columnas de años; años en pagina ['2025'] no corresponden a encabezado de tabla)",
+        "aux:AR2025_p28_pagos_arrend_2024: dimension unidad no decidible (unidad no decidible en esta pagina; evidencia: [\"anio:'year'\"])",
+        "aux:AR2025_p28_pagos_arrend_2025: dimension unidad no decidible (unidad no decidible en esta pagina; evidencia: [\"anio:'year'\"])"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "C-leases_media · flujo (media de ejercicios) · motores A: siempre en A (0 explícito si no hay)",
       "origenes": [
         {
@@ -2891,6 +3101,9 @@
       "empresa": "Viscofan",
       "celda": "Análisis!C50",
       "id": "sbc_media",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-sbc_media · flujo (media de ejercicios) · motores A: siempre en A (0 explícito si no hay)",
       "origenes": [
         {
@@ -2938,6 +3151,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!C8",
       "id": "h_da",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_da · flujo del ejercicio · motores A: A",
       "origenes": [
         {
@@ -2976,6 +3192,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!D8",
       "id": "h_da",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:IA2018_p28_amort_intangible_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:IA2018_p28_amort_material_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_da · flujo del ejercicio · motores A: A",
       "origenes": [
         {
@@ -3014,6 +3236,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!E8",
       "id": "h_da",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_da · flujo del ejercicio · motores A: A",
       "origenes": [
         {
@@ -3052,6 +3277,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!C10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
         {
@@ -3090,6 +3318,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!D10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:IA2018_p24_impuesto_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:IA2018_p24_bai_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
         {
@@ -3128,6 +3362,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!E10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
         {
@@ -3166,6 +3403,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!F10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
         {
@@ -3204,6 +3444,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!G10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
         {
@@ -3242,6 +3485,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!H10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
         {
@@ -3280,6 +3526,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!I10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
         {
@@ -3318,6 +3570,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!J10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
         {
@@ -3356,6 +3611,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!K10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
         {
@@ -3394,6 +3652,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!L10",
       "id": "h_tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
         {
@@ -3432,6 +3693,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!F14",
       "id": "h_circulante",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
         {
@@ -3479,6 +3743,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!G14",
       "id": "h_circulante",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
         {
@@ -3526,6 +3793,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!H14",
       "id": "h_circulante",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
         {
@@ -3573,6 +3843,13 @@
       "empresa": "Viscofan",
       "celda": "Historia!I14",
       "id": "h_circulante",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CA2023_p8_var_existencias_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:CA2023_p8_var_deudores_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:CA2023_p8_var_acreedores_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
         {
@@ -3620,6 +3897,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!J14",
       "id": "h_circulante",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
         {
@@ -3667,6 +3947,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!K14",
       "id": "h_circulante",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
         {
@@ -3714,6 +3997,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!L14",
       "id": "h_circulante",
+      "estado_contextual": "REUTILIZADO_M1",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
         {
@@ -3761,6 +4047,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!C22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -3799,6 +4088,14 @@
       "empresa": "Viscofan",
       "celda": "Historia!D22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:IA2018_p104_bancos_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:IA2018_p104_intereses_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:IA2018_p104_arrend_financiero_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -3855,6 +4152,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!E22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -3911,6 +4211,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!F22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -3949,6 +4252,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!G22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -3987,6 +4293,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!H22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4025,6 +4334,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!I22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CA2023_p3_pasivo_fin_nc_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:CA2023_p3_pasivo_fin_c_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4063,6 +4378,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!J22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4101,6 +4419,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!K22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4139,6 +4460,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!L22",
       "id": "h_deuda",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4177,6 +4501,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!F23",
       "id": "h_arrend",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4215,6 +4542,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!G23",
       "id": "h_arrend",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4253,6 +4583,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!H23",
       "id": "h_arrend",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4291,6 +4624,12 @@
       "empresa": "Viscofan",
       "celda": "Historia!I23",
       "id": "h_arrend",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CA2023_p3_arrend_lp_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:CA2023_p3_arrend_cp_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4329,6 +4668,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!J23",
       "id": "h_arrend",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4367,6 +4709,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!K23",
       "id": "h_arrend",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4405,6 +4750,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!L23",
       "id": "h_arrend",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
+      "coherencia_unidades_origenes": true,
       "significado": "D-h_arrend · stock a cierre · motores B: B",
       "origenes": [
         {
@@ -4443,6 +4791,12 @@
       "empresa": "Viscofan",
       "celda": "Configuración V6.4!B11",
       "id": "N1.tipo",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:CA2023_p4_impuesto_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)",
+        "aux:CA2023_p4_bai_2022: dimension perimetro no decidible (sin marca de perimetro en la pagina)"
+      ],
+      "coherencia_unidades_origenes": true,
       "significado": "C-config-N1.tipo · tasa (parámetro) · motores B: modo experimental",
       "origenes": [
         {

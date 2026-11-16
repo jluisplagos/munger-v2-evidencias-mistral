@@ -5,10 +5,15 @@
   "empresas": [
     "Vidrala"
   ],
-  "estados": {
+  "estados_mecanicos": {
     "COINCIDE_PROPUESTO": 27,
     "CONVENCION": 1,
     "NO_APLICABLE": 2
+  },
+  "estados_contextuales": {
+    "REVISADO_CONTEXTUAL": 26,
+    "NO_APLICA": 3,
+    "PENDIENTE_CONTEXTUAL": 1
   },
   "entradas": [
     {
@@ -16,10 +21,17 @@
       "celda": "Historia!C26",
       "id": "h_minoritarios",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2016\"] - o[\"aux:pasivo_total_2016\"] - o[\"Historia!C21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2016\"] - o[\"aux:pasivo_total_2016\"] - o[\"Historia!C21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,096,243 − pasivo total 621,309 − patrimonio atribuido a la dominante 474,934 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "1096.243 - 621.309 - 474.934 = 0.000",
       "comparacion_libro": "libro Historia!C26 = 0 (diff 0.000)",
       "dependencia": "origenes: aux:pn_y_pasivo_2016 (texto/CF_2017.txt p.10), aux:pasivo_total_2016 (texto/CF_2017.txt p.10), Historia!C21 (texto/CF_2017.txt p.10)",
@@ -30,7 +42,9 @@
         "valor_modelo": 0,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -38,10 +52,17 @@
       "celda": "Historia!C57",
       "id": "anios_f",
       "clase": "convencion",
-      "estado_propuesto": "CONVENCION",
+      "estado_mecanico": "CONVENCION",
+      "estado_contextual": "NO_APLICA",
       "origen_revision": "M2_NUEVA",
       "evidencia": "sin fuente conservada; registro de clase convencion: Ventana de 3 ejercicios (2023–2025) para el FCF base y la calibración de f: decisión del inversor del 23-oct-2026 («FCF base con media 3 años 2023–25», cadena_trazabilidad C-cfo_media) y fase1_metadatos.json → anios_fcf_base = 3.",
+      "evidencia_contextual": "fila leida: 'None'; encabezado: 'None'; titulo pagina: 'None'; checks: ",
       "limites": "se conserva como CONVENCION; no se declara dato verificado",
+      "limites_contextuales": "sin pendientes contextuales",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "",
       "comparacion_libro": "libro Historia!C57 = 3",
       "dependencia": "justificacion/hipotesis del registro",
@@ -53,10 +74,17 @@
       "celda": "Historia!C7",
       "id": "h_ebit",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:bai_2016\"] - o[\"aux:ing_fin_2016\"] - o[\"aux:gto_fin_2016\"] -> 93.039 (valor_modelo 93.039, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:bai_2016\"] - o[\"aux:ing_fin_2016\"] - o[\"aux:gto_fin_2016\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. La cuenta de resultados de 2016 no imprime el subtotal de explotación: EBIT = BAI − ingresos financieros − gastos financieros = 84.242 − 0.979 + 9.776 = 93.039 mm.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "84.242 - 0.979 - -9.776 = 93.039",
       "comparacion_libro": "libro Historia!C7 = 93.039 (diff 0.000)",
       "dependencia": "origenes: aux:bai_2016 (texto/CF_2017.txt p.11), aux:ing_fin_2016 (texto/CF_2017.txt p.11), aux:gto_fin_2016 (texto/CF_2017.txt p.11)",
@@ -67,7 +95,9 @@
         "valor_modelo": 93.039,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -75,10 +105,17 @@
       "celda": "Historia!D10",
       "id": "h_tipo",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:impuesto_2017\"] / o[\"aux:bai_2017\"] -> 0.1878245658789016235126910953 (valor_modelo 0.1878, diff 0.0000245658789016235126910953)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2017\"] / o[\"aux:bai_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. tipo efectivo = gasto por impuesto ÷ resultado antes de impuestos del mismo estado (consolidado); el libro redondea a 4 decimales: 0.1878",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "20.616 / 109.762 = 0.1878245658789016235126910953",
       "comparacion_libro": "libro Historia!D10 = 0.1878 (diff 0.0000245658789016235126910953)",
       "dependencia": "origenes: aux:impuesto_2017 (texto/CF_2018.txt p.10), aux:bai_2017 (texto/CF_2018.txt p.10)",
@@ -89,7 +126,9 @@
         "valor_modelo": 0.1878,
         "diferencia": "0.0000245658789016235126910953",
         "exacto": false,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -97,10 +136,17 @@
       "celda": "Historia!D12",
       "id": "h_capex",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2017\"] + o[\"aux:capex_int_2017\"] -> 89.020 (valor_modelo 89.02, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2017\"] + o[\"aux:capex_int_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 86.479 + 2.541 = 89.02 mm. En CF_2018 los rótulos de la columna 2018 están desplazados; la columna 2017 coincide con CF_2017 p.14. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "86.479 + 2.541 = 89.020",
       "comparacion_libro": "libro Historia!D12 = 89.02 (diff 0.000)",
       "dependencia": "origenes: aux:capex_mat_2017 (texto/CF_2018.txt p.13), aux:capex_int_2017 (texto/CF_2018.txt p.13)",
@@ -111,7 +157,9 @@
         "valor_modelo": 89.02,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -119,10 +167,17 @@
       "celda": "Historia!D22",
       "id": "h_deuda",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2017\"] + o[\"aux:lyb_c_2017\"] -> 529.338 (valor_modelo 529.338, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2017\"] + o[\"aux:lyb_c_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2017 = 487,819 + 41,519 (balance; antes de NIIF 16). La nota 15 de CF_2018 p.57 desglosa préstamos, otros pasivos financieros e intereses devengados.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "487.819 + 41.519 = 529.338",
       "comparacion_libro": "libro Historia!D22 = 529.338 (diff 0.000)",
       "dependencia": "origenes: aux:lyb_nc_2017 (texto/CF_2018.txt p.9), aux:lyb_c_2017 (texto/CF_2018.txt p.9)",
@@ -133,7 +188,9 @@
         "valor_modelo": 529.338,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -141,10 +198,17 @@
       "celda": "Historia!D23",
       "id": "h_arrend",
       "clase": "no_aplicable",
-      "estado_propuesto": "NO_APLICABLE",
+      "estado_mecanico": "NO_APLICABLE",
+      "estado_contextual": "NO_APLICA",
       "origen_revision": "M2_NUEVA",
       "evidencia": "sin fuente conservada; registro de clase no_aplicable: Antes de la NIIF 16 (aplicada desde el 1-ene-2019 sin reexpresar los comparativos, CF_2019 p.18–19) no hay pasivo por arrendamiento NIIF 16 en 2017. Regla de fase1_decisiones.json: la fila 23 recoge solo pasivos NIIF 16; los arrendamientos financieros anteriores van en deuda (fila 22). El 0 del libr",
+      "evidencia_contextual": "fila leida: 'None'; encabezado: 'None'; titulo pagina: 'None'; checks: ",
       "limites": "se conserva como NO_APLICABLE; no se declara dato verificado",
+      "limites_contextuales": "sin pendientes contextuales",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "",
       "comparacion_libro": "libro Historia!D23 = 0",
       "dependencia": "justificacion/hipotesis del registro",
@@ -156,10 +220,17 @@
       "celda": "Historia!D26",
       "id": "h_minoritarios",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2017\"] - o[\"aux:pasivo_total_2017\"] - o[\"Historia!D21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2017\"] - o[\"aux:pasivo_total_2017\"] - o[\"Historia!D21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,404,899 − pasivo total 876,763 − patrimonio atribuido a la dominante 528,136 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "1404.899 - 876.763 - 528.136 = 0.000",
       "comparacion_libro": "libro Historia!D26 = 0 (diff 0.000)",
       "dependencia": "origenes: aux:pn_y_pasivo_2017 (texto/CF_2018.txt p.9), aux:pasivo_total_2017 (texto/CF_2018.txt p.9), Historia!D21 (texto/CF_2018.txt p.9)",
@@ -170,7 +241,9 @@
         "valor_modelo": 0,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -178,10 +251,17 @@
       "celda": "Historia!D7",
       "id": "h_ebit",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:bai_2017\"] - o[\"aux:ing_fin_2017\"] - o[\"aux:gto_fin_2017\"] -> 117.182 (valor_modelo 117.182, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:bai_2017\"] - o[\"aux:ing_fin_2017\"] - o[\"aux:gto_fin_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. La cuenta de resultados de 2017 no imprime el subtotal de explotación: EBIT = BAI − ingresos financieros − gastos financieros = 109.762 − 1.964 + 9.384 = 117.182 mm.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "109.762 - 1.964 - -9.384 = 117.182",
       "comparacion_libro": "libro Historia!D7 = 117.182 (diff 0.000)",
       "dependencia": "origenes: aux:bai_2017 (texto/CF_2018.txt p.10), aux:ing_fin_2017 (texto/CF_2018.txt p.10), aux:gto_fin_2017 (texto/CF_2018.txt p.10)",
@@ -192,7 +272,9 @@
         "valor_modelo": 117.182,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -200,10 +282,17 @@
       "celda": "Historia!E10",
       "id": "h_tipo",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:impuesto_2018\"] / o[\"aux:bai_2018\"] -> 0.1742294764427733151028314248 (valor_modelo 0.1742, diff 0.0000294764427733151028314248)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2018\"] / o[\"aux:bai_2018\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. tipo efectivo = gasto por impuesto ÷ resultado antes de impuestos del mismo estado (consolidado); el libro redondea a 4 decimales: 0.1742",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "24.466 / 140.424 = 0.1742294764427733151028314248",
       "comparacion_libro": "libro Historia!E10 = 0.1742 (diff 0.0000294764427733151028314248)",
       "dependencia": "origenes: aux:impuesto_2018 (texto/CF_2019.txt p.9), aux:bai_2018 (texto/CF_2019.txt p.9)",
@@ -214,7 +303,9 @@
         "valor_modelo": 0.1742,
         "diferencia": "0.0000294764427733151028314248",
         "exacto": false,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -222,10 +313,17 @@
       "celda": "Historia!E12",
       "id": "h_capex",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2018\"] + o[\"aux:capex_int_2018\"] -> 101.786 (valor_modelo 101.786, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2018\"] + o[\"aux:capex_int_2018\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 99.541 + 2.245 = 101.786 mm. Rótulos desplazados en el texto: el pago por inmovilizado material aparece rotulado «Proceeds from sale of PPE» y el de intangibles «Acquisition of PPE»; la columna 2018 suma (101,773) con la línea de +13. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "99.541 + 2.245 = 101.786",
       "comparacion_libro": "libro Historia!E12 = 101.786 (diff 0.000)",
       "dependencia": "origenes: aux:capex_mat_2018 (texto/CF_2019.txt p.12), aux:capex_int_2018 (texto/CF_2019.txt p.12)",
@@ -236,7 +334,9 @@
         "valor_modelo": 101.786,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -244,10 +344,17 @@
       "celda": "Historia!E13",
       "id": "h_adquisiciones",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:inversion_total_2018\"] + o[\"aux:capex_mat_2018\"] + o[\"aux:capex_int_2018\"] - o[\"aux:otros_inv_2018\"]) -> 0.000 (valor_modelo 0, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:inversion_total_2018\"] + o[\"aux:capex_mat_2018\"] + o[\"aux:capex_int_2018\"] - o[\"aux:otros_inv_2018\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: el total de inversión de 2018 es exactamente la suma de las líneas de inmovilizado y la de +13, sin flujo por compras o ventas de negocios. En 2018 la línea «Acquisition of a subsidiary» solo trae el importe de 2017 (CF_2018 p.13). Era un cero PENDIENTE DE VERIFICACIÓN (H1) en 2018.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "-(-101.773 + 99.541 + 2.245 - 0.013) = 0.000",
       "comparacion_libro": "libro Historia!E13 = 0 (diff 0.000)",
       "dependencia": "origenes: aux:inversion_total_2018 (texto/CF_2019.txt p.12), aux:capex_mat_2018 (texto/CF_2019.txt p.12), aux:capex_int_2018 (texto/CF_2019.txt p.12), aux:otros_inv_2018 (texto/CF_2019.txt p.12)",
@@ -258,7 +365,9 @@
         "valor_modelo": 0,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -266,10 +375,17 @@
       "celda": "Historia!E22",
       "id": "h_deuda",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2018\"] + o[\"aux:lyb_c_2018\"] -> 433.767 (valor_modelo 433.767, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2018\"] + o[\"aux:lyb_c_2018\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2018 = 394,887 + 38,880 = 433,767 (balance; antes de NIIF 16). Incluye el arrendamiento financiero de maquinaria de dic-2018 (40,916, CF_2019 p.59), que la regla de fase1_decisiones.json lleva a deuda.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "394.887 + 38.88 = 433.767",
       "comparacion_libro": "libro Historia!E22 = 433.767 (diff 0.000)",
       "dependencia": "origenes: aux:lyb_nc_2018 (texto/CF_2019.txt p.8), aux:lyb_c_2018 (texto/CF_2019.txt p.8)",
@@ -280,7 +396,9 @@
         "valor_modelo": 433.767,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -288,10 +406,17 @@
       "celda": "Historia!E23",
       "id": "h_arrend",
       "clase": "no_aplicable",
-      "estado_propuesto": "NO_APLICABLE",
+      "estado_mecanico": "NO_APLICABLE",
+      "estado_contextual": "NO_APLICA",
       "origen_revision": "M2_NUEVA",
       "evidencia": "sin fuente conservada; registro de clase no_aplicable: Antes de la NIIF 16 (aplicada desde el 1-ene-2019 sin reexpresar los comparativos, CF_2019 p.18–19) no hay pasivo por arrendamiento NIIF 16 en 2018. Regla de fase1_decisiones.json: la fila 23 recoge solo pasivos NIIF 16; los arrendamientos financieros anteriores van en deuda (fila 22). El 0 del libr",
+      "evidencia_contextual": "fila leida: 'None'; encabezado: 'None'; titulo pagina: 'None'; checks: ",
       "limites": "se conserva como NO_APLICABLE; no se declara dato verificado",
+      "limites_contextuales": "sin pendientes contextuales",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "",
       "comparacion_libro": "libro Historia!E23 = 0",
       "dependencia": "justificacion/hipotesis del registro",
@@ -303,10 +428,17 @@
       "celda": "Historia!E26",
       "id": "h_minoritarios",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2018\"] - o[\"aux:pasivo_total_2018\"] - o[\"Historia!E21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2018\"] - o[\"aux:pasivo_total_2018\"] - o[\"Historia!E21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,407,335 − pasivo total 797,337 − patrimonio atribuido a la dominante 609,998 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "1407.335 - 797.337 - 609.998 = 0.000",
       "comparacion_libro": "libro Historia!E26 = 0 (diff 0.000)",
       "dependencia": "origenes: aux:pn_y_pasivo_2018 (texto/CF_2019.txt p.8), aux:pasivo_total_2018 (texto/CF_2019.txt p.8), Historia!E21 (texto/CF_2019.txt p.8)",
@@ -317,7 +449,9 @@
         "valor_modelo": 0,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -325,10 +459,17 @@
       "celda": "Historia!E7",
       "id": "h_ebit",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:bai_2018\"] - o[\"aux:ing_fin_2018\"] - o[\"aux:gto_fin_2018\"] -> 147.082 (valor_modelo 147.082, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:bai_2018\"] - o[\"aux:ing_fin_2018\"] - o[\"aux:gto_fin_2018\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. La cuenta de resultados de 2018 no imprime el subtotal de explotación: EBIT = BAI − ingresos financieros − gastos financieros = 140.424 − 3.491 + 10.149 = 147.082 mm. La línea «Impairment and result from disposals of financial instruments» imprime «-» en 2018 (CF_2019 p.9).",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "140.424 - 3.491 - -10.149 = 147.082",
       "comparacion_libro": "libro Historia!E7 = 147.082 (diff 0.000)",
       "dependencia": "origenes: aux:bai_2018 (texto/CF_2019.txt p.9), aux:ing_fin_2018 (texto/CF_2019.txt p.9), aux:gto_fin_2018 (texto/CF_2019.txt p.9)",
@@ -339,7 +480,9 @@
         "valor_modelo": 147.082,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -347,10 +490,17 @@
       "celda": "Historia!F10",
       "id": "h_tipo",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:impuesto_2019\"] / o[\"aux:bai_2019\"] -> 0.1367935895891071213399204723 (valor_modelo 0.1368, diff -0.0000064104108928786600795277)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2019\"] / o[\"aux:bai_2019\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. tipo efectivo = gasto por impuesto ÷ resultado antes de impuestos del mismo estado (consolidado); el libro redondea a 4 decimales: 0.1368",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "22.705 / 165.98 = 0.1367935895891071213399204723",
       "comparacion_libro": "libro Historia!F10 = 0.1368 (diff -0.0000064104108928786600795277)",
       "dependencia": "origenes: aux:impuesto_2019 (texto/CF_2020.txt p.10), aux:bai_2019 (texto/CF_2020.txt p.10)",
@@ -361,7 +511,9 @@
         "valor_modelo": 0.1368,
         "diferencia": "-0.0000064104108928786600795277",
         "exacto": false,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -369,10 +521,17 @@
       "celda": "Historia!F12",
       "id": "h_capex",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2019\"] + o[\"aux:capex_int_2019\"] -> 107.169 (valor_modelo 107.169, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2019\"] + o[\"aux:capex_int_2019\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 103.622 + 3.547 = 107.169 mm. Rótulos desplazados (las dos únicas líneas de inversión son pagos y suman el total (107,169)). No incluye cobros por ventas de inmovilizado ni compras de negocios.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "103.622 + 3.547 = 107.169",
       "comparacion_libro": "libro Historia!F12 = 107.169 (diff 0.000)",
       "dependencia": "origenes: aux:capex_mat_2019 (texto/CF_2020.txt p.13), aux:capex_int_2019 (texto/CF_2020.txt p.13)",
@@ -383,7 +542,9 @@
         "valor_modelo": 107.169,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -391,10 +552,17 @@
       "celda": "Historia!F13",
       "id": "h_adquisiciones",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:inversion_total_2019\"] + o[\"aux:capex_mat_2019\"] + o[\"aux:capex_int_2019\"]) -> 0.000 (valor_modelo 0, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:inversion_total_2019\"] + o[\"aux:capex_mat_2019\"] + o[\"aux:capex_int_2019\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: el total de inversión de 2019 es exactamente la suma de las líneas de inmovilizado, sin flujo por compras o ventas de negocios. El bloque de inversión solo tiene las dos líneas de inmovilizado. Era un cero PENDIENTE DE VERIFICACIÓN (H1) en 2019.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "-(-107.169 + 103.622 + 3.547) = 0.000",
       "comparacion_libro": "libro Historia!F13 = 0 (diff 0.000)",
       "dependencia": "origenes: aux:inversion_total_2019 (texto/CF_2020.txt p.13), aux:capex_mat_2019 (texto/CF_2020.txt p.13), aux:capex_int_2019 (texto/CF_2020.txt p.13)",
@@ -405,7 +573,9 @@
         "valor_modelo": 0,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -413,10 +583,17 @@
       "celda": "Historia!F22",
       "id": "h_deuda",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2019\"] + o[\"aux:lyb_c_2019\"] - o[\"Historia!F23\"] -> 362.021 (valor_modelo 362.021, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2019\"] + o[\"aux:lyb_c_2019\"] - o[\"Historia!F23\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2019 = 231,906 + 131,787 − pasivo NIIF 16 1,672 = 362,021; el resto de «Finance Lease» (arrendamiento financiero de maquinaria) queda en deuda (regla de fase1_decisiones.json; nota 15, CF_2020 p.69).",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "231.906 + 131.787 - 1.672 = 362.021",
       "comparacion_libro": "libro Historia!F22 = 362.021 (diff 0.000)",
       "dependencia": "origenes: aux:lyb_nc_2019 (texto/CF_2020.txt p.9), aux:lyb_c_2019 (texto/CF_2020.txt p.9), Historia!F23 (texto/CF_2019.txt p.19)",
@@ -427,7 +604,9 @@
         "valor_modelo": 362.021,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -435,10 +614,17 @@
       "celda": "Historia!F26",
       "id": "h_minoritarios",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2019\"] - o[\"aux:pasivo_total_2019\"] - o[\"Historia!F21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2019\"] - o[\"aux:pasivo_total_2019\"] - o[\"Historia!F21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,457,861 − pasivo total 734,502 − patrimonio atribuido a la dominante 723,359 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "1457.861 - 734.502 - 723.359 = 0.000",
       "comparacion_libro": "libro Historia!F26 = 0 (diff 0.000)",
       "dependencia": "origenes: aux:pn_y_pasivo_2019 (texto/CF_2020.txt p.9), aux:pasivo_total_2019 (texto/CF_2020.txt p.9), Historia!F21 (texto/CF_2020.txt p.9)",
@@ -449,7 +635,9 @@
         "valor_modelo": 0,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -457,10 +645,17 @@
       "celda": "Historia!G10",
       "id": "h_tipo",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:impuesto_2020\"] / o[\"aux:bai_2020\"] -> 0.1570208176945116987196430648 (valor_modelo 0.157, diff 0.0000208176945116987196430648)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2020\"] / o[\"aux:bai_2020\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. tipo efectivo = gasto por impuesto ÷ resultado antes de impuestos del mismo estado (consolidado); el libro redondea a 4 decimales: 0.157",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "29.703 / 189.166 = 0.1570208176945116987196430648",
       "comparacion_libro": "libro Historia!G10 = 0.157 (diff 0.0000208176945116987196430648)",
       "dependencia": "origenes: aux:impuesto_2020 (texto/CF_2021.txt p.4), aux:bai_2020 (texto/CF_2021.txt p.4)",
@@ -471,7 +666,9 @@
         "valor_modelo": 0.157,
         "diferencia": "0.0000208176945116987196430648",
         "exacto": false,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -479,10 +676,17 @@
       "celda": "Historia!G12",
       "id": "h_capex",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2020\"] + o[\"aux:capex_int_2020\"] -> 134.248 (valor_modelo 134.248, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2020\"] + o[\"aux:capex_int_2020\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 132.117 + 2.131 = 134.248 mm. Rótulos desplazados; las dos líneas suman el total (134,248). No incluye cobros por ventas de inmovilizado ni compras de negocios.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "132.117 + 2.131 = 134.248",
       "comparacion_libro": "libro Historia!G12 = 134.248 (diff 0.000)",
       "dependencia": "origenes: aux:capex_mat_2020 (texto/CF_2021.txt p.7), aux:capex_int_2020 (texto/CF_2021.txt p.7)",
@@ -493,7 +697,9 @@
         "valor_modelo": 134.248,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -501,10 +707,17 @@
       "celda": "Historia!G13",
       "id": "h_adquisiciones",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:inversion_total_2020\"] + o[\"aux:capex_mat_2020\"] + o[\"aux:capex_int_2020\"]) -> 0.000 (valor_modelo 0, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:inversion_total_2020\"] + o[\"aux:capex_mat_2020\"] + o[\"aux:capex_int_2020\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: el total de inversión de 2020 es exactamente la suma de las líneas de inmovilizado, sin flujo por compras o ventas de negocios. El bloque de inversión solo tiene las dos líneas de inmovilizado. Era un cero PENDIENTE DE VERIFICACIÓN (H1) en 2020.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "-(-134.248 + 132.117 + 2.131) = 0.000",
       "comparacion_libro": "libro Historia!G13 = 0 (diff 0.000)",
       "dependencia": "origenes: aux:inversion_total_2020 (texto/CF_2021.txt p.7), aux:capex_mat_2020 (texto/CF_2021.txt p.7), aux:capex_int_2020 (texto/CF_2021.txt p.7)",
@@ -515,7 +728,9 @@
         "valor_modelo": 0,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -523,10 +738,17 @@
       "celda": "Historia!G22",
       "id": "h_deuda",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2020\"] + o[\"aux:lyb_c_2020\"] - o[\"Historia!G23\"] -> 344.357 (valor_modelo 344.357, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2020\"] + o[\"aux:lyb_c_2020\"] - o[\"Historia!G23\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2020 = 185,518 + 160,142 − pasivo NIIF 16 1,303 = 344,357 (nota 15, CF_2021 p.58).",
+      "limites_contextuales": "Historia!G23: dimension fila no decidible (fila de continuacion sin etiqueta propia; contexto leido: ['contract', 'contracts', 'diciembre', 'disposal', 'disposals')",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "185.518 + 160.142 - 1.303 = 344.357",
       "comparacion_libro": "libro Historia!G22 = 344.357 (diff 0.000)",
       "dependencia": "origenes: aux:lyb_nc_2020 (texto/CF_2021.txt p.3), aux:lyb_c_2020 (texto/CF_2021.txt p.3), Historia!G23 (texto/CF_2020.txt p.20)",
@@ -537,7 +759,11 @@
         "valor_modelo": 344.357,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "Historia!G23: dimension fila no decidible (fila de continuacion sin etiqueta propia; contexto leido: ['contract', 'contracts', 'diciembre', 'disposal', 'disposals')"
+        ]
       }
     },
     {
@@ -545,10 +771,17 @@
       "celda": "Historia!G26",
       "id": "h_minoritarios",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2020\"] - o[\"aux:pasivo_total_2020\"] - o[\"Historia!G21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2020\"] - o[\"aux:pasivo_total_2020\"] - o[\"Historia!G21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,521,447 − pasivo total 705,291 − patrimonio atribuido a la dominante 816,156 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "1521.447 - 705.291 - 816.156 = 0.000",
       "comparacion_libro": "libro Historia!G26 = 0 (diff 0.000)",
       "dependencia": "origenes: aux:pn_y_pasivo_2020 (texto/CF_2021.txt p.3), aux:pasivo_total_2020 (texto/CF_2021.txt p.3), Historia!G21 (texto/CF_2021.txt p.3)",
@@ -559,7 +792,9 @@
         "valor_modelo": 0,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -567,10 +802,17 @@
       "celda": "Historia!H10",
       "id": "h_tipo",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:impuesto_2021\"] / o[\"aux:bai_2021\"] -> 0.1585784342140348029725123758 (valor_modelo 0.1586, diff -0.0000215657859651970274876242)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2021\"] / o[\"aux:bai_2021\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. tipo efectivo = gasto por impuesto ÷ resultado antes de impuestos del mismo estado (consolidado); el libro redondea a 4 decimales: 0.1586",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "27.357 / 172.514 = 0.1585784342140348029725123758",
       "comparacion_libro": "libro Historia!H10 = 0.1586 (diff -0.0000215657859651970274876242)",
       "dependencia": "origenes: aux:impuesto_2021 (texto/CF_2022.txt p.4), aux:bai_2021 (texto/CF_2022.txt p.4)",
@@ -581,7 +823,9 @@
         "valor_modelo": 0.1586,
         "diferencia": "-0.0000215657859651970274876242",
         "exacto": false,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -589,10 +833,17 @@
       "celda": "Historia!H12",
       "id": "h_capex",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2021\"] + o[\"aux:capex_int_2021\"] -> 109.800 (valor_modelo 109.8, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:capex_mat_2021\"] + o[\"aux:capex_int_2021\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 107.604 + 2.196 = 109.8 mm. Rótulos «Payments from sale of…» en la traducción: son pagos por adquisición (salidas); 107.604 impreso con punto de millar. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "107.604 + 2.196 = 109.800",
       "comparacion_libro": "libro Historia!H12 = 109.8 (diff 0.000)",
       "dependencia": "origenes: aux:capex_mat_2021 (texto/CF_2022.txt p.7), aux:capex_int_2021 (texto/CF_2022.txt p.7)",
@@ -603,7 +854,9 @@
         "valor_modelo": 109.8,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -611,10 +864,17 @@
       "celda": "Historia!H13",
       "id": "h_adquisiciones",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:inversion_total_2021\"] + o[\"aux:capex_mat_2021\"] + o[\"aux:capex_int_2021\"]) -> 0.000 (valor_modelo 0, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula -(o[\"aux:inversion_total_2021\"] + o[\"aux:capex_mat_2021\"] + o[\"aux:capex_int_2021\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: el total de inversión de 2021 es exactamente la suma de las líneas de inmovilizado, sin flujo por compras o ventas de negocios. El bloque de inversión solo tiene las dos líneas de inmovilizado. Era un cero PENDIENTE DE VERIFICACIÓN (H1) en 2021.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "-(-109.8 + 107.604 + 2.196) = 0.000",
       "comparacion_libro": "libro Historia!H13 = 0 (diff 0.000)",
       "dependencia": "origenes: aux:inversion_total_2021 (texto/CF_2022.txt p.7), aux:capex_mat_2021 (texto/CF_2022.txt p.7), aux:capex_int_2021 (texto/CF_2022.txt p.7)",
@@ -625,7 +885,9 @@
         "valor_modelo": 0,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
@@ -633,10 +895,17 @@
       "celda": "Historia!H22",
       "id": "h_deuda",
       "clase": "derivado",
-      "estado_propuesto": "COINCIDE_PROPUESTO",
+      "estado_mecanico": "COINCIDE_PROPUESTO",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2021\"] + o[\"aux:lyb_c_2021\"] -> 257.616 (valor_modelo 257.616, diff 0.000)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2021\"] + o[\"aux:lyb_c_2021\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2021 = 184,003 + 73,613 = 257,616 (balance). Incluye el pasivo NIIF 16, que la nota 15 (CF_2022 p.60) no separa (derecho de uso de 770): ver Historia!H23.",
+      "limites_contextuales": "sin limites propagados",
+      "checks_contextuales": {},
+      "fila_leida": null,
+      "encabezado": null,
+      "titulo_pagina": null,
       "transformacion": "184.003 + 73.613 = 257.616",
       "comparacion_libro": "libro Historia!H22 = 257.616 (diff 0.000)",
       "dependencia": "origenes: aux:lyb_nc_2021 (texto/CF_2022.txt p.3), aux:lyb_c_2021 (texto/CF_2022.txt p.3)",
@@ -647,9 +916,11 @@
         "valor_modelo": 257.616,
         "diferencia": "0.000",
         "exacto": true,
-        "reutilizado_piloto": false
+        "reutilizado_piloto": false,
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     }
   ],
-  "nota": "Propuesta de evidencia de Mistral; pendiente de revision por otro contexto. Fragmentos acotados de las paginas citadas, no volcado de documentos."
+  "nota": "Propuesta de evidencia de Mistral; pendiente de revision por otro contexto. Estados mecanicos y contextuales en columnas separadas. Fragmentos acotados de las paginas citadas, no volcado de documentos."
 }

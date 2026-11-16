@@ -21,6 +21,11 @@ import comun as C
 def main():
     registro = C.load_registro()
     mapa = {(e, r['celda']): r for e, r in C.iter_entradas(registro)}
+    ctx = {}
+    with open(C.RESULTADOS / 'verificacion_contexto.jsonl', encoding='utf-8') as f:
+        for line in f:
+            d = json.loads(line)
+            ctx[(d['empresa'], d['celda'])] = d
     valores = {}
     estado_calc = {}
     ciclos = []
@@ -107,8 +112,30 @@ def main():
             ro = mapa.get((emp, o)) or {}
             fo = ro.get('fuente') or {}
             h.update(f"{o}|{ro.get('valor_modelo')}|{fo.get('sha256')}|{fo.get('pagina')}".encode())
+        # propagacion de estados y limites contextuales de los origenes (A1)
+        estados_orig = []
+        limites_orig = []
+        for o in dv['origenes']:
+            oc = ctx.get((emp, o)) or {}
+            estados_orig.append(oc.get('estado_contextual', 'NO_APLICA'))
+            for p in oc.get('pendientes') or []:
+                limites_orig.append(f"{o}: dimension {p} no decidible ({(oc.get('detalle') or {}).get(p, '')[:120]})")
+        if r.get('cubierta_en_piloto'):
+            estado_ctx = 'REUTILIZADO_M1'
+        elif any(s == 'CONFLICTO_CONTEXTUAL' for s in estados_orig):
+            estado_ctx = 'CONFLICTO_CONTEXTUAL'
+        elif any(s == 'PENDIENTE_CONTEXTUAL' for s in estados_orig):
+            estado_ctx = 'PENDIENTE_CONTEXTUAL'
+        else:
+            estado_ctx = 'REVISADO_CONTEXTUAL'
+        coherencia_unidades = len(escalas) <= 1
+        if not coherencia_unidades:
+            limites_orig.append('unidades/escalas de los orígenes no homogeneas')
         nodos.append({
             'empresa': emp, 'celda': celda, 'id': r['id'],
+            'estado_contextual': estado_ctx,
+            'limites_contextuales': limites_orig,
+            'coherencia_unidades_origenes': coherencia_unidades,
             'significado': r.get('uso'),
             'origenes': origenes,
             'formula': dv['formula'],
@@ -126,11 +153,12 @@ def main():
         })
 
     derivados = {
-        'nota': 'Propuesta de evidencia de Mistral; pendiente de revision. Los 14 nodos del piloto se referencian (M1_REUTILIZADA) y solo se revisarian si cambiara un origen; aqui ningun origen cambio (hash de entradas vigente).',
+        'nota': 'Propuesta de evidencia de Mistral; pendiente de revision. Los 14 nodos del piloto se referencian (M1_REUTILIZADA) y solo se revisarian si cambiara un origen; aqui ningun origen cambio (hash de entradas vigente). Recalcular la formula solo demuestra aritmetica; el significado economico y la coherencia de unidades quedan en estado_contextual/limites_contextuales propagados de los orígenes.',
         'total_nodos': len(nodos),
         'reutilizados_piloto': sum(1 for n in nodos if n['reutilizado_piloto']),
         'nuevos': sum(1 for n in nodos if not n['reutilizado_piloto']),
         'estados': dict(resumen),
+        'estados_contextuales': dict(Counter(n['estado_contextual'] for n in nodos)),
         'ciclos': ciclos,
         'huecos': [n['celda'] for n in nodos if n['estado'] == 'NO_ACREDITADO'],
         'nodos': nodos,

@@ -45,11 +45,11 @@ def main():
 
     # 2. estados permitidos y coherencia clase->estado
     for r in rows:
-        if r['estado_propuesto'] not in C.ESTADOS_PERMITIDOS:
-            violaciones.append(f"estado no permitido en {r['empresa']} {r['celda']}: {r['estado_propuesto']}")
+        if r['estado_mecanico'] not in C.ESTADOS_PERMITIDOS:
+            violaciones.append(f"estado no permitido en {r['empresa']} {r['celda']}: {r['estado_mecanico']}")
         clase = r['clase']
-        if clase in C.CLASE_A_ESTADO and r['estado_propuesto'] != C.CLASE_A_ESTADO[clase]:
-            violaciones.append(f"clase {clase} con estado {r['estado_propuesto']} en {r['empresa']} {r['celda']}")
+        if clase in C.CLASE_A_ESTADO and r['estado_mecanico'] != C.CLASE_A_ESTADO[clase]:
+            violaciones.append(f"clase {clase} con estado {r['estado_mecanico']} en {r['empresa']} {r['celda']}")
 
     # 3. piloto: 60 con M1_REUTILIZADA
     piloto_rows = [r for r in rows if r['origen_revision'] == 'M1_REUTILIZADA']
@@ -59,7 +59,7 @@ def main():
 
     # 4. fuentes referenciadas como examinadas deben existir y ser conformes
     for r in rows:
-        if r['estado_propuesto'] != 'COINCIDE_PROPUESTO':
+        if r['estado_mecanico'] != 'COINCIDE_PROPUESTO':
             continue
         if r['clase'] in ('dato_publicado', 'cero_comprobado'):
             f = mapa[(r['empresa'], r['celda'])].get('fuente') or {}
@@ -155,22 +155,46 @@ def main():
             esperado = dermap[(emp, celda)]['estado']
         else:
             esperado = ver[(emp, celda)]['estado_propuesto']
-        if r['estado_propuesto'] != esperado:
-            violaciones.append(f"{emp} {celda}: estado en CSV {r['estado_propuesto']} != recalculo {esperado}")
+        if r['estado_mecanico'] != esperado:
+            violaciones.append(f"{emp} {celda}: estado en CSV {r['estado_mecanico']} != recalculo {esperado}")
+
+    # 6b. estados contextuales: conjunto permitido y coherencia
+    ESTADOS_CTX = {'REVISADO_CONTEXTUAL', 'PENDIENTE_CONTEXTUAL', 'CONFLICTO_CONTEXTUAL', 'REUTILIZADO_M1', 'NO_APLICA'}
+    ctxmap = {}
+    with open(C.RESULTADOS / 'verificacion_contexto.jsonl', encoding='utf-8') as f:
+        for line in f:
+            d = json.loads(line)
+            ctxmap[(d['empresa'], d['celda'])] = d
+    for r in rows:
+        ec = r['estado_contextual']
+        if ec not in ESTADOS_CTX:
+            violaciones.append(f"estado_contextual no permitido en {r['empresa']} {r['celda']}: {ec}")
+        if ec == 'REVISADO_CONTEXTUAL' and not r['evidencia_contextual']:
+            violaciones.append(f"{r['empresa']} {r['celda']}: REVISADO_CONTEXTUAL sin evidencia_contextual")
+        if r['origen_revision'] == 'M1_REUTILIZADA' and r['clase'] not in ('derivado',) and ec != 'REUTILIZADO_M1':
+            violaciones.append(f"{r['empresa']} {r['celda']}: piloto sin estado_contextual REUTILIZADO_M1 ({ec})")
+        cx = ctxmap.get((r['empresa'], r['celda']))
+        if r['clase'] in ('dato_publicado', 'cero_comprobado') and cx and r['estado_contextual'] != cx['estado_contextual'] and r['origen_revision'] != 'M1_REUTILIZADA':
+            violaciones.append(f"{r['empresa']} {r['celda']}: estado_contextual del CSV {r['estado_contextual']} != verificacion_contexto {cx['estado_contextual']}")
+    # derivados: estado_contextual propagado de orígenes
+    for n in nodos:
+        if n['estado'] == 'COINCIDE_PROPUESTO' and n['estado_contextual'] == 'CONFLICTO_CONTEXTUAL':
+            violaciones.append(f"derivado {n['empresa']} {n['celda']}: mecanico OK pero contexto CONFLICTO (propagado de orígenes)")
 
     # 7. recuentos conciliados
     recuentos = {
         'total': len(rows),
         'por_empresa': dict(Counter(r['empresa'] for r in rows)),
         'por_clase': dict(Counter(r['clase'] for r in rows)),
-        'por_estado': dict(Counter(r['estado_propuesto'] for r in rows)),
-        'por_empresa_estado': {e: dict(Counter(r['estado_propuesto'] for r in rows if r['empresa'] == e)) for e in C.EMPRESAS},
+        'por_estado': dict(Counter(r['estado_mecanico'] for r in rows)),
+        'por_empresa_estado': {e: dict(Counter(r['estado_mecanico'] for r in rows if r['empresa'] == e)) for e in C.EMPRESAS},
         'por_empresa_clase': {e: dict(Counter(r['clase'] for r in rows if r['empresa'] == e)) for e in C.EMPRESAS},
         'piloto_reutilizadas': len(piloto_rows),
         'nuevas': len(rows) - len(piloto_rows),
         'derivados_total': sum(1 for r in rows if r['clase'] == 'derivado'),
         'derivados_piloto': sum(1 for r in rows if r['clase'] == 'derivado' and r['origen_revision'] == 'M1_REUTILIZADA'),
         'derivados_nuevos': sum(1 for r in rows if r['clase'] == 'derivado' and r['origen_revision'] == 'M2_NUEVA'),
+        'por_estado_contextual': dict(Counter(r['estado_contextual'] for r in rows)),
     }
     ok_totales = (recuentos['total'] == 677 and recuentos['piloto_reutilizadas'] == 60
                   and recuentos['nuevas'] == 617 and recuentos['derivados_total'] == 101

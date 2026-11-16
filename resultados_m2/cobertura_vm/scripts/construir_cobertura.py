@@ -14,8 +14,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import comun as C
 
 COLUMNAS = [
-    'empresa', 'celda', 'id', 'clase', 'material_declarada', 'estado_propuesto',
-    'origen_revision', 'lote', 'evidencia', 'limites', 'documento', 'sha256',
+    'empresa', 'celda', 'id', 'clase', 'material_declarada', 'estado_mecanico',
+    'estado_contextual', 'origen_revision', 'lote', 'evidencia', 'evidencia_contextual',
+    'limites', 'limites_contextuales', 'documento', 'sha256',
     'pagina', 'columna', 'transformacion', 'comparacion_libro', 'dependencia',
 ]
 
@@ -51,10 +52,20 @@ def estado_piloto(r):
     return 'COINCIDE_PROPUESTO'
 
 
+def cargar_contexto():
+    ctx = {}
+    with open(C.RESULTADOS / 'verificacion_contexto.jsonl', encoding='utf-8') as f:
+        for line in f:
+            d = json.loads(line)
+            ctx[(d['empresa'], d['celda'])] = d
+    return ctx
+
+
 def main():
     registro = C.load_registro()
     ver = cargar_verificacion()
     der = cargar_derivados()
+    ctx = cargar_contexto()
     inv = C.load_json(C.RESULTADOS / 'inventario.json')
     lote_de = lotes_de(inv)
     catalogo = {(r['empresa'], r['celda']): r for r in C.load_catalogo()}
@@ -126,12 +137,37 @@ def main():
             comparacion = f"libro {celda} = {libro_val!r}" + (' (vacio en ambos)' if libro_val is None and r.get('valor_modelo') is None else '')
             dependencia = 'justificacion/hipotesis del registro' + ('; piloto M1' if piloto else '')
 
+        cx = ctx.get((emp, celda)) or {}
+        cev = cx.get('evidencia') or {}
+        if clase == 'derivado' and d:
+            estado_ctx = d.get('estado_contextual', 'PENDIENTE_CONTEXTUAL')
+            evidencia_ctx = (f"origenes con estado contextual {d.get('estado_contextual')}; "
+                             f"coherencia de unidades: {d.get('coherencia_unidades_origenes')}; "
+                             f"formula {d['formula']} (recalculo aritmetico, no significado economico)")
+            limites_ctx = ' | '.join(d.get('limites_contextuales') or []) or 'sin limites propagados'
+        elif cx:
+            estado_ctx = cx.get('estado_contextual', 'NO_APLICA')
+            evidencia_ctx = (f"fila leida: {str(cev.get('fila_leida'))[:120]!r}; "
+                             f"encabezado: {str(cev.get('encabezado'))[:100]!r}; "
+                             f"titulo pagina: {str(cev.get('titulo_pagina'))[:100]!r}; "
+                             f"checks: " + ', '.join(f"{k}={v[0] if isinstance(v, (list, tuple)) else v}" for k, v in (cx.get('checks') or {}).items()))
+            limites_ctx = ' | '.join(f"{p}: {(cx.get('detalle') or {}).get(p, '')[:100]}" for p in cx.get('pendientes') or []) or 'sin pendientes contextuales'
+        else:
+            estado_ctx = 'NO_APLICA'
+            evidencia_ctx = 'sin fuente conservada (clase %s)' % clase
+            limites_ctx = 'clase no dato: ver justificacion/hipotesis'
+        if piloto and clase != 'derivado':
+            estado_ctx = 'REUTILIZADO_M1'
+            evidencia_ctx += ' | reutilizada del piloto M1 (alcance y huellas propios)'
+
         rows.append({
             'empresa': emp, 'celda': celda, 'id': r['id'], 'clase': clase,
             'material_declarada': cat['material_declarada'],
-            'estado_propuesto': estado, 'origen_revision': origen,
+            'estado_mecanico': estado, 'estado_contextual': estado_ctx,
+            'origen_revision': origen,
             'lote': lote_de.get((emp, celda), ''),
-            'evidencia': evidencia, 'limites': limites,
+            'evidencia': evidencia, 'evidencia_contextual': evidencia_ctx,
+            'limites': limites, 'limites_contextuales': limites_ctx,
             'documento': documento, 'sha256': sha, 'pagina': pagina,
             'columna': columna, 'transformacion': transformacion,
             'comparacion_libro': comparacion, 'dependencia': dependencia,
@@ -146,7 +182,8 @@ def main():
     from collections import Counter
     print(json.dumps({
         'filas': len(rows),
-        'estados': dict(Counter(x['estado_propuesto'] for x in rows)),
+        'estados_mecanicos': dict(Counter(x['estado_mecanico'] for x in rows)),
+        'estados_contextuales': dict(Counter(x['estado_contextual'] for x in rows)),
         'origen': dict(Counter(x['origen_revision'] for x in rows)),
         'salida': str(out),
     }, ensure_ascii=False))
