@@ -9,8 +9,8 @@
   "estados_contextuales": {
     "PENDIENTE_CONTEXTUAL": 38,
     "REUTILIZADO_M1": 14,
-    "REVISADO_CONTEXTUAL": 42,
-    "CONFLICTO_CONTEXTUAL": 7
+    "CONFLICTO_CONTEXTUAL": 8,
+    "REVISADO_CONTEXTUAL": 41
   },
   "ciclos": [],
   "huecos": [],
@@ -261,9 +261,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!D7",
       "id": "h_ebit",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:ing_fin_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 153) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)"
+        "aux:ing_fin_2017: dimension reexpresion no decidible (declara no reexpresado (\"no\") pero el original CF_2017.txt imprime 2017 en la columna 2017 (fila 3459) y el comparativo )"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
@@ -1390,8 +1390,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!F22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "Historia!F23: dimension columna no decidible (fila con 3 valores no alineable 1:1 con 1 columnas ['2019']: sin mapeo posicional)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -4158,7 +4160,7 @@
       "limites_contextuales": [
         "aux:AR2017_p83_total_pasivos_financieros_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:AR2017_p83_total_pasivos_financieros_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
-        "aux:AR2017_p83_derivados_2016: dimension columna no decidible (años declarados ['2016'] no figuran en la pagina ['2017'] (fila no tabular o año fuera de tabla))",
+        "aux:AR2017_p83_derivados_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:AR2017_p83_derivados_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
@@ -4202,13 +4204,13 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:IA2018_p104_bancos_2017: dimension columna no decidible (años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla))",
+        "aux:IA2018_p104_bancos_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:IA2018_p104_bancos_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
-        "aux:IA2018_p104_intereses_2017: dimension columna no decidible (años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla))",
+        "aux:IA2018_p104_intereses_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:IA2018_p104_intereses_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
-        "aux:IA2018_p104_arrend_financiero_2017: dimension columna no decidible (años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla))",
+        "aux:IA2018_p104_arrend_financiero_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:IA2018_p104_arrend_financiero_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
-        "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension columna no decidible (años declarados ['2017'] no figuran en la pagina ['2018'] (fila no tabular o año fuera de tabla))"
+        "aux:IA2018_p104_otros_pasivos_financieros_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",

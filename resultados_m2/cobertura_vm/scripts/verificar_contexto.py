@@ -24,6 +24,11 @@ import comun as C
 YEAR_RE = re.compile(r'(?<![\d.,])20\d\d(?![\d.,])')  # v4.0 (A2-R4): un importe 2045,3 / 0,2050 / 2025,4 no es año
 YEAR_FILE_RE = re.compile(r'20\d\d')  # nombres de archivo: CF_2024.txt
 NUM_RE = re.compile(r'\(?\d[\d.,]*\)?|\u2212\d[\d.,]*|-\d[\d.,]*')
+# A3-R3/A3-R5: un año seguido de coma o punto en prosa ('December 31, 2024,') no es un
+# importe (token de fila) pero sí cuenta como año del bloque; un valor con forma de año
+# sin puntuación (2030) SÍ es un importe y ocupa su posición
+PROSE_YEAR_TOKEN_RE = re.compile(r'20\d\d[.,]')
+PROSE_YEAR_RE = re.compile(r'(?<![\d.,])20\d\d(?=[.,](?!\d))')
 
 UNIDAD_PATTERNS = {
     'miles de euros': r'miles de euros|thousands of euros',
@@ -221,6 +226,7 @@ def find_header_block(page_lines, row_idx, modo='max'):
     if modo == 'near':
         for line in block:
             years_in_block.extend(YEAR_RE.findall(line))
+            years_in_block.extend(PROSE_YEAR_RE.findall(line))  # A3-R5: '2024,' en prosa también es año
         candidatos = [(i, l) for i, l in enumerate(block) if es_linea_columnas(l)]
         for i, line in reversed(candidatos):
             if len(YEAR_RE.findall(line)) >= 2:
@@ -244,6 +250,7 @@ def find_header_block(page_lines, row_idx, modo='max'):
     candidatos = []
     for i, line in enumerate(block):
         ys = YEAR_RE.findall(line)
+        years_in_block.extend(PROSE_YEAR_RE.findall(line))  # A3-R5: '2024,' en prosa también es año
         if ys:
             years_in_block.extend(ys)
             if es_linea_columnas(line):
@@ -457,8 +464,10 @@ def check_columna(row_idx, page_lines, years_in_block, col_line, col_years, colu
     if not declared_years:
         return 'NO_DECIDIBLE', 'columna/periodo sin año declarado (fila de texto)'
     row_line = page_lines[row_idx] if row_idx is not None and row_idx < len(page_lines) else ''
-    # todos los numeros de la fila (incluye importes <1000 como EPS), sin años; fuera la columna de nota
-    nums = [t for t in NUM_RE.findall(row_line) if not YEAR_RE.fullmatch(t)]
+    # todos los numeros de la fila (incluye importes <1000 como EPS). A3-R3: un valor con
+    # forma de año sin puntuar (2030) SÍ es un importe y ocupa su posición (antes se
+    # descartaba y desplazaba el mapeo); solo se excluye el año en prosa ('2024,')
+    nums = [t for t in NUM_RE.findall(row_line) if not PROSE_YEAR_TOKEN_RE.fullmatch(t.rstrip(')'))]
     if col_years and len(nums) == len(col_years) + 1 and re.fullmatch(r'\d{1,2}(\.\d+)?', nums[0]) and not re.search(r'[.,]\d{3}$', nums[0]):
         nums = nums[1:]  # columna de referencia a nota (p. ej. '11.2'), no un importe
     if not years_in_block:
@@ -769,7 +778,8 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
         out = []
         for l in ls:
             for t in NUM_RE.findall(l):
-                if value_like(t) and not YEAR_RE.fullmatch(t):
+                # A3-R3/A3-R5: '2024,' en prosa no es importe; un valor 20xx sin puntuar sí lo es
+                if value_like(t) and not PROSE_YEAR_TOKEN_RE.fullmatch(t.rstrip(')')):
                     out.append((t, signed(t)))
         return out
 

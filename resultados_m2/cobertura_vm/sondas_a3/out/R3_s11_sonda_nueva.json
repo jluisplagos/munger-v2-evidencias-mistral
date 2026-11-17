@@ -1,0 +1,45 @@
+{
+  "modulo": "/workspace/wt-a/resultados_m2/cobertura_vm/scripts/verificar_contexto.py",
+  "sondas": [
+    {
+      "sonda": "R3g_anio_con_coma_en_fila_no_es_importe",
+      "descripcion": "La fila trae \"(note 2024,)\": el token \"2024,\" es un año en prosa, no un importe; 9.000 mapea a 2024 -> OK.",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024'] | cabecera: '2025 2024' | años bloque: ['2025', '2024', '2024']",
+      "defecto": false
+    },
+    {
+      "sonda": "R3h_valor_2030_en_columna_2025",
+      "descripcion": "El importe 2030 (miles) está en la columna 2025 y se declara 2025=2030 -> OK por posición.",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 0 de 2 valores -> columna 2025 (linea de columnas ['2025', '2024']); declarado ['2025'] | cabecera: '2025 2024' | años bloque: ['2025', '2024', '2030']",
+      "defecto": false
+    },
+    {
+      "sonda": "R3i_valor_2030_declarado_en_otra_columna",
+      "descripcion": "Declarado 2024=2030 pero 2030 está en la columna 2025 -> CONFLICTO.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "posicion 0 -> columna 2025, pero declarado ['2024'] (linea de columnas ['2025', '2024']) | cabecera: '2025 2024' | años bloque: ['2025', '2024', '2030']",
+      "defecto": false
+    },
+    {
+      "sonda": "R3j_anio_con_coma_cuenta_en_bloque",
+      "descripcion": "\"December 31, 2024,\" es un año del bloque además del \"2024\" de la cabecera (inverso de A2-R4).",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "años ['2024', '2023', '2024', '2023']",
+      "defecto": false
+    }
+  ]
+}
