@@ -1,0 +1,42 @@
+== diff --stat 5f4b2a2 d032691 (solo .py y .sh)
+ .../ejecucion_d/scripts/ejecutar_todo.sh           |   6 +-
+ resultados_qwen/ejecucion_d/sondas/sondas_d2.py    | 222 +++++++++++++++++++++
+ 2 files changed, 226 insertions(+), 2 deletions(-)
+exit=0
+  lib_arnes.py cambiado_en_d032691=0
+  ejecutar_caso.py cambiado_en_d032691=0
+  generar_matriz.py cambiado_en_d032691=0
+  generar_relevo.py cambiado_en_d032691=0
+  generar_correspondencia.py cambiado_en_d032691=0
+  pruebas_arnes.py cambiado_en_d032691=0
+  preparar_entorno.sh cambiado_en_d032691=0
+== fechas
+d032691 2026-11-17 09:59:44 +0000
+CORRECCION_D3 publicada en 314c4dc 2026-11-17 10:02:25 +0000
+== manifiesto
+sha256sum -c exit=0
+entradas=204 archivos=204
+lista_igual_a_carpeta diff_exit=0
+== banco
+banco sha256sum -c exit=0
+== regeneración en copia
+  generar_matriz exit=0
+  generar_correspondencia exit=0
+  generar_relevo exit=0
+  cmp MATRIZ_EJECUCION.csv exit=0
+  cmp MAPA_CRITERIOS_BANCO.csv exit=0
+  cmp relevo/PAQUETES_RELEVO.json exit=0
+  cmp evidencias/recuentos.json exit=0
+  recuentos: {'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6} {'CUMPLE': 29, 'sin veredicto de componente': 7} {'sin veredicto de caso': 29, 'NO_OBSERVABLE': 1, 'sin veredicto': 4, 'DECISION_PENDIENTE': 2} {'total': 109, 'con_asercion': 59, 'sin_asercion': 50}
+== marcas y logs publicados
+  sellar --revisor distintos: --revisor revisor independiente de prueba D (arnés externo) [SIMULADO] |
+  logs con más de una cabecera: 0
+  archivos de evidencia cambiados en d032691 que no son log ni resultado:
+    resultados_qwen/ejecucion_d/evidencias/Q1-026/CAMBIO_Q1-026.json
+    resultados_qwen/ejecucion_d/evidencias/Q1-026/errores_bloqueo.json
+    resultados_qwen/ejecucion_d/evidencias/Q1-026/origen_estado.txt
+    resultados_qwen/ejecucion_d/evidencias/pruebas_arnes.log
+    resultados_qwen/ejecucion_d/evidencias/recuentos.json
+== git status del repositorio (debe estar vacío)
+?? coordinacion/cierre_v2/traspaso/resultado_20261117/
+fin

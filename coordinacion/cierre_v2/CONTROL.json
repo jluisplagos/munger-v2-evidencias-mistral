@@ -326,15 +326,17 @@
         "resultados_qwen/ejecucion_d/ @ 3934bc9 (D2-R1/R7, bloque 1) y 5f4b2a2 (D2-R2…R5, bloque 2)",
         "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/REVISION_D2_3934bc9_a_5f4b2a2.md",
         "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/CORRECCION_D3.md",
-        "resultados_qwen/ejecucion_d/ @ d032691 (bloque 3: regeneración con el arnés v3)"
+        "resultados_qwen/ejecucion_d/ @ d032691 (bloque 3: regeneración con el arnés v3)",
+        "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/REVISION_D_d032691.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/ESTADO_D3_TRAS_d032691.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "PARCIALES",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Mistral D corrige D3-R1…R8 (CORRECCION_D3.md): rutas de salida y de copia fuera del caso, reevaluación en la matriz, controles negativos contra el estado previo, regeneración de todo lo publicado, relevos completos, manifiesto. D2-R7, cerrado con límites.",
+      "siguiente_accion": "D3 sigue vigente (d032691 es anterior a CORRECCION_D3). Tras d032691: R6 cerrado, la regeneración cerrada y el MAPA publicado; R1–R5 y R8 abiertos, con 7 variantes nuevas (ESTADO_D3_TRAS_d032691.md). Mistral D responde a D3 sobre d032691.",
       "observacion": "Bloque 3 (d032691) posterior a la revisión de 5f4b2a2: regenera artefactos y cambia ejecutar_todo.sh y especificaciones; no modifica lib_arnes.py, ejecutar_caso.py ni generar_matriz.py (contraste externo 35d0fb9). Revisión del coordinador frente a D3 en curso.",
-      "commit_revisado": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
+      "commit_revisado": "d032691ef2b926e387de3965460469d0994948df",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -356,7 +358,9 @@
         "resultados_qwen/ejecucion_d/ @ 3934bc9 (D2-R1/R7, bloque 1) y 5f4b2a2 (D2-R2…R5, bloque 2)",
         "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/REVISION_D2_3934bc9_a_5f4b2a2.md",
         "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/CORRECCION_D3.md",
-        "resultados_qwen/ejecucion_d/ @ d032691 (bloque 3: regeneración con el arnés v3)"
+        "resultados_qwen/ejecucion_d/ @ d032691 (bloque 3: regeneración con el arnés v3)",
+        "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/REVISION_D_d032691.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/ESTADO_D3_TRAS_d032691.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "PARCIALES",
@@ -365,9 +369,9 @@
         "T-CAND"
       ],
       "bloqueo": "No falta capacidad: el personaje se ejecuta con código 10 y subagentes de la sesión orquestadora (modelo y esfuerzo de config_v2.json, fase C con el mismo agente, auditoría con agente nuevo; sin API). Comprobado en 957af65: réplica hasta el código 10, paso 5. Bloqueo real: la adaptación de los 36 casos sintéticos a vías soportadas y la correspondencia criterio→observable (D2-R4/R5, Mistral D), que exige el propio PLAN_DE_EJECUCION del banco.",
-      "siguiente_accion": "0/36 casos del personaje ejecutados (correcto). El runtime del coordinador los ejecuta cuando D3-R4 dé relevos completos por caso.",
+      "siguiente_accion": "0/36 casos del personaje (correcto). No se ejecutan con un arnés sin aceptar; el runtime del coordinador los ejecutará cuando D3-R1…R4 estén cerrados.",
       "observacion": "Respuesta a D2 entregada en dos bloques (3934bc9, 5f4b2a2); revisión del coordinador en curso (contexto distinto). 0/36 casos del personaje ejecutados.",
-      "commit_revisado": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
+      "commit_revisado": "d032691ef2b926e387de3965460469d0994948df",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -1160,6 +1164,11 @@
       "tipo": "PRUEBA",
       "fecha": "2026-11-17",
       "hecho": "T-TRASPASO terminado por un receptor sin historial: verificación completa idéntica byte a byte a la del coordinador; 29/35; I19 y H9 observados; pasos con agentes no ejecutables por el receptor; 14 deficiencias del manual. Revisión del informe pendiente."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "D bloque 3 (d032691) revisado frente a D3: R6 cerrado (manifiesto 204/204, comprobado por el coordinador), regeneración byte a byte y recuentos coherentes (0/36); R1–R5 y R8 abiertos, con 7 variantes nuevas. d032691 es anterior a CORRECCION_D3: D3 sigue vigente, sin corrección nueva."
     }
   ],
   "consulta_remotos_arranque": {
