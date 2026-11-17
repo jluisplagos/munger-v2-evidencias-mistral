@@ -1,9 +1,17 @@
-"""Biblioteca del arnés externo del frente D (Mistral D · aceptación Qwen Q1) · v2.
+"""Biblioteca del arnés externo del frente D (Mistral D · aceptación Qwen Q1) · v3.
 
 Ejecuta comandos documentados del producto Munger V2 (candidata fijada) sobre copias
 locales de prueba aisladas y evalúa aserciones por criterio sobre las salidas reales.
-No modifica el producto. Cambios v2 (CORRECCION_D D-R1..R5):
-- verifica en ejecución el SHA de la candidata y la presencia del banco (D-R5);
+No modifica el producto. Cambios v3 (respuesta D2-R1/R2/R7 a CORRECCION_D2 sobre 1ac661b):
+- verifica en ejecución el SHA observado de la candidata Y que su árbol no tiene
+  cambios sin commit (solo se admiten archivos no rastreados de la base materializada);
+  guarda el SHA observado, no la constante esperada (D2-R7c);
+- una ejecución = una carpeta de evidencias limpia: el log no se acumula entre
+  ejecuciones (D2-R7b);
+- toda comprobación escrita por el arnés lleva marca de SIMULADA, también las que la
+  especificación da como diccionario (D2-R7a);
+- registra la huella del banco (casos_aceptacion.jsonl) usada en la ejecución.
+Cambios v2 (CORRECCION_D D-R1..R5) que se conservan:
 - archiva las salidas heredadas del expediente plantilla fuera del estado de prueba
   y registra sus huellas (D-R2);
 - no usa la mera existencia de un artefacto como éxito: exige que lo haya producido
@@ -21,6 +29,8 @@ import subprocess
 import sys
 
 sys.dont_write_bytecode = True
+
+HARNESS_VERSION = "3.0"
 
 AUX = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # resultados_qwen/ejecucion_d
 EVIDENCIAS = os.environ.get("EVIDENCIAS_DIR", os.path.join(AUX, "evidencias"))
@@ -58,34 +68,57 @@ def sha256_archivo(p):
 
 
 def verificar_entorno():
-    """D-R5: comprueba SHA real de la candidata y presencia del banco antes de ejecutar."""
+    """D-R5 + D2-R7c: comprueba en ejecución el SHA observado de la candidata, que su
+    árbol no tenga cambios sin commit (solo se admiten no rastreados de la base
+    materializada; un residuo pruebas_d/ del arnés es un problema) y la presencia y
+    huella del banco. Devuelve (problemas, info)."""
     problemas = []
+    info = {}
     script = os.path.join(SCRIPTS, "verificacion_entradas.py")
     if not os.path.isfile(script):
         problemas.append(f"falta {script} (CANDIDATA_DIR={CANDIDATA})")
     else:
         r = subprocess.run(["git", "-C", CANDIDATA, "rev-parse", "HEAD"], capture_output=True, text=True)
         sha = r.stdout.strip()
+        info["candidata_sha_observado"] = sha
         if r.returncode != 0 or sha != SHA_CANDIDATA_ESPERADO:
-            problemas.append(f"SHA candidata {sha!r} != esperado {SHA_CANDIDATA_ESPERADO}")
-    if not os.path.isfile(os.path.join(BANCO, "casos_aceptacion.jsonl")):
+            problemas.append(f"SHA candidata observado {sha!r} != esperado {SHA_CANDIDATA_ESPERADO}")
+        st = subprocess.run(["git", "-C", CANDIDATA, "status", "--porcelain"], capture_output=True, text=True).stdout
+        lineas = [l for l in st.splitlines() if l.strip()]
+        con_cambios = [l for l in lineas if not l.startswith("??")]
+        no_rastreadas = [l for l in lineas if l.startswith("??")]
+        info["candidata_no_rastreadas"] = len(no_rastreadas)
+        if con_cambios:
+            problemas.append(f"árbol de la candidata con cambios sin commit: {con_cambios[:5]}")
+        residuo = [l for l in no_rastreadas if "pruebas_d" in l]
+        if residuo:
+            problemas.append(f"la candidata contiene residuo pruebas_d/ del arnés: {residuo[:3]}")
+    banco_jsonl = os.path.join(BANCO, "casos_aceptacion.jsonl")
+    if not os.path.isfile(banco_jsonl):
         problemas.append(f"BANCO_DIR={BANCO} no contiene casos_aceptacion.jsonl (debe apuntar a .../banco_revisado)")
-    return problemas
+    else:
+        info["banco_casos_sha256"] = sha256_archivo(banco_jsonl)
+    return problemas, info
 
 
 class Caso:
     def __init__(self, caso_id):
         self.id = caso_id
         self.ev_dir = os.path.join(EVIDENCIAS, caso_id)
+        # D2-R7b: una ejecución = una carpeta de evidencias limpia; el log no se
+        # acumula entre ejecuciones ni se reutiliza evidencia de una corrida anterior.
+        if os.environ.get("ARNES_EVIDENCIAS_LIMPIAS", "1") == "1" and os.path.isdir(self.ev_dir):
+            shutil.rmtree(self.ev_dir)
         os.makedirs(self.ev_dir, exist_ok=True)
         self.log = os.path.join(self.ev_dir, "ejecucion.log")
         self.heredados = {}          # nombre -> sha256 de artefactos archivados (D-R2)
         self.artefactos = []         # artefactos copiados a evidencias con su procedencia
         self.errores = []            # errores inesperados (exit no esperado)
         self.afirmaciones_fallidas = []
-        self.resultados = {"caso": caso_id, "harness_version": "2.0",
+        self.resultados = {"caso": caso_id, "harness_version": HARNESS_VERSION, "fecha": HOY,
                            "precondiciones_simuladas": PRECONDICION_SIMULADA,
-                           "candidata_sha": SHA_CANDIDATA_ESPERADO, "pasos": []}
+                           "candidata_sha": None, "candidata_sha_esperado": SHA_CANDIDATA_ESPERADO,
+                           "banco_casos_sha256": None, "spec_sha256": None, "pasos": []}
 
     def _log(self, texto):
         with open(self.log, "a", encoding="utf-8") as f:
@@ -284,10 +317,23 @@ def fuente_local(exp, rel_archivo, documento, pagina, concepto, periodo, unidad,
 
 
 def comprobacion_verificada(extractor, revisor, fuente_examinada, fecha=None, nota=None):
-    """D-R4: registro preescrito por el arnés = precondición SIMULADA (no revisión real)."""
+    """D-R4 + D2-R7a: registro preescrito por el arnés = precondición SIMULADA (no revisión real)."""
     return {"extractor": extractor, "revisor": revisor, "fecha": fecha or HOY, "resultado": "verificado",
             "fuente_examinada": fuente_examinada, "nota": nota, "vinculo": None,
             "_simulada": True}
+
+
+def marcar_simulada(comprobacion):
+    """D2-R7a: toda comprobación escrita por el arnés (también la dada como diccionario
+    en la especificación) queda marcada como simulada en el registro del producto."""
+    if not isinstance(comprobacion, dict):
+        return comprobacion
+    comprobacion["_simulada"] = True
+    for campo in ("extractor", "revisor"):
+        v = comprobacion.get(campo)
+        if isinstance(v, str) and "[SIMULADO]" not in v:
+            comprobacion[campo] = v + " [SIMULADO]"
+    return comprobacion
 
 
 def comprobar(caso, exp, guardar, esperado=(0, 1), criterio=None):

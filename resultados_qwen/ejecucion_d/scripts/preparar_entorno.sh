@@ -27,16 +27,20 @@ if [ ! -f .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip ]
 fi
 echo "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e  .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip" | sha256sum -c - || exit 1
 python3 tools/base_414.py materialize --source .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip || exit 1
-python3 tools/base_414.py verify --report docs/VERIFICACION_BASE_COMPLETA_LOCAL.json || true
+# D2-R7c: el resultado de verify no se ignora; el informe sale fuera del árbol del producto
+python3 tools/base_414.py verify --report "${RUN_DIR:-/workspace}/VERIFICACION_BASE_COMPLETA_LOCAL.json" > /tmp/base_414_verify.json || exit 1
+python3 -c "import json,sys; r=json.load(open('/tmp/base_414_verify.json')); sys.exit(0 if r.get('complete') else 1)" || { echo "FALLO: base 4.14 no completa"; exit 1; }
+echo "base 4.14 verificada completa ($(python3 -c "import json; r=json.load(open('/tmp/base_414_verify.json')); print(r['good'], 'OK')"))"
 git fetch --depth 1 origin claude/hopeful-bardeen-qap6y0 || exit 1
 git checkout "$SHA_ESPERADO" || exit 1
 SHA_REAL="$(git rev-parse HEAD)"
 if [ "$SHA_REAL" != "$SHA_ESPERADO" ]; then echo "FALLO: SHA real $SHA_REAL != esperado $SHA_ESPERADO"; exit 1; fi
 echo "HEAD verificado en ejecución: $SHA_REAL"
 
-echo "== 2. banco: extrae resultados_qwen/q1_v2 desde revision/qwen-q1-v2 y fija BANCO_DIR=$BANCO_DIR"
+echo "== 2. banco: extrae resultados_qwen/q1_v2 desde el SHA fijado del banco (no la punta de la rama) y fija BANCO_DIR=$BANCO_DIR"
+SHA_BANCO="${SHA_BANCO:-4745f3887f7fd86bb3052f5d5e32285862df18e3}"
 mkdir -p "$BANCO_ROOT"
-git -C "$AUX_REPO" archive origin/revision/qwen-q1-v2 resultados_qwen/q1_v2 | tar -x -C "$BANCO_ROOT"
+git -C "$AUX_REPO" archive "$SHA_BANCO" resultados_qwen/q1_v2 | tar -x -C "$BANCO_ROOT"
 cd "$BANCO_DIR" || { echo "FALLO: BANCO_DIR=$BANCO_DIR no existe (debe ser .../banco_revisado)"; exit 1; }
 [ -f casos_aceptacion.jsonl ] || { echo "FALLO: BANCO_DIR no contiene casos_aceptacion.jsonl"; exit 1; }
 sha256sum -c MANIFIESTO_SHA256.txt || exit 1
