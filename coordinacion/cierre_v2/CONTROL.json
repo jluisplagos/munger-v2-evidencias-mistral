@@ -601,7 +601,8 @@
         "coordinacion/cierre_v2/manual/CAMBIOS_FRENTE_A_957af65.md",
         "coordinacion/cierre_v2/manual/PROPUESTA_CONTINUIDAD_2_5.md",
         "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/REVISION_MANUAL_v2_ef36ab1.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/CORRECCION_MANUAL_v3.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/CORRECCION_MANUAL_v3.md",
+        "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_3149128_v3.md (v3: cierra M1–M4 y m1–m12; autor, un contexto Claude)"
       ],
       "pruebas_autor": "NO_EJECUTADAS",
       "pruebas_externas": "PARCIALES",
@@ -609,7 +610,7 @@
         "T-CAND"
       ],
       "bloqueo": null,
-      "siguiente_accion": "v2 (ef36ab1) revisado: CORRECCIONES (M1–M4 y 12 menores). El coordinador, como autor, prepara la v3; otro contexto la revisa solo en lo afectado. Después, la propuesta §2.5 corregida, que debe incluir el 4.8, como cambio documental de la candidata.",
+      "siguiente_accion": "v3 entregada: cierra los 16 hallazgos y discrepa en 3 (m5, S-12 y el sondeo con TMPDIR). Pendiente la revisión de otro contexto, Mistral R o un subagente distinto; también hay que observar el 4.8 y los demás controles tras la limpieza (N-16, N-20). Después, la propuesta §2.5, ampliada al 4.8, como cambio documental de la candidata.",
       "observacion": "Manual revisado para la candidata 3149128 (borrador v2): las siete mejoras de MEJORAS_MANUAL.md con fuente; comandos nuevos marcados según dónde se probaron (traspaso del 17-nov o preparación F1 del 15-nov); lo no probado, [NO DOCUMENTADO]. Corrige dos atribuciones del encargo (copiar_binarios_a_b.py y sha256sum -c son de la preparación F1, no del traspaso). Propuesta de corrección de CONTINUIDAD §2.5 (_v64/), sin aplicar.",
       "commit_revisado": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "alcance_aceptado": [
@@ -707,17 +708,18 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "3d66437e797b6b0bf137b42fa62b561f39121722",
+      "commit_origen": "e813fe66b0210a698398d4f9a4d84788f9dda8e3",
       "commit_destino": null,
       "evidencia": [
         "jluisplagos/munger-v2 · integracion/hechos-raiz-957af65 @ 3d66437 (base 957af65): CLAUDE.md, README.md, docs/MIGRATION_STATUS.json",
-        "coordinacion/cierre_v2/revisiones_coordinador/G-RAIZ_3d66437/REVISION_G-RAIZ_3d66437.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/G-RAIZ_3d66437/REVISION_G-RAIZ_3d66437.md",
+        "integracion/hechos-raiz-957af65 @ e813fe6 (corrección G1–G5; merge-tree sobre 3149128 limpio; JSON válido)"
       ],
       "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "El coordinador, autor del cambio, corrige G1–G5 en la misma rama. La nueva versión la revisa otro contexto (Mistral R o un subagente distinto) antes de integrarla en la candidata. Comprobado por el coordinador: CLAUDE.md:11 de 3d66437 dice «1–6 corregidos».",
+      "siguiente_accion": "Corrección G1–G5 entregada en e813fe6. Pendiente la revisión de otro contexto, solo de lo afectado. Si es conforme, se integra en la candidata.",
       "observacion": "Fuera del manifiesto de munger_v2_r1: no requiere regenerarlo. Diff de 15 líneas: identidad de la rama, contenido (4.15 · hito 2), estado de los hallazgos 1–7, prueba 4.15 que cubre los tres huecos e importación ya hecha.",
       "commit_revisado": "3d66437e797b6b0bf137b42fa62b561f39121722",
       "alcance_aceptado": [],
@@ -858,7 +860,7 @@
       "tarea": "Decisiones económicas pendientes con fundamento",
       "autor": "Usuario",
       "revisor_propuesto": "Propuestas previamente revisadas",
-      "entrega": "PENDIENTE",
+      "entrega": "PARCIAL",
       "revision": "PENDIENTE",
       "integracion": "NO",
       "commit_origen": null,
@@ -872,7 +874,7 @@
         "F1-W"
       ],
       "bloqueo": "No hay adopción de políticas económicas nuevas en este programa.",
-      "siguiente_accion": "Decisiones económicas F1 (1a)–(5b), E8.1 y umbral de V-F1a presentadas una por una (03e7851) a la persona responsable. Nada adoptado. F1-IMPL espera esas decisiones.",
+      "siguiente_accion": "Decididas el 17-nov por la persona responsable: (3b), con la vía (iv) de mantener el bloqueo; (1a), alternativa (b); (1b), media como convención; (2), correspondencia (i)–(v); (4a), un solo perímetro. Pendientes: (4b), (3a), (5a) con sus opciones, (5b), E8.1 y el umbral de V-F1a. F1-IMPL las aplica cuando estén completas o por bloques, con revisión independiente.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -1392,6 +1394,31 @@
       "tipo": "ENTREGA",
       "fecha": "2026-11-17",
       "hecho": "U2: la persona responsable aportó Ahold_evaluada.xlsx (sha256 c4e5c82e…a293, 69 210 B) y Ahold_respuesta.md (bb7597fa…a013, 49 066 B). Se conservan byte a byte en la rama fuentes/ahold-etapa1-20261117 @ 726eea6, en fuentes_usuario/ahold_etapa1/. No está verificado que coincidan con la copia local del usuario, ni qué PDF usó la etapa 1 (no hay HUELLAS.txt; la búsqueda sigue en curso)."
+    },
+    {
+      "tipo": "DECISION",
+      "fecha": "2026-11-17",
+      "hecho": "F1 (1a) (persona responsable, a propuesta revisada de DECISIONES_F1_UNA_POR_UNA.md @ 03e7851): (b): la reinversión que calibra f excluye la amortización ROU; FCF base, C48 y C49 sin cambio; A0_total solo sin arrendamientos; V-F1a/b/e/m con la severidad de E5. Motivo: la recomendación con su fundamento. No fija R; Elis sigue pendiente_de_datos; nada se aplica al producto hasta F1-IMPL."
+    },
+    {
+      "tipo": "DECISION",
+      "fecha": "2026-11-17",
+      "hecho": "F1 (1b) (persona responsable, a propuesta revisada de DECISIONES_F1_UNA_POR_UNA.md @ 03e7851): la media 2023–25 de pagos y amortización ROU, como referencia de ensayo y convención declarada [H], no como estimación del peso futuro; sensibilidad −16,8 / +10,1 / −6,7 a la vista. Motivo: la recomendación con su fundamento. No fija R; Elis sigue pendiente_de_datos; nada se aplica al producto hasta F1-IMPL."
+    },
+    {
+      "tipo": "DECISION",
+      "fecha": "2026-11-17",
+      "hecho": "F1 (2) (persona responsable, a propuesta revisada de DECISIONES_F1_UNA_POR_UNA.md @ 03e7851): correspondencia (i)–(v): la PPA no es reposición; el gasto comercial va en el margen; la reposición propia de clientes va en R; las compras de cartera necesarias documentadas van en R o como término explícito; el margen lleva PPA y ROU como proporción constante de las ventas [H]; V-F1f y V-F1h. Motivo: la recomendación con su fundamento. No fija R; Elis sigue pendiente_de_datos; nada se aplica al producto hasta F1-IMPL."
+    },
+    {
+      "tipo": "DECISION",
+      "fecha": "2026-11-17",
+      "hecho": "F1 (4a) (persona responsable, a propuesta revisada de DECISIONES_F1_UNA_POR_UNA.md @ 03e7851): un solo perímetro para f, el ancla de S2C, el margen y el ROIC del terminal; si no casan, el caso no se usa para conclusiones (V-F1g, V-F1k); el terminal se compara con el bloque 10 de Diagnóstico V6 y su umbral vigente C179, sin umbral nuevo. Motivo: la recomendación con su fundamento. No fija R; Elis sigue pendiente_de_datos; nada se aplica al producto hasta F1-IMPL."
+    },
+    {
+      "tipo": "ENTREGA",
+      "fecha": "2026-11-17",
+      "hecho": "Manual v3: cierra M1–M4 y m1–m12 de la revisión v2. G-RAIZ corregido en e813fe6, que cierra G1–G5. Las dos entregas son de contextos Claude autores y faltan sus revisiones independientes."
     }
   ],
   "consulta_remotos_arranque": {

@@ -66,3 +66,11 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
 - **Qué no se valida aunque se resuelva:** nada económico. Solo evita que un receptor nuevo espere una entrega que ya está.
 
 ### F1 (3b) · Vía para M1, M2, M6 y el plan climático · **DECIDIDA el 17-nov: (iv) mantener el bloqueo.** Elis sigue pendiente_de_datos.
+
+### F1 (1a), (1b), (2) y (4a) · **DECIDIDAS el 17-nov** por la persona responsable, según la recomendación de DECISIONES_F1_UNA_POR_UNA.md @ 03e7851:
+- (1a), alternativa (b): la reinversión que calibra f excluye la amortización ROU.
+- (1b): la media 2023–25 de pagos y amortización ROU se toma como convención declarada.
+- (2): la correspondencia de costes (i)–(v).
+- (4a): un solo perímetro para f, el ancla de S2C, el margen y el ROIC del terminal.
+
+Ninguna de ellas fija R; Elis sigue `pendiente_de_datos`.

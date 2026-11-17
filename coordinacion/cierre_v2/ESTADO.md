@@ -24,12 +24,12 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 98bdf8f |
 | G-MANUAL | Claude coordinador (borrador por un subagente de redacción) | ENTREGADO | CONFORME_CON_LIMITES | NO | NO_EJECUTADAS / PARCIALES | 341831f |
 | G-DOCS | Claude coordinador | ENTREGADO | CONFORME_CON_LIMITES | SI | EJECUTADAS / REPRODUCIDAS | c0542b8 |
-| G-RAIZ | Claude coordinador | ENTREGADO | CORRECCIONES | NO | EJECUTADAS / NO_EJECUTADAS | 3d66437 |
+| G-RAIZ | Claude coordinador | ENTREGADO | CORRECCIONES | NO | EJECUTADAS / NO_EJECUTADAS | e813fe6 |
 | T-CAND | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 957af65 |
 | T-EXP | Claude runtime + extractores/revisores reales | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | T-CAMBIOS | Claude runtime + Mistral D | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | T-TRASPASO | Claude + receptor sin historial | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | 788f25c |
-| H-DEC | Usuario | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
+| H-DEC | Usuario | PARCIAL | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | F1-IMPL | Claude | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | T-AUTO | Usuario (ramas automatizacion/*, preparadas con ChatGPT) | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | a508d6b |
 | Q-CONTRASTE | Mistral (Vibe) + contraste Claude API | PARCIAL | LIMITADA | NO | NO_EJECUTADAS / NO_EJECUTADAS | 953af02 |
@@ -55,11 +55,11 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Bloqueo/límite: Historia irrecuperable de la persona responsable: Ahold_evaluada.xlsx (V5.3) y Ahold_respuesta.md de la etapa 1 (sin ellos el pipeline se detiene en el paso 1 y la r heredada C56 no puede reconstruirse sin elegirla); huellas de sus PDF 2019–2025 (HUELLAS.txt del .bat); y si el resultado de la etapa 1 influyó en elegir a Ahold como reserva.
 - **F-C1 · Primer recorrido C real y contrato específico**: Contrato C de F con un defecto medio (F3-R5: el motor se elige en Análisis!C62, comprobado en build_v6.py). Se alinea con el de u3_motor_c o se retira (F3-R12). La elección de candidato es de la persona responsable sobre U3.
   Bloqueo/límite: Documentos oficiales de los candidatos sin verificar: descarga de FinecoBank denegada por el control de permisos de la sesión; Hannover Re responde 403 a curl. Hace falta que la persona responsable autorice esas descargas o deje ella los documentos (informe anual 2025 y Pilar 3 o SFCR 2025 de cada candidato).
-- **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: v2 (ef36ab1) revisado: CORRECCIONES (M1–M4 y 12 menores). El coordinador, como autor, prepara la v3; otro contexto la revisa solo en lo afectado. Después, la propuesta §2.5 corregida, que debe incluir el 4.8, como cambio documental de la candidata.
+- **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: v3 entregada: cierra los 16 hallazgos y discrepa en 3 (m5, S-12 y el sondeo con TMPDIR). Pendiente la revisión de otro contexto, Mistral R o un subagente distinto; también hay que observar el 4.8 y los demás controles tras la limpieza (N-16, N-20). Después, la propuesta §2.5, ampliada al 4.8, como cambio documental de la candidata.
   Dependencias: T-CAND.
 - **G-DOCS · Corrección documental de la guía del recorrido y de CONTINUIDAD en una rama aislada de la candidata (sin cambios de código)**: Integrado en la candidata (3149128). Nada más en esta tarea.
   Dependencias: G-MANUAL.
-- **G-RAIZ · U4: hechos desfasados de README, CLAUDE.md y docs/MIGRATION_STATUS.json de la raíz, en una rama aislada (instrucciones sustantivas conservadas)**: El coordinador, autor del cambio, corrige G1–G5 en la misma rama. La nueva versión la revisa otro contexto (Mistral R o un subagente distinto) antes de integrarla en la candidata. Comprobado por el coordinador: CLAUDE.md:11 de 3d66437 dice «1–6 corregidos».
+- **G-RAIZ · U4: hechos desfasados de README, CLAUDE.md y docs/MIGRATION_STATUS.json de la raíz, en una rama aislada (instrucciones sustantivas conservadas)**: Corrección G1–G5 entregada en e813fe6. Pendiente la revisión de otro contexto, solo de lo afectado. Si es conforme, se integra en la candidata.
 - **T-CAND · Candidata única de integración técnica**: Candidata con su primera integración (G-DOCS, 3149128): solo documentos; manifiesto 7762/7762. La verificación completa de 957af65 sigue valiendo para el código, que no ha cambiado; ninguna batería lee esos documentos. Integrar lo siguiente aceptado por archivo, con origen, revisión, destino y pruebas afectadas.
 - **T-EXP · Expedientes nuevos regenerados y auditados**: Regenerar entradas/fuentes/derivados, sin sustituir hipótesis o ausencias; auditoría del material nuevo.
   Dependencias: T-CAND, A-CTX.
@@ -67,7 +67,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Dependencias: T-CAND, D-HARNESS.
 - **T-TRASPASO · Traspaso sin historial y revisión de manual**: Aceptado con límites (sin pasos de agentes; el registro no guarda transcripción ni la mayoría de códigos; receptor de la misma familia de modelo). Pasos con agentes reales: runtime del coordinador. Mejoras del manual en MEJORAS_MANUAL.md (G-MANUAL).
   Dependencias: T-CAND, G-MANUAL.
-- **H-DEC · Decisiones económicas pendientes con fundamento**: Decisiones económicas F1 (1a)–(5b), E8.1 y umbral de V-F1a presentadas una por una (03e7851) a la persona responsable. Nada adoptado. F1-IMPL espera esas decisiones.
+- **H-DEC · Decisiones económicas pendientes con fundamento**: Decididas el 17-nov por la persona responsable: (3b), con la vía (iv) de mantener el bloqueo; (1a), alternativa (b); (1b), media como convención; (2), correspondencia (i)–(v); (4a), un solo perímetro. Pendientes: (4b), (3a), (5a) con sus opciones, (5b), E8.1 y el umbral de V-F1a. F1-IMPL las aplica cuando estén completas o por bloques, con revisión independiente.
   Dependencias: F1-W.
   Bloqueo/límite: No hay adopción de políticas económicas nuevas en este programa.
 - **F1-IMPL · Implementación económica F1 autorizada**: Puede preparar parche propuesto separado; no activar cambios económicos antes de decisión explícita.
