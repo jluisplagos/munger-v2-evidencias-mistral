@@ -1,12 +1,13 @@
 {
  "caso": "Q1-036",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "01013f537cdd7a3107b80c6a1ba94c11180946c540a00335002720d5ec5032e1",
+ "spec_sha256": "90aedcd0d042ec96795e63cec180f7e55fffd68a8afa7492d9aa8a645a2c643c",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -152,6 +153,7 @@
    "id": "C1",
    "texto": "ficha oficial --estado concluido sin auditoría APROBADO: exit 3 esperado, no escribe oficial",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "03_ficha_oficial_concluido.txt contiene 'no se confirma' -> OK",
     "03_ficha_oficial_concluido.txt contiene 'aprobaci' -> OK"
@@ -161,6 +163,7 @@
    "id": "C2",
    "texto": "ficha provisional nueva (artefacto actual, no heredado) marca apto_por_entradas=false",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "05_ficha_provisional.json existe",
     "05_ficha_provisional.json:verificacion_entradas.apto_por_entradas = False (op eq False) -> OK",
@@ -171,6 +174,7 @@
    "id": "C3",
    "texto": "informe provisional lleva el recuento 'apta por entradas: no'",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "07_informe_provisional.md contiene 'apta por entradas: no' -> OK"
    ]
@@ -179,6 +183,7 @@
    "id": "C4",
    "texto": "informe oficial sin ficha oficial: exit 3 esperado",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "08_informe_oficial.txt contiene 'no hay ficha.json oficial' -> OK"
    ]
@@ -201,5 +206,15 @@
   }
  ],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_sellar.txt",
+  "02_comprobar_estado.json",
+  "03_ficha_oficial_concluido.txt",
+  "04_ficha_provisional.txt",
+  "05_ficha_provisional.json",
+  "06_informe_provisional.txt",
+  "07_informe_provisional.md",
+  "08_informe_oficial.txt"
+ ]
 }

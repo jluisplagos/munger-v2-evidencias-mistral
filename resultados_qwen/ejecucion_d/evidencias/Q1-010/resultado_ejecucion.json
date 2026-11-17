@@ -1,12 +1,13 @@
 {
  "caso": "Q1-010",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "28d03ff83adffe5c6a8f62ab2353e8aada5d78ae41aac7d5c8ced0c3f02a3a74",
+ "spec_sha256": "dd3c2b0af3839973b087daee9c4d87ab650e864abf7c69d68aa65a5260ee5008",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -98,6 +99,7 @@
    "id": "C1",
    "texto": "equivalencia miles/millones con escala declarada -> comprobada, sin falsa contradicción",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "02_comprobar_equivalencia_miles.json:comprobadas contiene 'Historia!C24' -> OK"
    ]
@@ -106,6 +108,7 @@
    "id": "C2",
    "texto": "control: misma cifra declarada en millones sin escala -> discrepancia",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "03_comprobar_control_escala_incoherente.json:discrepancias con prefijo 'Historia!C24' contiene '45054' -> OK"
    ]
@@ -113,5 +116,10 @@
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_sellar_miles.txt",
+  "02_comprobar_equivalencia_miles.json",
+  "03_comprobar_control_escala_incoherente.json"
+ ]
 }

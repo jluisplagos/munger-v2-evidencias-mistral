@@ -1,12 +1,13 @@
 {
  "caso": "Q1-016",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "a8c53ce0de732b9031c411fbc4f18fc044b33969efd12355d5e53acce7a33632",
+ "spec_sha256": "eb8d5371385ce127e5b7e932e1597058c301c163d9ca0d525ea4e95f7da3197d",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -54,6 +55,7 @@
    "id": "C1",
    "texto": "moneda no reconocida (USD) -> pendiente U7, sin conversión inventada",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "01_comprobar_moneda_no_reconocida.json:pendientes con prefijo 'Historia!C6' contiene 'unidad monetaria no reconocida' -> OK"
    ]
@@ -61,5 +63,8 @@
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_comprobar_moneda_no_reconocida.json"
+ ]
 }

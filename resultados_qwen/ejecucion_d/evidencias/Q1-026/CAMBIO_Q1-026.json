@@ -4,7 +4,7 @@
  "empresa": "Viscofan",
  "base_economica": {
   "fecha": "2025-12-31",
-  "descripcion": "Copia de prueba D (Q1-026): correccion de caja 95 -> 90 millones EUR por errata de v1, evidencia nota v2 (fixture f5_026_nota.txt); deuda financiera 300 millones EUR de la misma nota; deuda neta esperada 300-90=210."
+  "descripcion": "Copia de prueba D (Q1-026): correccion de caja 95 -> 90 millones EUR por errata de v1 (f5_026_nota.txt); deuda financiera 300 millones EUR de la misma nota; deuda neta esperada 300-90=210."
  },
  "fechas": {
   "ejecucion": "real",
@@ -27,7 +27,7 @@
  "analisis": {
   "C24": {
    "valor": 90.0,
-   "fuente": "SINTETICA CUATRO S.A. 2025 v2 - Pagina 2 - Nota 4 (fixture f5_026_nota.txt): Caja 90; Deuda financiera 300 (millones EUR, consolidado). Correccion de errata de v1 (caja 95)",
+   "fuente": "SINTETICA CUATRO S.A. 2025 v2 - Pagina 2 - Nota 4: Caja 90; Deuda financiera 300 (millones EUR, consolidado). Correccion de errata de v1 (caja 95).",
    "pagina": 2,
    "periodo": "2025",
    "unidad": "mm",
@@ -41,7 +41,19 @@
  "evidencia": {
   "Análisis!C24": {
    "E": "SINTETICA CUATRO S.A. 2025 v2, pag.2, Nota 4 (f5_026_nota.txt): Caja 90; Deuda financiera 300 (millones EUR, consolidado)",
-   "M": "correccion 95 -> 90 por errata de v1; original conservado en antecedentes; deuda neta esperada 300-90=210"
+   "M": "correccion 95 -> 90 por errata de v1; original conservado en antecedentes"
+  }
+ },
+ "derivados_esperados": {
+  "deuda_neta": {
+   "operandos": [
+    300,
+    90
+   ],
+   "op": "op0 - op1",
+   "resultado": 210,
+   "fuente": "fixtures/f5_026_nota.txt",
+   "nota": "deuda 300 y caja 90, ambas en f5_026_nota.txt"
   }
  },
  "analisis_que_se_conservan": {
@@ -52,7 +64,7 @@
   "tipo": "ensayo_exploratorio",
   "aviso": "PRUEBA AISLADA FRENTE D Q1-026 (sintetica, no es un expediente real)",
   "fuente": "arnes externo",
-  "fecha": "2026-11-16"
+  "fecha": "2026-11-17"
  },
  "configuracion_economica": null,
  "origen": "/workspace/ejecucion_d_run/Q1-026/pruebas_d/Q1-026_origen",

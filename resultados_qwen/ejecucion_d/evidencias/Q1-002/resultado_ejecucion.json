@@ -1,12 +1,13 @@
 {
  "caso": "Q1-002",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "0b8b27118145001f23754a896d3c31ddedd05e9f31ea096a1c4c7866c5f5ba2f",
+ "spec_sha256": "db92a4640882a5e019845ec60c16424bd0d2939cf982b7b78ab0b01e9679ba8c",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -78,6 +79,7 @@
    "id": "C1",
    "texto": "no_aplicable justificado queda contado aparte (por_clase) y no como verificado",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "02_comprobar_na_e_hipotesis.json:por_clase.no_aplicable = 1 (op eq 1) -> OK",
     "02_comprobar_na_e_hipotesis.json:comprobadas sin prefijo 'aux:conversion' (universo=321) -> OK"
@@ -87,6 +89,7 @@
    "id": "C2",
    "texto": "hipótesis explícita con fundamento/alternativas/límites, no publicada",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "02_comprobar_na_e_hipotesis.json:comprobadas contiene 'Análisis!C62' -> OK"
    ]
@@ -94,5 +97,9 @@
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_sellar_hipotesis.txt",
+  "02_comprobar_na_e_hipotesis.json"
+ ]
 }

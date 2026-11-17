@@ -1,161 +1,54 @@
 {
  "id": "Q1-027",
- "harness_version": "3.0",
- "descripcion": "CONFLICTO_CARENCIA del banco f5_027: caja verificada y sellada el 2026-11-05 (fixtures/f5_027_revision.json: valor_verificado 95 millones); despues el 'Excel' cambia (fixtures/f5_027_excel.csv: caja,80,2026-11-10; deuda,300,2026-11-05, millones EUR). El producto debe invalidar la comprobacion (fuente cambiada, sha256 distinto del registrado) y dejar la celda desactualizada, no comprobada. Adaptacion de escala al libro: la celda Historia!C24 va en miles (escala 0.001); el valor inicial 45054 miles es el del libro (para que quede comprobada) y la mutacion usa 80000 miles = 80 millones del fixture. Esperado del banco con recalculo: deuda neta 300-80=220 millones (relevo, necesita soffice).",
+ "harness_version": "4.0",
+ "descripcion": "CONFLICTO_CARENCIA del banco f5_027 con sus cifras exactas: caja verificada y sellada el 2026-11-05 (fixtures/f5_027_revision.json: valor_verificado 95 millones EUR); despues el 'Excel' cambia (fixtures/f5_027_excel.csv: caja,80,2026-11-10; deuda,300,2026-11-05, millones EUR). Celda auxiliar aux:caja (sin valor de libro): el producto debe invalidar la comprobacion (fuente cambiada, sha256 distinto) y dejarla desactualizada; el re-sellado se rechaza. Esperado del banco con recalculo: deuda neta 300-80=220 millones (relevo, necesita soffice).",
  "pasos": [
-  {
-   "op": "nuevo_expediente"
-  },
-  {
-   "op": "escribir_fuente",
-   "nombre": "f5_027_excel.txt",
-   "paginas": [
-    "Extracto sintetico ES-1 (simula el Excel de partida, revision 2026-11-05; fixtures f5_027_revision.json y f5_027_excel.csv).",
-    "Tabla 4 pág.2: caja = 45054 miles de euros (valor del libro; f5_027_revision.json declara valor_verificado 95 millones EUR el 2026-11-05); deuda financiera = 300 millones EUR (f5_027_excel.csv: deuda,300,2026-11-05)",
-    "Nota 5 pág.3: deuda financiera = 300 millones EUR (f5_027_excel.csv, edicion 2026-11-05)."
-   ]
-  },
-  {
-   "op": "entrada",
-   "celda": "Historia!C24",
-   "clase": "dato_publicado",
+  {"op": "nuevo_expediente"},
+  {"op": "escribir_fuente", "nombre": "f5_027_excel.txt", "paginas": [
+   "Extracto sintetico ES-1 (simula el Excel de partida, revision 2026-11-05; fixtures f5_027_revision.json y f5_027_excel.csv).",
+   "Tabla 4 pag.2: caja = 95 millones EUR (f5_027_revision.json: valor_verificado 95, fecha_revision 2026-11-05); deuda financiera = 300 millones EUR (f5_027_excel.csv: deuda,300,2026-11-05)."]},
+  {"op": "entrada", "celda": "aux:caja", "clase": "dato_publicado", "valor_modelo": 95,
    "fuente": {
-    "documento": "Extracto sintetico ES-1 (fixture f5_027_excel.csv)",
+    "documento": "Extracto sintetico ES-1 (fixtures f5_027_revision.json / f5_027_excel.csv)",
     "archivo": "fuentes_sinteticas/f5_027_excel.txt",
-    "version": "sintetica v1 (revision 2026-11-05; f5_027_revision.json: valor_verificado 95 millones EUR)",
-    "pagina": 2,
-    "ubicacion": "Tabla 4",
-    "concepto": "caja",
-    "periodo": "ejercicio 2016 (columna C de la Historia)",
-    "unidad": "miles de euros",
-    "escala": 0.001,
-    "signo": 1,
-    "tratamiento": "ninguno",
-    "perimetro": "consolidado",
-    "reexpresado": "no aplica",
-    "valor_fuente": 45054,
-    "cita": "Tabla 4 pág.2: caja = 45054 miles de euros (valor del libro; f5_027_revision.json declara valor_verificado 95 millones EUR el 2026-11-05); deuda financiera = 300 millones EUR (f5_027_excel.csv: deuda,300,2026-11-05)"
+    "version": "sintetica v1 (revision 2026-11-05)",
+    "pagina": 2, "ubicacion": "Tabla 4", "concepto": "caja",
+    "periodo": "ejercicio 2025", "unidad": "millones de euros", "escala": 1, "signo": 1,
+    "tratamiento": "ninguno", "perimetro": "consolidado", "reexpresado": "no aplica",
+    "valor_fuente": 95,
+    "cita": "Tabla 4 pag.2: caja = 95 millones EUR (f5_027_revision.json: valor_verificado 95, fecha_revision 2026-11-05); deuda financiera = 300 millones EUR (f5_027_excel.csv: deuda,300,2026-11-05)."
    },
-   "comprobacion": "verificada"
-  },
-  {
-   "op": "sellar",
-   "celdas": [
-    "Historia!C24"
-   ],
-   "guardar": "01_sellar.txt",
-   "esperado": [
-    0,
-    1
-   ]
-  },
-  {
-   "op": "comprobar",
-   "guardar": "02_comprobar_antes_mutacion.json",
-   "esperado": [
-    0,
-    1
-   ]
-  },
-  {
-   "op": "mutar_fuente",
-   "archivo": "fuentes_sinteticas/f5_027_excel.txt",
-   "paginas": [
-    "Extracto sintetico ES-1 (edicion 2026-11-10, despues de la revision del 2026-11-05; fixture f5_027_excel.csv).",
-    "Tabla 4 pág.2: caja = 80000 miles de euros = 80 millones EUR (f5_027_excel.csv: caja,80,2026-11-10); deuda financiera = 300 millones EUR (f5_027_excel.csv: deuda,300,2026-11-05)",
-    "Nota 5 pág.3: deuda financiera = 300 millones EUR (f5_027_excel.csv, edicion 2026-11-05)."
-   ]
-  },
-  {
-   "op": "comprobar",
-   "guardar": "03_comprobar_tras_mutacion.json",
-   "esperado": [
-    0,
-    1
-   ]
-  },
-  {
-   "op": "sellar",
-   "celdas": [
-    "Historia!C24"
-   ],
-   "guardar": "04_sellar_tras_mutacion.txt",
-   "esperado": [
-    0,
-    1
-   ]
-  },
-  {
-   "op": "comprobar",
-   "guardar": "05_comprobar_final.json",
-   "esperado": [
-    0,
-    1
-   ]
-  }
+   "comprobacion": "verificada"},
+  {"op": "sellar", "celdas": ["aux:caja"], "guardar": "01_sellar.txt", "esperado": [0, 1]},
+  {"op": "comprobar", "guardar": "02_comprobar_antes_mutacion.json", "esperado": [0, 1]},
+  {"op": "mutar_fuente", "archivo": "fuentes_sinteticas/f5_027_excel.txt", "paginas": [
+   "Extracto sintetico ES-1 (edicion 2026-11-10, despues de la revision del 2026-11-05; fixture f5_027_excel.csv).",
+   "Tabla 4 pag.2: caja = 80 millones EUR (f5_027_excel.csv: caja,80,2026-11-10); deuda financiera = 300 millones EUR (f5_027_excel.csv: deuda,300,2026-11-05)."]},
+  {"op": "entrada", "celda": "aux:caja", "valor_modelo": 80},
+  {"op": "comprobar", "guardar": "03_comprobar_tras_mutacion.json", "esperado": [0, 1]},
+  {"op": "sellar", "celdas": ["aux:caja"], "guardar": "04_sellar_tras_mutacion.txt", "esperado": [0, 1]},
+  {"op": "comprobar", "guardar": "05_comprobar_final.json", "esperado": [0, 1]}
  ],
  "criterios": [
-  {
-   "id": "C1",
-   "texto": "antes de la mutacion la caja queda comprobada (sellada): valor del libro 45054 miles, revision 2026-11-05 (f5_027_revision.json: 95 millones EUR)",
+  {"id": "C1", "texto": "antes de la mutacion la caja (95 millones, revision 2026-11-05) queda comprobada (sellada)",
    "afirma": [
-    {
-     "tipo": "json_lista_contiene",
-     "archivo": "02_comprobar_antes_mutacion.json",
-     "lista": "comprobadas",
-     "elemento": "Historia!C24"
-    }
-   ]
-  },
-  {
-   "id": "C2",
-   "texto": "tras mutar la fuente (caja 80, edicion 2026-11-10): desactualizada por sha256, ya no comprobada (ESTAS aserciones discriminan; la invalidacion se prueba aqui)",
+    {"tipo": "json_lista_contiene", "archivo": "02_comprobar_antes_mutacion.json", "lista": "comprobadas", "elemento": "aux:caja"},
+    {"tipo": "texto_contiene", "archivo": "01_sellar.txt", "contiene": "selladas 1"}
+   ]},
+  {"id": "C2", "texto": "tras mutar la fuente (caja 80, edicion 2026-11-10): desactualizada por sha256 y ya no comprobada (discrimina frente al estado previo)",
    "afirma": [
-    {
-     "tipo": "json_lista_contiene_texto",
-     "archivo": "03_comprobar_tras_mutacion.json",
-     "lista": "desactualizadas",
-     "prefijo": "Historia!C24",
-     "contiene": "sha256"
-    },
-    {
-     "tipo": "json_lista_no_contiene",
-     "archivo": "03_comprobar_tras_mutacion.json",
-     "lista": "comprobadas",
-     "prefijo": "Historia!C24"
-    }
-   ]
-  },
-  {
-   "id": "C3",
-   "texto": "re-sellar tras la mutacion se rechaza",
+    {"tipo": "json_lista_contiene_texto", "archivo": "03_comprobar_tras_mutacion.json", "lista": "desactualizadas", "prefijo": "aux:caja", "contiene": "sha256"},
+    {"tipo": "json_lista_no_contiene", "archivo": "03_comprobar_tras_mutacion.json", "lista": "comprobadas", "prefijo": "aux:caja"}
+   ]},
+  {"id": "C3", "texto": "re-sellar tras la mutacion se rechaza",
    "afirma": [
-    {
-     "tipo": "texto_contiene",
-     "archivo": "04_sellar_tras_mutacion.txt",
-     "contiene": "rechazadas 1"
-    }
-   ]
-  },
-  {
-   "id": "C4",
-   "texto": "apto_por_entradas=false antes y despues de la mutacion: NO discriminante por si solo (ya era false antes por los errores de contrato del universo de 321 celdas); se registra como observacion, la invalidacion la prueban C2/C3",
+    {"tipo": "texto_contiene", "archivo": "04_sellar_tras_mutacion.txt", "contiene": "rechazadas 1"}
+   ]},
+  {"id": "C4", "texto": "apto_por_entradas=false antes y despues: NO discriminante (ya era false antes por los errores de contrato del universo de 321 celdas); queda fuera del computo de CUMPLE",
+   "no_discriminante": true,
    "afirma": [
-    {
-     "tipo": "json_campo",
-     "archivo": "02_comprobar_antes_mutacion.json",
-     "ruta": "apto_por_entradas",
-     "op": "eq",
-     "valor": false
-    },
-    {
-     "tipo": "json_campo",
-     "archivo": "03_comprobar_tras_mutacion.json",
-     "ruta": "apto_por_entradas",
-     "op": "eq",
-     "valor": false
-    }
-   ]
-  }
+    {"tipo": "json_campo", "archivo": "02_comprobar_antes_mutacion.json", "ruta": "apto_por_entradas", "op": "eq", "valor": false},
+    {"tipo": "json_campo", "archivo": "03_comprobar_tras_mutacion.json", "ruta": "apto_por_entradas", "op": "eq", "valor": false}
+   ]}
  ]
 }

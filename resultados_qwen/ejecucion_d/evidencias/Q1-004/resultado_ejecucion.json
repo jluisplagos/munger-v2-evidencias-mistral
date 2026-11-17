@@ -1,12 +1,13 @@
 {
  "caso": "Q1-004",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "0ef7798754e5603bd55d2d0e9581cda223f292a04f913d4e9a1fb8d31f694568",
+ "spec_sha256": "e9450a0981ee711c79c8fab5de59606cbc4bd5adb0ff78b15137f1130d7821eb",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -54,6 +55,7 @@
    "id": "C1",
    "texto": "dato presentado como hipótesis con justificacion_clase -> listado en datos_como_hipotesis, no publicado",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "01_comprobar_hipotesis_listada.json:datos_como_hipotesis contiene 'Historia!C7' -> OK"
    ]
@@ -61,5 +63,8 @@
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_comprobar_hipotesis_listada.json"
+ ]
 }

@@ -1,12 +1,13 @@
 {
  "caso": "Q1-026",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "cafbc7c34cd104e6035770a137de0c78aa1e557d844ebfdf93236fa5dcf68e43",
+ "spec_sha256": "0f498ba56b1a0502a3f43469716ec9a98e9b59bdc46b1a1d6f2435715a326b72",
  "pasos": [
   {
    "descripcion": "cambiar_base.py preparar (copia nueva bajo RUN_DIR; nunca sobrescribe)",
@@ -32,42 +33,18 @@
  "criterios": [
   {
    "id": "C1",
-   "texto": "bloqueo de entorno concreto y SEPARADO: textos PDF AR_2021..AR_2024 ausentes (pdftotext) aparte de los errores de ipal/AR_2019/AR_2020 (no atribuibles a pdftotext)",
+   "texto": "bloqueo de entorno anclado al stderr REAL y completo de cambiar_base (9 lineas exactas: 5 de ipal/AR_2019/AR_2020 + 4 de texto PDF ausente AR_2021..AR_2024); un fallo ajeno con las mismas subcadenas o con lineas extra FALLA",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
-    "errores_bloqueo.json:texto_pdf_faltante_pdftotext con prefijo 'AR_2021' contiene 'ausente o inexistente en texto/' -> OK",
-    "errores_bloqueo.json:texto_pdf_faltante_pdftotext con prefijo 'AR_2022' contiene 'ausente o inexistente en texto/' -> OK",
-    "errores_bloqueo.json:texto_pdf_faltante_pdftotext con prefijo 'AR_2023' contiene 'ausente o inexistente en texto/' -> OK",
-    "errores_bloqueo.json:texto_pdf_faltante_pdftotext con prefijo 'AR_2024' contiene 'ausente o inexistente en texto/' -> OK",
-    "errores_bloqueo.json:otros_errores con prefijo 'fase1_historia.py' contiene 'ipal' -> OK",
-    "errores_bloqueo.json:otros_errores con prefijo 'AR_2019' contiene 'cita' -> OK",
-    "errores_bloqueo.json:otros_errores con prefijo 'AR_2020' contiene 'cita' -> OK",
-    "errores_bloqueo.json:otros_errores = ['fase1_historia.py construir falló: ipal: «cero» sin «cita» literal de la página 12', 'AR_2019: sbc: «cero» sin «cita» literal de la página 13', 'AR_2019: arrendamientos: «cero» sin «cita» literal de la página 62', 'AR_2019: minoritarios: «cero» sin «cita» literal de la página 11', 'AR_2020: minoritarios: «cero» sin «cita» literal de la página 4'] (op no_vacia True) -> OK"
-   ]
-  },
-  {
-   "id": "C2",
-   "texto": "el origen queda intacto (mismo sha256 de fase1_v63.json antes/despues) y el arnes NO escribe dentro de la candidata",
-   "estado": "CUMPLE_COMPONENTE",
-   "detalle": [
-    "origen_estado.txt contiene 'intacto=true' -> OK",
-    "origen_estado.txt contiene 'candidata_escribe_el_arnes=false' -> OK"
-   ]
-  },
-  {
-   "id": "C3",
-   "texto": "el CAMBIO entregado es coherente con el banco f5_026: caja 90 (95->90), cita de la nota con deuda 300, bloque evidencia presente; deuda neta esperada 210",
-   "estado": "CUMPLE_COMPONENTE",
-   "detalle": [
-    "CAMBIO_Q1-026.json:analisis.C24.valor = 90.0 (op eq 90.0) -> OK",
-    "CAMBIO_Q1-026.json:analisis.C24.fuente = 'SINTETICA CUATRO S.A. 2025 v2 - Pagina 2 - Nota 4 (fixture f5_026_nota.txt): Caja 90; Deuda financiera 300 (millones EUR, consolidado). Correccion de errata de v1 (caja 95)' (op contiene 'Caja 90') -> OK",
-    "CAMBIO_Q1-026.json:analisis.C24.fuente = 'SINTETICA CUATRO S.A. 2025 v2 - Pagina 2 - Nota 4 (fixture f5_026_nota.txt): Caja 90; Deuda financiera 300 (millones EUR, consolidado). Correccion de errata de v1 (caja 95)' (op contiene 'Deuda financiera 300') -> OK",
-    "CAMBIO_Q1-026.json:evidencia = {'Análisis!C24': {'E': 'SINTETICA CUATRO S.A. 2025 v2, pag.2, Nota 4 (f5_026_nota.txt): Caja 90; Deuda financiera 300 (millones EUR, consolidado)', 'M': 'correccion 95 -> 90 por errata de v1; original conservado en antecedentes; deuda neta esperada 300-90=210'}} (op no_vacia True) -> OK",
-    "CAMBIO_Q1-026.json:analisis.C24.evidencia = {'M': 'caja corregida 90 mm (fixture f5_026: 95->90)', 'N': '[Clase: dato publicado corregido] [Confianza: alta] Nota v2 con errata declarada; deuda 300 mm presente en la misma nota'} (op no_vacia True) -> OK"
+    "cambiar_base_preparar.txt: stderr con 9 líneas == 9 esperadas -> OK"
    ]
   }
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "cambiar_base_preparar.txt"
+ ]
 }

@@ -1,12 +1,13 @@
 {
  "caso": "Q1-021",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "931d5e3af36c261e3607d1b92f63c18230708140ce45bc860e49d3ce974d3b7b",
+ "spec_sha256": "2b1019d160e04acde6b54ce84d83542eb6e4519e1bd7f681c1e91d59ef3471b0",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -98,6 +99,7 @@
    "id": "C1",
    "texto": "página con instrucción embebida no acredita la cifra -> rechazada",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "01_comprobar_cita_en_pagina_instruccion.json:discrepancias con prefijo 'Historia!C24' contiene 'no contiene el valor' -> OK"
    ]
@@ -106,6 +108,7 @@
    "id": "C2",
    "texto": "la tabla de la página correcta se contrasta con normalidad -> comprobada",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "03_comprobar_tabla_normal.json:comprobadas contiene 'Historia!C24' -> OK"
    ]
@@ -113,5 +116,10 @@
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_comprobar_cita_en_pagina_instruccion.json",
+  "02_sellar_tabla_normal.txt",
+  "03_comprobar_tabla_normal.json"
+ ]
 }

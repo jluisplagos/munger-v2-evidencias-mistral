@@ -1,12 +1,13 @@
 {
  "caso": "Q1-020",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "c4cc17d10087d1700b7d1aef17631b79f247970fdb8a41183fb76712789d3169",
+ "spec_sha256": "dd121815765a2b1a109e2c0fd40aae3f5b9dc14c6201757fb0ad67baccffd70b",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -98,6 +99,7 @@
    "id": "C1",
    "texto": "hipótesis sellada queda comprobada antes del cambio",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "02_comprobar_antes_cambio.json:comprobadas contiene 'Análisis!C62' -> OK"
    ]
@@ -106,6 +108,7 @@
    "id": "C2",
    "texto": "tras cambiar el fundamento: la comprobación ya no vale (no comprobada)",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "03_comprobar_tras_cambio_fundamento.json:comprobadas sin prefijo 'Análisis!C62' (universo=321) -> OK"
    ]
@@ -113,5 +116,10 @@
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_sellar_hipotesis.json",
+  "02_comprobar_antes_cambio.json",
+  "03_comprobar_tras_cambio_fundamento.json"
+ ]
 }

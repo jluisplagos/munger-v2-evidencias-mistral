@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
-"""Genera MATRIZ_EJECUCION.csv v3: una fila por cada uno de los 36 casos del banco.
+"""Genera MATRIZ_EJECUCION.csv v4: una fila por cada uno de los 36 casos del banco.
 
-v3 (D2-R1d/R3/R5 de CORRECCION_D2):
-- el veredicto de componente se RECALCULA desde los criterios y las aserciones del
-  resultado (harness 2.0/3.0, estado COMPONENTE_OK, criterios no vacíos y todos
-  CUMPLE_COMPONENTE) Y la huella de la especificación usada coincide con la del disco;
-  un resultado forjado con dos campos no da CUMPLE (sonda P4);
-- Q1-026 (spec con `bloqueo_entorno`) queda BLOQUEO_ENTORNO y NO cuenta como
-  componente CUMPLE (D2-R3);
-- `preserva_sentido` y su justificación vienen de adaptaciones.json (dato), ya no es
-  una constante "sí" escrita en el código; igual que observacion_compartida y
-  veredicto_caso_fijo (D2-R5);
+v4 (D3-R1 inv.2 / D3-R3 de CORRECCION_D3):
+- la matriz REEVALÚA las aserciones de cada especificación sobre la evidencia
+  publicada (no confía en campos del resultado): un resultado forjado (M2), con las
+  salidas del producto vaciadas (N2a) o de otra candidata/banco (N2b) no da CUMPLE;
+- exige harness 4.0, estado COMPONENTE_OK, errores vacíos, spec_sha256 coincidente,
+  candidata_sha == esperado y banco_casos_sha256 == el del BANCO_DIR actual;
+- la clasificación de Q1-026 sale de su resultado (ERROR_ENTORNO o COMPONENTE_OK
+  reevaluado OK con spec de bloqueo_entorno), no de una constante;
+- `preserva_sentido` y su justificación vienen de adaptaciones.json (dato);
 - sin evidencia no hay veredicto positivo; sin carpeta de evidencias, 36 filas y
-  0 CUMPLE con exit 0 (control explícito, no un crash).
+  0 CUMPLE con exit 0.
 
 Uso: python3 generar_matriz.py   (escribe ../MATRIZ_EJECUCION.csv y ../evidencias/recuentos.json)
 """
@@ -21,11 +20,17 @@ import csv
 import hashlib
 import json
 import os
+import sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 AUX = os.path.dirname(AQUI)
 EV = os.path.join(AUX, "evidencias")
 BANCO = os.environ.get("BANCO_DIR", "/workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado")
+SHA_CANDIDATA_ESPERADO = os.environ.get("SHA_CANDIDATA_ESPERADO", "957af652cdc3bef3d67e8623c9572138bac685e9")
+
+sys.path.insert(0, AQUI)
+import ejecutar_caso as EC  # noqa: E402  (para reevaluar aserciones con el mismo código)
+import lib_arnes as L  # noqa: E402
 
 CAMPOS = ["id", "familia", "control_banco", "naturaleza", "precondiciones",
           "componente", "interfaz_real", "parte_automatizable", "parte_relevo_supervisado",
@@ -49,9 +54,45 @@ def spec_de(cid):
     return None
 
 
+class CasoReeval:
+    """Objeto mínimo para reevaluar aserciones desde la matriz."""
+
+    def __init__(self, cid, ev_dir, archivos_producto):
+        self.id = cid
+        self.ev_dir = ev_dir
+        self.errores = []
+        self.archivos_producto = set(archivos_producto)
+
+
+def reevaluar_criterios(spec, res, ev_dir):
+    """Reevalúa cada criterio de la spec sobre la evidencia publicada. Devuelve
+    (estados_reevaluados, ok)."""
+    archivos = set(res.get("archivos_producto") or [])
+    for p in res.get("pasos", []):
+        if p.get("guardado_en"):
+            archivos.add(p["guardado_en"])
+    for paso in spec.get("pasos", []):
+        if paso.get("op") == "copiar_artefacto" and paso.get("guardar"):
+            archivos.add(paso["guardar"])
+    caso = CasoReeval(spec["id"], ev_dir, archivos)
+    estados = {}
+    for c in spec.get("criterios", []):
+        oks = [EC.evaluar_afirmacion(caso, a)[0] for a in c.get("afirma", [])]
+        ok_all = bool(oks) and all(oks)
+        if c.get("no_discriminante"):
+            estados[c["id"]] = "OBSERVACION_NO_DISCRIMINANTE" if ok_all else "FALLA_COMPONENTE"
+        else:
+            estados[c["id"]] = "CUMPLE_COMPONENTE" if ok_all else "FALLA_COMPONENTE"
+    ok = not caso.errores and all(
+        (e == "CUMPLE_COMPONENTE") or (e == "OBSERVACION_NO_DISCRIMINANTE")
+        for e in estados.values())
+    return estados, ok
+
+
 def main():
     os.makedirs(EV, exist_ok=True)
     casos = [json.loads(l) for l in open(os.path.join(BANCO, "casos_aceptacion.jsonl"), encoding="utf-8") if l.strip()]
+    banco_sha = sha256_archivo(os.path.join(BANCO, "casos_aceptacion.jsonl"))
     ad = json.load(open(ADAPTACIONES, encoding="utf-8"))["casos"]
     out = os.path.join(AUX, "MATRIZ_EJECUCION.csv")
     recuentos = {"casos": len(casos), "estado_ejecucion": {}, "veredicto_componente": {}, "veredicto_caso": {},
@@ -74,23 +115,39 @@ def main():
                 except Exception:
                     res = None
             criterios_res = res.get("criterios", []) if res else []
-            # D2-R1d: CUMPLE solo si el resultado es real (criterios + aserciones OK) y
-            # la spec usada es la del disco (huella coincidente).
-            componente_valido = bool(
-                res and res.get("harness_version") in ("2.0", "3.0")
-                and res.get("estado_caso") == "COMPONENTE_OK"
-                and criterios_res and all(x.get("estado") == "CUMPLE_COMPONENTE" for x in criterios_res)
-                and sp and res.get("spec_sha256") == spec_sha
-            )
-            bloqueo = bool(spec and spec.get("bloqueo_entorno"))
             criterios_txt = "; ".join(f"{x['id']}={x['estado']}" for x in criterios_res)
-            if bloqueo and res:
+            bloqueo_spec = bool(spec and spec.get("bloqueo_entorno"))
+            # D3-R1 inv.2: reevaluación real de las aserciones sobre la evidencia
+            reeval_ok = False
+            reeval_estados = {}
+            if res and spec:
+                reeval_estados, reeval_ok = reevaluar_criterios(spec, res, os.path.join(EV, cid))
+            ids_res = [x.get("id") for x in criterios_res]
+            ids_spec = [x.get("id") for x in (spec.get("criterios", []) if spec else [])]
+            base_valida = bool(
+                res and res.get("harness_version") == L.HARNESS_VERSION
+                and res.get("estado_caso") == "COMPONENTE_OK"
+                and not res.get("errores") and not res.get("afirmaciones_fallidas")
+                and sp and res.get("spec_sha256") == spec_sha
+                and res.get("candidata_sha") == SHA_CANDIDATA_ESPERADO
+                and res.get("banco_casos_sha256") == banco_sha
+                and ids_res == ids_spec
+                and reeval_ok
+                and all(x.get("estado") == reeval_estados.get(x.get("id")) for x in criterios_res)
+            )
+            if bloqueo_spec and res and res.get("estado_caso") == "ERROR_ENTORNO":
                 estado, vcomp = "BLOQUEO_ENTORNO", ""
-                evidencia = f"evidencias/{cid}/resultado_ejecucion.json (bloqueo de entorno documentado; no cuenta como componente CUMPLE)"
+                evidencia = f"evidencias/{cid}/resultado_ejecucion.json (ERROR_ENTORNO: bloqueo documentado; no cuenta como CUMPLE)"
                 recuentos["bloqueo_entorno"] += 1
-            elif componente_valido:
+            elif bloqueo_spec and base_valida:
+                estado, vcomp = "BLOQUEO_ENTORNO", ""
+                evidencia = (f"evidencias/{cid}/resultado_ejecucion.json (bloqueo de entorno reevaluado OK; "
+                            f"ningún criterio del banco observado; no cuenta como CUMPLE)")
+                recuentos["bloqueo_entorno"] += 1
+            elif base_valida:
                 estado, vcomp = "PARCIAL_COMPONENTE", "CUMPLE"
-                evidencia = f"evidencias/{cid}/resultado_ejecucion.json (harness {res.get('harness_version')}, spec sha256 {spec_sha[:12]}…, aserciones OK)"
+                evidencia = (f"evidencias/{cid}/resultado_ejecucion.json (harness {L.HARNESS_VERSION}, "
+                            f"spec sha256 {spec_sha[:12]}…, aserciones reevaluadas OK)")
                 recuentos["con_ejecucion_propia"] += 1
             elif res:
                 estado, vcomp = f"ERROR ({res.get('estado_caso')})", ""
@@ -101,7 +158,7 @@ def main():
             fijo = a.get("veredicto_caso_fijo")
             if fijo:
                 vcaso = f"{fijo['veredicto']} ({fijo['nota']})"
-            elif bloqueo:
+            elif estado == "BLOQUEO_ENTORNO":
                 vcaso = "NO_OBSERVABLE (bloqueo de entorno: faltan pdftotext/soffice/agente; paquete en relevo)"
             elif estado == "PARCIAL_COMPONENTE":
                 vcaso = "sin veredicto de caso (pendiente de agente)"

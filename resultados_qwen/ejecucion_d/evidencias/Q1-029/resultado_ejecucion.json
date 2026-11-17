@@ -1,12 +1,13 @@
 {
  "caso": "Q1-029",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "0bb95a6aa81df8177faabae5076f4e9275487c95f2227b008f92115495779a8b",
+ "spec_sha256": "ccbac4ee42ac2d71b690f6d793adc41f1fa9121df59c2af086e23e014f20a4c9",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -80,6 +81,7 @@
    "id": "C1",
    "texto": "3 fuentes presentes se reexaminan y quedan comprobadas",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "02_comprobar_rehidratacion.json:comprobadas contiene 'Historia!C24' -> OK",
     "02_comprobar_rehidratacion.json:comprobadas contiene 'Historia!C22' -> OK",
@@ -90,6 +92,7 @@
    "id": "C2",
    "texto": "2 fuentes declaradas pero ausentes quedan pendientes (R2)",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "02_comprobar_rehidratacion.json:pendientes con prefijo 'Historia!C12' contiene 'no est' -> OK",
     "02_comprobar_rehidratacion.json:pendientes con prefijo 'Historia!C26' contiene 'no est' -> OK"
@@ -98,5 +101,9 @@
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_sellar_3_presentes.txt",
+  "02_comprobar_rehidratacion.json"
+ ]
 }

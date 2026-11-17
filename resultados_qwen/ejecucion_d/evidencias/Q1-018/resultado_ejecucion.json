@@ -1,12 +1,13 @@
 {
  "caso": "Q1-018",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "d335bfe06f7ebe881394886906196a6879a5dec66fe305aa1646e431a85ed9ad",
+ "spec_sha256": "006ddeb454b8198c7689e76ea1745204f522440179ff44609add20abc3037194",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -78,6 +79,7 @@
    "id": "C1",
    "texto": "versión vigente v2 comprobada",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "02_comprobar_version_vigente.json:comprobadas contiene 'aux:inv_v2' -> OK"
    ]
@@ -86,6 +88,7 @@
    "id": "C2",
    "texto": "v1 superada queda histórica (pendiente); reexpresión 210-190=20 declarada en el derivado",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "02_comprobar_version_vigente.json:pendientes con prefijo 'aux:inv_v1' contiene 'pendiente' -> OK",
     "02_comprobar_version_vigente.json:pendientes con prefijo 'aux:reexpresion' contiene 'origen' -> OK"
@@ -94,5 +97,9 @@
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_sellar_v2.txt",
+  "02_comprobar_version_vigente.json"
+ ]
 }

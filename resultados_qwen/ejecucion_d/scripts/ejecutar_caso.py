@@ -1,27 +1,22 @@
 #!/usr/bin/env python3
-"""Ejecuta una especificación de caso del banco Q1 contra la candidata fijada · v3.
+"""Ejecuta una especificación de caso del banco Q1 contra la candidata fijada · v4.
 
-v3 (respuesta D2-R1/R2/R7 a CORRECCION_D2 sobre 1ac661b):
-- especificación inválida (pasos o criterios vacíos, o criterio sin aserciones) =>
-  ERROR_ESPECIFICACION / FALLA_COMPONENTE, nunca COMPONENTE_OK (D2-R1a/b, D2-R2);
-- toda aserción se resuelve dentro de las evidencias del caso o de su RUN_DIR
-  (prefijo run:); una ruta fuera de ambos => ERROR (D2-R1c);
-- json_lista_no_contiene exige una salida de comprobación real (universo > 0);
-  no pasa con salida vacía (D2-R1e);
-- nueva aserción json_entrada_campo sobre el registro del expediente de prueba;
-- control negativo por aserción: pruebas_arnes.py evalúa cada aserción de cada
-  especificación contra un estado previo vacío y exige que falle (D2-R2);
-- toda comprobación escrita por el arnés queda marcada [SIMULADO]/_simulada,
-  también las dadas como diccionario y el --revisor del sellar (D2-R7a);
-- una ejecución = evidencias limpias (un log por ejecución) y el resultado guarda
-  el SHA observado de la candidata, el estado del árbol y la huella de la spec (D2-R7b/c);
-- Q1-026 (preparar_cambio) trabaja en copias bajo RUN_DIR (nunca escribe en la
-  candidata), siempre recrea el origen y separa en errores_bloqueo.json los errores
-  de texto PDF faltante (pdftotext) de los demás (ipal, AR_2019, AR_2020) (D2-R3).
-
-v2 (CORRECCION_D D-R1..R5) que se conserva: exits esperados por paso, aserciones por
-criterio, propagación de errores, artefactos solo si el productor terminó con exit
-esperado y huella distinta de la heredada, precondiciones simuladas declaradas.
+v4 (respuesta D3-R1/R2/R7 a CORRECCION_D3 sobre d032691):
+- el id se valida (Q1-nnn, dentro de EVIDENCIAS) ANTES de tocar el disco;
+- toda ruta — aserciones, `guardar`, `escribir_fuente.nombre`, `mutar_fuente.archivo`,
+  `copiar_artefacto.archivo` — se resuelve dentro de las evidencias del caso o de su
+  RUN_DIR; se rechazan rutas absolutas y escapes (variantes P3va/P3vb/N1a/N1b);
+- las aserciones solo leen archivos producidos por comandos del producto (guardados
+  con `guardar` o copiados con copiar_artefacto); nunca archivos del propio arnés
+  ni `run:` (P1v, N3);
+- nueva aserción `stderr_lineas_eq` (líneas exactas del stderr de un paso del producto);
+- un criterio marcado `no_discriminante` se evalúa pero queda OBSERVACION y fuera del
+  cómputo de COMPONENTE_OK (Q1-027 C4);
+- Q1-026: el CAMBIO se valida contra el banco (cifras 95→90, deuda 300, deuda neta 210)
+  y C1 se ancla a las líneas exactas del stderr real; origen intacto y candidata limpia
+  son comprobaciones duras del arnés, no aserciones;
+- sellar: el --revisor siempre queda marcado [SIMULADO];
+- spec vacía / sin aserciones → ERROR_ESPECIFICACION (D2-R1, conservado).
 
 Uso: python3 ejecutar_caso.py especificaciones/<dir>/Q1-xxx.json
 Exit 0 solo si estado_caso == COMPONENTE_OK.
@@ -36,8 +31,6 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import lib_arnes as L  # noqa: E402
 
-# Los nombres de extractor/revisor son precondiciones SIMULADAS (D-R4/D2-R7a): van
-# marcados [SIMULADO] en todo registro escrito por el arnés.
 EXTRACTOR = "extractor de prueba D (arnés externo) [SIMULADO]"
 REVISOR = "revisor independiente de prueba D (arnés externo) [SIMULADO]"
 
@@ -57,25 +50,27 @@ def _json_ruta(obj, ruta):
 
 
 def ruta_permitida(caso, archivo):
-    """D2-R1c: la aserción solo puede leer dentro de las evidencias del caso o de su
-    RUN_DIR (prefijo run:). Devuelve la ruta absoluta o None si está fuera."""
+    """D3-R1: la aserción solo puede leer dentro de las evidencias del caso, y solo
+    archivos producidos por el producto. Devuelve la ruta o None."""
     if archivo.startswith("run:"):
-        base = os.path.realpath(os.path.join(L.RUN_DIR, caso.id))
-        p = os.path.realpath(os.path.join(base, archivo[len("run:"):]))
-    else:
-        base = os.path.realpath(caso.ev_dir)
-        p = os.path.realpath(os.path.join(base, archivo))
-    if p == base or p.startswith(base + os.sep):
-        return p
-    return None
+        caso.errores.append("aserción con prefijo run: no soportada (D3-R1 inv.3: solo salidas del producto en evidencias)")
+        return None
+    p = L.ruta_dentro(caso.ev_dir, archivo)
+    if p is None:
+        caso.errores.append(f"ruta fuera de las evidencias del caso: {archivo!r}")
+        return None
+    ap = getattr(caso, "archivos_producto", None)
+    if ap is not None and os.path.basename(p) not in ap:
+        caso.errores.append(f"aserción sobre archivo no producido por el producto: {archivo!r}")
+        return None
+    return p
 
 
 def evaluar_afirmacion(caso, a):
-    """Evalúa una aserción sobre la evidencia guardada. Devuelve (ok, detalle)."""
+    """Evalúa una aserción sobre la evidencia del producto guardada. Devuelve (ok, detalle)."""
     p = ruta_permitida(caso, a["archivo"])
     if p is None:
-        caso.errores.append(f"ruta fuera del RUN_DIR/evidencias del caso: {a['archivo']!r}")
-        return False, f"RUTA FUERA DEL CASO: {a['archivo']}"
+        return False, f"RUTA NO PERMITIDA: {a['archivo']}"
     if not os.path.isfile(p):
         return False, f"falta {a['archivo']}"
     tipo = a["tipo"]
@@ -122,8 +117,6 @@ def evaluar_afirmacion(caso, a):
         return ok, f"{a['archivo']}:{a['lista']} con prefijo {a['prefijo']!r} contiene {a['contiene']!r} -> {'OK' if ok else 'FALLA'}"
     if tipo == "json_lista_no_contiene":
         obj = json.load(open(p, encoding="utf-8"))
-        # D2-R1e: una salida vacía no acredita nada; se exige una comprobación real
-        # (universo positivo) para que el negativo tenga sentido.
         universo = obj.get("universo")
         if not isinstance(universo, int) or universo <= 0:
             return False, f"{a['archivo']}: salida sin universo positivo (vacía); el negativo no acredita"
@@ -139,7 +132,16 @@ def evaluar_afirmacion(caso, a):
     if tipo == "texto_contiene_todas":
         txt = open(p, encoding="utf-8").read()
         faltan = [s for s in a["contiene_todas"] if s not in txt]
-        return not faltan, f"{a['archivo']} contiene todas {a['contiene_todas']!r} -> {'OK' if not faltan else 'FALLA: falta ' + str(faltan)}"
+        return not faltan, f"{a['archivo']} contiene todas -> {'OK' if not faltan else 'FALLA: falta ' + str(faltan[:2])}"
+    if tipo == "stderr_lineas_eq":
+        # D3-R2: ancla al mensaje real y completo del stderr de un paso del producto
+        txt = open(p, encoding="utf-8").read()
+        sec = txt.split("--- stderr ---", 1)[1] if "--- stderr ---" in txt else ""
+        lineas = [l.rstrip() for l in sec.splitlines() if l.strip()]
+        esperadas = [s.rstrip() for s in a["lineas_stderr"]]
+        ok = lineas == esperadas
+        return ok, (f"{a['archivo']}: stderr con {len(lineas)} líneas == {len(esperadas)} esperadas -> "
+                    + ("OK" if ok else f"FALLA (diferencia en {[l for l in lineas if l not in esperadas][:1]})"))
     if tipo == "archivo_existe":
         return True, f"{a['archivo']} existe"
     return False, f"tipo de aserción desconocido: {tipo}"
@@ -147,6 +149,10 @@ def evaluar_afirmacion(caso, a):
 
 def op_escribir_fuente(caso, exp, paso):
     nombre = paso["nombre"]
+    if L.ruta_dentro(os.path.join(exp, "fuentes_sinteticas"), nombre) is None or os.path.basename(nombre) != nombre:
+        caso.errores.append(f"escribir_fuente con nombre fuera de fuentes_sinteticas del caso: {nombre!r}")
+        caso._log(f"!! NOMBRE DE FUENTE RECHAZADO: {nombre!r}\n")
+        return None
     d = os.path.join(exp, "fuentes_sinteticas")
     os.makedirs(d, exist_ok=True)
     p = os.path.join(d, nombre)
@@ -174,7 +180,7 @@ def op_entrada(caso, exp, paso):
         comp = L.comprobacion_verificada(EXTRACTOR, REVISOR, f"{rel} (página {paso.get('fuente', {}).get('pagina', '?')})")
     elif isinstance(comp, dict):
         comp = {k: (L.HOY if v == "HOY" else v) for k, v in comp.items()}
-        comp = L.marcar_simulada(comp)  # D2-R7a: también las dadas como diccionario
+        comp = L.marcar_simulada(comp)
     extra = {k: v for k, v in paso.items()
              if k not in ("op", "celda", "clase", "fuente", "derivacion", "hipotesis", "justificacion",
                           "comprobacion", "incidencia", "material")}
@@ -186,20 +192,52 @@ def op_entrada(caso, exp, paso):
 
 
 def op_mutar_fuente(caso, exp, paso):
-    p = os.path.join(exp, paso["archivo"])
+    p = L.ruta_dentro(exp, paso["archivo"])
+    if p is None:
+        caso.errores.append(f"mutar_fuente con ruta fuera del expediente del caso: {paso['archivo']!r}")
+        caso._log(f"!! RUTA DE MUTACIÓN RECHAZADA: {paso['archivo']!r}\n")
+        return
     with open(p, "w", encoding="utf-8") as f:
         for i, b in enumerate(paso["paginas"]):
             f.write(f"[PDF PAGE {i + 1}]\n{b}\n\n")
     caso._log(f"fuente mutada: {paso['archivo']} nuevo sha256={L.sha256_archivo(p)}\n")
 
 
+def validar_cambio_contra_banco(caso, spec):
+    """D3-R3: el CAMBIO de Q1-026 se valida contra el banco (cifras y cálculo de la
+    deuda neta), no contra texto suelto. Lee el banco (fuente normativa, de solo lectura)."""
+    cid = spec["id"]
+    casos = [json.loads(l) for l in open(os.path.join(L.BANCO, "casos_aceptacion.jsonl"), encoding="utf-8") if l.strip()]
+    banco = next(c for c in casos if c["id"] == cid)
+    esperado = banco.get("esperado_numerico") or {}
+    for paso in spec.get("pasos", []):
+        if paso.get("op") != "preparar_cambio":
+            continue
+        cambio = paso.get("cambio") or {}
+        c24 = (cambio.get("analisis") or {}).get("C24") or {}
+        errores = []
+        if c24.get("valor") != 90.0:
+            errores.append(f"analisis.C24.valor={c24.get('valor')!r} != 90 (banco: caja 95->90)")
+        fuente_txt = c24.get("fuente") or ""
+        fixture = os.path.join(L.BANCO, "fixtures", "f5_026_nota.txt")
+        linea_fixture = open(fixture, encoding="utf-8").read().strip() if os.path.isfile(fixture) else ""
+        if linea_fixture and linea_fixture not in fuente_txt:
+            errores.append("la cita de C24.fuente no contiene la línea literal del fixture f5_026_nota.txt")
+        if not (cambio.get("evidencia")):
+            errores.append("falta el bloque evidencia del CAMBIO")
+        dn = (cambio.get("derivados_esperados") or {}).get("deuda_neta") or {}
+        if dn.get("resultado") != esperado.get("resultado") or dn.get("operandos") != esperado.get("operandos"):
+            errores.append(f"derivados_esperados.deuda_neta={dn!r} != esperado del banco {esperado!r}")
+        for e in errores:
+            caso.errores.append(f"CAMBIO no coherente con el banco: {e}")
+        caso._log(f"validación del CAMBIO contra el banco {cid}: {'OK' if not errores else 'FALLA: ' + '; '.join(errores)}\n")
+
+
 def op_preparar_cambio(caso, paso, esperado):
-    """Q1-026 (D2-R3/R-D10): prepara el CAMBIO en copias bajo RUN_DIR (nunca dentro de
-    la candidata), siempre recreando el origen; clasifica el stderr del fallo esperado
-    separando los textos PDF faltantes (pdftotext) de los demás errores (ipal, AR_2019,
-    AR_2020) y verifica que la candidata queda limpia tras la ejecución."""
+    """Q1-026 (D3-R1/R3): copias bajo RUN_DIR (nunca en la candidata), origen siempre
+    recreado; origen intacto y candidata limpia son comprobaciones DURAS del arnés."""
     pd = os.path.join(L.RUN_DIR, caso.id, "pruebas_d")
-    shutil.rmtree(pd, ignore_errors=True)  # nunca se reutiliza un origen preexistente
+    shutil.rmtree(pd, ignore_errors=True)
     os.makedirs(pd, exist_ok=True)
     origen = os.path.join(pd, caso.id + "_origen")
     shutil.copytree(L.PLANTILLA_EXP, origen, ignore=L.IGNORAR_COPIA)
@@ -207,7 +245,7 @@ def op_preparar_cambio(caso, paso, esperado):
     if os.path.isdir(tsrc):
         shutil.copytree(tsrc, os.path.join(origen, "texto"), dirs_exist_ok=True)
     cambio = dict(paso["cambio"])
-    cambio["origen"] = origen            # ruta absoluta: cambiar_base.py admite abs
+    cambio["origen"] = origen
     cambio["destino"] = os.path.join(pd, caso.id + "_copia")
     cpath = os.path.join(pd, f"CAMBIO_{caso.id}.json")
     with open(cpath, "w", encoding="utf-8") as f:
@@ -218,57 +256,56 @@ def op_preparar_cambio(caso, paso, esperado):
     r_cambio = caso.producto("cambiar_base.py", ["preparar", cpath],
                              "cambiar_base.py preparar (copia nueva bajo RUN_DIR; nunca sobrescribe)",
                              esperado=esperado or (1,), criterio=paso.get("criterio"))
-    with open(os.path.join(caso.ev_dir, paso.get("guardar", "cambiar_base_preparar.txt")), "w", encoding="utf-8") as f:
-        f.write("--- stdout ---\n" + r_cambio.stdout + "\n--- stderr ---\n" + r_cambio.stderr)
-    # D2-R3: separar en el registro los errores de AR_2019/AR_2020/ipal de los de
-    # texto PDF ausente (pdftotext), en vez de una subcadena genérica.
-    texto_pdf_faltante, otros_errores = [], []
+    caso._guardar(paso.get("guardar", "cambiar_base_preparar.txt"),
+                 "--- stdout ---\n" + r_cambio.stdout + "\n--- stderr ---\n" + r_cambio.stderr)
+    # diagnóstico del arnés (NO asertable: no es salida del producto)
+    texto_pdf, otros = [], []
     for linea in r_cambio.stderr.splitlines():
         if "ausente o inexistente en texto/" in linea:
-            texto_pdf_faltante.append(linea.strip())
+            texto_pdf.append(linea.strip())
         elif linea.strip():
-            otros_errores.append(linea.strip())
+            otros.append(linea.strip())
     with open(os.path.join(caso.ev_dir, "errores_bloqueo.json"), "w", encoding="utf-8") as f:
-        json.dump({"exit": r_cambio.returncode,
-                   "texto_pdf_faltante_pdftotext": texto_pdf_faltante,
-                   "otros_errores": otros_errores,
-                   "nota": "el bloqueo no se atribuye solo a pdftotext: también hay errores de ipal/AR_2019/AR_2020"},
+        json.dump({"exit": r_cambio.returncode, "texto_pdf_faltante_pdftotext": texto_pdf,
+                   "otros_errores": otros,
+                   "nota": "diagnostico del arnes; las aserciones solo leen salidas del producto (cambiar_base_preparar.txt)"},
                   f, ensure_ascii=False, indent=1)
     sha_despues = L.sha256_archivo(f1)
-    existe_copia = os.path.isdir(os.path.join(pd, caso.id + "_copia"))
+    if sha_antes != sha_despues:
+        caso.errores.append("Q1-026: el origen cambió (sha256 distinto) — el producto debe no sobrescribir")
     st = subprocess.run(["git", "-C", L.CANDIDATA, "status", "--porcelain"], capture_output=True, text=True).stdout
-    sucias = [l for l in st.splitlines() if l.strip() and not l.startswith("??")]
+    if any("pruebas_d" in l for l in st.splitlines()):
+        caso.errores.append("Q1-026: el arnés escribió dentro de la candidata (pruebas_d/)")
     with open(os.path.join(caso.ev_dir, "origen_estado.txt"), "w", encoding="utf-8") as f:
         f.write(f"origen={origen}\nsha256_fase1_antes={sha_antes}\nsha256_fase1_despues={sha_despues}\n"
-                f"intacto={'true' if sha_antes == sha_despues else 'false'}\n"
-                f"destino_existe_tras_fallo={'true' if existe_copia else 'false'}\n"
-                f"candidata_escribe_el_arnes={'true' if any('pruebas_d' in l for l in st.splitlines()) else 'false'}\n"
-                f"candidata_cambios_sin_commit={sucias[:5]}\n")
-    caso._log(f"origen intacto={sha_antes == sha_despues}; destino existe tras fallo={existe_copia}; "
-              f"arnés escribe en candidata={'true' if any('pruebas_d' in l for l in st.splitlines()) else 'false'}\n")
-    caso._log(f"errores_bloqueo: pdf_faltante={len(texto_pdf_faltante)} otros={len(otros_errores)}\n")
+                f"intacto={'true' if sha_antes == sha_despues else 'false'}\n")
+    caso._log(f"origen intacto={sha_antes == sha_despues} (comprobación dura del arnés)\n")
 
 
 def ejecutar(spec_path):
     spec = json.load(open(spec_path, encoding="utf-8"))
+    # D3-R1 inv.4: validar el id ANTES de tocar el disco
+    err_id = L.validar_id(spec.get("id"))
+    if err_id:
+        print(f"ERROR_ID {spec.get('id')!r}: {err_id}")
+        return 2
     spec_sha = L.sha256_archivo(spec_path)
     problemas, info = L.verificar_entorno()
     caso = L.Caso(spec["id"])
     caso.resultados["spec_sha256"] = spec_sha
-    caso.resultados["spec"] = os.path.relpath(spec_path, os.path.dirname(os.path.dirname(L.AUX)))
+    caso.resultados["spec"] = os.path.relpath(os.path.abspath(spec_path), os.path.dirname(os.path.dirname(L.AUX)))
     caso.resultados["candidata_sha"] = info.get("candidata_sha_observado")
     caso.resultados["banco_casos_sha256"] = info.get("banco_casos_sha256")
     caso.resultados["candidata_no_rastreadas"] = info.get("candidata_no_rastreadas")
     caso._log(f"# Caso {spec['id']} · {spec.get('descripcion', '')}")
     caso._log(f"# candidato: {L.CANDIDATA} (SHA esperado {L.SHA_CANDIDATA_ESPERADO}, observado {info.get('candidata_sha_observado')}) "
-              f"· banco: {L.BANCO} (casos_aceptacion.jsonl sha256 {info.get('banco_casos_sha256')}) · fecha: {L.HOY} · harness {L.HARNESS_VERSION}")
+              f"· banco: {L.BANCO} (casos sha256 {info.get('banco_casos_sha256')}) · fecha: {L.HOY} · harness {L.HARNESS_VERSION}")
     caso._log(f"# spec: {spec_path} sha256={spec_sha}")
     caso._log(f"# precondiciones: {L.PRECONDICION_SIMULADA}\n")
-    # D2-R1a/b: especificación vacía o criterio sin aserciones no puede dar COMPONENTE_OK
     spec_valida = bool(spec.get("pasos")) and bool(spec.get("criterios")) and all(c.get("afirma") for c in spec["criterios"])
     if not spec_valida:
         caso.errores.append("especificación inválida: pasos/criterios vacíos o criterio sin aserciones (D2-R1a/b)")
-        caso._log("!! ESPECIFICACIÓN INVÁLIDA: pasos o criterios vacíos, o criterio sin afirma\n")
+        caso._log("!! ESPECIFICACIÓN INVÁLIDA\n")
         caso.guardar_resultados("ERROR_ESPECIFICACION", [])
         print(f"ERROR_ESPECIFICACION {spec['id']}: spec vacía o con criterios sin aserciones")
         return 2
@@ -277,6 +314,11 @@ def ejecutar(spec_path):
         caso._log("!! ENTORNO INVALIDO: " + "; ".join(problemas) + "\n")
         caso.guardar_resultados("ERROR_ENTORNO", [])
         print(f"ERROR {spec['id']}: entorno inválido: {problemas}")
+        return 2
+    validar_cambio_contra_banco(caso, spec)
+    if caso.errores:
+        caso.guardar_resultados("ERROR_ESPECIFICACION", [])
+        print(f"ERROR_ESPECIFICACION {spec['id']}: {caso.errores}")
         return 2
     exp = None
     abortado = False
@@ -296,8 +338,11 @@ def ejecutar(spec_path):
         elif op == "comprobar":
             L.comprobar(caso, exp, paso["guardar"], esperado=esperado or (0, 1), criterio=paso.get("criterio"))
         elif op == "sellar":
+            revisor = paso.get("revisor", REVISOR)
+            if "[SIMULADO]" not in revisor:
+                revisor = revisor + " [SIMULADO]"  # D3-R7: siempre marcado
             caso.producto("verificacion_entradas.py",
-                          ["sellar", exp] + paso["celdas"] + ["--revisor", paso.get("revisor", REVISOR), "--fecha", L.HOY],
+                          ["sellar", exp] + paso["celdas"] + ["--revisor", revisor, "--fecha", L.HOY],
                           "sellar (revisor [SIMULADO] vincula la comprobación al fundamento)",
                           guardar=paso.get("guardar"), esperado=esperado, criterio=paso.get("criterio"))
         elif op == "ficha":
@@ -319,7 +364,8 @@ def ejecutar(spec_path):
         if caso.errores and caso.resultados["pasos"] and caso.resultados["pasos"][-1].get("error_inesperado"):
             abortado = True
             caso._log("!! Caso abortado por error inesperado (se propaga)\n")
-    # evaluar criterios sobre la evidencia de ESTA ejecución (D-R1)
+    if caso.errores and any("RUTA" in e or "fuera" in e or "no producido" in e for e in caso.errores):
+        abortado = True
     criterios = []
     for c in spec.get("criterios", []):
         detalles, ok_all = [], True
@@ -327,19 +373,25 @@ def ejecutar(spec_path):
             ok, detalle = evaluar_afirmacion(caso, a)
             detalles.append(detalle)
             ok_all = ok_all and ok
-        # D2-R1b: un criterio sin aserciones no puede quedar NO_EVALUADO ni dar OK
-        estado = "CUMPLE_COMPONENTE" if ok_all and c.get("afirma") else "FALLA_COMPONENTE"
+        if not c.get("afirma"):
+            ok_all = False
+        if c.get("no_discriminante"):
+            estado = "OBSERVACION_NO_DISCRIMINANTE" if ok_all else "FALLA_COMPONENTE"
+        else:
+            estado = "CUMPLE_COMPONENTE" if ok_all else "FALLA_COMPONENTE"
         if estado == "FALLA_COMPONENTE":
-            caso.afirmaciones_fallidas.extend(f"[{c['id']}] {d}" for d in detalles if "FALLA" in d or "FUERA" in d)
-            if not c.get("afirma"):
-                caso.afirmaciones_fallidas.append(f"[{c['id']}] criterio sin aserciones (D2-R1b)")
-        criterios.append({"id": c["id"], "texto": c.get("texto", ""), "estado": estado, "detalle": detalles})
+            caso.afirmaciones_fallidas.extend(f"[{c['id']}] {d}" for d in detalles if "FALLA" in d or "NO PERMITIDA" in d)
+        criterios.append({"id": c["id"], "texto": c.get("texto", ""), "estado": estado,
+                          "no_discriminante": bool(c.get("no_discriminante")), "detalle": detalles})
     if caso.errores:
         estado_caso = "ERROR"
     elif caso.afirmaciones_fallidas or any(c["estado"] == "FALLA_COMPONENTE" for c in criterios):
         estado_caso = "COMPONENTE_FALLA"
-    else:
+    elif all(c["estado"] == "CUMPLE_COMPONENTE" for c in criterios if not c["no_discriminante"]) and any(
+            c["estado"] == "CUMPLE_COMPONENTE" for c in criterios):
         estado_caso = "COMPONENTE_OK"
+    else:
+        estado_caso = "COMPONENTE_FALLA"
     caso.guardar_resultados(estado_caso, criterios)
     print(f"{'OK' if estado_caso == 'COMPONENTE_OK' else estado_caso} {spec['id']} · criterios="
           f"{[(c['id'], c['estado']) for c in criterios]} · evidencias en {caso.ev_dir}")

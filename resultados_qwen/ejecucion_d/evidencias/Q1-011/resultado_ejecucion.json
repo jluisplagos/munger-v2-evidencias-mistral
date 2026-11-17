@@ -1,12 +1,13 @@
 {
  "caso": "Q1-011",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "da02dee3c7f4a0e2af7087a89508aeb301e517fbfc547401d78802ae11ee9eee",
+ "spec_sha256": "e9d92f69af75d21aa98b254ff982e4aaa0eff8490bddd21a1a41aa62cde0e346",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -98,6 +99,7 @@
    "id": "C1",
    "texto": "signo -1 con tratamiento declarado cuadra con el modelo -> comprobado",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "02_comprobar_signo_tratamiento.json:comprobadas contiene 'Historia!C8' -> OK"
    ]
@@ -106,6 +108,7 @@
    "id": "C2",
    "texto": "doble negación (signo -1 sobre valor positivo) -> discrepancia",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "03_comprobar_doble_negacion.json:discrepancias con prefijo 'Historia!C8' contiene '-49.699' -> OK"
    ]
@@ -113,5 +116,10 @@
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_sellar_signo_tratamiento.txt",
+  "02_comprobar_signo_tratamiento.json",
+  "03_comprobar_doble_negacion.json"
+ ]
 }

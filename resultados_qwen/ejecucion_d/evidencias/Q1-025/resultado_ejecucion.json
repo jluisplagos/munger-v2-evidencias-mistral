@@ -1,12 +1,13 @@
 {
  "caso": "Q1-025",
- "harness_version": "3.0",
+ "harness_version": "4.0",
  "fecha": "2026-11-17",
- "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
+ "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)",
+ "evidencias_limpiadas": true,
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
  "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
- "spec_sha256": "494ae8a9793f364e3064f57293f52592ec0f6363fa25d14e1afc304569c43666",
+ "spec_sha256": "d5389a2978f77f3a47db6eeb3b4ebf8ae01db6e7050e9e565718722d2674838b",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -98,6 +99,7 @@
    "id": "C1",
    "texto": "con la fuente intacta la entrada sigue comprobada en dos comprobaciones seguidas (reutilizacion sin re-trabajo)",
    "estado": "CUMPLE_COMPONENTE",
+   "no_discriminante": false,
    "detalle": [
     "02_comprobar_primera.json:comprobadas contiene 'Historia!C24' -> OK",
     "03_comprobar_reutilizada.json:comprobadas contiene 'Historia!C24' -> OK",
@@ -107,5 +109,10 @@
  ],
  "artefactos": [],
  "errores": [],
- "afirmaciones_fallidas": []
+ "afirmaciones_fallidas": [],
+ "archivos_producto": [
+  "01_sellar.txt",
+  "02_comprobar_primera.json",
+  "03_comprobar_reutilizada.json"
+ ]
 }

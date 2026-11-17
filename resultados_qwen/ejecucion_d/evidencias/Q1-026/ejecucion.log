@@ -1,7 +1,9 @@
-# Caso Q1-026 · POSITIVO del banco f5_026: correccion de caja 95 -> 90 (millones EUR) en copia nueva con evidencia (fixtures/f5_026_nota.txt: 'Caja 90; Deuda financiera 300 (millones EUR, consolidado). Correccion de errata de v1 (caja 95)'); deuda neta esperada 300-90=210. En este entorno falta pdftotext/soffice, asi que cambiar_base preparar se detiene con exit 1 esperado y error concreto; se afirma que el origen queda intacto, que el arnes no escribe en la candidata y que el CAMBIO entregado es coherente con el banco. El paquete queda en evidencias/Q1-026/ para el runtime del coordinador.
-# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9, observado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /tmp/banco/resultados_qwen/q1_v2/banco_revisado (casos_aceptacion.jsonl sha256 e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9) · fecha: 2026-11-17 · harness 3.0
-# spec: /workspace/github__jluisplagos__munger-v2-evidencias-mistral/resultados_qwen/ejecucion_d/scripts/especificaciones/bloque2/Q1-026.json sha256=cafbc7c34cd104e6035770a137de0c78aa1e557d844ebfdf93236fa5dcf68e43
-# precondiciones: extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)
+# Caso Q1-026 · POSITIVO del banco f5_026: correccion de caja 95 -> 90 (millones EUR) en copia nueva con evidencia (fixtures/f5_026_nota.txt, cita literal); deuda financiera 300 de la misma nota; deuda neta esperada 300-90=210 (derivados_esperados, validado contra el banco por el arnes). En este entorno falta pdftotext/soffice: cambiar_base preparar sale con exit 1 esperado y el stderr exacto queda anclado en C1 (9 lineas). El CAMBIO queda en evidencias/Q1-026/ para el runtime.
+# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9, observado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /tmp/banco/resultados_qwen/q1_v2/banco_revisado (casos sha256 e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9) · fecha: 2026-11-17 · harness 4.0
+# spec: /workspace/github__jluisplagos__munger-v2-evidencias-mistral/resultados_qwen/ejecucion_d/scripts/especificaciones/bloque2/Q1-026.json sha256=0f498ba56b1a0502a3f43469716ec9a98e9b59bdc46b1a1d6f2435715a326b72
+# precondiciones: extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4/D2-R7/D3-R7)
+
+validación del CAMBIO contra el banco Q1-026: OK
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/cambiar_base.py preparar /workspace/ejecucion_d_run/Q1-026/pruebas_d/CAMBIO_Q1-026.json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
 exit=1 (esperado [1])
@@ -18,7 +20,5 @@ AR_2024: AR_2024: «archivo» ausente o inexistente en texto/: 'AR_2024.txt'
 
 
 
-origen intacto=True; destino existe tras fallo=True; arnés escribe en candidata=false
-
-errores_bloqueo: pdf_faltante=4 otros=5
+origen intacto=True (comprobación dura del arnés)
 

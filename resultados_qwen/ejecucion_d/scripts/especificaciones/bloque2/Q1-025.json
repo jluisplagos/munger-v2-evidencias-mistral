@@ -1,24 +1,97 @@
 {
-  "id": "Q1-025",
-  "harness_version": "2.0",
-  "descripcion": "POSITIVO de vigencia: verificacion reutilizada con fuente intacta (mismo sha256) sigue comprobada sin re-trabajo; se comprueba dos veces seguidas sin mutar nada. El negativo (fuente mutada -> desactualizada) ya esta ejecutado en Q1-027.",
-  "pasos": [
-    {"op": "nuevo_expediente"},
-    {"op": "escribir_fuente", "nombre": "f5_025_nota.txt", "paginas": [
-      "X",
-      "Nota 4 pag.2 v1: caja = 45054 miles de euros (consolidado, ejercicio 2016)."
-    ]},
-    {"op": "entrada", "celda": "Historia!C24", "clase": "dato_publicado",
-     "fuente": {"documento": "Nota sintetica ES-1 (fixture f5_025_nota.txt)", "archivo": "fuentes_sinteticas/f5_025_nota.txt", "version": "v1", "pagina": 2, "ubicacion": "Nota 4", "concepto": "caja", "columna": "ejercicio 2016", "periodo": "ejercicio 2016", "unidad": "miles de euros", "escala": 0.001, "signo": 1, "tratamiento": "ninguno", "perimetro": "consolidado", "reexpresado": "no aplica", "valor_fuente": 45054, "cita": "Nota 4 pag.2 v1: caja = 45054 miles de euros (consolidado, ejercicio 2016)"},
-     "comprobacion": "verificada"},
-    {"op": "sellar", "celdas": ["Historia!C24"], "guardar": "01_sellar.txt", "esperado": [0, 1]},
-    {"op": "comprobar", "guardar": "02_comprobar_primera.json", "esperado": [0, 1], "criterio": "C1"},
-    {"op": "comprobar", "guardar": "03_comprobar_reutilizada.json", "esperado": [0, 1], "criterio": "C1"}
-  ],
-  "criterios": [
-    {"id": "C1", "texto": "con la fuente intacta la entrada sigue comprobada en dos comprobaciones seguidas (reutilizacion sin re-trabajo)",
-     "afirma": [{"tipo": "json_lista_contiene", "archivo": "02_comprobar_primera.json", "lista": "comprobadas", "elemento": "Historia!C24"},
-                {"tipo": "json_lista_contiene", "archivo": "03_comprobar_reutilizada.json", "lista": "comprobadas", "elemento": "Historia!C24"},
-                {"tipo": "json_lista_no_contiene", "archivo": "03_comprobar_reutilizada.json", "lista": "desactualizadas", "prefijo": "Historia!C24"}]}
-  ]
+ "id": "Q1-025",
+ "harness_version": "4.0",
+ "descripcion": "POSITIVO de vigencia: verificacion reutilizada con fuente intacta (mismo sha256) sigue comprobada sin re-trabajo; se comprueba dos veces seguidas sin mutar nada. El negativo (fuente mutada -> desactualizada) ya esta ejecutado en Q1-027.",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f5_025_nota.txt",
+   "paginas": [
+    "X",
+    "Nota 4 pag.2 v1: caja = 45054 miles de euros (consolidado, ejercicio 2016)."
+   ]
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C24",
+   "clase": "dato_publicado",
+   "fuente": {
+    "documento": "Nota sintetica ES-1 (fixture f5_025_nota.txt)",
+    "archivo": "fuentes_sinteticas/f5_025_nota.txt",
+    "version": "v1",
+    "pagina": 2,
+    "ubicacion": "Nota 4",
+    "concepto": "caja",
+    "columna": "ejercicio 2016",
+    "periodo": "ejercicio 2016",
+    "unidad": "miles de euros",
+    "escala": 0.001,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 45054,
+    "cita": "Nota 4 pag.2 v1: caja = 45054 miles de euros (consolidado, ejercicio 2016)"
+   },
+   "comprobacion": "verificada"
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "Historia!C24"
+   ],
+   "guardar": "01_sellar.txt",
+   "esperado": [
+    0,
+    1
+   ]
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_primera.json",
+   "esperado": [
+    0,
+    1
+   ],
+   "criterio": "C1"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "03_comprobar_reutilizada.json",
+   "esperado": [
+    0,
+    1
+   ],
+   "criterio": "C1"
+  }
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "con la fuente intacta la entrada sigue comprobada en dos comprobaciones seguidas (reutilizacion sin re-trabajo)",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_primera.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C24"
+    },
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_reutilizada.json",
+     "lista": "comprobadas",
+     "elemento": "Historia!C24"
+    },
+    {
+     "tipo": "json_lista_no_contiene",
+     "archivo": "03_comprobar_reutilizada.json",
+     "lista": "desactualizadas",
+     "prefijo": "Historia!C24"
+    }
+   ]
+  }
+ ]
 }
