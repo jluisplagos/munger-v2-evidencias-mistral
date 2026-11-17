@@ -607,7 +607,7 @@
         "T-CAND"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Revisión por un contexto distinto del borrador v2 (solicitud LISTA). Después, la propuesta de CONTINUIDAD §2.5 como corrección documental de la candidata, con su propia revisión.",
+      "siguiente_accion": "Revisión del borrador v2 (ef36ab1) en curso, en un contexto distinto del autor. Después, la propuesta de CONTINUIDAD §2.5 como corrección documental de la candidata, con su propia revisión.",
       "observacion": "Manual revisado para la candidata 3149128 (borrador v2): las siete mejoras de MEJORAS_MANUAL.md con fuente; comandos nuevos marcados según dónde se probaron (traspaso del 17-nov o preparación F1 del 15-nov); lo no probado, [NO DOCUMENTADO]. Corrige dos atribuciones del encargo (copiar_binarios_a_b.py y sha256sum -c son de la preparación F1, no del traspaso). Propuesta de corrección de CONTINUIDAD §2.5 (_v64/), sin aplicar.",
       "commit_revisado": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "alcance_aceptado": [
@@ -629,7 +629,7 @@
           "H9 abierto y sin procedimiento inventado; I19/I20 no reintroducidos; ninguna política económica",
           "La propuesta de CONTINUIDAD §2.5 es exacta (frase actual, frase nueva, fuente) y no se aplica aquí"
         ],
-        "revisor_asignado": "Primera sesión Mistral libre o un contexto distinto del autor",
+        "revisor_asignado": "Subagente Claude, contexto distinto del autor (no hay sesión Mistral libre)",
         "informe_revision": null
       }
     },
@@ -911,7 +911,7 @@
       "dependencias": [],
       "bloqueo": "Infraestructura, no producto. Ni se adopta ni se fusiona main; PR #1 queda en borrador. No hay agente API que aplique correcciones ni una cola continua autorizada. audit-pilot-code-001 no se repite. No se cambia la facturación ni se activa pay-as-you-go. Sus informes son contrastes documentales: no ejecutan el personaje, no aceptan entregas y no sustituyen correcciones (D3) ni revisiones del coordinador.",
       "siguiente_accion": "Revisión independiente del código en curso: corrección SSE 0956bc5, presupuesto y reserva create-only, sin reintentos, secretos y permisos de los workflows. Después se reproducen las pruebas del autor en copia (49 del piloto según PR #1 y las de coordinación). Los informes de contraste se cotejan uno a uno y no se aceptan automáticamente.",
-      "observacion": "Costes estimados: relevos-001 USD 0,070368 (reserva 0,115726; truncado a 4096) y relevos-002 USD 0,094358, conjunto 0,164726; crédito pendiente de confirmar en Console. audit-pilot-code-001 (Fable 5.2/max): ANTHROPIC_ERROR_RED_TIMEOUT tras 180 s, sin veredicto ni uso recibido; reserva 1,912936, coste incierto; no se repite. qwen-peer-group-01: estimado 0,102272 (reserva 0,25281). vibe-auth-001: conexión comprobada (7269/50 tokens) con coste 0. qwen-bank-review-001 (Mistral): fallo por longitud de salida (42992/16384). qwen-bank-group-01 (Mistral, Q1-001…006): entregado.",
+      "observacion": "Costes estimados: relevos-001 USD 0,070368 (reserva 0,115726; truncado a 4096) y relevos-002 USD 0,094358, conjunto 0,164726; crédito pendiente de confirmar en Console. audit-pilot-code-001 (Fable 5.2/max): ANTHROPIC_ERROR_RED_TIMEOUT tras 180 s, sin veredicto ni uso recibido; reserva 1,912936, coste incierto; no se repite. qwen-peer-group-01: estimado 0,102272 (reserva 0,25281). vibe-auth-001: conexión comprobada (7269/50 tokens) con coste 0. qwen-bank-review-001 (Mistral): fallo por longitud de salida (42992/16384). qwen-bank-group-01 (Mistral, Q1-001…006): entregado. Comprobado por el coordinador: el report.json de relevos-002 en 953af02 tiene sha256 1bd8a638…, igual a la source_response_sha256 fijada en 5b12950. El postprocessed_report.review es igual al JSON de raw_model_output una vez quitado un único envoltorio ```json…```; no se añadió ni se quitó contenido.",
       "commit_revisado": null,
       "alcance_aceptado": [],
       "solicitud_revision": {
@@ -1299,6 +1299,11 @@
       "tipo": "ASIGNACION",
       "fecha": "2026-11-17",
       "hecho": "Revisión independiente del código de automatización y de la corrección SSE encargada a un contexto Claude distinto del autor."
+    },
+    {
+      "tipo": "ASIGNACION",
+      "fecha": "2026-11-17",
+      "hecho": "Revisión del manual v2 (ef36ab1) encargada a un contexto Claude distinto del autor, porque no hay sesión Mistral libre: A está con G-RAIZ y A4, D con D3, E con E2 y F con F3."
     }
   ],
   "consulta_remotos_arranque": {
