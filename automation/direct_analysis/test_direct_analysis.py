@@ -23,15 +23,19 @@ CAP = {cr.CAP_ENV: '10'}
 
 
 def analysis(**over):
-    esc = lambda v, p: {'valor_por_accion': v, 'probabilidad': p, 'razonamiento': 'r'}  # noqa: E731
-    doc = {'resumen': 'x', 'estado': 'concluido', 'cubo': 'Vigilar', 'accion': 'esperar', 'moneda': 'USD',
-           'precio_actual': {'valor': 95, 'fecha': '2026-10-09', 'archivo_id': 'datos'},
+    esc = lambda v, p: {'disponible': True, 'valor_por_accion': v, 'probabilidad': p, 'supuestos_y_cifras': 's'}  # noqa: E731
+    tasa = {'disponible': True, 'precio_si': 87.142857, 'ponderado': 98, 'zona': 'vigilar', 'comentario': 'c'}
+    doc = {'resumen': 'x', 'estado': 'concluido', 'cubo': 'vigilar', 'accion': 'esperar', 'moneda': 'USD',
+           'precio_actual': {'disponible': True, 'valor': 95, 'fecha': '2026-10-09', 'archivo_id': 'datos'},
            'escenarios': {'malo': esc(60, 0.2), 'normal': esc(100, 0.6), 'bueno': esc(130, 0.2)},
-           'probabilidades_justificacion': 'De partida.',
-           'precio_si': {'valor': 87.14, 'calculo': 'k = 3'},
-           'sensibilidad_tasa': {t: {'precio_si': 80, 'precio_actual_por_debajo': False, 'comentario': 'c'}
-                                 for t in da.TASAS},
-           'conclusion_razonada': 'c', 'que_la_haria_falsa': ['f'], 'lo_que_no_se': ['n'],
+           'motivo_probabilidades': 'De partida.',
+           'escalera': {'disponible': True, 'precio_escenario_malo_disponible': True, 'precio_escenario_malo': 60,
+                        'p_estrella': 87.142857, 'precio_si': 87.142857, 'ponderado': 98, 'zona': 'vigilar',
+                        'formula_aplicada': 'k = 3'},
+           'crecimiento_implicito': {'disponible': True, 'al_precio_actual_pct': 3.5, 'del_escenario_normal_pct': 4,
+                                     'explicacion_breve': 'e'},
+           'sensibilidad_tasa': {t: dict(tasa) for t in da.TASAS},
+           'justificacion_breve': 'c', 'que_la_haria_falsa': ['f'], 'lo_que_no_se': ['n'],
            'citas': [{'archivo_id': 'datos', 'cita': 'ventas 100', 'sostiene': 'normal'}]}
     doc.update(over)
     return doc
@@ -48,7 +52,7 @@ def bundle(task='analisis-directo-zoetis-1', text='ventas 100', extra=0):
                'probabilidades_partida': da.PROBABILIDADES,
                'manifiesto': {'ruta': 'automation/direct_analysis/paquetes/zoetis_t1.json', 'sha256': '0' * 64},
                'sources': [{'id': 'datos', 'path': 'datos/zoetis.md', 'commit': 'a' * 40, 'sha256': '1' * 64,
-                            'bytes': len(text), 'descripcion': 'datos', 'text': text + 'x' * extra}]}
+                            'bytes': len(text), 'descripcion': 'datos', 'text': text + 'x' * extra}]}  # noqa: E501
     return da.build_bundle(package, ENCARGO, task, 'a' * 40)
 
 
@@ -111,6 +115,8 @@ class RunTests(Base):
         self.assertNotIn('tools', body)
         self.assertNotIn('fallbacks', body)
         sent = json.loads(body['messages'][0]['content'])
+        self.assertNotIn('repository', sent)
+        self.assertNotIn('munger', body['messages'][0]['content'].lower())
         self.assertEqual(sent['fecha_corte'], '2026-10-09')
         self.assertEqual(sent['tasa_descuento'], '9 %')
         # Coste con la tarifa de Opus 5.5 (4/20 USD por MTok) y registro de la reserva.
@@ -121,7 +127,7 @@ class RunTests(Base):
         rep = self.ledger(store, name='report.json')
         self.assertEqual(rep['review']['package_sha256'], bundle()['package_sha256'])
         self.assertEqual(rep['usage'], {'input_tokens': 900, 'output_tokens': 3000})
-        self.assertAlmostEqual(rep['review']['comprobaciones_mecanicas']['precio_si_recalculado_k3'], 122 / 1.4, 6)
+        self.assertAlmostEqual(rep['review']['comprobaciones_mecanicas']['escalera_recalculada_anexo_c']['precio_si'], 122 / 1.4, 5)
         self.assertEqual(rep['review']['comprobaciones_mecanicas']['avisos'], [])
         md = (Path(self.tmp.name) / 'report.md').read_text()
         self.assertIn(bundle()['package_sha256'], md)
@@ -174,11 +180,23 @@ class RunTests(Base):
         self.assertEqual((r['state'], r['error']), (cr.REJECTED, 'RESPUESTA_INCOMPLETA'))
 
     def test_mechanical_warnings_do_not_reject(self):
-        doc = analysis(cubo='Sí', precio_si={'valor': 120, 'calculo': 'x'},
-                       citas=[{'archivo_id': 'datos', 'cita': 'ventas 999', 'sostiene': 'x'}])
+        doc = analysis(cubo='si', citas=[{'archivo_id': 'datos', 'cita': 'ventas 999', 'sostiene': 'x'}])
+        doc['escalera']['precio_si'] = 120
         r = self.run_da(FakeHTTP(reply=reply(doc=doc)))
         self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
         self.assertEqual(len(r['review']['comprobaciones_mecanicas']['avisos']), 3)
+
+    def test_enum_capitalization_normalized_not_lost(self):
+        doc = analysis(cubo='Demasiado Difícil', estado='Concluido', accion='Demasiado-Dificil')
+        doc['escalera']['zona'] = 'Vigilar'
+        r = self.run_da(FakeHTTP(reply=reply(doc=doc)))
+        self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
+        a = r['review']['analisis']
+        self.assertEqual((a['cubo'], a['estado'], a['accion'], a['escalera']['zona']),
+                         ('demasiado_dificil', 'concluido', 'demasiado_dificil', 'vigilar'))
+        originals = {n['campo']: n['original'] for n in r['review']['normalizaciones_enum']}
+        self.assertEqual(originals['$.cubo'], 'Demasiado Difícil')
+        self.assertIn('Demasiado Difícil', r['raw_model_output'])
 
     def test_unexpected_model_returned_is_uncertain_without_bound(self):
         r = self.run_da(FakeHTTP(reply=reply(model='claude-opus-5')))
@@ -269,35 +287,52 @@ class SizeTests(Base):
         self.assertEqual(sent['sources'][0]['text'], b['sources'][0]['text'])
 
 
+D = 'datos_analisis_directo/zoetis/'
+
+
 class PathTests(unittest.TestCase):
     FORBIDDEN = [
-        'coordinacion/cierre_v2/examen/RUBRICA_EXAMEN.md', 'coordinacion/cierre_v2/examen/ahold/LISTA_ENTRADAS.csv',
-        'docs/Rúbrica.md', 'docs/rubrica_v2.txt', 'coordinacion/cierre_v2/universo/LECTURA_INFORME.md',
-        'universo/INFORME_CRITICO_Y_CANDIDATAS_ANONIMO.txt', 'notas/informe-crítico.md',
-        'coordinacion/cierre_v2/examen/CONTRADICTOR.md',
-        'pruebas_candidata/957af65/MECANISMO_PERSONAJE.md', 'empresas/Nike/fase_a.json', 'empresas/Nike/fase_B.md',
-        'empresas/Nike/celdas_C.json', 'empresas/Nike/citas_fase_a.txt', 'empresas/Nike/auditoria.md',
-        'empresas/Nike/informe.md', 'empresas/Nike/precio.json', 'empresas/Nike/ficha.json',
-        'empresas/Nike/gramatica.md', 'empresas/Nike/diagnostico.md.anterior', 'empresas/Nike/estado_pipeline.json',
-        'empresas/Nike/prompts_generados/01_historia_2016.md', 'empresas/Nike/etapa1/Nike_respuesta.md',
-        'resultados_qwen/ejecucion_d/x.json', 'revision_externa/a_d/D_SALIDA_OBSOLETA.json',
-        'automation/coordination/reviews/analisis-directo-zoetis-1/report.json', '.github/workflows/x.yml',
-        'coordinacion/cierre_v2/revisiones_coordinador/A/x.md',
-        '../fuera.md', '/etc/passwd', 'a//b.md', './a.md', 'a/*.md', 'a:b.md', 'a|b.md', '',
+        # Fuera de la lista blanca de raíces (revisión H3): todo lo demás del repositorio.
+        'coordinacion/cierre_v2/examen/RUBRICA_EXAMEN.md', 'coordinacion/cierre_v2/universo/notas.md',
+        'coordinacion/cierre_v2/universo/LECTURA_INFORME.md', 'datos/zoetis/registro.json',
+        'coordinacion/cierre_v2/traspaso/resultado_20261117/registro/relevo_copia_base/13_verificacion.md',
+        'datos_analisis_directo/ahold/fuentes/x.md', D + 'x.md', D + 'otros/x.md', D + 'fuentes/hoja.xlsx',
+        D + 'fuentes/x.pdf', D + 'entrada_v63.json',
+        # Dentro de la raíz, pero con nombre de material ciego o de salida del personaje.
+        D + 'fuentes/examen/a.md', D + 'fuentes/universo/notas.md', D + 'fuentes/Rúbrica.md',
+        D + 'fuentes/traspaso/x.md', D + 'fuentes/relevo_copia_base/x.md', D + 'fuentes/LECTURA_INFORME.md',
+        D + 'fuentes/informe-crítico.md', D + 'fuentes/CONTRADICTOR.md', D + 'fuentes/MECANISMO_PERSONAJE.md',
+        D + 'fuentes/fase_a.json', D + 'fuentes/fase-a.json', D + 'fuentes/fase_A1.json',
+        D + 'fuentes/copia.fase_b.json', D + 'fuentes/phase_c.json', D + 'fuentes/celdas_C.json',
+        D + 'fuentes/citas_fase_a.txt', D + 'fuentes/mi_ficha.json', D + 'fuentes/copia_auditoria.md',
+        D + 'fuentes/audit.md', D + 'fuentes/objetivo.json', D + 'fuentes/escalera.json',
+        D + 'fuentes/material_auditoria.json', D + 'fuentes/solicitud_auditoria.json',
+        D + 'fuentes/13_verificacion.md', D + 'historia/verificacion.md', D + 'fuentes/informe.md',
+        D + 'fuentes/precio.json', D + 'fuentes/gramatica.md', D + 'fuentes/diagnostico.md',
+        D + 'fuentes/estado_pipeline.json', D + 'fuentes/prompts_generados/01.md', D + 'fuentes/Nike_respuesta.md',
+        D + 'fuentes/D_SALIDA_OBSOLETA.json', D + 'fuentes/fase1_partes/AR_2025.json',
+        '../fuera.md', '/etc/passwd', D + 'fuentes//b.md', D + './a.md', D + 'fuentes/*.md', D + 'fuentes/a:b.md',
+        D + 'fuentes/a|b.md', '',
     ]
-    ALLOWED = ['datos/zoetis/registro_entradas.json', 'empresas/Nike/extracto_v63.md', 'empresas/Nike/datos_v63.json',
-               'empresas/Nike/historia_revision.md', 'fuentes/zoetis/informe_anual_2025.txt',
-               'fuentes/zoetis/precio_cotizacion_20261009.csv', 'empresas/Nike/fase1_v63.json']
+    ALLOWED = [D + 'datos_v63.md', D + 'datos_v63.json', D + 'fase1_v63.json', D + 'extracto_v63.md',
+               D + 'fuentes/informe_anual_2025.txt', D + 'fuentes/10-K/2025.md', D + 'fuentes/8-K 2026-08-05.txt',
+               D + 'fuentes/precio_cotizacion_20261009.csv', D + 'historia/historia_revision.md',
+               D + 'registro_entradas/LISTA_ENTRADAS.csv', D + 'registro_entradas/verificacion_entradas.json']
 
     def test_forbidden_paths_rejected(self):
         for path in self.FORBIDDEN:
             with self.subTest(path=path), self.assertRaisesRegex(pilot.PilotError, 'RUTA_'):
-                da.check_path(path)
+                da.check_path(path, 'zoetis')
 
     def test_data_paths_allowed(self):
         for path in self.ALLOWED:
             with self.subTest(path=path):
-                self.assertEqual(da.check_path(path), path)
+                self.assertEqual(da.check_path(path, 'zoetis'), path)
+
+
+RUBRICA = '# Rúbrica del examen\n' + '\n'.join(
+    f'Línea {i}: el caso se suspende si dice Sí con la cifra {i * 7} sin fuente, '
+    f'y la comparación directa mide veredicto, precio y errores.' for i in range(60))
 
 
 class PackageTests(unittest.TestCase):
@@ -306,6 +341,12 @@ class PackageTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory(); self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         self.git('init', '-q'); self.git('config', 'user.email', 't@t'); self.git('config', 'user.name', 't')
+        # Material ciego presente en el repositorio (como en coordinacion/cierre-v2).
+        self.blind = {'coordinacion/cierre_v2/examen/RUBRICA_EXAMEN.md': RUBRICA.encode(),
+                      'coordinacion/cierre_v2/examen/ahold/LISTA_ENTRADAS.csv': b'celda,id\nC37,precio\n',
+                      'coordinacion/cierre_v2/traspaso/r/relevo_copia_base/13_verificacion.md':
+                          ('Paso 13 del personaje. Salida esperada: auditoria.md. ' * 20).encode()}
+        self.commit(self.blind)
 
     def git(self, *args):
         return subprocess.run(['git', *args], cwd=self.root, check=True, capture_output=True).stdout.decode().strip()
@@ -318,7 +359,7 @@ class PackageTests(unittest.TestCase):
             m = self.root / 'automation/direct_analysis/paquetes/zoetis_t1.json'
             m.parent.mkdir(parents=True, exist_ok=True)
             m.write_text(json.dumps(manifest, ensure_ascii=False))
-        self.git('add', '-A'); self.git('commit', '-qm', 'x')
+        self.git('add', '-A'); self.git('commit', '-qm', 'x', '--allow-empty')
         return self.git('rev-parse', 'HEAD')
 
     def manifest(self, files, **over):
@@ -332,7 +373,8 @@ class PackageTests(unittest.TestCase):
         return da.load_package(self.root, sha, 'automation/direct_analysis/paquetes/zoetis_t1.json', empresa)
 
     def test_valid_package_with_hashes(self):
-        files = {'datos/registro.json': '{"ventas": 100}'.encode(), 'datos/extracto.md': 'Año 2025 ñ'.encode()}
+        files = {D + 'registro_entradas/registro.json': '{"ventas": 100}'.encode(),
+                 D + 'extracto_v63.md': 'Año 2025 ñ'.encode()}
         sha = self.commit(files, self.manifest(files))
         p = self.load(sha)
         self.assertEqual([s['text'] for s in p['sources']], ['{"ventas": 100}', 'Año 2025 ñ'])
@@ -342,26 +384,62 @@ class PackageTests(unittest.TestCase):
         self.assertEqual(b1['package_sha256'], b2['package_sha256'])  # huella estable entre ejecuciones
 
     def test_pinned_commit_from_another_branch(self):
-        files = {'datos/registro.json': b'v1'}
+        files = {D + 'fuentes/registro.md': b'v1'}
         old = self.commit(files)
-        (self.root / 'datos/registro.json').write_bytes(b'v2')
+        (self.root / D / 'fuentes/registro.md').write_bytes(b'v2')
         m = self.manifest(files); m['archivos'][0]['commit'] = old
         sha = self.commit({}, m)
         self.assertEqual(self.load(sha)['sources'][0]['text'], 'v1')
 
+    def test_registry_copy_from_examen_allowed_only_in_registro(self):
+        raw = self.blind['coordinacion/cierre_v2/examen/ahold/LISTA_ENTRADAS.csv']
+        ok = {D + 'registro_entradas/LISTA_ENTRADAS.csv': raw}
+        self.assertEqual(self.load(self.commit(ok, self.manifest(ok)))['sources'][0]['text'], raw.decode())
+        bad = {D + 'fuentes/lista.csv': raw}
+        with self.assertRaisesRegex(pilot.PilotError, 'COPIA_DE_MATERIAL_CIEGO'):
+            self.load(self.commit(bad, self.manifest(bad)))
+
+    def test_blind_material_copied_or_retouched_rejected(self):
+        clean = '\n'.join(l for l in RUBRICA.splitlines() if 'rúbrica' not in l.lower())  # sin la marca
+        prompt = self.blind['coordinacion/cierre_v2/traspaso/r/relevo_copia_base/13_verificacion.md']
+        cases = [
+            ('COPIA_DE_MATERIAL_CIEGO', {D + 'fuentes/notas.md': RUBRICA.encode()}),
+            ('COPIA_DE_MATERIAL_CIEGO', {D + 'historia/paso.md': prompt}),
+            ('SOLAPE_CON_MATERIAL_CIEGO', {D + 'fuentes/notas.md': clean.encode()}),
+            ('SOLAPE_CON_MATERIAL_CIEGO', {D + 'fuentes/notas.md': clean.replace(' ', '  ').encode()}),
+            ('SOLAPE_CON_MATERIAL_CIEGO', {D + 'fuentes/notas.md': ('Prefacio. ' + clean[500:3000]).encode()}),
+            ('CONTENIDO_PROHIBIDO', {D + 'fuentes/notas.md': 'Copia de la rú​brica'.encode()}),
+            ('CONTENIDO_PROHIBIDO', {D + 'fuentes/notas.md': 'según el informe  crítico'.encode()}),
+            ('CONTENIDO_PROHIBIDO', {D + 'fuentes/notas.md': 'ver INFORME-CRITICO'.encode()}),
+        ]
+        for code, files in cases:
+            sha = self.commit(files, self.manifest(files))
+            with self.subTest(code=code, text=list(files.values())[0][:30]), self.assertRaisesRegex(pilot.PilotError, code):
+                self.load(sha)
+
+    def test_blind_material_seen_in_other_refs(self):
+        # La rúbrica solo existe en otra rama: también cuenta.
+        self.git('checkout', '-q', '-b', 'otra')
+        self.git('checkout', '-q', '--orphan', 'limpia'); self.git('rm', '-rqf', '.')
+        files = {D + 'fuentes/notas.md': RUBRICA.encode()}
+        sha = self.commit(files, self.manifest(files))
+        with self.assertRaisesRegex(pilot.PilotError, 'COPIA_DE_MATERIAL_CIEGO'):
+            self.load(sha)
+
     def test_rejections(self):
-        good = {'datos/registro.json': b'ok'}
+        good = {D + 'fuentes/registro.md': b'ok'}
         cases = [
             ('HUELLA_DISTINTA', good, lambda m: m['archivos'][0].update(sha256='0' * 64)),
             ('PAQUETE_SIN_HUELLA', good, lambda m: m['archivos'][0].pop('sha256')),
             ('MANIFIESTO_DE_OTRA_EMPRESA', good, lambda m: m.update(empresa='ahold')),
             ('FECHA_CORTE_INVALIDA', good, lambda m: m.update(fecha_corte='9-oct-2026')),
             ('MANIFIESTO_INVALIDO', good, lambda m: m.update(tasa='7 %')),
-            ('RUTA_PROHIBIDA', {'coordinacion/examen/a.md': b'x'}, None),
-            ('RUTA_PROHIBIDA', {'datos/fase_a.json': b'x'}, None),
-            ('ARCHIVO_NO_ES_TEXTO', {'datos/hoja.xlsx': b'PK\x03\x04\x00\x00'}, None),
-            ('ARCHIVO_NO_ES_TEXTO', {'datos/latin1.txt': 'año'.encode('latin-1')}, None),
-            ('CONTENIDO_PROHIBIDO', {'datos/copia.md': 'Copia de la RÚBRICA del examen'.encode()}, None),
+            ('TEXTO_DEL_MANIFIESTO_INVALIDO', good, lambda m: m['archivos'][0].update(descripcion='Copia del examen')),
+            ('TEXTO_DEL_MANIFIESTO_INVALIDO', good, lambda m: m.update(caso='Munger V2, Zoetis')),
+            ('RUTA_FUERA_DE_LOS_DATOS', {'coordinacion/examen/a.md': b'x'}, None),
+            ('RUTA_PROHIBIDA', {D + 'fuentes/fase_a.json': b'x'}, None),
+            ('ARCHIVO_NO_ES_TEXTO', {D + 'fuentes/hoja.json': b'PK\x03\x04\x00\x00'}, None),
+            ('ARCHIVO_NO_ES_TEXTO', {D + 'fuentes/latin1.txt': 'año'.encode('latin-1')}, None),
             ('ID_ARCHIVO_INVALIDO', good, lambda m: m['archivos'].append(dict(m['archivos'][0]))),
             ('COMMIT_O_ARCHIVO_NO_ENCONTRADO', good, lambda m: m['archivos'][0].update(commit='f' * 40)),
             ('COMMIT_NO_FIJADO', good, lambda m: m['archivos'][0].update(commit='main')),
@@ -375,10 +453,10 @@ class PackageTests(unittest.TestCase):
                 self.load(sha)
 
     def test_symlink_rejected(self):
-        (self.root / 'datos').mkdir()
-        (self.root / 'datos/real.md').write_text('ok')
-        (self.root / 'datos/enlace.md').symlink_to('real.md')
-        m = self.manifest({'datos/enlace.md': b'real.md'})
+        (self.root / D / 'fuentes').mkdir(parents=True)
+        (self.root / D / 'fuentes/real.md').write_text('ok')
+        (self.root / D / 'fuentes/enlace.md').symlink_to('real.md')
+        m = self.manifest({D + 'fuentes/enlace.md': b'real.md'})
         sha = self.commit({}, m)
         with self.assertRaisesRegex(pilot.PilotError, 'NO_ES_ARCHIVO_REGULAR'):
             self.load(sha)
@@ -391,21 +469,66 @@ class PackageTests(unittest.TestCase):
                 da.load_package(self.root, sha, path, 'zoetis')
 
 
-class PrecioSiTests(unittest.TestCase):
-    def test_k3_rule(self):
-        self.assertAlmostEqual(da.precio_si_k3([60, 100, 130], [0.2, 0.6, 0.2]), 122 / 1.4, 6)
-        self.assertAlmostEqual(da.precio_si_k3([50, 50, 50], [0.2, 0.6, 0.2]), 50)
-        self.assertIsNone(da.precio_si_k3([None, 100, 130], [0.2, 0.6, 0.2]))
-        self.assertIsNone(da.precio_si_k3([60, 100, 130], [0.5, 0.6, 0.2]))
+class EscaleraTests(unittest.TestCase):
+    # Anexo C §C.5 (k = 3): V, p, P*, ponderado, precio de Sí = mín(P*, V_N), precio esc. MALO.
+    ANEXO_C = [
+        ((60, 100, 150), (0.25, 0.50, 0.25), 88.3333, 102.5, 88.3333, 60),
+        ((90, 100, 160), (0.2, 0.6, 0.2), 102.3077, 110, 100, 90),
+        ((100, 100, 100), (0.2, 0.6, 0.2), 100, 100, 100, 100),
+        ((-20, 80, 200), (0.2, 0.6, 0.2), 54.2857, 84, 54.2857, None),
+        ((40, 70, 300), (0.3, 0.5, 0.2), 77.3077, 107, 70, 40),
+    ]
 
-    def test_schema_validator(self):
+    def test_anexo_c_cases(self):
+        for values, probs, p_star, pond, si, malo in self.ANEXO_C:
+            with self.subTest(values=values):
+                e = da.escalera(list(values), list(probs))
+                self.assertAlmostEqual(e['p_estrella'], p_star, 4)
+                self.assertAlmostEqual(e['ponderado'], pond, 6)
+                self.assertAlmostEqual(e['precio_si'], si, 4)
+                self.assertEqual(e['precio_escenario_malo'], malo)
+                G = sum(p * max(v - e['p_estrella'], 0) for v, p in zip(values, probs))
+                L = sum(p * max(e['p_estrella'] - v, 0) for v, p in zip(values, probs))
+                self.assertLess(abs(G - 3 * L), 1e-9)
+
+    def test_anexo_c_refusals_and_zone(self):
+        self.assertEqual(da.escalera([100, 90, 160], [0.2, 0.6, 0.2]), {'error': 'valores_desordenados'})
+        self.assertIsNone(da.escalera([60, 100, 130], [0.5, 0.6, 0.2]))
+        e = da.escalera([90, 100, 160], [0.2, 0.6, 0.2])
+        self.assertEqual([da.zona(p, e) for p in (80, 95, 105, 120)], ['bajo_malo', 'cumple_regla_k', 'vigilar', 'caro'])
+        e4 = da.escalera([-20, 80, 200], [0.2, 0.6, 0.2])
+        self.assertEqual(da.zona(-30, e4), 'cumple_regla_k')  # sin precio del escenario malo
+
+    def test_correct_cap_at_normal_gives_no_warning(self):
+        # Caso 2 del Anexo C: la respuesta correcta (100, tope NORMAL) no se castiga.
+        doc = analysis(escenarios={k: {'disponible': True, 'valor_por_accion': v, 'probabilidad': p,
+                                       'supuestos_y_cifras': 's'}
+                                   for k, v, p in (('malo', 90, 0.2), ('normal', 100, 0.6), ('bueno', 160, 0.2))})
+        doc['escalera'].update(precio_escenario_malo=90, p_estrella=102.3077, precio_si=100, ponderado=110, zona='bajo_malo')
+        doc['precio_actual']['valor'] = 85
+        for t in da.TASAS:
+            doc['sensibilidad_tasa'][t]['precio_si'] = 100
+        checks = da.mechanical_checks(doc, bundle())
+        self.assertEqual(checks['avisos'], [])
+        doc['escalera']['precio_si'] = 102.3077  # P* sin tope: aviso
+        self.assertTrue(any('precio_si' in n for n in da.mechanical_checks(doc, bundle())['avisos']))
+
+    def test_schema_validator_and_api_limits(self):
         da.check_schema(analysis(), da.SCHEMA)
         for change in (lambda d: d.pop('citas'), lambda d: d.update(extra=1), lambda d: d.update(estado='hecho'),
-                       lambda d: d['precio_si'].update(valor='87'), lambda d: d['precio_si'].update(valor=True),
-                       lambda d: d['precio_si'].update(valor=float('inf'))):
+                       lambda d: d['escalera'].update(precio_si='87'), lambda d: d['escalera'].update(precio_si=True),
+                       lambda d: d['escalera'].update(precio_si=float('inf')),
+                       lambda d: d['escalera'].update(precio_si=None)):
             d = analysis(); change(d)
             with self.assertRaisesRegex(pilot.PilotError, 'ESQUEMA_INVALIDO'):
                 da.check_schema(d, da.SCHEMA)
+        dumped = json.dumps(da.SCHEMA, ensure_ascii=False)
+        self.assertEqual(dumped.count('anyOf'), 0)  # límite de la API: 16 parámetros con unión
+        for word in ('razonamiento', 'razonada', 'pensamiento', 'paso a paso'):
+            self.assertNotIn(word, dumped)
+            self.assertNotIn(word, ENCARGO.lower())
+        for values in (da.CUBOS, da.ESTADOS, da.ACCIONES, da.ZONAS):
+            self.assertTrue(all(v == v.lower() and ' ' not in v for v in values))
 
 
 try:

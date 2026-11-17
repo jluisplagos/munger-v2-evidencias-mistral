@@ -37,17 +37,21 @@ class WorkflowTests(unittest.TestCase):
         self.workflows = load()
 
     def test_m6_inference_jobs_never_on_push_and_always_gated(self):
-        gated = 0
+        gated = set()
         for name, (doc, triggers) in self.workflows.items():
             for job_name, job in doc['jobs'].items():
                 if secrets(job) & set(INFERENCE_SECRETS):
-                    gated += 1
+                    gated.add((name, job_name))
                     with self.subTest(workflow=name, job=job_name):
                         self.assertEqual(triggers, ['workflow_dispatch'])
                         env = job.get('environment')
                         self.assertEqual(env['name'] if isinstance(env, dict) else env, GATE)
-        # 7: + job «analisis» de analisis-directo.yml (inventario; cada alta se revisa).
-        self.assertEqual(gated, 7)
+        # Inventario por nombre: cada alta de un job con secretos se revisa.
+        self.assertEqual(gated, {
+            ('analisis-directo.yml', 'analisis'), ('claude-critical-review.yml', 'review'),
+            ('piloto-claude-api.yml', 'pilot'), ('qwen-bank-mistral-groups.yml', 'mistral'),
+            ('qwen-bank-mistral-groups.yml', 'claude'), ('qwen-bank-mistral-review.yml', 'review'),
+            ('vibe-auth.yml', 'connection')})
 
     def test_m6_push_only_for_jobs_without_secrets(self):
         for name, (doc, triggers) in self.workflows.items():
@@ -99,7 +103,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(secrets(doc['jobs']['readiness']), set())
 
     def test_m5_review_job_timeout_leaves_room_for_publication(self):
-        for name in ('claude-critical-review.yml', 'qwen-bank-mistral-groups.yml'):
+        for name in ('claude-critical-review.yml', 'qwen-bank-mistral-groups.yml', 'analisis-directo.yml'):
             doc, _ = self.workflows[name]
             for job in doc['jobs'].values():
                 if 'ANTHROPIC_API_KEY' in secrets(job):

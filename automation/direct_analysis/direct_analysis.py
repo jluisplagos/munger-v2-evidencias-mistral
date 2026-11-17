@@ -50,19 +50,34 @@ TASA = '9 %'
 PROBABILIDADES = {'malo': '0,2', 'normal': '0,6', 'bueno': '0,2'}
 OK_STATES = ('PREPARADO_SIN_API', 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
 
-# --- Rutas prohibidas en el paquete (se comparan sin tildes y en minúsculas) ---------
-FORBIDDEN_SEGMENTS = {'examen', 'automation', '.github', 'resultados_qwen', 'prompts_generados',
-                      'revisiones_coordinador', 'revision_externa'}
-FORBIDDEN_SUBSTRINGS = ('rubrica', 'critic', 'informe_critico', 'informe-critico', 'lectura_informe',
-                        'contradictor', 'mecanismo_personaje', 'prompt', 'analisis_directo',
-                        'analisis-directo', 'veredicto', 'dictamen', 'respuesta', 'salida')
-# Salidas del personaje por nombre de archivo (sin extensión).
-FORBIDDEN_STEMS = re.compile(
-    r'(^|[_.-])fases?_?[abc]([_.-]|$)|^celdas_?[abc]([_.-]|$)|^citas_fase|^esquema_fase'
-    r'|^(informe|precio)(_v\d+)?$|^(ficha|gramatica|diagnostico|estado_pipeline|auditoria)')
-# Marcas de contenido que delatan la rúbrica o el informe crítico copiados con otro nombre.
-FORBIDDEN_CONTENT = ('rubrica', 'informe critico', 'informe_critico')
+
+# --- Ceguera (revisión H3): lista blanca de raíces + listas negras + huellas + solape ---
+# Única raíz admitida para los datos del paquete: datos_analisis_directo/<empresa>/...
+DATA_ROOT = 'datos_analisis_directo'
+FIXED_DATA = {'datos_v63.md', 'datos_v63.json', 'fase1_v63.json', 'extracto_v63.md'}
+DATA_DIRS = ('fuentes', 'historia', 'registro_entradas')
+DATA_FILE = re.compile(r'(?:%s)/(?:[\w. -]+/)*[\w. -]+\.(?:txt|md|csv|json)' % '|'.join(DATA_DIRS))
+# Segundo filtro (sin tildes, en minúsculas) sobre la parte de la ruta bajo la raíz.
+FORBIDDEN_SEGMENTS = {'examen', 'universo', 'traspaso', 'pruebas_candidata', 'automation', '.github',
+                      'resultados_qwen', 'prompts_generados', 'revisiones_coordinador', 'revision_externa'}
+FORBIDDEN_SUBSTRINGS = ('rubrica', 'critic', 'lectura_informe', 'contradictor', 'mecanismo', 'prompt',
+                        'analisis_directo', 'analisis-directo', 'veredicto', 'dictamen', 'respuesta',
+                        'salida', 'fase', 'phase', 'audit', 'ficha', 'objetivo', 'escalera', 'material',
+                        'solicitud', 'celdas', 'gramatica', 'diagnostico', 'estado_pipeline', 'relevo')
+FORBIDDEN_STEMS = re.compile(r'^(informe|precio)(_v\d+)?$')
+# Fuera de registro_entradas/ tampoco se admite «verificacion» (p. ej. prompts de verificación).
+OUTSIDE_REGISTRY = ('verificacion',)
+# Carpetas cuyo contenido el análisis directo no puede ver, ni copiado ni retocado.
+BLIND_SEGMENTS = {'examen', 'universo', 'traspaso', 'pruebas_candidata'}
+# Únicas copias admitidas de una carpeta ciega: el registro de entradas (REORIENTACION §10),
+# solo bajo registro_entradas/. Tampoco cuentan para el solape (el registro relleno
+# comparte la estructura de su plantilla).
+ALLOWED_COPIES = {'lista_entradas.csv', 'verificacion_entradas.plantilla.json'}
+CONTENT_MARKERS = ('rubrica', 'informecritico')
+META_MARKERS = CONTENT_MARKERS + ('examen', 'munger', 'personaje', 'contradictor')
+OVERLAP_CHARS = 200
 PATH_CHARS = re.compile(r'[\w./ -]+')
+META_CHARS = re.compile(r'[\w.,;:()%/ -]+')
 # Los manifiestos viven en un único sitio conocido; no se envían en bruto al modelo.
 MANIFEST = re.compile(r'automation/direct_analysis/paquetes/[a-z0-9][a-z0-9_-]{0,60}\.json')
 
@@ -71,16 +86,30 @@ def fold(text):
     return ''.join(c for c in unicodedata.normalize('NFKD', text) if not unicodedata.combining(c)).lower()
 
 
-def check_path(path):
-    """Ruta relativa del repo, sin '..', y fuera de lo que el análisis directo no puede ver."""
+def squash(text):
+    """Solo letras y cifras, sin tildes: anula espacios dobles, guiones y caracteres de formato."""
+    return ''.join(c for c in fold(text) if c.isalnum())
+
+
+def check_path(path, empresa):
+    """Ruta bajo datos_analisis_directo/<empresa>/ y de una clase de datos declarada."""
     if (not isinstance(path, str) or not path or len(path) > 300 or not PATH_CHARS.fullmatch(path)
             or PurePosixPath(path).is_absolute() or any(x in ('', '.', '..') for x in path.split('/'))):
         raise pilot.PilotError('RUTA_INVALIDA')
-    folded = fold(path)
+    prefix = f'{DATA_ROOT}/{empresa}/'
+    if not path.startswith(prefix):
+        raise pilot.PilotError('RUTA_FUERA_DE_LOS_DATOS_DECLARADOS')
+    rel = path[len(prefix):]
+    if rel in FIXED_DATA:
+        return path
+    if not DATA_FILE.fullmatch(rel):
+        raise pilot.PilotError('RUTA_FUERA_DE_LOS_DATOS_DECLARADOS')
+    folded = fold(rel)
     parts = folded.split('/')
     stem = parts[-1].split('.')[0]
-    if (set(parts[:-1]) & FORBIDDEN_SEGMENTS or parts[0] in FORBIDDEN_SEGMENTS
-            or any(s in folded for s in FORBIDDEN_SUBSTRINGS) or FORBIDDEN_STEMS.search(stem)):
+    if (set(parts) & FORBIDDEN_SEGMENTS or any(s in folded for s in FORBIDDEN_SUBSTRINGS)
+            or FORBIDDEN_STEMS.search(stem)
+            or (parts[0] != 'registro_entradas' and any(s in folded for s in OUTSIDE_REGISTRY))):
         raise pilot.PilotError('RUTA_PROHIBIDA_EN_EL_PAQUETE')
     return path
 
@@ -123,9 +152,49 @@ def read_blob(root, commit, path):
     if b'\0' in raw:
         raise pilot.PilotError('ARCHIVO_NO_ES_TEXTO')
     try:
-        return raw, raw.decode('utf-8')
+        return fields[2].decode(), raw, raw.decode('utf-8')
     except UnicodeDecodeError:
         raise pilot.PilotError('ARCHIVO_NO_ES_TEXTO') from None
+
+
+def blind_material(root, commits):
+    """Blobs bajo carpetas ciegas en el código, en cada commit declarado y en todas las refs.
+
+    Devuelve {blob: ruta} para rechazar copias exactas y los fragmentos normalizados de
+    OVERLAP_CHARS caracteres de esos textos para rechazar copias retocadas.
+    """
+    refs = git(root, 'for-each-ref', '--format=%(objectname)', 'refs/heads', 'refs/remotes').decode().split()
+    blobs = {}
+    for commit in dict.fromkeys(list(commits) + refs):
+        for entry in git(root, 'ls-tree', '-r', '-z', commit).split(b'\0'):
+            meta, _, name = entry.partition(b'\t')
+            fields = meta.split()
+            path = name.decode('utf-8', 'replace')
+            if len(fields) == 3 and fields[1] == b'blob' and set(fold(path).split('/')[:-1]) & BLIND_SEGMENTS:
+                blobs.setdefault(fields[2].decode(), path)
+    chunks = {}
+    for blob, path in blobs.items():
+        if fold(PurePosixPath(path).name) in ALLOWED_COPIES:
+            continue
+        if int(git(root, 'cat-file', '-s', blob)) > MAX_FILE_BYTES:
+            continue
+        try:
+            text = squash(git(root, 'cat-file', 'blob', blob).decode('utf-8'))
+        except UnicodeDecodeError:
+            continue  # binarios: solo cuentan por su huella exacta
+        for i in range(0, len(text) - OVERLAP_CHARS + 1, OVERLAP_CHARS):
+            chunks.setdefault(text[i:i + OVERLAP_CHARS], path)
+    return blobs, chunks
+
+
+def overlap(text, chunks):
+    """Ruta ciega de la que el texto copia al menos 2·OVERLAP_CHARS caracteres seguidos."""
+    s = squash(text)
+    for i in range(len(s) - OVERLAP_CHARS + 1):
+        hit = chunks.get(s[i:i + OVERLAP_CHARS])
+        if hit is not None:
+            return hit
+    return None
 
 
 def _slug(value, code):
@@ -134,12 +203,19 @@ def _slug(value, code):
     return value
 
 
+def _meta_text(value, limit):
+    if (not isinstance(value, str) or not 1 <= len(value) <= limit or not META_CHARS.fullmatch(value)
+            or any(m in squash(value) for m in META_MARKERS)):
+        raise pilot.PilotError('TEXTO_DEL_MANIFIESTO_INVALIDO')
+    return value
+
+
 def load_package(root, code_sha, manifest_path, empresa):
     """Lee el manifiesto versionado y cada archivo declarado, con su huella."""
     _slug(empresa, 'EMPRESA_INVALIDA')
     if not isinstance(manifest_path, str) or not MANIFEST.fullmatch(manifest_path):
         raise pilot.PilotError('MANIFIESTO_FUERA_DE_PAQUETES')
-    raw_manifest, text = read_blob(root, code_sha, manifest_path)
+    _, raw_manifest, text = read_blob(root, code_sha, manifest_path)
     try:
         m = json.loads(text)
     except ValueError:
@@ -148,8 +224,7 @@ def load_package(root, code_sha, manifest_path, empresa):
         raise pilot.PilotError('MANIFIESTO_INVALIDO')
     if _slug(m['empresa'], 'MANIFIESTO_INVALIDO') != empresa:
         raise pilot.PilotError('MANIFIESTO_DE_OTRA_EMPRESA')
-    if not isinstance(m['caso'], str) or not 1 <= len(m['caso']) <= 100 or not PATH_CHARS.fullmatch(m['caso']):
-        raise pilot.PilotError('MANIFIESTO_INVALIDO')
+    _meta_text(m['caso'], 100)
     try:
         datetime.date.fromisoformat(m['fecha_corte'])
         if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', m['fecha_corte']):
@@ -159,7 +234,7 @@ def load_package(root, code_sha, manifest_path, empresa):
     files = m['archivos']
     if not isinstance(files, list) or not 1 <= len(files) <= MAX_FILES:
         raise pilot.PilotError('MANIFIESTO_INVALIDO')
-    sources, ids = [], set()
+    declared, ids = [], set()
     for f in files:
         if isinstance(f, dict) and 'sha256' not in f:
             raise pilot.PilotError('PAQUETE_SIN_HUELLA_DECLARADA')
@@ -169,18 +244,27 @@ def load_package(root, code_sha, manifest_path, empresa):
         if not isinstance(f['id'], str) or not re.fullmatch(r'[a-z][a-z0-9_]{0,40}', f['id']) or f['id'] in ids:
             raise pilot.PilotError('ID_ARCHIVO_INVALIDO')
         ids.add(f['id'])
-        if not isinstance(f['descripcion'], str) or not 1 <= len(f['descripcion']) <= 300:
-            raise pilot.PilotError('ARCHIVO_DECLARADO_INVALIDO')
+        _meta_text(f['descripcion'], 300)
         if not isinstance(f['sha256'], str) or not re.fullmatch(r'[0-9a-f]{64}', f['sha256']):
             raise pilot.PilotError('PAQUETE_SIN_HUELLA_DECLARADA')
         commit = f.get('commit', code_sha)
         if not isinstance(commit, str):
             raise pilot.PilotError('COMMIT_NO_FIJADO')
-        raw, body = read_blob(root, commit, check_path(f['ruta']))
+        check_path(f['ruta'], empresa)
+        declared.append((f, commit, read_blob(root, commit, f['ruta'])))
+    blobs, chunks = blind_material(root, [code_sha] + [c for _, c, _ in declared])
+    sources = []
+    for f, commit, (blob, raw, body) in declared:
         if pilot.digest(raw) != f['sha256']:
             raise pilot.PilotError('HUELLA_DISTINTA_DE_LA_DECLARADA')
-        if any(marker in fold(body) for marker in FORBIDDEN_CONTENT):
+        if blob in blobs and not (fold(PurePosixPath(blobs[blob]).name) in ALLOWED_COPIES
+                                  and f['ruta'].startswith(f'{DATA_ROOT}/{empresa}/registro_entradas/')):
+            raise pilot.PilotError('COPIA_DE_MATERIAL_CIEGO:' + blobs[blob])
+        if any(marker in squash(body) for marker in CONTENT_MARKERS):
             raise pilot.PilotError('CONTENIDO_PROHIBIDO_EN_EL_PAQUETE')
+        hit = overlap(body, chunks)
+        if hit is not None:
+            raise pilot.PilotError('SOLAPE_CON_MATERIAL_CIEGO:' + hit)
         sources.append({'id': f['id'], 'path': f['ruta'], 'commit': commit, 'sha256': f['sha256'],
                         'bytes': len(raw), 'descripcion': f['descripcion'], 'text': body})
     return {'empresa': empresa, 'caso': m['caso'], 'fecha_corte': m['fecha_corte'],
@@ -190,58 +274,87 @@ def load_package(root, code_sha, manifest_path, empresa):
 
 
 def build_bundle(package, encargo, task_id, code_sha):
-    """La huella del paquete no depende del SHA del código ni de la tarea."""
+    """La huella del paquete no depende del SHA del código ni de la tarea.
+
+    No se envía el nombre del repositorio (revisión H3.5); queda en el registro.
+    """
     package = {**package, 'encargo_sha256': pilot.digest(encargo.encode('utf-8'))}
     return {**package, 'package_sha256': pilot.digest(pilot.canonical(package)),
-            'task_id': task_id, 'repository': pilot.REPO, 'code_sha': code_sha}
+            'task_id': task_id, 'code_sha': code_sha}
 
 
-# --- Esquema de salida --------------------------------------------------------------
+# --- Esquema de salida (revisión H2, H4, H5) -----------------------------------------
+# Sin anyOf: cada cifra es obligatoria y lleva su indicador `disponible` (límite de la API:
+# 16 parámetros con unión). Enumeraciones sin espacios ni mayúsculas. Ningún campo pide
+# «razonamiento»: solo explicaciones breves de supuestos y cifras.
 STR = {'type': 'string'}
-NUM_NULL = {'anyOf': [{'type': 'number'}, {'type': 'null'}]}
-BOOL_NULL = {'anyOf': [{'type': 'boolean'}, {'type': 'null'}]}
+NUM = {'type': 'number'}
+BOOL = {'type': 'boolean'}
 ESTADOS = ['concluido', 'pendiente_de_investigacion', 'pendiente_de_datos', 'modelo_no_aplicable', 'no_entregable']
-CUBOS = ['Sí', 'Vigilar', 'No', 'Demasiado difícil']
+CUBOS = ['si', 'vigilar', 'no', 'demasiado_dificil']
+CUBO_TEXTO = {'si': 'Sí', 'vigilar': 'Vigilar', 'no': 'No', 'demasiado_dificil': 'Demasiado difícil'}
 ACCIONES = ['comprar', 'esperar', 'descartar', 'demasiado_dificil', 'ninguna']
+ZONAS = ['bajo_malo', 'cumple_regla_k', 'vigilar', 'caro', 'sin_zona']
 TASAS = ('tasa_7', 'tasa_8', 'tasa_9', 'tasa_10', 'tasa_11')
+ESCENARIOS = ('malo', 'normal', 'bueno')
 
 
 def _obj(props):
     return {'type': 'object', 'additionalProperties': False, 'properties': props, 'required': list(props)}
 
 
-_ESC = _obj({'valor_por_accion': NUM_NULL, 'probabilidad': {'type': 'number'}, 'razonamiento': STR})
-_TASA = _obj({'precio_si': NUM_NULL, 'precio_actual_por_debajo': BOOL_NULL, 'comentario': STR})
+def _enum(values):
+    return {'type': 'string', 'enum': values}
+
+
+_ESC = _obj({'disponible': BOOL, 'valor_por_accion': NUM, 'probabilidad': NUM, 'supuestos_y_cifras': STR})
+_TASA = _obj({'disponible': BOOL, 'precio_si': NUM, 'ponderado': NUM, 'zona': _enum(ZONAS), 'comentario': STR})
 SCHEMA = _obj({
     'resumen': STR,
-    'estado': {'type': 'string', 'enum': ESTADOS},
-    'cubo': {'type': 'string', 'enum': CUBOS},
-    'accion': {'type': 'string', 'enum': ACCIONES},
+    'estado': _enum(ESTADOS),
+    'cubo': _enum(CUBOS),
+    'accion': _enum(ACCIONES),
     'moneda': STR,
-    'precio_actual': _obj({'valor': NUM_NULL, 'fecha': STR, 'archivo_id': STR}),
-    'escenarios': _obj({'malo': _ESC, 'normal': _ESC, 'bueno': _ESC}),
-    'probabilidades_justificacion': STR,
-    'precio_si': _obj({'valor': NUM_NULL, 'calculo': STR}),
+    'precio_actual': _obj({'disponible': BOOL, 'valor': NUM, 'fecha': STR, 'archivo_id': STR}),
+    'escenarios': _obj({k: _ESC for k in ESCENARIOS}),
+    'motivo_probabilidades': STR,
+    'escalera': _obj({'disponible': BOOL, 'precio_escenario_malo_disponible': BOOL, 'precio_escenario_malo': NUM,
+                      'p_estrella': NUM, 'precio_si': NUM, 'ponderado': NUM, 'zona': _enum(ZONAS),
+                      'formula_aplicada': STR}),
+    'crecimiento_implicito': _obj({'disponible': BOOL, 'al_precio_actual_pct': NUM,
+                                   'del_escenario_normal_pct': NUM, 'explicacion_breve': STR}),
     'sensibilidad_tasa': _obj({t: _TASA for t in TASAS}),
-    'conclusion_razonada': STR,
+    'justificacion_breve': STR,
     'que_la_haria_falsa': {'type': 'array', 'items': STR},
     'lo_que_no_se': {'type': 'array', 'items': STR},
     'citas': {'type': 'array', 'items': _obj({'archivo_id': STR, 'cita': STR, 'sostiene': STR})},
 })
 
 
+def _canon(text):
+    return re.sub(r'[\s-]+', '_', fold(text).strip())
+
+
+def normalize_enums(value, schema, notes, where='$'):
+    """La API no garantiza mayúsculas en los enum: se canoniza y se registra el original."""
+    if isinstance(value, str) and 'enum' in schema and value not in schema['enum']:
+        match = {_canon(e): e for e in schema['enum']}.get(_canon(value))
+        if match is not None:
+            notes.append({'campo': where, 'original': value, 'canonico': match})
+            return match
+    if isinstance(value, dict) and schema.get('type') == 'object':
+        return {k: normalize_enums(v, schema['properties'][k], notes, f'{where}.{k}')
+                if k in schema['properties'] else v for k, v in value.items()}
+    if isinstance(value, list) and schema.get('type') == 'array':
+        return [normalize_enums(v, schema['items'], notes, f'{where}[{i}]') for i, v in enumerate(value)]
+    return value
+
+
 def check_schema(value, schema, where='$'):
     """Validador del subconjunto de JSON Schema usado arriba; no confía en el proveedor."""
-    if 'anyOf' in schema:
-        for option in schema['anyOf']:
-            try:
-                return check_schema(value, option, where)
-            except pilot.PilotError:
-                pass
-        raise pilot.PilotError('ESQUEMA_INVALIDO:' + where)
     kind = schema['type']
     ok = {'object': isinstance(value, dict), 'array': isinstance(value, list),
-          'string': isinstance(value, str), 'boolean': isinstance(value, bool), 'null': value is None,
+          'string': isinstance(value, str), 'boolean': isinstance(value, bool),
           'number': isinstance(value, (int, float)) and not isinstance(value, bool)
           and math.isfinite(value)}[kind]
     if not ok or ('enum' in schema and value not in schema['enum']):
@@ -257,45 +370,86 @@ def check_schema(value, schema, where='$'):
     return value
 
 
-def precio_si_k3(values, probs, k=3):
-    """Mayor P con sum p·max(V−P,0) ≥ k·sum p·max(P−V,0). Cálculo de control, informativo."""
-    if any(v is None for v in values) or any(p < 0 for p in probs) or abs(sum(probs) - 1) > 1e-6:
+def escalera(values, probs, k=3):
+    """Anexo C (§C.2–C.4), forma cerrada. Lectura aritmética de control, no decide nada.
+
+    Devuelve None si faltan valores o las probabilidades no suman 1, y
+    {'error': 'valores_desordenados'} si no se cumple malo <= normal <= bueno.
+    """
+    if len(values) != 3 or any(isinstance(v, bool) or not isinstance(v, (int, float)) for v in values + probs):
         return None
-    lo, hi = min(values), max(values)
-    gain = lambda P: sum(p * max(v - P, 0) for v, p in zip(values, probs))  # noqa: E731
-    loss = lambda P: sum(p * max(P - v, 0) for v, p in zip(values, probs))  # noqa: E731
-    for _ in range(200):
-        mid = (lo + hi) / 2
-        lo, hi = (mid, hi) if gain(mid) >= k * loss(mid) else (lo, mid)
-    return lo
+    if any(p < 0 for p in probs) or abs(sum(probs) - 1) > 1e-3:
+        return None
+    if not values[0] <= values[1] <= values[2]:
+        return {'error': 'valores_desordenados'}
+    s = sorted(zip(values, probs))
+    p_star = None
+    for j in (1, 2):
+        low, high = s[:j], s[j:]
+        num = sum(p * v for v, p in high) + k * sum(p * v for v, p in low)
+        den = sum(p for _, p in high) + k * sum(p for _, p in low)
+        P = num / den
+        if s[j - 1][0] - 1e-12 <= P <= s[j][0] + 1e-12:
+            p_star = P
+            break
+    return {'p_estrella': p_star, 'precio_si': min(p_star, values[1]),
+            'ponderado': sum(p * v for v, p in zip(values, probs)),
+            'precio_escenario_malo': values[0] if values[0] > 0 else None}
+
+
+def zona(precio, e):
+    """Anexo C §C.4.4. La zona no es la conclusión."""
+    if e['precio_escenario_malo'] is not None and precio <= e['precio_escenario_malo']:
+        return 'bajo_malo'
+    if precio <= e['precio_si']:
+        return 'cumple_regla_k'
+    return 'vigilar' if precio <= e['ponderado'] else 'caro'
+
+
+def _far(a, b):
+    return abs(a - b) > 0.01 * max(abs(b), 1e-9)
 
 
 def mechanical_checks(doc, bundle):
     """Avisos para la revisión humana; no aceptan ni rechazan el análisis."""
     notes = []
-    esc = [doc['escenarios'][k] for k in ('malo', 'normal', 'bueno')]
+    esc = [doc['escenarios'][k] for k in ESCENARIOS]
     probs = [e['probabilidad'] for e in esc]
-    if abs(sum(probs) - 1) > 1e-6:
+    if abs(sum(probs) - 1) > 1e-3:
         notes.append('Las probabilidades no suman 1.')
-    if probs != [0.2, 0.6, 0.2] and not doc['probabilidades_justificacion'].strip():
-        notes.append('Probabilidades distintas de 0,2/0,6/0,2 sin justificación.')
-    recalculated = precio_si_k3([e['valor_por_accion'] for e in esc], probs)
-    declared = doc['precio_si']['valor']
-    if recalculated is not None and declared is not None:
-        if abs(declared - recalculated) > 0.01 * max(abs(recalculated), 1e-9):
-            notes.append('El precio de Sí declarado difiere más de un 1 % del recalculado con sus escenarios.')
-    elif (recalculated is None) != (declared is None):
-        notes.append('Precio de Sí y escenarios no son coherentes (uno falta y el otro no).')
-    if doc['cubo'] == 'Sí' and (doc['estado'] != 'concluido' or doc['accion'] != 'comprar'):
+    if probs != [0.2, 0.6, 0.2] and not doc['motivo_probabilidades'].strip():
+        notes.append('Probabilidades distintas de 0,2/0,6/0,2 sin motivo.')
+    ladder = doc['escalera']
+    recalculated = None
+    if all(e['disponible'] for e in esc):
+        recalculated = escalera([e['valor_por_accion'] for e in esc], probs)
+        if recalculated and 'error' in recalculated:
+            notes.append('Valores desordenados (malo <= normal <= bueno no se cumple): sin escalera (Anexo C, regla 0).')
+        elif recalculated and not ladder['disponible']:
+            notes.append('Hay tres escenarios pero no se entrega escalera.')
+        elif recalculated:
+            for key in ('p_estrella', 'precio_si', 'ponderado'):
+                if _far(ladder[key], recalculated[key]):
+                    notes.append(f'{key} declarado difiere más de un 1 % del recalculado (Anexo C).')
+            if (recalculated['precio_escenario_malo'] is None) == ladder['precio_escenario_malo_disponible']:
+                notes.append('Disponibilidad del precio del escenario malo incoherente con su valor.')
+            if doc['precio_actual']['disponible'] and ladder['zona'] != zona(doc['precio_actual']['valor'], recalculated):
+                notes.append('La zona declarada no es la que resulta del precio actual y la escalera.')
+            t9 = doc['sensibilidad_tasa']['tasa_9']
+            if t9['disponible'] and _far(t9['precio_si'], recalculated['precio_si']):
+                notes.append('El precio de Sí al 9 % de la sensibilidad no coincide con el de la escalera.')
+    elif ladder['disponible']:
+        notes.append('Escalera entregada sin los tres escenarios disponibles.')
+    if doc['cubo'] == 'si' and (doc['estado'] != 'concluido' or doc['accion'] != 'comprar'):
         notes.append('Cubo «Sí» sin estado concluido y acción comprar.')
     texts = {s['id']: s['text'] for s in bundle['sources']}
     bad = [i for i, c in enumerate(doc['citas']) if c['archivo_id'] not in texts or not c['cita']
            or c['cita'] not in texts[c['archivo_id']]]
     if bad:
         notes.append(f'Citas no literales o de archivo inexistente: {bad}.')
-    if doc['precio_actual']['valor'] is not None and doc['precio_actual']['archivo_id'] not in texts:
+    if doc['precio_actual']['disponible'] and doc['precio_actual']['archivo_id'] not in texts:
         notes.append('El precio actual no remite a un archivo del paquete.')
-    return {'precio_si_recalculado_k3': recalculated, 'citas_total': len(doc['citas']),
+    return {'escalera_recalculada_anexo_c': recalculated, 'citas_total': len(doc['citas']),
             'citas_literales': len(doc['citas']) - len(bad), 'avisos': notes,
             'nota': 'Comprobaciones mecánicas informativas: no acreditan la calidad económica.'}
 
@@ -310,8 +464,9 @@ def validate(response, bundle):
         doc = json.loads(fenced.group(1) if fenced else raw)
     except (ValueError, RecursionError):
         raise pilot.PilotError('JSON_INVALIDO') from None
-    check_schema(doc, SCHEMA)
-    return {'analisis': doc, 'package_sha256': bundle['package_sha256'],
+    notes = []
+    doc = check_schema(normalize_enums(doc, SCHEMA, notes), SCHEMA)
+    return {'analisis': doc, 'package_sha256': bundle['package_sha256'], 'normalizaciones_enum': notes,
             'comprobaciones_mecanicas': mechanical_checks(doc, bundle)}
 
 
@@ -321,8 +476,10 @@ def _block(text):
     return ['    ' + line for line in str(text).splitlines() or ['']] + ['']
 
 
-def _n(value):
-    return '—' if value is None else (f'{value:.4f}'.rstrip('0').rstrip('.') if isinstance(value, float) else str(value))
+def _n(value, available=True):
+    if not available or value is None:
+        return '—'
+    return f'{value:.4f}'.rstrip('0').rstrip('.') if isinstance(value, float) else str(value)
 
 
 def render(report, bundle, preflight):
@@ -355,29 +512,39 @@ def render(report, bundle, preflight):
         out += ['', 'Error: `' + report['error'] + '`']
     review = report.get('review')
     if review:
-        a = review['analisis']
+        a, lad, g = review['analisis'], review['analisis']['escalera'], review['analisis']['crecimiento_implicito']
+        rec = review['comprobaciones_mecanicas']['escalera_recalculada_anexo_c'] or {}
         out += ['', '## Salida del modelo (datos, sin acciones ejecutables)', '',
-                f"Estado `{a['estado']}` · cubo `{a['cubo']}` · acción `{a['accion']}`", '',
+                f"Estado `{a['estado']}` · cubo «{CUBO_TEXTO[a['cubo']]}» · acción `{a['accion']}` · zona `{lad['zona']}`", '',
                 '| Escenario | Valor por acción | Probabilidad |', '|---|---|---|']
-        out += [f"| {k} | {_n(a['escenarios'][k]['valor_por_accion'])} | {_n(a['escenarios'][k]['probabilidad'])} |"
-                for k in ('malo', 'normal', 'bueno')]
-        out += ['', f"Precio actual: {_n(a['precio_actual']['valor'])} · precio de Sí (k = 3): {_n(a['precio_si']['valor'])}"
-                f" · recalculado: {_n(review['comprobaciones_mecanicas']['precio_si_recalculado_k3'])}", '',
-                '| Tasa | Precio de Sí | Precio actual por debajo |', '|---|---|---|']
-        out += [f"| {t[5:]} % | {_n(a['sensibilidad_tasa'][t]['precio_si'])} | {_n(a['sensibilidad_tasa'][t]['precio_actual_por_debajo'])} |"
-                for t in TASAS]
-        for title, key in (('Resumen', 'resumen'), ('Moneda', 'moneda'), ('Conclusión razonada', 'conclusion_razonada'),
-                           ('Probabilidades', 'probabilidades_justificacion')):
-            out += ['', '### ' + title, ''] + _block(a[key])
-        for k in ('malo', 'normal', 'bueno'):
-            out += ['### Escenario ' + k, ''] + _block(a['escenarios'][k]['razonamiento'])
-        out += ['### Cálculo del precio de Sí', ''] + _block(a['precio_si']['calculo'])
+        out += [f"| {k} | {_n(a['escenarios'][k]['valor_por_accion'], a['escenarios'][k]['disponible'])} |"
+                f" {_n(a['escenarios'][k]['probabilidad'])} |" for k in ESCENARIOS]
+        out += ['', '| Escalera (k = 3) | Declarado | Recalculado (Anexo C) |', '|---|---|---|',
+                f"| Precio actual | {_n(a['precio_actual']['valor'], a['precio_actual']['disponible'])} | |",
+                f"| Precio del escenario malo | {_n(lad['precio_escenario_malo'], lad['disponible'] and lad['precio_escenario_malo_disponible'])} | {_n(rec.get('precio_escenario_malo'))} |"]
+        out += [f"| {label} | {_n(lad[key], lad['disponible'])} | {_n(rec.get(key))} |"
+                for label, key in (('P*', 'p_estrella'), ('Precio de Sí = mín(P*, V_normal)', 'precio_si'),
+                                   ('Ponderado', 'ponderado'))]
+        out += [f"| Crecimiento implícito al precio actual / del normal (%) | {_n(g['al_precio_actual_pct'], g['disponible'])}"
+                f" / {_n(g['del_escenario_normal_pct'], g['disponible'])} | |",
+                '', '| Tasa | Precio de Sí | Ponderado | Zona |', '|---|---|---|---|']
+        out += [f"| {t[5:]} % | {_n(a['sensibilidad_tasa'][t]['precio_si'], a['sensibilidad_tasa'][t]['disponible'])} |"
+                f" {_n(a['sensibilidad_tasa'][t]['ponderado'], a['sensibilidad_tasa'][t]['disponible'])} |"
+                f" {a['sensibilidad_tasa'][t]['zona']} |" for t in TASAS]
+        for title, text in (('Resumen', a['resumen']), ('Moneda', a['moneda']), ('Justificación', a['justificacion_breve']),
+                            ('Probabilidades', a['motivo_probabilidades']), ('Fórmula aplicada', lad['formula_aplicada']),
+                            ('Crecimiento implícito', g['explicacion_breve'])):
+            out += ['', '### ' + title, ''] + _block(text)
+        for k in ESCENARIOS:
+            out += ['### Escenario ' + k, ''] + _block(a['escenarios'][k]['supuestos_y_cifras'])
         out += ['### Sensibilidad (comentarios)', ''] + _block('\n'.join(
             f"{t[5:]} %: {a['sensibilidad_tasa'][t]['comentario']}" for t in TASAS))
         out += ['### Qué haría falsa la conclusión', ''] + _block('\n'.join('- ' + x for x in a['que_la_haria_falsa']))
         out += ['### Lo que no sabe', ''] + _block('\n'.join('- ' + x for x in a['lo_que_no_se']))
         out += ['### Citas', ''] + _block('\n'.join(f"[{c['archivo_id']}] «{c['cita']}» → {c['sostiene']}" for c in a['citas']))
-        out += ['### Comprobaciones mecánicas', ''] + _block(json.dumps(review['comprobaciones_mecanicas'], ensure_ascii=False, indent=2))
+        out += ['### Comprobaciones mecánicas y normalizaciones', ''] + _block(json.dumps(
+            {'comprobaciones': review['comprobaciones_mecanicas'], 'normalizaciones_enum': review['normalizaciones_enum']},
+            ensure_ascii=False, indent=2))
     return '\n'.join(out) + '\n'
 
 

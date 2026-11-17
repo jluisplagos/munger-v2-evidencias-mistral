@@ -14,28 +14,55 @@ y solo después de que una persona la apruebe en GitHub.
 ## Qué recibe el modelo
 
 - **El encargo fijo** (`ENCARGO_ANALISIS_DIRECTO.md`). Pide: estado, cubo, acción,
-  tres escenarios de valor por acción con su razonamiento, precio de Sí con la regla
-  k = 3, sensibilidad a la tasa del 7 al 11 %, qué haría falsa la conclusión y qué no
-  sabe. Prohíbe usar memoria o hechos que no estén en el paquete. Su texto no cambia
-  entre ejecuciones; su huella queda registrada.
+  tres escenarios de valor por acción con una explicación breve de supuestos y cifras,
+  la escalera del Anexo C con k = 3 (precio del escenario malo, P*, precio de Sí =
+  mín(P*, V_normal), ponderado y zona), el crecimiento implícito, la sensibilidad a la
+  tasa del 7 al 11 %, qué haría falsa la conclusión y qué no sabe. Prohíbe usar memoria
+  o hechos que no estén en el paquete. Su texto no cambia entre ejecuciones; su huella
+  queda registrada.
+- **Reglas de salida que comparte con el personaje** (decisión registrada aquí): una
+  sola tasa (9 %) y ningún tamaño de posición (D16). La etapa 1 no entra en el paquete.
+  La revisión a ciegas no debería contar como error lo que el análisis directo no podía
+  saber por no tener las demás reglas del personaje.
 - **El paquete de entrada**: los archivos de texto que declara un manifiesto, con su
   fecha de corte.
 
-El modelo **no** recibe la rúbrica, el informe crítico, nada bajo `examen/`, ni las
-salidas, fases o prompts del personaje. El lanzador rechaza esas rutas por su nombre
-y rechaza los textos que mencionan la rúbrica o el informe crítico.
+El modelo **no** recibe la rúbrica, el informe crítico, nada de `examen/`, `universo/`,
+`traspaso/` o `pruebas_candidata/`, ni las salidas, fases, prompts o material de
+auditoría del personaje. El lanzador lo comprueba en cuatro capas:
+
+1. **Lista blanca de rutas.** Solo se admite `datos_analisis_directo/<empresa>/` y,
+   dentro, `datos_v63.md`, `datos_v63.json`, `fase1_v63.json`, `extracto_v63.md` y
+   archivos `.txt`, `.md`, `.csv` o `.json` bajo `fuentes/`, `historia/` o
+   `registro_entradas/`. Todo lo demás se rechaza.
+2. **Nombres prohibidos** dentro de esa raíz: fases, fichas, auditorías, prompts,
+   relevos, verificaciones (salvo en `registro_entradas/`), rúbrica, informe crítico…
+3. **Huellas.** Se rechaza la copia exacta de cualquier archivo de `examen/`,
+   `universo/`, `traspaso/` o `pruebas_candidata/` en cualquier rama o commit
+   disponible. Única excepción: el registro de entradas (`LISTA_ENTRADAS.csv` y su
+   plantilla), y solo dentro de `registro_entradas/`.
+4. **Contenido.** Se rechaza un texto que copie 400 caracteres seguidos de ese material
+   (aunque se le quiten líneas o se dupliquen espacios), o que mencione la rúbrica o el
+   informe crítico (también con guiones, espacios dobles o caracteres invisibles).
+
+El caso y las descripciones del manifiesto tampoco pueden nombrar el examen, la
+rúbrica, el personaje ni Munger. El nombre del repositorio no se envía al modelo.
 
 ## Paso a paso
 
 ### 1. Preparar el paquete (una vez por caso)
 
-1. Ten los datos verificados como archivos de texto UTF-8 en el repositorio: registro
-   de entradas, extracto, Historia y textos de las fuentes. Excel y PDF no valen;
-   hace falta su versión en texto.
-   - Ojo: lo que está bajo `examen/` no se acepta. Por ejemplo,
-     `coordinacion/cierre_v2/examen/ahold/LISTA_ENTRADAS.csv` tiene que estar en
-     otra carpeta (una copia con la misma huella sirve).
-   - Los archivos pueden estar en otra rama: basta indicar el commit.
+1. Copia los datos verificados, como texto UTF-8, a
+   `datos_analisis_directo/<empresa>/`:
+   - `fuentes/`: los textos de las fuentes (informes anuales, 10-K, comunicados,
+     cotización);
+   - `historia/`: la Historia;
+   - `registro_entradas/`: el registro de entradas; por ejemplo, una copia de
+     `coordinacion/cierre_v2/examen/ahold/LISTA_ENTRADAS.csv` con la misma huella;
+   - en la raíz, si existen: `datos_v63.md` o `.json`, `fase1_v63.json`, `extracto_v63.md`.
+
+   Excel y PDF no valen: hace falta su versión en texto. Los archivos pueden estar
+   en otra rama: basta indicar el commit.
 2. Calcula la huella de cada archivo: `sha256sum <archivo>`
    (en Windows, `certutil -hashfile <archivo> SHA256`).
 3. Crea el manifiesto en `automation/direct_analysis/paquetes/<nombre>.json`.
@@ -47,10 +74,10 @@ y rechaza los textos que mencionan la rúbrica o el informe crítico.
      "caso": "Zoetis primer tiempo",
      "fecha_corte": "2026-10-09",
      "archivos": [
-       {"id": "registro_entradas", "ruta": "datos/zoetis_t1/registro_entradas.json",
+       {"id": "registro_entradas", "ruta": "datos_analisis_directo/zoetis/registro_entradas/registro.json",
         "commit": "<40 caracteres del commit, opcional>",
         "sha256": "<64 caracteres>", "descripcion": "Registro de entradas verificado"},
-       {"id": "extracto", "ruta": "datos/zoetis_t1/extracto.md",
+       {"id": "extracto", "ruta": "datos_analisis_directo/zoetis/extracto_v63.md",
         "sha256": "<64 caracteres>", "descripcion": "Extracto de las fuentes hasta el 9-oct-2026"}
      ]
    }
@@ -58,6 +85,8 @@ y rechaza los textos que mencionan la rúbrica o el informe crítico.
 
    - Sin `commit`, el archivo se lee del mismo commit que el código.
    - Si la huella no coincide, si falta, o si el archivo no es texto, no se llama.
+   - La fecha de corte la declara el manifiesto y el código no la contrasta: para
+     Zoetis, primer tiempo, tiene que ser `2026-10-09`.
 4. Haz commit del manifiesto en la rama desde la que vas a lanzar.
 
 ### 2. Lanzar
@@ -94,8 +123,12 @@ y rechaza los textos que mencionan la rúbrica o el informe crítico.
   - `INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO`: fallo tras enviar; cuenta la reserva
     completa hasta reconciliarla en Console;
   - `YA_RESERVADO_SIN_NUEVA_LLAMADA`: un «Re-run» de la misma ejecución. No llama.
-- Las «comprobaciones mecánicas» (precio de Sí recalculado con sus escenarios, citas
-  literales, probabilidades) son avisos para la revisión. No aceptan ni rechazan.
+- Las «comprobaciones mecánicas» (escalera recalculada con el Anexo C a partir de sus
+  escenarios, orden de los valores, zona, citas literales, probabilidades) son avisos
+  para la revisión. No aceptan ni rechazan.
+- Si una enumeración vuelve con otras mayúsculas o tildes («Demasiado Difícil»), se
+  guarda la forma canónica y el original queda en `normalizaciones_enum` y en la salida
+  en bruto: la llamada no se pierde por eso.
 - Para repetir un caso (repetibilidad), lanza una ejecución nueva con el mismo
   manifiesto. La huella `package_sha256` es la misma si el paquete no cambió.
 
@@ -125,16 +158,23 @@ Opus 5.5, 4 / 20; Fable 5.2, 8 / 40; Sonnet 5.5, 2 / 10.
   acredita aptitud para dinero real.
 - No garantiza que el modelo no use su memoria: lo prohíbe el encargo y las citas
   literales ayudan a detectarlo, pero hay que revisarlo.
-- La lista de rutas prohibidas es por nombre y por unas pocas marcas de contenido.
-  Elegir bien los archivos sigue siendo responsabilidad de quien hace el manifiesto.
+- La ceguera se comprueba contra el material de este repositorio. Las salidas del
+  personaje que solo están en el repositorio del producto (`fase_a.json`, `informe.md`…)
+  se paran por la lista blanca y por el nombre, no por su contenido. Elegir bien los
+  archivos sigue siendo responsabilidad de quien hace el manifiesto.
+- El control de solape puede dar un falso positivo si una fuente legítima comparte un
+  párrafo largo con el material ciego. Entonces se para sin coste y el error dice con
+  qué archivo coincide.
 
 ## Límites conocidos
 
 - La salida máxima es 32 768 tokens y el stream de AUTO1 se corta a los 720 s. Un
   esfuerzo `max` con un paquete grande puede agotar cualquiera de los dos: el
   resultado se paga y queda no aceptado.
-- No se ha probado contra la API real: ni el esquema de salida, ni los campos de uso
-  de Opus 5.5. Si el uso trae una facturación no prevista, el estado de coste queda
+- No se ha probado contra la API real: ni el esquema de salida (sin uniones `anyOf`,
+  muy por debajo del límite de 16), ni los campos de uso de Opus 5.5. Un error de
+  compilación del esquema solo aparecería en la llamada de pago (el conteo de tokens
+  no lo compila) y quedaría como coste incierto hasta conciliarlo en Console. Si el uso trae una facturación no prevista, el estado de coste queda
   `INCIERTO_SIN_COTA` y bloquea nuevas reservas hasta reconciliarlo.
 - La exclusión mutua es entre ejecuciones de este workflow. Otro workflow de AUTO1
   que reserve a la vez podría pasar la misma comprobación del tope.
