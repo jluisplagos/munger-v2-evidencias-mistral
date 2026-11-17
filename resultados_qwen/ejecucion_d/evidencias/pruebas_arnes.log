@@ -21,9 +21,9 @@
    "detalle": "rc=1 estado=ERROR copiado=False"
   },
   {
-   "prueba": "5 matriz sin carpeta de evidencias -> rc 0, 36 filas, 0 CUMPLE",
+   "prueba": "5 matriz sin evidencias -> rc 0, 36 filas, 0 CUMPLE; y respeta EVIDENCIAS_DIR (E3)",
    "ok": true,
-   "detalle": "rc=0 filas=36"
+   "detalle": "rc=0 filas=36 e3='ERROR (COMPONENTE_FALLA)'"
   },
   {
    "prueba": "6 resultado mutado -> aserción FALLA detectada",
@@ -46,9 +46,9 @@
    "detalle": "rc=2"
   },
   {
-   "prueba": "10 aserción con ruta ../ -> rc!=0 y error registrado",
+   "prueba": "10 aserción con ruta ../ -> rc!=0; B1 entrada.fuente.archivo fuera -> rc!=0",
    "ok": true,
-   "detalle": "rc=1 errores=[\"ruta fuera de las evidencias del caso: '../Q1-036/07_informe_provisional.md'\"]"
+   "detalle": "rc=1 b1=[\"entrada.fuente.archivo fuera del expediente del caso: '../fuera.txt'\"]"
   },
   {
    "prueba": "11 negativo sin universo -> FALLA",
@@ -66,9 +66,9 @@
    "detalle": "rc=2"
   },
   {
-   "prueba": "14 una ejecución = un log (Q1-001 dos veces -> 1 '# Caso')",
+   "prueba": "14 una ejecución = un log (Q1-001 dos veces -> 1 '# Caso'); H12 la evidencia previa no se borra hasta terminar bien",
    "ok": true,
-   "detalle": "n=1"
+   "detalle": "n=1 h12=True"
   },
   {
    "prueba": "15 control negativo en vacío: todas las aserciones fallan",
@@ -101,19 +101,19 @@
    "detalle": "rc=1 estado=ERROR"
   },
   {
-   "prueba": "21 P1v aserción sobre ejecucion.log (archivo del arnés) -> rc!=0",
+   "prueba": "21 P1v aserción sobre ejecucion.log -> rc!=0; A4 guardar=nombre reservado -> rc!=0",
    "ok": true,
-   "detalle": "rc=1"
+   "detalle": "rc=1 a4=[\"nombre reservado del arnés no usable como guardar: 'ejecucion.log'\"]"
   },
   {
-   "prueba": "22 N3 aserción run: -> rc!=0 (no soportado)",
+   "prueba": "22 N3 run: -> rc!=0; A1/A2/A3 copiar o mutar lo escrito por el arnés -> rc!=0; A5 nombre reservado -> rc!=0",
    "ok": true,
-   "detalle": "rc=1 errores=['plantilla del registro de entradas (comando documentado del producto): exit 1 no está en esperado [0]', 'aserción con prefijo run: no soportada (D3-R1 inv.3: solo salidas del producto en evidencias)']"
+   "detalle": "rc=1 a1=True a2=True a3=True a5=True"
   },
   {
-   "prueba": "23 P9w id '.' -> rc 2 SIN borrar evidencia ajena",
+   "prueba": "23 P9w id '.' -> rc 2 SIN borrar; C1/C2 ids inválidos/ajenos -> rc 2 sin carpeta; C3 id != archivo -> rc 2",
    "ok": true,
-   "detalle": "rc=2"
+   "detalle": "rc=2 c12=True c3=True"
   },
   {
    "prueba": "24 N4 id '../fuera' -> rc 2 SIN borrar fuera de EVIDENCIAS",
@@ -126,12 +126,12 @@
    "detalle": "rc=2"
   },
   {
-   "prueba": "26 P8va skip-worktree -> rc 2",
+   "prueba": "26 P8va skip-worktree -> rc 2; D1 assume-unchanged+skip-worktree (marca s) -> rc 2",
    "ok": true,
    "detalle": ""
   },
   {
-   "prueba": "27 P8vb no rastreado en scripts/ -> rc 2",
+   "prueba": "27 P8vb no rastreado en scripts/ -> rc 2; D2 enlace a directorio no rastreado -> rc 2",
    "ok": true,
    "detalle": ""
   },
@@ -186,29 +186,29 @@
 PASA 2 negativo esperado real Q1-006 (sellar exit 1 en esperado) · rc=0
 PASA 3 candidata incompleta -> rc 2 ERROR_ENTORNO · rc=2 estado=ERROR_ENTORNO
 PASA 4 artefacto heredado tras fallo -> detectado, NO copiado · rc=1 estado=ERROR copiado=False
-PASA 5 matriz sin carpeta de evidencias -> rc 0, 36 filas, 0 CUMPLE · rc=0 filas=36
+PASA 5 matriz sin evidencias -> rc 0, 36 filas, 0 CUMPLE; y respeta EVIDENCIAS_DIR (E3) · rc=0 filas=36 e3='ERROR (COMPONENTE_FALLA)'
 PASA 6 resultado mutado -> aserción FALLA detectada · 03_comprobar_sellado.json:comprobadas contiene 'Historia!C23' -> FALLA
 PASA 7 recuentos == CSV (fuente única) · estados={'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6}
 PASA 8 spec vacía -> rc 2 ERROR_ESPECIFICACION · rc=2
 PASA 9 criterio sin afirma -> rc 2 · rc=2
-PASA 10 aserción con ruta ../ -> rc!=0 y error registrado · rc=1 errores=["ruta fuera de las evidencias del caso: '../Q1-036/07_informe_provisional.md'"]
+PASA 10 aserción con ruta ../ -> rc!=0; B1 entrada.fuente.archivo fuera -> rc!=0 · rc=1 b1=["entrada.fuente.archivo fuera del expediente del caso: '../fuera.txt'"]
 PASA 11 negativo sin universo -> FALLA · salida.json: salida sin universo positivo (vacía); el negativo no acredita
 PASA 12 resultado forjado de 2 campos -> sin CUMPLE · veredicto=''
 PASA 13 rastreado modificado -> rc 2 ERROR_ENTORNO · rc=2
-PASA 14 una ejecución = un log (Q1-001 dos veces -> 1 '# Caso') · n=1
+PASA 14 una ejecución = un log (Q1-001 dos veces -> 1 '# Caso'); H12 la evidencia previa no se borra hasta terminar bien · n=1 h12=True
 PASA 15 control negativo en vacío: todas las aserciones fallan · pasan=[]
 PASA 16 toda comprobación del arnés marcada _simulada/[SIMULADO] (incl. --revisor) · marcadas=True revisor_sim=True
 PASA 17 P3va copiar_artefacto ../../Q1-036 -> rc!=0, no copiado · rc=1 estado=ERROR copiado=False
 PASA 18 P3vb guardar ../Q1-036 -> víctima intacta, rc!=0 · rc=1 victima='ORIGINAL Q1-036'
 PASA 19 N1a escribir_fuente ../../../Q1-036 -> registro ajeno intacto · registro='{"original": "Q1-036"}' rc=1
 PASA 20 N1b copiar_artefacto ruta absoluta -> rc!=0 · rc=1 estado=ERROR
-PASA 21 P1v aserción sobre ejecucion.log (archivo del arnés) -> rc!=0 · rc=1
-PASA 22 N3 aserción run: -> rc!=0 (no soportado) · rc=1 errores=['plantilla del registro de entradas (comando documentado del producto): exit 1 no está en esperado [0]', 'aserción con prefijo run: no soportada (D3-R1 inv.3: solo salidas del producto en evidencias)']
-PASA 23 P9w id '.' -> rc 2 SIN borrar evidencia ajena · rc=2
+PASA 21 P1v aserción sobre ejecucion.log -> rc!=0; A4 guardar=nombre reservado -> rc!=0 · rc=1 a4=["nombre reservado del arnés no usable como guardar: 'ejecucion.log'"]
+PASA 22 N3 run: -> rc!=0; A1/A2/A3 copiar o mutar lo escrito por el arnés -> rc!=0; A5 nombre reservado -> rc!=0 · rc=1 a1=True a2=True a3=True a5=True
+PASA 23 P9w id '.' -> rc 2 SIN borrar; C1/C2 ids inválidos/ajenos -> rc 2 sin carpeta; C3 id != archivo -> rc 2 · rc=2 c12=True c3=True
 PASA 24 N4 id '../fuera' -> rc 2 SIN borrar fuera de EVIDENCIAS · rc=2
 PASA 25 N4b id '' -> rc 2 SIN borrar EVIDENCIAS · rc=2
-PASA 26 P8va skip-worktree -> rc 2 · 
-PASA 27 P8vb no rastreado en scripts/ -> rc 2 · 
+PASA 26 P8va skip-worktree -> rc 2; D1 assume-unchanged+skip-worktree (marca s) -> rc 2 · 
+PASA 27 P8vb no rastreado en scripts/ -> rc 2; D2 enlace a directorio no rastreado -> rc 2 · 
 PASA 28 N5a assume-unchanged -> rc 2 · 
 PASA 29 N5b oculto por .git/info/exclude -> rc 2 · 
 PASA 30 M2 resultado de 4 campos con spec_sha256 -> generar_matriz sola: sin CUMPLE · Q1-001='' 'ERROR (COMPONENTE_OK)'

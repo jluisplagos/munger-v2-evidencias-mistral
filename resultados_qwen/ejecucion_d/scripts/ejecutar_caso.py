@@ -50,12 +50,17 @@ def _json_ruta(obj, ruta):
 
 
 def ruta_permitida(caso, archivo):
-    """D3-R1: la aserción solo puede leer dentro de las evidencias del caso, y solo
-    archivos producidos por el producto. Devuelve la ruta o None."""
+    """D3-R1 + D4-R1: la aserción solo puede leer dentro de las evidencias del caso
+    (carpeta activa de la ejecución), solo archivos producidos por el producto y
+    nunca los nombres reservados del arnés. Devuelve la ruta o None."""
     if archivo.startswith("run:"):
         caso.errores.append("aserción con prefijo run: no soportada (D3-R1 inv.3: solo salidas del producto en evidencias)")
         return None
-    p = L.ruta_dentro(caso.ev_dir, archivo)
+    if L.es_nombre_arnes(archivo):
+        caso.errores.append(f"aserción sobre nombre reservado del arnés: {archivo!r}")
+        return None
+    ev = getattr(caso, "ev_activo", None) or caso.ev_dir
+    p = L.ruta_dentro(ev, archivo)
     if p is None:
         caso.errores.append(f"ruta fuera de las evidencias del caso: {archivo!r}")
         return None
@@ -159,6 +164,7 @@ def op_escribir_fuente(caso, exp, paso):
     with open(p, "w", encoding="utf-8") as f:
         for i, b in enumerate(paso["paginas"]):
             f.write(f"[PDF PAGE {i + 1}]\n{b}\n\n")
+    caso.escritos_arnes.add(os.path.join("fuentes_sinteticas", nombre))  # D4-R1 A1
     caso._log(f"fuente escrita: fuentes_sinteticas/{nombre} ({len(paso['paginas'])} páginas) sha256={L.sha256_archivo(p)}\n")
     return p
 
@@ -167,6 +173,12 @@ def op_entrada(caso, exp, paso):
     fuente = paso.get("fuente")
     if fuente:
         fuente = dict(fuente)
+        # D4-R1 B1: entrada.fuente.archivo debe quedar dentro del expediente del caso
+        if fuente.get("archivo"):
+            if L.ruta_dentro(exp, fuente["archivo"]) is None:
+                caso.errores.append(f"entrada.fuente.archivo fuera del expediente del caso: {fuente['archivo']!r}")
+                caso._log(f"!! FUENTE DE ENTRADA RECHAZADA (fuera del expediente): {fuente['archivo']!r}\n")
+                return
         fuente.setdefault("columna", fuente.get("periodo"))
         fuente.setdefault("tratamiento", "ninguno")
         fuente.setdefault("perimetro", "consolidado")
@@ -188,14 +200,23 @@ def op_entrada(caso, exp, paso):
                     derivacion=paso.get("derivacion"), hipotesis=paso.get("hipotesis"),
                     justificacion=paso.get("justificacion"), comprobacion=comp,
                     incidencia=paso.get("incidencia"), material=paso.get("material"), **extra)
+    caso.escritos_arnes.add("verificacion_entradas.json")  # D4-R1 A2: el registro escrito por el arnés no es copiable
     caso._log(f"entrada {paso['celda']}: clase={paso.get('clase')} (comprobación preescrita = SIMULADA, marcada)\n")
 
 
 def op_mutar_fuente(caso, exp, paso):
-    p = L.ruta_dentro(exp, paso["archivo"])
-    if p is None:
-        caso.errores.append(f"mutar_fuente con ruta fuera del expediente del caso: {paso['archivo']!r}")
-        caso._log(f"!! RUTA DE MUTACIÓN RECHAZADA: {paso['archivo']!r}\n")
+    # D4-R1 A3: mutar_fuente solo bajo fuentes_sinteticas/ y solo sobre archivos que
+    # este arnés haya escrito con escribir_fuente en la misma ejecución
+    arch = paso["archivo"]
+    if arch.startswith("fuentes_sinteticas/"):
+        p = L.ruta_dentro(exp, arch)
+        rel = arch
+    else:
+        p = L.ruta_dentro(os.path.join(exp, "fuentes_sinteticas"), arch)
+        rel = os.path.join("fuentes_sinteticas", arch) if p else None
+    if p is None or rel not in caso.escritos_arnes:
+        caso.errores.append(f"mutar_fuente solo sobre fuentes_sinteticas/ escritas por el arnés: {paso['archivo']!r}")
+        caso._log(f"!! MUTACIÓN RECHAZADA (fuera de fuentes_sinteticas del arnés): {paso['archivo']!r}\n")
         return
     with open(p, "w", encoding="utf-8") as f:
         for i, b in enumerate(paso["paginas"]):
@@ -250,7 +271,7 @@ def op_preparar_cambio(caso, paso, esperado):
     cpath = os.path.join(pd, f"CAMBIO_{caso.id}.json")
     with open(cpath, "w", encoding="utf-8") as f:
         json.dump(cambio, f, ensure_ascii=False, indent=1)
-    shutil.copyfile(cpath, os.path.join(caso.ev_dir, "CAMBIO_" + caso.id + ".json"))
+    shutil.copyfile(cpath, os.path.join(caso.ev_activo, "CAMBIO_" + caso.id + ".json"))
     f1 = os.path.join(origen, "fase1_v63.json")
     sha_antes = L.sha256_archivo(f1)
     r_cambio = caso.producto("cambiar_base.py", ["preparar", cpath],
@@ -265,7 +286,7 @@ def op_preparar_cambio(caso, paso, esperado):
             texto_pdf.append(linea.strip())
         elif linea.strip():
             otros.append(linea.strip())
-    with open(os.path.join(caso.ev_dir, "errores_bloqueo.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(caso.ev_activo, "errores_bloqueo.json"), "w", encoding="utf-8") as f:
         json.dump({"exit": r_cambio.returncode, "texto_pdf_faltante_pdftotext": texto_pdf,
                    "otros_errores": otros,
                    "nota": "diagnostico del arnes; las aserciones solo leen salidas del producto (cambiar_base_preparar.txt)"},
@@ -276,7 +297,7 @@ def op_preparar_cambio(caso, paso, esperado):
     st = subprocess.run(["git", "-C", L.CANDIDATA, "status", "--porcelain"], capture_output=True, text=True).stdout
     if any("pruebas_d" in l for l in st.splitlines()):
         caso.errores.append("Q1-026: el arnés escribió dentro de la candidata (pruebas_d/)")
-    with open(os.path.join(caso.ev_dir, "origen_estado.txt"), "w", encoding="utf-8") as f:
+    with open(os.path.join(caso.ev_activo, "origen_estado.txt"), "w", encoding="utf-8") as f:
         f.write(f"origen={origen}\nsha256_fase1_antes={sha_antes}\nsha256_fase1_despues={sha_despues}\n"
                 f"intacto={'true' if sha_antes == sha_despues else 'false'}\n")
     caso._log(f"origen intacto={sha_antes == sha_despues} (comprobación dura del arnés)\n")
@@ -284,10 +305,18 @@ def op_preparar_cambio(caso, paso, esperado):
 
 def ejecutar(spec_path):
     spec = json.load(open(spec_path, encoding="utf-8"))
-    # D3-R1 inv.4: validar el id ANTES de tocar el disco
+    # D3-R1 inv.4 + D4-R1 C1/C2/C3: validar el id ANTES de tocar el disco: fullmatch
+    # ASCII, presente en el banco e igual al nombre del archivo de la spec
     err_id = L.validar_id(spec.get("id"))
     if err_id:
         print(f"ERROR_ID {spec.get('id')!r}: {err_id}")
+        return 2
+    ids_banco = {c["id"] for c in (json.loads(l) for l in open(os.path.join(L.BANCO, "casos_aceptacion.jsonl"), encoding="utf-8") if l.strip())}
+    if spec["id"] not in ids_banco:
+        print(f"ERROR_ID {spec['id']!r}: no está en el banco (Q1-001..Q1-036)")
+        return 2
+    if os.path.basename(spec_path) != spec["id"] + ".json":
+        print(f"ERROR_ID {spec['id']!r}: el nombre del archivo ({os.path.basename(spec_path)!r}) debe ser {spec['id']}.json")
         return 2
     spec_sha = L.sha256_archivo(spec_path)
     problemas, info = L.verificar_entorno()

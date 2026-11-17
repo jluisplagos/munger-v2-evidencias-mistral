@@ -70,7 +70,9 @@ def run_caso(spec, env_extra):
 
 
 def spec_tmp(tmp, nombre, obj):
-    p = os.path.join(tmp, nombre)
+    # D4-R1 C3: el nombre del archivo de la spec debe ser <id>.json
+    cid = str(obj.get("id", "x"))
+    p = os.path.join(tmp, cid + ".json") if L.ID_RE.fullmatch(cid) else os.path.join(tmp, nombre)
     json.dump(obj, open(p, "w", encoding="utf-8"), ensure_ascii=False)
     return p
 
@@ -156,9 +158,24 @@ def main():
                                  EVIDENCIAS_DIR=os.path.join(aux_tmp, "evidencias")))
     filas = list(csv.DictReader(open(os.path.join(aux_tmp, "MATRIZ_EJECUCION.csv"), encoding="utf-8")))
     rec5 = json.load(open(os.path.join(aux_tmp, "evidencias", "recuentos.json")))
-    paso("5 matriz sin carpeta de evidencias -> rc 0, 36 filas, 0 CUMPLE",
-         r5.returncode == 0 and len(filas) == 36 and rec5.get("con_ejecucion_propia") == 0
-         and all(rr["veredicto_componente"] == "" for rr in filas), f"rc={r5.returncode} filas={len(filas)}")
+    ok5 = (r5.returncode == 0 and len(filas) == 36 and rec5.get("con_ejecucion_propia") == 0
+           and all(rr["veredicto_componente"] == "" for rr in filas))
+    # D4-R1 E3: la matriz respeta EVIDENCIAS_DIR (un resultado FALLA en un EVIDENCIAS_DIR
+    # propio no muestra CUMPLE ahí)
+    aux2 = os.path.join(tmp, "aux_e3")
+    shutil.copytree(AQUI, os.path.join(aux2, "scripts"), ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+    ev2 = os.path.join(aux2, "evidencias")
+    os.makedirs(os.path.join(ev2, "Q1-001"), exist_ok=True)
+    json.dump({"harness_version": "4.0", "estado_caso": "COMPONENTE_FALLA", "criterios": [], "errores": ["x"],
+               "afirmaciones_fallidas": ["y"], "archivos_producto": []},
+              open(os.path.join(ev2, "Q1-001", "resultado_ejecucion.json"), "w"))
+    r5b = subprocess.run([sys.executable, "-B", os.path.join(aux2, "scripts", "generar_matriz.py")],
+                         capture_output=True, text=True,
+                         env=dict(os.environ, PYTHONDONTWRITEBYTECODE="1", BANCO_DIR=L.BANCO, EVIDENCIAS_DIR=ev2))
+    fila_e3 = next(x for x in csv.DictReader(open(os.path.join(aux2, "MATRIZ_EJECUCION.csv"))) if x["id"] == "Q1-001")
+    e3_ok = r5b.returncode == 0 and fila_e3["veredicto_componente"] == ""
+    paso("5 matriz sin evidencias -> rc 0, 36 filas, 0 CUMPLE; y respeta EVIDENCIAS_DIR (E3)",
+         ok5 and e3_ok, f"rc={r5.returncode} filas={len(filas)} e3={fila_e3['estado_ejecucion']!r}")
 
     import ejecutar_caso as EC
     run_caso(spec_001, base_env)
@@ -197,8 +214,19 @@ def main():
                                        {"tipo": "texto_contiene", "archivo": "../Q1-036/07_informe_provisional.md", "contiene": "x"}]}]})
     r = run_caso(sp, base_env)
     res_p3 = resultado(ev, "Q1-032")
-    paso("10 aserción con ruta ../ -> rc!=0 y error registrado",
-         r.returncode != 0 and any("fuera" in e for e in res_p3["errores"]), f"rc={r.returncode} errores={res_p3['errores']}")
+    ok10 = r.returncode != 0 and any("fuera" in e for e in res_p3["errores"])
+    # D4-R1 B1: entrada.fuente.archivo fuera del expediente -> error
+    sp_b1 = spec_tmp(tmp, "b1.json", {"id": "Q1-033", "harness_version": "4.0", "pasos": [
+        {"op": "nuevo_expediente"},
+        {"op": "entrada", "celda": "aux:x", "fuente": {"archivo": "../fuera.txt", "documento": "d", "pagina": 1,
+                                                       "concepto": "c", "periodo": "2025", "unidad": "EUR",
+                                                       "escala": 1, "signo": 1, "valor_fuente": 1, "cita": "c"}}],
+        "criterios": [{"id": "C1", "texto": "x", "afirma": [{"tipo": "texto_contiene", "archivo": "x.txt", "contiene": "x"}]}]})
+    r = run_caso(sp_b1, base_env)
+    res_b1 = resultado(ev, "Q1-033")
+    b1_ok = r.returncode != 0 and res_b1 is not None and any("fuera del expediente" in e for e in res_b1["errores"])
+    paso("10 aserción con ruta ../ -> rc!=0; B1 entrada.fuente.archivo fuera -> rc!=0",
+         ok10 and b1_ok, f"rc={r.returncode} b1={res_b1 and res_b1['errores'][:1]}")
     caso11 = L.Caso.__new__(L.Caso)
     caso11.id = "P5"; caso11.ev_dir = os.path.join(tmp, "ev_p5"); caso11.errores = []
     caso11.archivos_producto = {"salida.json"}
@@ -233,7 +261,17 @@ def main():
     run_caso(spec_001, base_env)
     run_caso(spec_001, base_env)
     n = open(os.path.join(ev, "Q1-001", "ejecucion.log")).read().count("# Caso Q1-001")
-    paso("14 una ejecución = un log (Q1-001 dos veces -> 1 '# Caso')", n == 1, f"n={n}")
+    # D4-R1 H12: una ejecución interrumpida NO borra la evidencia publicada
+    marca = os.path.join(ev, "Q1-001", "marca.txt")
+    open(marca, "w").write("previa")
+    ev_real = L.EVIDENCIAS
+    L.EVIDENCIAS = ev
+    c14 = L.Caso("Q1-001")  # limpias=1: prepara temporal pero no intercambia sin guardar_resultados
+    L.EVIDENCIAS = ev_real
+    h12_ok = os.path.isfile(marca) and os.path.isdir(c14.ev_tmp) and c14.ev_tmp != c14.ev_dir
+    shutil.rmtree(c14.ev_tmp, ignore_errors=True)
+    paso("14 una ejecución = un log (Q1-001 dos veces -> 1 '# Caso'); H12 la evidencia previa no se borra hasta terminar bien",
+         n == 1 and h12_ok, f"n={n} h12={h12_ok}")
 
     # 15 control negativo en vacío
     run_dir_real = L.RUN_DIR
@@ -326,9 +364,19 @@ def main():
                                         {"tipo": "texto_contiene", "archivo": "ejecucion.log", "contiene": "# Caso"}]}]})
     r = run_caso(sp, {**base_env, **b})
     res21 = resultado(ev, "Q1-031")
-    paso("21 P1v aserción sobre ejecucion.log (archivo del arnés) -> rc!=0",
-         r.returncode != 0 and res21["estado_caso"] != "COMPONENTE_OK"
-         and any("no producido por el producto" in e for e in res21["errores"]), f"rc={r.returncode}")
+    ok21 = r.returncode != 0 and res21["estado_caso"] != "COMPONENTE_OK" \
+        and any("no producido por el producto" in e or "reservado" in e for e in res21["errores"])
+    # D4-R1 A4: guardar="ejecucion.log" (nombre reservado del arnés) -> ERROR
+    sp_a4 = spec_tmp(tmp, "a4.json", {"id": "Q1-034", "harness_version": "4.0", "pasos": [
+        {"op": "nuevo_expediente"},
+        {"op": "comprobar", "guardar": "ejecucion.log", "esperado": [0, 1]}],
+        "criterios": [{"id": "C1", "texto": "x", "afirma": [
+            {"tipo": "texto_contiene", "archivo": "ejecucion.log", "contiene": "#"}]}]})
+    r = run_caso(sp_a4, base_env)
+    res_a4 = resultado(ev, "Q1-034")
+    a4_ok = r.returncode != 0 and res_a4 is not None and any("reservado" in e for e in res_a4["errores"])
+    paso("21 P1v aserción sobre ejecucion.log -> rc!=0; A4 guardar=nombre reservado -> rc!=0",
+         ok21 and a4_ok, f"rc={r.returncode} a4={res_a4 and [e for e in res_a4['errores'] if 'reservado' in e][:1]}")
 
     sp = spec_tmp(tmp, "n3.json", {"id": "Q1-031", "harness_version": "4.0", "pasos": [
         {"op": "nuevo_expediente"},
@@ -337,16 +385,73 @@ def main():
             {"tipo": "texto_contiene", "archivo": "run:Viscofan/fuentes_sinteticas/f.txt", "contiene": "710"}]}]})
     r = run_caso(sp, {**base_env, **b})
     res22 = resultado(ev, "Q1-031")
-    paso("22 N3 aserción run: -> rc!=0 (no soportado)",
-         r.returncode != 0 and any("run:" in e for e in res22["errores"]), f"rc={r.returncode} errores={res22['errores']}")
+    ok22 = r.returncode != 0 and any("run:" in e for e in res22["errores"])
+    # D4-R1 A1: copiar_artefacto de una fuente escrita por el arnés -> ERROR, no copiado
+    sp_a1 = spec_tmp(tmp, "a1.json", {"id": "Q1-035", "harness_version": "4.0", "pasos": [
+        {"op": "nuevo_expediente"},
+        {"op": "escribir_fuente", "nombre": "f.txt", "paginas": ["710"]},
+        {"op": "copiar_artefacto", "archivo": "fuentes_sinteticas/f.txt", "guardar": "copia.txt"}],
+        "criterios": [{"id": "C1", "texto": "x", "afirma": [
+            {"tipo": "texto_contiene", "archivo": "copia.txt", "contiene": "710"}]}]})
+    r = run_caso(sp_a1, base_env)
+    res_a1 = resultado(ev, "Q1-035")
+    a1_ok = (r.returncode != 0 and res_a1 is not None
+             and any("escrito por el arnés" in e for e in res_a1["errores"])
+             and not os.path.isfile(os.path.join(ev, "Q1-035", "copia.txt")))
+    # D4-R1 A2: copiar_artefacto del registro escrito por el arnés (verificacion_entradas.json) -> ERROR
+    sp_a2 = spec_tmp(tmp, "a2.json", {"id": "Q1-036", "harness_version": "4.0", "pasos": [
+        {"op": "nuevo_expediente"},
+        {"op": "entrada", "celda": "aux:litigio", "clase": "hipotesis",
+         "hipotesis": {"fundamento": "f", "alternativas": [], "limites": "0-200"}},
+        {"op": "copiar_artefacto", "archivo": "verificacion_entradas.json", "guardar": "reg_copia.json"}],
+        "criterios": [{"id": "C1", "texto": "x", "afirma": [
+            {"tipo": "texto_contiene", "archivo": "reg_copia.json", "contiene": "aux:litigio"}]}]})
+    r = run_caso(sp_a2, base_env)
+    res_a2 = resultado(ev, "Q1-036")
+    a2_ok = (r.returncode != 0 and res_a2 is not None
+             and any("escrito por el arnés" in e for e in res_a2["errores"])
+             and not os.path.isfile(os.path.join(ev, "Q1-036", "reg_copia.json")))
+    # D4-R1 A3: mutar_fuente fuera de fuentes_sinteticas/ escritas por el arnés -> ERROR
+    sp_a3 = spec_tmp(tmp, "a3.json", {"id": "Q1-001", "harness_version": "4.0", "pasos": [
+        {"op": "nuevo_expediente"},
+        {"op": "mutar_fuente", "archivo": "informe_provisional.md", "paginas": ["4 verificadas / 1 pendiente / 5 total"]}],
+        "criterios": [{"id": "C1", "texto": "x", "afirma": [
+            {"tipo": "texto_contiene", "archivo": "x.txt", "contiene": "x"}]}]})
+    r = run_caso(sp_a3, {**base_env, "RUN_DIR": os.path.join(tmp, "run_a3")})
+    res_a3 = resultado(ev, "Q1-001")
+    a3_ok = r.returncode != 0 and res_a3 is not None and any("MUTACIÓN" in e or "mutar_fuente" in e for e in res_a3["errores"])
+    # D4-R1 A5: guardar="origen_estado.txt" (diagnóstico del arnés) -> ERROR reservado
+    sp_a5 = spec_tmp(tmp, "a5.json", {"id": "Q1-002", "harness_version": "4.0", "pasos": [
+        {"op": "nuevo_expediente"},
+        {"op": "comprobar", "guardar": "origen_estado.txt", "esperado": [0, 1]}],
+        "criterios": [{"id": "C1", "texto": "x", "afirma": [
+            {"tipo": "texto_contiene", "archivo": "origen_estado.txt", "contiene": "x"}]}]})
+    r = run_caso(sp_a5, base_env)
+    res_a5 = resultado(ev, "Q1-002")
+    a5_ok = r.returncode != 0 and res_a5 is not None and any("reservado" in e for e in res_a5["errores"])
+    paso("22 N3 run: -> rc!=0; A1/A2/A3 copiar o mutar lo escrito por el arnés -> rc!=0; A5 nombre reservado -> rc!=0",
+         ok22 and a1_ok and a2_ok and a3_ok and a5_ok,
+         f"rc={r.returncode} a1={a1_ok} a2={a2_ok} a3={a3_ok} a5={a5_ok}")
 
     # 23-25 ids
     ev23 = os.path.join(tmp, "ev_p9w")
     os.makedirs(os.path.join(ev23, "Q1-001"))
     open(os.path.join(ev23, "Q1-001", "evidencia.txt"), "w").write("de otro caso")
     r = run_caso(spec_tmp(tmp, "p9w.json", {"id": ".", "pasos": [], "criterios": []}), {**base_env, "EVIDENCIAS_DIR": ev23})
-    paso("23 P9w id '.' -> rc 2 SIN borrar evidencia ajena",
-         r.returncode == 2 and os.path.isfile(os.path.join(ev23, "Q1-001", "evidencia.txt")), f"rc={r.returncode}")
+    ok23 = r.returncode == 2 and os.path.isfile(os.path.join(ev23, "Q1-001", "evidencia.txt"))
+    # D4-R1 C1/C2: ids con salto de línea, no ASCII o ajenos al banco -> rc 2 SIN crear carpeta
+    c12_ok = True
+    for bad in ("Q1-001\n", "Q1-999", "Q1-٠١١"):
+        r = run_caso(spec_tmp(tmp, "badid.json", {"id": bad, "pasos": [], "criterios": []}), {**base_env, "EVIDENCIAS_DIR": ev23})
+        if r.returncode != 2 or os.path.isdir(os.path.join(ev23, bad)) or resultado(ev23, bad) is not None:
+            c12_ok = False
+    # D4-R1 C3: id distinto del nombre del archivo -> rc 2
+    sp_c3 = os.path.join(tmp, "nombre_distinto.json")
+    json.dump({"id": "Q1-001", "harness_version": "4.0", "pasos": [], "criterios": []}, open(sp_c3, "w"))
+    r = run_caso(sp_c3, {**base_env, "EVIDENCIAS_DIR": ev23})
+    c3_ok = r.returncode == 2 and os.path.isfile(os.path.join(ev23, "Q1-001", "evidencia.txt"))
+    paso("23 P9w id '.' -> rc 2 SIN borrar; C1/C2 ids inválidos/ajenos -> rc 2 sin carpeta; C3 id != archivo -> rc 2",
+         ok23 and c12_ok and c3_ok, f"rc={r.returncode} c12={c12_ok} c3={c3_ok}")
     raiz = os.path.join(tmp, "n4")
     os.makedirs(os.path.join(raiz, "evidencias")); os.makedirs(os.path.join(raiz, "fuera"))
     open(os.path.join(raiz, "fuera", "ajeno.txt"), "w").write("ajeno")
@@ -375,9 +480,23 @@ def main():
         p = os.path.join(c, rel)
         open(p, "w").write(open(p).read().replace("def ", "def x_", 1))
 
-    paso("26 P8va skip-worktree -> rc 2", cand_alt("c8a", lambda c: alterar(c, "--skip-worktree")) == 2)
-    paso("27 P8vb no rastreado en scripts/ -> rc 2",
-         cand_alt("c8b", lambda c: open(os.path.join(c, "munger_v2_r1/personaje_v2/scripts/override.txt"), "w").write("x")) == 2)
+    def alterar_d1(c):
+        # D4-R1 D1: --assume-unchanged Y --skip-worktree (marca 's')
+        subprocess.run(["git", "-C", c, "update-index", "--assume-unchanged", rel], check=True)
+        subprocess.run(["git", "-C", c, "update-index", "--skip-worktree", rel], check=True)
+        p = os.path.join(c, rel)
+        open(p, "w").write(open(p).read().replace("def ", "def x_", 1))
+
+    paso("26 P8va skip-worktree -> rc 2; D1 assume-unchanged+skip-worktree (marca s) -> rc 2",
+         cand_alt("c8a", lambda c: alterar(c, "--skip-worktree")) == 2 and cand_alt("c8a2", alterar_d1) == 2)
+
+    def enlace_dir(c):
+        # D4-R1 D2: enlace no rastreado a un directorio bajo scripts/, oculto por info/exclude
+        os.symlink(tmp, os.path.join(c, "munger_v2_r1/personaje_v2/scripts/ast"))
+        open(os.path.join(c, ".git", "info", "exclude"), "a").write("\nast\n")
+    paso("27 P8vb no rastreado en scripts/ -> rc 2; D2 enlace a directorio no rastreado -> rc 2",
+         cand_alt("c8b", lambda c: open(os.path.join(c, "munger_v2_r1/personaje_v2/scripts/override.txt"), "w").write("x")) == 2
+         and cand_alt("c8b2", enlace_dir) == 2)
     paso("28 N5a assume-unchanged -> rc 2", cand_alt("c8c", lambda c: alterar(c, "--assume-unchanged")) == 2)
 
     def excluido(c):

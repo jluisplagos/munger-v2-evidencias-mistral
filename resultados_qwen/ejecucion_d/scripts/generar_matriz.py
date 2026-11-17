@@ -66,14 +66,16 @@ class CasoReeval:
 
 def reevaluar_criterios(spec, res, ev_dir):
     """Reevalúa cada criterio de la spec sobre la evidencia publicada. Devuelve
-    (estados_reevaluados, ok)."""
-    archivos = set(res.get("archivos_producto") or [])
-    for p in res.get("pasos", []):
-        if p.get("guardado_en"):
-            archivos.add(p["guardado_en"])
+    (estados_reevaluados, ok). D4-R1: la lista de archivos asertables se construye
+    SOLO desde la especificación (guardar de pasos de producto + copiar_artefacto) y
+    se CONTRASTA con la declarada en el resultado; nunca se acepta la del resultado."""
+    archivos = set()
     for paso in spec.get("pasos", []):
-        if paso.get("op") == "copiar_artefacto" and paso.get("guardar"):
-            archivos.add(paso["guardar"])
+        if paso.get("guardar"):
+            archivos.add(os.path.basename(paso["guardar"]))
+    declarados = set(res.get("archivos_producto") or [])
+    if declarados != archivos:
+        return {}, False  # la lista declarada no coincide con la de la spec: no se acepta
     caso = CasoReeval(spec["id"], ev_dir, archivos)
     estados = {}
     for c in spec.get("criterios", []):

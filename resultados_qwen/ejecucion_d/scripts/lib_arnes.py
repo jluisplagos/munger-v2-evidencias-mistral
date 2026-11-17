@@ -39,6 +39,16 @@ sys.dont_write_bytecode = True
 HARNESS_VERSION = "4.0"
 ID_RE = re.compile(r"Q1-[0-9]{3}")  # D4-R1 C1/C2: se usa con fullmatch; solo dígitos ASCII
 
+# D4-R1 A4/H13: los nombres propios del arnés quedan RESERVADOS: `guardar` y las
+# aserciones no pueden usarlos (son archivos del arnés, no salidas del producto)
+NOMBRES_RESERVADOS_ARNES = ("ejecucion.log", "resultado_ejecucion.json", "errores_bloqueo.json",
+                            "origen_estado.txt")
+
+
+def es_nombre_arnes(nombre):
+    b = os.path.basename(nombre or "")
+    return b in NOMBRES_RESERVADOS_ARNES or b.startswith("CAMBIO_")
+
 AUX = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # resultados_qwen/ejecucion_d
 EVIDENCIAS = os.environ.get("EVIDENCIAS_DIR", os.path.join(AUX, "evidencias"))
 
@@ -113,22 +123,29 @@ def verificar_entorno():
         if con_cambios:
             problemas.append(f"cambios sin commit respecto a HEAD: {con_cambios[:5]}")
         lv = subprocess.run(["git", "-C", CANDIDATA, "ls-files", "-v"], capture_output=True, text=True).stdout
-        flags = [l for l in lv.splitlines() if l and l[0] in ("h", "S")]
+        # D4-R1 D1: CUALQUIER marca distinta de 'H' (h=assume-unchanged, S/s=skip-worktree) falla
+        flags = [l for l in lv.splitlines() if l and l[0] != "H"]
         if flags:
-            problemas.append(f"archivos con assume-unchanged/skip-worktree: {[l[2:] for l in flags][:5]}")
-        # archivos en disco bajo scripts/ que no estén rastreados (cubre info/exclude)
+            problemas.append(f"archivos con marca distinta de H (assume-unchanged/skip-worktree): {[l[2:] for l in flags][:5]}")
+        # archivos en disco bajo scripts/ que no estén rastreados (cubre info/exclude);
+        # D4-R1 D2: también directorios y ENLACES no rastreados (os.walk no entra en enlaces a dir)
         tracked = set()
         lf = subprocess.run(["git", "-C", CANDIDATA, "ls-files", "--", "munger_v2_r1/personaje_v2/scripts"],
                             capture_output=True, text=True).stdout.split()
         tracked = set(lf)
         en_disco = []
-        for raiz, _, archivos in os.walk(SCRIPTS):
+        for raiz, dirs, archivos in os.walk(SCRIPTS):
+            for d in list(dirs):
+                p = os.path.join(raiz, d)
+                rel = os.path.relpath(p, CANDIDATA)
+                if rel not in tracked or os.path.islink(p):
+                    en_disco.append(rel + (" (enlace)" if os.path.islink(p) else "/"))
             for a in archivos:
                 rel = os.path.relpath(os.path.join(raiz, a), CANDIDATA)
                 if rel not in tracked:
                     en_disco.append(rel)
         if en_disco:
-            problemas.append(f"archivos no rastreados bajo scripts/ (posible alteración oculta): {en_disco[:5]}")
+            problemas.append(f"entradas no rastreadas bajo scripts/ (posible alteración oculta): {en_disco[:5]}")
         st = subprocess.run(["git", "-C", CANDIDATA, "status", "--porcelain"], capture_output=True, text=True).stdout
         lineas = [l for l in st.splitlines() if l.strip()]
         no_rastreadas = [l for l in lineas if l.startswith("??")]
@@ -149,10 +166,14 @@ class Caso:
         self.id = caso_id
         self.ev_dir = os.path.join(EVIDENCIAS, caso_id)
         self.limpias = os.environ.get("ARNES_EVIDENCIAS_LIMPIAS", "1") == "1"
-        if self.limpias and os.path.isdir(self.ev_dir):
-            shutil.rmtree(self.ev_dir)  # una ejecución = una carpeta de evidencias limpia
-        os.makedirs(self.ev_dir, exist_ok=True)
-        self.log = os.path.join(self.ev_dir, "ejecucion.log")
+        # D4-R1 H12: la evidencia publicada NO se borra al empezar; se escribe en una
+        # carpeta temporal y solo se intercambia al terminar bien (guardar_resultados)
+        self.ev_tmp = self.ev_dir + ".__tmp__"
+        shutil.rmtree(self.ev_tmp, ignore_errors=True)
+        os.makedirs(self.ev_tmp, exist_ok=True)
+        self.ev_activo = self.ev_tmp
+        self.log = os.path.join(self.ev_activo, "ejecucion.log")
+        self.escritos_arnes = set()  # D4-R1 A1-A3: rutas del expediente escritas por el arnés
         self.heredados = {}
         self.artefactos = []
         self.archivos_producto = set()  # D3-R1 inv.3: solo estos son legibles por aserciones
@@ -172,8 +193,13 @@ class Caso:
             f.write(texto + "\n")
 
     def _guardar(self, guardar, contenido):
-        """D3-R1: toda escritura del arnés queda dentro de las evidencias del caso."""
-        p = ruta_dentro(self.ev_dir, guardar)
+        """D3-R1 + D4-R1 A4: toda escritura queda dentro de las evidencias del caso y
+        los nombres reservados del arnés no se pueden usar como `guardar`."""
+        if es_nombre_arnes(guardar):
+            self.errores.append(f"nombre reservado del arnés no usable como guardar: {guardar!r}")
+            self._log(f"!! NOMBRE RESERVADO DEL ARNÉS RECHAZADO: {guardar!r}\n")
+            return False
+        p = ruta_dentro(self.ev_activo, guardar)
         if p is None:
             self.errores.append(f"ruta de salida fuera de las evidencias del caso: {guardar!r}")
             self._log(f"!! RUTA DE SALIDA RECHAZADA: {guardar!r}\n")
@@ -220,6 +246,13 @@ class Caso:
             self._log(f"!! RUTA DE ARTEFACTO RECHAZADA: {archivo!r}\n")
             return False
         nombre = os.path.basename(archivo)
+        # D4-R1 A1/A2/A3: no se puede copiar un artefacto que el propio arnés escribió o modificó
+        rel_exp = os.path.relpath(src, exp)
+        if rel_exp in self.escritos_arnes or getattr(self, "escritos_arnes", set()) and rel_exp in self.escritos_arnes:
+            self.errores.append(f"copiar_artefacto de archivo escrito por el arnés (no es salida del producto): {archivo!r}")
+            self.afirmaciones_fallidas.append(f"copiar_artefacto rechazado (escrito por el arnés): {archivo!r}")
+            self._log(f"!! ARTEFACTO ESCRITO POR EL ARNÉS, NO COPIADO: {archivo}\n")
+            return False
         if not os.path.isfile(src):
             self.afirmaciones_fallidas.append(f"artefacto {archivo} no existe tras el paso productor")
             return False
@@ -246,8 +279,18 @@ class Caso:
         self.resultados["errores"] = self.errores
         self.resultados["afirmaciones_fallidas"] = self.afirmaciones_fallidas
         self.resultados["archivos_producto"] = sorted(self.archivos_producto)
-        with open(os.path.join(self.ev_dir, "resultado_ejecucion.json"), "w", encoding="utf-8") as f:
+        with open(os.path.join(self.ev_activo, "resultado_ejecucion.json"), "w", encoding="utf-8") as f:
             json.dump(self.resultados, f, ensure_ascii=False, indent=1)
+        # D4-R1 H12: solo al terminar se intercambia la carpeta temporal por la publicada
+        if self.limpias:
+            if os.path.isdir(self.ev_dir):
+                shutil.rmtree(self.ev_dir)
+            os.rename(self.ev_activo, self.ev_dir)
+        else:
+            os.makedirs(self.ev_dir, exist_ok=True)
+            for f in os.listdir(self.ev_activo):
+                shutil.move(os.path.join(self.ev_activo, f), os.path.join(self.ev_dir, f))
+            shutil.rmtree(self.ev_activo, ignore_errors=True)
 
 
 def nuevo_expediente(caso):
@@ -277,6 +320,8 @@ def materializar_fuente(caso, exp, nombre, texto, con_paginas=True):
     d = os.path.join(exp, "fuentes_sinteticas")
     os.makedirs(d, exist_ok=True)
     p = os.path.join(d, nombre)
+    if caso is not None:
+        caso.escritos_arnes.add(os.path.join("fuentes_sinteticas", nombre))  # D4-R1 A1
     if con_paginas:
         bloques, actual = [], []
         for ln in texto.splitlines() or [""]:
