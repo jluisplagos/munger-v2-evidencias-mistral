@@ -54,3 +54,12 @@ proceden. El banco original se conserva y ninguna política económica se adopta
 
 La conexión Vibe sí se comprobó en vibe-auth-001: una respuesta correcta,
 versión 3.1.2, una generación. Eso prueba conexión, no este trabajo ni el producto.
+
+Preparación inicial (4725f30, Actions 44079249084): falló al validar la configuración
+completa de Vibe sin inicializar HarnessFilesManager. Ocurrió después de acreditar
+preflight token_limit con cero uso/coste y antes de iniciar la generación. Se
+conservó preparation_failure_44079249084.json y la reserva; no hubo respuesta de
+revisión. Se corrige leyendo únicamente metadatos del catálogo exportado.
+La reanudación explícita de la misma tarea exige esa evidencia exacta de cero
+generaciones, el mismo SHA de paquete y una transición con SHA esperado. No borra
+la reserva ni abre otra tarea para repetir una inferencia de consumo incierto.

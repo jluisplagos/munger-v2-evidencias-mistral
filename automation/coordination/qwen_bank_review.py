@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Contraste Mistral del banco Qwen; no ejecuta ni aprueba el producto."""
 import argparse
+import base64
 import hashlib
 import json
 import os
@@ -50,6 +51,47 @@ class Receipt(AuthReceipt):
     def __init__(self, http, sha):
         super().__init__(http, sha)
         self.base = f'/repos/{pilot.REPO}/contents/automation/coordination/reviews/{TASK}'
+
+    def claim_after_zero_generation(self, record, previous):
+        self.http.call('github', 'PUT', self.base + '/reservation.json', {
+            'message': 'Reanudar preparación verificada sin generación previa',
+            'branch': pilot.LEDGER_BRANCH, 'sha': previous['sha'],
+            'content': base64.b64encode(pilot.canonical(record)).decode()})
+
+
+def zero_generation_proof(previous, bundle):
+    if not isinstance(previous, dict) or not previous.get('sha') or not previous.get('content'):
+        return None
+    try:
+        p = json.loads(base64.b64decode(previous['content'], validate=False))
+        ok = (p.get('state') == 'PREPARACION_FALLIDA_CERO_GENERACIONES_VERIFICADAS'
+              and p.get('task_id') == TASK
+              and p.get('code_sha') == '4725f30b9ba3ccf7894a0725be2685406411c978'
+              and p.get('generation_invocations_started') == 0
+              and p.get('bundle_sha256') == pilot.digest(pilot.canonical(bundle))
+              and p.get('evidence', {}).get('workflow_run') == 44079249084)
+        return p if ok else None
+    except (ValueError, TypeError):
+        return None
+
+
+def configured_model(config):
+    """Lee solo metadatos; evita los validadores de prompts y su gestor global."""
+    models = config.get('models', {})
+    if isinstance(models, list):
+        models = {m.get('alias', m.get('name')): m for m in models}
+    if not isinstance(models, dict):
+        raise pilot.PilotError('CATALOGO_NO_INTERPRETABLE')
+    alias = next((config.get(k) for k in ('active_model', 'routed_default_model',
+                 'catalog_default_model', 'catalog_recommended_model') if config.get(k) in models), None)
+    if alias is None:
+        raise pilot.PilotError('MODELO_EFECTIVO_NO_IDENTIFICADO')
+    model = models[alias]
+    if not isinstance(model, dict) or not re.match(r'^(mistral|devstral)', model.get('name', ''), re.I):
+        raise pilot.PilotError('MODELO_MISTRAL_NO_IDENTIFICADO')
+    levels = model.get('thinking_levels', [])
+    effort = next((e for e in ('max', 'high', 'medium', 'low', 'minimal', 'off') if e in levels), model.get('thinking', 'off'))
+    return alias, model['name'], effort
 
 
 def verify(bundle):
@@ -114,7 +156,6 @@ def validate(raw, sources):
 
 def invoke(bundle, report, output):
     """Preflight de cero tokens; después una sola generación sin herramientas."""
-    from vibe.core.config.vibe_schema import VibeConfigSchema
     with tempfile.TemporaryDirectory(prefix='munger-qwen-review-') as temp:
         root = Path(temp); home = root / 'vibe'; work = root / 'work'
         home.mkdir(); work.mkdir()
@@ -132,18 +173,18 @@ def invoke(bundle, report, output):
         zero_usage = pu is None or (isinstance(pu, dict) and all(type(v) is int and v == 0 for v in pu.values()))
         if pd.get('outcome') != 'token_limit' or pd.get('steps') not in (None, 0) or not zero_usage or pd.get('cost_usd') not in (None, 0) or pd.get('warnings'):
             raise pilot.PilotError('PREFLIGHT_NO_ACREDITA_CERO_GENERACIONES')
-        selected = VibeConfigSchema.model_validate(pd['config']).get_active_model()
-        choices = selected.thinking_levels
-        effort = next((e for e in ('max', 'high', 'medium', 'low', 'minimal', 'off') if e in choices), selected.thinking)
-        report.update(model_configured=selected.name, model_alias=selected.alias,
+        report.update(preflight_steps=0, preflight_outcome=pd['outcome'])
+        (output / 'report.json').write_bytes(pilot.canonical(report))
+        alias, model_name, effort = configured_model(pd['config'])
+        report.update(model_configured=model_name, model_alias=alias,
                       effort_configured=effort, effort_provider_observed='NO_OBSERVADO_DIRECTAMENTE', preflight_steps=0)
-        config.write_text(BASE_CONFIG + 'active_model = ' + json.dumps(selected.alias) + '\n\n'
-                          + '[models.' + json.dumps(selected.alias) + ']\nthinking = ' + json.dumps(effort) + '\n')
+        config.write_text(BASE_CONFIG + 'active_model = ' + json.dumps(alias) + '\n\n'
+                          + '[models.' + json.dumps(alias) + ']\nthinking = ' + json.dumps(effort) + '\n')
         prompt = root / 'request.json'; prompt.write_bytes(pilot.canonical(bundle))
         system = root / 'system.txt'; system.write_text(SYSTEM)
         export = root / 'export'
         report.update(generation_invocations_started=1, state='GENERACION_INICIADA_NO_REINTENTAR')
-        result = subprocess.run(base + ['--model', selected.alias, '--prompt-file', str(prompt),
+        result = subprocess.run(base + ['--model', alias, '--prompt-file', str(prompt),
                                 '--system-prompt-file', str(system), '--max-tokens', '120000',
                                 '--max-price', '1', '--time-limit', '300', '--output-dir', str(export)],
                                 env=env, capture_output=True, text=True, timeout=330, check=False)
@@ -164,7 +205,9 @@ def run(receipt, bundle, output, invoker=invoke):
               'product_executed': False, 'complete_product_cases': 0,
               'blind_review': False,
               'generation_invocations_started': 0, 'billing_source': 'NO_COMPROBADA_EN_CUENTA_MISTRAL'}
-    if receipt.prior() is not None:
+    previous = receipt.prior()
+    proof = zero_generation_proof(previous, bundle)
+    if previous is not None and proof is None:
         report['state'] = 'YA_RESERVADO_SIN_NUEVA_GENERACION'
     else:
         if not os.getenv('MISTRAL_VIBE_CLI_KEY'):
@@ -173,14 +216,18 @@ def run(receipt, bundle, output, invoker=invoke):
                        'bundle_sha256': pilot.digest(pilot.canonical(bundle)),
                        'maximum_generation_invocations': 1,
                        'limits': '1 turno; 16384 salida; 300 segundos; límites acumulados CLI no son techo de factura'}
-        receipt.reserve(reservation)
+        if proof is None:
+            receipt.reserve(reservation)
+        else:
+            reservation['previous_zero_generation_failure'] = proof
+            receipt.claim_after_zero_generation(reservation, previous)
         try:
             raw = invoker(bundle, report, output)
             report['review'] = validate(raw, sources)
             report['state'] = 'REVISION_DOCUMENTAL_PENDIENTE_DE_ACEPTACION'
         except pilot.PilotError as err:
             report.update(state='RESULTADO_NO_ACEPTADO_NO_REINTENTAR', error=str(err))
-        except (OSError, ValueError, KeyError, TypeError, AttributeError, subprocess.TimeoutExpired):
+        except (OSError, ValueError, KeyError, TypeError, AttributeError, RuntimeError, subprocess.TimeoutExpired):
             report.update(state='RESULTADO_NO_ACEPTADO_NO_REINTENTAR', error='ERROR_CLI_O_DATOS_NO_REINTENTAR')
         (output / 'report.json').write_bytes(pilot.canonical(report))
         md = '# Contraste documental Mistral del banco Qwen\n\n' + json.dumps(report, ensure_ascii=False, indent=2) + '\n'
