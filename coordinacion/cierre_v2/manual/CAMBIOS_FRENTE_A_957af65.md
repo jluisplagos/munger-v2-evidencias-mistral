@@ -1,6 +1,6 @@
-# Cambios de `MANUAL_OPERATIVO_3149128.md` (v2) y `MANUAL_OPERATIVO_3149128_v3.md` (v3) frente a `MANUAL_OPERATIVO_957af65.md` (v1)
+# Cambios de `MANUAL_OPERATIVO_3149128.md` (v2), `MANUAL_OPERATIVO_3149128_v3.md` (v3) y `MANUAL_OPERATIVO_b129b36_v4.md` (v4) frente a `MANUAL_OPERATIVO_957af65.md` (v1)
 
-**Base:** `EVID/coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_957af65.md` (SHA-256 `6ed65dce0753ed4a298e451d0f25979843214a0bb35cc58f722eaef0c888aeb9`, `EVID/coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md:6`). **Mejoras aplicadas en v2:** las 1–7 de `REVT/MEJORAS_MANUAL.md` (§1 y §2 de este documento; supresiones en el §3; correspondencia con el `diff` en el §4). **Correcciones aplicadas en v3:** M1–M4 y m1–m12 de `EVID/coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/REVISION_MANUAL_v2_ef36ab1.md` (§5). La v2 está en Git, en el commit `ef36ab1`. Las abreviaturas son las del manual: `REVT/` = `EVID/coordinacion/cierre_v2/traspaso/revision_20261117/`, `TRASP/` = `…/traspaso/resultado_20261117/`, `REG/` = `TRASP/registro/`, `HERR/` = `EVID/coordinacion/cierre_v2/herramientas/`, `F1PREP/` = preparación del frente E en la rama `auditoria/economica-f1-frente-e` del producto, `REV2/` = `EVID/coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/`.
+**Base:** `EVID/coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_957af65.md` (SHA-256 `6ed65dce0753ed4a298e451d0f25979843214a0bb35cc58f722eaef0c888aeb9`, `EVID/coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md:6`). **Mejoras aplicadas en v2:** las 1–7 de `REVT/MEJORAS_MANUAL.md` (§1 y §2 de este documento; supresiones en el §3; correspondencia con el `diff` en el §4). **Correcciones aplicadas en v3:** M1–M4 y m1–m12 de `EVID/coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/REVISION_MANUAL_v2_ef36ab1.md` (§5). **Correcciones aplicadas en v4:** N1 y n1–n9 de `EVID/coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v3_88144b5/REVISION_MANUAL_v3.md` (§7). La v2 está en Git, en el commit `ef36ab1`, y la v3, en `88144b5`. Las abreviaturas son las del manual: `REVT/` = `EVID/coordinacion/cierre_v2/traspaso/revision_20261117/`, `TRASP/` = `…/traspaso/resultado_20261117/`, `REG/` = `TRASP/registro/`, `HERR/` = `EVID/coordinacion/cierre_v2/herramientas/`, `F1PREP/` = preparación del frente E en la rama `auditoria/economica-f1-frente-e` del producto, `REV2/` = `EVID/coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/`, `REV3/` = `EVID/coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v3_88144b5/`.
 
 Nada de esto cambia el producto ni adopta política económica. El producto sigue siendo experimental supervisado y no apto para dinero real.
 
@@ -91,29 +91,29 @@ Lo que la v1 decía y la v2 dejó de decir. Ninguna supresión cambia un resulta
 
 ## 4. v1 → v2: correspondencia de los 80 bloques de `diff -U0` (m1)
 
-`diff -U0 MANUAL_OPERATIVO_957af65.md MANUAL_OPERATIVO_3149128.md` da 80 bloques. Cada uno tiene al menos una fila en las tablas de los §1–§3. Si un bloque mezcla varios cambios, se dan todas sus filas.
+`diff -U0 MANUAL_OPERATIVO_957af65.md MANUAL_OPERATIVO_3149128.md` da 80 bloques. Cada uno tiene al menos una fila en las tablas de los §1–§3. Si un bloque mezcla varios cambios, se dan todas sus filas (en la v4 se añadieron 7d a los bloques 59 y 64 y G-06 a los 35 y 69, que faltaban: n4 de `REV3/REVISION_MANUAL_v3.md`).
 
 | Bloque | Filas | Bloque | Filas | Bloque | Filas | Bloque | Filas |
 |---|---|---|---|---|---|---|---|
 | 1 `-1 +1` | G-13 | 21 `-96,2 +149,3` | 6d, G-03 | 41 `-220 +348` | G-03 | 61 `-338,0 +462,16` | 2a, 2d, 5, G-15 |
 | 2 `-3 +3,3` | G-13 | 22 `-101 +155,4` | 6d | 42 `-222,2 +350` | G-02 | 62 `-350,12 +489,3` | G-08, S-20, S-21, S-22 |
 | 3 `-7,2 +9,7` | G-03 | 23 `-103 +160,3` | 6d | 43 `-227,17 +354,15` | G-02, G-03, S-11 | 63 `-366,19 +496,6` | G-08, G-11, S-23–S-26 |
-| 4 `-10 +17` | G-04 | 24 `-105,5 +164,2` | 6d | 44 `-247 +372` | G-02, G-03 | 64 `-388,27 +505,79` | 1b, 2a–2c, 3, 5, G-11, S-27 |
+| 4 `-10 +17` | G-04 | 24 `-105,5 +164,2` | 6d | 44 `-247 +372` | G-02, G-03 | 64 `-388,27 +505,79` | 1b, 2a–2c, 3, 5, 7d, G-11, S-27 |
 | 5 `-17 +24` | 7a | 25 `-111,2 +167,3` | 6d | 45 `-250,0 +376` | 2d | 65 `-416 +585,2` | 5 |
 | 6 `-18,0 +26,7` | G-04 | 26 `-117,2 +174,8` | 7c, S-05 | 46 `-252 +378` | 2d | 66 `-418 +588,2` | 5, G-11 |
 | 7 `-21,0 +36,8` | G-01 | 27 `-121,12 +184,26` | 6a, 6b, 6d, G-03, S-06 | 47 `-254,3 +380,3` | G-02, S-12 | 67 `-424 +595` | G-14 |
 | 8 `-24,2 +46,2` | G-02, S-01 | 28 `-138,2 +215` | 6c, G-02 | 48 `-260,0 +387` | G-05 | 68 `-425,0 +597,2` | 1c, 3 |
-| 9 `-29 +51` | G-02 | 29 `-141 +217` | 4, 6c | 49 `-267,2 +393,0` | 4, G-16 | 69 `-432,14 +605,21` | G-09, S-28 |
+| 9 `-29 +51` | G-02 | 29 `-141 +217` | 4, 6c | 49 `-267,2 +393,0` | 4, G-16 | 69 `-432,14 +605,21` | G-06, G-09, S-28 |
 | 10 `-33 +55` | G-02, G-14 | 30 `-143,6 +219,2` | 7f, G-02, S-07, S-08 | 50 `-271 +396` | G-02 | 70 `-449 +629` | G-08, S-29 |
 | 11 `-35,2 +57,2` | G-02 | 31 `-150 +222` | 4, G-16 | 51 `-273,4 +398,4` | G-02, S-13 | 71 `-451,13 +631,24` | 1c, 2a, 2c, G-08, G-10, S-29 |
 | 12 `-46,6 +68,26` | 4, 7b, G-02, G-16, S-02 | 32 `-152,2 +224,12` | 4, 7f, G-02, G-15 | 52 `-279,5 +404,3` | G-02, S-14, S-15 | 72 `-465 +656` | G-12 |
 | 13 `-57,0 +100` | 7e | 33 `-175 +257,9` | 3, G-15 | 53 `-287,8 +410,5` | G-02, G-15 | 73 `-467 +658` | G-12 |
 | 14 `-64,2 +107,7` | 1a, S-03 | 34 `-177,2 +267` | G-02 | 54 `-300,2 +420,2` | G-07 | 74 `-472,0 +664` | G-12 |
-| 15 `-68 +116` | 1a | 35 `-180 +269,6` | 3 | 55 `-303 +423` | G-02 | 75 `-476 +668,3` | G-12 |
+| 15 `-68 +116` | 1a | 35 `-180 +269,6` | 3, G-06 | 55 `-303 +423` | G-02 | 75 `-476 +668,3` | G-12 |
 | 16 `-70,3 +118,9` | 1a, 1c, G-15 | 36 `-182 +276,2` | 3 | 56 `-308,3 +428,4` | G-02, G-15 | 76 `-480,2 +674` | G-12 |
 | 17 `-74 +128` | G-16 | 37 `-184,11 +279,48` | 1b, 3, S-09 | 57 `-312 +433` | 2c | 77 `-484,2 +676,0` | S-30 |
 | 18 `-79 +133` | 4 | 38 `-198 +330` | G-02, G-10 | 58 `-314 +435` | G-02 | 78 `-488,0 +680,4` | G-12 |
-| 19 `-88,2 +142` | S-04 | 39 `-202 +334` | G-02 | 59 `-317,18 +438,20` | 2a, 2c, G-15, S-16–S-18 | 79 `-498,4 +693,11` | G-12, S-31 |
+| 19 `-88,2 +142` | S-04 | 39 `-202 +334` | G-02 | 59 `-317,18 +438,20` | 2a, 2c, 7d, G-15, S-16–S-18 | 79 `-498,4 +693,11` | G-12, S-31 |
 | 20 `-94 +147` | 6d | 40 `-206,13 +338,9` | G-05, S-10 | 60 `-336 +459` | 2a, S-19 | 80 `-503 +705` | S-32 |
 
 ## 5. Cambios v2 → v3
@@ -142,7 +142,7 @@ Cada fila es un hallazgo de `REV2/REVISION_MANUAL_v2_ef36ab1.md` (§2.2 y §2.3)
 **Correspondencia de los 61 bloques de `diff -U0` v2 → v3:** 1-2 (cabecera); 3 (M3, M4); 4-6 (m11); 7 (m9, m11); 8 (m7); 9 (M3); 10-11 (m7); 12 (M1, m2, m7); 13 (m6); 14-16 (M3, m12); 17 (M3); 18 (M4); 19-20 (M3, m11); 21 (M4); 22 (M2); 23-24 (M3); 25 (M4); 26-27 (M3); 28 (m3); 29 (M1, M3); 30-31 (M1); 32 (M3); 33-38 (M4); 39 (m11); 40 (m4); 41 (M3); 42 (m10); 43 (m11); 44 (m5); 45 (m11, M2); 46 (m11); 47 (m5); 48 (m7); 49 (M4); 50 (M1); 51-52 (M3); 53-54 (M1); 55 (M1); 56 (m4); 57-59 (M1 y fuentes nuevas); 60 (m9, m11); 61 (M2).
 
 **No se ha cerrado aquí:**
-- `MANIFIESTO_SHA256.txt` de esta carpeta no se ha tocado: no lista `MANUAL_OPERATIVO_3149128_v3.md` ni `sondeo_literales_v3/`, y las huellas de CAMBIOS y de la Propuesta han cambiado. Lo rehace quien publique.
+- `MANIFIESTO_SHA256.txt` de esta carpeta no se había tocado al escribir la v3. *Nota de la v4 (n3):* se rehízo al publicarla, en `88144b5`, y desde entonces lista `MANUAL_OPERATIVO_3149128_v3.md` y `sondeo_literales_v3/`, con las 8 huellas coincidentes (`REV3/REVISION_MANUAL_v3.md`, S01 y S12).
 - El resultado del control 4.8 tras la limpieza de `_v64/`, y el de los otros 17, no se ha observado (N-16, N-20). Este documento no ejecuta ningún control.
 - La v3 no la ha revisado nadie distinto de su autor.
 
@@ -153,3 +153,31 @@ Cada fila es un hallazgo de `REV2/REVISION_MANUAL_v2_ef36ab1.md` (§2.2 y §2.3)
 - No se aplica nada al producto: la corrección de CONTINUIDAD §2.5 queda como propuesta aparte, sin aplicar.
 - Los pasos con agentes reales (13 en un expediente real, 14–17) siguen sin poder comprobarse sin agentes de contexto separado.
 - No se declara aptitud.
+
+## 7. Cambios v3 → v4
+
+Cada fila es un hallazgo de `REV3/REVISION_MANUAL_v3.md` (§4.1 y §4.2). «v4:N» es la línea de `MANUAL_OPERATIVO_b129b36_v4.md`; «Propuesta» es `PROPUESTA_CONTINUIDAD_2_5.md`. La v3 (`MANUAL_OPERATIVO_3149128_v3.md`) no se modifica. Las pruebas se hicieron en solo lectura, sobre el worktree de la candidata (`<candidata>`, HEAD `b129b36`, `git status --short` vacío), el repositorio auxiliar (`<aux>`, `2c988b8`, después de `git pull --ff-only`) y `origin/main` del producto (`d69d483`). No se ha ejecutado nada del producto, ni LibreOffice, ni el pipeline.
+
+| Hallazgo | Qué cambia | Línea nueva | Prueba hecha |
+|---|---|---|---|
+| **N1** · la candidata está en `b129b36` | El objeto pasa a `b129b36` = `3149128` + G-RAIZ (título, estado, abreviaturas y §0, con dos viñetas nuevas: qué cambia G-RAIZ y que `munger_v2_r1/` no cambia). §4.2.5: «hoy apunta a `b129b36`» y «hoy debe dar `b129b36`». Fila 1 del §10: `README.md:1` y `CLAUDE.md:1` ya dicen «hito 2». Fila 4: HEAD `b129b36`. C-01 y C-02: **resueltas en `b129b36`**, con su cita; la columna pasa a «Estado en `b129b36`». §12.3: O-12 y O-13 resueltas; O-14 sigue como C-03. Citas de `CLAUDE.md` desplazadas: `:22-26` → `:24-28`, `:24` → `:26`, `:28-31` → `:30-33`, `:31` → `:33`, `:35` → `:37` (dos veces), `:37` → `:39` (tres veces); `:1`, `:7`, `:8` y `:10` siguen en su línea. §13: huellas de `b129b36`, con † los tres archivos de G-RAIZ y su prefijo anterior; observación del entorno repetida sobre `b129b36` | v4:1, 3, 17, 24, 32, 36, 38-39, 43, 45, 49, 54, 70, 74, 85, 154, 156-157, 161, 200, 204, 254, 309, 361, 512, 543, 546, 548, 568, 661, 663-664, 680, 684, 686, 690, 694-695, 698, 739, 743, 749 | `git rev-parse HEAD integracion/candidata-cierre-v2 origin/integracion/candidata-cierre-v2` en `<candidata>`: `b129b36f0aaf7e705fd206efd743fc01a9e96c10` las tres. `git diff --stat 3149128 b129b36`: solo `CLAUDE.md`, `README.md` y `docs/MIGRATION_STATUS.json`. Cada línea citada de `CLAUDE.md`, `README.md` y `docs/MIGRATION_STATUS.json` leída con `git show b129b36:<ruta>`: de `README.md` cambian `:1`, `:3`, `:7` y `:17`, y las demás citadas (`:5`, `:13`, `:33-35`, `:39`, `:41-46`, `:51`, `:56`, `:58`, `:60`, `:62`) no se mueven; `git diff --stat origin/main b129b36 -- tools/base_414.py .gitignore` vacío, y la equivalencia de 10 líneas con `origin/main` se mantiene. `CONTROL.json` en `2c988b8`: `versiones_fijadas.candidata` línea 11, `candidata_integrada` 30, `G-RAIZ.commit_origen` 717 y `.commit_destino` 718. Las 42 huellas del §13, recalculadas con `git show b129b36:<ruta> \| sha256sum` y con `git show 3149128:<ruta>`: 39 iguales y 3 distintas, las de la raíz. Entorno: `git status --short` 0; `--ignored` 682, de ellas 91 carpetas; 71 PDF; `info/exclude` 90 líneas, 7 comentarios y 83 rutas, iguales a los 83 JSON ignorados; `tail -n +2 MANIFIESTO_SHA256.txt \| sha256sum -c --quiet`, código 0 sobre 7762. `grep -n '3149128\|hito 1'` en la v4: lo que queda nombra la v2 o la v3, el estado de `acea175`, el contenido de `munger_v2_r1/` (igual en los dos commits, v4:39), la columna «en `3149128`» de C-01 y C-02, o el hito 1 como `E415/HITO_1_4_15.md` y el árbol de la preparación F1 |
+| **n1** · orden V6.4.1 compuesta | La segunda orden del §6.3 pasa a **[NO DOCUMENTADO]**, *adaptada de* `GUIA:41`, que solo da su fragmento `--config` | v4:403 | `git show b129b36:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md`, línea 41: orden V6.4 completa y, para la V6.4.1, solo `--config personaje_v2/config_v2_v641_experimental.json` |
+| **n2** · «código 10» de `REG/paso_h9_pipeline.txt` | «Su código 10 es autodeclarado»: consta en el informe, no en el registro; el archivo muestra la espera, no el código | v4:539 | `TRASP/INFORME_TRASPASO.md:38` (código **10**); `REVT/REVISION_TRASPASO.md:72`, columna «Código» «—» (= solo en el informe, leyenda en `:52`); `REG/paso_h9_pipeline.txt`: 4 líneas, la 4 es `ESPERANDO: …`, ninguna con el código |
+| **n3** · CAMBIOS:145 desfasado | La viñeta del §5 queda con una nota: el manifiesto se rehízo en `88144b5` y lista la v3 y el sondeo | CAMBIOS §5, «No se ha cerrado aquí» | `git show 88144b5:coordinacion/cierre_v2/manual/MANIFIESTO_SHA256.txt`: 8 entradas, con la v3 y los dos archivos del sondeo; `git diff --stat 88144b5 2c988b8 -- coordinacion/cierre_v2/manual` vacío |
+| **n4** · bloques sin todas sus filas | Se añaden 7d a los bloques 59 y 64 y G-06 a los 35 y 69 del §4; la frase del §4 lo dice | CAMBIOS §4 | `diff -U0` v1 → v2: bloque 35 `+269,6`, 59 `+438,20`, 64 `+505,79`, 69 `+605,21`. En la v2, la línea 269 (N-12 por lectura, G-06) cae en el 35; la 456 (13 esperas, 7d), en el 59; la 523 (fila 11, 7d), en el 64; la 618 (N-12, G-06), en el 69 |
+| **n5** · citas de `reproducir_xa_xc.py` | `reproducir_xa_xc.py:127` y `reproducir_xa_xc.py:28`, con la ruta del script; el script entra en el §13 | v4:47, 729 | `git show b129b36:…/2026-11_Vidrala_ensayo_4_8/scripts/reproducir_xa_xc.py`: `:28` `default="ambos"`, `:127` `print(f"código: …")`; prefijo `f848d4a9f345379b`, igual en `3149128` |
+| **n6** · `${TMPDIR:-/tmp}` es una simplificación | §3.2: se separa lo que dice el producto («en `/tmp`», `CONTINUIDAD.md:141`) de la precisión del manual (`tempfile`: `TMPDIR`, `TEMP` o `TMP`; si no, `/tmp`, `/var/tmp`, `/usr/tmp` o la carpeta actual) y se dice que `${TMPDIR:-/tmp}` lo simplifica. Propuesta: la tabla de fuentes dice lo mismo, y «Qué no dice» avisa de que `:141` y `:143` quedarían con dos formas, sin proponer texto para `:141`. **La frase propuesta no cambia** | v4:123; Propuesta:38, 48 | `git show b129b36:munger_v2_r1/CONTINUIDAD.md`, línea 141: «unos 2 GB temporales en `/tmp`». Lectura de `tempfile._candidate_tempdir_list` de la biblioteca estándar (`inspect.getsource`, sin ejecutar nada del producto). Las frases citadas en bloque de la Propuesta no cambian (`git diff -U0`: 0 líneas `>` cambiadas). El sondeo de literales, ejecutado otra vez con `python3 -I -B sondeo_literales_v3.py <candidata>` desde otra carpeta, con la candidata en `b129b36`: código 0 y salida igual a `salida.txt`, salvo las dos líneas de anotación que no imprime el script (la orden y el código) |
+| **n7** · los otros binarios ignorados | §4.2.6: 843 XLSX y 71 PDF (`.gitignore:2-5`), 1 ZIP (`:8`), 6 PNG (`:10`) y 4 JPG (`:11`), más los 83 JSON: 1008 | v4:217 | `git show b129b36:baselines/4.14.json`, `storage == release_asset`, por extensión: 843 `xlsx`, 83 `json`, 71 `pdf`, 6 `png`, 4 `jpg` y 1 `zip` (1008); `git show b129b36:.gitignore`, líneas 2-5, 8, 10 y 11 |
+| **n8** · «las únicas órdenes ejecutadas» | El estado dice que solo se ejecutan órdenes de lectura y cuáles: las del §13, las del §5 y el §7 de este documento y el sondeo | v4:3 | Repaso de las órdenes del §13 de la v4 y de las columnas «Prueba hecha» de los §5 y §7: todas son de lectura |
+| **n9** · nombre del manual sin ruta en la Propuesta | Propuesta:3 y :74 citan el manual con su ruta `EVID/…` completa, ya el de la v4 (C-14 y N-05 siguen con el mismo id), y la v3 como antecedente | Propuesta:3, 74 | `grep -n MANUAL_OPERATIVO PROPUESTA_CONTINUIDAD_2_5.md`: las dos citas llevan `EVID/coordinacion/cierre_v2/manual/` |
+
+**También en la Propuesta (N1):** la cabecera pasa a `b129b36`, con la aclaración de que `munger_v2_r1/CONTINUIDAD.md` es igual que en `3149128`; la cita del revisor distinto pasa a `CLAUDE.md:33` (antes `:31`); y un párrafo «Revisión 4» dice qué se ha tocado. La Propuesta **sigue sin aplicarse** al producto.
+
+**Correspondencia de los 44 bloques de `diff -U0` v3 → v4:** 1-9 (N1; el 2 también n8); 10 (n5); 11-15 (N1); 16 (n6); 17-21 (N1); 22 (n7); 23-25 (N1); 26 (n1); 27 (N1); 28 (n2); 29-40 (N1); 41 (n5); 42-44 (N1).
+
+**No se aplica:** la propuesta opcional del §2.3 de la revisión (decir en la Propuesta que el universo del sondeo es el de los 145 scripts y que un universo completo da además `':-'`). La conclusión, 0 literales relevantes, no cambia (`REV3/REVISION_MANUAL_v3.md`, §2.3).
+
+**No se ha cerrado aquí:**
+- Las citas de `CONTROL.json` que la v3 daba en `acea175` siguen dadas en `acea175`, y siguen siendo comprobables allí. No se han recalculado en `2c988b8`. Por ejemplo, en `2c988b8` `T-CAND.siguiente_accion` ya no contiene «ninguna batería lee esos documentos» (v4:43 lo cita en `acea175`, línea 762).
+- El resultado del control 4.8 tras la limpieza de `_v64/`, y el de los otros 17, sigue sin observarse (N-16, N-20).
+- La v4 no la ha revisado nadie distinto de su autor.
