@@ -3,9 +3,9 @@
 # control va a revisores_C18b.log, no a las salidas. Versión anterior: C8 para los revisores 1 a 5 (como sobre C16) y C16
 # (worktree de C17) para los revisores 6 a 8.
 S=<scratchpad>
-RAIZ=/home/user/e_work/wt_main414/munger_v2_r1
+RAIZ=<home>/e_work/wt_main414/munger_v2_r1
 LIBRO=$RAIZ/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/elis_decisiones/Elis/Elis_v63_evaluada.xlsx
-F=/home/user/munger-v2/docs/validacion_economica_paralela/frente_E_F1_elis
+F=<repo_producto>/docs/validacion_economica_paralela/frente_E_F1_elis
 FR=docs/validacion_economica_paralela/frente_E_F1_elis
 C8=$S/c14/wt_9744177/$FR; C17=$S/c18/wt_863ddde/$FR
 R=$F/resultados; L=$S/c18/revisores_C18b.log; PY=$S/c16/pylibs; W=$S/c18/w
