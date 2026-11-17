@@ -135,3 +135,36 @@ git show daa7478:resultados_m2/pm1/FUENTES_CONSERVADAS.csv
 # paquete: SELECCION.csv, PROTOCOLO_CONGELADO.md, MAPA_ENTRADAS.jsonl, CONTRATO_C_PROPUESTA.md, README.md, ENTREGA_B3_C1.json
 # NO se ejecuto LibreOffice ni el pipeline; no hay recorrido real ejecutado (bloqueos declarados)
 ```
+
+## Bloque F2 (respuesta a CORRECCION_F2 @ F_223f16d_52fb120) · 2026-11-17 09:24–09:44 UTC (horas reales de sesión, `date -u`)
+
+```bash
+# entorno y producto de referencia (solo lectura): clon de jluisplagos/munger-v2 @ 957af65
+git checkout 957af652cdc3bef3d67e8623c9572138bac685e9
+gh release download base-4.14 --repo jluisplagos/munger-v2 --pattern '*.zip'   # a .trabajo/
+sha256sum .trabajo/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+# bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e  (coincide con la referencia)
+
+# F2-D1/D2/D7 · inventario byte a byte + 71 PDF con SHA-256 completo (commit 195766f)
+python3 -I resultados_cierre/alcance_real/preparacion_b3_c1/scripts/inventario_desde_zip.py "$ZIP_414" /tmp/inv_check.csv /tmp/huellas_check.csv   # exit 0; 131 recursos, 6799 archivos, 71 PDF
+cmp /tmp/inv_check.csv resultados_cierre/alcance_real/preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv   # byte-identico
+# F2-D7 · huellas de FUENTES_CONSERVADAS.csv @ daa7478 ejecutables:
+git show origin/mistral/m2-fundamento-pm1:resultados_m2/pm1/FUENTES_CONSERVADAS.csv > /tmp/fuentes_daa7478.csv
+python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_huellas.py "$ZIP_414" /tmp/fuentes_daa7478.csv   # exit 0, 29/29
+
+# F2-D3 · contrato C verificado contra el codigo @957af65 (commit e9f76a9)
+python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_contrato_c.py   # exit 0, TODO CUADRA
+#   puente E1=1060 (viejo 1170); ROE 0,094340 vs 0,126214; B15=payout 40% -> 115,06 -> 278,45 (x2,42)
+#   citas: build_v6.py:147,282,294,312,444-453,933-945,1136-1147; test_fill.py:79,84,93-99;
+#   relacion_entradas_materiales.py:143-152; patch_v62_base.py:255 (E62)
+
+# F2-D6 · protocolo C + horas reales (commit 9873234)
+git log --format='%h %ad %s' --date=format:'%Y-%m-%dT%H:%M:%SZ' -7   # horas de commit usadas en este archivo
+
+# F2-D4/D5/D7 · recuperacion, ENTREGA corregidas, extractor por argumento (commit c761cc8)
+python3 -I resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py "$RUTA_TEXTOS"   # exit 0, salida byte-identica a extraccion_independiente_out.txt
+
+# higiene por bloque: manifiesto y push
+cd resultados_cierre/alcance_real && find . -type f ! -name MANIFIESTO_SHA256.txt | sort | xargs sha256sum > MANIFIESTO_SHA256.txt && sha256sum -c --quiet MANIFIESTO_SHA256.txt
+git add resultados_cierre/alcance_real && git commit -m "F · F2-D..." && git push origin mistral/f-alcance-real
+```
