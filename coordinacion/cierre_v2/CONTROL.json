@@ -907,14 +907,15 @@
         "registro: munger-d-relevos-001 (ae8edcb), munger-d-relevos-002 (a882874), audit-pilot-code-001 (affb878), vibe-auth-001 (fc926f4), qwen-bank-review-001 (997ae8f), qwen-bank-group-01 (e5caa02), qwen-peer-group-01 (953af02)",
         "coordinacion/cierre_v2/revisiones_coordinador/AUTO_a508d6b/REVISION_AUTOMATIZACION_a508d6b.md",
         "coordinacion/cierre_v2/revisiones_coordinador/AUTO_a508d6b/CORRECCION_AUTO1.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/AUTO_a508d6b/sondas/"
+        "coordinacion/cierre_v2/revisiones_coordinador/AUTO_a508d6b/sondas/",
+        "PR #2 (borrador, abierto): automatizacion/coordinacion-api-v1 @ 267ad18; respecto de a508d6b solo añade observations/ (seguimiento de las 12:41 y ESTADO_CHATGPT.json)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "Infraestructura, no producto. Ni se adopta ni se fusiona main; PR #1 queda en borrador. No hay agente API que aplique correcciones ni una cola continua autorizada. audit-pilot-code-001 no se repite. No se cambia la facturación ni se activa pay-as-you-go. Sus informes son contrastes documentales: no ejecutan el personaje, no aceptan entregas y no sustituyen correcciones (D3) ni revisiones del coordinador.",
       "siguiente_accion": "CORRECCION_AUTO1 (M1–M7, m1–m9), a cargo de quien mantiene la rama (el usuario con ChatGPT). Prioridad: M6, porque los workflows lanzan inferencias de pago con un push. Mientras siga abierta, no se hace push que toque los scripts o workflows de inferencia sin una decisión expresa. El coordinador revisa solo lo afectado.",
-      "observacion": "Costes estimados: relevos-001 USD 0,070368 (reserva 0,115726; truncado a 4096) y relevos-002 USD 0,094358, conjunto 0,164726; crédito pendiente de confirmar en Console. audit-pilot-code-001 (Fable 5.2/max): ANTHROPIC_ERROR_RED_TIMEOUT tras 180 s, sin veredicto ni uso recibido; reserva 1,912936, coste incierto; no se repite. qwen-peer-group-01: estimado 0,102272 (reserva 0,25281). vibe-auth-001: conexión comprobada (7269/50 tokens) con coste 0. qwen-bank-review-001 (Mistral): fallo por longitud de salida (42992/16384). qwen-bank-group-01 (Mistral, Q1-001…006): entregado. Comprobado por el coordinador: el report.json de relevos-002 en 953af02 tiene sha256 1bd8a638…, igual a la source_response_sha256 fijada en 5b12950. El postprocessed_report.review es igual al JSON de raw_model_output una vez quitado un único envoltorio ```json…```; no se añadió ni se quitó contenido. La cabecera 267ad18 solo cambia observations/; la revisión de a508d6b sigue valiendo para el código.",
+      "observacion": "Costes estimados: relevos-001 USD 0,070368 (reserva 0,115726; truncado a 4096) y relevos-002 USD 0,094358, conjunto 0,164726; crédito pendiente de confirmar en Console. audit-pilot-code-001 (Fable 5.2/max): ANTHROPIC_ERROR_RED_TIMEOUT tras 180 s, sin veredicto ni uso recibido; reserva 1,912936, coste incierto; no se repite. qwen-peer-group-01: estimado 0,102272 (reserva 0,25281). vibe-auth-001: conexión comprobada (7269/50 tokens) con coste 0. qwen-bank-review-001 (Mistral): fallo por longitud de salida (42992/16384). qwen-bank-group-01 (Mistral, Q1-001…006): entregado. Comprobado por el coordinador: el report.json de relevos-002 en 953af02 tiene sha256 1bd8a638…, igual a la source_response_sha256 fijada en 5b12950. El postprocessed_report.review es igual al JSON de raw_model_output una vez quitado un único envoltorio ```json…```; no se añadió ni se quitó contenido. La cabecera 267ad18 solo cambia observations/; la revisión de a508d6b sigue valiendo para el código. ChatGPT tiene una comprobación horaria activa, de solo lectura, que no lanza inferencias, según ESTADO_CHATGPT.json @ 267ad18.",
       "commit_revisado": "a508d6b38168933d9e6ef480e0d23627b8d748fb",
       "alcance_aceptado": [],
       "solicitud_revision": {
@@ -1324,6 +1325,11 @@
       "tipo": "CONSULTA",
       "fecha": "2026-11-17",
       "hecho": "ChatGPT anuncia que trabajará en D3, A4, E2 y F3 en ramas propias. Aún no hay ramas ni commits publicados; las ramas mistral/* siguen sin cambios. Hace falta fijar un solo autor por frente."
+    },
+    {
+      "tipo": "CONSULTA",
+      "fecha": "2026-11-17",
+      "hecho": "Se revisa lo publicado por ChatGPT. No hay ninguna rama ni commit de D3, A4, E2 o F3, y en munger-v2 no hay PR. Solo hay PR #2 (automatización @ 267ad18), cuyo código es el ya revisado, más una nota de seguimiento. La nota coincide con el control: la matriz D tiene 29 componentes parciales, 1 bloqueo de entorno y 6 no ejecutados, y hay 0/36 recorridos. Su cotejo propio de Q1-004 coincide con el contraste de Claude API."
     }
   ],
   "consulta_remotos_arranque": {
