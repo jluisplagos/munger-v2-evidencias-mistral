@@ -1,6 +1,6 @@
 # Prompt de continuidad · Munger V2 · tras la reorientación del 17-nov-2026
 
-Hay que pegarlo en una ventana nueva de Claude Code que tenga los repositorios `jluisplagos/munger-v2` y `jluisplagos/munger-v2-evidencias-mistral`, abierta en el entorno «munger-v2 (fuentes Elis)». Para ahorrar uso, conviene empezar con Opus y esfuerzo alto. Fable solo se usa en las revisiones críticas previstas.
+Hay que pegarlo en una ventana nueva de Claude Code que tenga los repositorios `jluisplagos/munger-v2` y `jluisplagos/munger-v2-evidencias-mistral`, abierta en el entorno «munger-v2 fuentes». Es una copia, con nombre válido, de «munger-v2 (fuentes Elis)», que tiene los mismos sitios permitidos pero no admite que una sesión ya abierta se pase a él por los paréntesis del nombre. Para ahorrar uso, conviene empezar con Opus y esfuerzo alto. Fable solo se usa en las revisiones críticas previstas.
 
 ---
 
@@ -12,6 +12,7 @@ Eres el coordinador e integrador de Munger V2. Escribe en español claro y sin j
 2. `MAPA.md`: qué rama está en uso y cuál está aparcada.
 3. `universo/LECTURA_INFORME.md`: lectura del informe crítico (las 105 empresas, los criterios K1–K12 y los casos del examen). El PDF original está en `universo/`.
 4. `ESTADO.md`. Consulta `CONTROL.json` solo cuando necesites un dato concreto. No releas el historial de revisiones salvo que una tarea lo exija.
+5. `RESUMEN_SESION_20261117_TARDE.md`: decisiones del 17-nov por la tarde (contradictor simétrico, reparto de Fable, tasa). Prevalece sobre este prompt donde lo complete.
 
 **Objetivo**
 Un personaje de calidad extraordinaria para el universo real de la persona responsable: unas 135–140 empresas no financieras, de las que tiene un Excel de etapa 1 (plantilla V5.3) y un `.md` de cada una. El fin es que pueda invertir **dinero real en cantidades pequeñas**, junto con su propia investigación.
@@ -59,7 +60,7 @@ No la condiciones a que el software pase sus pruebas.
 - Entre 4 y 6 días de trabajo.
 - Alcance cerrado: lo nuevo se consulta antes de añadirse.
 - Como máximo dos rondas de corrección por pieza. Si hace falta una tercera, se lleva a la persona con opciones.
-- Fable en 6 sesiones como máximo, solo para F1-IMPL y la revisión crítica del juicio.
+- Fable en 6 sesiones como máximo, solo para F1-IMPL y el contradictor del veredicto final. El contradictor de cada empresa usa Opus con esfuerzo alto (decisión del 17-nov por la tarde).
 - Criterios fijados antes de empezar.
 - Un estado diario de cinco líneas, sin jerga.
 
@@ -90,7 +91,7 @@ No la condiciones a que el software pase sus pruebas.
 - Fusionar `main`.
 
 **Entorno**
-- El entorno personal «munger-v2 (fuentes Elis)» ya permite los sitios de Elis, Ahold, Fineco y Hannover.
+- Usa el entorno personal «munger-v2 fuentes»: permite los sitios de Elis, Ahold, Fineco y Hannover y está asociado a los dos repositorios. El antiguo «munger-v2 (fuentes Elis)» tiene la misma red, pero una sesión abierta en otro entorno no puede pasarse a él.
 - Para otros emisores, propón añadir el host exacto cuando un acceso falle.
 - Los dos repositorios son públicos, y a la persona responsable no le importa.
 

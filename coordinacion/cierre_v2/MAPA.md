@@ -52,10 +52,16 @@ Para qué sirve cada rama tras la reorientación (`REORIENTACION_UNIVERSO.md`).
 - `fuentes-hannover-u3-20261117`: Hannover Rück, prueba negativa de motor C.
 - `fuentes-mistral-m2-20261116`: Release anterior del frente M2.
 
+## Entorno de trabajo
+
+- **«munger-v2 fuentes»** (personal, creado el 17-nov): el que se usa. Permite los sitios de Elis, Ahold, Fineco y Hannover y está asociado a los dos repositorios.
+- «munger-v2 (fuentes Elis)»: la misma red, pero una sesión ya abierta no puede pasarse a él por los paréntesis del nombre. Se puede borrar cuando la persona responsable lo decida.
+
 ## Dentro de `coordinacion/cierre_v2/`, lo que importa ahora
 
 - `REORIENTACION_UNIVERSO.md`: objetivo, reglas, examen, recorte y la pregunta de fondo sobre las fases A, B y C.
 - `PROMPT_CONTINUIDAD_20261117.md`: el arranque de una ventana nueva.
+- `RESUMEN_SESION_20261117_TARDE.md`: decisiones del 17-nov por la tarde.
 - `universo/`: el informe crítico (PDF) y su lectura minuciosa.
 - `CONTROL.json` y `ESTADO.md`: el registro de todo lo hecho.
 - `revisiones_coordinador/`: todas las revisiones, como historial. No hace falta leerlas para continuar.
