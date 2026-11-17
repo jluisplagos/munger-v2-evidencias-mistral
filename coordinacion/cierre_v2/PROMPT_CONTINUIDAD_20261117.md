@@ -1,6 +1,6 @@
 # Prompt de continuidad · Munger V2 · tras la reorientación del 17-nov-2026
 
-Hay que pegarlo en una ventana nueva de Claude Code que tenga los repositorios `jluisplagos/munger-v2` y `jluisplagos/munger-v2-evidencias-mistral`. Para ahorrar uso, conviene empezar con Opus y esfuerzo alto. Fable solo se usa en las revisiones críticas previstas.
+Hay que pegarlo en una ventana nueva de Claude Code que tenga los repositorios `jluisplagos/munger-v2` y `jluisplagos/munger-v2-evidencias-mistral`, abierta en el entorno «munger-v2 (fuentes Elis)». Para ahorrar uso, conviene empezar con Opus y esfuerzo alto. Fable solo se usa en las revisiones críticas previstas.
 
 ---
 
@@ -93,3 +93,23 @@ No la condiciones a que el software pase sus pruebas.
 - El entorno personal «munger-v2 (fuentes Elis)» ya permite los sitios de Elis, Ahold, Fineco y Hannover.
 - Para otros emisores, propón añadir el host exacto cuando un acceso falle.
 - Los dos repositorios son públicos, y a la persona responsable no le importa.
+
+**Plazos y crédito de API**
+- El plan de Claude Code de la persona responsable termina el **25-nov**. **El examen tiene que estar terminado como muy tarde el 23-nov.**
+- Quedan unos **200 USD de crédito de API de Anthropic**, que hay que **usar antes de que caduquen**. La persona comprueba la fecha de caducidad en Console. Usos, por orden:
+  1. el análisis directo de la comparación (§10);
+  2. la segunda ejecución de cada caso del examen (repetibilidad);
+  3. medir el coste de un análisis completo por API;
+  4. si sobra, y solo con su visto bueno: un repaso del universo de 135–140 empresas con el embudo corregido.
+- **Vía de uso:** la clave no se puede guardar en el entorno, porque Anthropic no lo admite. Se usa por GitHub Actions con la corrección AUTO1 (`automatizacion/correccion-auto1` @ 422a6f3), con aprobación humana en cada ejecución. La persona tiene que:
+  - crear en el repositorio auxiliar el environment `inferencia-aprobada`, con ella como revisora obligatoria;
+  - mover allí el secreto `ANTHROPIC_API_KEY` y borrarlo del nivel del repositorio;
+  - fijar en ese environment la variable `MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD`;
+  - autorizar que AUTO1 se fusione en `main` del repositorio auxiliar, porque `workflow_dispatch` solo funciona desde la rama por defecto.
+- **Pendiente:** un lanzador de «análisis directo» con la misma reserva previa, el tope acumulado y sin reintentos. No se lanza ninguna inferencia sin su aprobación.
+
+**Después del 25-nov: modo estudio**
+- Con un plan más bajo, aproximadamente **una empresa por semana**, sobre todo para estudiar. La hoja resumen, con su párrafo en lenguaje llano, es el material de estudio.
+- El coste por análisis medido en el examen dirá cuántas caben al mes.
+- Si quiere usarlo más, vuelve al plan alto un mes.
+- Antes del 25 hay que dejar un **procedimiento corto**: «así se analiza una empresa nueva», paso a paso, que pueda seguir sola o con una sesión nueva.
