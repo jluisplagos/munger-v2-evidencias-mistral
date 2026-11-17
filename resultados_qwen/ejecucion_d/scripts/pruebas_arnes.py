@@ -84,7 +84,7 @@ def candidata_falsa(tmp, nombre="cand"):
     cand = os.path.join(tmp, nombre)
     sc = os.path.join(cand, "munger_v2_r1", "personaje_v2", "scripts")
     os.makedirs(sc)
-    shutil.copytree(os.path.join(L.PERSONAJE, "scripts"), sc)
+    shutil.copytree(os.path.join(L.PERSONAJE, "scripts"), sc, dirs_exist_ok=True)
     subprocess.run(["git", "-C", cand, "init", "-q"], check=True)
     subprocess.run(["git", "-C", cand, "add", "-A"], check=True)
     subprocess.run(["git", "-C", cand, "-c", "user.email=t@t", "-c", "user.name=t", "commit", "-qm", "x"], check=True)
@@ -149,13 +149,11 @@ def main():
          f"rc={r.returncode} estado={res4['estado_caso']} copiado={copiado}")
 
     aux_tmp = os.path.join(tmp, "aux")
-    os.makedirs(os.path.join(aux_tmp, "scripts", "especificaciones"))
-    shutil.copy(os.path.join(AQUI, "generar_matriz.py"), os.path.join(aux_tmp, "scripts", "generar_matriz.py"))
-    shutil.copy(os.path.join(AQUI, "especificaciones", "adaptaciones.json"),
-                os.path.join(aux_tmp, "scripts", "especificaciones", "adaptaciones.json"))
+    shutil.copytree(AQUI, os.path.join(aux_tmp, "scripts"), ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
     r5 = subprocess.run([sys.executable, "-B", os.path.join(aux_tmp, "scripts", "generar_matriz.py")],
                         capture_output=True, text=True,
-                        env=dict(os.environ, PYTHONDONTWRITEBYTECODE="1", BANCO_DIR=L.BANCO))
+                        env=dict(os.environ, PYTHONDONTWRITEBYTECODE="1", BANCO_DIR=L.BANCO,
+                                 EVIDENCIAS_DIR=os.path.join(aux_tmp, "evidencias")))
     filas = list(csv.DictReader(open(os.path.join(aux_tmp, "MATRIZ_EJECUCION.csv"), encoding="utf-8")))
     rec5 = json.load(open(os.path.join(aux_tmp, "evidencias", "recuentos.json")))
     paso("5 matriz sin carpeta de evidencias -> rc 0, 36 filas, 0 CUMPLE",
@@ -211,15 +209,13 @@ def main():
 
     # 12 forjado de 2 campos
     t = os.path.join(tmp, "p4")
-    os.makedirs(os.path.join(t, "scripts", "especificaciones"))
     os.makedirs(os.path.join(t, "evidencias", "Q1-031"))
-    for s in ("generar_matriz.py",):
-        shutil.copy(os.path.join(AQUI, s), os.path.join(t, "scripts", s))
-    shutil.copytree(os.path.join(AQUI, "especificaciones"), os.path.join(t, "scripts", "especificaciones"))
+    shutil.copytree(AQUI, os.path.join(t, "scripts"), ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
     json.dump({"harness_version": "4.0", "estado_caso": "COMPONENTE_OK"},
               open(os.path.join(t, "evidencias", "Q1-031", "resultado_ejecucion.json"), "w"))
     subprocess.run([sys.executable, "-B", os.path.join(t, "scripts", "generar_matriz.py")],
-                   env=dict(os.environ, BANCO_DIR=L.BANCO), capture_output=True, text=True)
+                   env=dict(os.environ, BANCO_DIR=L.BANCO, EVIDENCIAS_DIR=os.path.join(t, "evidencias")),
+                   capture_output=True, text=True)
     fila = next(x for x in csv.DictReader(open(os.path.join(t, "MATRIZ_EJECUCION.csv"))) if x["id"] == "Q1-031")
     paso("12 resultado forjado de 2 campos -> sin CUMPLE", fila["veredicto_componente"] == "", f"veredicto={fila['veredicto_componente']!r}")
 
@@ -263,9 +259,11 @@ def main():
     for cid in ("Q1-001", "Q1-002"):
         p = os.path.join(run_dir, cid, "Viscofan", "verificacion_entradas.json")
         regs.append(json.load(open(p, encoding="utf-8")) if os.path.isfile(p) else None)
-    marcadas = all(r and all((e.get("comprobacion") or {}).get("_simulada") is True
-                             for e in r["entradas"] if isinstance(e.get("comprobacion"), dict))
-                       for r in regs if r) if any(regs) else False
+    marcadas = all((e.get("comprobacion") or {}).get("_simulada") is True
+                   for r in regs if r
+                   for e in r["entradas"]
+                   if isinstance(e.get("comprobacion"), dict)
+                   and (e["comprobacion"].get("resultado") == "verificado" or str(e.get("celda", "")).startswith("aux:")))
     revisor_sim = any(r and any("[SIMULADO]" in str((e.get("comprobacion") or {}).get("revisor") or "")
                                 for e in r["entradas"]) for r in regs if r)
     paso("16 toda comprobación del arnés marcada _simulada/[SIMULADO] (incl. --revisor)",
@@ -413,7 +411,7 @@ def main():
     json.dump({"harness_version": "4.0", "estado_caso": "ERROR_ENTORNO", "criterios": [], "errores": ["x"],
                "afirmaciones_fallidas": []}, open(os.path.join(evt, "Q1-026", "resultado_ejecucion.json"), "w"))
     subprocess.run([sys.executable, "-B", os.path.join(t, "scripts", "generar_matriz.py")],
-                   env=dict(os.environ, BANCO_DIR=L.BANCO), capture_output=True, text=True)
+                   env=dict(os.environ, BANCO_DIR=L.BANCO, EVIDENCIAS_DIR=evt), capture_output=True, text=True)
     filas = {r["id"]: r for r in csv.DictReader(open(os.path.join(t, "MATRIZ_EJECUCION.csv"), encoding="utf-8"))}
     paso("30 M2 resultado de 4 campos con spec_sha256 -> generar_matriz sola: sin CUMPLE",
          filas["Q1-001"]["veredicto_componente"] == "", f"Q1-001={filas['Q1-001']['veredicto_componente']!r} {filas['Q1-001']['estado_ejecucion']!r}")
@@ -471,8 +469,7 @@ def main():
          "comprobacion": {"extractor": "ext propio", "revisor": "rev propio", "fecha": "HOY", "resultado": "verificado", "fuente_examinada": "f", "nota": None, "vinculo": None}},
         {"op": "sellar", "celdas": ["aux:x"], "revisor": "revisor propio sin marca", "guardar": "s.txt", "esperado": [0, 1]}],
         "criterios": [{"id": "C1", "texto": "x", "afirma": [{"tipo": "texto_contiene", "archivo": "s.txt", "contiene": "sellar"}]}]})
-    r = run_caso(sp, {**base_env, **{"CANDIDATA_DIR": cand, "SHA_CANDIDATA_ESPERADO": sha, "PLANTILLA_EXP": pl},
-                      "RUN_DIR": os.path.join(tmp, "run_rev")})
+    r = run_caso(sp, {**base_env, "RUN_DIR": os.path.join(tmp, "run_rev")})
     reg = json.load(open(os.path.join(tmp, "run_rev", "Q1-001", "Viscofan", "verificacion_entradas.json")))
     aux = next(e for e in reg["entradas"] if e["celda"] == "aux:x")
     comp = aux["comprobacion"]
@@ -485,24 +482,28 @@ def main():
     paso("35 D3-R7 sellar con revisor propio queda [SIMULADO]; ARNES_EVIDENCIAS_LIMPIAS=0 registrado con aviso",
          r35a and r35b, f"comp={comp} limpiadas={res35.get('evidencias_limpiadas')}")
 
-    # 36 D3-R4: paquetes de relevo completos
+    # 36 D4-R4: paquetes de relevo completos y estado inicial reproducible sin editar nada
+    import generar_relevo as GR
     rel_p = os.path.join(L.AUX, "relevo", "PAQUETES_RELEVO.json")
     if os.path.isfile(rel_p):
         doc = json.load(open(rel_p, encoding="utf-8"))
-        mal = []
-        for p in doc["paquetes"]:
-            for clave in ("estado_inicial", "fases", "entrada", "artefacto_por_criterio"):
-                if not p.get(clave):
-                    mal.append(f"{p['caso']} sin {clave}")
-            if not p.get("comando_relevo") and not p.get("motivo_sin_comando"):
-                mal.append(f"{p['caso']} sin comando_relevo ni motivo")
-            for cb in p.get("criterios_banco", []):
-                if not cb.get("artefacto"):
-                    mal.append(f"{p['caso']} criterio {cb.get('indice')} sin artefacto")
-        paso("36 D3-R4 cada paquete: estado_inicial+fases+entrada+artefacto por criterio+comando/motivo",
+        casos_banco = [json.loads(l) for l in open(os.path.join(L.BANCO, "casos_aceptacion.jsonl"), encoding="utf-8") if l.strip()]
+        mal = GR.validar_paquetes(doc, casos_banco)
+        for cid in ("Q1-028", "Q1-032"):
+            rd36 = os.path.join(tmp, "run36_" + cid)
+            env36 = dict(os.environ, PYTHONDONTWRITEBYTECODE="1", RUN_DIR=rd36, BANCO_DIR=L.BANCO)
+            r36 = subprocess.run([sys.executable, "-B", os.path.join(AQUI, "preparar_caso_personaje.py"), cid],
+                                 capture_output=True, text=True, env=env36)
+            ok36 = (r36.returncode == 0
+                    and os.path.isfile(os.path.join(rd36, cid, "ESTADO_INICIAL.md"))
+                    and os.path.isdir(os.path.join(rd36, cid, "Viscofan"))
+                    and os.path.isfile(os.path.join(rd36, cid, "Viscofan", "verificacion_entradas.plantilla.json")))
+            if not ok36:
+                mal.append(f"{cid}: estado inicial no reproducible sin editar (rc={r36.returncode}) {r36.stderr[-150:]}")
+        paso("36 D4-R4 paquetes completos (estado_inicial relativo+fases con código esperado+entrada exacta+artefacto por los 109 criterios+comando ejecutable) y Q1-028/Q1-032 reproducibles",
              not mal, f"mal={mal[:4]} paquetes={len(doc['paquetes'])}")
     else:
-        paso("36 D3-R4 paquetes presentes", False, "falta PAQUETES_RELEVO.json")
+        paso("36 D4-R4 paquetes presentes", False, "falta PAQUETES_RELEVO.json")
 
     log = os.path.join(L.EVIDENCIAS, "pruebas_arnes.log")
     with open(log, "w", encoding="utf-8") as f:

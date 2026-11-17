@@ -1,46 +1,111 @@
 #!/usr/bin/env python3
-"""Genera relevo/PAQUETES_RELEVO.json v3: un paquete por cada uno de los 36 casos para
-el runtime del coordinador (Claude), con comando exacto de re-ejecución, criterios ya
-cubiertos por componente y LO QUE FALTA con responsable y necesidad (D2-R4: nunca
-«nada pendiente declarado» salvo decisión del usuario, que también se nombra).
+"""Genera relevo/PAQUETES_RELEVO.json v5: un paquete COMPLETO y GENERADO por cada uno de
+los 36 casos del banco (D4-R4, prioridad máxima del encargo D4).
 
-Incluye el recorrido del personaje comprobado en 957af65 (MECANISMO_PERSONAJE.md):
-fases/orden/modelos y qué se observa en cada criterio del banco (mapa_banco).
+Cada paquete lleva, según MECANISMO_PERSONAJE.md §4 y PLAN_DE_EJECUCION §2/§4:
+- estado_inicial: expediente base (ruta relativa a la candidata), comando que lo deja
+  bajo RUN_DIR, qué fixture del banco se carga en qué archivo del producto, registro
+  inicial y precondiciones (Q1-028: aprobación de partida AUTÉNTICA de prueba, no el
+  JSON del fixture);
+- preparacion_comandos: comandos ejecutables en orden;
+- fases: pasos del pipeline en orden con actor, modelo, esfuerzo, qué agente es nuevo y
+  cuál continúa, código esperado en cada parada y artefacto de salida;
+- entrada: texto exacto (entrada_usuario del banco) y a quién se entrega;
+- artefacto_por_criterio: para cada uno de los 109 criterios del banco, archivo relativo
+  al expediente, campo/sección, condición de CUMPLE y de FALLA, o NO_OBSERVABLE /
+  ADAPTACION_PENDIENTE / DECISION_PENDIENTE con motivo;
+- comando_relevo: el del personaje, ejecutable (preparar_caso_personaje.py + pipeline.py
+  con flock); ninguno de los 36 queda en null.
 
-Fuente única: banco @SHA + evidencias/*/resultado_ejecucion.json + MATRIZ_EJECUCION.csv
-+ MAPA_CRITERIOS_BANCO.csv.
-Uso: python3 generar_relevo.py
+Fuentes: banco + evidencias + MATRIZ + MAPA + relevos_casos.json (generado por
+actualizar_relevos.py). Uso: python3 generar_relevo.py
 """
 import csv
 import json
 import os
+import sys
 
+sys.dont_write_bytecode = True
 AQUI = os.path.dirname(os.path.abspath(__file__))
 AUX = os.path.dirname(AQUI)
+sys.path.insert(0, AQUI)
+import lib_arnes as L  # noqa: E402
+
 EV = os.path.join(AUX, "evidencias")
-BANCO = os.environ.get("BANCO_DIR", "/workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado")
+BANCO = L.BANCO
 OUT = os.path.join(AUX, "relevo", "PAQUETES_RELEVO.json")
 
 RECORRIDO_PERSONAJE = {
     "fuente": "coordinacion/cierre_v2/pruebas_candidata/957af65/MECANISMO_PERSONAJE.md (comprobado 2026-11-17)",
-    "mecanismo": "pipeline.py deja los pasos de agente con codigo 10 + ESPERANDO.md + prompts_generados/; la sesion orquesta un subagente por relevo segun config_v2.json -> modelos; no hace falta API ni credencial",
-    "fases_en_orden": [
-        {"paso": 5, "fase": "extraccion (extraccion_v63)", "modelo": "sonnet", "esfuerzo": "medio"},
-        {"paso": 6, "fase": "fase A", "modelo": "opus", "esfuerzo": "alto"},
-        {"paso": 8, "fase": "fase B", "modelo": "opus", "esfuerzo": "alto"},
-        {"paso": 10, "fase": "fase C, turno 1 y turno 2 con el MISMO agente", "modelo": "opus", "esfuerzo": "alto"},
-        {"paso": 13, "fase": "verificacion con agente NUEVO", "modelo": "opus", "esfuerzo": "medio"},
-        {"fase": "auditoria APROBADO", "agente": "auditor nuevo, distinto del productor", "nota": "cierre_v2 retira aprobaciones al cambiar el material auditado"},
-    ],
+    "mecanismo": "pipeline.py deja los pasos de agente (5, 6, 8, 10 en dos turnos, 13) con código 10 + ESPERANDO.md + prompts_generados/; la sesión orquesta un subagente por relevo según config_v2.json -> modelos; no hace falta API ni credencial",
+    "modelos_config_v2": {"extraccion_v63": "sonnet/medio", "fase_a": "opus/alto", "fase_b": "opus/alto",
+                          "fase_c": "opus/alto, 2 turnos con el MISMO agente", "verificacion": "opus/medio, agente NUEVO",
+                          "auditoria": "auditor NUEVO"},
     "reglas": ["solo la salida del agente; sin internet ni memoria; sin pipeline/LibreOffice/Excel en los relevos de agente",
-               "no simular respuestas de agente; --agentes-simulados solo vale para pruebas tecnicas",
-               "nunca copiar salidas entre expedientes reales"],
-    "limite_conocido": "los expedientes de empresas_v2/ no conservan pdf/ ni texto/; los de la base 4.14 (Vidrala, Viscofan, Elis) si conservan texto/",
+               "no simular respuestas de agente; --agentes-simulados solo vale para pruebas técnicas",
+               "nunca copiar salidas entre expedientes reales; LibreOffice en secuencia con flock y perfil aislado"],
+    "limite_conocido": "los expedientes de empresas_v2/ no conservan pdf/ ni texto/; la plantilla de la base materializada (ensayo 4.13/4.14 de Vidrala) sí conserva texto/",
 }
 
-FALTA_AGENTE = ("recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos "
-                "de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, "
-                "auditoria APROBADO con auditor nuevo) — no simulable por el arnés")
+VIAS_SIN_ARTEFACTO = ("NO_OBSERVABLE", "ADAPTACION_PENDIENTE", "DECISION_PENDIENTE")
+
+
+def validar_paquetes(doc, casos_banco):
+    """D4-R4: validación estricta de los paquetes. Devuelve lista de incumplimientos."""
+    mal = []
+    paquetes = doc.get("paquetes", [])
+    if len(paquetes) != 36:
+        mal.append(f"número de paquetes {len(paquetes)} != 36")
+    por_id = {c["id"]: c for c in casos_banco}
+    for p in paquetes:
+        cid = p["caso"]
+        caso = por_id.get(cid)
+        ei = p.get("estado_inicial") or {}
+        if not ei.get("expediente_base") or os.path.isabs(ei["expediente_base"]) or ei["expediente_base"].startswith("$"):
+            mal.append(f"{cid}: estado_inicial.expediente_base no es ruta relativa a la candidata")
+        if not ei.get("comando"):
+            mal.append(f"{cid}: estado_inicial sin comando")
+        if not ei.get("fixtures"):
+            mal.append(f"{cid}: estado_inicial sin fixtures")
+        else:
+            for fx in ei["fixtures"]:
+                if not fx.get("fixture_banco") or not fx.get("archivo_producto"):
+                    mal.append(f"{cid}: fixture sin archivo del producto")
+        if cid == "Q1-028" and "AUT" not in (ei.get("aprobacion_de_partida") or "").upper():
+            mal.append("Q1-028: falta la aprobación de partida AUTÉNTICA de prueba (PLAN §2)")
+        if not p.get("preparacion_comandos"):
+            mal.append(f"{cid}: sin preparacion_comandos")
+        fases = p.get("fases") or []
+        if not fases:
+            mal.append(f"{cid}: sin fases")
+        for f in fases:
+            for clave in ("paso", "fase", "agente", "modelo", "esfuerzo", "codigo_esperado", "salida"):
+                if f.get(clave) in (None, "", []):
+                    mal.append(f"{cid}: fase {f.get('orden')} sin {clave}")
+            if isinstance(f.get("paso"), int) and f["paso"] in (5, 6, 8, 10, 13) and f.get("codigo_esperado") != [10]:
+                mal.append(f"{cid}: paso de agente {f['paso']} debe parar con código 10")
+        ent = p.get("entrada") or {}
+        if ent.get("texto") != (caso or {}).get("entrada_usuario"):
+            mal.append(f"{cid}: entrada.texto no es la entrada_usuario exacta del banco")
+        if not ent.get("a_quien_se_entrega"):
+            mal.append(f"{cid}: entrada sin destinatario")
+        apc = p.get("artefacto_por_criterio") or []
+        if caso and len(apc) != len(caso["criterios_observables"]):
+            mal.append(f"{cid}: artefacto_por_criterio tiene {len(apc)} != {len(caso['criterios_observables'])} criterios del banco")
+        for a in apc:
+            if a.get("via") in VIAS_SIN_ARTEFACTO:
+                if not a.get("motivo"):
+                    mal.append(f"{cid}#{a.get('indice')}: {a.get('via')} sin motivo")
+            else:
+                for clave in ("artefacto", "campo", "condicion_cumple", "condicion_falla"):
+                    if not a.get(clave):
+                        mal.append(f"{cid}#{a.get('indice')}: falta {clave}")
+                if a.get("artefacto") and os.path.isabs(a["artefacto"]):
+                    mal.append(f"{cid}#{a.get('indice')}: artefacto con ruta absoluta")
+        cmd = p.get("comando_relevo")
+        if not cmd or "pipeline.py" not in cmd or cid not in cmd:
+            mal.append(f"{cid}: comando_relevo no ejecutable del personaje (null o sin pipeline.py/caso)")
+    return mal
 
 
 def main():
@@ -51,79 +116,80 @@ def main():
     with open(os.path.join(AUX, "MAPA_CRITERIOS_BANCO.csv"), encoding="utf-8") as f:
         for row in csv.DictReader(f):
             mapa.setdefault(row["caso"], []).append(row)
-    ad = json.load(open(os.path.join(AQUI, "especificaciones", "adaptaciones.json"), encoding="utf-8"))["casos"]
+    relc = json.load(open(os.path.join(AQUI, "especificaciones", "relevos_casos.json"), encoding="utf-8"))["casos"]
     paquetes = []
     for c in casos:
         cid = c["id"]
         m = matriz[cid]
+        rc = relc[cid]
         res_p = os.path.join(EV, cid, "resultado_ejecucion.json")
         res = json.load(open(res_p, encoding="utf-8")) if os.path.isfile(res_p) else None
-        spec = m["comandos_reproducibles"]
-        comando = ("python3 scripts/ejecutar_caso.py scripts/" + spec.split("scripts/")[-1]) if "especificaciones" in spec else None
         falta = []
-        if m["estado_ejecucion"] == "PARCIAL_COMPONENTE":
-            falta.append({"qué": FALTA_AGENTE, "quién": "runtime del coordinador (Claude) con agentes configurados", "necesita": "candidata 957af65 materializada + config_v2.json; sin API"})
-        if m["estado_ejecucion"] == "BLOQUEO_ENTORNO":
-            falta.append({"qué": "cambiar_base completo + recálculo del libro (deuda neta 300-90=210) + auditoría nueva del material final",
-                          "quién": "runtime del coordinador con pdftotext + soffice (secuencia, flock) + agente auditor nuevo",
-                          "necesita": "pdftotext (AR_2021..AR_2024 son PDF) y LibreOffice; OJO: el stderr también muestra errores de ipal/AR_2019/AR_2020 que pdftotext solo no resuelve (evidencias/Q1-026/errores_bloqueo.json)"})
+        if m["estado_ejecucion"] in ("PARCIAL_COMPONENTE", "BLOQUEO_ENTORNO", "SOLO_OBSERVACIONES") or m["estado_ejecucion"].startswith("ERROR"):
+            falta.append({"qué": "recorrido del personaje con agentes reales sobre el estado inicial preparado (entrada_usuario pegada; pasos 5/6/8/10/13 con los modelos de config_v2.json; fase C en dos turnos con el mismo agente; verificación con agente nuevo; auditoría APROBADO con auditor nuevo)",
+                          "quién": "runtime del coordinador (Claude) con agentes configurados",
+                          "necesita": "estado inicial preparado (preparar_caso_personaje.py) + CANDIDATA_DIR materializada; sin API"})
+        if cid == "Q1-026":
+            falta.append({"qué": "tras preparar el CAMBIO validado contra el banco (caja 95->90, deuda 300, deuda neta 210) sobre la base 4.14: recalcular el libro con soffice en secuencia (flock -x, perfil aislado) y auditoría nueva del material final",
+                          "quién": "runtime del coordinador con soffice (flock, un solo proceso) + agente auditor nuevo",
+                          "necesita": "base 4.14 (fase1_historia.py construir da 0 en la candidata); pdftotext solo si faltan textos"})
         if cid == "Q1-028":
-            falta.append({"qué": "reaprobación NUEVA con auditor real (la observación compartida con Q1-036 solo muestra la retirada) y deuda neta vigente 300+40-95=245 documentada como transformación pendiente de verificar",
-                          "quién": "agente auditor nuevo (runtime del coordinador)", "necesita": "expediente con la transformación vigente (arrendamientos 40, deuda 300, caja 95 del fixture f5_028_aprobacion.json)"})
+            falta.append({"qué": "reaprobación NUEVA con auditor real tras el cambio de material (la aprobación de partida es una aprobación auténtica de prueba creada antes, no el fixture); deuda neta vigente 300+40-95=245 documentada como transformación pendiente de verificar",
+                          "quién": "agente auditor nuevo (runtime del coordinador)",
+                          "necesita": "expediente preparado con f5_028_aprobacion.json materializado como fuente de prueba"})
         if cid == "Q1-032":
-            falta.append({"qué": "recuento 4 verificadas / 1 pendiente / 5 total del fixture f6_032_matriz.json sin doble conteo (el universo real es 321: 1/321 no lo prueba)",
-                          "quién": "runtime del coordinador", "necesita": "expediente de prueba con universo de 5 soportado o registrar NO_OBSERVABLE; ficha provisional que distinga estado de entradas vs estado de la conclusión"})
+            falta.append({"qué": "recuento 4 verificadas / 1 pendiente / 5 total del fixture f6_032_matriz.json sin doble conteo, y distinción estado de entradas vs estado de la conclusión",
+                          "quién": "runtime del coordinador", "necesita": "expediente preparado con el universo de 5 materializado"})
         if cid in ("Q1-030", "Q1-035"):
             falta.append({"qué": "decisión de política del responsable (Q1-030 caducidad temporal; Q1-035 validación de motores)",
-                          "quién": "usuario", "necesita": "decisión explícita; el banco no la fija ni el arnés la elige"})
-        if cid in ("Q1-031", "Q1-033"):
-            falta.append({"qué": "fase A/objetivo con agente real sobre fase1_v63.json (precio histórico 14,20 EUR etiquetado vs actual ausente)",
-                          "quién": "agente real (runtime del coordinador)", "necesita": "fase1_v63.json del expediente de prueba; sin simular respuesta"})
+                          "quién": "usuario", "necesita": "decisión explícita; el banco no la fija ni el arnés la elige (PLAN §3)"})
         if not falta:
             falta.append({"qué": "revisión externa por otro contexto", "quién": "coordinador (Claude)", "necesita": "diff + reproducción de lo afectado"})
+        criterios_banco = []
+        for r in mapa.get(cid, []):
+            arte = next((a for a in rc["artefacto_por_criterio"] if a["indice"] == int(r["criterio_indice"])), None)
+            criterios_banco.append({"indice": int(r["criterio_indice"]), "criterio": r["criterio_banco"],
+                                    "cobertura": r["cobertura"], "razon": r["razon"],
+                                    "artefacto": (arte or {}).get("artefacto", r.get("artefacto", "")),
+                                    "via": (arte or {}).get("via", "")})
         paquetes.append({
             "caso": cid, "familia": c["familia"], "control_banco": c["control"], "naturaleza": c["naturaleza"],
             "estado_ejecucion": m["estado_ejecucion"],
             "veredicto_componente": m["veredicto_componente"], "veredicto_caso": m["veredicto_caso"],
             "criterios_evaluados": m["criterios_evaluados"],
+            "estado_inicial": rc["estado_inicial"],
+            "preparacion_comandos": rc["preparacion_comandos"],
+            "fases": rc["fases"],
+            "entrada": rc["entrada"],
+            "artefacto_por_criterio": rc["artefacto_por_criterio"],
+            "criterios_banco": criterios_banco,
             "entrada_usuario": c["entrada_usuario"],
             "archivos_sinteticos": [a["ruta"] for a in c["archivos_sinteticos"]],
             "esperado_numerico": c.get("esperado_numerico"),
-            "comando_relevo": comando,
-            "motivo_sin_comando": None if comando else "sin especificación ejecutable del arnés: el caso requiere agente/política, no un comando de componente",
+            "comando_relevo": rc["comando_relevo"],
+            "motivo_sin_comando": None,
             "evidencia_componente": f"evidencias/{cid}/" if res else None,
             "precondiciones_simuladas": bool(res and res.get("precondiciones_simuladas")),
             "falta_para_caso_completo": falta,
-            "criterios_banco": [{"indice": r["criterio_indice"], "criterio": r["criterio_banco"],
-                                 "asercion": r["asercion_arnes"], "cobertura": r["cobertura"], "razon": r["razon"]}
-                                for r in mapa.get(cid, [])],
         })
-    q26 = next(p for p in paquetes if p["caso"] == "Q1-026")
-    q26["paquete_runtime"] = {
-        "cambio": "evidencias/Q1-026/CAMBIO_Q1-026.json (coherente con el banco f5_026: caja 95->90, deuda 300, evidencia restaurada)",
-        "pasos": ["con pdftotext: extraer textos AR_2021..AR_2024 a texto/ (OJO: también hay errores de ipal/AR_2019/AR_2020 en errores_bloqueo.json que pdftotext solo no resuelve)",
-                  "preparar el CAMBIO en una copia aislada bajo RUN_DIR (nunca dentro de la candidata): python3 -I personaje_v2/scripts/cambiar_base.py preparar <CAMBIO_abs>",
-                  "actualizar verificacion_entradas.json de la copia nueva con la corrección sellada (caja 90, deuda 300 de f5_026_nota.txt)",
-                  "recalcular con soffice en secuencia (flock -x, un solo proceso, perfil aislado) y recalcular los dependientes: deuda neta 300-90=210",
-                  "auditoría nueva del material final con agente auditor distinto"],
-        "artefactos_esperados": ["expediente copia nuevo (origen intacto verificado: evidencias/Q1-026/origen_estado.txt)",
-                                 "verificacion_entradas.json de la copia con la corrección sellada",
-                                 "resultado del recálculo con deuda neta 210",
-                                 "auditoria.md APROBADO del material nuevo (solo vía agente)"],
-        "bloqueo_actual": "sin pdftotext/soffice en este entorno: cambiar_base preparar exit 1 (error exacto en evidencias/Q1-026/cambiar_base_preparar.txt y errores_bloqueo.json)",
-    }
     doc = {
-        "programa": "coordinacion/cierre-v2 (PROMPT_MISTRAL_D) respuesta D2-R4 sobre 1ac661b",
-        "proposito": "paquetes caso por caso para el runtime del coordinador (Claude): qué ya está ejecutado por componente con aserciones y qué falta de agente/runtime/política, con responsable y necesidad",
-        "regla": "una respuesta del arnés no es ejecución del producto; los agentes del personaje los ejecuta el runtime del coordinador con evidencia y versión",
+        "programa": "respuesta D4-R4 sobre c734ca1 (CORRECCION_D4)",
+        "proposito": "paquetes COMPLETOS por caso para el runtime del coordinador: el coordinador ejecuta los 36 casos del personaje con subagentes sin interpretar nada",
+        "regla": "una respuesta del arnés no es ejecución del producto; los agentes del personaje los ejecuta el runtime del coordinador con evidencia y versión (0/36 casos del personaje ejecutados por Mistral D)",
         "recorrido_personaje": RECORRIDO_PERSONAJE,
-        "recuentos": json.load(open(os.path.join(EV, "recuentos.json"), encoding="utf-8")),
+        "generado_por": "scripts/actualizar_relevos.py (datos) + scripts/generar_relevo.py (paquetes), desde banco @4745f38 + MAPA + MATRIZ + adaptaciones.json",
+        "recuentos": json.load(open(os.path.join(EV, "recuentos.json"), encoding="utf-8")) if os.path.isfile(os.path.join(EV, "recuentos.json")) else {},
         "paquetes": paquetes,
     }
+    mal = validar_paquetes(doc, casos)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, indent=1)
-    print(f"{OUT}: {len(paquetes)} paquetes")
+    sin_comando = [p["caso"] for p in paquetes if not p["comando_relevo"]]
+    n_crit = sum(len(p["artefacto_por_criterio"]) for p in paquetes)
+    print(f"{OUT}: {len(paquetes)} paquetes · {n_crit} criterios con artefacto · sin comando: {sin_comando}")
+    print(f"validación D4-R4: {len(mal)} incumplimientos" + (f" · {mal[:5]}" if mal else ""))
+    return 1 if mal else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

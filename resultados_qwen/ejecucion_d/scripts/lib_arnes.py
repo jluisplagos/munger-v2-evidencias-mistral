@@ -37,7 +37,7 @@ import sys
 sys.dont_write_bytecode = True
 
 HARNESS_VERSION = "4.0"
-ID_RE = re.compile(r"^Q1-\d{3}$")
+ID_RE = re.compile(r"Q1-[0-9]{3}")  # D4-R1 C1/C2: se usa con fullmatch; solo dígitos ASCII
 
 AUX = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # resultados_qwen/ejecucion_d
 EVIDENCIAS = os.environ.get("EVIDENCIAS_DIR", os.path.join(AUX, "evidencias"))
@@ -85,9 +85,9 @@ def ruta_dentro(base, rel):
 
 
 def validar_id(caso_id):
-    """D3-R1 invariante 4: el id se valida antes de tocar el disco."""
-    if not isinstance(caso_id, str) or not ID_RE.match(caso_id):
-        return f"id inválido {caso_id!r}: debe ser Q1-nnn"
+    """D3-R1 invariante 4 + D4-R1 C1/C2: el id se valida antes de tocar el disco."""
+    if not isinstance(caso_id, str) or not ID_RE.fullmatch(caso_id):
+        return f"id inválido {caso_id!r}: debe ser Q1-nnn con dígitos ASCII (fullmatch)"
     if ruta_dentro(EVIDENCIAS, caso_id) is None:
         return f"id {caso_id!r} queda fuera de EVIDENCIAS={EVIDENCIAS}"
     return None

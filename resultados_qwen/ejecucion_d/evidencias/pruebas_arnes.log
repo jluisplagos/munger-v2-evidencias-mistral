@@ -1,100 +1,220 @@
 {
  "pruebas": [
   {
-   "prueba": "positivo real Q1-001 (COMPONENTE_OK, aserciones CUMPLE, sha observado registrado)",
-   "ok": true,
-   "detalle": "rc=0 estado=COMPONENTE_OK sha=957af652"
-  },
-  {
-   "prueba": "negativo esperado real Q1-006 (sellar exit 1 está en esperado; aserciones pasan)",
+   "prueba": "1 positivo real Q1-001 (COMPONENTE_OK, sha observado, spec_sha256)",
    "ok": true,
    "detalle": "rc=0"
   },
   {
-   "prueba": "candidata incompleta -> error propagado (rc=2, ERROR_ENTORNO, errores registrados)",
+   "prueba": "2 negativo esperado real Q1-006 (sellar exit 1 en esperado)",
+   "ok": true,
+   "detalle": "rc=0"
+  },
+  {
+   "prueba": "3 candidata incompleta -> rc 2 ERROR_ENTORNO",
    "ok": true,
    "detalle": "rc=2 estado=ERROR_ENTORNO"
   },
   {
-   "prueba": "artefacto heredado tras fallo de generación -> detectado, NO copiado, rc!=0",
+   "prueba": "4 artefacto heredado tras fallo -> detectado, NO copiado",
    "ok": true,
    "detalle": "rc=1 estado=ERROR copiado=False"
   },
   {
-   "prueba": "matriz sin carpeta de evidencias (no creada a mano) -> rc 0, 36 filas, 0 propias, ningún CUMPLE",
+   "prueba": "5 matriz sin carpeta de evidencias -> rc 0, 36 filas, 0 CUMPLE",
    "ok": true,
-   "detalle": "rc=0 filas=36 propias=0"
+   "detalle": "rc=0 filas=36"
   },
   {
-   "prueba": "resultado mutado que incumple el predicado -> aserción FALLA detectada",
+   "prueba": "6 resultado mutado -> aserción FALLA detectada",
    "ok": true,
    "detalle": "03_comprobar_sellado.json:comprobadas contiene 'Historia!C23' -> FALLA"
   },
   {
-   "prueba": "recuentos desde fuente única (recuentos.json == CSV en estados y veredicto_caso)",
+   "prueba": "7 recuentos == CSV (fuente única)",
    "ok": true,
-   "detalle": "estados={'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6} veredicto_caso={'sin veredicto de caso': 29, 'NO_OBSERVABLE': 1, 'sin veredicto': 4, 'DECISION_PENDIENTE': 2}"
+   "detalle": "estados={'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6}"
   },
   {
-   "prueba": "D2-R1a P1: especificación vacía -> rc 2, ERROR_ESPECIFICACION (no COMPONENTE_OK)",
+   "prueba": "8 spec vacía -> rc 2 ERROR_ESPECIFICACION",
    "ok": true,
-   "detalle": "rc=2 estado=ERROR_ESPECIFICACION"
+   "detalle": "rc=2"
   },
   {
-   "prueba": "D2-R1b P2: criterio sin aserciones -> rc 2, ERROR_ESPECIFICACION",
+   "prueba": "9 criterio sin afirma -> rc 2",
    "ok": true,
-   "detalle": "rc=2 estado=ERROR_ESPECIFICACION"
+   "detalle": "rc=2"
   },
   {
-   "prueba": "D2-R1c P3: aserción que lee evidencia de otro caso (../) -> rc!=0 y error de ruta registrado",
+   "prueba": "10 aserción con ruta ../ -> rc!=0 y error registrado",
    "ok": true,
-   "detalle": "rc=1 errores=[\"ruta fuera del RUN_DIR/evidencias del caso: '../Q1-036/07_informe_provisional.md'\"]"
+   "detalle": "rc=1 errores=[\"ruta fuera de las evidencias del caso: '../Q1-036/07_informe_provisional.md'\"]"
   },
   {
-   "prueba": "D2-R1e P5: json_lista_no_contiene sobre salida vacía (sin universo) -> FALLA",
+   "prueba": "11 negativo sin universo -> FALLA",
    "ok": true,
    "detalle": "salida.json: salida sin universo positivo (vacía); el negativo no acredita"
   },
   {
-   "prueba": "D2-R1d P4: resultado forjado (dos campos) -> la matriz NO da CUMPLE (recalcula desde criterios+aserción+huella)",
+   "prueba": "12 resultado forjado de 2 campos -> sin CUMPLE",
    "ok": true,
-   "detalle": "Q1-031 veredicto='' estado='ERROR (COMPONENTE_OK)'"
+   "detalle": "veredicto=''"
   },
   {
-   "prueba": "D2-R7c P8: candidata con cambio sin commit (árbol sucio) -> rc 2, ERROR_ENTORNO",
+   "prueba": "13 rastreado modificado -> rc 2 ERROR_ENTORNO",
    "ok": true,
-   "detalle": "rc=2 errores=[\"árbol de la candidata con cambios sin commit: [' M munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py']\"]"
+   "detalle": "rc=2"
   },
   {
-   "prueba": "D2-R7b P9: una ejecución = evidencias limpias (Q1-001 dos veces -> 1 '# Caso' en el log)",
+   "prueba": "14 una ejecución = un log (Q1-001 dos veces -> 1 '# Caso')",
    "ok": true,
-   "detalle": "ejecuciones_en_un_log=1"
+   "detalle": "n=1"
   },
   {
-   "prueba": "D2-R2: control negativo por aserción: todas las aserciones de todas las specs fallan sobre estado previo vacío",
+   "prueba": "15 control negativo en vacío: todas las aserciones fallan",
    "ok": true,
-   "detalle": "aserciones que pasaron en vacío: []"
+   "detalle": "pasan=[]"
   },
   {
-   "prueba": "D2-R7a: toda comprobación escrita por el arnés lleva _simulada/[SIMULADO] (dict y 'verificada', incl. --revisor del sellar)",
+   "prueba": "16 toda comprobación del arnés marcada _simulada/[SIMULADO] (incl. --revisor)",
    "ok": true,
    "detalle": "marcadas=True revisor_sim=True"
+  },
+  {
+   "prueba": "17 P3va copiar_artefacto ../../Q1-036 -> rc!=0, no copiado",
+   "ok": true,
+   "detalle": "rc=1 estado=ERROR copiado=False"
+  },
+  {
+   "prueba": "18 P3vb guardar ../Q1-036 -> víctima intacta, rc!=0",
+   "ok": true,
+   "detalle": "rc=1 victima='ORIGINAL Q1-036'"
+  },
+  {
+   "prueba": "19 N1a escribir_fuente ../../../Q1-036 -> registro ajeno intacto",
+   "ok": true,
+   "detalle": "registro='{\"original\": \"Q1-036\"}' rc=1"
+  },
+  {
+   "prueba": "20 N1b copiar_artefacto ruta absoluta -> rc!=0",
+   "ok": true,
+   "detalle": "rc=1 estado=ERROR"
+  },
+  {
+   "prueba": "21 P1v aserción sobre ejecucion.log (archivo del arnés) -> rc!=0",
+   "ok": true,
+   "detalle": "rc=1"
+  },
+  {
+   "prueba": "22 N3 aserción run: -> rc!=0 (no soportado)",
+   "ok": true,
+   "detalle": "rc=1 errores=['plantilla del registro de entradas (comando documentado del producto): exit 1 no está en esperado [0]', 'aserción con prefijo run: no soportada (D3-R1 inv.3: solo salidas del producto en evidencias)']"
+  },
+  {
+   "prueba": "23 P9w id '.' -> rc 2 SIN borrar evidencia ajena",
+   "ok": true,
+   "detalle": "rc=2"
+  },
+  {
+   "prueba": "24 N4 id '../fuera' -> rc 2 SIN borrar fuera de EVIDENCIAS",
+   "ok": true,
+   "detalle": "rc=2"
+  },
+  {
+   "prueba": "25 N4b id '' -> rc 2 SIN borrar EVIDENCIAS",
+   "ok": true,
+   "detalle": "rc=2"
+  },
+  {
+   "prueba": "26 P8va skip-worktree -> rc 2",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "prueba": "27 P8vb no rastreado en scripts/ -> rc 2",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "prueba": "28 N5a assume-unchanged -> rc 2",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "prueba": "29 N5b oculto por .git/info/exclude -> rc 2",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "prueba": "30 M2 resultado de 4 campos con spec_sha256 -> generar_matriz sola: sin CUMPLE",
+   "ok": true,
+   "detalle": "Q1-001='' 'ERROR (COMPONENTE_OK)'"
+  },
+  {
+   "prueba": "31 N2a salidas vaciadas (universo 0) -> sin CUMPLE",
+   "ok": true,
+   "detalle": "Q1-003=''"
+  },
+  {
+   "prueba": "32 N2b otra candidata/otro banco/harness 2.0 -> sin CUMPLE",
+   "ok": true,
+   "detalle": "Q1-004=''"
+  },
+  {
+   "prueba": "33 M3 Q1-026 ERROR_ENTORNO -> BLOQUEO_ENTORNO desde el resultado",
+   "ok": true,
+   "detalle": "Q1-026='BLOQUEO_ENTORNO'"
+  },
+  {
+   "prueba": "34 D3-R2 control contra el ESTADO PREVIO: toda aserción falla salvo las marcadas no_discriminante",
+   "ok": true,
+   "detalle": "mal=[]"
+  },
+  {
+   "prueba": "35 D3-R7 sellar con revisor propio queda [SIMULADO]; ARNES_EVIDENCIAS_LIMPIAS=0 registrado con aviso",
+   "ok": true,
+   "detalle": "comp={'extractor': 'ext propio [SIMULADO]', 'revisor': 'rev propio [SIMULADO]', 'fecha': '2026-11-17', 'resultado': 'verificado', 'fuente_examinada': 'f', 'nota': None, 'vinculo': None, '_simulada': True} limpiadas=False"
+  },
+  {
+   "prueba": "36 D4-R4 paquetes completos (estado_inicial relativo+fases con código esperado+entrada exacta+artefacto por los 109 criterios+comando ejecutable) y Q1-028/Q1-032 reproducibles",
+   "ok": true,
+   "detalle": "mal=[] paquetes=36"
   }
  ],
  "todo_ok": true
-}PASA positivo real Q1-001 (COMPONENTE_OK, aserciones CUMPLE, sha observado registrado) · rc=0 estado=COMPONENTE_OK sha=957af652
-PASA negativo esperado real Q1-006 (sellar exit 1 está en esperado; aserciones pasan) · rc=0
-PASA candidata incompleta -> error propagado (rc=2, ERROR_ENTORNO, errores registrados) · rc=2 estado=ERROR_ENTORNO
-PASA artefacto heredado tras fallo de generación -> detectado, NO copiado, rc!=0 · rc=1 estado=ERROR copiado=False
-PASA matriz sin carpeta de evidencias (no creada a mano) -> rc 0, 36 filas, 0 propias, ningún CUMPLE · rc=0 filas=36 propias=0
-PASA resultado mutado que incumple el predicado -> aserción FALLA detectada · 03_comprobar_sellado.json:comprobadas contiene 'Historia!C23' -> FALLA
-PASA recuentos desde fuente única (recuentos.json == CSV en estados y veredicto_caso) · estados={'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6} veredicto_caso={'sin veredicto de caso': 29, 'NO_OBSERVABLE': 1, 'sin veredicto': 4, 'DECISION_PENDIENTE': 2}
-PASA D2-R1a P1: especificación vacía -> rc 2, ERROR_ESPECIFICACION (no COMPONENTE_OK) · rc=2 estado=ERROR_ESPECIFICACION
-PASA D2-R1b P2: criterio sin aserciones -> rc 2, ERROR_ESPECIFICACION · rc=2 estado=ERROR_ESPECIFICACION
-PASA D2-R1c P3: aserción que lee evidencia de otro caso (../) -> rc!=0 y error de ruta registrado · rc=1 errores=["ruta fuera del RUN_DIR/evidencias del caso: '../Q1-036/07_informe_provisional.md'"]
-PASA D2-R1e P5: json_lista_no_contiene sobre salida vacía (sin universo) -> FALLA · salida.json: salida sin universo positivo (vacía); el negativo no acredita
-PASA D2-R1d P4: resultado forjado (dos campos) -> la matriz NO da CUMPLE (recalcula desde criterios+aserción+huella) · Q1-031 veredicto='' estado='ERROR (COMPONENTE_OK)'
-PASA D2-R7c P8: candidata con cambio sin commit (árbol sucio) -> rc 2, ERROR_ENTORNO · rc=2 errores=["árbol de la candidata con cambios sin commit: [' M munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py']"]
-PASA D2-R7b P9: una ejecución = evidencias limpias (Q1-001 dos veces -> 1 '# Caso' en el log) · ejecuciones_en_un_log=1
-PASA D2-R2: control negativo por aserción: todas las aserciones de todas las specs fallan sobre estado previo vacío · aserciones que pasaron en vacío: []
-PASA D2-R7a: toda comprobación escrita por el arnés lleva _simulada/[SIMULADO] (dict y 'verificada', incl. --revisor del sellar) · marcadas=True revisor_sim=True
+}PASA 1 positivo real Q1-001 (COMPONENTE_OK, sha observado, spec_sha256) · rc=0
+PASA 2 negativo esperado real Q1-006 (sellar exit 1 en esperado) · rc=0
+PASA 3 candidata incompleta -> rc 2 ERROR_ENTORNO · rc=2 estado=ERROR_ENTORNO
+PASA 4 artefacto heredado tras fallo -> detectado, NO copiado · rc=1 estado=ERROR copiado=False
+PASA 5 matriz sin carpeta de evidencias -> rc 0, 36 filas, 0 CUMPLE · rc=0 filas=36
+PASA 6 resultado mutado -> aserción FALLA detectada · 03_comprobar_sellado.json:comprobadas contiene 'Historia!C23' -> FALLA
+PASA 7 recuentos == CSV (fuente única) · estados={'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6}
+PASA 8 spec vacía -> rc 2 ERROR_ESPECIFICACION · rc=2
+PASA 9 criterio sin afirma -> rc 2 · rc=2
+PASA 10 aserción con ruta ../ -> rc!=0 y error registrado · rc=1 errores=["ruta fuera de las evidencias del caso: '../Q1-036/07_informe_provisional.md'"]
+PASA 11 negativo sin universo -> FALLA · salida.json: salida sin universo positivo (vacía); el negativo no acredita
+PASA 12 resultado forjado de 2 campos -> sin CUMPLE · veredicto=''
+PASA 13 rastreado modificado -> rc 2 ERROR_ENTORNO · rc=2
+PASA 14 una ejecución = un log (Q1-001 dos veces -> 1 '# Caso') · n=1
+PASA 15 control negativo en vacío: todas las aserciones fallan · pasan=[]
+PASA 16 toda comprobación del arnés marcada _simulada/[SIMULADO] (incl. --revisor) · marcadas=True revisor_sim=True
+PASA 17 P3va copiar_artefacto ../../Q1-036 -> rc!=0, no copiado · rc=1 estado=ERROR copiado=False
+PASA 18 P3vb guardar ../Q1-036 -> víctima intacta, rc!=0 · rc=1 victima='ORIGINAL Q1-036'
+PASA 19 N1a escribir_fuente ../../../Q1-036 -> registro ajeno intacto · registro='{"original": "Q1-036"}' rc=1
+PASA 20 N1b copiar_artefacto ruta absoluta -> rc!=0 · rc=1 estado=ERROR
+PASA 21 P1v aserción sobre ejecucion.log (archivo del arnés) -> rc!=0 · rc=1
+PASA 22 N3 aserción run: -> rc!=0 (no soportado) · rc=1 errores=['plantilla del registro de entradas (comando documentado del producto): exit 1 no está en esperado [0]', 'aserción con prefijo run: no soportada (D3-R1 inv.3: solo salidas del producto en evidencias)']
+PASA 23 P9w id '.' -> rc 2 SIN borrar evidencia ajena · rc=2
+PASA 24 N4 id '../fuera' -> rc 2 SIN borrar fuera de EVIDENCIAS · rc=2
+PASA 25 N4b id '' -> rc 2 SIN borrar EVIDENCIAS · rc=2
+PASA 26 P8va skip-worktree -> rc 2 · 
+PASA 27 P8vb no rastreado en scripts/ -> rc 2 · 
+PASA 28 N5a assume-unchanged -> rc 2 · 
+PASA 29 N5b oculto por .git/info/exclude -> rc 2 · 
+PASA 30 M2 resultado de 4 campos con spec_sha256 -> generar_matriz sola: sin CUMPLE · Q1-001='' 'ERROR (COMPONENTE_OK)'
+PASA 31 N2a salidas vaciadas (universo 0) -> sin CUMPLE · Q1-003=''
+PASA 32 N2b otra candidata/otro banco/harness 2.0 -> sin CUMPLE · Q1-004=''
+PASA 33 M3 Q1-026 ERROR_ENTORNO -> BLOQUEO_ENTORNO desde el resultado · Q1-026='BLOQUEO_ENTORNO'
+PASA 34 D3-R2 control contra el ESTADO PREVIO: toda aserción falla salvo las marcadas no_discriminante · mal=[]
+PASA 35 D3-R7 sellar con revisor propio queda [SIMULADO]; ARNES_EVIDENCIAS_LIMPIAS=0 registrado con aviso · comp={'extractor': 'ext propio [SIMULADO]', 'revisor': 'rev propio [SIMULADO]', 'fecha': '2026-11-17', 'resultado': 'verificado', 'fuente_examinada': 'f', 'nota': None, 'vinculo': None, '_simulada': True} limpiadas=False
+PASA 36 D4-R4 paquetes completos (estado_inicial relativo+fases con código esperado+entrada exacta+artefacto por los 109 criterios+comando ejecutable) y Q1-028/Q1-032 reproducibles · mal=[] paquetes=36

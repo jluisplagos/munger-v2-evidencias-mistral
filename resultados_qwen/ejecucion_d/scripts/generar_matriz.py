@@ -24,7 +24,7 @@ import sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 AUX = os.path.dirname(AQUI)
-EV = os.path.join(AUX, "evidencias")
+EV = os.environ.get("EVIDENCIAS_DIR", os.path.join(AUX, "evidencias"))  # D4-R1 E3: la matriz respeta EVIDENCIAS_DIR
 BANCO = os.environ.get("BANCO_DIR", "/workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado")
 SHA_CANDIDATA_ESPERADO = os.environ.get("SHA_CANDIDATA_ESPERADO", "957af652cdc3bef3d67e8623c9572138bac685e9")
 
