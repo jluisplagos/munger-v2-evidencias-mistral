@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-17 11:24:51 UTC",
+  "observed_at_utc": "2026-11-17 11:42:17 UTC",
   "scope": "Munger V2",
-  "control_sha": "f2e16aadd0a2e3a9cdd7d88335ba6fd827f6ba38",
+  "control_sha": "d84435726d8cb9dcd16ae0f8df8eba17a4699e31",
   "heads": {
-    "jluisplagos/munger-v2-evidencias-mistral:coordinacion/cierre-v2": "f2e16aadd0a2e3a9cdd7d88335ba6fd827f6ba38",
+    "jluisplagos/munger-v2-evidencias-mistral:coordinacion/cierre-v2": "d84435726d8cb9dcd16ae0f8df8eba17a4699e31",
     "jluisplagos/munger-v2-evidencias-mistral:main": "e137b854dc592bcad9ed3e51275f7b80d35d210e",
     "jluisplagos/munger-v2-evidencias-mistral:mistral/d-qwen-aceptacion": "d032691ef2b926e387de3965460469d0994948df",
     "jluisplagos/munger-v2-evidencias-mistral:mistral/e-fuentes-elis": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
@@ -16,8 +16,14 @@
     "jluisplagos/munger-v2:integracion/hechos-raiz-957af65": "3d66437e797b6b0bf137b42fa62b561f39121722",
     "jluisplagos/munger-v2:main": "d69d4837f0e99ce30f38d3461f15cceee9a58730"
   },
-  "last_seen_critical_review": null,
-  "automation_status": "ACTIVA_CONFIGURADA_PRIMERA_EJECUCION_PENDIENTE",
+  "last_seen_critical_review": {
+    "task_id": "audit-pilot-code-001",
+    "code_sha": "501fd8b9a8baffc59757b062d7869f9d2203123d",
+    "state": "RESULTADO_NO_ACEPTADO_NO_REINTENTAR",
+    "error": "ANTHROPIC_ERROR_RED_TIMEOUT",
+    "estimated_cost_usd": null
+  },
+  "automation_status": "ACTIVA_PRIMERA_COMPROBACION_RECIBIDA_Y_REALIZADA",
   "notification_policy": "Solo cambios sustantivos o bloqueos reales; sin novedad, no notificar",
   "author": "ChatGPT",
   "automation": {
@@ -26,5 +32,12 @@
     "timezone": "Europe/Amsterdam",
     "schedule": "RRULE:FREQ=HOURLY",
     "purpose": "Consulta novedades; no lanza inferencias de pago"
-  }
+  },
+  "mistral_connection": {
+    "secret_saved": "DECLARADO_POR_USUARIO",
+    "authentication": "PENDIENTE",
+    "last_ci_readiness": "Vibe 3.1.2 instalado; 0 invocaciones; la comprobación anterior vio clave ausente",
+    "cli_api_invocations_verified": 0
+  },
+  "latest_observation": "automation/coordination/observations/20261117_primera_comprobacion.md"
 }
