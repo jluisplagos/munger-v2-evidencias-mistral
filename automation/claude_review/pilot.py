@@ -64,9 +64,12 @@ class NoRedirect(HTTPRedirectHandler):
 
 class HTTP:
     """Destinos fijos, límites de lectura, sin reintentos ni redirecciones."""
-    def __init__(self, github_token='', api_key=''):
+    def __init__(self, github_token='', api_key='', model=MODEL):
+        if model not in (MODEL, 'claude-fable-5-2'):
+            raise PilotError('MODELO_NO_AUTORIZADO')
         self.github_token = github_token
         self.api_key = api_key
+        self.model = model
 
     def call(self, service, method, path, body=None):
         if service == 'github':
@@ -77,7 +80,7 @@ class HTTP:
             if self.github_token:
                 headers['Authorization'] = 'Bearer ' + self.github_token
         elif service == 'anthropic':
-            if path not in ('/v1/models/' + MODEL, '/v1/messages/count_tokens', '/v1/messages'):
+            if path not in ('/v1/models/' + self.model, '/v1/messages/count_tokens', '/v1/messages'):
                 raise PilotError('ENDPOINT_NO_AUTORIZADO')
             url = 'https://api.anthropic.com' + path
             headers = {'x-api-key': self.api_key, 'anthropic-version': API_VERSION}
