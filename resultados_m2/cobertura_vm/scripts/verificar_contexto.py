@@ -574,7 +574,10 @@ def check_version(archivo, page_lines, years_in_block, doc=None):
     archivo_year = m.group(0) if m else None
     head = '\n'.join(page_lines[:6])
     titulo_doc = (doc or {}).get('head', '')
-    if archivo_year and (archivo_year in set(years_in_block) or re.search(archivo_year, head) or re.search(archivo_year, titulo_doc)):
+    # A3-R5: límites de palabra en los dos sentidos: un importe 12025 o 2025,4 no acredita
+    # la versión (antes re.search sin límites encontraba el año dentro del importe)
+    yb = re.compile(r'(?<![\d.,])' + re.escape(archivo_year) + r'(?![\d.,])') if archivo_year else None
+    if archivo_year and (archivo_year in set(years_in_block) or (yb and (yb.search(head) or yb.search(titulo_doc)))):
         return 'OK', f'el informe declarado ({archivo}, año {archivo_year}) figura en la pagina/cabecera del documento'
     if archivo_year:
         return 'CONFLICTO', f'el año del archivo {archivo_year} no aparece en la pagina ni en la cabecera del documento'
