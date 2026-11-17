@@ -266,18 +266,20 @@
         "coordinacion/cierre_v2/revisiones_coordinador/A_2c41d68/REVISION_A_2c41d68.md",
         "coordinacion/cierre_v2/revisiones_coordinador/A_2c41d68/CORRECCION_A2.md",
         "resultados_m2/cobertura_vm/RESPUESTA_A2_CIERRE_V2.md @ 8b88fab",
-        "resultados_m2/cobertura_vm/ENTREGA.json @ 8b88fab"
+        "resultados_m2/cobertura_vm/ENTREGA.json @ 8b88fab",
+        "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/REVISION_A2_8b88fab.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/CORRECCION_A3.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "El coordinador revisa la respuesta A2 @ 8b88fab (solo A2-R1…R5, reproducción de salidas y sondas, propagación de CONFLICTO).",
-      "observacion": "Respuesta a A2 entregada en 8b88fab (v4.0). Revisión del coordinador solo de A2-R1…R5, en curso. La revisión registrada sigue siendo la de 2c41d68.",
-      "commit_revisado": "2c41d689fde13dbb9e6affbdb470181291ec2519",
+      "siguiente_accion": "Mistral A: primero la revisión de G-MANUAL (rama mistral/g-manual-traspaso); después CORRECCION_A3.md (A3-R1…R8) en la rama A, en un bloque separado. T-EXP sigue bloqueado por A-CTX.",
+      "observacion": "Respuesta A2 (8b88fab) revisada: correcciones A3-R1…R8. Reproducción 59/62 byte a byte; control PASS; propagación conforme.",
+      "commit_revisado": "8b88fab28261506c60bc7631fd24894e225099d2",
       "alcance_aceptado": [],
       "solicitud_revision": {
-        "estado": "EN_CURSO",
+        "estado": "RESPONDIDA",
         "sha_autor": "8b88fab28261506c60bc7631fd24894e225099d2",
         "base_revisada": "2c41d689fde13dbb9e6affbdb470181291ec2519",
         "diff_rutas": [
@@ -289,7 +291,13 @@
           "propagación de CONFLICTO a derivados"
         ],
         "revisor_asignado": "Claude coordinador (subagente de revisión)",
-        "informe_revision": null
+        "informe_revision": {
+          "ruta": "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/REVISION_A2_8b88fab.md",
+          "veredicto": "A2-R3 cerrado con límites; A2-R1, R2, R4 y R5 abiertos. 104 de los 133 CONFLICTO dependen de un artefacto de signo; propagación conforme en los 101 nodos",
+          "limites": [
+            "sin red ni LibreOffice; pypdf 6.17.0 frente a la 7.1.0 del autor (asociacion_pdf.py no reproducido)"
+          ]
+        }
       }
     },
     {
@@ -875,6 +883,11 @@
       "tipo": "PRUEBA",
       "fecha": "2026-11-17",
       "hecho": "E-ELIS: descarga de verificación de los 11 PDF desde sus URL oficiales (aclaración c241a59): 11/11 SHA-256 iguales; 28/28 citas en su página. E-R1…E-R9 siguen vigentes; preservación duradera pendiente (U1)."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "Respuesta A2 @ 8b88fab revisada por un contexto distinto del autor: A2-R3 cerrado con límites, R1/R2/R4/R5 abiertos; CORRECCION_A3 (A3-R1…R8). Artefacto de signo comprobado por el coordinador."
     }
   ],
   "consulta_remotos_arranque": {
