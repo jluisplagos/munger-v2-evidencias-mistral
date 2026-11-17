@@ -1,11 +1,11 @@
 {
   "nota": "Registro del bloque 2: cada pendiente queda con evidencia (resuelto por el código v3.2-v3.6) o con bloqueo preciso y lo que faltaria. No se fuerzan recuentos; una ausencia genuina permanece pendiente. Propuesta de evidencia de Mistral; revisión por Claude coordinador pendiente.",
-  "total_grupos": 88,
-  "total_fuentes_pendientes": 233,
-  "total_derivados_pendientes": 50,
+  "total_grupos": 89,
+  "total_fuentes_pendientes": 235,
+  "total_derivados_pendientes": 51,
   "resumen_clasificaciones": {
     "OTRO": 125,
-    "NO_TABULAR": 88,
+    "NO_TABULAR": 90,
     "NO_MAPEABLE_1a1": 12,
     "SIN_ORIGINAL": 36,
     "NO_LOCALIZADA": 10,
@@ -3254,6 +3254,51 @@
     },
     {
       "empresa": "Vidrala",
+      "archivo": "texto/CF_2024.txt",
+      "pagina": 7,
+      "prioridad": 203,
+      "n_pendientes": 2,
+      "entradas": [
+        {
+          "celda": "Historia!J13",
+          "id": "h_adquisiciones",
+          "material_declarada": "True",
+          "derivados_materiales_dependientes": 0,
+          "estado_contextual": "PENDIENTE_CONTEXTUAL",
+          "pendientes": [
+            {
+              "dimension": "columna",
+              "motivo": "fila con 1 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional",
+              "clasificacion": "NO_TABULAR",
+              "que_faltaria": "la pagina citada no es una tabla con columnas de años; faltaria la tabla con encabezado de ejercicios"
+            },
+            {
+              "dimension": "reexpresion",
+              "motivo": "el valor aparece en CF_2023.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion no decidible",
+              "clasificacion": "OTRO",
+              "que_faltaria": "el valor aparece en CF_2023.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion "
+            }
+          ]
+        },
+        {
+          "celda": "Historia!J8",
+          "id": "h_da",
+          "material_declarada": "True",
+          "derivados_materiales_dependientes": 0,
+          "estado_contextual": "PENDIENTE_CONTEXTUAL",
+          "pendientes": [
+            {
+              "dimension": "columna",
+              "motivo": "fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional",
+              "clasificacion": "NO_TABULAR",
+              "que_faltaria": "la pagina citada no es una tabla con columnas de años; faltaria la tabla con encabezado de ejercicios"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
       "archivo": "texto/CF_2025.txt",
       "pagina": 71,
       "prioridad": 203,
@@ -3624,6 +3669,30 @@
     {
       "empresa": "Vidrala",
       "archivo": "texto/CF_2024.txt",
+      "pagina": 4,
+      "prioridad": 112,
+      "n_pendientes": 1,
+      "entradas": [
+        {
+          "celda": "Historia!J6",
+          "id": "h_ventas",
+          "material_declarada": "True",
+          "derivados_materiales_dependientes": 1,
+          "estado_contextual": "PENDIENTE_CONTEXTUAL",
+          "pendientes": [
+            {
+              "dimension": "columna",
+              "motivo": "fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional",
+              "clasificacion": "NO_TABULAR",
+              "que_faltaria": "la pagina citada no es una tabla con columnas de años; faltaria la tabla con encabezado de ejercicios"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "archivo": "texto/CF_2024.txt",
       "pagina": 56,
       "prioridad": 112,
       "n_pendientes": 1,
@@ -3826,36 +3895,6 @@
               "motivo": "la fila con rotulo completo aparece en CF_2022.txt (linea 3849) pero la columna 2022 no se puede mapear 1:1 (columnas ['2022', '2021'], valores ['2021', '62,541', '6,342', '10,208', '79,091'])",
               "clasificacion": "NO_MAPEABLE_1a1",
               "que_faltaria": "falta leer la tabla completa del original (fila partida en varias lineas o cabecera de otra tabla en la misma pagina)"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "empresa": "Vidrala",
-      "archivo": "texto/CF_2024.txt",
-      "pagina": 7,
-      "prioridad": 102,
-      "n_pendientes": 1,
-      "entradas": [
-        {
-          "celda": "Historia!J13",
-          "id": "h_adquisiciones",
-          "material_declarada": "True",
-          "derivados_materiales_dependientes": 0,
-          "estado_contextual": "PENDIENTE_CONTEXTUAL",
-          "pendientes": [
-            {
-              "dimension": "columna",
-              "motivo": "fila con 1 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional",
-              "clasificacion": "NO_TABULAR",
-              "que_faltaria": "la pagina citada no es una tabla con columnas de años; faltaria la tabla con encabezado de ejercicios"
-            },
-            {
-              "dimension": "reexpresion",
-              "motivo": "el valor aparece en CF_2023.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion no decidible",
-              "clasificacion": "OTRO",
-              "que_faltaria": "el valor aparece en CF_2023.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresion "
             }
           ]
         }
@@ -4543,6 +4582,30 @@
       "limites_contextuales": [
         "Análisis!C37: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "unidades/escalas de los orígenes no homogeneas"
+      ]
+    },
+    {
+      "empresa": "Vidrala",
+      "celda": "Configuración V6.4!B21",
+      "id": "N2.margen",
+      "material_declarada": "True",
+      "limites_contextuales": [
+        "aux:italia_ingresos_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+        "aux:italia_bai_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+        "aux:italia_gto_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+        "aux:italia_ing_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+        "Historia!G6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+        "aux:italia_ingresos_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+        "aux:italia_bai_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+        "aux:italia_gto_fin_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+        "Historia!H6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+        "aux:italia_ingresos_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+        "aux:italia_bai_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+        "aux:italia_gto_fin_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+        "Historia!I6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional)",
+        "Historia!J6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional)",
+        "Historia!K6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
+        "Historia!L6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)"
       ]
     },
     {

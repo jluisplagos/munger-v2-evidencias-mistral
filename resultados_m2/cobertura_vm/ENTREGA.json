@@ -1,169 +1,169 @@
 {
-    "es_plantilla": false,
-    "frente": "A",
-    "bloque": "cierre v2 · CORRECCION A3 (control coordinacion/cierre-v2 @ 57b34a60, CORRECCION_A3.md sobre la respuesta A2 v4.0 @ 8b88fab) · A3-R1..R8 en 8 commits (93a02e0, d11ee44, 74d94f8, c472595, 2e4eb15, 447a977, 4f50e6a + este); G-DOCS revisado antes en mistral/g-manual-traspaso @ a0524d9",
-    "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
-    "rama": "mistral/m2-cobertura-vm",
-    "base_revisada_sha": "9d676cefdfeb3771a43414fcb93f430e9340fae0",
-    "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
-    "directorio_entrega": "resultados_m2/cobertura_vm/",
-    "tareas_control": [
-        "A-CTX (A3)",
-        "G-DOCS (revisión hecha en rama G)"
-    ],
-    "candidata_producto_sha": null,
-    "banco_sha": null,
-    "naturaleza": "propuesta de evidencia (v4.0, correccion A2-R1..R5) para revision por Claude coordinador; no es revision independiente ni integracion",
-    "autor_contexto_modelo_herramientas": "Sesión Vibe Code de Mistral AI, modelo mistral-large-4-0 (único expuesto; consumo/facturación no visible desde la sesión). Python 3.12 stdlib + openpyxl 3.1.5 + pypdf 7.1.0 en .trabajo/pylibs (solo lectura XLSX/PDF), git/gh, sha256. Sin LibreOffice ni pipeline.",
-    "fuentes_y_preservacion": [
-        "251 insumos con sha256 verificada en .trabajo/insumos_m2 (selección parcial; PDF/XLSX/ZIP no van al git del auxiliar según INTEGRACION.md)",
-        "ZIP base-4.14: 1.130.912.246 bytes, sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e, descargado con preparar_insumos.py --download"
-    ],
-    "cambios_respecto_entrega_anterior": [
-        "Entrega 8b88fab conservada en el historial; esta rama avanza con un commit por punto A3-R1..R8",
-        "Huellas y recuentos de este ENTREGA.json regenerados desde las salidas por scripts/generar_entrega_json.py (antes eran de 160faf9 y 46/36 derivados/SIN_ORIGINAL desfasados)",
-        "Textos desfasados corregidos desde salidas por scripts/actualizar_textos_resumen.py (RESUMEN §Recuentos, HALLAZGOS §10, motivo AR2025_p27 en PUNTO_DE_RECUPERACION y RESUMEN)",
-        "Sondas del informe A2 publicadas en sondas_a3/sondas_informe/; sondas nuevas propias s11_R1..R7 en sondas_a3/ con salidas en sondas_a3/out/",
-        "cola_pendientes.py y resolver_bloque2.py funcionan con python3 -I; asociacion_pdf.py falla con mensaje claro con pypdf 6.x (probado 6.17.0) y sigue OK con 7.1.0"
-    ],
-    "pruebas": [
-        {
-            "tipo": "componente",
-            "comando": "PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/control_cobertura.py (tras regenerar todo el pipeline en orden COMANDOS.md)",
-            "exit_esperado": 0,
-            "exit_observado": 0,
-            "criterios_cubiertos": [
-                "677 filas únicas",
-                "estados permitidos",
-                "60 piloto M1",
-                "467 fuentes conformes",
-                "101 derivados recalculados",
-                "CSV==recálculo",
-                "propagación derivada desde nodos (A3-R7)",
-                "recuentos 677/60/617/101/14/87"
-            ],
-            "criterios_sin_cubrir": [
-                "revisión independiente por el coordinador (pendiente, solo lo afectado)"
-            ],
-            "evidencia": "resultados/control_cobertura.json sha256 8e0a23a26e7c55a43ab45c3568c2cda9d4c6216c47595d1bec3c091441100ba9 (PASS=true, 0 violaciones)",
-            "sha_material": "insumos .trabajo/insumos_m2 (251/251, ZIP base-4.14 sha256 bb51942c…b7b93e)",
-            "resultado": "PASS"
-        },
-        {
-            "tipo": "componente",
-            "comando": "PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/control_negativo.py",
-            "exit_esperado": 0,
-            "exit_observado": 0,
-            "criterios_cubiertos": [
-                "219 mutaciones en memoria: 140 detectadas por el contextual, 40 por el mecánico",
-                "bilaterales 15/15 ok",
-                "sondas d375d80 5/5 CONFLICTO",
-                "sonda A3-R7 (operando derivado pendiente bloquea) detectada"
-            ],
-            "criterios_sin_cubrir": [],
-            "evidencia": "resultados/control_negativo.json sha256 fa827fc2974f121fe9e95c0fa61e6017b6cc27811167ab57c6d663e5ff130bed",
-            "sha_material": "igual que arriba",
-            "resultado": "PASS"
-        },
-        {
-            "tipo": "arnés (sondas del informe reproducidas + sondas nuevas propias)",
-            "comando": "for s in s02_sondas_revisor_A s03_sondas_d375d80_A s07_sondas_nuevas_A2; do python3 -I -B resultados_m2/cobertura_vm/sondas_a3/sondas_informe/$s.py resultados_m2/cobertura_vm/scripts/verificar_contexto.py /tmp/out.json; done; python3 -I -B resultados_m2/cobertura_vm/sondas_a3/s11_R{1..7}_sonda_nueva.py …",
-            "exit_esperado": 0,
-            "exit_observado": 0,
-            "criterios_cubiertos": [
-                "A3-R1: R1a/R1b OK; R1c CONFLICTO; R1d NO_DECIDIBLE; R1e NO_DECIDIBLE; propias R1f/R1g/R1h ok",
-                "A3-R2: 2a-2g ok; propias R2g/R2h/R2i ok",
-                "A3-R3: R4c ok; propias R3g-R3j ok",
-                "A3-R4: criterios 2 y 3 del informe sin defectos (3e/3f/3g, R2a-R2f); propias R4g-R4j ok",
-                "A3-R5: 1d/R4a CONFLICTO; propias R5a-R5d ok",
-                "A3-R6: R3a/R3b CONFLICTO; propias R6a-R6e ok",
-                "A3-R7: propias R7a-R7d ok + control_negativo §10"
-            ],
-            "criterios_sin_cubrir": [
-                "s04/s05/s06/s08/s09 del informe usan rutas del entorno del revisor; se reproducen con insumos propios al regenerar (verificar_contexto/derivaciones/construir_cobertura)"
-            ],
-            "evidencia": "resultados_m2/cobertura_vm/sondas_a3/out/R{1..7}_*.json|.txt",
-            "sha_material": "scripts/verificar_contexto.py @ HEAD de esta rama",
-            "resultado": "CONFORME (todas las sondas esperadas pasan; las que fallaban en 8b88fab ya no)"
-        },
-        {
-            "tipo": "componente (A3-R8)",
-            "comando": "PYTHONPATH=.trabajo/pylibs python3 -I -B resultados_m2/cobertura_vm/scripts/cola_pendientes.py; PYTHONPATH=/tmp/pylibs6:.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/asociacion_pdf.py; PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/asociacion_pdf.py; python3 -B resultados_m2/cobertura_vm/scripts/generar_entrega_json.py; python3 -B resultados_m2/cobertura_vm/scripts/actualizar_textos_resumen.py",
-            "exit_esperado": "0, 1 con mensaje claro, 0, 0, 0",
-            "exit_observado": "0, 1 (mensaje claro pypdf 6.17.0), 0 (21/21 con 7.1.0), 0, 0",
-            "criterios_cubiertos": [
-                "scripts con -I rc=0",
-                "pypdf 6.x: exit 1 + mensaje claro (antes traza)",
-                "pypdf 7.1.0: rc=0",
-                "ENTREGA.json con huellas/recuentos generados",
-                "textos corregidos desde salidas"
-            ],
-            "criterios_sin_cubrir": [],
-            "evidencia": "sondas_a3/out/R8_*.stdout (cuando se ejecuta en el punto R8); ENTREGA.json recuentos_generados",
-            "sha_material": "pypdf 6.17.0 en /tmp/pylibs6 (prueba) y 7.1.0 en .trabajo/pylibs",
-            "resultado": "CONFORME"
-        }
-    ],
-    "precondiciones_simuladas": [
-        "Sondas sintéticas en control_negativo.py (SINTETICA/SINTETICA2, tempdir): ilustran reglas del verificador; NO son datos de empresas ni acreditan revisión externa"
-    ],
-    "revision_por_otro_contexto": "Pendiente: el coordinador (Claude) revisa solo lo afectado por A3-R1..R8; este bloque es respuesta del autor a su devolución. G-DOCS ya fue revisado por este contexto distinto del autor de c0542b83.",
-    "limites_y_bloqueos": [
-        "Sin LibreOffice ni pipeline del producto; verificación del frente propio (autocomprobación + sondas), no auditoría independiente",
-        "pypdf 6.x no lee estos PDF (mensaje claro ahora); se usa 7.1.0",
-        "consumo/facturación no visible desde la sesión"
-    ],
-    "siguiente_accion_exacta": "Coordinador: registra en CONTROL.json la revisión G-DOCS (rama mistral/g-manual-traspaso, commit remoto a0524d9…) y revisa A3 (esta rama, últimos 8 commits); solo entonces decidir integración. T-TRASPASO sigue con su receptor asignado (no duplicar).",
-    "integrado_en_producto": false,
-    "apto_dinero_real": "No se declara por este formulario",
-    "criterios_cubiertos": [
-        "A3-R1 signo impreso normalizado en columna (104 de los 133 CONFLICTO eran artefacto de signo)",
-        "A3-R2 cabecera tabular inequívoca (no frase narrativa ni partida)",
-        "A3-R3 importes con forma de año no desplazan posiciones; año con coma en prosa no es importe",
-        "A3-R4 reexpresión: sin atajo, rótulo completo, escala+perímetro comparados, negación por polaridad",
-        "A3-R5 versión con límites de palabra en ambos sentidos",
-        "A3-R6 MILLONES_RE ampliada (EUR million / € million / Millones €)",
-        "A3-R7 operando derivado se lee de su nodo + control negativo",
-        "A3-R8 huellas/recuentos generados, textos corregidos, -I arreglado, pypdf con mensaje claro, sondas publicadas"
-    ],
-    "criterios_pendientes": [
-        "revisión del coordinador sobre solo lo afectado (A-CTX sigue abierta; A2-R3 cerrada con límites)",
-        "G-DOCS: aceptación del coordinador en CONTROL.json (informe en mistral/g-manual-traspaso @ a0524d9)"
-    ],
-    "salida_siguiente": "resultados_m2/cobertura_vm/ENTREGA.json + MANIFIESTO_SHA256.txt + PUNTO_DE_RECUPERACION.md en el próximo commit de mistral/m2-cobertura-vm",
-    "recuentos_generados": {
-        "csv": {
-            "PENDIENTE_CONTEXTUAL": 283,
-            "REUTILIZADO_M1": 60,
-            "REVISADO_CONTEXTUAL": 209,
-            "CONFLICTO_CONTEXTUAL": 19,
-            "NO_APLICA": 106
-        },
-        "fuentes": {
-            "PENDIENTE_CONTEXTUAL": 233,
-            "NO_APLICA": 210,
-            "REVISADO_CONTEXTUAL": 176,
-            "CONFLICTO_CONTEXTUAL": 15,
-            "REUTILIZADO_M1": 43
-        },
-        "derivados": {
-            "PENDIENTE_CONTEXTUAL": 50,
-            "REUTILIZADO_M1": 14,
-            "CONFLICTO_CONTEXTUAL": 4,
-            "REVISADO_CONTEXTUAL": 33
-        },
-        "fuentes_pendientes": 233,
-        "derivados_pendientes": 50,
-        "sin_original": 36,
-        "hashes": {
-            "COBERTURA_677.csv": "729ac2358fe83a8430c7a5b2e56a127d817715e9784f82d379885c0a4c7e80db",
-            "resultados/verificacion_contexto.jsonl": "9cbbf2e426e42708eb30cc05e62864ca0ea732e309851cdb12e181f4bcfb4b1d",
-            "resultados/cola_pendientes.json": "f6b752a4c245881a2de8b939119fbe2aef79f6520ad7ddbc5773d20820dc696b",
-            "resultados/control_cobertura.json": "8e0a23a26e7c55a43ab45c3558c2cda9d4c6216c47595d1bec3c091441100ba9",
-            "resultados/control_negativo.json": "fa827fc2974f121fe9e95c0fa61e6017b6cc27811167ab57c6d663e5ff130bed",
-            "DERIVADOS.json": "01935bf2aec42bcf52db567ef840e4d351ef85c1eca33beb0ae905c29e350550",
-            "resultados/resoluciones_bloque2.json": "4450ef764aa8528520c0c795983c6bde8d2d1b3f15396f392e0cf5a2aba72771"
-        },
-        "nota": "generados por scripts/generar_entrega_json.py desde las salidas publicadas (A3-R8)"
+  "es_plantilla": false,
+  "frente": "A",
+  "bloque": "cierre v2 · CORRECCION A3 (control coordinacion/cierre-v2 @ 57b34a60, CORRECCION_A3.md sobre la respuesta A2 v4.0 @ 8b88fab) · A3-R1..R8 en 8 commits (93a02e0, d11ee44, 74d94f8, c472595, 2e4eb15, 447a977, 4f50e6a + este); G-DOCS revisado antes en mistral/g-manual-traspaso @ a0524d9",
+  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+  "rama": "mistral/m2-cobertura-vm",
+  "base_revisada_sha": "9d676cefdfeb3771a43414fcb93f430e9340fae0",
+  "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+  "directorio_entrega": "resultados_m2/cobertura_vm/",
+  "tareas_control": [
+    "A-CTX (A3)",
+    "G-DOCS (revisión hecha en rama G)"
+  ],
+  "candidata_producto_sha": null,
+  "banco_sha": null,
+  "naturaleza": "propuesta de evidencia (v4.0, correccion A2-R1..R5) para revision por Claude coordinador; no es revision independiente ni integracion",
+  "autor_contexto_modelo_herramientas": "Sesión Vibe Code de Mistral AI, modelo mistral-large-4-0 (único expuesto; consumo/facturación no visible desde la sesión). Python 3.12 stdlib + openpyxl 3.1.5 + pypdf 7.1.0 en .trabajo/pylibs (solo lectura XLSX/PDF), git/gh, sha256. Sin LibreOffice ni pipeline.",
+  "fuentes_y_preservacion": [
+    "251 insumos con sha256 verificada en .trabajo/insumos_m2 (selección parcial; PDF/XLSX/ZIP no van al git del auxiliar según INTEGRACION.md)",
+    "ZIP base-4.14: 1.130.912.246 bytes, sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e, descargado con preparar_insumos.py --download"
+  ],
+  "cambios_respecto_entrega_anterior": [
+    "Entrega 8b88fab conservada en el historial; esta rama avanza con un commit por punto A3-R1..R8",
+    "Huellas y recuentos de este ENTREGA.json regenerados desde las salidas por scripts/generar_entrega_json.py (antes eran de 160faf9 y 46/36 derivados/SIN_ORIGINAL desfasados)",
+    "Textos desfasados corregidos desde salidas por scripts/actualizar_textos_resumen.py (RESUMEN §Recuentos, HALLAZGOS §10, motivo AR2025_p27 en PUNTO_DE_RECUPERACION y RESUMEN)",
+    "Sondas del informe A2 publicadas en sondas_a3/sondas_informe/; sondas nuevas propias s11_R1..R7 en sondas_a3/ con salidas en sondas_a3/out/",
+    "cola_pendientes.py y resolver_bloque2.py funcionan con python3 -I; asociacion_pdf.py falla con mensaje claro con pypdf 6.x (probado 6.17.0) y sigue OK con 7.1.0"
+  ],
+  "pruebas": [
+    {
+      "tipo": "componente",
+      "comando": "PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/control_cobertura.py (tras regenerar todo el pipeline en orden COMANDOS.md)",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": [
+        "677 filas únicas",
+        "estados permitidos",
+        "60 piloto M1",
+        "467 fuentes conformes",
+        "101 derivados recalculados",
+        "CSV==recálculo",
+        "propagación derivada desde nodos (A3-R7)",
+        "recuentos 677/60/617/101/14/87"
+      ],
+      "criterios_sin_cubrir": [
+        "revisión independiente por el coordinador (pendiente, solo lo afectado)"
+      ],
+      "evidencia": "resultados/control_cobertura.json sha256 516f3a204d6ecac5ca8d66f3a2e57bc1d3d42c61a78eece159a8e58266bb91dd (PASS=true, 0 violaciones)",
+      "sha_material": "insumos .trabajo/insumos_m2 (251/251, ZIP base-4.14 sha256 bb51942c…b7b93e)",
+      "resultado": "PASS"
+    },
+    {
+      "tipo": "componente",
+      "comando": "PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/control_negativo.py",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": [
+        "219 mutaciones en memoria: 140 detectadas por el contextual, 40 por el mecánico",
+        "bilaterales 15/15 ok",
+        "sondas d375d80 5/5 CONFLICTO",
+        "sonda A3-R7 (operando derivado pendiente bloquea) detectada"
+      ],
+      "criterios_sin_cubrir": [],
+      "evidencia": "resultados/control_negativo.json sha256 fa827fc2974f121fe9e95c0fa61e6017b6cc27811167ab57c6d663e5ff130bed",
+      "sha_material": "igual que arriba",
+      "resultado": "PASS"
+    },
+    {
+      "tipo": "arnés (sondas del informe reproducidas + sondas nuevas propias)",
+      "comando": "for s in s02_sondas_revisor_A s03_sondas_d375d80_A s07_sondas_nuevas_A2; do python3 -I -B resultados_m2/cobertura_vm/sondas_a3/sondas_informe/$s.py resultados_m2/cobertura_vm/scripts/verificar_contexto.py /tmp/out.json; done; python3 -I -B resultados_m2/cobertura_vm/sondas_a3/s11_R{1..7}_sonda_nueva.py …",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": [
+        "A3-R1: R1a/R1b OK; R1c CONFLICTO; R1d NO_DECIDIBLE; R1e NO_DECIDIBLE; propias R1f/R1g/R1h ok",
+        "A3-R2: 2a-2g ok; propias R2g/R2h/R2i ok",
+        "A3-R3: R4c ok; propias R3g-R3j ok",
+        "A3-R4: criterios 2 y 3 del informe sin defectos (3e/3f/3g, R2a-R2f); propias R4g-R4j ok",
+        "A3-R5: 1d/R4a CONFLICTO; propias R5a-R5d ok",
+        "A3-R6: R3a/R3b CONFLICTO; propias R6a-R6e ok",
+        "A3-R7: propias R7a-R7d ok + control_negativo §10"
+      ],
+      "criterios_sin_cubrir": [
+        "s04/s05/s06/s08/s09 del informe usan rutas del entorno del revisor; se reproducen con insumos propios al regenerar (verificar_contexto/derivaciones/construir_cobertura)"
+      ],
+      "evidencia": "resultados_m2/cobertura_vm/sondas_a3/out/R{1..7}_*.json|.txt",
+      "sha_material": "scripts/verificar_contexto.py @ HEAD de esta rama",
+      "resultado": "CONFORME (todas las sondas esperadas pasan; las que fallaban en 8b88fab ya no)"
+    },
+    {
+      "tipo": "componente (A3-R8)",
+      "comando": "PYTHONPATH=.trabajo/pylibs python3 -I -B resultados_m2/cobertura_vm/scripts/cola_pendientes.py; PYTHONPATH=/tmp/pylibs6:.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/asociacion_pdf.py; PYTHONPATH=.trabajo/pylibs python3 -B resultados_m2/cobertura_vm/scripts/asociacion_pdf.py; python3 -B resultados_m2/cobertura_vm/scripts/generar_entrega_json.py; python3 -B resultados_m2/cobertura_vm/scripts/actualizar_textos_resumen.py",
+      "exit_esperado": "0, 1 con mensaje claro, 0, 0, 0",
+      "exit_observado": "0, 1 (mensaje claro pypdf 6.17.0), 0 (21/21 con 7.1.0), 0, 0",
+      "criterios_cubiertos": [
+        "scripts con -I rc=0",
+        "pypdf 6.x: exit 1 + mensaje claro (antes traza)",
+        "pypdf 7.1.0: rc=0",
+        "ENTREGA.json con huellas/recuentos generados",
+        "textos corregidos desde salidas"
+      ],
+      "criterios_sin_cubrir": [],
+      "evidencia": "sondas_a3/out/R8_*.stdout (cuando se ejecuta en el punto R8); ENTREGA.json recuentos_generados",
+      "sha_material": "pypdf 6.17.0 en /tmp/pylibs6 (prueba) y 7.1.0 en .trabajo/pylibs",
+      "resultado": "CONFORME"
     }
+  ],
+  "precondiciones_simuladas": [
+    "Sondas sintéticas en control_negativo.py (SINTETICA/SINTETICA2, tempdir): ilustran reglas del verificador; NO son datos de empresas ni acreditan revisión externa"
+  ],
+  "revision_por_otro_contexto": "Pendiente: el coordinador (Claude) revisa solo lo afectado por A3-R1..R8; este bloque es respuesta del autor a su devolución. G-DOCS ya fue revisado por este contexto distinto del autor de c0542b83.",
+  "limites_y_bloqueos": [
+    "Sin LibreOffice ni pipeline del producto; verificación del frente propio (autocomprobación + sondas), no auditoría independiente",
+    "pypdf 6.x no lee estos PDF (mensaje claro ahora); se usa 7.1.0",
+    "consumo/facturación no visible desde la sesión"
+  ],
+  "siguiente_accion_exacta": "Coordinador: registra en CONTROL.json la revisión G-DOCS (rama mistral/g-manual-traspaso, commit remoto a0524d9…) y revisa A3 (esta rama, últimos 8 commits); solo entonces decidir integración. T-TRASPASO sigue con su receptor asignado (no duplicar).",
+  "integrado_en_producto": false,
+  "apto_dinero_real": "No se declara por este formulario",
+  "criterios_cubiertos": [
+    "A3-R1 signo impreso normalizado en columna (104 de los 133 CONFLICTO eran artefacto de signo)",
+    "A3-R2 cabecera tabular inequívoca (no frase narrativa ni partida)",
+    "A3-R3 importes con forma de año no desplazan posiciones; año con coma en prosa no es importe",
+    "A3-R4 reexpresión: sin atajo, rótulo completo, escala+perímetro comparados, negación por polaridad",
+    "A3-R5 versión con límites de palabra en ambos sentidos",
+    "A3-R6 MILLONES_RE ampliada (EUR million / € million / Millones €)",
+    "A3-R7 operando derivado se lee de su nodo + control negativo",
+    "A3-R8 huellas/recuentos generados, textos corregidos, -I arreglado, pypdf con mensaje claro, sondas publicadas"
+  ],
+  "criterios_pendientes": [
+    "revisión del coordinador sobre solo lo afectado (A-CTX sigue abierta; A2-R3 cerrada con límites)",
+    "G-DOCS: aceptación del coordinador en CONTROL.json (informe en mistral/g-manual-traspaso @ a0524d9)"
+  ],
+  "salida_siguiente": "resultados_m2/cobertura_vm/ENTREGA.json + MANIFIESTO_SHA256.txt + PUNTO_DE_RECUPERACION.md en el próximo commit de mistral/m2-cobertura-vm",
+  "recuentos_generados": {
+    "csv": {
+      "PENDIENTE_CONTEXTUAL": 286,
+      "REUTILIZADO_M1": 60,
+      "REVISADO_CONTEXTUAL": 214,
+      "CONFLICTO_CONTEXTUAL": 11,
+      "NO_APLICA": 106
+    },
+    "fuentes": {
+      "PENDIENTE_CONTEXTUAL": 235,
+      "NO_APLICA": 210,
+      "REVISADO_CONTEXTUAL": 179,
+      "REUTILIZADO_M1": 43,
+      "CONFLICTO_CONTEXTUAL": 10
+    },
+    "derivados": {
+      "PENDIENTE_CONTEXTUAL": 51,
+      "REUTILIZADO_M1": 14,
+      "CONFLICTO_CONTEXTUAL": 1,
+      "REVISADO_CONTEXTUAL": 35
+    },
+    "fuentes_pendientes": 235,
+    "derivados_pendientes": 51,
+    "sin_original": 36,
+    "hashes": {
+      "COBERTURA_677.csv": "82a79d8f52a54fae9beeabc3d347b1937cdd9d5f6014f330976fe635990bebf3",
+      "resultados/verificacion_contexto.jsonl": "d571afbc28f008a56649bd064c721537ff015c2315a7881c923bd2a97106c121",
+      "resultados/cola_pendientes.json": "3307d04a82f6da336bc426280b01028154ab6e9bcf3014ae04961daaad955458",
+      "resultados/control_cobertura.json": "516f3a204d6ecac5ca8d66f3a2e57bc1d3d42c61a78eece159a8e58266bb91dd",
+      "resultados/control_negativo.json": "fa827fc2974f121fe9e95c0fa61e6017b6cc27811167ab57c6d663e5ff130bed",
+      "DERIVADOS.json": "89e1a6683383233349204fbe151b0b24df1ec4295ad9243003f002cfa194e684",
+      "resultados/resoluciones_bloque2.json": "3a7b590e4267e1c2adab91b5934d6be2eee06eb2b36e09dd6fcd4971cd8885b0"
+    },
+    "nota": "generados por scripts/generar_entrega_json.py desde las salidas publicadas (A3-R8)"
+  }
 }

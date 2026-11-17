@@ -11,9 +11,8 @@
   },
   "estados_contextuales": {
     "REVISADO_CONTEXTUAL": 23,
-    "CONFLICTO_CONTEXTUAL": 1,
-    "NO_APLICA": 1,
-    "PENDIENTE_CONTEXTUAL": 5
+    "PENDIENTE_CONTEXTUAL": 6,
+    "NO_APLICA": 1
   },
   "entradas": [
     {
@@ -52,12 +51,12 @@
       "id": "h_da",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Amortisation and depreciation 7&8 117,720 87,210'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
+      "evidencia_contextual": "fila leida: 'Amortisation and depreciation 7&8 117,720 87,210'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; el deterioro de inmovilizado no se incluye | reexpresado: sí: 2023 reexpresado sin Italia (original 97,865, CF_2023 p.7) | perimetro: consolidado · operaciones continuadas | perimetro_justificacion: comparativo reexpresado por la venta de Vidrala Italia (operación interrumpida en 2024, nota 2(b) del informe 2024): la cuenta de resultados de 2023 y 2024 solo recoge operaciones continuadas; el libro toma la cifra más reciente publicada (comparativo del informe siguiente); la amortización de 2023/2024 coincide con la de la cuenta de resultados de continuadas | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional | reexpresion: declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original 97,865, CF_2023 p.7)\") pero el or",
+      "limites_contextuales": "columna: fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -65,7 +64,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "OK"
       },
       "fila_leida": "Amortisation and depreciation 7&8 117,720 87,210",
       "encabezado": "Note 2024 2023(*)",

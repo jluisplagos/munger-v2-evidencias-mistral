@@ -738,18 +738,22 @@ def perimetro_pagina(page_text):
 
 
 def polaridad_reexpresion(dl):
-    """A3-R4: la negación se decide por polaridad (palabra negativa junto a la mención de
-    reexpresar/restate), no por redacciones literales. Devuelve 'neg'/'pos'/'mixto'/None."""
-    menciones = list(re.finditer(r'reexpres\w*|restat\w*', dl))
-    if not menciones:
-        return None
-    neg_pat = re.compile(r'\b(no|not|sin|never|without|ni|didn.?t|n.t)\b', re.IGNORECASE)
-    negadas = sum(1 for m in menciones if neg_pat.search(dl[max(0, m.start() - 30):m.end() + 15]))
-    if negadas == len(menciones):
+    """A4-R1: la polaridad se decide por la DECLARACIÓN (sí/no), no por palabras sueltas
+    como «sin» dentro de la razón («reexpresado sin la filial vendida» es una AFIRMACIÓN
+    con alcance; «None … were restated» o «reexpresión: ninguna» son NEGACIONES).
+    Devuelve 'neg'/'pos'/None."""
+    d = (dl or '').strip()
+    if re.match(r's[ií]\b', d):
+        return 'pos'
+    if re.match(r'(no|none|ningun\w*|nadie)\b', d):
         return 'neg'
-    if negadas:
-        return 'mixto'
-    return 'pos'
+    if re.search(r'reexpresión\s*[:=]?\s*(ninguna?|no|none|ninguno)\b', d):
+        return 'neg'
+    if re.search(r'\b(no|not|never|sin|without|did\s+not|didn.?t)\s+(reexpres\w*|restat\w*)', d):
+        return 'neg'
+    if re.search(r'reexpres\w+|restat\w*', d):
+        return 'pos'
+    return None
 
 
 def check_reexpresion(emp, r, f, col_years, years_in_block, esc_cita=None):

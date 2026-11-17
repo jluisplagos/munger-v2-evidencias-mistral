@@ -63,3 +63,23 @@ python3 -B resultados_m2/cobertura_vm/scripts/generar_cambios_estado.py 8b88fab2
 # nota: cola_pendientes.py y resolver_bloque2.py ya funcionan con python3 -I -B (A3-R8);
 # asociacion_pdf.py con pypdf 6.x sale con mensaje claro (exit 1); con 7.1.0 exit 0
 ```
+
+## Bloque A4 (corrección A4-R1…R6 sobre 0946971, control @ origin/coordinacion/cierre-v2 30c314c)
+
+```bash
+# pipeline completo (mismo orden fijo de arriba) tras cada punto A4-Rn
+sh /tmp/run_pipeline.sh   # inventario -> … -> control_cobertura (2x) -> asociacion_pdf -> generar_recuentos_doc
+# sondas del informe del coordinador (publicadas en sondas_a4/sondas_informe/) + sonda propia por punto
+python3 -I -B resultados_m2/cobertura_vm/sondas_a4/sondas_informe/s07_sondas_nuevas_A3.py resultados_m2/cobertura_vm/scripts resultados_m2/cobertura_vm/sondas_a4/out/Rn_s07A3_informe.json
+python3 -I -B resultados_m2/cobertura_vm/sondas_a4/sondas_informe/s02_sondas_revisor_A.py resultados_m2/cobertura_vm/scripts/verificar_contexto.py resultados_m2/cobertura_vm/sondas_a4/out/Rn_s02_informe.json
+python3 -I -B resultados_m2/cobertura_vm/sondas_a4/sondas_informe/s03_sondas_d375d80_A.py resultados_m2/cobertura_vm/scripts/verificar_contexto.py resultados_m2/cobertura_vm/sondas_a4/out/Rn_s03_informe.json
+python3 -I -B resultados_m2/cobertura_vm/sondas_a4/s12_A4_Rn_*.py resultados_m2/cobertura_vm/scripts resultados_m2/cobertura_vm/sondas_a4/out/Rn_s12_*.json
+# diff de estados vs 0946971 por punto + ENTREGA generada + manifiesto
+python3 -B resultados_m2/cobertura_vm/scripts/generar_cambios_estado.py 0946971e1e4cf10cb85ed4c757968a4bd060d6a7 a4_Rn
+python3 -B resultados_m2/cobertura_vm/scripts/generar_entrega_json.py
+rm -rf resultados_m2/cobertura_vm/scripts/__pycache__
+python3 -B resultados_m2/cobertura_vm/scripts/generar_manifiesto.py
+git add resultados_m2/cobertura_vm && git commit -m "A4-Rn …" && git push origin mistral/m2-cobertura-vm
+```
+
+- A4-R1: polaridad de la reexpresión por la declaración (sí/no), no por «sin» en la razón.

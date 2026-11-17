@@ -9,9 +9,9 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 15,
-    "PENDIENTE_CONTEXTUAL": 10,
-    "CONFLICTO_CONTEXTUAL": 5
+    "REVISADO_CONTEXTUAL": 18,
+    "PENDIENTE_CONTEXTUAL": 11,
+    "CONFLICTO_CONTEXTUAL": 1
   },
   "entradas": [
     {
@@ -710,12 +710,12 @@
       "id": "h_ventas",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Revenues 4 & 22 1,588,267 1,427,473'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
+      "evidencia_contextual": "fila leida: 'Revenues 4 & 22 1,588,267 1,427,473'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: sí: 2023 reexpresado sin Vidrala Italia (el original CF_2023 p.4 daba 1,558,765) | perimetro: consolidado · operaciones continuadas | perimetro_justificacion: comparativo reexpresado por la venta de Vidrala Italia (operación interrumpida en 2024, nota 2(b) del informe 2024): la cuenta de resultados de 2023 y 2024 solo recoge operaciones continuadas; el libro toma la cifra más reciente publicada (comparativo del informe siguiente) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional | reexpresion: declara no reexpresado (\"sí: 2023 reexpresado sin Vidrala Italia (el original CF_2023 p.4 daba 1,558",
+      "limites_contextuales": "columna: fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -723,7 +723,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "OK"
       },
       "fila_leida": "Revenues 4 & 22 1,588,267 1,427,473",
       "encabezado": "Note 2024 2023(*)",
@@ -740,12 +740,12 @@
       "id": "h_ebit",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit loss from operating activities 331,008 267,508'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
+      "evidencia_contextual": "fila leida: 'Profit loss from operating activities 331,008 267,508'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; incluye deterioro de inmovilizado | reexpresado: sí: 2023 reexpresado sin Italia (original 289,838, CF_2023 p.4) | perimetro: consolidado · operaciones continuadas | perimetro_justificacion: comparativo reexpresado por la venta de Vidrala Italia (operación interrumpida en 2024, nota 2(b) del informe 2024): la cuenta de resultados de 2023 y 2024 solo recoge operaciones continuadas; el libro toma la cifra más reciente publicada (comparativo del informe siguiente) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original 289,838, CF_2023 p.4)\") pero el o",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -753,7 +753,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "OK"
       },
       "fila_leida": "Profit loss from operating activities 331,008 267,508",
       "encabezado": "Note 2024 2023(*)",
@@ -800,12 +800,12 @@
       "id": "aux:bai_2023",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Profit before income tax from continuing operations 303,218 268,649'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
+      "evidencia_contextual": "fila leida: 'Profit before income tax from continuing operations 303,218 268,649'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4) | perimetro: consolidado · operaciones continuadas | perimetro_justificacion: comparativo reexpresado por la venta de Vidrala Italia (operación interrumpida en 2024, nota 2(b) del informe 2024): la cuenta de resultados de 2023 y 2024 solo recoge operaciones continuadas; el libro toma la cifra más reciente publicada (comparativo del informe siguiente) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, C",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -813,7 +813,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "OK"
       },
       "fila_leida": "Profit before income tax from continuing operations 303,218 268,649",
       "encabezado": "Note 2024 2023(*)",
@@ -830,12 +830,12 @@
       "id": "aux:impuesto_2023",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Income tax expense 10 (64,968) (54,813)'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
+      "evidencia_contextual": "fila leida: 'Income tax expense 10 (64,968) (54,813)'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo −1: el gasto impreso entre paréntesis se registra en positivo | reexpresado: sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4) | perimetro: consolidado · operaciones continuadas | perimetro_justificacion: comparativo reexpresado por la venta de Vidrala Italia (operación interrumpida en 2024, nota 2(b) del informe 2024): la cuenta de resultados de 2023 y 2024 solo recoge operaciones continuadas; el libro toma la cifra más reciente publicada (comparativo del informe siguiente) | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, C",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -843,7 +843,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "OK"
       },
       "fila_leida": "Income tax expense 10 (64,968) (54,813)",
       "encabezado": "Note 2024 2023(*)",

@@ -1,4 +1,4 @@
-# Recuentos vigentes · Frente A M2 · cobertura VM (GENERADO por scripts/generar_recuentos_doc.py · 2026-11-17T10:35:29Z)
+# Recuentos vigentes · Frente A M2 · cobertura VM (GENERADO por scripts/generar_recuentos_doc.py · 2026-11-17T13:46:37Z)
 
 **No editar a mano**: este documento lo regenera `generar_recuentos_doc.py` a partir de las salidas del pipeline.
 
@@ -6,17 +6,17 @@
 
 | Estado | n |
 |---|---|
-| REVISADO_CONTEXTUAL | 209 |
-| PENDIENTE_CONTEXTUAL | 283 |
-| CONFLICTO_CONTEXTUAL | 19 |
+| REVISADO_CONTEXTUAL | 214 |
+| PENDIENTE_CONTEXTUAL | 286 |
+| CONFLICTO_CONTEXTUAL | 11 |
 | REUTILIZADO_M1 | 60 |
 | NO_APLICA | 106 |
 | **total** | **677** |
 
 ## Estados contextuales por nivel
 
-- Entradas verificadas en `verificacion_contexto.jsonl` (677): CONFLICTO_CONTEXTUAL 15 / NO_APLICA 210 / PENDIENTE_CONTEXTUAL 233 / REUTILIZADO_M1 43 / REVISADO_CONTEXTUAL 176
-- Derivados (101 nodos en `DERIVADOS.json`): CONFLICTO_CONTEXTUAL 4 / PENDIENTE_CONTEXTUAL 50 / REUTILIZADO_M1 14 / REVISADO_CONTEXTUAL 33
+- Entradas verificadas en `verificacion_contexto.jsonl` (677): CONFLICTO_CONTEXTUAL 10 / NO_APLICA 210 / PENDIENTE_CONTEXTUAL 235 / REUTILIZADO_M1 43 / REVISADO_CONTEXTUAL 179
+- Derivados (101 nodos en `DERIVADOS.json`): CONFLICTO_CONTEXTUAL 1 / PENDIENTE_CONTEXTUAL 51 / REUTILIZADO_M1 14 / REVISADO_CONTEXTUAL 35
 
 ## Dimensiones contextuales (sobre las entradas con fuente)
 
@@ -25,7 +25,7 @@
 | columna | CONFLICTO 2 / NO_DECIDIBLE 104 / OK 361 |
 | fila | NO_DECIDIBLE 1 / OK 466 |
 | perimetro | NO_APLICA 4 / OK 463 |
-| reexpresion | CONFLICTO 14 / NO_APLICA 220 / NO_DECIDIBLE 196 / OK 37 |
+| reexpresion | CONFLICTO 9 / NO_APLICA 220 / NO_DECIDIBLE 196 / OK 42 |
 | signo | NO_APLICA 19 / OK 448 |
 | unidad | OK 467 |
 | version | OK 467 |

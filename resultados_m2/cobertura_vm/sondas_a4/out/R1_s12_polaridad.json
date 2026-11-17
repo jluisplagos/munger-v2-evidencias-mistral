@@ -1,0 +1,60 @@
+{
+ "scripts": "scripts",
+ "sondas": [
+  {
+   "sonda": "V1_afirmacion_con_sin_entre_parentesis",
+   "descripcion": "Afirmacion con «sin» entre parentesis en la razon: la polaridad es positiva (antes invertia a CONFLICTO «declara no reexpresado»).",
+   "esperado": [
+    "NO_DECIDIBLE",
+    "OK"
+   ],
+   "obtenido": "OK",
+   "detalle": "reexpresion confirmada por columna: el original CF_2024.txt imprime 10.000 en la columna 2024 (fila 4) y el comparativo cita 9000; declarado: sí, 2024 reexpresado (sin Italia)",
+   "defecto": false
+  },
+  {
+   "sonda": "V2_no_restatement_was_made",
+   "descripcion": "Negacion «no restatement …» + diferencia 9.000 frente a 10.000: debe ser CONFLICTO, no OK falso.",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "CONFLICTO",
+   "detalle": "declara no reexpresado (\"no restatement of comparatives was made\") pero el original CF_2024.txt imprime 10.000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita",
+   "defecto": false
+  },
+  {
+   "sonda": "V3_comparatives_were_not_restated",
+   "descripcion": "Negacion «were not restated» + diferencia: CONFLICTO.",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "CONFLICTO",
+   "detalle": "declara no reexpresado (\"comparatives were not restated\") pero el original CF_2024.txt imprime 10.000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita",
+   "defecto": false
+  },
+  {
+   "sonda": "V4_afirmacion_sin_si_explicito",
+   "descripcion": "Mencion afirmativa sin «sí» inicial: afirmativa (no negada).",
+   "esperado": [
+    "NO_DECIDIBLE",
+    "OK"
+   ],
+   "obtenido": "OK",
+   "detalle": "reexpresion confirmada por columna: el original CF_2024.txt imprime 10.000 en la columna 2024 (fila 4) y el comparativo cita 9000; declarado: reexpresado por cambio de perimetro",
+   "defecto": false
+  },
+  {
+   "sonda": "V5_control_no_reexpresado_e_igual",
+   "descripcion": "Control: «no reexpresado» con el original imprimiendo el MISMO valor (10.000) no es contradiccion (NO_APLICA coherente).",
+   "esperado": [
+    "NO_APLICA",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_APLICA",
+   "detalle": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (10.000) en la fila 4; coherente",
+   "defecto": false
+  }
+ ]
+}

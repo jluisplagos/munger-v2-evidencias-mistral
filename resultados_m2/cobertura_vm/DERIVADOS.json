@@ -7,10 +7,10 @@
     "COINCIDE_PROPUESTO": 101
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 50,
+    "PENDIENTE_CONTEXTUAL": 51,
     "REUTILIZADO_M1": 14,
-    "CONFLICTO_CONTEXTUAL": 4,
-    "REVISADO_CONTEXTUAL": 33
+    "CONFLICTO_CONTEXTUAL": 1,
+    "REVISADO_CONTEXTUAL": 35
   },
   "ciclos": [],
   "huecos": [],
@@ -653,11 +653,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!J10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2023: dimension reexpresion no decidible (declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4)\") pero e)",
-        "aux:bai_2023: dimension reexpresion no decidible (declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4)\") pero e)"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2569,11 +2566,8 @@
       "empresa": "Vidrala",
       "celda": "Configuración V6.4!B11",
       "id": "N1.tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2023: dimension reexpresion no decidible (declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4)\") pero e)",
-        "aux:bai_2023: dimension reexpresion no decidible (declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4)\") pero e)"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "Configuración V6.4 (N1.tipo): entra en el motor B experimental (bases de «Configuración V6.4»); materialidad en configuracion_v64_variantes.json",
       "origenes": [
@@ -2649,7 +2643,7 @@
       "empresa": "Vidrala",
       "celda": "Configuración V6.4!B21",
       "id": "N2.margen",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
         "aux:italia_ingresos_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
         "aux:italia_bai_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
@@ -2665,8 +2659,6 @@
         "aux:italia_gto_fin_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
         "Historia!I6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional)",
         "Historia!J6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional)",
-        "Historia!J6: dimension reexpresion no decidible (declara no reexpresado (\"sí: 2023 reexpresado sin Vidrala Italia (el original CF_2023 p.4 daba 1,558,765)\") pero el orig)",
-        "Historia!J7: dimension reexpresion no decidible (declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original 289,838, CF_2023 p.4)\") pero el original CF_2023.txt )",
         "Historia!K6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
         "Historia!L6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)"
       ],

@@ -12,9 +12,8 @@
   },
   "estados_contextuales": {
     "NO_APLICA": 13,
-    "REVISADO_CONTEXTUAL": 10,
-    "PENDIENTE_CONTEXTUAL": 6,
-    "CONFLICTO_CONTEXTUAL": 1
+    "REVISADO_CONTEXTUAL": 11,
+    "PENDIENTE_CONTEXTUAL": 6
   },
   "entradas": [
     {
@@ -239,12 +238,12 @@
       "id": "h_tipo",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] -> 0.2040320269198843100104597449 (valor_modelo 0.204, diff 0.0000320269198843100104597449)",
-      "evidencia_contextual": "origenes con estado contextual CONFLICTO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:impuesto_2023\"] / o[\"aux:bai_2023\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. tipo efectivo = gasto por impuesto ÷ resultado antes de impuestos del mismo estado (continuadas); el libro redondea a 4 decimales: 0.204",
-      "limites_contextuales": "aux:impuesto_2023: dimension reexpresion no decidible (declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4)\") pero e) | aux:bai_2023: dimension reexpresion no decidible (declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4)\") pero e)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -260,11 +259,8 @@
         "diferencia": "0.0000320269198843100104597449",
         "exacto": false,
         "reutilizado_piloto": false,
-        "estado_contextual": "CONFLICTO_CONTEXTUAL",
-        "limites_contextuales": [
-          "aux:impuesto_2023: dimension reexpresion no decidible (declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4)\") pero e)",
-          "aux:bai_2023: dimension reexpresion no decidible (declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4)\") pero e)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {
