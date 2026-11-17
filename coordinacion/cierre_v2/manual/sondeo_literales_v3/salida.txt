@@ -1,0 +1,50 @@
+$ python3 -I -B sondeo_literales_v3.py <candidata>   # <candidata> = worktree de integracion/candidata-cierre-v2 en 3149128; solo lee con git show
+scripts analizados: 145 · literales distintos: 13129 · controles de controles_historicos_4_13.py: 19
+controles que existen en 3149128: 19 de 19
+frase 1 actual en CONTINUIDAD.md: 1 vez/veces · frase 2 actual: 1 vez/veces
+
+957af65 -> 3149128 (CONTINUIDAD.md): literales que aparecen o desaparecen = 3
+  '2. Adjuntar `': desaparece
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/actualizar_documentos_version_4_13.py:94 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? sí · controles que lo nombran: ninguno
+  'ambos': aparece
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/reproducir_xa_xc.py:5,28,129,131 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? no · controles que lo nombran: comprobar_entrega_4_8.py
+  'código: ': desaparece
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/reproducir_xa_xc.py:127 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? no · controles que lo nombran: comprobar_entrega_4_8.py
+  filtro A · literales de los 19 controles: 0 []
+  filtro B · literales de scripts que nombran CONTINUIDAD: 1 ['2. Adjuntar `']
+
+propuesta v3: cambios 1 y 2: literales que aparecen o desaparecen = 3
+  '$': aparece
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/dependencias_v63.py:24,28,55 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? no · controles que lo nombran: ninguno
+  'TMP': aparece
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/empaquetar_cambios_4_15.py:47 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? no · controles que lo nombran: ninguno
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/reproducir_r1_r3.py:47 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? no · controles que lo nombran: ninguno
+  'TMPDIR': aparece
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_7/scripts/propuesta_excel.py:49 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? no · controles que lo nombran: comprobar_entrega_4_7.py
+  filtro A · literales de los 19 controles: 0 []
+  filtro B · literales de scripts que nombran CONTINUIDAD: 0 []
+
+propuesta v3: cambio 1 y variante del 2: literales que aparecen o desaparecen = 3
+  '$': aparece
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/dependencias_v63.py:24,28,55 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? no · controles que lo nombran: ninguno
+  'TMP': aparece
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/empaquetar_cambios_4_15.py:47 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? no · controles que lo nombran: ninguno
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/reproducir_r1_r3.py:47 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? no · controles que lo nombran: ninguno
+  'TMPDIR': aparece
+    munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_7/scripts/propuesta_excel.py:49 · ¿uno de los 19 controles? no · ¿nombra CONTINUIDAD? no · controles que lo nombran: comprobar_entrega_4_7.py
+  filtro A · literales de los 19 controles: 0 []
+  filtro B · literales de scripts que nombran CONTINUIDAD: 0 []
+
+scripts que nombran CONTINUIDAD: 11 (de ellos, entre los 19 controles: 10)
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10/scripts/comprobar_entrega_4_10.py · control
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10_1/scripts/comprobar_entrega_4_10_1.py · control
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py · control
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py · control
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/actualizar_documentos_version_4_13.py 
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py · control
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_7/scripts/comprobar_entrega_4_7.py · control
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_7_1/scripts/comprobar_entrega_4_7_1.py · control
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py · control
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py · control
+   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py · control
+[código 0]
