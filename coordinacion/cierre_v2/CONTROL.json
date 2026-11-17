@@ -332,7 +332,8 @@
       "evidencia": [
         "resultados_qwen/ejecucion_d/ @ 1ac661b (mistral/d-qwen-aceptacion)",
         "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/REVISION_D_1ac661b.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/CORRECCION_D2.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/CORRECCION_D2.md",
+        "coordinacion/cierre_v2/pruebas_candidata/957af65/MECANISMO_PERSONAJE.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
@@ -340,8 +341,8 @@
         "D-HARNESS",
         "T-CAND"
       ],
-      "bloqueo": "Parte del entorno Mistral no expone agentes/pdftotext/soffice según su declaración; transferir al runtime comprobado.",
-      "siguiente_accion": "Ningún caso del personaje ejecutado (0/36). Recuento del revisor: 29 componentes con precondiciones del arnés, 1 bloqueo de entorno (Q1-026), 2 observación compartida, 2 pendientes de agente, 2 de decisión del usuario. El runtime del coordinador ejecuta el personaje cuando D2-R4 dé relevos completos.",
+      "bloqueo": "No falta capacidad: el personaje se ejecuta con código 10 y subagentes de la sesión orquestadora (modelo y esfuerzo de config_v2.json, fase C con el mismo agente, auditoría con agente nuevo; sin API). Comprobado en 957af65: réplica hasta el código 10, paso 5. Bloqueo real: la adaptación de los 36 casos sintéticos a vías soportadas y la correspondencia criterio→observable (D2-R4/R5, Mistral D), que exige el propio PLAN_DE_EJECUCION del banco.",
+      "siguiente_accion": "Cuando D2 entregue relevos íntegros por caso, el coordinador ejecuta cada caso con agentes reales y LibreOffice en secuencia, y registra el veredicto por criterio.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
       "alcance_aceptado": [],
@@ -863,6 +864,11 @@
       "tipo": "ASIGNACION",
       "fecha": "2026-11-17",
       "hecho": "Revisión de G-MANUAL asignada a Mistral A en mistral/g-manual-traspaso; Mistral C/F conserva F2."
+    },
+    {
+      "tipo": "PRUEBA",
+      "fecha": "2026-11-17",
+      "hecho": "Mecanismo del personaje comprobado en 957af65: réplica de Rational hasta el código 10 (paso 5, sonnet/medio); sin agente lanzado ni respuesta simulada. D-36 bloqueado por la adaptación (D2-R4/R5), no por capacidad."
     }
   ],
   "consulta_remotos_arranque": {
