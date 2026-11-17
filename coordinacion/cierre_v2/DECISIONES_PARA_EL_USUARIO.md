@@ -28,11 +28,13 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
 
 ### U1 · Dónde se conservan los 11 PDF nuevos de Elis (E-ELIS) · operativa, no económica
 
-- **Situación.** Los bytes solo están en el sandbox de Mistral E. La subida a la Release dio HTTP 401. El coordinador no los descarga, porque el programa no autoriza contactar con terceros. Por eso 21 de las 28 citas de E no se pueden verificar.
-- **Recomendada:** que la persona responsable suba los 11 PDF a una Release del repositorio auxiliar (por ejemplo `fuentes-mistral-m2-20261116`, hoy vacía) o los deje en una carpeta que comparta. El coordinador comprobaría entonces SHA-256, bytes, páginas y citas.
-- **Alternativas:**
-  - (b) autorizar expresamente descargas GET de documentos públicos de `fr.elis.com`, solo para verificar. Ya existe un entorno personal «munger-v2 (fuentes Elis)» con ese único host, sin usar;
-  - (c) dejarlos provisionales y las 21 citas en NO OBSERVABLE.
+- **Situación (actualizada el 17-nov).** Con la aclaración de la reanudación (`c241a59`), el coordinador descargó los 11 PDF de sus URL públicas oficiales:
+  - 11/11 tienen bytes y SHA-256 idénticos a los declarados;
+  - 28/28 citas están en su página (adenda en `revisiones_coordinador/E_93a9780/adenda_20261117/`).
+
+  **Ya no hay ninguna cita sin verificar.** Lo único pendiente es una copia duradera autorizada: la descarga del coordinador está en un sandbox efímero y no cuenta como preservación.
+- **Recomendada:** que la persona responsable suba los 11 PDF a una Release del repositorio auxiliar (por ejemplo `fuentes-mistral-m2-20261116`, hoy vacía) o a otro almacén que autorice. El coordinador comprobará allí la SHA-256 de cada uno frente a `adenda_20261117/descargas_verificacion.tsv`.
+- **Alternativa:** (b) aceptar como preservación el índice de descarga (URL, fecha, SHA-256 y bytes) y los extractos acotados en Git, con el riesgo de que el emisor cambie o retire los documentos.
 - **Qué no se valida aunque se resuelva:** M1, M2, M6 y N2 siguen ABIERTOS según la revisión (E-R1…E-R9). Elis sigue `pendiente_de_datos`.
 
 ### U2 · Tercer caso B fuera de muestra (F-B3) · dato de la persona responsable

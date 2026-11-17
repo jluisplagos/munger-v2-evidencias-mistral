@@ -16,7 +16,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | A-CTX | Mistral A | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 8b88fab |
 | D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
 | D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
-| E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | CORRECCIONES | NO | DECLARADAS / PARCIALES | 93a9780 |
+| E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 93a9780 |
 | B-PM1 | Mistral B (autor previo) | PARCIAL | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | daa7478 |
 | C-C2 | Mistral C (autor previo) | ENTREGADO | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | 1ec4f18 |
 | F-REV | Antigua Mistral C, nueva F | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / NO_EJECUTADAS | c7716a0 |
@@ -43,7 +43,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Dependencias: D-HARNESS, T-CAND.
   Bloqueo/límite: No falta capacidad: el personaje se ejecuta con código 10 y subagentes de la sesión orquestadora (modelo y esfuerzo de config_v2.json, fase C con el mismo agente, auditoría con agente nuevo; sin API). Comprobado en 957af65: réplica hasta el código 10, paso 5. Bloqueo real: la adaptación de los 36 casos sintéticos a vías soportadas y la correspondencia criterio→observable (D2-R4/R5, Mistral D), que exige el propio PLAN_DE_EJECUCION del banco.
 - **E-ELIS · Fuentes M1/M2/M6/N2 de Elis**: Mistral E corrige E-R1…E-R9 (CORRECCION_E1.md). Tras la corrección, N2 y M6 quedan ABIERTOS; M1 y M2, ABIERTOS. Elis sigue pendiente_de_datos. El almacén duradero de los 11 PDF lo decide el usuario.
-  Bloqueo/límite: Los 11 PDF nuevos están en PROVISIONAL, solo en el sandbox del autor (subida a la Release con HTTP 401); sin copia duradera accesible. El acceso del coordinador a fr.elis.com no se usa: el programa prohíbe contactar con terceros.
+  Bloqueo/límite: Solo la preservación duradera de los 11 PDF (U1). Contenido verificado por el coordinador: 11/11 SHA-256 y 28/28 citas en su página (adenda del 17-nov).
 - **B-PM1 · Dossier P-M1 corregido; contraste documental pendiente**: Dato de las nueve altas aceptado con límites (revisión del coordinador sobre daa7478 y contraste 223f16d). P-M1 sigue bloqueado: no se identifica θ/λ ni se adopta política. Nada que integrar en el producto sin decisión.
   Bloqueo/límite: P-M1 no delimitada con evidencia disponible; 4 PDF nuevos con preservación pendiente.
 - **C-C2 · Guarda de perímetros C2**: Decisión del integrador: no se incorpora a la candidata. Es herramienta de contraste del auxiliar, no software del producto, y conserva C1 y D1/D7/D11 pendientes. Se conserva el enlace (1ec4f18, SEGUIMIENTO.md @ b049777); se usa como oráculo de contraste solo dentro de su alcance.
