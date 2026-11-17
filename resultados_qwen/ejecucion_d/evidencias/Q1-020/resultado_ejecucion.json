@@ -1,8 +1,12 @@
 {
  "caso": "Q1-020",
- "harness_version": "2.0",
+ "harness_version": "3.0",
+ "fecha": "2026-11-17",
  "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+ "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
+ "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
+ "spec_sha256": "c4cc17d10087d1700b7d1aef17631b79f247970fdb8a41183fb76712789d3169",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -22,7 +26,7 @@
    "stderr": ""
   },
   {
-   "descripcion": "sellar (revisor vincula la comprobación al fundamento)",
+   "descripcion": "sellar (revisor [SIMULADO] vincula la comprobación al fundamento)",
    "comando": [
     "/usr/local/bin/python3",
     "-B",
@@ -31,9 +35,9 @@
     "/workspace/ejecucion_d_run/Q1-020/Viscofan",
     "Análisis!C62",
     "--revisor",
-    "revisor independiente de prueba D (arnés externo)",
+    "revisor independiente de prueba D (arnés externo) [SIMULADO]",
     "--fecha",
-    "2026-11-16"
+    "2026-11-17"
    ],
    "exit": 0,
    "esperado": [
@@ -86,6 +90,8 @@
    "guardado_en": "03_comprobar_tras_cambio_fundamento.json"
   }
  ],
+ "spec": "resultados_qwen/ejecucion_d/scripts/especificaciones/bloque2/Q1-020.json",
+ "candidata_no_rastreadas": 84,
  "estado_caso": "COMPONENTE_OK",
  "criterios": [
   {
@@ -101,7 +107,7 @@
    "texto": "tras cambiar el fundamento: la comprobación ya no vale (no comprobada)",
    "estado": "CUMPLE_COMPONENTE",
    "detalle": [
-    "03_comprobar_tras_cambio_fundamento.json:comprobadas sin prefijo 'Análisis!C62' -> OK"
+    "03_comprobar_tras_cambio_fundamento.json:comprobadas sin prefijo 'Análisis!C62' (universo=321) -> OK"
    ]
   }
  ],

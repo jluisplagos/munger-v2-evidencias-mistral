@@ -943,8 +943,8 @@
     "no sigue comprobada"
    ],
    "artefacto": "evidencias/Q1-027/*.json",
-   "adaptacion": "caja Historia!C24 sellada con fuente local (95 millones, revision 2026-11-05); mutacion de la fuente a caja 80 (edicion 2026-11-10) segun f5_027_excel.csv; deuda 300 presente en el mismo extracto; esperado del banco con recalculo: 300-80=220",
-   "sin_comprobar": "aprobacion dependiente (registro de aprobaciones del pipeline: relevo); nuevo contraste por agente; esperado numerico 300-80=220 con soffice (relevo)",
+   "adaptacion": "caja Historia!C24 sellada con fuente local (valor del libro 45054 miles; f5_027_revision.json declara 95 millones EUR verificados el 2026-11-05); mutacion de la fuente a 80000 miles = 80 millones (f5_027_excel.csv: caja,80,2026-11-10); deuda 300 millones presente en el mismo extracto (f5_027_excel.csv); esperado del banco con recalculo: 300-80=220 millones (relevo, soffice)",
+   "sin_comprobar": "aprobacion dependiente (registro de aprobaciones del pipeline: relevo); nuevo contraste por agente; esperado numerico 300-80=220 millones observable solo con recalculo (soffice)",
    "cobertura_banco": [
     {
      "indice": 0,

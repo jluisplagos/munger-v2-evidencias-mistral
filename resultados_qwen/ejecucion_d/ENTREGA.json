@@ -3,38 +3,42 @@
  "frente": "D (aceptacion Qwen Q1)",
  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
  "rama": "mistral/d-qwen-aceptacion",
- "base_revisada_sha": "bdcbba789244d167c9cef360d8225ae29275e917",
+ "base_revisada_sha": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
  "commit_entrega": "el coordinador toma el SHA remoto de este push; no autorreferencia",
  "directorio_entrega": "resultados_qwen/ejecucion_d/",
- "bloque": "Bloques 3/4 del programa de cierre (PROMPT_MISTRAL_D): cierre de la matriz de 36 y transferencia",
+ "bloque": "Respuesta D2-R1..R7 a CORRECCION_D2.md (coordinacion/cierre-v2@57b34a6): arnes v3 + paquetes; sin ejecutar el personaje",
  "tareas_control": [
   "D-HARNESS",
   "D-36"
  ],
- "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9 (verificado en ejecucion por el arnes: git rev-parse HEAD)",
- "banco_sha": "4745f3887f7fd86bb3052f5d5e32285862df18e3 (57/57 SHA256 OK, comprobar_banco exit 0)",
- "naturaleza": "componente (pruebas de arnes con aserciones); no recorrido completo del personaje",
- "autor_contexto_modelo_herramientas": "Mistral D, modelo mistral-large-4-0; Python 3.12.15 + openpyxl/lxml/pypdf/jsonschema; sin soffice ni pdftotext (sin root); sin agentes del producto",
+ "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9 (SHA observado en ejecucion = esperado; 0 cambios sin commit; base 4.14 materializada 6798/6798, ZIP sha256 bb51942c...7b93e OK)",
+ "banco_sha": "4745f3887f7fd86bb3052f5d5e32285862df18e3 (extraido con git archive del SHA fijado; manifiesto 57/57 OK; comprobar_banco.py exit 0)",
+ "naturaleza": "componente (arnes v3 con aserciones por criterio) + paquetes de relevo; no recorrido completo del personaje (0/36 casos completos)",
+ "autor_contexto_modelo_herramientas": "Mistral D, modelo mistral-large-4-0; Python 3.12.15 + openpyxl/lxml/pypdf/jsonschema (pip usuario); git/gh/sha256sum/flock; sin pdftotext ni soffice; sin agentes del producto",
  "fuentes_y_preservacion": [
-  "banco desde origin/revision/qwen-q1-v2 (manifiesto verificado)",
-  "base 4.14: ZIP Release base-4.14 sha256 bb51942c...7b93e, materializado 6798/6798 en copia local de la candidata"
+  "banco desde revision/qwen-q1-v2 @4745f38 (SHA fijado, no punta de rama)",
+  "base 4.14 desde la Release base-4.14 del producto (ZIP verificado por SHA-256 y materializado con tools/base_414.py)"
  ],
  "cambios_respecto_entrega_anterior": [
-  "RESUMEN_PARA_INTEGRADOR.md con cierre por categoría desde recuentos.json: 30 PARCIAL_COMPONENTE / 6 NO_EJECUTADO; 56/56 criterios CUMPLE_COMPONENTE; veredicto de caso: 29 pendiente de agente, 1 NO_OBSERVABLE, 4 sin veredicto, 2 DECISION_PENDIENTE",
-  "tareas restantes concretas por caso en relevo/PAQUETES_RELEVO.json (runtime Claude, Q1-026 con pdftotext+soffice, Q1-030/035 política del usuario, revisión externa)",
-  "PUNTO_DE_RECUPERACION.md con siguiente comando exacto para reanudar desde contexto limpio"
+  "D2-R1: specs vacias/sin aserciones -> ERROR_ESPECIFICACION; rutas fuera del caso -> ERROR; negativos sin universo -> FALLA; matriz recalcula CUMPLE desde criterios+aserciones+spec_sha256 (forjado P4 ya no pasa); sondas P1-P9 re-ejecutadas: todas DETECTA (sondas/sondas_d2.json)",
+  "D2-R2: control negativo por aserción (prueba 15: todas las aserciones fallan sobre estado previo vacio); Q1-026 C1 exige lineas exactas AR_2021..AR_2024 + errores ipal/AR_2019/AR_2020 separados; Q1-027 C2 discrimina y C4 etiqueta apto=false como no discriminante",
+  "D2-R3: Q1-026 alineado al banco (caja 95->90, deuda 300, deuda neta 210, cita exacta de f5_026_nota.txt, bloque evidencia restaurado) y clasificado BLOQUEO_ENTORNO (no CUMPLE); Q1-027 con cifras del fixture; CAMBIO bajo RUN_DIR, nunca en la candidata",
+  "D2-R4: relevos completos con que/quien/necesita (Q1-028 reaprobacion con auditor real + derivado 245; Q1-032 recuento 4/1/5); recorrido del personaje con fases/orden/modelos (MECANISMO_PERSONAJE.md)",
+  "D2-R5: MAPA_CRITERIOS_BANCO.csv con los 109 criterios del banco (59 con asercion, 50 sin asercion + relevo); preserva_sentido justificado por caso como dato; textos caducados corregidos; pruebas_arnes re-ejecutado 16/16 PASA",
+  "D2-R6: MANIFIESTO_SHA256.txt regenerado; sha256sum -c exit 0",
+  "D2-R7: marca _simulada/[SIMULADO] en toda comprobacion escrita por el arnes (incl. dict y --revisor); un log por ejecucion (evidencias limpias); SHA observado + arbol limpio exigido; banco desde SHA fijado; base_414 verify sin || true"
  ],
  "pruebas": [
   {
    "tipo": "componente",
-   "comando": "python3 scripts/ejecutar_caso.py scripts/especificaciones/<dir>/Q1-xxx.json",
+   "comando": "bash scripts/ejecutar_todo.sh (28 specs + generar_matriz + generar_correspondencia + generar_relevo)",
    "exit_esperado": 0,
    "exit_observado": 0,
-   "criterios_cubiertos": "ver MATRIZ_EJECUCION.csv columna criterios_evaluados (30 casos)",
-   "criterios_sin_cubrir": "capa de agente/personaje de todos los casos; Q1-031/Q1-033 (precio/objetivo)",
-   "evidencia": "evidencias/Q1-*/resultado_ejecucion.json",
+   "criterios_cubiertos": "29 casos PARCIAL_COMPONENTE CUMPLE (ver MATRIZ_EJECUCION.csv); Q1-026 BLOQUEO_ENTORNO documentado",
+   "criterios_sin_cubrir": "capa de agente/personaje de todos los casos; Q1-028/Q1-031/Q1-032/Q1-033; Q1-030/Q1-035 decision del usuario",
+   "evidencia": "evidencias/Q1-*/resultado_ejecucion.json (harness 3.0, spec_sha256, candidata_sha observado)",
    "sha_material": "MANIFIESTO_SHA256.txt",
-   "resultado": "COMPONENTE_OK en 30/36 especificaciones ejecutables"
+   "resultado": "COMPONENTE_OK en las 28 especificaciones ejecutables; 0/36 casos completos del personaje"
   },
   {
    "tipo": "arnes",
@@ -42,58 +46,65 @@
    "exit_esperado": 0,
    "exit_observado": 0,
    "criterios_cubiertos": [
-    "positivo real",
-    "negativo esperado real",
-    "candidata incompleta",
-    "artefacto heredado tras fallo",
-    "evidencias ausentes",
-    "resultado mutado",
-    "recuentos/precondiciones compartidas"
+    "positivo/negativo reales",
+    "candidata incompleta y sucia (P8)",
+    "artefacto heredado (P6)",
+    "matriz sin evidencias (0 CUMPLE)",
+    "P1 spec vacia, P2 sin afirma, P3 ruta cruzada, P4 forjado, P5 negativo vacio",
+    "P9 un log por ejecucion",
+    "control negativo por asercion (todas fallan en vacio)",
+    "marcas SIMULADA en registros del arnes"
    ],
    "criterios_sin_cubrir": [],
    "evidencia": "evidencias/pruebas_arnes.log",
    "sha_material": null,
-   "resultado": "8/8 PASA"
+   "resultado": "16/16 PASA"
   },
   {
-   "tipo": "componente (bloqueo de entorno documentado)",
-   "comando": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-026.json",
+   "tipo": "arnes (sondas D2 con candidata falsa/stubs; no producto)",
+   "comando": "python3 -I sondas/sondas_d2.py . \"$BANCO_DIR\" sondas/sondas_d2.json",
    "exit_esperado": 0,
    "exit_observado": 0,
-   "criterios_cubiertos": [
-    "error concreto de cambiar_base (textos PDF ausentes sin pdftotext)",
-    "origen intacto (sha256 igual antes/despues)"
-   ],
-   "criterios_sin_cubrir": [
-    "cambio de base completo con recálculo (necesita pdftotext + soffice)",
-    "auditoría nueva del material final (agente)"
-   ],
-   "evidencia": "evidencias/Q1-026/",
+   "criterios_cubiertos": ["P1-P9 del revisor sobre 1ac661b"],
+   "criterios_sin_cubrir": [],
+   "evidencia": "sondas/sondas_d2.json + sondas/sondas_d2.stdout",
    "sha_material": null,
-   "resultado": "COMPONENTE_OK como documentacion del bloqueo; caso NO_OBSERVABLE en este entorno"
+   "resultado": "P1,P2,P3,P4,P5,P6,P7,P8 DETECTA; P9 OK (antes P1-P5,P7,P8 eran falsos positivos)"
+  },
+  {
+   "tipo": "manifiesto",
+   "comando": "cd resultados_qwen/ejecucion_d && sha256sum -c MANIFIESTO_SHA256.txt",
+   "exit_esperado": 0,
+   "exit_observado": 0,
+   "criterios_cubiertos": ["D2-R6"],
+   "criterios_sin_cubrir": [],
+   "evidencia": "MANIFIESTO_SHA256.txt",
+   "sha_material": null,
+   "resultado": "exit 0 (antes exit 1 en RESUMEN_PARA_INTEGRADOR.md)"
   }
  ],
  "precondiciones_simuladas": [
-  "extractor/revisor escritos por el arnes en cada registro (marcados _simulada/SIMULADA); no son revision independiente ejecutada"
+  "extractor/revisor escritos por el arnes en cada registro, marcados _simulada/[SIMULADO] (incl. comprobaciones dadas como diccionario y el --revisor del sellar); no son revision independiente ejecutada"
  ],
  "revision_por_otro_contexto": null,
  "limites_y_bloqueos": [
-  "sin soffice: pipeline con recálculo no corre aqui",
-  "sin pdftotext: Q1-026 se detiene en textos AR_2021..AR_2024 (error exacto en evidencias/Q1-026/cambiar_base_preparar.txt)",
-  "sin runtime de agente: fases del personaje y auditorías en relevo"
+  "sin soffice: pipeline con recalculo no corre aqui (Q1-026 deuda neta 210 y Q1-027 esperado 220 quedan en relevo)",
+  "sin pdftotext: Q1-026 se detiene en AR_2021..AR_2024; ademas hay errores de ipal/AR_2019/AR_2020 separados en errores_bloqueo.json (pdftotext solo no basta)",
+  "sin runtime de agente: fases del personaje y auditorias, en relevo/PAQUETES_RELEVO.json",
+  "sondas con stubs miden la logica del arnes, no el producto"
  ],
- "siguiente_accion_exacta": "Coordinador (Claude): revisar este bloque (diff + reproducción de ejecutar_todo.sh y pruebas_arnes.py), registrar en CONTROL.json D-HARNESS/D-36, y ejecutar relevo/PAQUETES_RELEVO.json en el runtime con agentes reales. Reanudar: bash scripts/preparar_entorno.sh && bash scripts/ejecutar_todo.sh && python3 -B scripts/pruebas_arnes.py && python3 scripts/generar_matriz.py && python3 scripts/generar_relevo.py",
+ "siguiente_accion_exacta": "Coordinador (Claude): revisar este bloque (diff 1ac661b..HEAD + reproducir ejecutar_todo/pruebas_arnes/sondas/manifiesto) y registrar en CONTROL.json; despues ejecutar relevo/PAQUETES_RELEVO.json en el runtime con agentes reales. Reanudar desde contexto limpio: bash scripts/preparar_entorno.sh && bash scripts/ejecutar_todo.sh && python3 -B scripts/pruebas_arnes.py && python3 -I sondas/sondas_d2.py . \"$BANCO_DIR\" sondas/sondas_d2.json && sha256sum -c MANIFIESTO_SHA256.txt",
  "integrado_en_producto": false,
  "apto_dinero_real": "No se declara por este formulario",
  "criterios_cubiertos": [
-  "30 casos con componente real y aserciones (56 criterios CUMPLE_COMPONENTE); arnés 8/8 PASA"
+  "29 casos con componente real y aserciones (harness 3.0); 59/109 criterios del banco con asercion (MAPA_CRITERIOS_BANCO.csv); arnes 16/16 PASA; sondas D2 P1-P9 DETECTA"
  ],
  "criterios_pendientes": [
-  "recorrido real del personaje en los 30 casos (runtime Claude, paquetes en relevo/)",
-  "Q1-026 completo (pdftotext+soffice; paquete listo)",
-  "Q1-031/Q1-033 (precio actual/objetivo con agente)",
-  "Q1-030/Q1-035 (política del usuario)",
-  "revisión externa por Claude de estos bloques"
+  "recorrido real del personaje en los 29 casos ejecutados + Q1-028/Q1-031/Q1-032/Q1-033 (runtime Claude, paquetes en relevo/)",
+  "Q1-026 completo (pdftotext+soffice; paquete con cifras del banco 95->90/300/210)",
+  "Q1-027 esperado 220 con recalculo (soffice)",
+  "Q1-030/Q1-035 (politica del usuario)",
+  "revision externa por Claude de estos bloques"
  ],
- "salida_siguiente": "registro de revisión en CONTROL.json (solo Claude) + resultados del runtime en los paquetes de relevo"
+ "salida_siguiente": "registro de revision en CONTROL.json (solo Claude) + resultados del runtime en los paquetes de relevo; detalle por punto en RESPUESTA_D2.md"
 }

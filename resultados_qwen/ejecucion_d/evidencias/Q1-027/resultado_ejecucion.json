@@ -1,8 +1,12 @@
 {
  "caso": "Q1-027",
- "harness_version": "2.0",
+ "harness_version": "3.0",
+ "fecha": "2026-11-17",
  "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+ "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
+ "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
+ "spec_sha256": "906f77a4e821ebe2527cedbe447095957afb74388964f8e66987da6d70d6de1c",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -22,7 +26,7 @@
    "stderr": ""
   },
   {
-   "descripcion": "sellar (revisor vincula la comprobación al fundamento)",
+   "descripcion": "sellar (revisor [SIMULADO] vincula la comprobación al fundamento)",
    "comando": [
     "/usr/local/bin/python3",
     "-B",
@@ -31,9 +35,9 @@
     "/workspace/ejecucion_d_run/Q1-027/Viscofan",
     "Historia!C24",
     "--revisor",
-    "revisor independiente de prueba D (arnés externo)",
+    "revisor independiente de prueba D (arnés externo) [SIMULADO]",
     "--fecha",
-    "2026-11-16"
+    "2026-11-17"
    ],
    "exit": 0,
    "esperado": [
@@ -86,7 +90,7 @@
    "guardado_en": "03_comprobar_tras_mutacion.json"
   },
   {
-   "descripcion": "sellar (revisor vincula la comprobación al fundamento)",
+   "descripcion": "sellar (revisor [SIMULADO] vincula la comprobación al fundamento)",
    "comando": [
     "/usr/local/bin/python3",
     "-B",
@@ -95,9 +99,9 @@
     "/workspace/ejecucion_d_run/Q1-027/Viscofan",
     "Historia!C24",
     "--revisor",
-    "revisor independiente de prueba D (arnés externo)",
+    "revisor independiente de prueba D (arnés externo) [SIMULADO]",
     "--fecha",
-    "2026-11-16"
+    "2026-11-17"
    ],
    "exit": 1,
    "esperado": [
@@ -130,11 +134,13 @@
    "guardado_en": "05_comprobar_final.json"
   }
  ],
+ "spec": "resultados_qwen/ejecucion_d/scripts/especificaciones/piloto/Q1-027.json",
+ "candidata_no_rastreadas": 84,
  "estado_caso": "COMPONENTE_OK",
  "criterios": [
   {
    "id": "C1",
-   "texto": "antes de la mutación la caja queda comprobada (sellada)",
+   "texto": "antes de la mutacion la caja queda comprobada (sellada): valor del libro 45054 miles, revision 2026-11-05 (f5_027_revision.json: 95 millones EUR)",
    "estado": "CUMPLE_COMPONENTE",
    "detalle": [
     "02_comprobar_antes_mutacion.json:comprobadas contiene 'Historia!C24' -> OK"
@@ -142,20 +148,28 @@
   },
   {
    "id": "C2",
-   "texto": "tras mutar la fuente: desactualizada por sha256, ya no comprobada, apto false",
+   "texto": "tras mutar la fuente (caja 80, edicion 2026-11-10): desactualizada por sha256, ya no comprobada (ESTAS aserciones discriminan; la invalidacion se prueba aqui)",
    "estado": "CUMPLE_COMPONENTE",
    "detalle": [
     "03_comprobar_tras_mutacion.json:desactualizadas con prefijo 'Historia!C24' contiene 'sha256' -> OK",
-    "03_comprobar_tras_mutacion.json:comprobadas sin prefijo 'Historia!C24' -> OK",
-    "03_comprobar_tras_mutacion.json:apto_por_entradas = False (op eq False) -> OK"
+    "03_comprobar_tras_mutacion.json:comprobadas sin prefijo 'Historia!C24' (universo=321) -> OK"
    ]
   },
   {
    "id": "C3",
-   "texto": "re-sellar tras la mutación se rechaza",
+   "texto": "re-sellar tras la mutacion se rechaza",
    "estado": "CUMPLE_COMPONENTE",
    "detalle": [
     "04_sellar_tras_mutacion.txt contiene 'rechazadas 1' -> OK"
+   ]
+  },
+  {
+   "id": "C4",
+   "texto": "apto_por_entradas=false antes y despues de la mutacion: NO discriminante por si solo (ya era false antes por los errores de contrato del universo de 321 celdas); se registra como observacion, la invalidacion la prueban C2/C3",
+   "estado": "CUMPLE_COMPONENTE",
+   "detalle": [
+    "02_comprobar_antes_mutacion.json:apto_por_entradas = False (op eq False) -> OK",
+    "03_comprobar_tras_mutacion.json:apto_por_entradas = False (op eq False) -> OK"
    ]
   }
  ],

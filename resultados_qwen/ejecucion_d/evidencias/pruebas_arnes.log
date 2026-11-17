@@ -1,9 +1,9 @@
 {
  "pruebas": [
   {
-   "prueba": "positivo real Q1-001 (COMPONENTE_OK, aserciones CUMPLE)",
+   "prueba": "positivo real Q1-001 (COMPONENTE_OK, aserciones CUMPLE, sha observado registrado)",
    "ok": true,
-   "detalle": "rc=0 estado=COMPONENTE_OK"
+   "detalle": "rc=0 estado=COMPONENTE_OK sha=957af652"
   },
   {
    "prueba": "negativo esperado real Q1-006 (sellar exit 1 está en esperado; aserciones pasan)",
@@ -11,17 +11,17 @@
    "detalle": "rc=0"
   },
   {
-   "prueba": "candidata incompleta -> error propagado (rc!=0, ERROR_ENTORNO, errores registrados)",
+   "prueba": "candidata incompleta -> error propagado (rc=2, ERROR_ENTORNO, errores registrados)",
    "ok": true,
    "detalle": "rc=2 estado=ERROR_ENTORNO"
   },
   {
    "prueba": "artefacto heredado tras fallo de generación -> detectado, NO copiado, rc!=0",
    "ok": true,
-   "detalle": "rc=1 estado=ERROR copiado=False criterios=['FALLA_COMPONENTE']"
+   "detalle": "rc=1 estado=ERROR copiado=False"
   },
   {
-   "prueba": "carpeta de evidencias ausente -> 36 filas, 0 ejecuciones propias, ningún CUMPLE de componente",
+   "prueba": "matriz sin carpeta de evidencias (no creada a mano) -> rc 0, 36 filas, 0 propias, ningún CUMPLE",
    "ok": true,
    "detalle": "rc=0 filas=36 propias=0"
   },
@@ -31,22 +31,70 @@
    "detalle": "03_comprobar_sellado.json:comprobadas contiene 'Historia!C23' -> FALLA"
   },
   {
-   "prueba": "recuentos desde fuente única (recuentos.json == CSV) y Q1-035 coherente matriz/recuentos",
+   "prueba": "recuentos desde fuente única (recuentos.json == CSV en estados y veredicto_caso)",
    "ok": true,
-   "detalle": "recuentos={'sin veredicto de caso': 27, 'sin veredicto': 6, 'NO_OBSERVABLE': 1, 'DECISION_PENDIENTE': 2}"
+   "detalle": "estados={'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6} veredicto_caso={'sin veredicto de caso': 29, 'NO_OBSERVABLE': 1, 'sin veredicto': 4, 'DECISION_PENDIENTE': 2}"
   },
   {
-   "prueba": "observación compartida declarada (Q1-028) y precondiciones simuladas registradas (D-R4)",
+   "prueba": "D2-R1a P1: especificación vacía -> rc 2, ERROR_ESPECIFICACION (no COMPONENTE_OK)",
    "ok": true,
-   "detalle": "obs=observación compartida con Q1-036 (retirada de apr"
+   "detalle": "rc=2 estado=ERROR_ESPECIFICACION"
+  },
+  {
+   "prueba": "D2-R1b P2: criterio sin aserciones -> rc 2, ERROR_ESPECIFICACION",
+   "ok": true,
+   "detalle": "rc=2 estado=ERROR_ESPECIFICACION"
+  },
+  {
+   "prueba": "D2-R1c P3: aserción que lee evidencia de otro caso (../) -> rc!=0 y error de ruta registrado",
+   "ok": true,
+   "detalle": "rc=1 errores=[\"ruta fuera del RUN_DIR/evidencias del caso: '../Q1-036/07_informe_provisional.md'\"]"
+  },
+  {
+   "prueba": "D2-R1e P5: json_lista_no_contiene sobre salida vacía (sin universo) -> FALLA",
+   "ok": true,
+   "detalle": "salida.json: salida sin universo positivo (vacía); el negativo no acredita"
+  },
+  {
+   "prueba": "D2-R1d P4: resultado forjado (dos campos) -> la matriz NO da CUMPLE (recalcula desde criterios+aserción+huella)",
+   "ok": true,
+   "detalle": "Q1-031 veredicto='' estado='ERROR (COMPONENTE_OK)'"
+  },
+  {
+   "prueba": "D2-R7c P8: candidata con cambio sin commit (árbol sucio) -> rc 2, ERROR_ENTORNO",
+   "ok": true,
+   "detalle": "rc=2 errores=[\"árbol de la candidata con cambios sin commit: [' M munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py']\"]"
+  },
+  {
+   "prueba": "D2-R7b P9: una ejecución = evidencias limpias (Q1-001 dos veces -> 1 '# Caso' en el log)",
+   "ok": true,
+   "detalle": "ejecuciones_en_un_log=1"
+  },
+  {
+   "prueba": "D2-R2: control negativo por aserción: todas las aserciones de todas las specs fallan sobre estado previo vacío",
+   "ok": true,
+   "detalle": "aserciones que pasaron en vacío: []"
+  },
+  {
+   "prueba": "D2-R7a: toda comprobación escrita por el arnés lleva _simulada/[SIMULADO] (dict y 'verificada', incl. --revisor del sellar)",
+   "ok": true,
+   "detalle": "marcadas=True revisor_sim=True"
   }
  ],
  "todo_ok": true
-}PASA positivo real Q1-001 (COMPONENTE_OK, aserciones CUMPLE) · rc=0 estado=COMPONENTE_OK
+}PASA positivo real Q1-001 (COMPONENTE_OK, aserciones CUMPLE, sha observado registrado) · rc=0 estado=COMPONENTE_OK sha=957af652
 PASA negativo esperado real Q1-006 (sellar exit 1 está en esperado; aserciones pasan) · rc=0
-PASA candidata incompleta -> error propagado (rc!=0, ERROR_ENTORNO, errores registrados) · rc=2 estado=ERROR_ENTORNO
-PASA artefacto heredado tras fallo de generación -> detectado, NO copiado, rc!=0 · rc=1 estado=ERROR copiado=False criterios=['FALLA_COMPONENTE']
-PASA carpeta de evidencias ausente -> 36 filas, 0 ejecuciones propias, ningún CUMPLE de componente · rc=0 filas=36 propias=0
+PASA candidata incompleta -> error propagado (rc=2, ERROR_ENTORNO, errores registrados) · rc=2 estado=ERROR_ENTORNO
+PASA artefacto heredado tras fallo de generación -> detectado, NO copiado, rc!=0 · rc=1 estado=ERROR copiado=False
+PASA matriz sin carpeta de evidencias (no creada a mano) -> rc 0, 36 filas, 0 propias, ningún CUMPLE · rc=0 filas=36 propias=0
 PASA resultado mutado que incumple el predicado -> aserción FALLA detectada · 03_comprobar_sellado.json:comprobadas contiene 'Historia!C23' -> FALLA
-PASA recuentos desde fuente única (recuentos.json == CSV) y Q1-035 coherente matriz/recuentos · recuentos={'sin veredicto de caso': 27, 'sin veredicto': 6, 'NO_OBSERVABLE': 1, 'DECISION_PENDIENTE': 2}
-PASA observación compartida declarada (Q1-028) y precondiciones simuladas registradas (D-R4) · obs=observación compartida con Q1-036 (retirada de apr
+PASA recuentos desde fuente única (recuentos.json == CSV en estados y veredicto_caso) · estados={'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6} veredicto_caso={'sin veredicto de caso': 29, 'NO_OBSERVABLE': 1, 'sin veredicto': 4, 'DECISION_PENDIENTE': 2}
+PASA D2-R1a P1: especificación vacía -> rc 2, ERROR_ESPECIFICACION (no COMPONENTE_OK) · rc=2 estado=ERROR_ESPECIFICACION
+PASA D2-R1b P2: criterio sin aserciones -> rc 2, ERROR_ESPECIFICACION · rc=2 estado=ERROR_ESPECIFICACION
+PASA D2-R1c P3: aserción que lee evidencia de otro caso (../) -> rc!=0 y error de ruta registrado · rc=1 errores=["ruta fuera del RUN_DIR/evidencias del caso: '../Q1-036/07_informe_provisional.md'"]
+PASA D2-R1e P5: json_lista_no_contiene sobre salida vacía (sin universo) -> FALLA · salida.json: salida sin universo positivo (vacía); el negativo no acredita
+PASA D2-R1d P4: resultado forjado (dos campos) -> la matriz NO da CUMPLE (recalcula desde criterios+aserción+huella) · Q1-031 veredicto='' estado='ERROR (COMPONENTE_OK)'
+PASA D2-R7c P8: candidata con cambio sin commit (árbol sucio) -> rc 2, ERROR_ENTORNO · rc=2 errores=["árbol de la candidata con cambios sin commit: [' M munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py']"]
+PASA D2-R7b P9: una ejecución = evidencias limpias (Q1-001 dos veces -> 1 '# Caso' en el log) · ejecuciones_en_un_log=1
+PASA D2-R2: control negativo por aserción: todas las aserciones de todas las specs fallan sobre estado previo vacío · aserciones que pasaron en vacío: []
+PASA D2-R7a: toda comprobación escrita por el arnés lleva _simulada/[SIMULADO] (dict y 'verificada', incl. --revisor del sellar) · marcadas=True revisor_sim=True

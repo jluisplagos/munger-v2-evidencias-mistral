@@ -1,5 +1,6 @@
 # Caso Q1-011 · Doble negación (H14/R415-SIGNO): signo -1 exige tratamiento; el gasto publicado (49699) con signo -1 y tratamiento declarado cuadra con el modelo (+49.699).
-# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9, observado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /tmp/banco/resultados_qwen/q1_v2/banco_revisado (casos_aceptacion.jsonl sha256 e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9) · fecha: 2026-11-17 · harness 3.0
+# spec: /workspace/github__jluisplagos__munger-v2-evidencias-mistral/resultados_qwen/ejecucion_d/scripts/especificaciones/bloque2/Q1-011.json sha256=da02dee3c7f4a0e2af7087a89508aeb301e517fbfc547401d78802ae11ee9eee
 # precondiciones: extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)
 
 heredados archivados en /workspace/ejecucion_d_run/Q1-011/_heredados: ['auditoria.md', 'auditorias_conocidas.json', 'cierre_vigente.json', 'ficha.json', 'ficha_provisional.json', 'historial_cierres', 'informe.md', 'informe_provisional.md', 'material_auditoria.json', 'publicaciones_resumen.json']
@@ -12,9 +13,9 @@ plantilla con 321 entradas
 
 fuente escrita: fuentes_sinteticas/f2_011_nota.txt (1 páginas) sha256=9e3acf51fa5ede3b1cd39064131afaceeec78ad2942301cd87beee617f0b05eb
 
-entrada Historia!C8: clase=dato_publicado (comprobación preescrita = simulada)
+entrada Historia!C8: clase=dato_publicado (comprobación preescrita = SIMULADA, marcada)
 
-$ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py sellar /workspace/ejecucion_d_run/Q1-011/Viscofan Historia!C8 --revisor revisor independiente de prueba D (arnés externo) [SIMULADO] --fecha 2026-11-16   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
+$ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py sellar /workspace/ejecucion_d_run/Q1-011/Viscofan Historia!C8 --revisor revisor independiente de prueba D (arnés externo) [SIMULADO] --fecha 2026-11-17   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
 exit=0 (esperado [0, 1])
 --- stdout ---
 selladas 1 · rechazadas 0
@@ -712,7 +713,7 @@ exit=1 (esperado [0, 1])
 }
 
 
-entrada Historia!C8: clase=dato_publicado (comprobación preescrita = simulada)
+entrada Historia!C8: clase=dato_publicado (comprobación preescrita = SIMULADA, marcada)
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py comprobar /workspace/ejecucion_d_run/Q1-011/Viscofan --json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
 exit=1 (esperado [0, 1])

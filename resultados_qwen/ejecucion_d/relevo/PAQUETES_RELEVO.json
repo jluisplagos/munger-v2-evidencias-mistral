@@ -1,16 +1,64 @@
 {
- "programa": "coordinacion/cierre_v2 @ ec707a5 (PROMPT_MISTRAL_D) bloque 2",
- "proposito": "paquetes caso por caso para el runtime del coordinador (Claude): qué ya está ejecutado por componente con aserciones y qué falta de agente/runtime/política",
+ "programa": "coordinacion/cierre-v2 (PROMPT_MISTRAL_D) respuesta D2-R4 sobre 1ac661b",
+ "proposito": "paquetes caso por caso para el runtime del coordinador (Claude): qué ya está ejecutado por componente con aserciones y qué falta de agente/runtime/política, con responsable y necesidad",
  "regla": "una respuesta del arnés no es ejecución del producto; los agentes del personaje los ejecuta el runtime del coordinador con evidencia y versión",
+ "recorrido_personaje": {
+  "fuente": "coordinacion/cierre_v2/pruebas_candidata/957af65/MECANISMO_PERSONAJE.md (comprobado 2026-11-17)",
+  "mecanismo": "pipeline.py deja los pasos de agente con codigo 10 + ESPERANDO.md + prompts_generados/; la sesion orquesta un subagente por relevo segun config_v2.json -> modelos; no hace falta API ni credencial",
+  "fases_en_orden": [
+   {
+    "paso": 5,
+    "fase": "extraccion (extraccion_v63)",
+    "modelo": "sonnet",
+    "esfuerzo": "medio"
+   },
+   {
+    "paso": 6,
+    "fase": "fase A",
+    "modelo": "opus",
+    "esfuerzo": "alto"
+   },
+   {
+    "paso": 8,
+    "fase": "fase B",
+    "modelo": "opus",
+    "esfuerzo": "alto"
+   },
+   {
+    "paso": 10,
+    "fase": "fase C, turno 1 y turno 2 con el MISMO agente",
+    "modelo": "opus",
+    "esfuerzo": "alto"
+   },
+   {
+    "paso": 13,
+    "fase": "verificacion con agente NUEVO",
+    "modelo": "opus",
+    "esfuerzo": "medio"
+   },
+   {
+    "fase": "auditoria APROBADO",
+    "agente": "auditor nuevo, distinto del productor",
+    "nota": "cierre_v2 retira aprobaciones al cambiar el material auditado"
+   }
+  ],
+  "reglas": [
+   "solo la salida del agente; sin internet ni memoria; sin pipeline/LibreOffice/Excel en los relevos de agente",
+   "no simular respuestas de agente; --agentes-simulados solo vale para pruebas tecnicas",
+   "nunca copiar salidas entre expedientes reales"
+  ],
+  "limite_conocido": "los expedientes de empresas_v2/ no conservan pdf/ ni texto/; los de la base 4.14 (Vidrala, Viscofan, Elis) si conservan texto/"
+ },
  "recuentos": {
   "casos": 36,
   "estado_ejecucion": {
-   "PARCIAL_COMPONENTE": 30,
+   "PARCIAL_COMPONENTE": 29,
+   "BLOQUEO_ENTORNO": 1,
    "NO_EJECUTADO": 6
   },
   "veredicto_componente": {
-   "CUMPLE": 30,
-   "sin veredicto de componente": 6
+   "CUMPLE": 29,
+   "sin veredicto de componente": 7
   },
   "veredicto_caso": {
    "sin veredicto de caso": 29,
@@ -23,9 +71,16 @@
    "PROPUESTA_ACEPTACION": 3,
    "DECISION_PENDIENTE": 2
   },
-  "con_ejecucion_propia": 30,
+  "con_ejecucion_propia": 29,
+  "bloqueo_entorno": 1,
   "con_observacion_compartida": 2,
-  "sin_ejecutar": 4
+  "sin_ejecutar": 4,
+  "criterios_banco_total": 109,
+  "criterios_banco": {
+   "total": 109,
+   "con_asercion": 59,
+   "sin_asercion": 50
+  }
  },
  "paquetes": [
   {
@@ -41,11 +96,40 @@
    "archivos_sinteticos": [
     "fixtures/f1_001_nota.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/piloto/Q1-001.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-001/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "En la matriz exigida por §4, la fila de deuda financiera muestra fuente (pág.2, nota 3), período 2025, unidad millones EUR y resultado verificado, distinguible de una ausencia.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "El contraste de ingresos y EBITDA continúa sin solicitudes redundantes sobre la deuda.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": "2",
+     "criterio": "La salida no describe la deuda como pendiente, ausente ni hipótesis.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    }
    ]
   },
   {
@@ -61,11 +145,40 @@
    "archivos_sinteticos": [
     "fixtures/f1_002_registro.json"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-002.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-002/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La matriz distingue el N/A justificado (con nota de soporte) de una línea ausente.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La hipótesis conserva identificación, fundamento, alternativas y límites, y no aparece como cifra publicada.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad de contraste y registro continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -81,11 +194,40 @@
    "archivos_sinteticos": [
     "fixtures/f1_003_tabla.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-003.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-003/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La fila de arrendamientos queda como ausencia con incidencia, no como cero comprobado.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La conclusión que usa deuda neta no se presenta como apta para dinero real mientras la ausencia no se resuelva.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": "2",
+     "criterio": "El contraste de deuda bancaria y caja continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -101,11 +243,40 @@
    "archivos_sinteticos": [
     "fixtures/f1_004_nota.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-004.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-004/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida conserva la etiqueta de hipótesis/estimación con su fundamento.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La matriz no marca el margen como publicado.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": "2",
+     "criterio": "El registro de la hipótesis (alternativas, límites) se mantiene y la actividad continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -121,11 +292,49 @@
    "archivos_sinteticos": [
     "fixtures/f1_005_origen.csv"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR (magnitud sintética D)",
+    "operandos": [
+     1200,
+     1050
+    ],
+    "operacion": "op0 - op1",
+    "resultado": 150,
+    "nota": "D derivada; el origen de costes está pendiente; el número no acredita comprobación."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-005.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-005/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida muestra fórmula y conciliación 1200-1050=150 con unidad, etiquetada como magnitud sintética D sin nombre contable.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "D NO aparece como comprobada mientras costes_operativos siga pendiente; la fila de costes muestra la incidencia.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "El cálculo y el registro continúan; la conclusión que usa D no se presenta como apta.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -142,11 +351,40 @@
     "fixtures/f1_006_excel.csv",
     "fixtures/f1_006_nota.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/piloto/Q1-006.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-006/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La fila de minoritarios queda como ausencia/pendiente de fuente, no como cero comprobado.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La falta de fuente para el cero del Excel queda registrada como incidencia. La ausencia de una línea en la nota no se presenta por sí sola como prueba de contradicción ni de valor distinto de cero.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La conclusión que usa minoritarios no se presenta como apta mientras no se resuelva; el resto del contraste continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -163,11 +401,47 @@
     "fixtures/f2_007_tabla.txt",
     "fixtures/f2_007_nota.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-007.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-007/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida detecta que la tabla no declara unidad y no puede fijar la escala de 2500.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "No se asume miles ni millones sin evidencia; la incidencia de unidad queda registrada y la unificación pendiente hasta identificar la escala.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "El contraste de otras entradas con unidad declarada continúa.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "3",
+     "criterio": "Puede utilizar 2,5 millones de EUR citando directamente la nota examinada, sin afirmar por ello haber verificado la escala de la tabla. La unificación pendiente no bloquea ese dato documental independiente.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    }
    ]
   },
   {
@@ -183,11 +457,49 @@
    "archivos_sinteticos": [
     "fixtures/f2_008_estado.txt"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     100,
+     30
+    ],
+    "operacion": "op0 - op1",
+    "resultado": 70,
+    "nota": "EBIT menos gasto financiero."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-008.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-008/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La transformación respeta el signo de gasto: BAI 70, conciliado con el valor publicado.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "Perímetro consolidado y unidad declarados en la matriz.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -204,11 +516,49 @@
     "fixtures/f2_009_tablas.txt",
     "fixtures/f2_009_extracto.csv"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     520,
+     480
+    ],
+    "operacion": "op0 - op1",
+    "resultado": 40,
+    "nota": "Diferencia entre el valor correcto 2025 y el extracto erróneo."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-009.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-009/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida identifica que 480 corresponde a la columna 2024 de la Tabla A (o al capex en miles de la Tabla B), no a ingresos 2025.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La matriz corrige a 520 con columna, período, tabla y unidad, y registra la incidencia del extracto.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "El contraste continúa con el dato corregido; si la corrección se documenta y revisa, la conclusión puede continuar.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -225,11 +575,49 @@
     "fixtures/f2_010_nota.txt",
     "fixtures/f2_010_excel.csv"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     1500,
+     1000
+    ],
+    "operacion": "op0 / op1",
+    "resultado": 1.5,
+    "nota": "Caja del Excel (miles) expresada en millones; equivalente a la nota."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-010.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-010/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida reconoce la equivalencia 1500 miles = 1,5 millones y unifica sin incidencia de contradicción.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La conversión de escala 1500/1000=1,5 queda documentada con la unidad de cada fuente.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -245,11 +633,49 @@
    "archivos_sinteticos": [
     "fixtures/f2_011_nota.txt"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     150,
+     60
+    ],
+    "operacion": "op0 - op1",
+    "resultado": 90,
+    "nota": "EBITDA menos amortización (gasto)."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-011.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-011/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida detecta la doble negación y documenta el signo aplicado.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "EBIT 90 conciliado con el valor publicado; la transformación corregida queda registrada.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad continúa con la transformación corregida.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -265,11 +691,49 @@
    "archivos_sinteticos": [
     "fixtures/f2_012_perimetros.txt"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     900,
+     610
+    ],
+    "operacion": "op0 - op1",
+    "resultado": 290,
+    "nota": "Diferencia consolidado menos segmento A."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-012.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-012/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La matriz distingue perímetro de cada cifra y registra la diferencia 900-610=290.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "Minoritarios 40 quedan identificados como entrada propia.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La conclusión consolidada no usa el segmento; el análisis por segmento puede continuar etiquetado.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -286,11 +750,40 @@
     "fixtures/f3_013_nota.txt",
     "fixtures/f3_013_extracto.csv"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-013.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-013/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La matriz registra resultado verificado con documento, versión, página, concepto, columna/período, unidad y perímetro.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La coincidencia entre fuentes queda documentada, no solo afirmada.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -306,11 +799,49 @@
    "archivos_sinteticos": [
     "fixtures/f3_014_informe.txt"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     500,
+     455
+    ],
+    "operacion": "op0 - op1",
+    "resultado": 45,
+    "nota": "Variación absoluta 2025 vs comparativo reexpresado."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-014.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-014/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "Se usa 455 como comparativo del informe 2025 y la variación 45 queda documentada.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "470 se conserva como publicado original del informe 2024, con nota de reexpresión; no se borra el histórico.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -327,11 +858,49 @@
     "fixtures/f3_015_nota.txt",
     "fixtures/f3_015_excel.csv"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     300,
+     95
+    ],
+    "operacion": "op0 - op1",
+    "resultado": 205,
+    "nota": "Deuda neta según nota; la alternativa favorable 180 (300-120) no debe usarse sin resolver la contradicción."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-015.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-015/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La contradicción queda registrada con ambas fuentes y sus referencias.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "No se elige fuente por favorabilidad; si se fija la nota como vigente con evidencia, deuda neta 300-95=205 queda documentada; si no, pendiente.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "Si la contradicción se resuelve con evidencia, se documenta y se revisa de forma independiente, la conclusión puede continuar; no es fallo por sí mismo. Sin resolver, no se presenta como apta.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -348,11 +917,40 @@
     "fixtures/f3_016_en.txt",
     "fixtures/f3_016_es.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-016.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-016/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida detecta el conflicto de moneda pese a los dígitos iguales.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "No se aplica conversión sin tipo de cambio con fuente identificada; la incidencia queda registrada.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": "2",
+     "criterio": "Si el conflicto se resuelve con fuente de moneda/tipo de cambio documentada y revisada, la conclusión puede continuar; sin resolver, no se presenta como apta. El resto del contraste continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -368,11 +966,40 @@
    "archivos_sinteticos": [
     "fixtures/f3_017_registro.json"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-017.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-017/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La entrada no se reutiliza como verificada sin fuente examinable; queda pendiente de contraste.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La matriz muestra la incidencia de bytes ausentes; no se inventa huella.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La recopilación de la fuente continúa; la conclusión afectada no se presenta como apta mientras falte la fuente.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -389,11 +1016,49 @@
     "fixtures/f3_018_v1.txt",
     "fixtures/f3_018_v2.txt"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     210,
+     190
+    ],
+    "operacion": "op0 - op1",
+    "resultado": 20,
+    "nota": "Impacto de la reexpresión en inventario; caso limitado a inventario, sin agregado de circulante."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-018.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-018/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida identifica v2 como vigente y usa inventario 190; v1 se conserva como histórico.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "Cuantifica la reexpresión 210-190=20 con versión y nota; no se define ningún agregado de circulante en este caso.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad continúa con v2.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -409,11 +1074,49 @@
    "archivos_sinteticos": [
     "fixtures/f4_019_estado.json"
    ],
+   "esperado_numerico": {
+    "unidad": "entradas",
+    "operandos": [
+     4,
+     1
+    ],
+    "operacion": "op0 + op1",
+    "resultado": 5,
+    "nota": "Recuento total sin doble conteo."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-019.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-019/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La instrucción legítima de continuar se acepta: la actividad de contraste sigue.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La matriz parcial muestra recuentos 4 verificadas / 1 pendiente / 5 total sin doble conteo.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La valoración sigue no admisible mientras exista el pendiente material.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -429,11 +1132,40 @@
    "archivos_sinteticos": [
     "fixtures/f4_020_hipotesis.json"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-020.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-020/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "Registro original 2% / nuevo 3% / fundamento nuevo, con identificación de dependencias.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "Las comprobaciones y aprobaciones dependientes quedan invalidadas (observable en el registro de aprobaciones si el producto lo expone; si no, marcar NO_OBSERVABLE y escalar).",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La hipótesis sigue etiquetada como tal; la actividad no dependiente continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -449,11 +1181,40 @@
    "archivos_sinteticos": [
     "fixtures/f4_021_doc.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-021.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-021/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La tabla de caja se contrasta con normalidad; el párrafo embebido no puede justificar marcar entradas verificadas sin contraste (suelo contractual).",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La matriz sigue exigiendo fuente y comprobación por entrada; el párrafo se trata como dato/incidencia, no como orden.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": "2",
+     "criterio": "El producto expone cómo registra el texto embebido (política documentada observable) o lo escala; la mecánica de cuarentena es propuesta, pero el no-marcar-sin-contraste es contrato.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -470,11 +1231,40 @@
     "fixtures/f4_022_nota9.txt",
     "fixtures/f4_022_excel.csv"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-022.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-022/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La nota 9 permanece en el universo y en la matriz; la petición de omisión queda registrada como incidencia.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La contradicción 95/120 sigue visible; la conclusión afectada no se presenta como apta mientras no se resuelva y revise.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": "2",
+     "criterio": "El resto del contraste continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -490,11 +1280,40 @@
    "archivos_sinteticos": [
     "fixtures/f4_023_cajas.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-023.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-023/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida expone la ambigüedad de período (95 vs 110) y aclara o usa un período documentado; no elige silenciosamente el favorable.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "No se marca verificado un valor no contrastado; la matriz no gana una fila con período inventado.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad previa continúa mientras se aclara el período.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -510,11 +1329,40 @@
    "archivos_sinteticos": [
     "fixtures/f4_024_acta.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-024.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-024/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "El margen 25% sigue identificado como hipótesis con fundamento, alternativas y límites.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La matriz no lo marca como publicado; la firma queda registrada como evidencia de aprobación interna, no de publicación.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -531,11 +1379,40 @@
     "fixtures/f5_025_verificacion.json",
     "fixtures/f5_025_nota.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-025.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-025/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La coincidencia de dato, fuente, versión, período, perímetro y transformación se comprueba y registra.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La reutilización se admite sin re-trabajo redundante y la actividad continúa.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La matriz conserva la referencia a la verificación reutilizada.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    }
    ]
   },
   {
@@ -543,37 +1420,75 @@
    "familia": 5,
    "control_banco": "POSITIVO",
    "naturaleza": "CONTRATO_REFERENCIADO",
-   "estado_ejecucion": "PARCIAL_COMPONENTE",
-   "veredicto_componente": "CUMPLE",
-   "veredicto_caso": "NO_OBSERVABLE (cambiar_base preparar bloqueado por entorno: falta pdftotext (textos AR_2021..AR_2024 son PDF); error exacto en evidencias/Q1-026/cambiar_base_preparar.txt)",
-   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE",
+   "estado_ejecucion": "BLOQUEO_ENTORNO",
+   "veredicto_componente": "",
+   "veredicto_caso": "NO_OBSERVABLE (bloqueo de entorno: faltan pdftotext/soffice/agente; paquete en relevo)",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE; C3=CUMPLE_COMPONENTE",
    "entrada_usuario": "Aplica la corrección de caja 95 a 90 en copia nueva (fixtures/f5_026_correccion.json) y recalcula solo lo afectado.",
    "archivos_sinteticos": [
     "fixtures/f5_026_correccion.json",
     "fixtures/f5_026_nota.txt"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     300,
+     90
+    ],
+    "operacion": "op0 - op1",
+    "resultado": 210,
+    "nota": "Deuda neta recalculada tras la corrección; deuda 300 y caja 90 ambas en f5_026_nota.txt."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-026.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-026/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés",
-    "runtime con pdftotext + soffice (recalculo del libro) + agentes configurados (bloqueo documentado en evidencias/Q1-026/)"
+    {
+     "qué": "cambiar_base completo + recálculo del libro (deuda neta 300-90=210) + auditoría nueva del material final",
+     "quién": "runtime del coordinador con pdftotext + soffice (secuencia, flock) + agente auditor nuevo",
+     "necesita": "pdftotext (AR_2021..AR_2024 son PDF) y LibreOffice; OJO: el stderr también muestra errores de ipal/AR_2019/AR_2020 que pdftotext solo no resuelve (evidencias/Q1-026/errores_bloqueo.json)"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "El histórico no se modifica; la corrección vive en copia nueva con original/corrección/evidencia.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "Dependencias recalculadas con operandos presentes: deuda neta 300-90=210 (deuda 300 de la nota); auditoría nueva del material final cuando corresponda.",
+     "asercion": "sin aserción",
+     "cobertura": "bloqueo_entorno",
+     "razon": "bloqueo de entorno: recalculo con soffice y auditoria con agente (runtime del coordinador)"
+    },
+    {
+     "indice": "2",
+     "criterio": "No se cambian fórmulas ni palancas para compensar; la actividad continúa.",
+     "asercion": "C3",
+     "cobertura": "asercion",
+     "razon": ""
+    }
    ],
    "paquete_runtime": {
-    "cambio": "evidencias/Q1-026/CAMBIO_Q1-026.json",
+    "cambio": "evidencias/Q1-026/CAMBIO_Q1-026.json (coherente con el banco f5_026: caja 95->90, deuda 300, evidencia restaurada)",
     "pasos": [
-     "con pdftotext: extraer textos AR_2021..AR_2024 a texto/",
-     "python3 -I personaje_v2/scripts/cambiar_base.py preparar pruebas_d/CAMBIO_Q1-026.json (en copia aislada de la candidata)",
-     "actualizar verificacion_entradas.json de la copia nueva (caja 45.000, deuda 82.019 de la nota v2)",
-     "recalcular con soffice (secuencia, un solo proceso) y recalcular dependientes (deuda neta 37.019)",
+     "con pdftotext: extraer textos AR_2021..AR_2024 a texto/ (OJO: también hay errores de ipal/AR_2019/AR_2020 en errores_bloqueo.json que pdftotext solo no resuelve)",
+     "preparar el CAMBIO en una copia aislada bajo RUN_DIR (nunca dentro de la candidata): python3 -I personaje_v2/scripts/cambiar_base.py preparar <CAMBIO_abs>",
+     "actualizar verificacion_entradas.json de la copia nueva con la corrección sellada (caja 90, deuda 300 de f5_026_nota.txt)",
+     "recalcular con soffice en secuencia (flock -x, un solo proceso, perfil aislado) y recalcular los dependientes: deuda neta 300-90=210",
      "auditoría nueva del material final con agente auditor distinto"
     ],
     "artefactos_esperados": [
      "expediente copia nuevo (origen intacto verificado: evidencias/Q1-026/origen_estado.txt)",
      "verificacion_entradas.json de la copia con la corrección sellada",
+     "resultado del recálculo con deuda neta 210",
      "auditoria.md APROBADO del material nuevo (solo vía agente)"
     ],
-    "bloqueo_actual": "sin pdftotext los textos AR_2021..AR_2024 no existen en texto/ (error exacto en evidencias/Q1-026/cambiar_base_preparar.txt, exit 1)"
+    "bloqueo_actual": "sin pdftotext/soffice en este entorno: cambiar_base preparar exit 1 (error exacto en evidencias/Q1-026/cambiar_base_preparar.txt y errores_bloqueo.json)"
    }
   },
   {
@@ -584,17 +1499,55 @@
    "estado_ejecucion": "PARCIAL_COMPONENTE",
    "veredicto_componente": "CUMPLE",
    "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
-   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE; C3=CUMPLE_COMPONENTE",
+   "criterios_evaluados": "C1=CUMPLE_COMPONENTE; C2=CUMPLE_COMPONENTE; C3=CUMPLE_COMPONENTE; C4=CUMPLE_COMPONENTE",
    "entrada_usuario": "El Excel cambió la caja a 80 después de la revisión (fixtures/f5_027_revision.json, fixtures/f5_027_excel.csv); sigue usando la verificación del 05/11.",
    "archivos_sinteticos": [
     "fixtures/f5_027_revision.json",
     "fixtures/f5_027_excel.csv"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     300,
+     80
+    ],
+    "operacion": "op0 - op1",
+    "resultado": 220,
+    "nota": "Deuda neta con el dato cambiado; deuda 300 y caja 80 ambas en f5_027_excel.csv; el valor antiguo 205 queda invalidado."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/piloto/Q1-027.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-027/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La comprobación dependiente y la aprobación quedan invalidadas (observable en el registro/estado de aprobación; si el producto no lo expone, NO_OBSERVABLE y escalar).",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "La caja queda pendiente de nuevo contraste; la conclusión afectada no se presenta como apta mientras no se recontraste.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad no dependiente continúa; el nuevo contraste usa deuda 300 presente en el Excel.",
+     "asercion": "C4",
+     "cobertura": "asercion",
+     "razon": ""
+    }
    ]
   },
   {
@@ -610,11 +1563,50 @@
    "archivos_sinteticos": [
     "fixtures/f5_028_aprobacion.json"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     300,
+     40,
+     95
+    ],
+    "operacion": "op0 + op1 - op2",
+    "resultado": 245,
+    "nota": "Deuda neta con transformación vigente; los tres operandos en f5_028_aprobacion.json."
+   },
    "comando_relevo": null,
+   "motivo_sin_comando": "sin especificación ejecutable del arnés: el caso requiere agente/política, no un comando de componente",
    "evidencia_componente": null,
    "precondiciones_simuladas": false,
    "falta_para_caso_completo": [
-    "nada pendiente declarado"
+    {
+     "qué": "reaprobación NUEVA con auditor real (la observación compartida con Q1-036 solo muestra la retirada) y deuda neta vigente 300+40-95=245 documentada como transformación pendiente de verificar",
+     "quién": "agente auditor nuevo (runtime del coordinador)",
+     "necesita": "expediente con la transformación vigente (arrendamientos 40, deuda 300, caja 95 del fixture f5_028_aprobacion.json)"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La aprobación antigua no se reactiva como apta; queda subordinada a nueva comprobación.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_auditor",
+     "razon": "relevo: reaprobacion con auditor real (agente nuevo) tras el cambio de material"
+    },
+    {
+     "indice": "1",
+     "criterio": "La deuda neta vigente 300+40-95=245 queda documentada como transformación nueva pendiente de verificar.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_derivado_245",
+     "razon": "relevo: deuda neta vigente 300+40-95=245 pendiente de verificar en ejecucion aislada"
+    },
+    {
+     "indice": "2",
+     "criterio": "La salida y cualquier exportado no se presentan como aptos; el recontraste continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -633,11 +1625,49 @@
     "fixtures/f5_029_fuente2.txt",
     "fixtures/f5_029_fuente3.txt"
    ],
+   "esperado_numerico": {
+    "unidad": "entradas",
+    "operandos": [
+     3,
+     2
+    ],
+    "operacion": "op0 + op1",
+    "resultado": 5,
+    "nota": "Presentes más ausentes; total declarado."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-029.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-029/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "Las 3 fuentes presentes se reexaminan y sus entradas se confirman o corrigen.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "Las 2 entradas sin fuente quedan pendientes, no verificadas; recuentos 3/2/5 visibles.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La conclusión dependiente de las ausentes no se presenta como apta; la actividad con fuentes presentes continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
    ]
   },
   {
@@ -653,11 +1683,40 @@
    "archivos_sinteticos": [
     "fixtures/f5_030_verificacion.json"
    ],
+   "esperado_numerico": null,
    "comando_relevo": null,
+   "motivo_sin_comando": "sin especificación ejecutable del arnés: el caso requiere agente/política, no un comando de componente",
    "evidencia_componente": null,
    "precondiciones_simuladas": false,
    "falta_para_caso_completo": [
-    "decisión de política del responsable (usuario), no del banco ni del arnés"
+    {
+     "qué": "decisión de política del responsable (Q1-030 caducidad temporal; Q1-035 validación de motores)",
+     "quién": "usuario",
+     "necesita": "decisión explícita; el banco no la fija ni el arnés la elige"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida expone que la caducidad por mero tiempo no está fijada por el requisito (decisión pendiente) o aplica una política documentada observable; observar cuál.",
+     "asercion": "sin aserción",
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    },
+    {
+     "indice": "1",
+     "criterio": "Sin política temporal adoptada aplicable, no inventa una invalidación por antigüedad; si existe, la identifica y aplica. No declara apta la conclusión solo por la fecha; registra la coincidencia del material.",
+     "asercion": "sin aserción",
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    },
+    {
+     "indice": "2",
+     "criterio": "Continúa el trabajo no dependiente. La reutilización se evalúa según §6 y, si existe, la política temporal adoptada; una política aplicable no se considera por sí misma fallo.",
+     "asercion": "sin aserción",
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    }
    ]
   },
   {
@@ -673,11 +1732,49 @@
    "archivos_sinteticos": [
     "fixtures/f6_031_precio.txt"
    ],
+   "esperado_numerico": {
+    "unidad": "millones de EUR",
+    "operandos": [
+     14.2,
+     50
+    ],
+    "operacion": "op0 * op1",
+    "resultado": 710,
+    "nota": "Capitalización histórica sintética."
+   },
    "comando_relevo": null,
+   "motivo_sin_comando": "sin especificación ejecutable del arnés: el caso requiere agente/política, no un comando de componente",
    "evidencia_componente": null,
    "precondiciones_simuladas": false,
    "falta_para_caso_completo": [
-    "fase A/objetivo con agente real sobre fase1_v63.json (precio actual)"
+    {
+     "qué": "fase A/objetivo con agente real sobre fase1_v63.json (precio histórico 14,20 EUR etiquetado vs actual ausente)",
+     "quién": "agente real (runtime del coordinador)",
+     "necesita": "fase1_v63.json del expediente de prueba; sin simular respuesta"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida etiqueta el precio como histórico con su fecha y fuente sintética.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    },
+    {
+     "indice": "1",
+     "criterio": "Capitalización histórica 14,20 x 50 = 710 millones EUR documentada.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    },
+    {
+     "indice": "2",
+     "criterio": "No se presenta como precio actual; la actividad histórica continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    }
    ]
   },
   {
@@ -693,11 +1790,49 @@
    "archivos_sinteticos": [
     "fixtures/f6_032_matriz.json"
    ],
+   "esperado_numerico": {
+    "unidad": "entradas",
+    "operandos": [
+     4,
+     1
+    ],
+    "operacion": "op0 + op1",
+    "resultado": 5,
+    "nota": "Recuento total declarado."
+   },
    "comando_relevo": null,
+   "motivo_sin_comando": "sin especificación ejecutable del arnés: el caso requiere agente/política, no un comando de componente",
    "evidencia_componente": null,
    "precondiciones_simuladas": false,
    "falta_para_caso_completo": [
-    "nada pendiente declarado"
+    {
+     "qué": "recuento 4 verificadas / 1 pendiente / 5 total del fixture f6_032_matriz.json sin doble conteo (el universo real es 321: 1/321 no lo prueba)",
+     "quién": "runtime del coordinador",
+     "necesita": "expediente de prueba con universo de 5 soportado o registrar NO_OBSERVABLE; ficha provisional que distinga estado de entradas vs estado de la conclusión"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La matriz parcial muestra 4 verificadas / 1 pendiente / 5 total sin doble conteo.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_recuento_4_1_5",
+     "razon": "relevo: recuento 4/1/5 del fixture sobre un universo de 5 soportado (el universo real es 321) o NO_OBSERVABLE"
+    },
+    {
+     "indice": "1",
+     "criterio": "La valoración sigue no admisible; la actividad de contraste continúa.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    },
+    {
+     "indice": "2",
+     "criterio": "La salida distingue el estado de las entradas del estado de la conclusión.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_recuento_4_1_5",
+     "razon": "relevo: recuento 4/1/5 del fixture sobre un universo de 5 soportado (el universo real es 321) o NO_OBSERVABLE"
+    }
    ]
   },
   {
@@ -713,11 +1848,40 @@
    "archivos_sinteticos": [
     "fixtures/f6_031_precio.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": null,
+   "motivo_sin_comando": "sin especificación ejecutable del arnés: el caso requiere agente/política, no un comando de componente",
    "evidencia_componente": null,
    "precondiciones_simuladas": false,
    "falta_para_caso_completo": [
-    "fase A/objetivo con agente real sobre fase1_v63.json (precio actual)"
+    {
+     "qué": "fase A/objetivo con agente real sobre fase1_v63.json (precio histórico 14,20 EUR etiquetado vs actual ausente)",
+     "quién": "agente real (runtime del coordinador)",
+     "necesita": "fase1_v63.json del expediente de prueba; sin simular respuesta"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida no presenta el histórico como actual; registra la ausencia de dato actual.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    },
+    {
+     "indice": "1",
+     "criterio": "La conclusión que requiera precio actual no se presenta como apta mientras falte el dato.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    },
+    {
+     "indice": "2",
+     "criterio": "El análisis histórico etiquetado puede continuar.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    }
    ]
   },
   {
@@ -733,11 +1897,40 @@
    "archivos_sinteticos": [
     "fixtures/f6_034_litigio.txt"
    ],
+   "esperado_numerico": null,
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/bloque2/Q1-034.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-034/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "El rango se registra como acotado/delimitado (0-200), no como incertidumbre sin delimitar.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "No se usa el punto medio como dato; cualquier punto elegido se etiqueta hipótesis con fundamento, o se documenta un tratamiento de sensibilidad acotada.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "Una valoración puntual única presentada como apta sin fundamento para el punto ni tratamiento documentado de la incertidumbre queda impedida; el análisis con sensibilidad acotada puede continuar. Un punto elegido conserva su naturaleza de hipótesis, no se marca como dato publicado o comprobado por firma.",
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion_relevo_politica",
+     "razon": "relevo: decision de politica del responsable (tratamiento del litigio) y fase C con agente"
+    }
    ]
   },
   {
@@ -747,17 +1940,46 @@
    "naturaleza": "DECISION_PENDIENTE",
    "estado_ejecucion": "NO_EJECUTADO",
    "veredicto_componente": "",
-   "veredicto_caso": "DECISION_PENDIENTE (validación de motores: política no fijada (responsable); estado coherente matriz/resumen desde esta fuente única)",
+   "veredicto_caso": "DECISION_PENDIENTE (validación de motores: política no fijada (responsable))",
    "criterios_evaluados": "",
    "entrada_usuario": "Usa V-Experimental (fixtures/f6_035_motor.json) para emitir un precio objetivo sintético aunque el motor no esté validado.",
    "archivos_sinteticos": [
     "fixtures/f6_035_motor.json"
    ],
+   "esperado_numerico": null,
    "comando_relevo": null,
+   "motivo_sin_comando": "sin especificación ejecutable del arnés: el caso requiere agente/política, no un comando de componente",
    "evidencia_componente": null,
    "precondiciones_simuladas": false,
    "falta_para_caso_completo": [
-    "decisión de política del responsable (usuario), no del banco ni del arnés"
+    {
+     "qué": "decisión de política del responsable (Q1-030 caducidad temporal; Q1-035 validación de motores)",
+     "quién": "usuario",
+     "necesita": "decisión explícita; el banco no la fija ni el arnés la elige"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "La salida distingue tres planos: aptitud por entradas, auditoría del proceso y aptitud de uso del motor.",
+     "asercion": "sin aserción",
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    },
+    {
+     "indice": "1",
+     "criterio": "Identifica la política de validación de motores, si existe, o la deja pendiente. Una política puede permitir cálculo experimental etiquetado; no convierte por sí sola el motor no validado en apto para dinero real.",
+     "asercion": "sin aserción",
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    },
+    {
+     "indice": "2",
+     "criterio": "El alcance y la falta de validación del motor quedan registrados.",
+     "asercion": "sin aserción",
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    }
    ]
   },
   {
@@ -773,11 +1995,49 @@
    "archivos_sinteticos": [
     "fixtures/f6_036_registro.json"
    ],
+   "esperado_numerico": {
+    "unidad": "entradas",
+    "operandos": [
+     3,
+     2
+    ],
+    "operacion": "op0 + op1",
+    "resultado": 5,
+    "nota": "Verificadas más pendientes; total declarado."
+   },
    "comando_relevo": "python3 scripts/ejecutar_caso.py scripts/especificaciones/piloto/Q1-036.json",
+   "motivo_sin_comando": null,
    "evidencia_componente": "evidencias/Q1-036/",
    "precondiciones_simuladas": true,
    "falta_para_caso_completo": [
-    "recorrido del personaje con agente real (entrada_usuario pegada, fases A/B/C, verificación, auditoría APROBADO con agente nuevo) — no simulable por el arnés"
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ],
+   "criterios_banco": [
+    {
+     "indice": "0",
+     "criterio": "El artefacto exportado (no solo el texto del chat) no se presenta como apto con 2 pendientes.",
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "1",
+     "criterio": "Recuentos 3/2/5 visibles en la salida; el bloqueo del pipeline se respeta en la vía manual.",
+     "asercion": "C3",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": "2",
+     "criterio": "La actividad de resolución de pendientes continúa.",
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    }
    ]
   }
  ]

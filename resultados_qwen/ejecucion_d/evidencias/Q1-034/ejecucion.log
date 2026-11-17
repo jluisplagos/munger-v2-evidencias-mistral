@@ -1,5 +1,6 @@
 # Caso Q1-034 · CONTRATO_REFERENCIADO (no cambia la naturaleza del banco). Rango acotado 0-200 del litigio (f6_034_litigio.txt) registrado como hipótesis con el rango en limites: se observa preservación del rango y que un punto medio inventado (100) no pasa como dato publicado. La valoración puntual apta y el tratamiento de sensibilidad son de agente/política -> relevo; no se adopta política aquí.
-# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9, observado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /tmp/banco/resultados_qwen/q1_v2/banco_revisado (casos_aceptacion.jsonl sha256 e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9) · fecha: 2026-11-17 · harness 3.0
+# spec: /workspace/github__jluisplagos__munger-v2-evidencias-mistral/resultados_qwen/ejecucion_d/scripts/especificaciones/bloque2/Q1-034.json sha256=b31c4461fe537ae06fbb0cb272f54792826cfba96ee64043b107557034d8e22a
 # precondiciones: extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)
 
 heredados archivados en /workspace/ejecucion_d_run/Q1-034/_heredados: ['auditoria.md', 'auditorias_conocidas.json', 'cierre_vigente.json', 'ficha.json', 'ficha_provisional.json', 'historial_cierres', 'informe.md', 'informe_provisional.md', 'material_auditoria.json', 'publicaciones_resumen.json']
@@ -12,7 +13,7 @@ plantilla con 321 entradas
 
 fuente escrita: fuentes_sinteticas/f6_034_litigio.txt (1 páginas) sha256=a3a846f1d68a7cf6d0c578689a119dae181883e594e34f1bbc037dbd91f1211b
 
-entrada aux:litigio: clase=hipotesis (comprobación preescrita = simulada)
+entrada aux:litigio: clase=hipotesis (comprobación preescrita = SIMULADA, marcada)
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py comprobar /workspace/ejecucion_d_run/Q1-034/Viscofan --json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
 exit=1 (esperado [0, 1])
@@ -707,7 +708,7 @@ exit=1 (esperado [0, 1])
 }
 
 
-entrada aux:litigio: clase=dato_publicado (comprobación preescrita = simulada)
+entrada aux:litigio: clase=dato_publicado (comprobación preescrita = SIMULADA, marcada)
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py comprobar /workspace/ejecucion_d_run/Q1-034/Viscofan --json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
 exit=1 (esperado [0, 1])

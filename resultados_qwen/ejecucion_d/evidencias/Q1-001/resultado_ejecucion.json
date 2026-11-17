@@ -1,8 +1,12 @@
 {
  "caso": "Q1-001",
- "harness_version": "2.0",
+ "harness_version": "3.0",
+ "fecha": "2026-11-17",
  "precondiciones_simuladas": "extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)",
  "candidata_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+ "candidata_sha_esperado": "957af652cdc3bef3d67e8623c9572138bac685e9",
+ "banco_casos_sha256": "e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9",
+ "spec_sha256": "fca3c6e884fb2e47248dadac5686b01cf9e102830b9a44c4d9bd0deb9d78b4f6",
  "pasos": [
   {
    "descripcion": "plantilla del registro de entradas (comando documentado del producto)",
@@ -42,7 +46,7 @@
    "guardado_en": "01_comprobar_sin_sellar.json"
   },
   {
-   "descripcion": "sellar (revisor vincula la comprobación al fundamento)",
+   "descripcion": "sellar (revisor [SIMULADO] vincula la comprobación al fundamento)",
    "comando": [
     "/usr/local/bin/python3",
     "-B",
@@ -53,7 +57,7 @@
     "--revisor",
     "revisor independiente de prueba D (arnés externo) [SIMULADO]",
     "--fecha",
-    "2026-11-16"
+    "2026-11-17"
    ],
    "exit": 0,
    "esperado": [
@@ -106,6 +110,8 @@
    "guardado_en": "04_comprobar_control_dato_ausente.json"
   }
  ],
+ "spec": "resultados_qwen/ejecucion_d/scripts/especificaciones/piloto/Q1-001.json",
+ "candidata_no_rastreadas": 84,
  "estado_caso": "COMPONENTE_OK",
  "criterios": [
   {
@@ -123,7 +129,7 @@
    "estado": "CUMPLE_COMPONENTE",
    "detalle": [
     "04_comprobar_control_dato_ausente.json:errores con prefijo 'Historia!C23' contiene 'dato ausente con un valor en el libro' -> OK",
-    "04_comprobar_control_dato_ausente.json:comprobadas sin prefijo 'Historia!C23' -> OK"
+    "04_comprobar_control_dato_ausente.json:comprobadas sin prefijo 'Historia!C23' (universo=321) -> OK"
    ]
   }
  ],

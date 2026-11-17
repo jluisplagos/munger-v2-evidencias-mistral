@@ -1,5 +1,6 @@
 # Caso Q1-003 · Línea ausente (arrendamientos no publicada): dato_ausente con justificación en la celda cero C23 (permitido: valor 0) y NO como cero comprobado; control: cero_comprobado sin fuente -> pendiente (R2).
-# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9, observado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /tmp/banco/resultados_qwen/q1_v2/banco_revisado (casos_aceptacion.jsonl sha256 e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9) · fecha: 2026-11-17 · harness 3.0
+# spec: /workspace/github__jluisplagos__munger-v2-evidencias-mistral/resultados_qwen/ejecucion_d/scripts/especificaciones/bloque2/Q1-003.json sha256=9ada943769c195f145cfd41660d0fa8f461787d2fa3cbfd762a7eb352a05d173
 # precondiciones: extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)
 
 heredados archivados en /workspace/ejecucion_d_run/Q1-003/_heredados: ['auditoria.md', 'auditorias_conocidas.json', 'cierre_vigente.json', 'ficha.json', 'ficha_provisional.json', 'historial_cierres', 'informe.md', 'informe_provisional.md', 'material_auditoria.json', 'publicaciones_resumen.json']
@@ -12,7 +13,7 @@ plantilla con 321 entradas
 
 fuente escrita: fuentes_sinteticas/f1_003_tabla.txt (1 páginas) sha256=658b36240053a9423b6f078f52d085fc2ab7eda2a61c2109a7160257858a3d17
 
-entrada Historia!C23: clase=dato_ausente (comprobación preescrita = simulada)
+entrada Historia!C23: clase=dato_ausente (comprobación preescrita = SIMULADA, marcada)
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py comprobar /workspace/ejecucion_d_run/Q1-003/Viscofan --json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
 exit=1 (esperado [0, 1])
@@ -706,7 +707,7 @@ exit=1 (esperado [0, 1])
 }
 
 
-entrada Historia!C23: clase=cero_comprobado (comprobación preescrita = simulada)
+entrada Historia!C23: clase=cero_comprobado (comprobación preescrita = SIMULADA, marcada)
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py comprobar /workspace/ejecucion_d_run/Q1-003/Viscofan --json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
 exit=1 (esperado [0, 1])

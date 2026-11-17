@@ -1,5 +1,6 @@
 # Caso Q1-006 · CONFLICTO/CARENCIA: Excel trae minoritarios 0 sin fuente y la nota no publica la línea. Variante incorrecta: cero_comprobado con fuente local inexistente -> el producto debe dejarla pendiente (R2: fuente local ausente, contraste no reproducible). Variante correcta: la celda (valor 0.217 en el libro) no admite dato_ausente con valor en el libro -> error del contrato; sin fuente real queda pendiente. La conclusión que usa minoritarios no puede presentarse como apta.
-# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /workspace/banco_q1_v2/resultados_qwen/q1_v2/banco_revisado · fecha: 2026-11-16
+# candidato: /workspace/base_414_main (SHA esperado 957af652cdc3bef3d67e8623c9572138bac685e9, observado 957af652cdc3bef3d67e8623c9572138bac685e9) · banco: /tmp/banco/resultados_qwen/q1_v2/banco_revisado (casos_aceptacion.jsonl sha256 e505e0c1f98a838edc62532b196b7d1975507d433a6eb40ea90c4801611a48d9) · fecha: 2026-11-17 · harness 3.0
+# spec: /workspace/github__jluisplagos__munger-v2-evidencias-mistral/resultados_qwen/ejecucion_d/scripts/especificaciones/piloto/Q1-006.json sha256=f35d4bfbc75acadc287de6c732629e763f72e889038836e8f9d95628db7520c6
 # precondiciones: extractor/revisor escritos por el arnés = precondición SIMULADA de test de componentes; no es revisión independiente ejecutada (D-R4)
 
 heredados archivados en /workspace/ejecucion_d_run/Q1-006/_heredados: ['auditoria.md', 'auditorias_conocidas.json', 'cierre_vigente.json', 'ficha.json', 'ficha_provisional.json', 'historial_cierres', 'informe.md', 'informe_provisional.md', 'material_auditoria.json', 'publicaciones_resumen.json']
@@ -12,7 +13,7 @@ plantilla con 321 entradas
 
 fuente escrita: fuentes_sinteticas/f1_006_nota.txt (1 páginas) sha256=e7f87d69fd4d70932989decb211eb3325424f5f9fc4fbc3f46b660364cc2e6b9
 
-entrada Historia!C26: clase=cero_comprobado (comprobación preescrita = simulada)
+entrada Historia!C26: clase=cero_comprobado (comprobación preescrita = SIMULADA, marcada)
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py comprobar /workspace/ejecucion_d_run/Q1-006/Viscofan --json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
 exit=1 (esperado [0, 1])
@@ -707,14 +708,14 @@ exit=1 (esperado [0, 1])
 }
 
 
-$ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py sellar /workspace/ejecucion_d_run/Q1-006/Viscofan Historia!C26 --revisor revisor independiente de prueba D (arnés externo) [SIMULADO] --fecha 2026-11-16   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
+$ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py sellar /workspace/ejecucion_d_run/Q1-006/Viscofan Historia!C26 --revisor revisor independiente de prueba D (arnés externo) [SIMULADO] --fecha 2026-11-17   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
 exit=1 (esperado [0, 1])
 --- stdout ---
 selladas 0 · rechazadas 1
   Historia!C26: no pasa los controles automáticos (Historia!C26: la fuente local 'fuentes_sinteticas/NO_EXISTE.csv' no está en el expediente ni en el paquete: su contraste no es reproducible)
 
 
-entrada Historia!C26: clase=dato_ausente (comprobación preescrita = simulada)
+entrada Historia!C26: clase=dato_ausente (comprobación preescrita = SIMULADA, marcada)
 
 $ /usr/local/bin/python3 -B /workspace/base_414_main/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py comprobar /workspace/ejecucion_d_run/Q1-006/Viscofan --json   (cwd=/workspace/base_414_main/munger_v2_r1/personaje_v2/scripts)
 exit=1 (esperado [0, 1])

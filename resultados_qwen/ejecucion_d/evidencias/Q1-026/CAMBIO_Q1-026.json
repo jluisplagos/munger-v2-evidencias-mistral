@@ -4,7 +4,7 @@
  "empresa": "Viscofan",
  "base_economica": {
   "fecha": "2025-12-31",
-  "descripcion": "Copia de prueba D (Q1-026): correccion de caja 45.054 -> 45.000 por errata de v1, evidencia nota v2 (fixture f5_026)."
+  "descripcion": "Copia de prueba D (Q1-026): correccion de caja 95 -> 90 millones EUR por errata de v1, evidencia nota v2 (fixture f5_026_nota.txt); deuda financiera 300 millones EUR de la misma nota; deuda neta esperada 300-90=210."
  },
  "fechas": {
   "ejecucion": "real",
@@ -26,16 +26,22 @@
  "notas_que_se_retiran": [],
  "analisis": {
   "C24": {
-   "valor": 45.0,
-   "fuente": "Nota 4 v2 sintetica (f5_026_nota.txt): caja 45000 miles; errata de v1 (45054) corregida; deuda 82019 miles de la misma nota",
+   "valor": 90.0,
+   "fuente": "SINTETICA CUATRO S.A. 2025 v2 - Pagina 2 - Nota 4 (fixture f5_026_nota.txt): Caja 90; Deuda financiera 300 (millones EUR, consolidado). Correccion de errata de v1 (caja 95)",
    "pagina": 2,
-   "periodo": "2016",
+   "periodo": "2025",
    "unidad": "mm",
    "vaciar_en_etapa1": true,
    "evidencia": {
-    "M": "caja corregida 45.000 mm (fixture f5_026 adaptado: 95->90)",
-    "N": "[Clase: dato publicado corregido] [Confianza: alta] Nota v2 con errata declarada; deuda 82.019 mm presente en la misma nota"
+    "M": "caja corregida 90 mm (fixture f5_026: 95->90)",
+    "N": "[Clase: dato publicado corregido] [Confianza: alta] Nota v2 con errata declarada; deuda 300 mm presente en la misma nota"
    }
+  }
+ },
+ "evidencia": {
+  "Análisis!C24": {
+   "E": "SINTETICA CUATRO S.A. 2025 v2, pag.2, Nota 4 (f5_026_nota.txt): Caja 90; Deuda financiera 300 (millones EUR, consolidado)",
+   "M": "correccion 95 -> 90 por errata de v1; original conservado en antecedentes; deuda neta esperada 300-90=210"
   }
  },
  "analisis_que_se_conservan": {
@@ -49,6 +55,6 @@
   "fecha": "2026-11-16"
  },
  "configuracion_economica": null,
- "origen": "pruebas_d/Q1-026_origen",
- "destino": "pruebas_d/Q1-026_copia"
+ "origen": "/workspace/ejecucion_d_run/Q1-026/pruebas_d/Q1-026_origen",
+ "destino": "/workspace/ejecucion_d_run/Q1-026/pruebas_d/Q1-026_copia"
 }
