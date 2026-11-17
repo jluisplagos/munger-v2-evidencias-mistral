@@ -18,6 +18,8 @@ REPO = 'jluisplagos/munger-v2-evidencias-mistral'
 PRIOR_PILOT_ID = 'munger-d-relevos-001'
 PILOT_ID = 'munger-d-relevos-002'
 PRIOR_CODE_SHA = 'f70aa906016a36589bff546239452acdbdc497a8'
+REPLAY_REF = '5b1295017ccedb3f68bc04e69a99307719c5af1f'
+REPLAY_SHA256 = '1bd8a6388dc798cb8217cfd13f59edaa087c657d6bf9aaac2289cfa53065b9fa'
 LEDGER_BRANCH = 'automatizacion/claude-api-piloto-registro'
 MODEL = 'claude-sonnet-5-5'
 API_VERSION = '2026-10-21'
@@ -121,7 +123,7 @@ def safe_path(path):
 def validate_request(request):
     if not isinstance(request, dict) or set(request) != {'pilot_id', 'mode', 'sources'} or request['pilot_id'] != PILOT_ID:
         raise PilotError('SOLICITUD_INVALIDA')
-    if request['mode'] not in ('dry-run', 'api'):
+    if request['mode'] not in ('dry-run', 'api', 'replay'):
         raise PilotError('MODO_INVALIDO')
     sources = request['sources']
     if not isinstance(sources, list) or not 2 <= len(sources) <= 6:
@@ -249,7 +251,8 @@ class Ledger:
         self.put('reservation.json', canonical(record), create_only=True)
 
     def put(self, name, content, create_only=False):
-        if name not in ('reservation.json', 'report.json', 'report.md', 'sources.json'):
+        if name not in ('reservation.json', 'report.json', 'report.md', 'sources.json',
+                        'postprocessed_report.json', 'postprocessed_report.md'):
             raise PilotError('SALIDA_NO_AUTORIZADA')
         body = {'message': 'Piloto Claude API: ' + name, 'branch': LEDGER_BRANCH,
                 'content': base64.b64encode(content).decode()}
@@ -273,6 +276,11 @@ def validate_review(response, bundle):
         raise PilotError('RESPUESTA_INCOMPLETA_NO_ACEPTADA')
     try:
         text = ''.join(c['text'] for c in response['content'] if c['type'] == 'text')
+        text = text.strip()
+        # Únicamente un envoltorio JSON completo, sin buscar JSON dentro de prosa.
+        fenced = re.fullmatch(r'```json\r?\n([\s\S]*)\r?\n```', text)
+        if fenced:
+            text = fenced.group(1)
         review = json.loads(text)
         if set(review) != {'scope', 'summary', 'findings', 'limitations'} or review['scope'] != CASES:
             raise PilotError('FORMATO_REVISION_INVALIDO')
@@ -313,6 +321,8 @@ def run(http, request, output, code_sha, ledger=None):
     if request['mode'] == 'dry-run':
         write_report(output, report)
         return report
+    if request['mode'] == 'replay':
+        return replay_saved_response(http, bundle, report, output, ledger)
     if not http.api_key or not http.github_token:
         raise PilotError('FALTA_ANTHROPIC_API_KEY_O_GITHUB_TOKEN')
     prior_cost = previous_trial(http, bundle)
@@ -355,6 +365,40 @@ def run(http, request, output, code_sha, ledger=None):
     ledger.put('report.json', canonical(report))
     ledger.put('report.md', (output / 'report.md').read_bytes())
     ledger.put('reservation.json', canonical({**reservation, 'state': report['state']}))
+    return report
+
+
+def replay_saved_response(http, bundle, report, output, ledger=None):
+    """Revalida exclusivamente el resultado ya pagado, fijado por Git y SHA256."""
+    path = REPORT_ROOT + '/report.json'
+    data = http.call('github', 'GET', f'/repos/{REPO}/contents/{path}?ref={REPLAY_REF}')
+    try:
+        raw = base64.b64decode(''.join(data['content'].split()), validate=True)
+        if digest(raw) != REPLAY_SHA256:
+            raise PilotError('REGISTRO_REPLAY_ALTERADO')
+        saved = json.loads(raw)
+        if saved['bundle_sha256'] != report['bundle_sha256'] or saved['pilot_id'] != PILOT_ID:
+            raise PilotError('REPLAY_NO_CORRESPONDE_AL_PAQUETE')
+        review = validate_review({'stop_reason': saved['stop_reason'],
+                                  'content': [{'type': 'text', 'text': saved['raw_model_output']}]}, bundle)
+        total = Decimal(saved['estimated_cost_usd']) + Decimal(saved['budget']['previous_estimated_cost_usd'])
+        if total > RESERVE_USD:
+            raise PilotError('CONSUMO_TOTAL_EXCEDE_PILOTO')
+        report.update(state='INFORME_DOCUMENTAL_PENDIENTE_REVISION_HUMANA', review=review,
+                      source_response_ref=REPLAY_REF, source_response_sha256=REPLAY_SHA256,
+                      original_code_sha=saved['code_sha'], original_message_id=saved['message_id'],
+                      original_state=saved['state'], original_error=saved['error'],
+                      original_usage=saved['usage'], original_api_messages_sent=saved['api_messages_sent'],
+                      estimated_total_cost_usd=str(total),
+                      original_estimated_cost_usd=saved['estimated_cost_usd'],
+                      transport_normalization='Un único envoltorio Markdown JSON completo; sin ignorar prosa ni campos',
+                      validation_scope='Formato JSON, esquema y citas literales; semántica pendiente de revisión')
+    except (ValueError, KeyError, TypeError, UnicodeError):
+        raise PilotError('REGISTRO_REPLAY_INVALIDO') from None
+    write_report(output, report)
+    ledger = ledger or Ledger(http, report['code_sha'])
+    ledger.put('postprocessed_report.json', canonical(report))
+    ledger.put('postprocessed_report.md', (output / 'report.md').read_bytes())
     return report
 
 

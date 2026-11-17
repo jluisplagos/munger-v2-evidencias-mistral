@@ -1,3 +1,26 @@
+# Cierre real y recuperación sin nueva inferencia
+
+Dos llamadas reales: workflows 44067759033 y 44068831767. La primera se rechazó
+por salida incompleta; la segunda devolvió una respuesta completa dentro de un
+envoltorio Markdown JSON. Los registros originales no se alteraron.
+
+El resultado guardado del segundo ensayo se fijó por commit y SHA256 y se validó
+retirando únicamente ese envoltorio: 9 hallazgos con citas literales.
+
+Pruebas locales finales: 49 correctas, 0 fallidas. Añadidas pruebas de envoltorio
+anclado, rechazo de prosa/múltiples bloques y replay que no llama a Anthropic,
+conserva los originales y sigue rechazando citas inventadas.
+
+Replay con GitHub real y salida local: informe documental pendiente de revisión
+humana, 9 hallazgos, cero nuevas llamadas, coste estimado conjunto USD 0,164726.
+No se aceptó ni integró ninguna entrega de Mistral.
+
+Modo publicado: replay. Su ejecución remota se consulta en Actions tras publicar.
+Las secciones siguientes conservan la historia de las validaciones anteriores;
+las limitaciones de autenticación inicial quedaron superadas.
+
+---
+
 # Validación del piloto · 17-nov-2026
 
 ## Adenda del segundo ensayo

@@ -1,151 +1,88 @@
-# Piloto de revisión documental con Claude API
+# Piloto Claude API · resultado real y modo actual
 
-Este piloto entrega **una revisión asistida y parcial** de los relevos Q1-028 y
-Q1-032 publicados por Mistral D. No es un coordinador autónomo de las tres
-plataformas. No ejecuta el personaje ni sus pruebas, no acepta entregas, no
-modifica CONTROL/ESTADO y no escribe en el repositorio producto.
+Primer puente comprobado: GitHub Actions → Claude API → informe en GitHub.
+Revisión documental parcial de Q1-028/Q1-032 en D @d032691. No ejecuta el
+personaje ni sus pruebas, no acepta entregas, no modifica CONTROL/ESTADO y no
+escribe en el repositorio producto. No es aún una coordinación de tres plataformas.
 
-## Adenda: ensayo real y ajuste acotado
+## Ensayos y resultado
 
-El primer ensayo (munger-d-relevos-001, workflow 44067759033) autenticó y publicó
-su registro. No produjo una revisión completa: alcanzó 4096 tokens de salida,
-3735 de ellos de razonamiento. Uso: 14704 de entrada y 4096 de salida; coste
-estimado USD 0,070368. El resultado se conserva y no se borra su reserva.
+1. Workflow 44065901791: preparación correcta sin Anthropic y 40 pruebas.
+2. Workflow 44067759033, munger-d-relevos-001: autenticación correcta, respuesta
+   incompleta al alcanzar 4096 tokens. Uso: 14704 entrada, 4096 salida (3735 de
+   razonamiento). Coste estimado USD 0,070368. Resultado y reserva conservados.
+3. Workflow 44068831767, munger-d-relevos-002: Sonnet 5.5, esfuerzo high explícito
+   y razonamiento adaptativo, límite 8192. Respuesta completa, end_turn: 14704 de
+   entrada y 6495 de salida (2906 de razonamiento). Coste estimado USD 0,094358.
+   El parser inicial rechazó el bloque Markdown JSON; ese workflow consta fallido.
+4. Se retiró exclusivamente un único envoltorio Markdown JSON completo, sin buscar
+   JSON dentro de prosa. El objeto y sus 9 citas literales validan contra el paquete
+   conservado. No se hizo una tercera llamada.
 
-El código actual prepara un segundo y último ensayo (munger-d-relevos-002),
-con **8192 tokens de salida**, razonamiento adaptativo y esfuerzo high explícitos.
-Antes de llamar, lee el registro real anterior, verifica identidad, paquete y
-consumo, y exige que coste anterior + reserva nueva no supere **USD 0,25 total**.
-No es un reintento automático ni reinicia el identificador anterior. Ambas
-peticiones conservan su evidencia. El texto recibido se guarda incluso si no
-supera la validación. No se preparan terceros intentos.
+Total estimado de las dos llamadas: USD 0,164726. Se calcula desde uso y tarifas,
+no es una factura. El crédito promocional o comprado descontado se comprueba en
+Claude Console. La validación de citas y formato no acredita por sí sola la
+verdad semántica de toda observación; eso queda pendiente del coordinador.
 
-El segundo ensayo se activa en mode=api con la clave ya configurada. No tiene
-periodicidad ni autoriza otras llamadas después de su reserva.
+## Modo actual: replay, sin nueva inferencia
 
-Los apartados de arranque siguientes describen el mecanismo general; para el
-segundo ensayo los límites e identificador son los de esta adenda.
+request.json queda en mode=replay. Lee el resultado pagado desde el commit fijo
+5b1295017ccedb3f68bc04e69a99307719c5af1f del registro y exige su SHA256.
+Reúne de nuevo las cuatro fuentes en SHA fijos y comprueba el paquete.
+No necesita la clave de Anthropic ni llama a sus endpoints, tampoco al conteo.
 
-## Estado de arranque
+Publica únicamente postprocessed_report.json y postprocessed_report.md en:
+rama automatizacion/claude-api-piloto-registro,
+carpeta automation/claude_review/results/munger-d-relevos-002/.
 
-- Rama aislada: `automatizacion/piloto-claude-api`, desde el main del auxiliar.
-- `request.json` empieza en `mode: dry-run`: recopila los textos reales fijados,
-  prepara el informe y **no llama a Anthropic**.
-- Las pruebas usan respuestas ficticias, claramente separadas de la ejecución
-  real. Que pasen no acredita que la API o el crédito promocional ya funcionen.
-- La ejecución real requiere configurar la credencial y cambiar a `mode: api`
-  en un commit de esta rama. No hay reloj, bucle de espera ni ejecución periódica.
-- Cada revisión posterior requeriría otro diseño/encargo: este piloto tiene un
-  identificador único y no permite una segunda llamada cobrable.
+Ambos resultados y reservas originales permanecen intactos. La normalización no
+equivale a una aceptación de Mistral. El informe lleva accepted=false,
+integrated=false y product_executed=false. La fotografía revisada es d032691,
+no las entregas que se publiquen después.
 
-## Qué entrega
+## Controles
 
-1. Lee cuatro fuentes del auxiliar en SHA completos fijados. Del JSON de los 36
-   paquetes incluye solo Q1-028 y Q1-032 y sus metadatos; declara los casos omitidos.
-2. Conserva tamaño y SHA256 del original y huella de la representación incluida.
-   No trunca silenciosamente: un paquete excesivo bloquea la ejecución.
-3. En modo API, comprueba acceso al modelo y cuenta tokens antes de reservar.
-4. Reserva el piloto de forma durable en una rama separada **antes** de la llamada.
-5. Hace una sola petición Messages, sin herramientas y sin reintentos automáticos.
-6. Valida el JSON recibido y las citas literales contra las fuentes incluidas.
-   Una cita literal no acredita por sí misma una interpretación correcta.
-7. Publica paquete, informe y reserva en
-   `automatizacion/claude-api-piloto-registro`, bajo
-  `automation/claude_review/results/munger-d-relevos-002/`.
-   El informe siempre lleva `accepted:false`, `integrated:false` y
-   `product_executed:false`. Lo revisa el coordinador.
+- Único escritor del control e integrador: Claude coordinador existente.
+- El piloto escribe solo su rama de registro del auxiliar. Sin cambios en main
+  ni en la candidata del producto.
+- Fuentes fijadas, máximo de paquete y rechazo en lugar de truncado silencioso.
+- Modelo sin herramientas ni credenciales en su prompt; scripts del autor no
+  ejecutados. Ninguna salida del modelo se convierte en órdenes.
+- Una reserva durable por ensayo antes de la llamada. Un timeout no permite un
+  reintento automático ni se considera coste cero.
+- El segundo ensayo enlaza el registro real del primero y exige coste previo +
+  reserva nueva ≤ USD 0,25. No borra ni reinicia la reserva anterior.
+- Tarifas verificadas el 17-nov-2026: Sonnet 5.5, USD 2/MTok entrada, USD 10/MTok
+  salida. No se solicitó Priority, caché o herramientas. La factura y límites
+  efectivos corresponden a Anthropic.
+- No se preparan terceros intentos. Si alguien cambia a mode=api, la reserva
+  ya existente bloquea nuevas llamadas.
+- El secreto ANTHROPIC_API_KEY está configurado en GitHub; nunca se publica.
+- Sin calendario ni bucles de espera. No despierta ventanas privadas.
+- E1/D3/E2/E6, C48=108, C49=128,1, FCF base=307,933 y Elis pendiente se conservan.
 
-El modelo no recibe credenciales, no dispone de herramientas y su salida no se
-ejecuta. Tampoco se ejecutan scripts de las entregas de Mistral. Su texto se trata
-como dato, aunque contenga instrucciones.
-
-## Conectar la cuenta (única intervención con una credencial)
-
-En el repositorio auxiliar, una persona con permiso para gestionar secretos debe
-crear este secreto de Actions:
-
-- Nombre: `ANTHROPIC_API_KEY`
-- Valor: una clave de la organización/workspace de Claude Console que contiene
-  el crédito promocional. No pegarla en el chat, commits o issues.
-
-Acceso directo:
-https://github.com/jluisplagos/munger-v2-evidencias-mistral/settings/secrets/actions/new
-
-No se requiere instalar la aplicación Claude GitHub: usamos la API directamente.
-El `GITHUB_TOKEN` temporal de Actions permite publicar solo en este repositorio.
-La elegibilidad efectiva del modelo/crédito se comprueba al ejecutar; el informe
-de tokens **no** permite saber si el proveedor descontó saldo promocional o
-comprado. Eso se confirma en Claude Console.
-
-Después de guardar la clave, cambiar únicamente `mode` de `dry-run` a `api` y
-publicar el commit en `automatizacion/piloto-claude-api`. El evento push ejecuta
-el workflow, incluso sin fusionar main. No cambiar SHA de fuentes para este ensayo.
-El botón workflow_dispatch puede requerir que el workflow haya sido registrado
-o exista en la rama predeterminada; no se depende de él ni se fusiona main para
-activar este piloto.
-
-## Consumo y duplicados
-
-- Modelo de ensayo: `claude-sonnet-5-5`, sin fallback automático.
-- Tarifas estándar verificadas el 17-nov-2026: USD 2 / millón de entrada y
-  USD 10 / millón de salida. No se solicita Priority, herramientas o caché.
-- Máximo actual de salida: 8192 tokens, incluido el razonamiento.
-- Se calcula una reserva conservadora desde el conteo y los bytes; el programa
-  rechaza una reserva mayor de **USD 0,25**. No es una promesa de tarifa inmutable:
-  la facturación y límites efectivos los administra Anthropic. Revisar las tarifas
-  si se activa en otra fecha. Un límite del workspace en Console es un control
-  adicional de cuenta, que este programa no modifica.
-- La reserva es create-only: una carrera o relanzamiento no puede sobrescribirla
-  para volver a llamar al modelo. También hay exclusión mutua de workflows.
-- Un timeout puede haberse cobrado. Se guarda como resultado no aceptado e incierto
-  y **no se reintenta**. Si la publicación final falla, permanece la reserva.
-- El coste del informe se estima con los tokens devueltos y las tarifas fijadas;
-  no se presenta como factura. Un consumo no previsto exige revisión.
-- Los minutos/artefactos de GitHub Actions se rigen por el plan de GitHub y no por
-  los créditos de Anthropic.
-
-Sonnet se usa para comprobar este mecanismo documental. Este piloto no sustituye
-las revisiones críticas ni las configuraciones de agentes del personaje.
-
-## Pruebas reproducibles
+## Reproducción
 
 Desde la raíz del checkout:
 
-```bash
-python3 -m unittest discover -s automation/claude_review -p test_pilot.py -v
-python3 automation/claude_review/pilot.py \
-  --request automation/claude_review/request.json \
-  --output /tmp/munger-api-dry-run \
-  --code-sha "$(git rev-parse HEAD)"
-```
+    python3 -m unittest discover -s automation/claude_review -p test_pilot.py -v
+    python3 automation/claude_review/pilot.py --request automation/claude_review/request.json --output /tmp/munger-api-replay --code-sha "$(git rev-parse HEAD)"
 
-El segundo comando en el modo inicial lee GitHub y no llama a Anthropic. Si el
-repositorio está sujeto a un límite de consultas públicas, puede usarse GH_TOKEN
-del entorno; nunca escribir su valor en la orden. El CLI verifica los bytes del
-script y de request.json frente al HEAD observado, incluso con skip-worktree.
-La carpeta de salida se mantiene fuera del repositorio.
+El segundo comando, en mode=replay, revalida y publica los dos archivos derivados.
+Requiere GH_TOKEN con escritura en este auxiliar, sin llamadas Anthropic.
+Para preparar sin publicar, versionar mode=dry-run. El CLI comprueba los bytes del
+script y de request.json contra HEAD incluso con skip-worktree.
 
-En GitHub, el workflow primero prueba sin API. Solo si pasa ejecuta la preparación
-o la llamada, según el modo versionado. Publica resumen y artefacto también si el
-resultado no fue aceptado. Los artefactos de prueba caducan a los 30 días; un informe
-de API publicado se conserva en la rama de registro, sin PDF/XLSX/ZIP en Git.
+Pruebas locales finales: 49 correctas. Incluyen presupuesto acumulado, reserva,
+duplicados, timeout, publicación fallida, citas inventadas, formato incompleto,
+envoltorio único, prosa/múltiples bloques rechazados y replay sin Anthropic.
 
-## Operación y límites
+## Fuentes oficiales
 
-- Único escritor del control global e integrador: Claude coordinador existente.
-- El piloto escribe únicamente su rama de registro del auxiliar.
-- No hay firmas, aprobaciones, adopción económica ni aptitud financiera implícita.
-- Se conservan E1/D3/E2/E6, C48=108, C49=128,1, FCF base=307,933 y Elis pendiente.
-- Un cambio de fuente no actualiza automáticamente este ensayo: sus SHA son fijos.
-- Para desactivar, mantener `mode: dry-run`. Si ya se reservó, no borrar la reserva
-  para reintentar una petición cuyo consumo sea incierto; revisar primero Console.
-- No se incluyen tus conversaciones privadas. No despierta las ventanas actuales.
-
-## Fuentes oficiales consultadas
-
-- Modelos y precios: https://platform.claude.com/docs/en/models/sonnet-5-5/overview
-- Precios: https://platform.claude.com/docs/en/about-claude/pricing
-- Conteo previo (gratuito): https://platform.claude.com/docs/en/build-with-claude/token-counting
-- Versión de API: https://platform.claude.com/docs/en/api/versioning
-- Créditos: https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage
-- Eventos Actions: https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows
+- https://platform.claude.com/docs/en/models/sonnet-5-5/overview
+- https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide
+- https://platform.claude.com/docs/en/about-claude/pricing
+- https://platform.claude.com/docs/en/build-with-claude/token-counting
+- https://platform.claude.com/docs/en/api/versioning
+- https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage
+- https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows
