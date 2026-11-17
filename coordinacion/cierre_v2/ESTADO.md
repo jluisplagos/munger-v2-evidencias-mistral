@@ -6,7 +6,7 @@ Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud 
 
 **Fuente:** CONTROL.json. Este panel resume evidencia registrada; no observa sesiones privadas, no ejecuta agentes y no acredita por sí solo aptitud económica.
 
-Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integracion/candidata-cierre-v2', 'base': '957af652cdc3bef3d67e8623c9572138bac685e9', 'head': '31491289a9a13a670dd563c1b2df85dad54eb74a', 'estado': '957af65 + G-DOCS (3149128; 4 archivos documentales revisados). Código sin cambios; manifiesto 7762/7762'}. Mantenedor: Claude coordinador, único escritor.
+Candidata integrada: integracion/candidata-cierre-v2 @ b129b36 (957af65 + G-DOCS + G-RAIZ; solo documentos). Mantenedor: Claude coordinador, único escritor.
 
 | ID | Dueño | Entregado | Revisado | Integrado | Pruebas autor / externas | Origen |
 |---|---|---|---|---|---|---|
@@ -24,7 +24,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 98bdf8f |
 | G-MANUAL | Claude coordinador (borrador por un subagente de redacción) | ENTREGADO | CORRECCIONES | NO | NO_EJECUTADAS / PARCIALES | 341831f |
 | G-DOCS | Claude coordinador | ENTREGADO | CONFORME_CON_LIMITES | SI | EJECUTADAS / REPRODUCIDAS | c0542b8 |
-| G-RAIZ | Claude coordinador | ENTREGADO | CORRECCIONES | NO | EJECUTADAS / NO_EJECUTADAS | e813fe6 |
+| G-RAIZ | Claude coordinador | ENTREGADO | CONFORME_CON_LIMITES | SI | EJECUTADAS / REPRODUCIDAS | e813fe6 |
 | T-CAND | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 957af65 |
 | T-EXP | Claude runtime + extractores/revisores reales | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | T-CAMBIOS | Claude runtime + Mistral D | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
@@ -52,15 +52,15 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - **C-C2 · Guarda de perímetros C2**: Decisión del integrador: no se incorpora a la candidata. Es herramienta de contraste del auxiliar, no software del producto, y conserva C1 y D1/D7/D11 pendientes. Se conserva el enlace (1ec4f18, SEGUIMIENTO.md @ b049777); se usa como oráculo de contraste solo dentro de su alcance.
 - **F-REV · Contraste independiente de cambios Claude**: Respuesta F3 (c504830) entregada; revisión de lo afectado por un contexto distinto en curso.
 - **F-B3 · Tercer B real fuera de muestra**: Inventario reproducible aceptado con límites (F2-D1 cerrado; 71 PDF con huella). Mistral C/F corrige F3-R3 (.bat de Ahold), R4 y textos. La ejecución depende de U2 (etapa 1 de Ahold).
-  Bloqueo/límite: Historia irrecuperable de la persona responsable: Ahold_evaluada.xlsx (V5.3) y Ahold_respuesta.md de la etapa 1 (sin ellos el pipeline se detiene en el paso 1 y la r heredada C56 no puede reconstruirse sin elegirla); huellas de sus PDF 2019–2025 (HUELLAS.txt del .bat); y si el resultado de la etapa 1 influyó en elegir a Ahold como reserva.
-- **F-C1 · Primer recorrido C real y contrato específico**: Contrato C de F con un defecto medio (F3-R5: el motor se elige en Análisis!C62, comprobado en build_v6.py). Se alinea con el de u3_motor_c o se retira (F3-R12). La elección de candidato es de la persona responsable sobre U3.
+  Bloqueo/límite: No hay huellas históricas de los PDF de Ahold: 11 SIN_HISTÓRICA. El HUELLAS.txt del .bat solo habría cubierto 2016–2018 y el folleto, y el .bat no llegó a ejecutarse. Pendiente de la persona responsable: el SHA-256 (certutil) de sus PDF 2019–2025 de la carpeta KONINKLIJKE AHOLD DELHAIZE y de los dos originales aportados. Sin verificar: la edición del AR2025 (la cita L17, p.210, no casa), FS25, Q2-26 y los pkg_*.
+- **F-C1 · Primer recorrido C real y contrato específico**: U3: Fineco descartada por la persona responsable (C4 y C3). Sus fuentes se conservan en una Release por workflow (rama coordinacion/release-fuentes-fineco @ 26e78a8, tag fuentes-fineco-u3-20261117). Un contexto aplica el protocolo al siguiente candidato C y lo verifica; el caso no se fuerza.
   Bloqueo/límite: Documentos oficiales de los candidatos sin verificar: descarga de FinecoBank denegada por el control de permisos de la sesión; Hannover Re responde 403 a curl. Hace falta que la persona responsable autorice esas descargas o deje ella los documentos (informe anual 2025 y Pilar 3 o SFCR 2025 de cada candidato).
 - **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: v3 entregada: cierra los 16 hallazgos y discrepa en 3 (m5, S-12 y el sondeo con TMPDIR). Pendiente la revisión de otro contexto, Mistral R o un subagente distinto; también hay que observar el 4.8 y los demás controles tras la limpieza (N-16, N-20). Después, la propuesta §2.5, ampliada al 4.8, como cambio documental de la candidata.
   Dependencias: T-CAND.
 - **G-DOCS · Corrección documental de la guía del recorrido y de CONTINUIDAD en una rama aislada de la candidata (sin cambios de código)**: Integrado en la candidata (3149128). Nada más en esta tarea.
   Dependencias: G-MANUAL.
-- **G-RAIZ · U4: hechos desfasados de README, CLAUDE.md y docs/MIGRATION_STATUS.json de la raíz, en una rama aislada (instrucciones sustantivas conservadas)**: Corrección G1–G5 entregada en e813fe6. Pendiente la revisión de otro contexto, solo de lo afectado. Si es conforme, se integra en la candidata.
-- **T-CAND · Candidata única de integración técnica**: Candidata con su primera integración (G-DOCS, 3149128): solo documentos; manifiesto 7762/7762. La verificación completa de 957af65 sigue valiendo para el código, que no ha cambiado; ninguna batería lee esos documentos. Integrar lo siguiente aceptado por archivo, con origen, revisión, destino y pruebas afectadas.
+- **G-RAIZ · U4: hechos desfasados de README, CLAUDE.md y docs/MIGRATION_STATUS.json de la raíz, en una rama aislada (instrucciones sustantivas conservadas)**: Integrado en la candidata, b129b36. Queda abierto el menor N1 (precisar «de la persona responsable» en README.md:7), para una próxima corrección documental. Mistral A revisó 3d66437 por su cuenta (e61d66d) y dio CONFORME CON LÍMITES; se conserva como contraste.
+- **T-CAND · Candidata única de integración técnica**: Candidata en b129b36: G-DOCS (3149128) más G-RAIZ (tres archivos raíz). Sin cambios en el código; manifiesto del producto conforme. La verificación completa de 957af65 sigue valiendo para el código.
 - **T-EXP · Expedientes nuevos regenerados y auditados**: Regenerar entradas/fuentes/derivados, sin sustituir hipótesis o ausencias; auditoría del material nuevo.
   Dependencias: T-CAND, A-CTX.
 - **T-CAMBIOS · Vigencia, invalidación, recuperación y H9**: Ensayar cambio anterior y punto real de reanudación; no reintroducir límites I19/I20 ya corregidos.
@@ -90,7 +90,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - E-ELIS: RESPONDIDA; revisor asignado: Claude coordinador (subagente de revisión); SHA: f00c5dd64cb956b93ebb199389ce748e9d218f6c.
 - G-MANUAL: RESPONDIDA; revisor asignado: Subagente Claude, contexto distinto del autor (no hay sesión Mistral libre); SHA: ef36ab18ff485e40dbb727b1b95eb177e5346683.
 - G-DOCS: RESPONDIDA; revisor asignado: Mistral A, en mistral/g-manual-traspaso (antes de A3), u otro contexto distinto; SHA: c0542b83b9923f98124d3c72e48b7fc7245284d2.
-- G-RAIZ: RESPONDIDA; revisor asignado: Subagente Claude, contexto distinto del autor; Mistral A solo si ya la había empezado (contraste); SHA: 3d66437e797b6b0bf137b42fa62b561f39121722.
+- G-RAIZ: RESPONDIDA; revisor asignado: Subagente Claude, contexto distinto del autor; SHA: e813fe66b0210a698398d4f9a4d84788f9dda8e3.
 - T-AUTO: RESPONDIDA; revisor asignado: Subagente Claude, contexto distinto del autor; SHA: a508d6b38168933d9e6ef480e0d23627b8d748fb.
 
 ## Cómo se decide el cierre

@@ -8,7 +8,7 @@
   "versiones_fijadas": {
     "producto_main": "d69d4837f0e99ce30f38d3461f15cceee9a58730",
     "producto_tecnico": "957af652cdc3bef3d67e8623c9572138bac685e9",
-    "candidata": "957af652cdc3bef3d67e8623c9572138bac685e9",
+    "candidata": "b129b36f0aaf7e705fd206efd743fc01a9e96c10",
     "f1": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
     "A": "0946971e1e4cf10cb85ed4c757968a4bd060d6a7",
     "D": "d032691ef2b926e387de3965460469d0994948df",
@@ -27,13 +27,7 @@
     "automatizacion_registro": "953af02c43a36b090fff5f4df3c754e1a4ad59ee",
     "piloto_claude_api_pr1": "7d9001e13cc253a1f0b69940a117374511e25d3b"
   },
-  "candidata_integrada": {
-    "repositorio": "jluisplagos/munger-v2",
-    "rama": "integracion/candidata-cierre-v2",
-    "base": "957af652cdc3bef3d67e8623c9572138bac685e9",
-    "head": "31491289a9a13a670dd563c1b2df85dad54eb74a",
-    "estado": "957af65 + G-DOCS (3149128; 4 archivos documentales revisados). Código sin cambios; manifiesto 7762/7762"
-  },
+  "candidata_integrada": "integracion/candidata-cierre-v2 @ b129b36 (957af65 + G-DOCS + G-RAIZ; solo documentos)",
   "estado_global": "Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud económica global acreditada.",
   "colas_propias": {
     "A": [
@@ -542,12 +536,13 @@
         "resultados_cierre/alcance_real/ @ 98bdf8f (respuesta completa a F2 con ENTREGA)",
         "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/REVISION_F2_195766f_98bdf8f.md",
         "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/CORRECCION_F3.md",
-        "mistral/f-alcance-real @ 27c5931, c4d918f, 52eca91 y c504830 (respuesta a CORRECCION_F3, R3–R15)"
+        "mistral/f-alcance-real @ 27c5931, c4d918f, 52eca91 y c504830 (respuesta a CORRECCION_F3, R3–R15)",
+        "coordinacion/cierre_v2/u2_tercer_b/huellas_historicas_20261117/HUELLAS_AHOLD_BUSQUEDA.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
-      "bloqueo": "Historia irrecuperable de la persona responsable: Ahold_evaluada.xlsx (V5.3) y Ahold_respuesta.md de la etapa 1 (sin ellos el pipeline se detiene en el paso 1 y la r heredada C56 no puede reconstruirse sin elegirla); huellas de sus PDF 2019–2025 (HUELLAS.txt del .bat); y si el resultado de la etapa 1 influyó en elegir a Ahold como reserva.",
+      "bloqueo": "No hay huellas históricas de los PDF de Ahold: 11 SIN_HISTÓRICA. El HUELLAS.txt del .bat solo habría cubierto 2016–2018 y el folleto, y el .bat no llegó a ejecutarse. Pendiente de la persona responsable: el SHA-256 (certutil) de sus PDF 2019–2025 de la carpeta KONINKLIJKE AHOLD DELHAIZE y de los dos originales aportados. Sin verificar: la edición del AR2025 (la cita L17, p.210, no casa), FS25, Q2-26 y los pkg_*.",
       "siguiente_accion": "Inventario reproducible aceptado con límites (F2-D1 cerrado; 71 PDF con huella). Mistral C/F corrige F3-R3 (.bat de Ahold), R4 y textos. La ejecución depende de U2 (etapa 1 de Ahold).",
       "observacion": "Respuesta a F2 entregada en cuatro commits (195766f…c761cc8); revisión del coordinador en curso (contexto distinto), solo F2-D1…D7.",
       "commit_revisado": "98bdf8f7a48ee01c764834c5305b268fdde2b989",
@@ -582,7 +577,7 @@
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "Documentos oficiales de los candidatos sin verificar: descarga de FinecoBank denegada por el control de permisos de la sesión; Hannover Re responde 403 a curl. Hace falta que la persona responsable autorice esas descargas o deje ella los documentos (informe anual 2025 y Pilar 3 o SFCR 2025 de cada candidato).",
-      "siguiente_accion": "Contrato C de F con un defecto medio (F3-R5: el motor se elige en Análisis!C62, comprobado en build_v6.py). Se alinea con el de u3_motor_c o se retira (F3-R12). La elección de candidato es de la persona responsable sobre U3.",
+      "siguiente_accion": "U3: Fineco descartada por la persona responsable (C4 y C3). Sus fuentes se conservan en una Release por workflow (rama coordinacion/release-fuentes-fineco @ 26e78a8, tag fuentes-fineco-u3-20261117). Un contexto aplica el protocolo al siguiente candidato C y lo verifica; el caso no se fuerza.",
       "observacion": "Respuesta a F2 entregada en cuatro commits (195766f…c761cc8); revisión del coordinador en curso (contexto distinto), solo F2-D1…D7. F2-D3 se contrasta también con el contrato de u3_motor_c/.",
       "commit_revisado": "98bdf8f7a48ee01c764834c5305b268fdde2b989",
       "alcance_aceptado": [],
@@ -712,44 +707,46 @@
       "autor": "Claude coordinador",
       "revisor_propuesto": "Contexto distinto del autor",
       "entrega": "ENTREGADO",
-      "revision": "CORRECCIONES",
-      "integracion": "NO",
+      "revision": "CONFORME_CON_LIMITES",
+      "integracion": "SI",
       "commit_origen": "e813fe66b0210a698398d4f9a4d84788f9dda8e3",
-      "commit_destino": null,
+      "commit_destino": "b129b36f0aaf7e705fd206efd743fc01a9e96c10",
       "evidencia": [
         "jluisplagos/munger-v2 · integracion/hechos-raiz-957af65 @ 3d66437 (base 957af65): CLAUDE.md, README.md, docs/MIGRATION_STATUS.json",
         "coordinacion/cierre_v2/revisiones_coordinador/G-RAIZ_3d66437/REVISION_G-RAIZ_3d66437.md",
         "integracion/hechos-raiz-957af65 @ e813fe6 (corrección G1–G5; merge-tree sobre 3149128 limpio; JSON válido)",
-        "mistral/g-manual-traspaso @ e61d66d: revisión de 3d66437 por Mistral A, CONFORME CON LÍMITES. Discrepa de la revisión Claude, que dio CORRECCIONES (G1 material). Se conservan las dos; la corrección e813fe6 ya atiende G1–G5"
+        "mistral/g-manual-traspaso @ e61d66d: revisión de 3d66437 por Mistral A, CONFORME CON LÍMITES. Discrepa de la revisión Claude, que dio CORRECCIONES (G1 material). Se conservan las dos; la corrección e813fe6 ya atiende G1–G5",
+        "coordinacion/cierre_v2/revisiones_coordinador/G-RAIZ_e813fe6/REVISION_G-RAIZ_e813fe6.md",
+        "integracion/candidata-cierre-v2 @ b129b36 (integrado; manifiesto del producto sin cambios, sha256sum -c conforme)"
       ],
       "pruebas_autor": "EJECUTADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Corrección G1–G5 entregada en e813fe6. Pendiente la revisión de otro contexto, solo de lo afectado. Si es conforme, se integra en la candidata.",
+      "siguiente_accion": "Integrado en la candidata, b129b36. Queda abierto el menor N1 (precisar «de la persona responsable» en README.md:7), para una próxima corrección documental. Mistral A revisó 3d66437 por su cuenta (e61d66d) y dio CONFORME CON LÍMITES; se conserva como contraste.",
       "observacion": "Fuera del manifiesto de munger_v2_r1: no requiere regenerarlo. Diff de 15 líneas: identidad de la rama, contenido (4.15 · hito 2), estado de los hallazgos 1–7, prueba 4.15 que cubre los tres huecos e importación ya hecha.",
-      "commit_revisado": "3d66437e797b6b0bf137b42fa62b561f39121722",
-      "alcance_aceptado": [],
+      "commit_revisado": "e813fe66b0210a698398d4f9a4d84788f9dda8e3",
+      "alcance_aceptado": [
+        "CLAUDE.md",
+        "README.md",
+        "docs/MIGRATION_STATUS.json"
+      ],
       "solicitud_revision": {
         "estado": "RESPONDIDA",
-        "sha_autor": "3d66437e797b6b0bf137b42fa62b561f39121722",
-        "base_revisada": "957af652cdc3bef3d67e8623c9572138bac685e9",
+        "sha_autor": "e813fe66b0210a698398d4f9a4d84788f9dda8e3",
+        "base_revisada": "3d66437e797b6b0bf137b42fa62b561f39121722",
         "diff_rutas": [
           "CLAUDE.md",
           "README.md",
           "docs/MIGRATION_STATUS.json"
         ],
-        "criterios": [
-          "Solo cambian hechos verificables en 957af65 (VERSION, HITO_1_4_15.md, hito2/HITO_2_4_15.md, test_verificacion_entradas_415.py)",
-          "Se conservan todas las instrucciones sustantivas y decisiones: originales, fuentes y huellas, LibreOffice en secuencia, aprobaciones, política económica, modelos, separación de revisor, recuperación con la 4.14",
-          "No se declara aptitud ni se adopta nada; main sigue con la 4.14"
-        ],
-        "revisor_asignado": "Subagente Claude, contexto distinto del autor; Mistral A solo si ya la había empezado (contraste)",
+        "criterios": "Cierre de G1–G5 de REVISION_G-RAIZ_3d66437; sin pérdida de instrucciones sustantivas; JSON válido; merge-tree limpio sobre 3149128",
+        "revisor_asignado": "Subagente Claude, contexto distinto del autor",
         "informe_revision": {
-          "ruta": "coordinacion/cierre_v2/revisiones_coordinador/G-RAIZ_3d66437/REVISION_G-RAIZ_3d66437.md",
-          "veredicto": "CORRECCIONES. G1 (material): CLAUDE.md:11 dice «1–6 corregidos», pero los expedientes siguen no aptos por entradas y C48/C50 no son reproducibles hasta su regeneración (HITO_2:194-196). G2–G4 (medios): se suprimen instrucciones aún vigentes (esperar entrega, revisión externa del hito 2) y se añade una regla de integración sin respaldo en 957af65. G5 (menor). El JSON es válido y la aplicación sobre 3149128 es limpia.",
+          "ruta": "coordinacion/cierre_v2/revisiones_coordinador/G-RAIZ_e813fe6/REVISION_G-RAIZ_e813fe6.md",
+          "veredicto": "CONFORME_CON_LIMITES: G1, G2, G4 y G5 conformes; G3 con límites, porque la regla se atribuye al contrato del programa. N1 menor («salvo decisión registrada» sin decir de quién), no bloquea.",
           "limites": [
-            "sin baterías ni LibreOffice; no se verificó si G3 responde a una decisión registrada"
+            "sin pruebas, pipeline ni LibreOffice; no se comprobó que INTEGRACION.md sea una decisión de la persona responsable"
           ]
         }
       }
@@ -775,7 +772,7 @@
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Candidata con su primera integración (G-DOCS, 3149128): solo documentos; manifiesto 7762/7762. La verificación completa de 957af65 sigue valiendo para el código, que no ha cambiado; ninguna batería lee esos documentos. Integrar lo siguiente aceptado por archivo, con origen, revisión, destino y pruebas afectadas.",
+      "siguiente_accion": "Candidata en b129b36: G-DOCS (3149128) más G-RAIZ (tres archivos raíz). Sin cambios en el código; manifiesto del producto conforme. La verificación completa de 957af65 sigue valiendo para el código.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -1481,6 +1478,21 @@
       "tipo": "REVISION",
       "fecha": "2026-11-17",
       "hecho": "Contraste externo de Mistral R (378a7cb) sobre siete revisiones del coordinador, con corte en 30c314c (AUTO, manual v2, D3, d032691, A4, E2 y F3): todas CONFORMES y sus hallazgos se reproducen. Discrepancia D-MANUAL-1: el campo revision de G-MANUAL seguía en CONFORME_CON_LIMITES; corregido a CORRECCIONES. Nota: las revisiones de D no tenían solicitud_revision formal."
+    },
+    {
+      "tipo": "INTEGRACION",
+      "fecha": "2026-11-17",
+      "hecho": "G-RAIZ (e813fe6), revisado CONFORME_CON_LIMITES por un contexto distinto, se integra en la candidata como b129b36: CLAUDE.md, README.md y docs/MIGRATION_STATUS.json. Manifiesto del producto conforme."
+    },
+    {
+      "tipo": "CONSULTA",
+      "fecha": "2026-11-17",
+      "hecho": "Huellas de Ahold: no hay ninguna histórica (11 SIN_HISTÓRICA). Se pide al usuario el certutil de sus PDF 2019–2025 y de los dos originales. La búsqueda está publicada en u2_tercer_b/huellas_historicas_20261117/."
+    },
+    {
+      "tipo": "ENTREGA",
+      "fecha": "2026-11-17",
+      "hecho": "Fuentes de Fineco: workflow de preservación en una Release (coordinacion/release-fuentes-fineco @ 26e78a8; 8 archivos con SHA-256 exigido; sin copias HTML)."
     }
   ],
   "consulta_remotos_arranque": {
