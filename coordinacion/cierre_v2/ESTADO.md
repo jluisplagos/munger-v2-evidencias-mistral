@@ -23,6 +23,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | F-B3 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
 | F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
 | G-MANUAL | Claude coordinador (borrador por un subagente de redacción) | PARCIAL | CONFORME_CON_LIMITES | NO | NO_EJECUTADAS / PARCIALES | 341831f |
+| G-DOCS | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | c0542b8 |
 | T-CAND | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 957af65 |
 | T-EXP | Claude runtime + extractores/revisores reales | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | T-CAMBIOS | Claude runtime + Mistral D | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
@@ -54,6 +55,8 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Bloqueo/límite: Datos de la persona responsable: un banco o aseguradora concretos, sus informes oficiales (cuentas, Pilar 3 o SFCR) con huellas y, si existe, el Excel de la etapa 1.
 - **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: Corregir los textos operativos desfasados (G-1…G-9 y C-07/C-08/C-09/C-12 de CONTINUIDAD) en una rama aislada de la candidata y publicarlo para revisión por un contexto distinto. C-01…C-04 (README/CLAUDE.md raíz) son instrucciones del usuario: se proponen, no se cambian. Después, T-TRASPASO con un receptor realmente nuevo.
   Dependencias: T-CAND.
+- **G-DOCS · Corrección documental de la guía del recorrido y de CONTINUIDAD en una rama aislada de la candidata (sin cambios de código)**: Revisión por un contexto distinto (solicitud LISTA). Si es conforme, el coordinador incorpora los cuatro archivos a la candidata con origen, revisión y destino. C-01…C-04 y O-12/O-13 (README y CLAUDE.md de la raíz, MIGRATION_STATUS.json) son instrucciones del usuario: se proponen en DECISIONES, no se cambian.
+  Dependencias: G-MANUAL.
 - **T-CAND · Candidata única de integración técnica**: Candidata 957af65 materializada (manifiesto 7762/7762) y verificada: verificar_paquete.sh completa, código 0, RESULTADO GLOBAL PASA (15 baterías); control 4.14 29/35, lo esperado sobre clon Git. Nada aceptado es software del producto: no hay integración pendiente. Reproducción por otro contexto: pendiente (requiere LibreOffice; el entorno Mistral no lo declara). Al aceptar software de A/D, integrar por archivo con origen, destino y pruebas.
 - **T-EXP · Expedientes nuevos regenerados y auditados**: Regenerar entradas/fuentes/derivados, sin sustituir hipótesis o ausencias; auditoría del material nuevo.
   Dependencias: T-CAND, A-CTX.
@@ -78,6 +81,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - A-CTX: RESPONDIDA; revisor asignado: Claude coordinador (subagente de revisión); SHA: 8b88fab28261506c60bc7631fd24894e225099d2.
 - E-ELIS: RESPONDIDA; revisor asignado: Claude coordinador (subagente de revisión); SHA: 93a97801f8c4f6a4dc5cabd4540248390cf113d0.
 - G-MANUAL: RESPONDIDA; revisor asignado: Mistral A, en rama propia mistral/g-manual-traspaso, carpeta resultados_cierre/manual_revision/ (reanudación c241a59); SHA: 341831fd8b4c9081c09f1ebe7b31799042402d0f.
+- G-DOCS: LISTA; revisor asignado: Mistral A, en mistral/g-manual-traspaso (antes de A3), u otro contexto distinto; SHA: c0542b83b9923f98124d3c72e48b7fc7245284d2.
 
 ## Cómo se decide el cierre
 

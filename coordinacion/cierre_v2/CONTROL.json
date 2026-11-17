@@ -32,7 +32,8 @@
   "colas_propias": {
     "A": [
       "A-CTX",
-      "G-MANUAL (revisión)"
+      "G-MANUAL (revisión)",
+      "G-DOCS (revisión)"
     ],
     "D": [
       "D-HARNESS",
@@ -59,7 +60,8 @@
       "T-TRASPASO",
       "H-DEC",
       "F1-IMPL",
-      "CIERRE"
+      "CIERRE",
+      "G-DOCS"
     ]
   },
   "tareas": [
@@ -594,6 +596,49 @@
       }
     },
     {
+      "id": "G-DOCS",
+      "tarea": "Corrección documental de la guía del recorrido y de CONTINUIDAD en una rama aislada de la candidata (sin cambios de código)",
+      "autor": "Claude coordinador",
+      "revisor_propuesto": "Mistral A (revisor del manual) u otro contexto distinto",
+      "entrega": "ENTREGADO",
+      "revision": "PENDIENTE",
+      "integracion": "NO",
+      "commit_origen": "c0542b83b9923f98124d3c72e48b7fc7245284d2",
+      "commit_destino": null,
+      "evidencia": [
+        "jluisplagos/munger-v2 · integracion/docs-operativos-957af65 @ c0542b8 (base 957af65): munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md, munger_v2_r1/CONTINUIDAD.md, CAMBIOS_ARCHIVOS.txt y MANIFIESTO_SHA256.txt regenerados con generar_cambios_y_manifiesto_4_15.py"
+      ],
+      "pruebas_autor": "EJECUTADAS",
+      "pruebas_externas": "NO_EJECUTADAS",
+      "dependencias": [
+        "G-MANUAL"
+      ],
+      "bloqueo": null,
+      "siguiente_accion": "Revisión por un contexto distinto (solicitud LISTA). Si es conforme, el coordinador incorpora los cuatro archivos a la candidata con origen, revisión y destino. C-01…C-04 y O-12/O-13 (README y CLAUDE.md de la raíz, MIGRATION_STATUS.json) son instrucciones del usuario: se proponen en DECISIONES, no se cambian.",
+      "observacion": "Pruebas del autor: manifiesto 7762/7762 tras regenerar; diff de CAMBIOS limitado a los dos documentos y su recuento; ninguna batería de verificar_paquete lee esos documentos (solo controles históricos 4.7–4.13).",
+      "commit_revisado": null,
+      "alcance_aceptado": [],
+      "solicitud_revision": {
+        "estado": "LISTA",
+        "sha_autor": "c0542b83b9923f98124d3c72e48b7fc7245284d2",
+        "base_revisada": "957af652cdc3bef3d67e8623c9572138bac685e9",
+        "diff_rutas": [
+          "munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md",
+          "munger_v2_r1/CONTINUIDAD.md",
+          "munger_v2_r1/CAMBIOS_ARCHIVOS.txt",
+          "munger_v2_r1/MANIFIESTO_SHA256.txt"
+        ],
+        "criterios": [
+          "Cada corrección corresponde a G-1…G-9 / O-1…O-11 / O-14 de CONTRADICCIONES_GUIA.md y es cierta en 957af65 (código y registro del hito 2)",
+          "No reintroduce I19/I20; H9 queda abierto y sin procedimiento inventado",
+          "No cambia reglas económicas, configuraciones ni la regla 11.4 (solo añade el hecho de la entrega por rama)",
+          "CAMBIOS_ARCHIVOS.txt y MANIFIESTO_SHA256.txt regenerados con el generador del producto; manifiesto 7762/7762; diff limitado"
+        ],
+        "revisor_asignado": "Mistral A, en mistral/g-manual-traspaso (antes de A3), u otro contexto distinto",
+        "informe_revision": null
+      }
+    },
+    {
       "id": "T-CAND",
       "tarea": "Candidata única de integración técnica",
       "autor": "Claude coordinador",
@@ -909,6 +954,11 @@
       "tipo": "REVISION",
       "fecha": "2026-11-17",
       "hecho": "G-MANUAL revisado por Mistral A (78ba1ca): CONFORME CON LÍMITES; reproducido por el coordinador con límites menores (tres comprobaciones del JSON no generadas por el script publicado; manifiesto autoincluido)."
+    },
+    {
+      "tipo": "ENTREGA",
+      "fecha": "2026-11-17",
+      "hecho": "G-DOCS: corrección documental de la guía y de CONTINUIDAD en integracion/docs-operativos-957af65 @ c0542b8 (manifiesto 7762/7762); revisión asignada a Mistral A."
     }
   ],
   "consulta_remotos_arranque": {
