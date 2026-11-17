@@ -156,6 +156,43 @@ def value_like(tok):
         return False
 
 
+def es_linea_columnas(line):
+    """Linea de cabecera de columnas: tiene años y ningun importe; fuera de
+    parentesis no puede tener mas palabras alfabeticas (len>=3, salvo conectores)
+    que años (A3-R2: si no, es frase narrativa). A4-R3 la endurece a tabular."""
+    ys = YEAR_RE.findall(line)
+    if not ys:
+        return False
+    otros = [t for t in NUM_RE.findall(line) if not YEAR_RE.fullmatch(t)]
+    if any(value_like(t) for t in otros):
+        return False
+    sin_par = re.sub(r'\([^)]*\)', ' ', line)
+    palabras = [w for w in re.findall(r'[A-Za-zÀ-ÿ]{3,}', sin_par)
+                if w.lower() not in ('and', 'the', 'of', 'in', 'at', 'for', 'con', 'por', 'del', 'las', 'los')]
+    return len(palabras) <= len(ys)
+
+
+MESES = r'january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec|enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre'
+
+
+def es_anio_de_fecha(line, pos):
+    """True si el token en pos es el año de una fecha del rótulo («At 31 December 2017»,
+    «December 31, 2019»): ese año es rótulo, no importe (A4-R2)."""
+    return bool(re.search(r'(?i)\b(' + MESES + r')\b', line[max(0, pos - 14):pos]))
+
+
+def etiqueta_con_fechas(s):
+    """A4-R2: rotulo normalizado conservando solo los AÑOS DE FECHAS del rótulo
+    («At 31 December 2024» ya no equivale a «At 31 December 2023») y quitando los
+    demas numeros, incluidos los importes con forma de año (2045, 2001)."""
+    def repl(m):
+        tok = m.group(0)
+        if YEAR_RE.fullmatch(tok) and es_anio_de_fecha(s or '', m.start()):
+            return tok
+        return ' '
+    return C.flat_text(re.sub(r'\d[\d.,]*', repl, s or ''))
+
+
 def find_row_line(page_lines, cita, valor):
     """Localiza la fila: puntua por cobertura de palabras de la cita en ventana
     de 3 lineas + sufijo de la cita (ancla en el valor); desempata a favor de la
@@ -193,21 +230,6 @@ def find_header_block(page_lines, row_idx, modo='max'):
     years_in_block = []
     col_line = None
     col_years = []
-    def es_linea_columnas(line):
-        # v4.0 (A2-R4): una linea de cabecera de columnas solo tiene años, sin importes
-        ys = YEAR_RE.findall(line)
-        if not ys:
-            return False
-        otros = [t for t in NUM_RE.findall(line) if not YEAR_RE.fullmatch(t)]
-        if any(value_like(t) for t in otros):
-            return False
-        # A3-R2: fuera de paréntesis, una línea tabular no puede tener más palabras
-        # alfabéticas (len>=3, salvo conectores) que años; si no, es una frase narrativa
-        sin_par = re.sub(r'\([^)]*\)', ' ', line)
-        palabras = [w for w in re.findall(r'[A-Za-zÀ-ÿ]{3,}', sin_par)
-                    if w.lower() not in ('and', 'the', 'of', 'in', 'at', 'for', 'con', 'por', 'del', 'las', 'los')]
-        return len(palabras) <= len(ys)
-
     def fusionar_cabecera_partida(candidatos, row_idx, col_years, col_line):
         # A3-R2: cabecera partida en varias líneas (p. ej. '2025' / '2024' en líneas
         # consecutivas justo arriba de la fila): sus años se fusionan en orden; si aportan
@@ -468,15 +490,26 @@ def check_columna(row_idx, page_lines, years_in_block, col_line, col_years, colu
     # todos los numeros de la fila (incluye importes <1000 como EPS). A3-R3: un valor con
     # forma de año sin puntuar (2030) SÍ es un importe y ocupa su posición (antes se
     # descartaba y desplazaba el mapeo); solo se excluye el año en prosa ('2024,')
-    nums = [t for t in NUM_RE.findall(row_line) if not PROSE_YEAR_TOKEN_RE.fullmatch(t.rstrip(')'))]
+    nums = []
+    for m in NUM_RE.finditer(row_line):
+        t = m.group(0)
+        if PROSE_YEAR_TOKEN_RE.fullmatch(t.rstrip(')')):
+            continue
+        if YEAR_RE.fullmatch(t) and es_anio_de_fecha(row_line, m.start()):
+            continue  # A4-R2: el año de una fecha del rótulo no es importe
+        nums.append(t)
     if col_years and len(nums) == len(col_years) + 1 and re.fullmatch(r'\d{1,2}(\.\d+)?', nums[0]) and not re.search(r'[.,]\d{3}$', nums[0]):
         nums = nums[1:]  # columna de referencia a nota (p. ej. '11.2'), no un importe
     if not years_in_block:
         return 'NO_DECIDIBLE', 'sin años de ejercicio en la pagina (fila de texto/mercado)'
     if not (declared_years & set(years_in_block)):
         return 'NO_DECIDIBLE', f'años declarados {sorted(declared_years)} no figuran en la pagina {sorted(set(years_in_block))} (fila no tabular o año fuera de tabla)'
+    if valor is not None and C.dec(valor) is None:
+        return 'NO_APLICA', f'valor no numerico ({valor!r}): metadato (moneda/norma/texto), la columna no es aplicable'
     if not col_years:
         return 'NO_DECIDIBLE', 'sin linea de columnas de encabezado identificable en la pagina'
+    if es_linea_columnas(row_line) and re.search(r'[A-Za-zÀ-ÿ]{3,}', re.sub(r'\([^)]*\)', ' ', row_line)):
+        return 'NO_DECIDIBLE', 'la fila localizada es una linea de cabecera con rótulo, no una fila de datos: los años de la cabecera no son importes a mapear'
     if len(set(col_years)) < len(col_years):
         return 'NO_DECIDIBLE', f'años repetidos en la cabecera {col_years}: hay varios bloques (consolidado/individual u otros) y la columna no es inequivoca sin identificar el bloque'
     if not nums:
@@ -803,7 +836,7 @@ def check_reexpresion(emp, r, f, col_years, years_in_block, esc_cita=None):
     variantes = {C.flat_text(v) for v in C.variantes_numero(valor)} - {''}
     candidatos = [name for name in TEXTO_CACHE[key] if YEAR_FILE_RE.search(name) and YEAR_FILE_RE.search(name).group(0) == yc and name != Path(archivo).name]
     # rotulo completo normalizado (sin numeros): la fila debe contener el rotulo completo
-    full_label = C.flat_text(re.sub(r'\d[\d.,]*', ' ', cita))
+    full_label = etiqueta_con_fechas(cita)  # A4-R2: el rotulo conserva sus fechas/años
     cita_toks = canon_tokens(cita)
     # A3-R4: negación por polaridad, no por frase literal; afirmativa solo si la mención
     # de reexpresar no está negada
@@ -833,9 +866,16 @@ def check_reexpresion(emp, r, f, col_years, years_in_block, esc_cita=None):
     def nums_of(ls):
         out = []
         for l in ls:
-            for t in NUM_RE.findall(l):
+            if es_linea_columnas(l):
+                continue  # A4-R2: los años de una linea de cabecera no son importes
+            for m in NUM_RE.finditer(l):
+                t = m.group(0)
                 # A3-R3/A3-R5: '2024,' en prosa no es importe; un valor 20xx sin puntuar sí lo es
-                if value_like(t) and not PROSE_YEAR_TOKEN_RE.fullmatch(t.rstrip(')')):
+                if PROSE_YEAR_TOKEN_RE.fullmatch(t.rstrip(')')):
+                    continue
+                if YEAR_RE.fullmatch(t) and es_anio_de_fecha(l, m.start()):
+                    continue  # A4-R2: el año de una fecha del rótulo no es importe
+                if value_like(t):
                     out.append((t, signed(t)))
         return out
 
@@ -859,9 +899,11 @@ def check_reexpresion(emp, r, f, col_years, years_in_block, esc_cita=None):
         orig_consolidado = bool(re.search(r'consolid', orig_head, re.IGNORECASE))
         matched = []
         for i, line in enumerate(orig_lines):
-            # A3-R4: la fila del original se acepta SOLO por rótulo completo normalizado
-            # (sin números) igual al de la cita; no por subcadena ni por subconjunto de palabras
-            row_label = C.flat_text(re.sub(r'\d[\d.,]*', ' ', line))
+            if es_linea_columnas(line):
+                continue  # A4-R2: una linea de cabecera no es fila de datos
+            # A3-R4/A4-R2: la fila del original se acepta SOLO por rótulo completo
+            # normalizado (con fechas) igual al de la cita; no por subcadena
+            row_label = etiqueta_con_fechas(line)
             hit = bool(full_label) and row_label == full_label
             if not hit:
                 continue
@@ -884,11 +926,16 @@ def check_reexpresion(emp, r, f, col_years, years_in_block, esc_cita=None):
             matched.append({'i': i, 'pg': page_of_line[i], 'cy2': cy2, 'cand': cand, 'nums': nums,
                             'block': block, 'hint': hint_hit, 'line': line})
         matched.sort(key=lambda m: (not m['hint'], m['i']))
+        # A4-R2: si alguna fila con el rótulo completo contiene el valor citado, solo esas
+        # filas son candidatas (evita comparar con otra tabla con el mismo rótulo «At 31 …»)
+        pool = [m for m in matched if m['hint']] or matched
         # v4.0: escala y perimetro deben coincidir entre original y comparativo
-        for m in matched:
+        for m in pool:
             cand = m['cand']
             if cand is None or yc not in m['cy2']:
                 continue
+            if len(cand) != len(col_years):
+                continue  # A4-R2: la tabla del original tiene distinto numero de columnas que la del comparativo; el mapeo posicional 1:1 no es valido entre tablas distintas
             orig_tok, orig_sv = cand[m['cy2'].index(yc)]
             # A3-R4: escala y perímetro de la fila del original deben coincidir con los del
             # comparativo; si difieren, la igualdad de dígitos no acredita nada

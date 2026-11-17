@@ -83,3 +83,4 @@ git add resultados_m2/cobertura_vm && git commit -m "A4-Rn …" && git push orig
 ```
 
 - A4-R1: polaridad de la reexpresión por la declaración (sí/no), no por «sin» en la razón.
+- A4-R2: rótulo con fechas (solo años de fecha), cabecera no es fila, año de fecha no es importe, valor no numérico -> NO_APLICA, tablas de distinto ancho -> ND.

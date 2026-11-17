@@ -9,9 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 24,
-    "PENDIENTE_CONTEXTUAL": 4,
-    "CONFLICTO_CONTEXTUAL": 2
+    "REVISADO_CONTEXTUAL": 23,
+    "PENDIENTE_CONTEXTUAL": 7
   },
   "entradas": [
     {
@@ -320,12 +319,12 @@
       "id": "aux:ing_fin_2017",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2018.txt [PDF PAGE 10] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Finance income 25 3,491 1,964'; encabezado: 'Note 2018 2017'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
+      "evidencia_contextual": "fila leida: 'Finance income 25 3,491 1,964'; encabezado: 'Note 2018 2017'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declara no reexpresado (\"no\") pero el original CF_2017.txt imprime 2017 en la columna 2017 (fila 346",
+      "limites_contextuales": "reexpresion: la fila con rotulo completo aparece en CF_2017.txt (linea 153) pero la columna 2017 no se puede mape",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -333,7 +332,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Finance income 25 3,491 1,964",
       "encabezado": "Note 2018 2017",
@@ -500,12 +499,12 @@
       "id": "h_pensiones",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2018.txt [PDF PAGE 66] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'At 31 December 2017 5,387 6,352 12,597 24,336'; encabezado: 'None'; titulo pagina: 'two plants. It offers a complete range of services, from the manufacture of glass | containers to st'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
+      "evidencia_contextual": "fila leida: 'At 31 December 2017 5,387 6,352 12,597 24,336'; encabezado: 'None'; titulo pagina: 'two plants. It offers a complete range of services, from the manufacture of glass | containers to st'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: miles → mm; signo +; el informe no separa el déficit neto NIAS 19 de otras obligaciones con empleados | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina | reexpresion: declara no reexpresado (\"no\") pero el original CF_2017.txt imprime 2015 en la columna 2017 (fila 217",
+      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina | reexpresion: la fila con rotulo completo aparece en CF_2017.txt (linea 3319) pero la columna 2017 no se puede map",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -513,7 +512,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "At 31 December 2017 5,387 6,352 12,597 24,336",
       "encabezado": null,
@@ -560,15 +559,15 @@
       "id": "h_anios",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2019.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: '31 December 2019 and 2018'; encabezado: '31 December 2019 and 2018'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2019 and 2018'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: '31 December 2019 and 2018'; encabezado: '31 December 2019 and 2018'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2019 and 2018'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: identifica el ejercicio de la columna de la Historia; cierre fiscal en diciembre | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "columna: la fila localizada es una linea de cabecera con rótulo, no una fila de datos: los años de la cabecer",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "OK",
+        "columna": "NO_DECIDIBLE",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",

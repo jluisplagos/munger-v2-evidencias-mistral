@@ -13,8 +13,8 @@
     "CONVENCION": 5
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 4,
-    "PENDIENTE_CONTEXTUAL": 16,
+    "REVISADO_CONTEXTUAL": 5,
+    "PENDIENTE_CONTEXTUAL": 15,
     "NO_APLICA": 10
   },
   "entradas": [
@@ -493,7 +493,7 @@
       "evidencia": "texto/CF_2025.txt [PDF PAGE 71] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'At 31 December 2024 50,699 6,053 11,258 68,010'; encabezado: '2025 2024'; titulo pagina: 'VIDRALA, S.A. and SUBSIDIARIES | Notes to the Consolidated Annual Accounts | During 2025, there have'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: miles → mm; signo +; el informe no separa el déficit neto NIAS 19 de otras obligaciones con empleados | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila con 6 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional | reexpresion: la fila con rotulo completo aparece en CF_2024.txt (linea 4171) pero la columna 2024 no se puede map",
+      "limites_contextuales": "columna: fila con 5 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional | reexpresion: la fila con rotulo completo aparece en CF_2024.txt (linea 4177) pero la columna 2024 no se puede map",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -523,7 +523,7 @@
       "evidencia": "texto/CF_2025.txt [PDF PAGE 71] sha256 conforme=True; cita localizada=True; valor localizado=True",
       "evidencia_contextual": "fila leida: 'At 31 December 2025 46,366 6,223 11,591 64,180'; encabezado: '2025 2024'; titulo pagina: 'VIDRALA, S.A. and SUBSIDIARIES | Notes to the Consolidated Annual Accounts | During 2025, there have'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: miles → mm; signo +; el informe no separa el déficit neto NIAS 19 de otras obligaciones con empleados | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila con 6 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
+      "limites_contextuales": "columna: fila con 5 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -608,15 +608,15 @@
       "id": "moneda_cotizacion",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/ES_2025_informacion_financiera_consolidada.txt [PDF PAGE 97] sha256 conforme=True; cita localizada=True; valor localizado=None",
-      "evidencia_contextual": "fila leida: 'La cotización de la acción cerró 2025 en 90,10 euros lo que equivale a una capitalización bursátil de 3.172'; encabezado: 'None'; titulo pagina: 'Evolución bursátil | La cotización de la acción cerró 2025 en 90,10 euros lo que equivale a una capi'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=NO_APLICA, perimetro=NO_APLICA, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'La cotización de la acción cerró 2025 en 90,10 euros lo que equivale a una capitalización bursátil de 3.172'; encabezado: 'None'; titulo pagina: 'Evolución bursátil | La cotización de la acción cerró 2025 en 90,10 euros lo que equivale a una capi'; checks: fila=OK, columna=NO_APLICA, unidad=OK, signo=NO_APLICA, perimetro=NO_APLICA, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: «euros» → código ISO EUR | reexpresado: no aplica | perimetro: no aplica (dato de mercado de la acción) | perimetro_justificacion: moneda de cotización de la acción de la sociedad dominante | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "NO_DECIDIBLE",
+        "columna": "NO_APLICA",
         "unidad": "OK",
         "signo": "NO_APLICA",
         "perimetro": "NO_APLICA",

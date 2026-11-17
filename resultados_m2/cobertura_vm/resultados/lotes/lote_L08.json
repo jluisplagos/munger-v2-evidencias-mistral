@@ -9,9 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "REVISADO_CONTEXTUAL": 19,
-    "PENDIENTE_CONTEXTUAL": 9,
-    "CONFLICTO_CONTEXTUAL": 2
+    "REVISADO_CONTEXTUAL": 18,
+    "PENDIENTE_CONTEXTUAL": 12
   },
   "entradas": [
     {
@@ -560,12 +559,12 @@
       "id": "PM1.cartera",
       "clase": "cero_comprobado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2022.txt [PDF PAGE 44] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Additions (435) - (3.109) (546) - - (4,090)'; encabezado: 'None'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=NO_APLICA, perimetro=OK, version=OK, reexpresion=CONFLICTO",
+      "evidencia_contextual": "fila leida: 'Additions (435) - (3.109) (546) - - (4,090)'; encabezado: 'None'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=NO_APLICA, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: la columna de la cartera imprime «-» (cero): la cartera anterior (13,237) estaba totalmente amortizada; el «0» de la cita es de otra columna o del total | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina | reexpresion: declara no reexpresado (\"no\") pero el original CF_2021.txt imprime (3.109) en la columna 2021 (fila ",
+      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina | reexpresion: la fila con rotulo completo aparece en CF_2021.txt (linea 2405) pero la columna 2021 no se puede map",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -573,7 +572,7 @@
         "signo": "NO_APLICA",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Additions (435) - (3.109) (546) - - (4,090)",
       "encabezado": null,
@@ -590,12 +589,12 @@
       "id": "h_pensiones",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2022.txt [PDF PAGE 65] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'At 31 December 2021 62,541 6,342 10,208 79,091'; encabezado: '2022 2021'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | The carrying value of c'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
+      "evidencia_contextual": "fila leida: 'At 31 December 2021 62,541 6,342 10,208 79,091'; encabezado: '2022 2021'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Notes to the Consolidated Annual Accounts | The carrying value of c'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: miles → mm; signo +; el informe no separa el déficit neto NIAS 19 de otras obligaciones con empleados | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila con 6 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional | reexpresion: declara no reexpresado (\"no\") pero el original CF_2021.txt imprime 2019 en la columna 2021 (fila 282",
+      "limites_contextuales": "columna: fila con 5 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional | reexpresion: la fila con rotulo completo aparece en CF_2021.txt (linea 3720) pero la columna 2021 no se puede map",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -603,7 +602,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "At 31 December 2021 62,541 6,342 10,208 79,091",
       "encabezado": "2022 2021",
@@ -650,15 +649,15 @@
       "id": "h_anios",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2023.txt [PDF PAGE 2] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: '31 December 2023 and 2022'; encabezado: '31 December 2023 and 2022'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2023 and 2022'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: '31 December 2023 and 2022'; encabezado: '31 December 2023 and 2022'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2023 and 2022'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: identifica el ejercicio de la columna de la Historia; cierre fiscal en diciembre | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "columna: la fila localizada es una linea de cabecera con rótulo, no una fila de datos: los años de la cabecer",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "OK",
+        "columna": "NO_DECIDIBLE",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",

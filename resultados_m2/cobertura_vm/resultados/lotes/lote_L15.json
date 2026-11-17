@@ -9,8 +9,7 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 29,
-    "REVISADO_CONTEXTUAL": 1
+    "PENDIENTE_CONTEXTUAL": 30
   },
   "entradas": [
     {
@@ -409,15 +408,15 @@
       "id": "h_anios",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/AR_2019.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'Note 2019 2018'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: 'Note 2019 2018'; encabezado: 'Note 2019 2018'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Notes to the consolidated financial statements at 31 December 2019'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: año de la cabecera de la columna, sin transformación | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "columna: la fila localizada es una linea de cabecera con rótulo, no una fila de datos: los años de la cabecer",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "OK",
+        "columna": "NO_DECIDIBLE",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",

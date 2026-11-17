@@ -1,0 +1,55 @@
+{
+ "scripts": "scripts",
+ "sondas": [
+  {
+   "sonda": "W1_valor_no_numerico_en_fila_de_anios",
+   "descripcion": "Metadato moneda «EUR» con cita la propia línea de años: NO_APLICA (patrón real Palancas!C48 / Control maestro!H4).",
+   "esperado": [
+    "NO_APLICA"
+   ],
+   "obtenido": "NO_APLICA",
+   "detalle": "valor no numerico ('EUR'): metadato (moneda/norma/texto), la columna no es aplicable | cabecera: 'Share price 2025 2024' ['2025', '2024']",
+   "defecto": false
+  },
+  {
+   "sonda": "W2_fila_localizada_es_cabecera_con_rotulo",
+   "descripcion": "La fila localizada («Share price 2025 2024») es una línea de cabecera con rótulo: los años no se mapean como importes.",
+   "esperado": [
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "la fila localizada es una linea de cabecera con rótulo, no una fila de datos: los años de la cabecera no son importes a mapear | cabecera: 'Share price 2025 2024' ['2025', '2024']",
+   "defecto": false
+  },
+  {
+   "sonda": "W3_rotulo_con_fechas_no_iguala_anios_distintos",
+   "descripcion": "«At 31 December 2024» ya no equivale a «At 31 December 2023» (antes CONFLICTO falso «imprime 2023 en la columna 2024»).",
+   "esperado": [
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])",
+   "defecto": false
+  },
+  {
+   "sonda": "W4_cabecera_citada_no_es_fila",
+   "descripcion": "La cita es la propia línea de cabecera («Finance income 2024 2023»): una línea de cabecera no es fila de datos y no se usa como tal (patrón real aux:ing_fin_2017).",
+   "esperado": [
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])",
+   "defecto": false
+  },
+  {
+   "sonda": "W5_tabla_original_de_otro_ancho",
+   "descripcion": "El original tiene 4 columnas y el comparativo 2: el mapeo posicional entre tablas de distinto ancho no es válido (antes CONFLICTO falso; patrón real Vidrala Historia!I25).",
+   "esperado": [
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "la fila con rotulo completo aparece en CF_2024.txt (linea 4) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2023', '2022', '2021'], valores ['71.485', '72.538'])",
+   "defecto": false
+  }
+ ]
+}

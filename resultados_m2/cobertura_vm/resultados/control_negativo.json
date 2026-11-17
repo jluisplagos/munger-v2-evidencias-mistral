@@ -2,7 +2,7 @@
   "nota": "Controles negativos en memoria (sin tocar el registro ni el producto). El verificador mecanico solo acredita archivo/pagina/cita/numero/transformacion/libro; las mutaciones de metadatos contextuales pasan desapercibidas para el (como demostro SONDA_A_SEMANTICA.json) y deben atraparlas los chequeos contextuales.",
   "muestra": 54,
   "mutaciones": 219,
-  "detectadas_por_contextual": 140,
+  "detectadas_por_contextual": 138,
   "detectadas_por_mecanico": 40,
   "resumen_por_mutacion": {
     "bilateral: cabecera_miles_pero_escala_1|ctx=True|mec=False": 1,
@@ -20,8 +20,8 @@
     "bilateral: version_informe_correcto_en_pagina|ctx=True|mec=False": 1,
     "bilateral: version_informe_inexistente|ctx=True|mec=False": 1,
     "euros frente a miles (sonda del revisor)|ctx=True|mec=False": 1,
-    "partida de otra fila|ctx=False|mec=False": 7,
-    "partida de otra fila|ctx=True|mec=False": 33,
+    "partida de otra fila|ctx=False|mec=False": 8,
+    "partida de otra fila|ctx=True|mec=False": 32,
     "perimetro incorrecto|ctx=True|mec=False": 40,
     "periodo/columna equivocado|ctx=False|mec=False": 40,
     "reexpresion declarada como no aplica|ctx=False|mec=False": 2,
@@ -32,8 +32,8 @@
     "sonda: escala_erronea_con_cabecera|ctx=True|mec=False": 1,
     "sonda: euros_no_miles|ctx=True|mec=False": 1,
     "sonda: reexpresion_toma_otra_columna|ctx=True|mec=False": 1,
-    "unidad incorrecta|ctx=False|mec=False": 29,
-    "unidad incorrecta|ctx=True|mec=False": 5,
+    "unidad incorrecta|ctx=False|mec=False": 30,
+    "unidad incorrecta|ctx=True|mec=False": 4,
     "version/informe equivocado|ctx=True|mec=True": 40
   },
   "detalle": [
@@ -650,7 +650,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -661,29 +661,29 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
       "empresa": "Vidrala",
       "celda": "Configuración V6.4!B46",
       "mutacion": "unidad incorrecta",
-      "detectado_por_contextual": true,
+      "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
       "empresa": "Vidrala",
       "celda": "Configuración V6.4!B46",
       "mutacion": "partida de otra fila",
-      "detectado_por_contextual": true,
+      "detectado_por_contextual": false,
       "detectado_por_mecanico": false,
-      "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -694,7 +694,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1156,7 +1156,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1167,7 +1167,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1178,7 +1178,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1189,7 +1189,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1255,7 +1255,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1266,7 +1266,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1277,7 +1277,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1288,7 +1288,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1299,7 +1299,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1310,7 +1310,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1321,7 +1321,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1332,7 +1332,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1618,7 +1618,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1629,7 +1629,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1640,7 +1640,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1651,7 +1651,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual_base": "REVISADO_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1849,7 +1849,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1860,7 +1860,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1871,7 +1871,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -1882,7 +1882,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2168,7 +2168,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2179,7 +2179,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2190,7 +2190,7 @@
       "detectado_por_mecanico": false,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "COINCIDE_PROPUESTO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {
@@ -2201,7 +2201,7 @@
       "detectado_por_mecanico": true,
       "estado_contextual_mutado": "CONFLICTO_CONTEXTUAL",
       "estado_mecanico_mutado": "NO_ACREDITADO",
-      "estado_contextual_base": "REVISADO_CONTEXTUAL",
+      "estado_contextual_base": "PENDIENTE_CONTEXTUAL",
       "estado_mecanico_base": "COINCIDE_PROPUESTO"
     },
     {

@@ -13,8 +13,7 @@
   "estados_contextuales": {
     "PENDIENTE_CONTEXTUAL": 9,
     "NO_APLICA": 3,
-    "REVISADO_CONTEXTUAL": 17,
-    "CONFLICTO_CONTEXTUAL": 1
+    "REVISADO_CONTEXTUAL": 18
   },
   "entradas": [
     {
@@ -263,12 +262,12 @@
       "id": "h_ebit",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:bai_2017\"] - o[\"aux:ing_fin_2017\"] - o[\"aux:gto_fin_2017\"] -> 117.182 (valor_modelo 117.182, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual CONFLICTO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:bai_2017\"] - o[\"aux:ing_fin_2017\"] - o[\"aux:gto_fin_2017\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:bai_2017\"] - o[\"aux:ing_fin_2017\"] - o[\"aux:gto_fin_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. La cuenta de resultados de 2017 no imprime el subtotal de explotación: EBIT = BAI − ingresos financieros − gastos financieros = 109.762 − 1.964 + 9.384 = 117.182 mm.",
-      "limites_contextuales": "aux:ing_fin_2017: dimension reexpresion no decidible (declara no reexpresado (\"no\") pero el original CF_2017.txt imprime 2017 en la columna 2017 (fila 3461) y el comparativo )",
+      "limites_contextuales": "aux:ing_fin_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 153) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -284,9 +283,9 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "CONFLICTO_CONTEXTUAL",
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
-          "aux:ing_fin_2017: dimension reexpresion no decidible (declara no reexpresado (\"no\") pero el original CF_2017.txt imprime 2017 en la columna 2017 (fila 3461) y el comparativo )"
+          "aux:ing_fin_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 153) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)"
         ]
       }
     },
@@ -603,12 +602,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2019\"] + o[\"aux:lyb_c_2019\"] - o[\"Historia!F23\"] -> 362.021 (valor_modelo 362.021, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2019\"] + o[\"aux:lyb_c_2019\"] - o[\"Historia!F23\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2019\"] + o[\"aux:lyb_c_2019\"] - o[\"Historia!F23\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2019 = 231,906 + 131,787 − pasivo NIIF 16 1,672 = 362,021; el resto de «Finance Lease» (arrendamiento financiero de maquinaria) queda en deuda (regla de fase1_decisiones.json; nota 15, CF_2020 p.69).",
-      "limites_contextuales": "Historia!F23: dimension columna no decidible (fila con 3 valores no alineable 1:1 con 1 columnas ['2019']: sin mapeo posicional)",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -624,10 +623,8 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "PENDIENTE_CONTEXTUAL",
-        "limites_contextuales": [
-          "Historia!F23: dimension columna no decidible (fila con 3 valores no alineable 1:1 con 1 columnas ['2019']: sin mapeo posicional)"
-        ]
+        "estado_contextual": "REVISADO_CONTEXTUAL",
+        "limites_contextuales": []
       }
     },
     {

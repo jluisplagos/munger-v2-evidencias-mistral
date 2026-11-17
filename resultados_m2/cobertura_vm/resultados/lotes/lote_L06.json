@@ -9,9 +9,8 @@
     "COINCIDE_PROPUESTO": 30
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 11,
-    "REVISADO_CONTEXTUAL": 18,
-    "CONFLICTO_CONTEXTUAL": 1
+    "PENDIENTE_CONTEXTUAL": 12,
+    "REVISADO_CONTEXTUAL": 18
   },
   "entradas": [
     {
@@ -230,15 +229,15 @@
       "id": "h_arrend",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "estado_contextual": "REVISADO_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2019.txt [PDF PAGE 19] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'At December 31 2019 1,672'; encabezado: '(Thousand of Euros) 2019'; titulo pagina: 'Consolidated Balance Sheet: | (Thousand of Euros) 2019 | Assets | Right-of-use assets 1,672 | Total '; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
+      "evidencia_contextual": "fila leida: 'At December 31 2019 1,672'; encabezado: '(Thousand of Euros) 2019'; titulo pagina: 'Consolidated Balance Sheet: | (Thousand of Euros) 2019 | Assets | Right-of-use assets 1,672 | Total '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK",
       "limites": "tratamiento: miles → mm; signo +; = no corriente 924 + corriente 748 (misma página) | reexpresado: no (CF_2020 p.20 da 1,672 a 1-ene-2020) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila con 3 valores no alineable 1:1 con 1 columnas ['2019']: sin mapeo posicional",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "NO_DECIDIBLE",
+        "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
@@ -260,12 +259,12 @@
       "id": "h_pensiones",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2019.txt [PDF PAGE 70] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: 'At 31 December 2018 18,636 6,021 11,952 36,609'; encabezado: 'None'; titulo pagina: '19. Provisions | Movement in provisions in 2019 and 2018 is as follows | Thousands of Euros'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO",
+      "evidencia_contextual": "fila leida: 'At 31 December 2018 18,636 6,021 11,952 36,609'; encabezado: 'None'; titulo pagina: '19. Provisions | Movement in provisions in 2019 and 2018 is as follows | Thousands of Euros'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE",
       "limites": "tratamiento: miles → mm; signo +; el informe no separa el déficit neto NIAS 19 de otras obligaciones con empleados | reexpresado: no | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina | reexpresion: declara no reexpresado (\"no\") pero el original CF_2018.txt imprime 2016 en la columna 2018 (fila 221",
+      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina | reexpresion: la fila con rotulo completo aparece en CF_2018.txt (linea 3343) pero la columna 2018 no se puede map",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -273,7 +272,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "At 31 December 2018 18,636 6,021 11,952 36,609",
       "encabezado": null,
@@ -320,15 +319,15 @@
       "id": "h_anios",
       "clase": "dato_publicado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "texto/CF_2020.txt [PDF PAGE 8] sha256 conforme=True; cita localizada=True; valor localizado=True",
-      "evidencia_contextual": "fila leida: '31 December 2020 and 2019'; encabezado: '31 December 2020 and 2019'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2020 and 2019'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
+      "evidencia_contextual": "fila leida: '31 December 2020 and 2019'; encabezado: '31 December 2020 and 2019'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Balance Sheets | 31 December 2020 and 2019'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA",
       "limites": "tratamiento: identifica el ejercicio de la columna de la Historia; cierre fiscal en diciembre | reexpresado: no aplica | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "columna: la fila localizada es una linea de cabecera con rótulo, no una fila de datos: los años de la cabecer",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "OK",
+        "columna": "NO_DECIDIBLE",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",

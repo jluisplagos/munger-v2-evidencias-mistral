@@ -9,8 +9,7 @@
   "estados_contextuales": {
     "PENDIENTE_CONTEXTUAL": 51,
     "REUTILIZADO_M1": 14,
-    "CONFLICTO_CONTEXTUAL": 1,
-    "REVISADO_CONTEXTUAL": 35
+    "REVISADO_CONTEXTUAL": 36
   },
   "ciclos": [],
   "huecos": [],
@@ -261,9 +260,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!D7",
       "id": "h_ebit",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:ing_fin_2017: dimension reexpresion no decidible (declara no reexpresado (\"no\") pero el original CF_2017.txt imprime 2017 en la columna 2017 (fila 3461) y el comparativo )"
+        "aux:ing_fin_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 153) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
@@ -1395,10 +1394,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!F22",
       "id": "h_deuda",
-      "estado_contextual": "PENDIENTE_CONTEXTUAL",
-      "limites_contextuales": [
-        "Historia!F23: dimension columna no decidible (fila con 3 valores no alineable 1:1 con 1 columnas ['2019']: sin mapeo posicional)"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
