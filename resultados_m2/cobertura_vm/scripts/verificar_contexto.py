@@ -156,10 +156,15 @@ def value_like(tok):
         return False
 
 
+CONECTORES_CAB = ('and', 'the', 'of', 'in', 'at', 'for', 'con', 'por', 'del', 'las', 'los',
+                 'note', 'notes', 'notas')
+
+
 def es_linea_columnas(line):
-    """Linea de cabecera de columnas: tiene años y ningun importe; fuera de
-    parentesis no puede tener mas palabras alfabeticas (len>=3, salvo conectores)
-    que años (A3-R2: si no, es frase narrativa). A4-R3 la endurece a tabular."""
+    """A4-R3: linea de columnas TABULAR e inequivoca: todos sus numeros son años (o
+    refs de nota) y no tiene palabras alfabeticas salvo conectores y 'note/notes/notas'.
+    Un titulo («At 31 December 2017 and 2016») o una nota breve («* 2024 and 2025
+    figures restated») NO son cabecera: si no hay cabecera tabular, NO_DECIDIBLE."""
     ys = YEAR_RE.findall(line)
     if not ys:
         return False
@@ -168,8 +173,8 @@ def es_linea_columnas(line):
         return False
     sin_par = re.sub(r'\([^)]*\)', ' ', line)
     palabras = [w for w in re.findall(r'[A-Za-zÀ-ÿ]{3,}', sin_par)
-                if w.lower() not in ('and', 'the', 'of', 'in', 'at', 'for', 'con', 'por', 'del', 'las', 'los')]
-    return len(palabras) <= len(ys)
+                if w.lower() not in CONECTORES_CAB]
+    return not palabras
 
 
 MESES = r'january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec|enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre'
@@ -223,28 +228,38 @@ def find_row_line(page_lines, cita, valor):
 
 def find_header_block(page_lines, row_idx, modo='max'):
     """Bloque de encabezado: toda la pagina hasta la fila. modo='max': linea de columnas
-    con mas años (pagina citada). modo='near': linea de columnas MAS PROXIMA arriba de la
-    fila con >=2 años (texto original: evita confundir la cabecera del estado con tablas
-    de proyeccion de mas columnas que haya en la misma pagina)."""
+    tabular con mas años (pagina citada). modo='near': linea de columnas tabular MAS
+    PROXIMA arriba de la fila con >=2 años. A4-R3: solo valen lineas de columnas
+    tabulares (es_linea_columnas); la cabecera partida en lineas consecutivas se
+    fusiona (sus años, en orden) si aporta mas años que la linea elegida."""
     block = page_lines[:row_idx + 1] or page_lines
     years_in_block = []
     col_line = None
     col_years = []
-    def fusionar_cabecera_partida(candidatos, row_idx, col_years, col_line):
-        # A3-R2: cabecera partida en varias líneas (p. ej. '2025' / '2024' en líneas
-        # consecutivas justo arriba de la fila): sus años se fusionan en orden; si aportan
-        # más años que la línea elegida, la columna no es inequívoca tal cual
-        zona = [l for i, l in candidatos if row_idx - 3 <= i <= row_idx]
-        if not zona:
+    elegido = None
+
+    def fusionar_cabecera_partida(candidatos, col_years, col_line, elegido):
+        # A4-R3: cabecera partida en lineas de columnas CONSECUTIVAS (p. ej. '2025'/'2024'
+        # a cualquier distancia de la fila, no solo 3 lineas): si sus años fusionados
+        # superan a los de la linea elegida, la columna no es inequivoca tal cual
+        if elegido is None:
             return col_years, col_line
+        por_indice = dict(candidatos)
+        idx = set(por_indice)
+        cadena = []
+        j = elegido
+        while j in idx:
+            cadena.append(por_indice[j])
+            j -= 1
         zy = []
-        for l in zona:
+        for l in reversed(cadena):  # orden de documento: de arriba abajo
             for y in YEAR_RE.findall(l):
                 if y not in zy:
                     zy.append(y)
         if len(zy) > len(col_years):
-            return zy, zona[-1]
+            return zy, col_line
         return col_years, col_line
+
     if modo == 'near':
         for line in block:
             years_in_block.extend(YEAR_RE.findall(line))
@@ -254,11 +269,13 @@ def find_header_block(page_lines, row_idx, modo='max'):
             if len(YEAR_RE.findall(line)) >= 2:
                 col_years = YEAR_RE.findall(line)
                 col_line = line
+                elegido = i
                 break
         if col_line is None:
             for i, line in reversed(candidatos):
                 col_years = YEAR_RE.findall(line)
                 col_line = line
+                elegido = i
                 break
         if col_line is None:
             for line in page_lines[row_idx + 1:row_idx + 4]:
@@ -267,7 +284,7 @@ def find_header_block(page_lines, row_idx, modo='max'):
                     col_line = line
                     break
         else:
-            col_years, col_line = fusionar_cabecera_partida(candidatos, row_idx, col_years, col_line)
+            col_years, col_line = fusionar_cabecera_partida(candidatos, col_years, col_line, elegido)
         return years_in_block, col_line, col_years
     candidatos = []
     for i, line in enumerate(block):
@@ -281,8 +298,9 @@ def find_header_block(page_lines, row_idx, modo='max'):
                 if len(ys) >= len(col_years):
                     col_years = ys
                     col_line = line
+                    elegido = i
     if candidatos:
-        col_years, col_line = fusionar_cabecera_partida(candidatos, row_idx, col_years, col_line)
+        col_years, col_line = fusionar_cabecera_partida(candidatos, col_years, col_line, elegido)
     if col_line is None:
         for line in page_lines[row_idx + 1:row_idx + 4]:
             if es_linea_columnas(line):

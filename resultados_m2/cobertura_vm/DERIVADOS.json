@@ -7,9 +7,9 @@
     "COINCIDE_PROPUESTO": 101
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 51,
+    "PENDIENTE_CONTEXTUAL": 64,
     "REUTILIZADO_M1": 14,
-    "REVISADO_CONTEXTUAL": 36
+    "REVISADO_CONTEXTUAL": 23
   },
   "ciclos": [],
   "huecos": [],
@@ -1270,7 +1270,9 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:lyb_nc_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:lyb_nc_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:lyb_c_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:lyb_c_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
@@ -1312,8 +1314,13 @@
       "empresa": "Vidrala",
       "celda": "Historia!D22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:lyb_nc_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_nc_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 105) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)",
+        "aux:lyb_c_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_c_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 112) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1353,8 +1360,13 @@
       "empresa": "Vidrala",
       "celda": "Historia!E22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:lyb_nc_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_nc_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 103) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)",
+        "aux:lyb_c_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_c_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 110) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1394,8 +1406,13 @@
       "empresa": "Vidrala",
       "celda": "Historia!F22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:lyb_nc_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_nc_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 102) pero la columna 2019 no se puede mapear 1:1 (columnas ['2)",
+        "aux:lyb_c_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_c_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 109) pero la columna 2019 no se puede mapear 1:1 (columnas ['2)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1446,6 +1463,10 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:lyb_nc_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_nc_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 104) pero la columna 2020 no se puede mapear 1:1 (columnas ['2)",
+        "aux:lyb_c_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_c_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 111) pero la columna 2020 no se puede mapear 1:1 (columnas ['2)",
         "Historia!G23: dimension fila no decidible (fila de continuacion sin etiqueta propia; contexto leido: ['contract', 'contracts', 'diciembre', 'disposal', 'disposals')",
         "Historia!G23: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "Historia!G23: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2019 (['CF_2019.txt']))"
@@ -1498,8 +1519,13 @@
       "empresa": "Vidrala",
       "celda": "Historia!H22",
       "id": "h_deuda",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:lyb_nc_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_nc_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 92) pero la columna 2021 no se puede mapear 1:1 (columnas ['20)",
+        "aux:lyb_c_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_c_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 99) pero la columna 2021 no se puede mapear 1:1 (columnas ['20)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_deuda). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1541,6 +1567,10 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:lyb_nc_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_nc_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 92) pero la columna 2022 no se puede mapear 1:1 (columnas ['20)",
+        "aux:lyb_c_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_c_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 99) pero la columna 2022 no se puede mapear 1:1 (columnas ['20)",
         "Historia!I23: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional)",
         "Historia!I23: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2022 (['CF_2022.txt']))"
       ],
@@ -1594,6 +1624,10 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:lyb_nc_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_nc_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 91) pero la columna 2023 no se puede mapear 1:1 (columnas ['20)",
+        "aux:lyb_c_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_c_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 97) pero la columna 2023 no se puede mapear 1:1 (columnas ['20)",
         "Historia!J23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional)"
       ],
       "coherencia_unidades_origenes": true,
@@ -1646,6 +1680,10 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:lyb_nc_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_nc_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 95) pero la columna 2024 no se puede mapear 1:1 (columnas ['20)",
+        "aux:lyb_c_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_c_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 101) pero la columna 2024 no se puede mapear 1:1 (columnas ['2)",
         "Historia!K23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)"
       ],
       "coherencia_unidades_origenes": true,
@@ -1698,6 +1736,8 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:lyb_nc_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:lyb_c_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "Historia!L23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)"
       ],
       "coherencia_unidades_origenes": true,
@@ -1750,8 +1790,11 @@
       "id": "h_minoritarios",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:pn_y_pasivo_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:pn_y_pasivo_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "aux:pasivo_total_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:pasivo_total_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+        "Historia!C21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "Historia!C21: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
@@ -1802,8 +1845,15 @@
       "empresa": "Vidrala",
       "celda": "Historia!D26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pn_y_pasivo_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 120) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)",
+        "aux:pasivo_total_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pasivo_total_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 119) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)",
+        "Historia!D21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "Historia!D21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 100) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1852,8 +1902,15 @@
       "empresa": "Vidrala",
       "celda": "Historia!E26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pn_y_pasivo_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 118) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)",
+        "aux:pasivo_total_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pasivo_total_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 117) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)",
+        "Historia!E21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "Historia!E21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 98) pero la columna 2018 no se puede mapear 1:1 (columnas ['20)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1902,8 +1959,15 @@
       "empresa": "Vidrala",
       "celda": "Historia!F26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pn_y_pasivo_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 117) pero la columna 2019 no se puede mapear 1:1 (columnas ['2)",
+        "aux:pasivo_total_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pasivo_total_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 116) pero la columna 2019 no se puede mapear 1:1 (columnas ['2)",
+        "Historia!F21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "Historia!F21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 97) pero la columna 2019 no se puede mapear 1:1 (columnas ['20)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1952,8 +2016,15 @@
       "empresa": "Vidrala",
       "celda": "Historia!G26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pn_y_pasivo_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 119) pero la columna 2020 no se puede mapear 1:1 (columnas ['2)",
+        "aux:pasivo_total_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pasivo_total_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 118) pero la columna 2020 no se puede mapear 1:1 (columnas ['2)",
+        "Historia!G21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "Historia!G21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 99) pero la columna 2020 no se puede mapear 1:1 (columnas ['20)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2002,8 +2073,15 @@
       "empresa": "Vidrala",
       "celda": "Historia!H26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pn_y_pasivo_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 107) pero la columna 2021 no se puede mapear 1:1 (columnas ['2)",
+        "aux:pasivo_total_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pasivo_total_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 106) pero la columna 2021 no se puede mapear 1:1 (columnas ['2)",
+        "Historia!H21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "Historia!H21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 87) pero la columna 2021 no se puede mapear 1:1 (columnas ['20)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2052,8 +2130,15 @@
       "empresa": "Vidrala",
       "celda": "Historia!I26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pn_y_pasivo_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 107) pero la columna 2022 no se puede mapear 1:1 (columnas ['2)",
+        "aux:pasivo_total_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pasivo_total_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 106) pero la columna 2022 no se puede mapear 1:1 (columnas ['2)",
+        "Historia!I21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "Historia!I21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 87) pero la columna 2022 no se puede mapear 1:1 (columnas ['20)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2102,8 +2187,15 @@
       "empresa": "Vidrala",
       "celda": "Historia!J26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pn_y_pasivo_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 105) pero la columna 2023 no se puede mapear 1:1 (columnas ['2)",
+        "aux:pasivo_total_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pasivo_total_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 104) pero la columna 2023 no se puede mapear 1:1 (columnas ['2)",
+        "Historia!J21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "Historia!J21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 86) pero la columna 2023 no se puede mapear 1:1 (columnas ['20)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2152,8 +2244,15 @@
       "empresa": "Vidrala",
       "celda": "Historia!K26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pn_y_pasivo_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 109) pero la columna 2024 no se puede mapear 1:1 (columnas ['2)",
+        "aux:pasivo_total_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pasivo_total_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 108) pero la columna 2024 no se puede mapear 1:1 (columnas ['2)",
+        "Historia!K21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "Historia!K21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 90) pero la columna 2024 no se puede mapear 1:1 (columnas ['20)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2202,8 +2301,12 @@
       "empresa": "Vidrala",
       "celda": "Historia!L26",
       "id": "h_minoritarios",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
-      "limites_contextuales": [],
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
+      "limites_contextuales": [
+        "aux:pn_y_pasivo_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:pasivo_total_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "Historia!L21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)"
+      ],
       "coherencia_unidades_origenes": true,
       "significado": "stock a cierre; motores B: B (cadena_trazabilidad, D-h_minoritarios). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2642,18 +2745,18 @@
       "id": "N2.margen",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:italia_ingresos_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
-        "aux:italia_bai_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
-        "aux:italia_gto_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
-        "aux:italia_ing_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional)",
+        "aux:italia_ingresos_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 1 columnas ['2020']: sin mapeo posicional)",
+        "aux:italia_bai_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 1 columnas ['2020']: sin mapeo posicional)",
+        "aux:italia_gto_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 1 columnas ['2020']: sin mapeo posicional)",
+        "aux:italia_ing_fin_2020: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 1 columnas ['2020']: sin mapeo posicional)",
         "Historia!G6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
-        "aux:italia_ingresos_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
-        "aux:italia_bai_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
-        "aux:italia_gto_fin_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional)",
+        "aux:italia_ingresos_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 1 columnas ['2021']: sin mapeo posicional)",
+        "aux:italia_bai_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 1 columnas ['2021']: sin mapeo posicional)",
+        "aux:italia_gto_fin_2021: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 1 columnas ['2021']: sin mapeo posicional)",
         "Historia!H6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
-        "aux:italia_ingresos_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
-        "aux:italia_bai_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
-        "aux:italia_gto_fin_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional)",
+        "aux:italia_ingresos_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 1 columnas ['2022']: sin mapeo posicional)",
+        "aux:italia_bai_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 1 columnas ['2022']: sin mapeo posicional)",
+        "aux:italia_gto_fin_2022: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 1 columnas ['2022']: sin mapeo posicional)",
         "Historia!I6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional)",
         "Historia!J6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional)",
         "Historia!K6: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
@@ -3278,7 +3381,9 @@
       "id": "h_da",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:IA2018_p28_amort_intangible_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:IA2018_p28_amort_intangible_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
+        "aux:IA2018_p28_amort_material_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:IA2018_p28_amort_material_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )"
       ],
       "coherencia_unidades_origenes": true,
@@ -3410,7 +3515,9 @@
       "id": "h_tipo",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:IA2018_p24_impuesto_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:IA2018_p24_impuesto_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
+        "aux:IA2018_p24_bai_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:IA2018_p24_bai_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )"
       ],
       "coherencia_unidades_origenes": true,

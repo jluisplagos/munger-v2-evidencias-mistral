@@ -1,0 +1,57 @@
+{
+ "scripts": "scripts",
+ "sondas": [
+  {
+   "sonda": "X1_nota_con_anios_entre_cabecera_y_fila",
+   "descripcion": "Nota con años entre la cabecera real y la fila: no gana; 10.000 es 2026 y se declara 2025 (antes OK falso por proximidad).",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "CONFLICTO",
+   "detalle": "posicion 0 -> columna 2026, pero declarado ['2025'] (linea de columnas ['2026', '2025']) | cabecera: 'Notes 2026 2025' ['2026', '2025']",
+   "defecto": false
+  },
+  {
+   "sonda": "X2_cabecera_partida_conectada_lejos",
+   "descripcion": "Cabecera partida «2026»/«2025» a 3+ líneas de la fila: se fusiona en orden [2026, 2025]; 1 valor no alinea 1:1 con 2 columnas -> ND (antes OK falso con cabecera de 1 columna).",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "fila con 1 valores no alineable 1:1 con 2 columnas ['2026', '2025']: sin mapeo posicional | cabecera: '2025' ['2026', '2025']",
+   "defecto": false
+  },
+  {
+   "sonda": "X3_titulo_de_estado_no_es_cabecera",
+   "descripcion": "El título «…at 31 December 2026 and 2025» tiene palabras (december): no es línea de columnas tabular -> ND (antes se acreditaba por el título).",
+   "esperado": [
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "sin linea de columnas de encabezado identificable en la pagina | cabecera: None []",
+   "defecto": false
+  },
+  {
+   "sonda": "X4_control_cabecera_tabular_pura",
+   "descripcion": "Control positivo: cabecera tabular pura «2026 2025»; 9.000 en posición 1 -> 2025 -> OK.",
+   "esperado": [
+    "OK"
+   ],
+   "obtenido": "OK",
+   "detalle": "posicion 1 de 2 valores -> columna 2025 (linea de columnas ['2026', '2025']); declarado ['2025'] | cabecera: '2026 2025' ['2026', '2025']",
+   "defecto": false
+  },
+  {
+   "sonda": "X5_cabecera_con_note_vale",
+   "descripcion": "«Note 2026 2025» es tabular (note permitido): 9.000 -> 2025 -> OK.",
+   "esperado": [
+    "OK"
+   ],
+   "obtenido": "OK",
+   "detalle": "posicion 1 de 2 valores -> columna 2025 (linea de columnas ['2026', '2025']); declarado ['2025'] | cabecera: 'Note 2026 2025' ['2026', '2025']",
+   "defecto": false
+  }
+ ]
+}

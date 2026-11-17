@@ -27,7 +27,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:IA2018_p24_impuesto_2017\"] / o[\"aux:IA2018_p24_bai_2017\"] -> 0.1605564231512758243497045206 (valor_modelo 0.1606, diff -0.0000435768487241756502954794)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:IA2018_p24_impuesto_2017\"] / o[\"aux:IA2018_p24_bai_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Tipo impositivo efectivo 2017 = gasto por impuesto sobre las ganancias ÷ resultado antes de impuestos (los dos del mismo estado, consolidado, actividades continuadas); el libro lo guarda redondeado a 4 decimales. Resultado de la fórmula con los orígenes registrados: 0.160556; valor del libro: 0.1606.",
-      "limites_contextuales": "aux:IA2018_p24_impuesto_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion ) | aux:IA2018_p24_bai_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
+      "limites_contextuales": "aux:IA2018_p24_impuesto_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:IA2018_p24_impuesto_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion ) | aux:IA2018_p24_bai_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:IA2018_p24_bai_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -45,7 +45,9 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
+          "aux:IA2018_p24_impuesto_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "aux:IA2018_p24_impuesto_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
+          "aux:IA2018_p24_bai_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "aux:IA2018_p24_bai_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )"
         ]
       }
@@ -123,7 +125,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:IA2018_p28_amort_intangible_2017\"] + o[\"aux:IA2018_p28_amort_material_2017\"] -> 56.382 (valor_modelo 56.382, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:IA2018_p28_amort_intangible_2017\"] + o[\"aux:IA2018_p28_amort_material_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. D&A 2017 = amortización del intangible + del material (estado de flujos, IA_2018 p. 28): 3.488 + 52.894 = 56.382 miles. Resultado de la fórmula con los orígenes registrados: 56.382000; valor del libro: 56.382.",
-      "limites_contextuales": "aux:IA2018_p28_amort_intangible_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion ) | aux:IA2018_p28_amort_material_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
+      "limites_contextuales": "aux:IA2018_p28_amort_intangible_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:IA2018_p28_amort_intangible_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion ) | aux:IA2018_p28_amort_material_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:IA2018_p28_amort_material_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -141,7 +143,9 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
+          "aux:IA2018_p28_amort_intangible_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "aux:IA2018_p28_amort_intangible_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
+          "aux:IA2018_p28_amort_material_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "aux:IA2018_p28_amort_material_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )"
         ]
       }

@@ -12,8 +12,8 @@
   },
   "estados_contextuales": {
     "NO_APLICA": 13,
-    "REVISADO_CONTEXTUAL": 11,
-    "PENDIENTE_CONTEXTUAL": 6
+    "PENDIENTE_CONTEXTUAL": 11,
+    "REVISADO_CONTEXTUAL": 6
   },
   "entradas": [
     {
@@ -44,12 +44,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2021\"] - o[\"aux:pasivo_total_2021\"] - o[\"Historia!H21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2021\"] - o[\"aux:pasivo_total_2021\"] - o[\"Historia!H21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2021\"] - o[\"aux:pasivo_total_2021\"] - o[\"Historia!H21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,703,246 − pasivo total 736,344 − patrimonio atribuido a la dominante 966,902 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:pn_y_pasivo_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pn_y_pasivo_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 107) pero la columna 2021 no se puede mapear 1:1 (columnas ['2) | aux:pasivo_total_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pasivo_total_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 106) pero la columna 2021 no se puede mapear 1:1 (columnas ['2) | Historia!H21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!H21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 87) pero la columna 2021 no se puede mapear 1:1 (columnas ['20)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -65,8 +65,15 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:pn_y_pasivo_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pn_y_pasivo_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 107) pero la columna 2021 no se puede mapear 1:1 (columnas ['2)",
+          "aux:pasivo_total_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pasivo_total_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 106) pero la columna 2021 no se puede mapear 1:1 (columnas ['2)",
+          "Historia!H21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "Historia!H21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 87) pero la columna 2021 no se puede mapear 1:1 (columnas ['20)"
+        ]
       }
     },
     {
@@ -178,7 +185,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2022\"] + o[\"aux:lyb_c_2022\"] - o[\"Historia!I23\"] -> 321.207 (valor_modelo 321.207, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2022\"] + o[\"aux:lyb_c_2022\"] - o[\"Historia!I23\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2022 = 273,464 + 50,089 − «Finance Lease - NIIF 16» 2,346 = 321,207; «Finance Lease - Others» (60,018 + 274, sale & leaseback) queda en deuda (nota 16, CF_2023 p.65).",
-      "limites_contextuales": "Historia!I23: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional) | Historia!I23: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2022 (['CF_2022.txt']))",
+      "limites_contextuales": "aux:lyb_nc_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_nc_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 92) pero la columna 2022 no se puede mapear 1:1 (columnas ['20) | aux:lyb_c_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_c_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 99) pero la columna 2022 no se puede mapear 1:1 (columnas ['20) | Historia!I23: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional) | Historia!I23: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2022 (['CF_2022.txt']))",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -196,6 +203,10 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
+          "aux:lyb_nc_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_nc_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 92) pero la columna 2022 no se puede mapear 1:1 (columnas ['20)",
+          "aux:lyb_c_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_c_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 99) pero la columna 2022 no se puede mapear 1:1 (columnas ['20)",
           "Historia!I23: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional)",
           "Historia!I23: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2022 (['CF_2022.txt']))"
         ]
@@ -207,12 +218,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2022\"] - o[\"aux:pasivo_total_2022\"] - o[\"Historia!I21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2022\"] - o[\"aux:pasivo_total_2022\"] - o[\"Historia!I21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2022\"] - o[\"aux:pasivo_total_2022\"] - o[\"Historia!I21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,953,527 − pasivo total 919,903 − patrimonio atribuido a la dominante 1,033,624 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:pn_y_pasivo_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pn_y_pasivo_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 107) pero la columna 2022 no se puede mapear 1:1 (columnas ['2) | aux:pasivo_total_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pasivo_total_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 106) pero la columna 2022 no se puede mapear 1:1 (columnas ['2) | Historia!I21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!I21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 87) pero la columna 2022 no se puede mapear 1:1 (columnas ['20)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -228,8 +239,15 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:pn_y_pasivo_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pn_y_pasivo_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 107) pero la columna 2022 no se puede mapear 1:1 (columnas ['2)",
+          "aux:pasivo_total_2022: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pasivo_total_2022: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 106) pero la columna 2022 no se puede mapear 1:1 (columnas ['2)",
+          "Historia!I21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "Historia!I21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2022.txt (linea 87) pero la columna 2022 no se puede mapear 1:1 (columnas ['20)"
+        ]
       }
     },
     {
@@ -274,7 +292,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2023\"] + o[\"aux:lyb_c_2023\"] - o[\"Historia!J23\"] -> 553.666 (valor_modelo 553.666, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2023\"] + o[\"aux:lyb_c_2023\"] - o[\"Historia!J23\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2023 = 414,277 + 184,771 − NIIF 16 45,382 = 553,666; incluye «Finance Lease - Others» 60,857 + 278 (nota 16, CF_2024 p.71).",
-      "limites_contextuales": "Historia!J23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional)",
+      "limites_contextuales": "aux:lyb_nc_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_nc_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 91) pero la columna 2023 no se puede mapear 1:1 (columnas ['20) | aux:lyb_c_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_c_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 97) pero la columna 2023 no se puede mapear 1:1 (columnas ['20) | Historia!J23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -292,6 +310,10 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
+          "aux:lyb_nc_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_nc_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 91) pero la columna 2023 no se puede mapear 1:1 (columnas ['20)",
+          "aux:lyb_c_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_c_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 97) pero la columna 2023 no se puede mapear 1:1 (columnas ['20)",
           "Historia!J23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional)"
         ]
       }
@@ -302,12 +324,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2023\"] - o[\"aux:pasivo_total_2023\"] - o[\"Historia!J21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2023\"] - o[\"aux:pasivo_total_2023\"] - o[\"Historia!J21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2023\"] - o[\"aux:pasivo_total_2023\"] - o[\"Historia!J21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 2,508,927 − pasivo total 1,284,595 − patrimonio atribuido a la dominante 1,224,332 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:pn_y_pasivo_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pn_y_pasivo_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 105) pero la columna 2023 no se puede mapear 1:1 (columnas ['2) | aux:pasivo_total_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pasivo_total_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 104) pero la columna 2023 no se puede mapear 1:1 (columnas ['2) | Historia!J21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!J21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 86) pero la columna 2023 no se puede mapear 1:1 (columnas ['20)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -323,8 +345,15 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:pn_y_pasivo_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pn_y_pasivo_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 105) pero la columna 2023 no se puede mapear 1:1 (columnas ['2)",
+          "aux:pasivo_total_2023: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pasivo_total_2023: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 104) pero la columna 2023 no se puede mapear 1:1 (columnas ['2)",
+          "Historia!J21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "Historia!J21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2023.txt (linea 86) pero la columna 2023 no se puede mapear 1:1 (columnas ['20)"
+        ]
       }
     },
     {
@@ -404,7 +433,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2024\"] + o[\"aux:lyb_c_2024\"] - o[\"Historia!K23\"] -> 348.408 (valor_modelo 348.408, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2024\"] + o[\"aux:lyb_c_2024\"] - o[\"Historia!K23\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2024 = 300,624 + 92,688 − NIIF 16 44,904 = 348,408; incluye «Finance Lease - Others» 60,365 (nota 16, CF_2025 p.66).",
-      "limites_contextuales": "Historia!K23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
+      "limites_contextuales": "aux:lyb_nc_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_nc_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 95) pero la columna 2024 no se puede mapear 1:1 (columnas ['20) | aux:lyb_c_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_c_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 101) pero la columna 2024 no se puede mapear 1:1 (columnas ['2) | Historia!K23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -422,6 +451,10 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
+          "aux:lyb_nc_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_nc_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 95) pero la columna 2024 no se puede mapear 1:1 (columnas ['20)",
+          "aux:lyb_c_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_c_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 101) pero la columna 2024 no se puede mapear 1:1 (columnas ['2)",
           "Historia!K23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)"
         ]
       }
@@ -432,12 +465,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2024\"] - o[\"aux:pasivo_total_2024\"] - o[\"Historia!K21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2024\"] - o[\"aux:pasivo_total_2024\"] - o[\"Historia!K21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2024\"] - o[\"aux:pasivo_total_2024\"] - o[\"Historia!K21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 2,308,172 − pasivo total 998,342 − patrimonio atribuido a la dominante 1,309,830 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:pn_y_pasivo_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pn_y_pasivo_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 109) pero la columna 2024 no se puede mapear 1:1 (columnas ['2) | aux:pasivo_total_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pasivo_total_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 108) pero la columna 2024 no se puede mapear 1:1 (columnas ['2) | Historia!K21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!K21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 90) pero la columna 2024 no se puede mapear 1:1 (columnas ['20)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -453,8 +486,15 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:pn_y_pasivo_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pn_y_pasivo_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 109) pero la columna 2024 no se puede mapear 1:1 (columnas ['2)",
+          "aux:pasivo_total_2024: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pasivo_total_2024: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 108) pero la columna 2024 no se puede mapear 1:1 (columnas ['2)",
+          "Historia!K21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "Historia!K21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2024.txt (linea 90) pero la columna 2024 no se puede mapear 1:1 (columnas ['20)"
+        ]
       }
     },
     {
@@ -530,7 +570,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2025\"] + o[\"aux:lyb_c_2025\"] - o[\"Historia!L23\"] -> 213.613 (valor_modelo 213.613, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2025\"] + o[\"aux:lyb_c_2025\"] - o[\"Historia!L23\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2025 = 196,080 + 66,833 − NIIF 16 49,300 = 213,613; incluye «Finance Lease - Others» 59,986 + 378 y pagarés MARF 37 mm en otros pasivos financieros (nota 16, CF_2025 p.66).",
-      "limites_contextuales": "Historia!L23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
+      "limites_contextuales": "aux:lyb_nc_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_c_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!L23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -548,6 +588,8 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
+          "aux:lyb_nc_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_c_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "Historia!L23: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)"
         ]
       }
@@ -558,12 +600,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2025\"] - o[\"aux:pasivo_total_2025\"] - o[\"Historia!L21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2025\"] - o[\"aux:pasivo_total_2025\"] - o[\"Historia!L21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2025\"] - o[\"aux:pasivo_total_2025\"] - o[\"Historia!L21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 2,314,232 − pasivo total 901,354 − patrimonio atribuido a la dominante 1,412,878 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:pn_y_pasivo_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pasivo_total_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!L21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -579,8 +621,12 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:pn_y_pasivo_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pasivo_total_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "Historia!L21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)"
+        ]
       }
     },
     {

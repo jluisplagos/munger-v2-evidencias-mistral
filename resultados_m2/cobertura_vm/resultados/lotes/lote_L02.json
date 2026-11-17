@@ -11,9 +11,9 @@
     "NO_APLICABLE": 2
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 9,
+    "PENDIENTE_CONTEXTUAL": 17,
     "NO_APLICA": 3,
-    "REVISADO_CONTEXTUAL": 18
+    "REVISADO_CONTEXTUAL": 10
   },
   "entradas": [
     {
@@ -27,7 +27,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2016\"] - o[\"aux:pasivo_total_2016\"] - o[\"Historia!C21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2016\"] - o[\"aux:pasivo_total_2016\"] - o[\"Historia!C21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,096,243 − pasivo total 621,309 − patrimonio atribuido a la dominante 474,934 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "aux:pn_y_pasivo_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | aux:pasivo_total_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | Historia!C21: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+      "limites_contextuales": "aux:pn_y_pasivo_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pn_y_pasivo_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | aux:pasivo_total_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pasivo_total_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016)) | Historia!C21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!C21: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -45,8 +45,11 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
+          "aux:pn_y_pasivo_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "aux:pn_y_pasivo_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+          "aux:pasivo_total_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "aux:pasivo_total_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
+          "Historia!C21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "Historia!C21: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
         ]
       }
@@ -178,12 +181,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2017\"] + o[\"aux:lyb_c_2017\"] -> 529.338 (valor_modelo 529.338, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2017\"] + o[\"aux:lyb_c_2017\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2017\"] + o[\"aux:lyb_c_2017\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2017 = 487,819 + 41,519 (balance; antes de NIIF 16). La nota 15 de CF_2018 p.57 desglosa préstamos, otros pasivos financieros e intereses devengados.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:lyb_nc_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_nc_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 105) pero la columna 2017 no se puede mapear 1:1 (columnas ['2) | aux:lyb_c_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_c_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 112) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -199,8 +202,13 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:lyb_nc_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_nc_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 105) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)",
+          "aux:lyb_c_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_c_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 112) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)"
+        ]
       }
     },
     {
@@ -231,12 +239,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2017\"] - o[\"aux:pasivo_total_2017\"] - o[\"Historia!D21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2017\"] - o[\"aux:pasivo_total_2017\"] - o[\"Historia!D21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2017\"] - o[\"aux:pasivo_total_2017\"] - o[\"Historia!D21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,404,899 − pasivo total 876,763 − patrimonio atribuido a la dominante 528,136 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:pn_y_pasivo_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pn_y_pasivo_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 120) pero la columna 2017 no se puede mapear 1:1 (columnas ['2) | aux:pasivo_total_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pasivo_total_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 119) pero la columna 2017 no se puede mapear 1:1 (columnas ['2) | Historia!D21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!D21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 100) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -252,8 +260,15 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:pn_y_pasivo_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pn_y_pasivo_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 120) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)",
+          "aux:pasivo_total_2017: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pasivo_total_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 119) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)",
+          "Historia!D21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "Historia!D21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 100) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)"
+        ]
       }
     },
     {
@@ -394,12 +409,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2018\"] + o[\"aux:lyb_c_2018\"] -> 433.767 (valor_modelo 433.767, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2018\"] + o[\"aux:lyb_c_2018\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2018\"] + o[\"aux:lyb_c_2018\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2018 = 394,887 + 38,880 = 433,767 (balance; antes de NIIF 16). Incluye el arrendamiento financiero de maquinaria de dic-2018 (40,916, CF_2019 p.59), que la regla de fase1_decisiones.json lleva a deuda.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:lyb_nc_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_nc_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 103) pero la columna 2018 no se puede mapear 1:1 (columnas ['2) | aux:lyb_c_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_c_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 110) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -415,8 +430,13 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:lyb_nc_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_nc_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 103) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)",
+          "aux:lyb_c_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_c_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 110) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)"
+        ]
       }
     },
     {
@@ -447,12 +467,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2018\"] - o[\"aux:pasivo_total_2018\"] - o[\"Historia!E21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2018\"] - o[\"aux:pasivo_total_2018\"] - o[\"Historia!E21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2018\"] - o[\"aux:pasivo_total_2018\"] - o[\"Historia!E21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,407,335 − pasivo total 797,337 − patrimonio atribuido a la dominante 609,998 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:pn_y_pasivo_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pn_y_pasivo_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 118) pero la columna 2018 no se puede mapear 1:1 (columnas ['2) | aux:pasivo_total_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pasivo_total_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 117) pero la columna 2018 no se puede mapear 1:1 (columnas ['2) | Historia!E21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!E21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 98) pero la columna 2018 no se puede mapear 1:1 (columnas ['20)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -468,8 +488,15 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:pn_y_pasivo_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pn_y_pasivo_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 118) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)",
+          "aux:pasivo_total_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pasivo_total_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 117) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)",
+          "Historia!E21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "Historia!E21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 98) pero la columna 2018 no se puede mapear 1:1 (columnas ['20)"
+        ]
       }
     },
     {
@@ -602,12 +629,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2019\"] + o[\"aux:lyb_c_2019\"] - o[\"Historia!F23\"] -> 362.021 (valor_modelo 362.021, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2019\"] + o[\"aux:lyb_c_2019\"] - o[\"Historia!F23\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2019\"] + o[\"aux:lyb_c_2019\"] - o[\"Historia!F23\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2019 = 231,906 + 131,787 − pasivo NIIF 16 1,672 = 362,021; el resto de «Finance Lease» (arrendamiento financiero de maquinaria) queda en deuda (regla de fase1_decisiones.json; nota 15, CF_2020 p.69).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:lyb_nc_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_nc_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 102) pero la columna 2019 no se puede mapear 1:1 (columnas ['2) | aux:lyb_c_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_c_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 109) pero la columna 2019 no se puede mapear 1:1 (columnas ['2)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -623,8 +650,13 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:lyb_nc_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_nc_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 102) pero la columna 2019 no se puede mapear 1:1 (columnas ['2)",
+          "aux:lyb_c_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_c_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 109) pero la columna 2019 no se puede mapear 1:1 (columnas ['2)"
+        ]
       }
     },
     {
@@ -633,12 +665,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2019\"] - o[\"aux:pasivo_total_2019\"] - o[\"Historia!F21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2019\"] - o[\"aux:pasivo_total_2019\"] - o[\"Historia!F21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2019\"] - o[\"aux:pasivo_total_2019\"] - o[\"Historia!F21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,457,861 − pasivo total 734,502 − patrimonio atribuido a la dominante 723,359 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:pn_y_pasivo_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pn_y_pasivo_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 117) pero la columna 2019 no se puede mapear 1:1 (columnas ['2) | aux:pasivo_total_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pasivo_total_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 116) pero la columna 2019 no se puede mapear 1:1 (columnas ['2) | Historia!F21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!F21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 97) pero la columna 2019 no se puede mapear 1:1 (columnas ['20)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -654,8 +686,15 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:pn_y_pasivo_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pn_y_pasivo_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 117) pero la columna 2019 no se puede mapear 1:1 (columnas ['2)",
+          "aux:pasivo_total_2019: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pasivo_total_2019: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 116) pero la columna 2019 no se puede mapear 1:1 (columnas ['2)",
+          "Historia!F21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "Historia!F21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2019.txt (linea 97) pero la columna 2019 no se puede mapear 1:1 (columnas ['20)"
+        ]
       }
     },
     {
@@ -762,7 +801,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2020\"] + o[\"aux:lyb_c_2020\"] - o[\"Historia!G23\"] -> 344.357 (valor_modelo 344.357, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2020\"] + o[\"aux:lyb_c_2020\"] - o[\"Historia!G23\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2020 = 185,518 + 160,142 − pasivo NIIF 16 1,303 = 344,357 (nota 15, CF_2021 p.58).",
-      "limites_contextuales": "Historia!G23: dimension fila no decidible (fila de continuacion sin etiqueta propia; contexto leido: ['contract', 'contracts', 'diciembre', 'disposal', 'disposals') | Historia!G23: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!G23: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2019 (['CF_2019.txt']))",
+      "limites_contextuales": "aux:lyb_nc_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_nc_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 104) pero la columna 2020 no se puede mapear 1:1 (columnas ['2) | aux:lyb_c_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_c_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 111) pero la columna 2020 no se puede mapear 1:1 (columnas ['2) | Historia!G23: dimension fila no decidible (fila de continuacion sin etiqueta propia; contexto leido: ['contract', 'contracts', 'diciembre', 'disposal', 'disposals') | Historia!G23: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!G23: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2019 (['CF_2019.txt']))",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -780,6 +819,10 @@
         "reutilizado_piloto": false,
         "estado_contextual": "PENDIENTE_CONTEXTUAL",
         "limites_contextuales": [
+          "aux:lyb_nc_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_nc_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 104) pero la columna 2020 no se puede mapear 1:1 (columnas ['2)",
+          "aux:lyb_c_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_c_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 111) pero la columna 2020 no se puede mapear 1:1 (columnas ['2)",
           "Historia!G23: dimension fila no decidible (fila de continuacion sin etiqueta propia; contexto leido: ['contract', 'contracts', 'diciembre', 'disposal', 'disposals')",
           "Historia!G23: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "Historia!G23: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2019 (['CF_2019.txt']))"
@@ -792,12 +835,12 @@
       "id": "h_minoritarios",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:pn_y_pasivo_2020\"] - o[\"aux:pasivo_total_2020\"] - o[\"Historia!G21\"] -> 0.000 (valor_modelo 0, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2020\"] - o[\"aux:pasivo_total_2020\"] - o[\"Historia!G21\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:pn_y_pasivo_2020\"] - o[\"aux:pasivo_total_2020\"] - o[\"Historia!G21\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Cero por conciliación: total patrimonio neto y pasivo 1,521,447 − pasivo total 705,291 − patrimonio atribuido a la dominante 816,156 = 0 (miles); el balance no tiene línea de participaciones no dominantes y el beneficio del ejercicio es todo atribuible a la dominante (cuenta de resultados). Era un cero PENDIENTE DE VERIFICACIÓN (H1).",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:pn_y_pasivo_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pn_y_pasivo_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 119) pero la columna 2020 no se puede mapear 1:1 (columnas ['2) | aux:pasivo_total_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:pasivo_total_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 118) pero la columna 2020 no se puede mapear 1:1 (columnas ['2) | Historia!G21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | Historia!G21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 99) pero la columna 2020 no se puede mapear 1:1 (columnas ['20)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -813,8 +856,15 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:pn_y_pasivo_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pn_y_pasivo_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 119) pero la columna 2020 no se puede mapear 1:1 (columnas ['2)",
+          "aux:pasivo_total_2020: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:pasivo_total_2020: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 118) pero la columna 2020 no se puede mapear 1:1 (columnas ['2)",
+          "Historia!G21: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "Historia!G21: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2020.txt (linea 99) pero la columna 2020 no se puede mapear 1:1 (columnas ['20)"
+        ]
       }
     },
     {
@@ -922,12 +972,12 @@
       "id": "h_deuda",
       "clase": "derivado",
       "estado_mecanico": "COINCIDE_PROPUESTO",
-      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "origen_revision": "M2_NUEVA",
       "evidencia": "derivado recalculado con Decimal: o[\"aux:lyb_nc_2021\"] + o[\"aux:lyb_c_2021\"] -> 257.616 (valor_modelo 257.616, diff 0.000)",
-      "evidencia_contextual": "origenes con estado contextual REVISADO_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2021\"] + o[\"aux:lyb_c_2021\"] (recalculo aritmetico, no significado economico)",
+      "evidencia_contextual": "origenes con estado contextual PENDIENTE_CONTEXTUAL; coherencia de unidades: True; formula o[\"aux:lyb_nc_2021\"] + o[\"aux:lyb_c_2021\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. deuda 2021 = 184,003 + 73,613 = 257,616 (balance). Incluye el pasivo NIIF 16, que la nota 15 (CF_2022 p.60) no separa (derecho de uso de 770): ver Historia!H23.",
-      "limites_contextuales": "sin limites propagados",
+      "limites_contextuales": "aux:lyb_nc_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_nc_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 92) pero la columna 2021 no se puede mapear 1:1 (columnas ['20) | aux:lyb_c_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:lyb_c_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 99) pero la columna 2021 no se puede mapear 1:1 (columnas ['20)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -943,8 +993,13 @@
         "diferencia": "0.000",
         "exacto": true,
         "reutilizado_piloto": false,
-        "estado_contextual": "REVISADO_CONTEXTUAL",
-        "limites_contextuales": []
+        "estado_contextual": "PENDIENTE_CONTEXTUAL",
+        "limites_contextuales": [
+          "aux:lyb_nc_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_nc_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 92) pero la columna 2021 no se puede mapear 1:1 (columnas ['20)",
+          "aux:lyb_c_2021: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:lyb_c_2021: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2021.txt (linea 99) pero la columna 2021 no se puede mapear 1:1 (columnas ['20)"
+        ]
       }
     }
   ],
