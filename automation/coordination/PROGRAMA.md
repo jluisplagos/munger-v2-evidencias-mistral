@@ -58,15 +58,17 @@ otra inferencia. No se abre una tarea de pago nueva para eludir el bloqueo.
    de transporte sin confundirla con una auditoría Fable recibida. No hay dictamen.
    La automatización continua con gasto no se considera desplegada hasta tener
    un resultado revisado y reconciliar el intento de consumo incierto.
-3. Mistral A termina G-RAIZ si sigue sin respuesta y responde solo lo que deje
-   abierto la revisión de A3. El inventario de A3 ya entregado no se reinicia.
+3. El control avanzó a d844357: A3 revisado y CORRECCION_A4 publicada. Mistral A
+   termina G-RAIZ si sigue sin respuesta; después A4-R1…R6. Se conservan R7
+   cerrado y R1/R5/R6 de A3 cerrados con límites; no se reinicia el inventario.
 4. Mistral D responde D3 sobre su HEAD vigente con invariantes generales, no solo
    las sondas literales: todas las rutas e id antes de mutar, evidencia del producto,
    reevaluación real y relevos completos. No hay casos completos Qwen por ello.
 5. Mistral E responde E2; conserva lo cerrado en E1. Mistral F responde F3 y alinea
    el contrato C con el código/U3. No mantener contratos incompatibles.
-6. El coordinador sigue mejoras del manual, CONTINUIDAD y tareas técnicas
-   independientes. T-TRASPASO conserva sus límites y no acredita pasos con agentes.
+6. Manual v2 entregado en ef36ab1: revisión independiente pendiente. Después,
+   la propuesta CONTINUIDAD §2.5 y tareas técnicas independientes. T-TRASPASO
+   conserva sus límites y no acredita pasos con agentes.
 
 Si aparece una entrega posterior, fijar su SHA y revisar el diff antes de reiterar
 un encargo. No se pisan ramas de otros autores. Cada autor publica checkpoint,
@@ -75,9 +77,10 @@ pruebas realmente hechas y recuperación. Ninguno espera globalmente a todos.
 ## Comprobación de ChatGPT
 
 La herramienta confirmó una tarea de comprobación horaria activa, independiente
-del proceso API. Aún no hay una ejecución programada satisfactoria verificada.
-El intento de lanzarla inmediatamente devolvió NOT_FOUND; la consulta posterior
-sí confirmó su existencia y estado activo. No se da por probado el seguimiento.
+del proceso API. El intento de lanzarla inmediatamente devolvió NOT_FOUND; la
+consulta posterior sí confirmó su existencia y estado activo. Después llegó el
+primer disparo programado a esta conversación y se completó la comprobación:
+observations/20261117_primera_comprobacion.md. No acredita notificaciones futuras.
 Compara los HEAD del
 producto/auxiliar y el control común. Actualiza exclusivamente su fichero propio
 automation/coordination/observations/ESTADO_CHATGPT.json en esta rama; no CONTROL.
@@ -96,6 +99,10 @@ sin probar esta conexión y el aislamiento de cada tarea.
 Preparación concreta y pasos de la clave en VIBE_CLI.md. El workflow de preparación
 no utiliza --execute: no infiere aun si se añade el secreto. El ejecutor de tareas
 Mistral y su reserva durable siguen pendientes.
+
+Tras confirmar el usuario que guardó la clave, se prepara una prueba operativa
+separada, vibe-auth-001, con reserva durable y una sola invocación. No hay aún
+un trabajador del proyecto Munger ni una cola de inferencias Mistral desatendida.
 
 ## Aceleración: medición, no promesa
 

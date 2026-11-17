@@ -51,6 +51,13 @@ def check(output, execute=False, runner=subprocess.run):
                               vibe_version=doc.get('vibe_version'),
                               usage=doc.get('usage'), cost_reported_usd=doc.get('cost_usd'),
                               steps=doc.get('steps'))
+                config = doc.get('config') or {}
+                if isinstance(config, dict):
+                    alias = config.get('active_model')
+                    report['model_alias'] = alias if isinstance(alias, str) else None
+                    models = config.get('models') or {}
+                    model = models.get(alias, {}) if isinstance(models, dict) else {}
+                    report['model_name'] = model.get('name') if isinstance(model, dict) else None
                 ok = (result.returncode == 0 and doc.get('outcome') == 'finished'
                       and doc.get('vibe_version') == VERSION and doc.get('steps') == 1
                       and not doc.get('subagents') and not doc.get('warnings')

@@ -17,10 +17,11 @@ Lee PROGRAMA.md de esta carpeta y consulta los HEAD actuales antes de actuar.
    las pruebas mecánicas no equivalen a una auditoría recibida. Aún no hay un
    agente que ejecute correcciones por API ni una cola continua autorizada por
    una revisión técnica conforme.
-4. Mantén tu cola técnica desbloqueada: aceptar/devolver A3, G-RAIZ y mejoras del
-   manual según corresponda; preparar pruebas reales cuando sus dependencias estén
+4. Mantén tu cola técnica desbloqueada: tras d844357, A3 ya está revisado y A4
+   publicado; quedan G-RAIZ y la revisión del manual v2 ef36ab1. Preparar pruebas
+   reales cuando sus dependencias estén
    conformes. No te quedes esperando una revisión si existe trabajo independiente.
-5. D3, E2 y F3 siguen pendientes de respuesta en los HEAD f2e16aa. Si los autores
+5. D3, E2 y F3 siguen pendientes de respuesta en el control d844357. Si los autores
    publicaron más, consulta y revisa esos cambios; no relances rondas ya cerradas.
 6. La conexión de Mistral por Vibe CLI está pendiente. No afirmar que ya se ha
    lanzado ni cambiar la facturación o activar pay-as-you-go para conseguirlo.

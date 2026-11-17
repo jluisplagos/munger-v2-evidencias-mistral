@@ -16,6 +16,14 @@ Paso pendiente de la persona responsable:
 3. Comunicar que el secreto está guardado. ChatGPT prepara entonces la ejecución
    única de autenticación y su reserva durable antes de lanzarla.
 
+La persona responsable ya comunicó que el secreto está guardado. Se ha preparado
+`run_vibe_auth.py` y `vibe-auth.yml`: una reserva create-only en la rama de
+registro, tarea `vibe-auth-001`, precede a una única invocación del CLI. Si existe
+reserva, no se vuelve a ejecutar. El resultado se publica en
+`automation/coordination/reviews/vibe-auth-001/`; hasta recibirlo no se declara
+autenticación. La comprobación horaria no activa este trabajo: es la conexión
+interactiva solicitada por el usuario.
+
 No activar pago por uso para esta conexión. El acceso y la imputación al plan
 se comprobarán con la cuenta; la salida del CLI no demuestra por sí sola qué
 saldo pagó la petición.
