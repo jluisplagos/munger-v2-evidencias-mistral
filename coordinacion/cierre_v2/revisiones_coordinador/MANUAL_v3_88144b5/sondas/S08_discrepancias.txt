@@ -1,0 +1,28 @@
+# S08_discrepancias.txt · 2026-11-17T14:01:19Z
+## m5: paso 13/14 del traspaso frente a filas 13/14 del §10
+| 13 | `cp -a` del estado anterior a `…_p13`; con la auditoría pedida (`SA-4bb…`), se añade una línea a `informe_provisional.md` (archivo del material) y se relanza el mismo comando **sin `--desde`** | **10** | `relevos_caducados` con fijado `4d9ee9b6…`, vigente `88ccc612…` y cambiado `informe_provisional.md`; paso 12
+| 14 | Lo mismo en `…_h9`, cambiando `fase_c.md`, una salida de una fase anterior | **10** | Vuelve al **paso 12**: cambiado `fase_c.md`; solicitud `SA-cfb141cb0d97496c` (material `af6dd549…`). El `fase_c.md` cambiado **queda dentro del material refijado** y no se repiten los pasos que consumen la fase C. *Interpretación:* 
+| 12 | — | — | **R** | `paso12_pipeline_01.txt` y `relevo_copia_base/` lo respaldan, y el prompt tiene 6 rutas `<traspaso>`. El código 10 no se registra (la salida «ESPERANDO» es coherente con 
+| 13 | — | — | **R** | `paso_p13_pipeline.txt` y `relevo_copia_p13/`. No consta la línea añadida ni el código |
+| 14 | — | — | **R** | `paso_h9_pipeline.txt` y `relevo_copia_h9/`. Igual que el 13 |
+-- primeras líneas de REG/paso_h9_pipeline.txt y REG/paso_p13_pipeline.txt
+[paso 13] relevo caducado: el material fijado 4d9ee9b6e4b4bd09 ya no es el vigente f3e1a1c00aa66553 (cambian: fase_c.md); se repite la verificación (paso 12) y se pide una auditoría nueva del material vigente
+[paso 13] relevo caducado: el material fijado 4d9ee9b6e4b4bd09 ya no es el vigente 88ccc6124be1798d (cambian: informe_provisional.md); se repite la verificación (paso 12) y se pide una auditoría nueva del material vige
+-- filas 13 y 14 del §10 en v2 (ef36ab1) y v3
+| 13 | Relevo caducado: en otra copia del estado del paso 12, añadir una línea de prueba a **`fase_c.md`** (archivo del material que el paso 12 no regenera) y relanzar **sin `--desde`** | LO (+ AG e
+| 14 | H9: en otra copia, cambiar una salida que se vuelque en celdas (`fase_c.json`, `fase_b.json` o `entrada_efectiva.json`) y relanzar sin `--desde` | LO + AG | **[NO DOCUMENTADO]** (§7.3) | — |
+| 13 | Relevo caducado: en otra copia del estado del paso 12, añadir una línea de prueba a **`fase_c.md`** (archivo del material que el paso 12 no regenera) y relanzar **sin `--desde`** | LO (+ AG e
+| 14 | H9: en otra copia, cambiar una salida que se vuelque en celdas (`fase_c.json`, `fase_b.json` o `entrada_efectiva.json`) y relanzar sin `--desde` | LO + AG | **[NO DOCUMENTADO]** (§7.3) | — |
+-- v2:508 y v3:537
+- **Código esperado:** el código de salida con que el paso es correcto. Varios pasos correctos salen con un código distinto de 0 (9, 10b, 12–14). El registro del §10.1 los marca como «fallidos�
+- **Código esperado:** el código de salida con que el paso es correcto. Varios pasos correctos salen con un código distinto de 0 (9, 10b, 12 y 13). El registro del §10.1 los marca como «fallidos», y el receptor los contrasta con esta columna. El paso 14 no tiene código esperado: no se ha ejecutado nunca. `REG/paso_h9_pipe
+
+## S-12: paso_pipeline.py en la guía
+957af65:
+34:paso_pipeline.py CARPETA [--config …]` hace una pasada
+3149128:
+41:paso_pipeline.py CARPETA [--config …]` hace una pasada
+munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/paso_pipeline.py
+
+## REVISION v2, m1, texto sobre S-12
+v1:255; lo quitó G-DOCS de la guía

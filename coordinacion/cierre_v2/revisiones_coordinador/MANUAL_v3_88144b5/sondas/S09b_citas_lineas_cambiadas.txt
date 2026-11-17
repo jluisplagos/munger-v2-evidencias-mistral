@@ -1,0 +1,511 @@
+# S09b: citas de las líneas de la v3 que cambian frente a la v2
+L12: REVT/REVISION_TRASPASO.md:30 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    30|   1. El registro no conserva una transcripción de comandos ni la mayoría de los códigos de salida. Los pasos 1–7, 11 y parte de 9, 10b y 12–14 son autodeclarados.
+L12: REVT/REVISION_TRASPASO.md:54-75 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    54| | # | Comando | Código | Resultado | Observación del revisor |
+    55| |---|---|---|---|---|
+    56| | 1 | — | n/a | I | Los prefijos del §13 del manual coinciden con `957af65` (hecho: comprobados 15 aquí). El informe dice que comprobó 10 |
+    57| | 2a | — | — | — | El 403 de `gh release download` no se conserva |
+    58| | 2b | — | — | I | La huella `bb51942c…` solo está en el informe. `materialize` funcionó con ese ZIP |
+    59| | 3 | — | I | **R** | `paso3_*.log`: 1008 recuperados; 6798/6798, `complete: true`. Por `tools/base_414.py:163`, eso implica código 0 |
+    60| | 4 | — | — | I | El HEAD `957af65` no tiene registro propio. Lo apoyan la línea `VERSION` del log del paso 8 y el manifiesto (7762, PASA) |
+    61| | 5 | — (script **R**) | I | **R** | Se publica `copiar_binarios.py`, que es correcto: no sobrescribe y comprueba la huella antes y después. `paso5_copia_binarios.json`: 1008·0·0·0. El conjunto de rutas es idéntico al de `copia_binarios_candidata.json` (hecho,
+    62| | 6 | — | n/a | — | No verificable: no hay transcripción de comandos (ver A-13) |
+    63| | 7 | — | — | — | Ni la copia ni «0 `__pycache__`, 1,5 GB» tienen registro |
+    64| | 7b | — | — | — | El script improvisado del manifiesto **no se conserva**, a diferencia del del paso 5 |
+    65| | 8 | I | **R** | **R** | `paso8_exit.txt` EXIT=0; inicio 08:44:07 y fin 09:37:27; log completo. El uso de `flock` no queda registrado |
+    66| | 9 | — | — | **R** | 29/35 en el log. Ni el código 1 ni los tiempos (09:37:42–53) tienen registro |
+    67| | 10 | I | **R** | **R** | EXIT=0, 09:38:05–10:05:57, 19 salidas y resumen. Los «8,4 GB libres» no tienen registro (no hay `df`) |
+    68| | 10b | — | — | **R** | Reintento 25/30 y limpieza (`paso10_limpieza_rutas.txt`). Ni los «13 GB», ni las horas, ni el código tienen registro |
+    69| | 11 | — | n/a | — | Sin registro. Comprobado aquí en el árbol: 13 `estado_pipeline.json` en espera, y la lista del informe es coherente |
+    70| | 12 | — | — | **R** | `paso12_pipeline_01.txt` y `relevo_copia_base/` lo respaldan, y el prompt tiene 6 rutas `<traspaso>`. El código 10 no se registra (la salida «ESPERANDO» es coherente con 10). Hay huellas «antes» (126) pero no «después», ni salida de `dif
+    71| | 13 | — | — | **R** | `paso_p13_pipeline.txt` y `relevo_copia_p13/`. No consta la línea añadida ni el código |
+    72| | 14 | — | — | **R** | `paso_h9_pipeline.txt` y `relevo_copia_h9/`. Igual que el 13 |
+    73| | 15–16 | n/a | n/a | coherente | En el registro no hay ningún `auditoria.md`: `auditoria: null` y todas las solicitudes «pendiente» o «sustituida», con veredicto nulo |
+    74| | 17 | n/a | n/a | **R** (ficha) | `ficha_provisional.json` tiene `apto_por_entradas: false`, `apto_para_dinero_real: false`, 0 de 292, `modo: registrada`, `declarado_en: null` y `aplicada_en_paso_2: null`. La «línea 9 del informe» no se puede comprobar: `info
+    75| | 18 | n/a | n/a | coherente | No hay ninguna configuración económica en el registro |
+L32: REVT/REVISION_TRASPASO.md:216 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    216| | 10 | **A-1** EVID desfasado | **Media-baja** | Sí | Hecho: `CONTROL.json` cambia +208/−35 entre `9871f59` y `788f25c`. En `788f25c`, las líneas 503, 519, 594 y 618 ya no son las citadas (T-CAMBIOS en la 693, T-TRASPASO en la 717). Los `mecanismo_*` y `MECANI
+L41: TRASP/INFORME_TRASPASO.md:1 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    1| # Informe de la prueba de traspaso (T-TRASPASO) · candidata `integracion/candidata-cierre-v2` @ 957af65
+L41: TRASP/LEEME.md:8 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/LEEME.md]
+    8| - **Objeto.** La candidata en `957af65`. La integración documental posterior, G-DOCS (`3149128`), cambia solo documentos que este ensayo leyó en su versión anterior.
+L42: E414/../2026-11_Vidrala_ensayo_4_10/scripts/comprobar_entrega_4_10.py:176-180 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10/scripts/comprobar_entrega_4_10.py]
+    176|     ver, cont, prom = (leer(os.path.join(RAIZ, f)) for f in ("VERSION", "CONTINUIDAD.md", "PROMPT_NUEVA_VENTANA.md"))
+    177|     zipn = "munger_v2_r1_entrega4.10_consolidacion_financiera_y_trazabilidad.zip"
+    178|     comprobar("constata", "VERSION, CONTINUIDAD.md y PROMPT_NUEVA_VENTANA.md describen la 4.10 (versión, ZIP, batería de 74, LEEME de la 4.10 y este control)",
+    179|               "entrega 4.10" in ver and zipn in cont and zipn in prom and "74/74" in cont and "74/74" in prom and "2026-11_Vidrala_ensayo_4_10/resultados/LEEME_BATERIAS_HISTORICAS.md" in cont
+    180|               and "comprobar_entrega_4_10.py" in prom)
+L45: actualizar_documentos_version_4_13.py:94 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/actualizar_documentos_version_4_13.py]
+    94|     c = sustituir(c, "2. Adjuntar `munger_v2_r1_entrega4.12_validacion_supervisada_y_Viscofan.zip`", f"2. Adjuntar `{ZIP}`")
+L45: actualizar_documentos_version_4_13.py:127 -> FUERA DE RANGO (n=115)
+L45: actualizar_documentos_version_4_13.py:28 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/actualizar_documentos_version_4_13.py]
+    28|          f"con el perímetro de la inversión de P-M1, referencia nueva y compatibilidad exacta con la V6.4; acciones de Viscofan conciliadas (contradicción de la "
+L45: comprobar_entrega_4_8.py:84-85 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py]
+    84|     rep = os.path.join(AQUI, "scripts", "reproducir_xa_xc.py")
+    85|     rc, out = run([PY, "-I", rep, "--raiz", raiz471, "--etiqueta", "entrega 4.7.1"])
+L46: controles_historicos_4_13.py:28-48 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    28| CONTROLES = [
+    29|     ("4_2_contraste_2023_arrendamientos", "contrastes/vidrala_2023_arrendamientos/scripts/contraste_2023_arrendamientos.py", "contrastes/vidrala_2023_arrendamientos/resultados/contraste_salida.txt"),
+    30|     ("4_3_revision_financiera", "contrastes/vidrala_revision_financiera/scripts/revision_financiera_vidrala.py", "contrastes/vidrala_revision_financiera/resultados/revision_salida.txt"),
+    31|     ("4_3_1_subsanacion", "contrastes/vidrala_revision_financiera/scripts/subsanacion_entradas_fechas.py", "contrastes/vidrala_revision_financiera/resultados/subsanacion_salida.txt"),
+    32|     ("4_4_comprobar_ensayo", C + "2026-11_Vidrala_ensayo/scripts/comprobar_ensayo.py", C + "2026-11_Vidrala_ensayo/resultados/comprobar_ensayo_salida.txt"),
+    33|     ("4_5_comprobar_continuacion", C + "2026-11_Vidrala_ensayo_4_5/scripts/comprobar_continuacion.py", C + "2026-11_Vidrala_ensayo_4_5/resultados/comprobar_continuacion_salida.txt"),
+    34|     ("4_6_1_comprobar_vigencia_ensayo", C + "2026-11_Vidrala_ensayo_4_6_1/scripts/comprobar_vigencia_ensayo.py", C + "2026-11_Vidrala_ensayo_4_6_1/resultados/comprobar_vigencia_ensayo_salida.txt"),
+    35|     ("4_6_comprobar_cierre_ensayo", C + "2026-11_Vidrala_ensayo_4_6/scripts/comprobar_cierre_ensayo.py", None),
+    36|     ("4_8_1_comparar_baterias_4_7_1_en_4_8_1", C + "2026-11_Vidrala_ensayo_4_8_1/scripts/comparar_baterias_4_7_1_en_4_8_1.py", None),
+    37|     ("4_7_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_7/scripts/comprobar_entrega_4_7.py", None),
+    38|     ("4_7_1_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_7_1/scripts/comprobar_entrega_4_7_1.py", None),
+    39|     ("4_8_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py", None),
+    40|     ("4_8_comparar_baterias_4_7_1", C + "2026-11_Vidrala_ensayo_4_8/scripts/comparar_baterias_4_7_1.py", None),
+    41|     ("4_8_1_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py", None),
+    42|     ("4_9_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py", None),
+    43|     ("4_10_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_10/scripts/comprobar_entrega_4_10.py", None),
+    44|     ("4_10_1_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_10_1/scripts/comprobar_entrega_4_10_1.py", None),
+    45|     ("4_11_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py", C + "2026-11_Vidrala_ensayo_4_11/resultados/comprobar_entrega_4_11_salida.txt"),
+    46|     ("4_12_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py", None),
+    47|     ("4_13_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py", None),
+    48| ]
+L86: PROMPT_RECEPTOR.md:25 [88144b5:coordinacion/cierre_v2/traspaso/PROMPT_RECEPTOR.md]
+    25| 3. LibreOffice, siempre en secuencia, con `flock -x <archivo de bloqueo>`. Usa el que indique el manual; si no indica ninguno, `$HOME/e_work/libreoffice.lock`. Nunca en paralelo.
+L86: TRASP/INFORME_TRASPASO.md:10 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    10| **Entorno (hechos):** Python 3.13.18, LibreOffice 24.2.7.2, pdftotext 24.02.0, openpyxl 3.1.5, Bash 5.2.21 y `gh` autenticado. `HOME=/root`. Bloqueo de LibreOffice: `<e_work>/libreoffice.lock`, con `flock -x`. **No se han modificado repositorios remotos**: ni 
+L86: TRASP/INFORME_TRASPASO.md:71 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    71| - **A-2 · Bloqueo de LibreOffice (N-06).** El manual no da la ruta. `PROMPT_RECEPTOR.md` dice «`$HOME/e_work/libreoffice.lock`», pero aquí `HOME=/root` y el bloqueo compartido real es `<e_work>/libreoffice.lock`. Se usó este, según los datos del entorno.
+L86: REVT/REVISION_TRASPASO.md:211 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    211| | 5 | **A-2** Bloqueo LO | **Media-alta** (seguridad) | Sí | El manual no da la ruta (N-06). `PROMPT_RECEPTOR.md` regla 3 da `$HOME/e_work/libreoffice.lock`. El receptor usó otra ruta (`<e_work>`), porque `$HOME` no apuntaba al bloqueo compartido. Si dos sesio
+L87: F1PREP/PREPARACION.md:3 [03e7851:docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/preparacion/PREPARACION.md]
+    3| Fecha: 2026-11-15. Raíz de trabajo: `<home>/e_work`. El repositorio `<home>/munger-v2` no se ha tocado: solo se ejecutaron `git worktree add --detach` y `git worktree list`. Detalle completo en `preparacion.json`.
+L88: TRASP/INFORME_TRASPASO.md:31-36 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    31| | 8 | `flock -x <e_work>/libreoffice.lock bash verificar_paquete.sh completa` (CL1) | **0** | **RESULTADO GLOBAL: PASA**. Recuentos: 7762·0·0·0; entorno, PASA; piloto, 35 CUMPLEN; 114/114; 30/30 (faltan 0, nuevas 0); 59/59; 27/27; 33/33; 190/190; 62/62; 5/5; 1
+    32| | 9 | `flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/scripts/comprobar_entrega_4_14.py` (CL1, después del 8) | 1 | **29/35**. Las seis FALLA son las esperadas: tres verificaciones de entradas
+    33| | 10 | `flock -x … python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py <traspaso>/registro/paso10_controles_historicos` (CL1). El comando sale del LEEME de la 4.14, no del manual. Carpeta de sali
+    34| | 10b | Limpieza según `CONTINUIDAD.md` §2.5: `find …/pruebas/_v64 -name '*.xlsx' -not -path '…/vigencia/*' -delete; rm -rf …/_v64/vigencia`, y borrado del ZIP local ya verificado. Rutas en `registro/paso10_limpieza_rutas.txt`. Después, `flock -x … python3 -I 
+    35| | 11 | Lectura de los `estado_pipeline.json` (`esperando`) de CAND | — | En `E414`: `elis_motor_A/Elis`, paso 13; `viscofan/Viscofan`, paso 13; `vidrala/Vidrala`, paso 13; `vidrala_decisiones_INVALIDO…/Vidrala`, paso 6. Los tres finales (`*_decisiones`) están 
+    36| | 12 | `cp -a elis_motor_A elis_motor_A_relevo_receptor` (CR/E414; `diff -r`, diferencia 0) y después `flock -x … python3 personaje_v2/scripts/pipeline.py personaje_v2/…/elis_motor_A_relevo_receptor/Elis --config personaje_v2/config_v2.json` (CR) | **10** | Pr
+L93: TRASP/INFORME_TRASPASO.md:31-32 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    31| | 8 | `flock -x <e_work>/libreoffice.lock bash verificar_paquete.sh completa` (CL1) | **0** | **RESULTADO GLOBAL: PASA**. Recuentos: 7762·0·0·0; entorno, PASA; piloto, 35 CUMPLEN; 114/114; 30/30 (faltan 0, nuevas 0); 59/59; 27/27; 33/33; 190/190; 62/62; 5/5; 1
+    32| | 9 | `flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/scripts/comprobar_entrega_4_14.py` (CL1, después del 8) | 1 | **29/35**. Las seis FALLA son las esperadas: tres verificaciones de entradas
+L93: REVT/REVISION_TRASPASO.md:65 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    65| | 8 | I | **R** | **R** | `paso8_exit.txt` EXIT=0; inicio 08:44:07 y fin 09:37:27; log completo. El uso de `flock` no queda registrado |
+L124: TRASP/INFORME_TRASPASO.md:78 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    78|   - ***Propuesta:*** que el manual diga esto en el paso 10 y fije el espacio para la vía del repositorio. En esta prueba hubo hasta unos 9,8 GB ocupados en la carpeta: clones, copia limpia y copia de relevos.
+L124: REVT/REVISION_TRASPASO.md:267 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    267|    - Fijar el espacio para la vía del repositorio: el receptor llegó a ocupar ≈9,8 GB en la carpeta, más el temporal del 4.8.1.
+L129: controles_historicos_4_13.py:28-48 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    28| CONTROLES = [
+    29|     ("4_2_contraste_2023_arrendamientos", "contrastes/vidrala_2023_arrendamientos/scripts/contraste_2023_arrendamientos.py", "contrastes/vidrala_2023_arrendamientos/resultados/contraste_salida.txt"),
+    30|     ("4_3_revision_financiera", "contrastes/vidrala_revision_financiera/scripts/revision_financiera_vidrala.py", "contrastes/vidrala_revision_financiera/resultados/revision_salida.txt"),
+    31|     ("4_3_1_subsanacion", "contrastes/vidrala_revision_financiera/scripts/subsanacion_entradas_fechas.py", "contrastes/vidrala_revision_financiera/resultados/subsanacion_salida.txt"),
+    32|     ("4_4_comprobar_ensayo", C + "2026-11_Vidrala_ensayo/scripts/comprobar_ensayo.py", C + "2026-11_Vidrala_ensayo/resultados/comprobar_ensayo_salida.txt"),
+    33|     ("4_5_comprobar_continuacion", C + "2026-11_Vidrala_ensayo_4_5/scripts/comprobar_continuacion.py", C + "2026-11_Vidrala_ensayo_4_5/resultados/comprobar_continuacion_salida.txt"),
+    34|     ("4_6_1_comprobar_vigencia_ensayo", C + "2026-11_Vidrala_ensayo_4_6_1/scripts/comprobar_vigencia_ensayo.py", C + "2026-11_Vidrala_ensayo_4_6_1/resultados/comprobar_vigencia_ensayo_salida.txt"),
+    35|     ("4_6_comprobar_cierre_ensayo", C + "2026-11_Vidrala_ensayo_4_6/scripts/comprobar_cierre_ensayo.py", None),
+    36|     ("4_8_1_comparar_baterias_4_7_1_en_4_8_1", C + "2026-11_Vidrala_ensayo_4_8_1/scripts/comparar_baterias_4_7_1_en_4_8_1.py", None),
+    37|     ("4_7_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_7/scripts/comprobar_entrega_4_7.py", None),
+    38|     ("4_7_1_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_7_1/scripts/comprobar_entrega_4_7_1.py", None),
+    39|     ("4_8_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py", None),
+    40|     ("4_8_comparar_baterias_4_7_1", C + "2026-11_Vidrala_ensayo_4_8/scripts/comparar_baterias_4_7_1.py", None),
+    41|     ("4_8_1_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py", None),
+    42|     ("4_9_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py", None),
+    43|     ("4_10_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_10/scripts/comprobar_entrega_4_10.py", None),
+    44|     ("4_10_1_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_10_1/scripts/comprobar_entrega_4_10_1.py", None),
+    45|     ("4_11_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py", C + "2026-11_Vidrala_ensayo_4_11/resultados/comprobar_entrega_4_11_salida.txt"),
+    46|     ("4_12_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py", None),
+    47|     ("4_13_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py", None),
+    48| ]
+L130: E414/../2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:38 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    38| TMP = tempfile.mkdtemp(prefix="control481_")
+L130: E414/../2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:76-77 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    76|     shutil.copytree(PV2, os.path.join(raiz, "personaje_v2"), ignore=lambda d, fs: [f for f in fs if f in ("empresas_v2", ".lo_perfil", "__pycache__")
+    77|                                                                                      or (os.path.basename(d) == "empresas_v2_correcciones" and f != "2026-11_Vidrala_ensayo_4_6_1")])
+L130: E414/../2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:109 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    109|     a48 = arbol("codigo_4_8", codigo_4_8=True)
+L130: E414/../2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:124-125 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    124|     for etiqueta, cod48, esperado in (("actual", False, "28/28"), ("de la 4.8", True, "27/28")):
+    125|         ar = arbol(f"estados_renovadas_{'48' if cod48 else '481'}", codigo_4_8=cod48, fechas_renovadas=True)
+L130: E414/../2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:130 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    130|     mut = arbol("mutaciones")
+L130: E414/../2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:184 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    184|     shutil.rmtree(TMP, ignore_errors=True)
+L131: E414/../2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:75 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py]
+    75| tmp = tempfile.mkdtemp(prefix="c48_")
+L131: E414/../2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:60 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py]
+    60|     shutil.copytree(P2, os.path.join(raiz, "personaje_v2"), ignore=shutil.ignore_patterns("empresas_v2", "empresas_v2_correcciones", ".lo_perfil", "__pycache__", "sintetico"))
+L131: E414/../2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:82 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py]
+    82|     raiz471, iguales471 = arbol_codigo_471(tmp)
+L131: E414/../2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:195 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py]
+    195|     shutil.rmtree(tmp, ignore_errors=True)
+L131: controles_historicos_4_13.py:39 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    39|     ("4_8_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py", None),
+L131: controles_historicos_4_13.py:41 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    41|     ("4_8_1_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py", None),
+L131: REG/paso10_controles_historicos/resumen.md:15 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso10_controles_historicos/resumen.md]
+    15| | 4_8_comprobar_entrega | 1 | RESULTADO: 32 de 36 comprobaciones cumplen. | — | sí |
+L132: E414/../2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py:84 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py]
+    84|     actuales = {os.path.relpath(os.path.join(r, f), RAIZ) for r, ds, fs in os.walk(RAIZ) for f in fs if "__pycache__" not in r}
+L132: comprobar_entrega_4_13.py:55 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py]
+    55|     return {os.path.join(r, f): os.path.getmtime(os.path.join(r, f)) for r, _d, fs in os.walk(RAIZ) if os.path.basename(r) == "__pycache__" for f in fs}
+L133: comprobar_entrega_4_11.py:87 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py]
+    87|         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+L133: comprobar_entrega_4_12.py:91 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py]
+    91|         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+L133: comprobar_entrega_4_13.py:107 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py]
+    107|         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+L135: munger_v2_r1/CONTINUIDAD.md:143 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    143|    Con unos 4,5 GB libres al empezar los controles, la prueba de traspaso se quedó sin disco (I18 e I21). Conviene tener al menos 7 GB libres después de descomprimir. Si falta espacio, terminada la verificación se pueden borrar los `*.xlsx` y `vigencia/` de `p
+L135: comprobar_entrega_4_8_1.py:76-77 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    76|     shutil.copytree(PV2, os.path.join(raiz, "personaje_v2"), ignore=lambda d, fs: [f for f in fs if f in ("empresas_v2", ".lo_perfil", "__pycache__")
+    77|                                                                                      or (os.path.basename(d) == "empresas_v2_correcciones" and f != "2026-11_Vidrala_ensayo_4_6_1")])
+L135: REVT/REVISION_TRASPASO.md:197 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    197| - **Hecho:** `comprobar_entrega_4_8_1.py:76-77` copia `personaje_v2/` excluyendo solo `empresas_v2`, `.lo_perfil` y `__pycache__`, así que **copia `pruebas/_v64/`**. CONTINUIDAD §2.5 dice «los controles no recorren `_v64/`». Para el 4.8.1 es inexacto en cuanto
+L135: comprobar_entrega_4_8.py:60 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py]
+    60|     shutil.copytree(P2, os.path.join(raiz, "personaje_v2"), ignore=shutil.ignore_patterns("empresas_v2", "empresas_v2_correcciones", ".lo_perfil", "__pycache__", "sintetico"))
+L135: comprobar_entrega_4_9.py:84 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py]
+    84|     actuales = {os.path.relpath(os.path.join(r, f), RAIZ) for r, ds, fs in os.walk(RAIZ) for f in fs if "__pycache__" not in r}
+L135: REVT/REVISION_TRASPASO.md:197 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    197| - **Hecho:** `comprobar_entrega_4_8_1.py:76-77` copia `personaje_v2/` excluyendo solo `empresas_v2`, `.lo_perfil` y `__pycache__`, así que **copia `pruebas/_v64/`**. CONTINUIDAD §2.5 dice «los controles no recorren `_v64/`». Para el 4.8.1 es inexacto en cuanto
+L159: README.md:33-35 [3149128:README.md]
+    33| Tamaño: **1130912246 bytes**. SHA-256:
+    34| 
+    35|     bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e
+L159: README.md:23-25 [3149128:README.md]
+    23| - `baselines/4.14_MANIFIESTO_SHA256.txt`: manifiesto original intacto.
+    24| - `tools/base_414.py`: verifica o recupera la base histórica completa.
+    25| - `docs/BASE_4_14_INTEGRITY.json`: comprobación del ZIP descargado y de sus miembros.
+L159: README.md:39 [3149128:README.md]
+    39| Con Python 3.10 o posterior y GitHub CLI, desde la raíz del repositorio clonado:
+L159: README.md:29 [3149128:README.md]
+    29| 
+L159: README.md:41 [3149128:README.md]
+    41|     gh release download base-4.14 --repo jluisplagos/munger-v2 --pattern munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip --dir .downloads
+L159: README.md:31 [3149128:README.md]
+    31| 
+L159: README.md:42-43 [3149128:README.md]
+    42|     python tools/base_414.py materialize --source .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+    43|     python tools/base_414.py verify --report docs/VERIFICACION_BASE_COMPLETA_LOCAL.json
+L159: README.md:32-33 [3149128:README.md]
+    32| Archivo: `munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip`.
+    33| Tamaño: **1130912246 bytes**. SHA-256:
+L159: README.md:45 [3149128:README.md]
+    45| También se puede descargar el ZIP manualmente de la Release y pasar su ruta a `--source`.
+L159: README.md:35 [3149128:README.md]
+    35|     bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e
+L159: README.md:46 [3149128:README.md]
+    46| La verificación completa debe devolver código 0, `complete:true` y ningún archivo ausente o alterado.
+L159: README.md:36 [3149128:README.md]
+    36| 
+L159: README.md:51 [3149128:README.md]
+    51|     python tools/base_414.py verify --git-only
+L159: README.md:41 [3149128:README.md]
+    41|     gh release download base-4.14 --repo jluisplagos/munger-v2 --pattern munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip --dir .downloads
+L159: README.md:5 [3149128:README.md]
+    5| La base 4.14 completa sigue conservada en main y en su Release. Para ejecutar este hito: clonar main, recuperar y verificar sus binarios con tools/base_414.py y después cambiar a esta rama. La verificación de la 4.14 no debe aplicarse al código modificado de l
+L168: TRASP/INFORME_TRASPASO.md:23 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    23| | 2a | `gh release download base-4.14 --repo jluisplagos/munger-v2 --pattern munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip --dir .downloads` (MAIN) | 1 | 403: «GitHub GraphQL is not available from Claude Code sessions» | Sí: el manual prevé que fal
+L168: REVT/REVISION_TRASPASO.md:57 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    57| | 2a | — | — | — | El 403 de `gh release download` no se conserva |
+L174: TRASP/INFORME_TRASPASO.md:24 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    24| | 2b | `gh api -H "Accept: application/octet-stream" repos/jluisplagos/munger-v2/releases/assets/750814858 > .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip` (MAIN) y después `stat -c '%s %n'` y `sha256sum` | 0 / 0 | 1130912246 bytes; SHA-
+L174: REVT/REVISION_TRASPASO.md:58 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    58| | 2b | — | — | I | La huella `bb51942c…` solo está en el informe. `materialize` funcionó con ese ZIP |
+L181: TRASP/INFORME_TRASPASO.md:24 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    24| | 2b | `gh api -H "Accept: application/octet-stream" repos/jluisplagos/munger-v2/releases/assets/750814858 > .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip` (MAIN) y después `stat -c '%s %n'` y `sha256sum` | 0 / 0 | 1130912246 bytes; SHA-
+L181: REVT/REVISION_TRASPASO.md:58 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    58| | 2b | — | — | I | La huella `bb51942c…` solo está en el informe. `materialize` funcionó con ese ZIP |
+L181: munger_v2_r1/CONTINUIDAD.md:114 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    114|    Para un ZIP de una entrega hasta la 4.14: descomprimirlo en una carpeta nueva y vacía. Si se adjunta el archivo `.sha256`, comparar antes la huella del ZIP con `sha256sum <zip>`. Desde la 4.10, el ZIP se extrae igual con `unzip` y con Python `zipfile`.
+L194: F1PREP/log_base414.txt:2 [03e7851:docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/preparacion/log_base414.txt]
+    2| $ python3 -I tools/base_414.py materialize --source <home>/e_work/dl_base414/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+L194: F1PREP/log_base414.txt:12 [03e7851:docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/preparacion/log_base414.txt]
+    12| [codigo_salida_materialize=0]
+L194: F1PREP/log_base414.txt:14 [03e7851:docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/preparacion/log_base414.txt]
+    14| $ python3 -I tools/base_414.py verify --report <home>/e_work/inventario/VERIFICACION_BASE_COMPLETA_LOCAL_414.json
+L194: F1PREP/log_base414.txt:23 [03e7851:docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/preparacion/log_base414.txt]
+    23| [codigo_salida_verify=0]
+L194: tools/base_414.py:163 [3149128:tools/base_414.py]
+    163|     return 0 if report["complete"] else 1
+L194: TRASP/INFORME_TRASPASO.md:25 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    25| | 3 | `python3 tools/base_414.py materialize --source .downloads/…zip` y `python3 tools/base_414.py verify --report docs/VERIFICACION_BASE_COMPLETA_LOCAL.json` (MAIN) | 0 / 0 | «Archivos recuperados: 1008»; `verified 6798 · expected 6798 · missing 0 · changed 
+L194: REVT/REVISION_TRASPASO.md:59 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    59| | 3 | — | I | **R** | `paso3_*.log`: 1008 recuperados; 6798/6798, `complete: true`. Por `tools/base_414.py:163`, eso implica código 0 |
+L197: README.md:51 [3149128:README.md]
+    51|     python tools/base_414.py verify --git-only
+L202: TRASP/INFORME_TRASPASO.md:26 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    26| | 4 | `git worktree add ../candidata integracion/candidata-cierre-v2` (MAIN) | 0 | HEAD `957af652cdc3bef3d67e8623c9572138bac685e9`; `VERSION` «4.15 · hito 2»; `origin/integracion/candidata-cierre-v2` = 957af65 | **Sí**. El comando **[NO DOCUMENTADO]**: se impr
+L202: REVT/REVISION_TRASPASO.md:60 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    60| | 4 | — | — | I | El HEAD `957af65` no tiene registro propio. Lo apoyan la línea `VERSION` del log del paso 8 y el manifiesto (7762, PASA) |
+L210: TRASP/INFORME_TRASPASO.md:27 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    27| | 5 | `python3 -I scripts_receptor/copiar_binarios.py munger-v2 candidata registro/paso5_copia_binarios.json` (script propio, **improvisado**) | 0 | `copiados 1008 · existentes_iguales 0 · distintos 0 · fallos 0`. Después, `git status` en CAND da 83 JSON sin s
+L210: REVT/REVISION_TRASPASO.md:61 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    61| | 5 | — (script **R**) | I | **R** | Se publica `copiar_binarios.py`, que es correcto: no sobrescribe y comprueba la huella antes y después. `paso5_copia_binarios.json`: 1008·0·0·0. El conjunto de rutas es idéntico al de `copia_binarios_candidata.json` (hecho,
+L210: REVT/REVISION_TRASPASO.md:61 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    61| | 5 | — (script **R**) | I | **R** | Se publica `copiar_binarios.py`, que es correcto: no sobrescribe y comprueba la huella antes y después. `paso5_copia_binarios.json`: 1008·0·0·0. El conjunto de rutas es idéntico al de `copia_binarios_candidata.json` (hecho,
+L212: copiar_binarios_a_b.py:2 [03e7851:docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/preparacion/scripts/copiar_binarios_a_b.py]
+    2| Uso: python3 -I copiar_binarios_a_b.py <baseline.json> <A/munger_v2_r1> <B/munger_v2_r1> <salida.json>
+L212: F1PREP/PREPARACION.md:10 [03e7851:docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/preparacion/PREPARACION.md]
+    10| | 4. Worktree B `wt_hito415` + binarios | OK | HEAD 059f4f68…5ff. Copiados 1008 binarios (release_asset), 0 ya existentes, 0 distintos, SHA-256 comprobado tras copiar. Manifiesto propio de B (línea 1 = cabecera): 7004 entradas, 7004 OK, 0 FAILED, 0 ausentes, 0
+L212: copiar_binarios_a_b.py:38-41 [03e7851:docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/preparacion/scripts/copiar_binarios_a_b.py]
+    38| res['recuento'] = {k: len(v) for k, v in res.items() if isinstance(v, list)}
+    39| res['recuento']['release_asset_en_baseline'] = len(assets)
+    40| json.dump(res, open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    41| print(json.dumps(res['recuento'], ensure_ascii=False))
+L214: PRUEBAS/README.md:12 [88144b5:coordinacion/cierre_v2/pruebas_candidata/957af65/README.md]
+    12| - `git status` muestra 83 JSON sin seguimiento. Son binarios de la 4.14 que el `.gitignore` no cubre. Están en el manifiesto y no se versionan.
+L214: E415/hito2/HITO_2_4_15.md:21 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/hito2/HITO_2_4_15.md]
+    21|   la rama del hito 1. Los 83 archivos JSON de la base que Git no versiona (activos de la Release) se excluyen solo en el clon local.
+L214: REVT/REVISION_TRASPASO.md:61 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    61| | 5 | — (script **R**) | I | **R** | Se publica `copiar_binarios.py`, que es correcto: no sobrescribe y comprueba la huella antes y después. `paso5_copia_binarios.json`: 1008·0·0·0. El conjunto de rutas es idéntico al de `copia_binarios_candidata.json` (hecho,
+L215: .gitignore:2-5 [3149128:.gitignore]
+    2| *.pdf
+    3| *.PDF
+    4| *.xlsx
+    5| *.xls
+L236: TRASP/INFORME_TRASPASO.md:29 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    29| | 7 | `mkdir copia_limpia_1 && cp -a candidata/munger_v2_r1 copia_limpia_1/` | 0 | 0 `__pycache__` y 0 `.lo_perfil`; 1,5 GB | Sí. El comando **[NO DOCUMENTADO]** (N-03): `cp -a`, improvisado |
+L236: REVT/REVISION_TRASPASO.md:63 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    63| | 7 | — | — | — | Ni la copia ni «0 `__pycache__`, 1,5 GB» tienen registro |
+L236: REVT/REVISION_TRASPASO.md:121 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    121| - `diff` con la referencia: solo cambian las tres marcas de tiempo (08:43:08 frente a 20:54:07). Es la hora del checkout, conservada por `cp -a`.
+L241: REVT/REVISION_TRASPASO.md:65 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    65| | 8 | I | **R** | **R** | `paso8_exit.txt` EXIT=0; inicio 08:44:07 y fin 09:37:27; log completo. El uso de `flock` no queda registrado |
+L247: munger_v2_r1/verificar_paquete.sh:3 [3149128:munger_v2_r1/verificar_paquete.sh]
+    3| #   bash verificar_paquete.sh            manifiesto + entorno + contraste del piloto Vidrala 2025 + test_comprobadores.py (≈ 1–2 min)
+L247: munger_v2_r1/verificar_paquete.sh:26 [3149128:munger_v2_r1/verificar_paquete.sh]
+    26| # El modo rápido no ejecuta la batería sintética ni la de cierre: su PASA solo cubre lo que lista arriba.
+L247: munger_v2_r1/verificar_paquete.sh:27 [3149128:munger_v2_r1/verificar_paquete.sh]
+    27| # Ninguno de los dos modos sustituye a los controles de los expedientes reales ni a sus auditorías.
+L286: REG/paso9_comprobar_entrega_4_14.log:36 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso9_comprobar_entrega_4_14.log]
+    36| 29/35 comprobaciones de la entrega 4.14 PASAN
+L286: TRASP/INFORME_TRASPASO.md:32 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    32| | 9 | `flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/scripts/comprobar_entrega_4_14.py` (CL1, después del 8) | 1 | **29/35**. Las seis FALLA son las esperadas: tres verificaciones de entradas
+L286: REVT/REVISION_TRASPASO.md:66 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    66| | 9 | — | — | **R** | 29/35 en el log. Ni el código 1 ni los tiempos (09:37:42–53) tienen registro |
+L286: REVT/REVISION_TRASPASO.md:122 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    122| - Que no usa LibreOffice es correcto: el script no importa `subprocess` ni llama a `soffice` (hecho, lectura de `comprobar_entrega_4_14.py`). El código 1 no se registra.
+L299: TRASP/INFORME_TRASPASO.md:33 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    33| | 10 | `flock -x … python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py <traspaso>/registro/paso10_controles_historicos` (CL1). El comando sale del LEEME de la 4.14, no del manual. Carpeta de sali
+L299: REVT/REVISION_TRASPASO.md:67 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    67| | 10 | I | **R** | **R** | EXIT=0, 09:38:05–10:05:57, 19 salidas y resumen. Los «8,4 GB libres» no tienen registro (no hay `df`) |
+L299: TRASP/INFORME_TRASPASO.md:79 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    79| - **A-7 · Paso 10.** El manual no da el comando, que está en el LEEME 4.14 (`controles_historicos_4_13.py CARPETA_SALIDA`). Tampoco dice dónde va `CARPETA_SALIDA`. Si va dentro del árbol, como la referencia en `resultados/`, añade archivos al árbol verificado.
+L301: controles_historicos_4_13.py:78 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    78|     return 0
+L301: controles_historicos_4_13.py:82 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    82|     sys.exit(main())
+L301: controles_historicos_4_13.py:52-54 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    52|     if len(sys.argv) < 2:
+    53|         print(__doc__)
+    54|         return 2
+L301: controles_historicos_4_13.py:69 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    69|         filas.append({"control": nombre, "script": script, "codigo": r.returncode, "ultima_linea": ultima[:300], "referencia": ref, "identica_a_su_referencia": identica,
+L301: controles_historicos_4_13.py:75-77 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    75|     md = ["# Controles históricos sobre el árbol actual", "", "| Control | Código | Última línea | ¿Idéntica a su referencia? | ¿Igual que en el árbol 4.12? |", "|---|---|---|---|---|"]
+    76|     md += [f"| {f['control']} | {f['codigo']} | {f['ultima_linea']} | {sn(f['identica_a_su_referencia'])} | {sn(f['igual_que_en_el_arbol_4_12'])} |" for f in filas]
+    77|     open(os.path.join(out, "resumen.md"), "w", encoding="utf-8").write("\n".join(md) + "\n")
+L328: TRASP/INFORME_TRASPASO.md:34 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    34| | 10b | Limpieza según `CONTINUIDAD.md` §2.5: `find …/pruebas/_v64 -name '*.xlsx' -not -path '…/vigencia/*' -delete; rm -rf …/_v64/vigencia`, y borrado del ZIP local ya verificado. Rutas en `registro/paso10_limpieza_rutas.txt`. Después, `flock -x … python3 -I 
+L328: REVT/REVISION_TRASPASO.md:229-234 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    229| - **D-2** (borrado de `_v64/*.xlsx`, de `vigencia/` y del ZIP).
+    230|   - No afecta a ningún resultado:
+    231|     - se hizo después de los pasos 8, 9 y de la primera pasada del 10;
+    232|     - CONTINUIDAD §2.5 lo autoriza, y las rutas se registran;
+    233|     - el reintento del 4.8.1 da lo mismo que la referencia;
+    234|     - los pasos 12–14 corren en otra copia.
+L329: comprobar_entrega_4_11.py:87 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py]
+    87|         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+L329: comprobar_entrega_4_12.py:91 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py]
+    91|         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+L329: comprobar_entrega_4_13.py:107 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py]
+    107|         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+L330: REG/paso10_controles_historicos/resumen.md:15 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso10_controles_historicos/resumen.md]
+    15| | 4_8_comprobar_entrega | 1 | RESULTADO: 32 de 36 comprobaciones cumplen. | — | sí |
+L335: TRASP/INFORME_TRASPASO.md:34 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    34| | 10b | Limpieza según `CONTINUIDAD.md` §2.5: `find …/pruebas/_v64 -name '*.xlsx' -not -path '…/vigencia/*' -delete; rm -rf …/_v64/vigencia`, y borrado del ZIP local ya verificado. Rutas en `registro/paso10_limpieza_rutas.txt`. Después, `flock -x … python3 -I 
+L335: REG/paso10b_4_8_1_reintento.txt:38 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso10b_4_8_1_reintento.txt]
+    38| RESULTADO: 25 de 30 comprobaciones cumplen.
+L335: REVT/REVISION_TRASPASO.md:68 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    68| | 10b | — | — | **R** | Reintento 25/30 y limpieza (`paso10_limpieza_rutas.txt`). Ni los «13 GB», ni las horas, ni el código tienen registro |
+L340: controles_historicos_4_13.py:59 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    59|         r = subprocess.run([sys.executable, "-I", "-B", script], cwd=RAIZ, capture_output=True, text=True)
+L340: comprobar_entrega_4_8.py:91 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py]
+    91|     rc, out = run([PY, "-B", os.path.join("pruebas", "test_estados_v2.py")], cwd=P2)
+L340: comprobar_entrega_4_8.py:94 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py]
+    94|     rc, out = run([PY, "-B", os.path.join("pruebas", "test_estados_v2.py"), "--expediente", os.path.join(CORR, "2026-11_Vidrala_ensayo_4_6_1", "Vidrala")], cwd=os.path.join(raiz471, "personaje_v2"))
+L340: munger_v2_r1/CONTINUIDAD.md:133 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    133|    Varias de estas pruebas arrancan LibreOffice: `test_comprobadores.py`, la batería sintética, `test_integracion_v64.py` (unos 120 recálculos), `test_estados_v2.py`, `test_cierre_v2.py` y `test_resumen_v2.py` (su última prueba recalcula una empresa sintética)
+L352: TRASP/INFORME_TRASPASO.md:34 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    34| | 10b | Limpieza según `CONTINUIDAD.md` §2.5: `find …/pruebas/_v64 -name '*.xlsx' -not -path '…/vigencia/*' -delete; rm -rf …/_v64/vigencia`, y borrado del ZIP local ya verificado. Rutas en `registro/paso10_limpieza_rutas.txt`. Después, `flock -x … python3 -I 
+L352: REVT/REVISION_TRASPASO.md:100 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    100| 4. **D-2: «775 líneas».** El archivo tiene 776: 774 `.xlsx`, la carpeta `vigencia/` y la nota del ZIP. Es trivial.
+L352: REVT/REVISION_TRASPASO.md:68 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    68| | 10b | — | — | **R** | Reintento 25/30 y limpieza (`paso10_limpieza_rutas.txt`). Ni los «13 GB», ni las horas, ni el código tienen registro |
+L363: PV2/GUIA_RECORRIDO_SUPERVISADO.md:27 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    27| - **Base económica nueva** (por ejemplo, pasar de 2024 a 2025): `python3 -I personaje_v2/scripts/cambiar_base.py preparar CAMBIO.json`. Separa las fechas (ejecución real, base, precio, acciones, publicación de las fuentes), reconstruye `fase1_v63.json` desde l
+L363: PV2/GUIA_RECORRIDO_SUPERVISADO.md:119 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    119|    - Se escribe un `CAMBIO.json`, con los ejemplos de `…_4_14/configuracion/cambio_decisiones_*.json`, y se ejecuta `python3 -I scripts/cambiar_base.py preparar CAMBIO.json`. Nunca sobrescribe: crea un expediente nuevo y el origen no se toca.
+L363: PV2/GUIA_RECORRIDO_SUPERVISADO.md:27 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    27| - **Base económica nueva** (por ejemplo, pasar de 2024 a 2025): `python3 -I personaje_v2/scripts/cambiar_base.py preparar CAMBIO.json`. Separa las fechas (ejecución real, base, precio, acciones, publicación de las fuentes), reconstruye `fase1_v63.json` desde l
+L375: PV2/GUIA_RECORRIDO_SUPERVISADO.md:10 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    10| - *Configuración económica*: `configuracion_economica.json`, que fija N1 (tipo impositivo normalizado), N2 (margen de partida), N3 (regla de reinversión) y P-M1 (estructura de la reposición). La escribe la orquestación, nunca un agente de juicio, y **no es una
+L375: PV2/GUIA_RECORRIDO_SUPERVISADO.md:30-36 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    30| - **Configuración económica** (la orquestación):
+    31|   - con un análisis propio de la empresa y sus fuentes con página (modelo: `…_4_12/scripts/analisis_configuracion_viscofan.py`); nada se traslada de otra empresa;
+    32|   - trazabilidad completa de cada parámetro activo: clase, confianza, fuente o condición, justificación y materialidad;
+    33|   - un parámetro no observado (λ, θ) va como rango (`lambda_rango` o `theta_rango`) y su valor activo se declara como punto de cálculo, sin central económica adoptada;
+    34|   - una entrada vacía (N1 o N2) conserva la regla heredada solo si la elección se explica;
+    35|   - con la V6.4.1, el perímetro de la inversión de P-M1 (`PM1.perimetro_inversion`: «Caja» o «NIIF 16», con `altas_derechos_uso` y `altas_fuente` de cinco años si es NIIF 16) es obligatorio cuando hay requisito; el otro perímetro se calcula como variante y nin
+    36|   - se declara el protocolo experimental del objetivo (`protocolo_objetivo`: `objetivo_condicionado` o `bloqueo_del_objetivo`); ninguno está adoptado;
+L375: PV2/GUIA_RECORRIDO_SUPERVISADO.md:37 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    37|   - se valida: `python3 -B personaje_v2/scripts/configuracion_economica.py validar configuracion_economica.json`.
+L383: PV2/GUIA_RECORRIDO_SUPERVISADO.md:102 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    102| 2. **Registro de las entradas.** `python3 -B scripts/verificacion_entradas.py plantilla CARPETA` crea el registro. Para no tocar el expediente, hágase en una copia.
+L383: PV2/scripts/verificacion_entradas.py:83 [3149128:munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py]
+    83| Uso: verificacion_entradas.py comprobar <expediente> [--json] | plantilla <expediente> (escribe verificacion_entradas.plantilla.json)
+L390: PV2/GUIA_RECORRIDO_SUPERVISADO.md:111-115 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    111|    - **Un revisor distinto** rellena `comprobacion` en cada entrada (revisor, resultado, fuente examinada y nota) y la **sella**: `python3 -B scripts/verificacion_entradas.py sellar CARPETA --revisor NOMBRE --fecha AAAA-MM-DD CELDA [CELDA …]`, con la fecha de 
+    112|      - Sin ese vínculo con huella, la entrada queda pendiente.
+    113|      - Si cambia lo vinculado, queda desactualizada.
+    114| 
+    115|      Fuente: `…_4_15/HITO_1_4_15.md`, I13.
+L390: PV2/scripts/verificacion_entradas.py:84 [3149128:munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py]
+    84|      | sellar <expediente> --revisor NOMBRE --fecha AAAA-MM-DD(hoy) CELDA [CELDA …]
+L390: PV2/GUIA_RECORRIDO_SUPERVISADO.md:111 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    111|    - **Un revisor distinto** rellena `comprobacion` en cada entrada (revisor, resultado, fuente examinada y nota) y la **sella**: `python3 -B scripts/verificacion_entradas.py sellar CARPETA --revisor NOMBRE --fecha AAAA-MM-DD CELDA [CELDA …]`, con la fecha de 
+L395: PV2/GUIA_RECORRIDO_SUPERVISADO.md:116 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    116|    - `python3 -B scripts/verificacion_entradas.py comprobar CARPETA` dice si el registro es apto. El pipeline lo vuelve a comprobar en el paso 12.
+L401: PV2/GUIA_RECORRIDO_SUPERVISADO.md:41 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    41| `python3 personaje_v2/scripts/pipeline.py CARPETA --config personaje_v2/config_v2_v64_experimental.json` (V6.4) o `--config personaje_v2/config_v2_v641_experimental.json` (V6.4.1, con el perímetro). La selección de la plantilla es siempre explícita: la V6.4 re
+L401: PV2/GUIA_RECORRIDO_SUPERVISADO.md:127-129 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    127| 5. **Configuración por motor.**
+    128|    - Motor B: `--config config_v2_v64_experimental.json` (V6.4) o `config_v2_v641_experimental.json` (V6.4.1, con perímetro).
+    129|    - Motor A: `--config config_v2.json` (V6.3).
+L401: PV2/GUIA_RECORRIDO_SUPERVISADO.md:41 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    41| `python3 personaje_v2/scripts/pipeline.py CARPETA --config personaje_v2/config_v2_v64_experimental.json` (V6.4) o `--config personaje_v2/config_v2_v641_experimental.json` (V6.4.1, con el perímetro). La selección de la plantilla es siempre explícita: la V6.4 re
+L401: PV2/GUIA_RECORRIDO_SUPERVISADO.md:129 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    129|    - Motor A: `--config config_v2.json` (V6.3).
+L472: EVID/coordinacion/cierre_v2/PROGRAMA.md:40 [88144b5:coordinacion/cierre_v2/PROGRAMA.md]
+    40| 7. Preparar manual actual, instalación/recuperación y traspaso limpio. Leer la guía histórica junto con Hito2; no reintroducir límites I19/I20 ya corregidos. H9/I19 (volver siempre a paso12) sigue pendiente de verificar por cambio afectado.
+L477: PV2/GUIA_RECORRIDO_SUPERVISADO.md:141 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    141|      **Límite abierto (H9):** la vuelta es siempre al paso 12. Si lo cambiado son salidas de fases anteriores (fases A, B o C, o la entrada efectiva), volver al paso 12 no basta, y el procedimiento para ese caso no está documentado: está pendiente de verificar
+L477: E415/hito2/HITO_2_4_15.md:92 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/hito2/HITO_2_4_15.md]
+    92|   cierra nada. **Límite (H9):** vuelve siempre al paso 12; si cambian salidas de fases anteriores habría que volver al paso que las consume
+L477: EVID/coordinacion/cierre_v2/PROGRAMA.md:40 [88144b5:coordinacion/cierre_v2/PROGRAMA.md]
+    40| 7. Preparar manual actual, instalación/recuperación y traspaso limpio. Leer la guía histórica junto con Hito2; no reintroducir límites I19/I20 ya corregidos. H9/I19 (volver siempre a paso12) sigue pendiente de verificar por cambio afectado.
+L505: TRASP/INFORME_TRASPASO.md:36 [88144b5:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    36| | 12 | `cp -a elis_motor_A elis_motor_A_relevo_receptor` (CR/E414; `diff -r`, diferencia 0) y después `flock -x … python3 personaje_v2/scripts/pipeline.py personaje_v2/…/elis_motor_A_relevo_receptor/Elis --config personaje_v2/config_v2.json` (CR) | **10** | Pr
+L505: REVT/REVISION_TRASPASO.md:70 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    70| | 12 | — | — | **R** | `paso12_pipeline_01.txt` y `relevo_copia_base/` lo respaldan, y el prompt tiene 6 rutas `<traspaso>`. El código 10 no se registra (la salida «ESPERANDO» es coherente con 10). Hay huellas «antes» (126) pero no «después», ni salida de `dif
+L505: REVT/REVISION_TRASPASO.md:81 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    81|   - relanzamientos: 15 s cada uno, por los sellos del `historial` (10:12:49→10:13:04, 10:13:32→10:13:47 y 10:13:47→10:14:02).
+L529: E414/documentacion_cierre_4_14/traspaso/LEEME_TRASPASO.md:5-17 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/traspaso/LEEME_TRASPASO.md]
+    5| **Resultado** (hechos; detalle en `INFORME_TRASPASO.md`):
+    6| - **Arranque.** El SHA-256 del ZIP coincide. `bash verificar_paquete.sh completa` da PASA con código 0 (20:24–21:00, `_logs/verificacion_completa.txt`). El control de la 4.14 da 35/35.
+    7| - **Controles históricos.** Mismos resultados que `resultados/LEEME_CONTROLES_HISTORICOS_4_14.md`. Ese LEEME no iba en la candidata; va en la final.
+    8| - **Relevo.** `elis_motor_A/Elis`, paso 13 (auditoría), se resolvió en una copia hermana, `elis_motor_A_relevo_traspaso/`, para no tocar el expediente anterior.
+    9|   - La solicitud pendiente estaba caducada (INCIDENCIAS I19).
+    10|   - Con `--desde 12` se emitió la solicitud SA-21babb1dd24901d1. El agente receptor la respondió con APROBADO, y el pipeline se reanudó hasta el paso 14 (`pendiente_de_datos`).
+    11|   - Los registros están en `relevo/`. Las salidas que escribió el relevo están en `salidas_copia_relevo/`: auditoría, estado, ficha, informe, material, solicitud y verificaciones.
+    12| - **Dificultades de la documentación.** Se recogen en INCIDENCIAS I18–I20 y se corrigen en la final; las que tocan código se declaran con propuesta.
+    13| 
+    14| **Límites.**
+    15| - **La auditoría del relevo no es independiente.** La hizo el mismo agente receptor, que no podía lanzar un agente nuevo. Prueba que el procedimiento se puede seguir con la documentación del paquete, no la calidad de una auditoría de contexto separado.
+    16| - **El expediente del relevo no tiene valor económico.** Está sustituido por `elis_decisiones` y su precio de Sí no es utilizable (F1).
+    17| - **La copia completa del relevo no se incluye.** Sus demás archivos son los de `elis_motor_A/Elis` y se reproducen copiándolo y ejecutando los comandos de `relevo/`.
+L529: E414/documentacion_cierre_4_14/INCIDENCIAS_4_14.md:144-182 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/INCIDENCIAS_4_14.md]
+    144| ## I18 · Prueba de traspaso: documentación desfasada o incompleta (14-nov, ≈21:30)
+    145| 
+    146| - **Hecho.** Un agente receptor sin historial recibió solo el ZIP candidato y `PROMPT_NUEVA_VENTANA.md` (informe en `documentacion_cierre_4_14/traspaso/INFORME_TRASPASO.md`). La verificación completa dio PASA y el control de la 4.14, 35/35. El agente resolvió 
+    147| - **Hecho.** El agente encontró estas dificultades en la documentación del ZIP candidato:
+    148|   1. la matriz del alcance y HITO_2 eran los del hito 2: auditorías «en curso», recuentos antiguos (32, 196, grupo D 8/8), Vidrala con «E1 + E4», el pendiente de C47 asignado a Vidrala y una ruta errónea del hallazgo del motor A;
+    149|   2. el resultado esperado de los controles históricos sobre el árbol 4.14 no estaba en el paquete. El LEEME de la 4.13 exige 89/89 en el control de la 4.13, que en el árbol 4.14 da 83/89;
+    150|   3. CONTINUIDAD decía «12 baterías» en §1 y «diez» en §2, y sus secciones §4, §5 y §7 no tenían la 4.14;
+    151|   4. ningún documento listaba los relevos vivos, ni decía si un relevo de un expediente sustituido se reanuda en su sitio o en una copia;
+    152|   5. no se documentaba el espacio en disco necesario;
+    153|   6. la guía daba 20–30 minutos para la verificación completa (medido: 36).
+    154| - **Corrección en la final.**
+    155|   - La matriz y HITO_2 se actualizan al estado final.
+    156|   - El LEEME de los controles sobre el árbol 4.14 ya va en la final (`resultados/LEEME_CONTROLES_HISTORICOS_4_14.md`).
+    157|   - CONTINUIDAD: recuento de baterías, §4, §5 y §7 con la 4.14, una lista de relevos vivos (§2, punto 6) y el espacio en disco.
+    158|   - La guía: la duración y la regla de la copia hermana.
+    159| - **Lo que no se corrige.** I19 e I20 se declaran, con propuesta. No se cambia código después de la candidata.
+    160| 
+    161| ## I19 · Un relevo caducado no se avisa (prueba de traspaso)
+    162| 
+    163| - **Hecho.** `elis_motor_A/Elis` esperaba la auditoría SA-ed5561eac1cc5897 del material 9e1a725d…. `verificacion_entradas.json` se escribió después de fijar ese material, y desde la 4.14 forma parte de él (`cierre_v2.MATERIAL_FIJO`). El material calculado hoy 
+    164| - **Hecho, por lectura del código** (`pipeline.py`, paso 13): mientras espera, el pipeline no vuelve a fijar el material. Un APROBADO para la solicitud antigua se rechaza por `motivo_auditoria_no_corresponde`, y la corrección vuelve a pedir el material antiguo
+    165| - **Salida probada.** `pipeline.py … --desde 12` en una copia hermana. Repite la verificación, fija el material nuevo (de91ac88…) y emite una solicitud nueva (SA-21babb1dd24901d1). La auditoría la respondió y el pipeline terminó en el paso 14.
+    166| - **Rutas absolutas.** Los prompts de `prompts_generados/` y varios JSON llevan rutas del entorno que los produjo. Al relanzar el pipeline, los prompts se regeneran con las rutas actuales. Las plantillas de relevo de la 4.13 son históricas.
+    167| - ***Propuesta*** (sin aplicar; toca código): que el paso 13, mientras espera, compare el material fijado con el calculado y, si difieren, vuelva a fijarlo y emita una solicitud nueva.
+    168| 
+    169| ## I20 · La ficha y el informe de la V6.3 no muestran la aptitud por entradas
+    170| 
+    171| - **Hecho.** `ficha.py` escribe `aptitud_de_uso`, con la verificación de las entradas, solo en la vía V6.4 / V6.4.1. En la V6.3 (motor A), el resultado queda en `estado_pipeline.json → verificacion_entradas` y en el registro del pipeline, pero no en la ficha n
+    172|   - `elis_decisiones/Elis`: el registro es apto, 193 de 193, pero la ficha no lo dice.
+    173|   - En la copia del relevo de `elis_motor_A`, el registro no es apto y la ficha tampoco lo dice.
+    174| - **Hecho.** La guía §8.2 decía que la ficha y el informe muestran «apta por entradas: no» sin distinguir la plantilla. Se corrige: eso vale para la V6.4 y la V6.4.1. En la V6.3 se lee en `estado_pipeline.json`.
+    175| - *Interpretación.* Ninguna salida V6.3 se presenta como apta para dinero real, porque no lleva ningún bloque de aptitud. Pero quien lea la ficha no ve si las entradas están verificadas. El motor A ya no está validado (F1).
+    176| - ***Propuesta*** (sin aplicar): `aptitud_de_uso` también en la V6.3. Cambia las salidas V6.3, y por eso el piloto y las referencias de los controles. Requiere encargo, una batería y la regeneración de las referencias.
+    177| 
+    178| ## I21 · Limpiezas de la prueba de traspaso (14-nov, ≈21:03 y ≈21:40)
+    179| 
+    180| - **En la descompresión del agente receptor** (`/home/claude/traspaso_414`, fuera del paquete), bajo la regla 11.10: los `*.xlsx` y `vigencia/` de `personaje_v2/pruebas/_v64/` y `/tmp/bat471_v8aovwgv`. Las rutas están en `traspaso/_logs/LIMPIEZAS.txt`.
+    181| - **Después del informe, por la orquestación.** Lo único se conservó en `documentacion_cierre_4_14/traspaso/`: el informe, los registros, el relevo, y la auditoría y las salidas de la copia del relevo. El borrado de la descompresión del agente receptor (`/home
+    182| - **Borrado sí hecho.** Las partes de 20 MiB del ZIP candidato, que se reproducen dividiendo el ZIP. Se conservan el ZIP candidato y su `.sha256`.
+L529: munger_v2_r1/CONTINUIDAD.md:358 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    358| - **Traspaso:** repetir la prueba sobre la final con un agente que pueda lanzar auditores de contexto separado.
+L530: REVT/REVISION_TRASPASO.md:19-34 [88144b5:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    19| ## 0. Veredicto
+    20| 
+    21| **CONFORME CON LÍMITES.**
+    22| 
+    23| - Los resultados que importan están respaldados por el registro publicado y coinciden con las referencias:
+    24|   - verificación completa: PASA, código 0, idéntica byte a byte a la de las pruebas de la candidata;
+    25|   - control 4.14: 29/35, con las seis FALLA documentadas;
+    26|   - relevo caducado detectado sin `--desde`;
+    27|   - H9: vuelve al paso 12.
+    28| - No se afirma ningún paso con agentes que no se ejecutara.
+    29| - Límites:
+    30|   1. El registro no conserva una transcripción de comandos ni la mayoría de los códigos de salida. Los pasos 1–7, 11 y parte de 9, 10b y 12–14 son autodeclarados.
+    31|   2. Hay cinco imprecisiones menores (§1.3). Ninguna cambia un resultado.
+    32| - Las diferencias de 4.10 y 4.11 tienen explicación:
+    33|   - 4.10: está ligada al texto reescrito en la 4.15;
+    34|   - 4.11: es atribuible al entorno, no al código de la 4.15 (§5).
+L535: EVID/coordinacion/cierre_v2/traspaso/PROMPT_RECEPTOR.md:5-8 [88144b5:coordinacion/cierre_v2/traspaso/PROMPT_RECEPTOR.md]
+    5| **Objetivo.** Comprobar que, con el manual y el repositorio, un receptor nuevo puede:
+    6| - reconstruir la candidata `integracion/candidata-cierre-v2` @ `957af652cdc3bef3d67e8623c9572138bac685e9` de `jluisplagos/munger-v2`;
+    7| - verificarla;
+    8| - decir qué no ha podido hacer y por qué.
+L545: PRUEBAS/README.md:10-12 [88144b5:coordinacion/cierre_v2/pruebas_candidata/957af65/README.md]
+    10| - Desde allí se copiaron al worktree de la candidata los 1008 binarios `release_asset`, sin sobrescribir ninguno (`copia_binarios_candidata.json`: 1008 copiados, 0 existentes, 0 distintos y 0 fallos tras la copia).
+    11| - **Manifiesto propio de la candidata** (`munger_v2_r1/MANIFIESTO_SHA256.txt`): 7762/7762 OK, 0 ausentes y 0 archivos fuera del manifiesto.
+    12| - `git status` muestra 83 JSON sin seguimiento. Son binarios de la 4.14 que el `.gitignore` no cubre. Están en el manifiesto y no se versionan.
+L566: CLAUDE.md:31 [3149128:CLAUDE.md]
+    31| La revisión debe hacerse por un agente distinto del autor del cambio.
+L589: HERR/comprobar_registro.py:103-104 [88144b5:coordinacion/cierre_v2/herramientas/comprobar_registro.py]
+    103|         elif fallidos:
+    104|             d.update(resultado=1, causa="pasos con código distinto de 0: " + ", ".join(f"{n}={c}" for n, c in fallidos))
+L589: HERR/README.md:45 [88144b5:coordinacion/cierre_v2/herramientas/README.md]
+    45| El resultado es 0 solo si los dos son 0. Cualquier otro código se informa tal cual, con su causa.
+L612: HERR/README.md:40-41 [88144b5:coordinacion/cierre_v2/herramientas/README.md]
+    40| bash lanzador.sh; rc_lanzador=$?
+    41| python3 -I coordinacion/cierre_v2/herramientas/comprobar_registro.py "$REGISTRO" --esperados 26; rc_registro=$?
+L655: controles_historicos_4_13.py:59 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py]
+    59|         r = subprocess.run([sys.executable, "-I", "-B", script], cwd=RAIZ, capture_output=True, text=True)
+L674: munger_v2_r1/CONTINUIDAD.md:143 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    143|    Con unos 4,5 GB libres al empezar los controles, la prueba de traspaso se quedó sin disco (I18 e I21). Conviene tener al menos 7 GB libres después de descomprimir. Si falta espacio, terminada la verificación se pueden borrar los `*.xlsx` y `vigencia/` de `p
+L674: comprobar_entrega_4_8_1.py:76-77 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    76|     shutil.copytree(PV2, os.path.join(raiz, "personaje_v2"), ignore=lambda d, fs: [f for f in fs if f in ("empresas_v2", ".lo_perfil", "__pycache__")
+    77|                                                                                      or (os.path.basename(d) == "empresas_v2_correcciones" and f != "2026-11_Vidrala_ensayo_4_6_1")])
+L674: comprobar_entrega_4_8.py:60 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py]
+    60|     shutil.copytree(P2, os.path.join(raiz, "personaje_v2"), ignore=shutil.ignore_patterns("empresas_v2", "empresas_v2_correcciones", ".lo_perfil", "__pycache__", "sintetico"))
+L674: comprobar_entrega_4_9.py:84 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py]
+    84|     actuales = {os.path.relpath(os.path.join(r, f), RAIZ) for r, ds, fs in os.walk(RAIZ) for f in fs if "__pycache__" not in r}
+L676: PV2/GUIA_RECORRIDO_SUPERVISADO.md:141 [3149128:munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md]
+    141|      **Límite abierto (H9):** la vuelta es siempre al paso 12. Si lo cambiado son salidas de fases anteriores (fases A, B o C, o la entrada efectiva), volver al paso 12 no basta, y el procedimiento para ese caso no está documentado: está pendiente de verificar
+L676: E415/hito2/HITO_2_4_15.md:92 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/hito2/HITO_2_4_15.md]
+    92|   cierra nada. **Límite (H9):** vuelve siempre al paso 12; si cambian salidas de fases anteriores habría que volver al paso que las consume
+L676: EVID/coordinacion/cierre_v2/PROGRAMA.md:40 [88144b5:coordinacion/cierre_v2/PROGRAMA.md]
+    40| 7. Preparar manual actual, instalación/recuperación y traspaso limpio. Leer la guía histórica junto con Hito2; no reintroducir límites I19/I20 ya corregidos. H9/I19 (volver siempre a paso12) sigue pendiente de verificar por cambio afectado.
+L743: .gitignore:2 [3149128:.gitignore]
+    2| *.pdf

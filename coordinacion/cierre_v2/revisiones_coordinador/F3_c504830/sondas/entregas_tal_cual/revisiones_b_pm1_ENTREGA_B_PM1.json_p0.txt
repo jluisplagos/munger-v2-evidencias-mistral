@@ -1,0 +1,10 @@
+COMANDO (sha256 44862d4b4e1b67a6c14af079f469435243308d3c3c16ab9dc9a7a476d38c9032):
+git show origin/mistral/m2-fundamento-pm1:resultados_m2/pm1/FUENTES_CONSERVADAS.csv > /tmp/fuentes_daa7478.csv && python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_huellas.py "$ZIP_414" /tmp/fuentes_daa7478.csv   # F2-D7: comando ejecutable con ruta por argumento; ZIP_414 = asset de la release base-4.14
+
+EXIT: 0
+--- STDOUT ---
+/tmp/fuentes_daa7478.csv: 29/29 PDF coinciden en bytes y SHA-256 con munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+RESULTADO: TODO COINCIDE
+
+--- STDERR ---
+

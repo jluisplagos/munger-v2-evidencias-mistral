@@ -1,0 +1,10 @@
+COMANDO (sha256 f398c61b1251935db1355179d0e958f5bc0fa0b8197038263146c8ef11bbd9df):
+python3 -I resultados_cierre/alcance_real/preparacion_b3_c1/scripts/inventario_desde_zip.py "$ZIP_414" /tmp/inv_check.csv /tmp/huellas_check.csv && cmp /tmp/inv_check.csv resultados_cierre/alcance_real/preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv && cmp /tmp/huellas_check.csv resultados_cierre/alcance_real/preparacion_b3_c1/fuentes/huellas_todas_las_fuentes.csv
+
+EXIT: 0
+--- STDOUT ---
+/tmp/inv_check.csv: 131 recursos + 4 .bat; 6799 archivos en el ZIP (6476 dentro, 323 fuera declarado)
+/tmp/huellas_check.csv: 71 PDF con SHA-256 completo + release bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e
+
+--- STDERR ---
+

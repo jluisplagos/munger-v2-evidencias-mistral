@@ -1,0 +1,142 @@
+### python3 -I -m unittest discover -s automation/claude_review -p test_pilot.py -v
+test_budget_refusal_before_reservation (test_pilot.PilotTests.test_budget_refusal_before_reservation) ... ok
+test_cumulative_budget_includes_first_trial (test_pilot.PilotTests.test_cumulative_budget_includes_first_trial) ... ok
+test_dry_run_no_anthropic_no_reservation (test_pilot.PilotTests.test_dry_run_no_anthropic_no_reservation) ... ok
+test_duplicate_case_rejected (test_pilot.PilotTests.test_duplicate_case_rejected) ... ok
+test_duplicate_does_not_charge_again (test_pilot.PilotTests.test_duplicate_does_not_charge_again) ... ok
+test_duplicate_source_id_rejected (test_pilot.PilotTests.test_duplicate_source_id_rejected) ... ok
+test_empty_quote_not_accepted (test_pilot.PilotTests.test_empty_quote_not_accepted) ... ok
+test_extra_approval_key_not_accepted (test_pilot.PilotTests.test_extra_approval_key_not_accepted) ... ok
+test_extra_request_fields_rejected (test_pilot.PilotTests.test_extra_request_fields_rejected) ... ok
+test_fabricated_quote_not_accepted (test_pilot.PilotTests.test_fabricated_quote_not_accepted) ... ok
+test_failed_publication_keeps_reservation (test_pilot.PilotTests.test_failed_publication_keeps_reservation) ... ok
+test_failed_reservation_no_paid_call (test_pilot.PilotTests.test_failed_reservation_no_paid_call) ... ok
+test_fence_does_not_ignore_outside_prose (test_pilot.PilotTests.test_fence_does_not_ignore_outside_prose) ... ok
+test_floating_ref_rejected (test_pilot.PilotTests.test_floating_ref_rejected) ... ok
+test_http_rejects_foreign_repo_and_endpoint (test_pilot.PilotTests.test_http_rejects_foreign_repo_and_endpoint) ... ok
+test_invalid_usage_not_accepted (test_pilot.PilotTests.test_invalid_usage_not_accepted) ... ok
+test_large_bundle_rejected (test_pilot.PilotTests.test_large_bundle_rejected) ... ok
+test_large_source_not_truncated (test_pilot.PilotTests.test_large_source_not_truncated) ... ok
+test_ledger_duplicate_race_does_not_overwrite (test_pilot.PilotTests.test_ledger_duplicate_race_does_not_overwrite) ... ok
+test_ledger_write_scope_fixed (test_pilot.PilotTests.test_ledger_write_scope_fixed) ... ok
+test_malformed_json_not_accepted (test_pilot.PilotTests.test_malformed_json_not_accepted) ... ok
+test_malformed_request_types_rejected (test_pilot.PilotTests.test_malformed_request_types_rejected) ... ok
+test_missing_case_rejected (test_pilot.PilotTests.test_missing_case_rejected) ... ok
+test_missing_key_does_not_reserve (test_pilot.PilotTests.test_missing_key_does_not_reserve) ... ok
+test_model_instructions_do_not_execute (test_pilot.PilotTests.test_model_instructions_do_not_execute) ... ok
+test_multiple_fences_rejected (test_pilot.PilotTests.test_multiple_fences_rejected) ... ok
+test_no_secret_values_in_files (test_pilot.PilotTests.test_no_secret_values_in_files) ... ok
+test_non_utf8_source (test_pilot.PilotTests.test_non_utf8_source) ... ok
+test_one_live_call_and_report_not_acceptance (test_pilot.PilotTests.test_one_live_call_and_report_not_acceptance) ... ok
+test_over_budget_usage_not_accepted (test_pilot.PilotTests.test_over_budget_usage_not_accepted) ... ok
+test_path_traversal_rejected (test_pilot.PilotTests.test_path_traversal_rejected) ... ok
+test_previous_bundle_must_match (test_pilot.PilotTests.test_previous_bundle_must_match) ... ok
+test_previous_cost_cannot_be_forged (test_pilot.PilotTests.test_previous_cost_cannot_be_forged) ... ok
+test_redirect_is_not_followed (test_pilot.PilotTests.test_redirect_is_not_followed) ... ok
+test_replay_has_no_anthropic_calls_and_preserves_original (test_pilot.PilotTests.test_replay_has_no_anthropic_calls_and_preserves_original) ... ok
+test_replay_rejects_altered_saved_record (test_pilot.PilotTests.test_replay_rejects_altered_saved_record) ... ok
+test_replay_still_rejects_fabricated_quotes (test_pilot.PilotTests.test_replay_still_rejects_fabricated_quotes) ... ok
+test_response_has_no_tools (test_pilot.PilotTests.test_response_has_no_tools) ... ok
+test_selection_exact_and_hash_original (test_pilot.PilotTests.test_selection_exact_and_hash_original) ... ok
+test_single_json_fence_validates_all_content (test_pilot.PilotTests.test_single_json_fence_validates_all_content) ... ok
+test_source_field_types_rejected (test_pilot.PilotTests.test_source_field_types_rejected) ... ok
+test_source_not_file (test_pilot.PilotTests.test_source_not_file) ... ok
+test_sources_outside_scope (test_pilot.PilotTests.test_sources_outside_scope) ... ok
+test_timeout_retains_reservation_and_no_retry (test_pilot.PilotTests.test_timeout_retains_reservation_and_no_retry) ... ok
+test_token_count_invalid (test_pilot.PilotTests.test_token_count_invalid) ... ok
+test_truncated_model_output_not_accepted (test_pilot.PilotTests.test_truncated_model_output_not_accepted) ... ok
+test_unplanned_caching_not_mispriced (test_pilot.PilotTests.test_unplanned_caching_not_mispriced) ... ok
+test_wrong_case_scope_rejected (test_pilot.PilotTests.test_wrong_case_scope_rejected) ... ok
+test_wrong_pilot_id_rejected (test_pilot.PilotTests.test_wrong_pilot_id_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 49 tests in 0.059s
+
+OK
+### codigo_salida=0
+### python3 -I -m unittest discover -s automation/coordination -p test_critical_review.py -v
+test_bad_json_and_extra_fields_rejected (test_critical_review.CriticalTests.test_bad_json_and_extra_fields_rejected) ... ok
+test_budget_blocks_before_reserving (test_critical_review.CriticalTests.test_budget_blocks_before_reserving) ... ok
+test_invented_quote_rejected (test_critical_review.CriticalTests.test_invented_quote_rejected) ... ok
+test_missing_key_has_no_inference (test_critical_review.CriticalTests.test_missing_key_has_no_inference) ... ok
+test_model_allowlist (test_critical_review.CriticalTests.test_model_allowlist) ... ok
+test_prepare_does_not_call_anthropic (test_critical_review.CriticalTests.test_prepare_does_not_call_anthropic) ... ok
+test_publication_failure_keeps_reservation (test_critical_review.CriticalTests.test_publication_failure_keeps_reservation) ... ok
+test_real_mode_with_fake_transport_not_acceptance (test_critical_review.CriticalTests.test_real_mode_with_fake_transport_not_acceptance) ... ok
+test_repeat_has_no_second_inference (test_critical_review.CriticalTests.test_repeat_has_no_second_inference) ... ok
+test_reservation_failure_blocks_inference (test_critical_review.CriticalTests.test_reservation_failure_blocks_inference) ... ok
+test_six_findings_limit (test_critical_review.CriticalTests.test_six_findings_limit) ... ok
+test_timeout_not_retried (test_critical_review.CriticalTests.test_timeout_not_retried) ... ok
+test_truncated_response_not_accepted (test_critical_review.CriticalTests.test_truncated_response_not_accepted) ... ok
+test_wrong_count_type_rejected (test_critical_review.CriticalTests.test_wrong_count_type_rejected) ... ok
+test_wrong_model_rejected (test_critical_review.CriticalTests.test_wrong_model_rejected) ... ok
+test_complete_stream_keeps_usage_and_visible_output (test_critical_review.StreamingTests.test_complete_stream_keeps_usage_and_visible_output) ... ok
+test_dropped_stream_does_not_manufacture_success (test_critical_review.StreamingTests.test_dropped_stream_does_not_manufacture_success) ... ok
+test_duplicate_start_is_rejected (test_critical_review.StreamingTests.test_duplicate_start_is_rejected) ... ok
+test_provider_error_does_not_become_text (test_critical_review.StreamingTests.test_provider_error_does_not_become_text) ... ok
+test_stop_requires_message_delta (test_critical_review.StreamingTests.test_stop_requires_message_delta) ... ok
+test_stream_size_is_bounded (test_critical_review.StreamingTests.test_stream_size_is_bounded) ... ok
+test_tool_block_is_rejected (test_critical_review.StreamingTests.test_tool_block_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.019s
+
+OK
+### codigo_salida=0
+### python3 -I -m unittest discover -s automation/coordination -p test_qwen_bank_review.py -v
+test_altered_source_is_rejected_before_inference (test_qwen_bank_review.QwenReviewTests.test_altered_source_is_rejected_before_inference) ... ok
+test_complete_bank_manifest_and_git_blobs (test_qwen_bank_review.QwenReviewTests.test_complete_bank_manifest_and_git_blobs) ... ok
+test_duplicate_and_missing_cases_rejected (test_qwen_bank_review.QwenReviewTests.test_duplicate_and_missing_cases_rejected) ... ok
+test_failed_generation_is_preserved_and_not_retried (test_qwen_bank_review.QwenReviewTests.test_failed_generation_is_preserved_and_not_retried) ... ok
+test_failed_reservation_blocks_generation (test_qwen_bank_review.QwenReviewTests.test_failed_reservation_blocks_generation) ... ok
+test_invented_citation_is_rejected (test_qwen_bank_review.QwenReviewTests.test_invented_citation_is_rejected) ... ok
+test_line_wrap_does_not_allow_changed_numbers_or_cross_paragraphs (test_qwen_bank_review.QwenReviewTests.test_line_wrap_does_not_allow_changed_numbers_or_cross_paragraphs) ... ok
+test_line_wrap_normalization_is_not_applied_to_csv_or_json (test_qwen_bank_review.QwenReviewTests.test_line_wrap_normalization_is_not_applied_to_csv_or_json) ... ok
+test_model_resolution_uses_exported_metadata_without_runtime_initialization (test_qwen_bank_review.QwenReviewTests.test_model_resolution_uses_exported_metadata_without_runtime_initialization) ... ok
+test_one_generation_guard_and_no_product_acceptance (test_qwen_bank_review.QwenReviewTests.test_one_generation_guard_and_no_product_acceptance) ... ok
+test_product_pass_label_is_rejected (test_qwen_bank_review.QwenReviewTests.test_product_pass_label_is_rejected) ... ok
+test_resume_lease_failure_blocks_generation (test_qwen_bank_review.QwenReviewTests.test_resume_lease_failure_blocks_generation) ... ok
+test_resume_requires_external_proof_of_zero_generations_and_exact_bundle (test_qwen_bank_review.QwenReviewTests.test_resume_requires_external_proof_of_zero_generations_and_exact_bundle) ... ok
+test_soft_markdown_line_wrap_returns_actual_source_and_provenance (test_qwen_bank_review.QwenReviewTests.test_soft_markdown_line_wrap_returns_actual_source_and_provenance) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.044s
+
+OK
+### codigo_salida=0
+### python3 -I -m unittest discover -s automation/coordination -p test_qwen_group_review.py -v
+test_case_outside_scope_is_rejected (test_qwen_group_review.GroupTests.test_case_outside_scope_is_rejected) ... ok
+test_single_generation_and_only_six_case_coverage (test_qwen_group_review.GroupTests.test_single_generation_and_only_six_case_coverage) ... ok
+test_six_groups_cover_exactly_the_36_and_include_their_fixtures (test_qwen_group_review.GroupTests.test_six_groups_cover_exactly_the_36_and_include_their_fixtures) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.037s
+
+OK
+### codigo_salida=0
+### python3 -I -m unittest discover -s automation/coordination -p test_qwen_peer_review.py -v
+test_accepted_or_product_execution_claims_are_rejected (test_qwen_peer_review.PeerTests.test_accepted_or_product_execution_claims_are_rejected) ... ok
+test_bundle_has_exact_scope_and_frozen_ledger (test_qwen_peer_review.PeerTests.test_bundle_has_exact_scope_and_frozen_ledger) ... ok
+test_conservative_budget_and_independent_model_configuration (test_qwen_peer_review.PeerTests.test_conservative_budget_and_independent_model_configuration) ... ok
+test_modified_projection_is_rejected_before_api (test_qwen_peer_review.PeerTests.test_modified_projection_is_rejected_before_api) ... ok
+test_truncated_or_partial_report_cannot_trigger_peer (test_qwen_peer_review.PeerTests.test_truncated_or_partial_report_cannot_trigger_peer) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.038s
+
+OK
+### codigo_salida=0
+### python3 -I -m unittest discover -s automation/coordination -p test_vibe_auth.py -v
+test_authentication_checks_assistant_output_and_drops_other_keys (test_vibe_auth.VibeTests.test_authentication_checks_assistant_output_and_drops_other_keys) ... ok
+test_echoed_prompt_is_not_authenticated (test_vibe_auth.VibeTests.test_echoed_prompt_is_not_authenticated) ... ok
+test_no_key_never_reserves_or_invokes (test_vibe_auth.VibeTests.test_no_key_never_reserves_or_invokes) ... ok
+test_only_one_invocation_after_reservation (test_vibe_auth.VibeTests.test_only_one_invocation_after_reservation) ... ok
+test_preparation_with_key_never_invokes (test_vibe_auth.VibeTests.test_preparation_with_key_never_invokes) ... ok
+test_reserve_failure_does_not_invoke (test_vibe_auth.VibeTests.test_reserve_failure_does_not_invoke) ... ok
+test_timeout_is_not_retried (test_vibe_auth.VibeTests.test_timeout_is_not_retried) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.013s
+
+OK
+### codigo_salida=0

@@ -1,0 +1,56 @@
+name: Contraste Mistral Qwen por tandas
+on:
+  push:
+    branches: [automatizacion/coordinacion-api-v1]
+    paths:
+      - automation/coordination/qwen_group_review.py
+      - automation/coordination/test_qwen_group_review.py
+      - .github/workflows/qwen-bank-mistral-groups.yml
+permissions:
+  contents: read
+jobs:
+  review:
+    concurrency:
+      group: munger-qwen-groups-${{ matrix.group }}
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    strategy:
+      max-parallel: 1
+      fail-fast: true
+      matrix:
+        group: [1]
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s automation/coordination -p 'test_qwen*review.py' -v
+      - run: python -m pip install --disable-pip-version-check mistral-vibe==3.1.2
+      - name: Un contraste parcial sin herramientas
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MISTRAL_VIBE_CLI_KEY: ${{ secrets.MISTRAL_VIBE_CLI_KEY }}
+        run: >-
+          python automation/coordination/qwen_group_review.py
+          --group "${{ matrix.group }}" --code-sha "$GITHUB_SHA"
+          --output "$RUNNER_TEMP/munger-qwen-group-${{ matrix.group }}"
+      - name: Revision por Claude API en contexto distinto
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: >-
+          python automation/coordination/qwen_peer_review.py
+          --group "${{ matrix.group }}" --code-sha "$GITHUB_SHA"
+          --output "$RUNNER_TEMP/munger-qwen-group-${{ matrix.group }}/peer"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: munger-qwen-group-${{ matrix.group }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/munger-qwen-group-${{ matrix.group }}/
+          if-no-files-found: warn
+          retention-days: 30

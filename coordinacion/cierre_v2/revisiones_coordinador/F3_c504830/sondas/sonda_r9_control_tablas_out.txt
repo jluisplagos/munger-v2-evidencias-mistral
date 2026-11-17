@@ -1,0 +1,7 @@
+== A. mismo comando, pero sin ejecutar el script (python3 -I -c pass):
+   exit=0  (0 = la prueba publicada pasa aunque el script no regenere nada)
+== B. borrando antes el CSV extraido y ejecutando el script del autor:
+   exit=0  (0 = el script regenera el CSV byte a byte)
+== C. borrando el CSV y sin ejecutar el script:
+cmp: resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv: No such file or directory
+   exit=2  (distinto de 0 = control negativo discrimina)

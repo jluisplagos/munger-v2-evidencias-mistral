@@ -1,0 +1,9 @@
+{"prueba": "test_auto1_tope.CapTests.test_audit_pilot_code_001_still_blocked_by_its_reservation", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_tope.CapTests.test_m5_current_ledger_exposure_counts_bounds_and_skips_vibe", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_tope.CapTests.test_m5_exact_reserve_rechecked_inside_reserve", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_tope.CapTests.test_m5_final_reservation_records_cumulative_and_cost", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_tope.CapTests.test_m5_missing_or_invalid_cap_blocks_before_anthropic", "resultado": "FAIL", "detalle": "AssertionError: [('anthropic', 'GET', '/v1/models/claude-fable-5-2'), ('anthropic', 'POST', '/v1/messages/count_tokens')] is not false"}
+{"prueba": "test_auto1_tope.CapTests.test_m5_two_tasks_over_cap_second_stops_before_count_and_reserve", "resultado": "FAIL", "detalle": "AssertionError: PilotError not raised"}
+{"prueba": "test_auto1_tope.CapTests.test_m5_unbounded_or_unreadable_record_blocks", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_tope.CapTests.test_m5_uncertain_attempt_counts_its_full_reserve", "resultado": "FAIL", "detalle": "AssertionError: PilotError not raised"}
+{"ejecutadas": 8, "fallos": 3, "errores": 0, "omitidas": 0, "intentos_de_red": []}

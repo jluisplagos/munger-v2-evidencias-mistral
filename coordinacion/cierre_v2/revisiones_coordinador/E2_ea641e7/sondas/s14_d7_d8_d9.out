@@ -1,0 +1,24 @@
+### D7 residuos (excluye RESPUESTA_REVISION_E2.md)
+./ENTREGA.json:39:      "E2-D7": "CERRADO - 'sin cifra publicada'/'No publica la tasa'/'ninguna tasa ni importe publicado' sustituidos por 'sin cifra en esta pagina'/'no localizado en esta busqueda'; 
+./scripts/lectura_bloque2.py:344:    "M2": "E2-D2: citas añadidas para 'Workwear 37%' (factsheet p.1) y 'pricing discipline' (Q3 2026 p.3). E2-D7: 'sin cifra publicada'/'No publica la tasa' sustituid
+### otros absolutos 'no publica|no se publica|sin publicar|no existe|no hay dato'
+./ENTREGA.json:39:      "E2-D7": "CERRADO - 'sin cifra publicada'/'No publica la tasa'/'ninguna tasa ni importe publicado' sustituidos por 'sin cifra en esta pagina'/'no localizado en esta busqueda'; grep de control -> 0
+./scripts/lectura_bloque2.py:22:- E-R7: nada de 'no publicado' absoluto; siempre 'no localizado en esta busqueda' + alcance.
+./scripts/lectura_bloque2.py:344:    "M2": "E2-D2: citas añadidas para 'Workwear 37%' (factsheet p.1) y 'pricing discipline' (Q3 2026 p.3). E2-D7: 'sin cifra publicada'/'No publica la tasa' sustituidos por 'sin cifra en
+./scripts/lectura_bloque2.py:373:        raise AssertionError(f"{fid}: no existe [PDF PAGE {page}]")
+./CHECKPOINT_RELEVO.md:8:- `sha256sum -c MANIFIESTO_SHA256.txt` (manifiesto publicado en `23718fb`, 50 entradas) → **48/48 archivos presentes en Git OK**; las 2 entradas restantes son `scripts/__pycache__/*.pyc`, exclu
+./RESPUESTA_REVISION_E1.md:47:- Eliminados «no publicada» / «sigue sin publicarse» de ENTREGA.json, RESUMEN, HALLAZGOS, PREGUNTAS_Y_RESULTADOS.csv y textos de citas de `LECTURA_FUENTES.jsonl`; sustituidos por «**no 
+./RESPUESTA_REVISION_E1.md:48:- **Prueba:** `grep -rniE "no publicad|sin publicar"` sobre los textos de evidencia regenerados (HALLAZGOS_ELIS.md, RESUMEN, README, PUNTO_DE_RECUPERACION, PREGUNTAS_Y_RESULTADOS.csv, FUENTE
+./RESPUESTA_REVISION_E1.md:58:- **Carpetas y exit ≠ 0:** `descargar_fuentes_elis.py` crea `.trabajo/elis_fuentes/{pdf,texto}` y `fuentes_descargadas/`; valida HTTP 200 **y** magic `%PDF` (fr.elis.com devuelve 200 con H
+./RESPUESTA_REVISION_E1.md:71:  -> NEGATIVO (URL inexistente): FALLO 200 text/html -> exit 1
+### D9 errata
+./RESPUESTA_REVISION_E2.md:60:## E2-D9 (errata «Warts cherei»/«Wärtscherei») — CERRADO
+./RESPUESTA_REVISION_E2.md:63:- **Prueba:** `grep -rn 'Warts cherei\|Wärtscherei'` → 0 resultados.
+./ENTREGA.json:41:      "E2-D9": "CERRADO - 'Warts cherei'/'W\u00e4rtscherei' -> 'W\u00e4scherei' en LECTURA (regenerada), PREGUNTAS, HALLAZGOS y RESPUESTA_REVISION_E1.md (adenda); grep -> 0"
+./RESPUESTA_REVISION_E1.md:97:Esta respuesta queda corregida por `CORRECCION_E2.md` en dos puntos: E2-D1 (la lista de importantes de 2025 es Bodensee, Bugadería Neutral, Larosé, **Acquaflash**, JP Muller y Adrett; **Lavartex no es de 2025**, solo earnout (19,7); Carsan y Ernst son importantes de 2024) y el estado de preservación (los 11 PDF ya están en la Release `fuentes-elis-e-20261117`, decisión U1). Ver `RESPUESTA_REVISION_E2.md`. La errata ortográfica (Wärtscherei → Wäscherei, E2-D9) también queda corregida aquí.
+D9 grep rc=0
+### D8 'version' en índice/fuentes
+id,titulo,url_solicitada,url_final,http,content_type,bytes,sha256,fecha_descarga,estado,fecha,ejercicio,idioma,preguntas,paginas_pdf,error
+estado,categoria,nombre,ruta_o_recurso,sha256,bytes,ejercicio,idioma,examinado_en,notas,url_solicitada,url_final,http,content_type,fecha_descarga
+fuentes_descargadas/INDICE_DESCARGAS.csv:0
+FUENTES_Y_BUSQUEDA.csv:0

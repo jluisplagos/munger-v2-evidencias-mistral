@@ -401,15 +401,17 @@
         "resultados_cierre/elis_fuentes/ @ 23718fb (respuesta a E1) y f00c5dd (checkpoint de relevo)",
         "coordinacion/cierre_v2/revisiones_coordinador/E1_23718fb/REVISION_E1_23718fb.md",
         "coordinacion/cierre_v2/revisiones_coordinador/E1_23718fb/CORRECCION_E2.md",
-        "mistral/e-fuentes-elis @ ea641e7 (bloque 6: respuesta a CORRECCION_E2, D1…D9)"
+        "mistral/e-fuentes-elis @ ea641e7 (bloque 6: respuesta a CORRECCION_E2, D1…D9)",
+        "coordinacion/cierre_v2/revisiones_coordinador/E2_ea641e7/REVISION_E2_ea641e7.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/E2_ea641e7/CORRECCION_E3.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Respuesta E2 (ea641e7) entregada; revisión de lo afectado por un contexto distinto en curso.",
+      "siguiente_accion": "E2 (ea641e7) revisada: D1 central cerrado con límites (las seis importantes suman 60,8, verificado en p.341). D2, D3 y D5 con residuos; D4 y D6–D9 cerrados. Dos defectos nuevos medios: E3-1 (cita del factsheet que solo casa por el orden de extracción) y E3-2 (la reproducción reescribe el índice de descargas: no es idempotente). CORRECCION_E3 va a Mistral E. M1, M2, M6 y N2 siguen ABIERTOS.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
+      "commit_revisado": "ea641e77523c7833f67b56f8fd7f1f90577e7add",
       "alcance_aceptado": [],
       "solicitud_revision": {
         "estado": "RESPONDIDA",
@@ -491,7 +493,7 @@
       "autor": "Antigua Mistral C, nueva F",
       "revisor_propuesto": "Claude revisa hechos del informe, no autoaprueba sus cambios",
       "entrega": "ENTREGADO",
-      "revision": "CONFORME_CON_LIMITES",
+      "revision": "CORRECCIONES",
       "integracion": "NO",
       "commit_origen": "c504830d78b4d568944298d0ae34cc6bc0bb6edb",
       "commit_destino": null,
@@ -499,15 +501,17 @@
         "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_F1_W1_W3_d519eb0.md @ 90329a1",
         "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_C20_bf0d5c2.md @ e94ee7c",
         "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_CSV_77ff89f8.md @ c7716a0",
-        "mistral/f-alcance-real @ 27c5931, c4d918f, 52eca91 y c504830 (respuesta a CORRECCION_F3, R3–R15)"
+        "mistral/f-alcance-real @ 27c5931, c4d918f, 52eca91 y c504830 (respuesta a CORRECCION_F3, R3–R15)",
+        "coordinacion/cierre_v2/revisiones_coordinador/F3_c504830/REVISION_F3_c504830.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/F3_c504830/CORRECCION_F4.md"
       ],
       "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Respuesta F3 (c504830) entregada; revisión de lo afectado por un contexto distinto en curso.",
+      "siguiente_accion": "F3 (c504830) revisada: sin defectos materiales. Cerrados R3–R5, R7, R8 y R10; R6, R9, R11 y R13 con límites; abiertos R12 (PROTOCOLO_CONGELADO conserva criterios C propios), R14 y R15. Tres menores nuevos. El contrato C de c4d918f no da Fineco por elegida, pero arrastra supuestos que U3 ha dejado atrás. CORRECCION_F4 va a Mistral F.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": "c7716a0871b62a668734ce627130b198a6cb36b8",
+      "commit_revisado": "c504830d78b4d568944298d0ae34cc6bc0bb6edb",
       "alcance_aceptado": [
         "contrastes de F1-W, C20 y CSV, aceptados por el coordinador con sus límites declarados"
       ],
@@ -589,7 +593,7 @@
       "autor": "Claude coordinador (borrador por un subagente de redacción)",
       "revisor_propuesto": "Claude + receptor distinto",
       "entrega": "ENTREGADO",
-      "revision": "CORRECCIONES",
+      "revision": "CONFORME_CON_LIMITES",
       "integracion": "NO",
       "commit_origen": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "commit_destino": null,
@@ -603,7 +607,8 @@
         "coordinacion/cierre_v2/manual/PROPUESTA_CONTINUIDAD_2_5.md",
         "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/REVISION_MANUAL_v2_ef36ab1.md",
         "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/CORRECCION_MANUAL_v3.md",
-        "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_3149128_v3.md (v3: cierra M1–M4 y m1–m12; autor, un contexto Claude)"
+        "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_3149128_v3.md (v3: cierra M1–M4 y m1–m12; autor, un contexto Claude)",
+        "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v3_88144b5/REVISION_MANUAL_v3.md"
       ],
       "pruebas_autor": "NO_EJECUTADAS",
       "pruebas_externas": "PARCIALES",
@@ -611,7 +616,7 @@
         "T-CAND"
       ],
       "bloqueo": null,
-      "siguiente_accion": "v3 entregada: cierra los 16 hallazgos y discrepa en 3 (m5, S-12 y el sondeo con TMPDIR). Pendiente la revisión de otro contexto, Mistral R o un subagente distinto; también hay que observar el 4.8 y los demás controles tras la limpieza (N-16, N-20). Después, la propuesta §2.5, ampliada al 4.8, como cambio documental de la candidata.",
+      "siguiente_accion": "v3 revisada: CONFORME_CON_LIMITES como manual de 3149128 (los 16 hallazgos cerrados; el autor tenía razón en m5, S-12 y el sondeo). N1 (medio, sobrevenido): la candidata pasó a b129b36 con G-RAIZ, así que hay que fijar 3149128 en el paso 5 o hacer una v4 corta que actualice HEAD, la fila 1, C-01, C-02 y las citas de CLAUDE.md. Nueve menores n1–n9. El autor (contexto Claude) prepara la v4; después, la propuesta §2.5 como cambio documental.",
       "observacion": "Manual revisado para la candidata 3149128 (borrador v2): las siete mejoras de MEJORAS_MANUAL.md con fuente; comandos nuevos marcados según dónde se probaron (traspaso del 17-nov o preparación F1 del 15-nov); lo no probado, [NO DOCUMENTADO]. Corrige dos atribuciones del encargo (copiar_binarios_a_b.py y sha256sum -c son de la preparación F1, no del traspaso). Propuesta de corrección de CONTINUIDAD §2.5 (_v64/), sin aplicar.",
       "commit_revisado": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "alcance_aceptado": [
@@ -930,13 +935,14 @@
         "coordinacion/cierre_v2/revisiones_coordinador/AUTO_a508d6b/CORRECCION_AUTO1.md",
         "coordinacion/cierre_v2/revisiones_coordinador/AUTO_a508d6b/sondas/",
         "PR #2 (borrador, abierto): automatizacion/coordinacion-api-v1 @ 267ad18; respecto de a508d6b solo añade observations/ (seguimiento de las 12:41 y ESTADO_CHATGPT.json)",
-        "corrección AUTO1: automatizacion/correccion-auto1 @ 422a6f3d273cf6f0e731f4cb6affa255cedb43d1 (contexto Claude autor; ENTREGA_AUTO1.json)"
+        "corrección AUTO1: automatizacion/correccion-auto1 @ 422a6f3d273cf6f0e731f4cb6affa255cedb43d1 (contexto Claude autor; ENTREGA_AUTO1.json)",
+        "coordinacion/cierre_v2/revisiones_coordinador/AUTO1_422a6f3/REVISION_AUTO1_422a6f3.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "Infraestructura, no producto. Ni se adopta ni se fusiona main; PR #1 queda en borrador. No hay agente API que aplique correcciones ni una cola continua autorizada. audit-pilot-code-001 no se repite. No se cambia la facturación ni se activa pay-as-you-go. Sus informes son contrastes documentales: no ejecutan el personaje, no aceptan entregas y no sustituyen correcciones (D3) ni revisiones del coordinador.",
-      "siguiente_accion": "La corrección AUTO1 está entregada en 422a6f3, en una rama aparte y no en la del usuario. Pruebas reproducidas por el coordinador: 95 OK y 49 OK. sonda_sse da 25/25, según el autor. Ningún job con secreto de inferencia se lanza con push: lo comprobó el coordinador leyendo los YAML. Pendiente: revisión por otro contexto (Mistral R o un subagente). Para usarla, el usuario tiene que crear el environment inferencia-aprobada con revisores, mover allí las claves y fijar MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD. Los hashes de M7 y el ruleset m6 siguen abiertos. Hay un efecto nuevo que revisar: el paquete de auditoría supera su límite de bytes y snapshot() se detiene antes de llamar.",
+      "siguiente_accion": "AUTO1 (422a6f3) revisada por un contexto distinto: conforme con observaciones, sin hallazgos materiales. 95+49 pruebas, sonda SSE 25/25, 0 jobs no conformes; 41 de 44 pruebas nuevas fallan sobre a508d6b y 10 de 10 mutantes detectados. Siguen abiertos M7 (hashes), m6 (ruleset) y las observaciones N1–N6. N2: Vibe CLI puede leer el GH_TOKEN con escritura del proceso padre; hay que separarlo. Pendiente del usuario: crear el environment inferencia-aprobada con revisores, mover allí los secretos, fijar el tope y decidir si los workflows pasan a main. El autor de 422a6f3 es un contexto Claude de esta sesión. No integrado ni adoptado: la rama del usuario no cambia.",
       "observacion": "Costes estimados: relevos-001 USD 0,070368 (reserva 0,115726; truncado a 4096) y relevos-002 USD 0,094358, conjunto 0,164726; crédito pendiente de confirmar en Console. audit-pilot-code-001 (Fable 5.2/max): ANTHROPIC_ERROR_RED_TIMEOUT tras 180 s, sin veredicto ni uso recibido; reserva 1,912936, coste incierto; no se repite. qwen-peer-group-01: estimado 0,102272 (reserva 0,25281). vibe-auth-001: conexión comprobada (7269/50 tokens) con coste 0. qwen-bank-review-001 (Mistral): fallo por longitud de salida (42992/16384). qwen-bank-group-01 (Mistral, Q1-001…006): entregado. Comprobado por el coordinador: el report.json de relevos-002 en 953af02 tiene sha256 1bd8a638…, igual a la source_response_sha256 fijada en 5b12950. El postprocessed_report.review es igual al JSON de raw_model_output una vez quitado un único envoltorio ```json…```; no se añadió ni se quitó contenido. La cabecera 267ad18 solo cambia observations/; la revisión de a508d6b sigue valiendo para el código. ChatGPT tiene una comprobación horaria activa, de solo lectura, que no lanza inferencias, según ESTADO_CHATGPT.json @ 267ad18.",
       "commit_revisado": "a508d6b38168933d9e6ef480e0d23627b8d748fb",
       "alcance_aceptado": [],
@@ -1498,6 +1504,11 @@
       "tipo": "CONSULTA",
       "fecha": "2026-11-17",
       "hecho": "U3, segundo candidato C. El protocolo se reaplicó antes de cualquier dato (13:47:29Z, huella 99a83450…; orden: Hannover Rück, KBC, Talanx). Los tres quedan NO DECIDIBLES por acceso: el sitio de Hannover devuelve 403 (CloudFront) y el reintento con agente de navegador lo denegó el clasificador de permisos; el proxy bloquea www.kbc.com y www.talanx.com. No se forzó ningún caso ni se tocó la red. Solo C6 queda comprobado. Hace falta una decisión de la persona responsable. Detalle en u3_motor_c/seleccion_c2_20261117/."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "Revisiones de contextos distintos: AUTO1 422a6f3 conforme con observaciones (sin materiales); E2 ea641e7, CORRECCIONES → CORRECCION_E3 (E3-1 y E3-2 medios), con E2-D1 cerrado; F3 c504830, CORRECCIONES → CORRECCION_F4 (R12, R14 y R15 abiertos); manual v3, CONFORME_CON_LIMITES (N1: la candidata pasó a b129b36). El coordinador comprobó E3-2: INDICE_DESCARGAS.csv reescrito en ea641e7."
     }
   ],
   "consulta_remotos_arranque": {

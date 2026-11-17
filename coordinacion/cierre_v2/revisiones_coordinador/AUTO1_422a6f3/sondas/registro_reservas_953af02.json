@@ -1,0 +1,117 @@
+{
+ "automation/claude_review/results/munger-d-relevos-001": {
+  "budget": {
+   "counted_input_tokens": 14704,
+   "input_usd_per_mtok": "2",
+   "max_output_tokens": 4096,
+   "output_usd_per_mtok": "10",
+   "price_source_date": "2026-11-17",
+   "reserved_input_tokens": 37383,
+   "reserved_usd": "0.115726"
+  },
+  "bundle_sha256": "b2a05a9088f8642be06a10fa4903c721893a3a74aad4419e4e2d6c56e3988614",
+  "code_sha": "f70aa906016a36589bff546239452acdbdc497a8",
+  "pilot_id": "munger-d-relevos-001",
+  "state": "RESULTADO_NO_ACEPTADO_NO_REINTENTAR"
+ },
+ "automation/claude_review/results/munger-d-relevos-002": {
+  "budget": {
+   "counted_input_tokens": 14704,
+   "input_usd_per_mtok": "2",
+   "max_output_tokens": 8192,
+   "output_usd_per_mtok": "10",
+   "previous_estimated_cost_usd": "0.070368",
+   "price_source_date": "2026-11-17",
+   "reserved_input_tokens": 37383,
+   "reserved_total_usd": "0.227054",
+   "reserved_usd": "0.156686"
+  },
+  "bundle_sha256": "fd29c684cf3d07e42feea9ce8cc52d9b40064f5163182dae6286dcb7a748e269",
+  "code_sha": "f2d41b3ed413f9c2153f761f1d2c21ec7eba6541",
+  "pilot_id": "munger-d-relevos-002",
+  "state": "RESULTADO_NO_ACEPTADO_NO_REINTENTAR"
+ },
+ "automation/coordination/reviews/audit-pilot-code-001": {
+  "budget": {
+   "counted_input_tokens": 31180,
+   "max_output_tokens": 32768,
+   "prices_checked": "2026-11-17",
+   "reserved_input_tokens": 75277,
+   "reserved_usd": "1.912936",
+   "usd_per_mtok_input": "8",
+   "usd_per_mtok_output": "40"
+  },
+  "bundle_sha256": "4067c7700796e61c3fc54484d96b5b58f4d7f5d658966f35f4e5703c1b80af2f",
+  "code_sha": "501fd8b9a8baffc59757b062d7869f9d2203123d",
+  "state": "RESULTADO_NO_ACEPTADO_NO_REINTENTAR",
+  "task_id": "audit-pilot-code-001"
+ },
+ "automation/coordination/reviews/qwen-bank-group-01": {
+  "billing_limit": "USD 1 acumulado CLI; no es techo previo de factura",
+  "bundle_sha256": "bfea6e838fc5cf5291c91662224c25e9f980ff8bea1922f5644133de618955e1",
+  "code_sha": "2b5ce1985dde83bc74f1c739df7bce3bb750c470",
+  "max_output_tokens": 32768,
+  "maximum_generation_invocations": 1,
+  "scope_ids": [
+   "Q1-001",
+   "Q1-002",
+   "Q1-003",
+   "Q1-004",
+   "Q1-005",
+   "Q1-006"
+  ],
+  "state": "RESULTADO_NO_ACEPTADO_NO_REINTENTAR",
+  "task_id": "qwen-bank-group-01",
+  "time_limit_seconds": 300
+ },
+ "automation/coordination/reviews/qwen-bank-review-001": {
+  "bundle_sha256": "b16b0cad43382a4688a20cd8088d97ec40ac97215094941baf8019d7fe01e7f5",
+  "code_sha": "ed9d3c5015828bd84ef0d07190f04e5d8ae622c2",
+  "limits": "1 turno; 16384 salida; 300 segundos; límites acumulados CLI no son techo de factura",
+  "maximum_generation_invocations": 1,
+  "previous_zero_generation_failure": {
+   "bundle_sha256": "b16b0cad43382a4688a20cd8088d97ec40ac97215094941baf8019d7fe01e7f5",
+   "code_sha": "4725f30b9ba3ccf7894a0725be2685406411c978",
+   "evidence": {
+    "failure": "RuntimeError: HarnessFilesManager not initialized",
+    "job_id": 134025211389,
+    "location": "qwen_bank_review.py:135, VibeConfigSchema.model_validate, antes de la invocación de generación",
+    "preflight": "El control previo de outcome token_limit y uso/coste cero se superó antes de llegar al punto del traceback",
+    "source_sha": "4725f30b9ba3ccf7894a0725be2685406411c978",
+    "verified_by": "ChatGPT, inspección del log y del código fijado",
+    "workflow_run": 44079249084
+   },
+   "generation_invocations_started": 0,
+   "limits": "1 turno; 16384 salida; 300 segundos; límites acumulados CLI no son techo de factura",
+   "maximum_generation_invocations": 1,
+   "resume_limit": "Solo la generación original pendiente; transición con SHA esperado; conservar este registro",
+   "state": "PREPARACION_FALLIDA_CERO_GENERACIONES_VERIFICADAS",
+   "task_id": "qwen-bank-review-001"
+  },
+  "state": "RESULTADO_NO_ACEPTADO_NO_REINTENTAR",
+  "task_id": "qwen-bank-review-001"
+ },
+ "automation/coordination/reviews/qwen-peer-group-01": {
+  "budget": {
+   "counted_input_tokens": 17461,
+   "max_output_tokens": 16384,
+   "prices_checked": "2026-11-17",
+   "reserved_input_tokens": 44485,
+   "reserved_usd": "0.25281",
+   "usd_per_mtok_input": "2",
+   "usd_per_mtok_output": "10"
+  },
+  "bundle_sha256": "41db4d711e78686e9457c1c622336f5c6bfd40129bd00ab293eba5c0932f5be2",
+  "code_sha": "a508d6b38168933d9e6ef480e0d23627b8d748fb",
+  "state": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+  "task_id": "qwen-peer-group-01"
+ },
+ "automation/coordination/reviews/vibe-auth-001": {
+  "code_sha": "e33a0b4ca1c3a607844f3aea7179c1846b5d8c1e",
+  "limits": "1 turno, 512 salida, 90 segundos; presupuestos CLI acumulados no son techo previo de gasto",
+  "max_cli_invocations": 1,
+  "scope": "Una linea sin herramientas; no tareas del producto",
+  "state": "CONEXION_COMPROBADA",
+  "task_id": "vibe-auth-001"
+ }
+}

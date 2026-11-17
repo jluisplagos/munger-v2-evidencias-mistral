@@ -1,0 +1,188 @@
+# S02_M1_copias_v64.txt · 2026-11-17T14:00:57Z
+controles en controles_historicos_4_13.py:28-48: 19
+
+## contrastes/vidrala_2023_arrendamientos/scripts/contraste_2023_arrendamientos.py · 0 coincidencias
+
+## contrastes/vidrala_revision_financiera/scripts/revision_financiera_vidrala.py · 0 coincidencias
+
+## contrastes/vidrala_revision_financiera/scripts/subsanacion_entradas_fechas.py · 0 coincidencias
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo/scripts/comprobar_ensayo.py · 9 coincidencias
+  71: 2023: (glob.glob(os.path.join(RAIZ, "contrastes", "vidrala_2023_arrendamientos", "fuentes", "en_1831_*", "*.pdf"))[0], None),
+  72: 2024: (glob.glob(os.path.join(RAIZ, "contrastes", "vidrala_2023_arrendamientos", "fuentes", "en_2145_*", "*.pdf"))[0], None),
+  73: 2025: (glob.glob(os.path.join(RAIZ, "contrastes", "piloto_Vidrala_2025", "fuentes", "en_2355_*", "*.pdf"))[0], None),
+  85: tmp = tempfile.mkdtemp(prefix="ensayo44_")
+  90: shutil.copy(p, os.path.join(tmp, "conv", "pdf", f"CF_{a}.pdf"))
+  113: for f in sorted(glob.glob(os.path.join(O, "fase1_partes", "AR_*.json"))):
+  144: for p in glob.glob(os.path.join(E, "etapa1", "**", "*"), recursive=True) if os.path.isfile(p)))
+  157: shutil.copytree(E, d)
+  227: shutil.rmtree(tmp, ignore_errors=True)
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_5/scripts/comprobar_continuacion.py · 2 coincidencias
+  80: here = sorted(os.path.relpath(os.path.join(d, f), E44) for d, _, fs in os.walk(E44) for f in fs)
+  102: ar = [p for p in os.listdir(os.path.join(E, "fase1_partes"))]
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_6_1/scripts/comprobar_vigencia_ensayo.py · 1 coincidencias
+  78: arch = sorted(os.listdir(H))
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_6/scripts/comprobar_cierre_ensayo.py · 0 coincidencias
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comparar_baterias_4_7_1_en_4_8_1.py · 0 coincidencias
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_7/scripts/comprobar_entrega_4_7.py · 3 coincidencias
+  108: tmp = tempfile.mkdtemp(prefix="c47_")
+  111: shutil.copytree(AQUI, copia, ignore=shutil.ignore_patterns("propuesta_excel", "__pycache__"))
+  118: shutil.rmtree(tmp, ignore_errors=True)
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_7_1/scripts/comprobar_entrega_4_7_1.py · 7 coincidencias
+  142: shutil.copytree(REF, d, ignore=shutil.ignore_patterns(".lo_perfil"))
+  144: shutil.copy(os.path.join(os.path.dirname(REF), f), os.path.join(base, f))
+  160: tmp = tempfile.mkdtemp(prefix="c471v_")
+  179: shutil.rmtree(tmp, ignore_errors=True)
+  185: tmp = tempfile.mkdtemp(prefix="c471_")
+  188: shutil.copytree(AQUI, copia, ignore=shutil.ignore_patterns("__pycache__"))
+  196: shutil.rmtree(tmp, ignore_errors=True)
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py · 9 coincidencias
+  60: shutil.copytree(P2, os.path.join(raiz, "personaje_v2"), ignore=shutil.ignore_patterns("empresas_v2", "empresas_v2_correcciones", ".lo_perfil", "__pycache__", "sintetico"))
+  68: shutil.copy(os.path.join(AQUI, "reproduccion", "codigo_4_7_1", f + ".txt"), dst)
+  75: tmp = tempfile.mkdtemp(prefix="c48_")
+  93: shutil.copy(os.path.join(P2, "pruebas", "test_estados_v2.py"), os.path.join(raiz471, "personaje_v2", "pruebas", "test_estados_v2.py"))
+  116: salidas = sorted(f for f in os.listdir(sal_tmp)) if os.path.isdir(sal_tmp) else []
+  176: for d_, _, fs in os.walk(os.path.join(P2, "empresas_v2")):
+  178: for x in os.listdir(CORR):
+  180: for d_, _, fs in os.walk(os.path.join(CORR, x)):
+  195: shutil.rmtree(tmp, ignore_errors=True)
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comparar_baterias_4_7_1.py · 0 coincidencias
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py · 5 coincidencias
+  38: TMP = tempfile.mkdtemp(prefix="control481_")
+  76: shutil.copytree(PV2, os.path.join(raiz, "personaje_v2"), ignore=lambda d, fs: [f for f in fs if f in ("empresas_v2", ".lo_perfil", "__pycache__")
+  83: shutil.copy(os.path.join(REPRO, "codigo_4_8", f), os.path.join(raiz, dest))
+  86: for r, _, fs in os.walk(os.path.join(raiz, "personaje_v2", "empresas_v2_correcciones")):
+  184: shutil.rmtree(TMP, ignore_errors=True)
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py · 3 coincidencias
+  38: TMP = tempfile.mkdtemp(prefix="control49_")
+  84: actuales = {os.path.relpath(os.path.join(r, f), RAIZ) for r, ds, fs in os.walk(RAIZ) for f in fs if "__pycache__" not in r}
+  221: shutil.rmtree(TMP, ignore_errors=True)
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10/scripts/comprobar_entrega_4_10.py · 3 coincidencias
+  18: TMP = tempfile.mkdtemp(prefix="control410_")
+  168: hist = sorted(os.listdir(os.path.join(ex, "historial_cierres")))
+  187: shutil.rmtree(TMP, ignore_errors=True)
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10_1/scripts/comprobar_entrega_4_10_1.py · 4 coincidencias
+  23: TMP = tempfile.mkdtemp(prefix="control4101_")
+  165: for raiz, ds, fs in os.walk(E):
+  203: ant = [os.path.join(r_, f) for r_, ds, fs in os.walk(os.path.join(EXP, "antecedentes")) for f in fs if f.startswith("auditoria") and f.endswith(".md")]
+  262: shutil.rmtree(TMP, ignore_errors=True)
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py · 18 coincidencias
+  26: TMP = tempfile.mkdtemp(prefix="control411_")
+  38: NUEVOS_PERMITIDOS = (REL_EXP, "v6/v64_experimental/", "personaje_v2/config_v2_v64_experimental.json", "personaje_v2/pruebas/test_integracion_v64.py",
+  40: "personaje_v2/scripts/seleccion_plantilla.py", "personaje_v2/scripts/variantes_configuracion_v64.py")
+  82: .lo_perfil/ o pruebas/_v64/: así el control da lo mismo antes y después de verificar_paquete.sh completa."""
+  86: for r, ds, fs in os.walk(RAIZ):
+  87: ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+  122: rc, out = run([sys.executable, "-I", os.path.join(V64, "scripts", "verificar_v64.py"), pl64, os.path.join(V64, "referencia", "referencia_V6.4_experimental.json")])
+  123: comprobar("reejecuta", "verificar_v64.py: la plantilla V6.4 es ÍNTEGRA con su referencia", rc == 0 and "ÍNTEGRO" in out, out[-200:])
+  125: rc, out = run([sys.executable, "-I", os.path.join(V64, "scripts", "construir_v64_experimental.py"), os.path.join(RAIZ, "v6", "entregables", "Plantilla_V6.3.xlsx"), nueva])
+  129: cfg64 = j(os.path.join(PV, "config_v2_v64_experimental.json"))
+  132: comprobar("constata", "config_v2_v64_experimental.json = config_v2.json salvo la plantilla, las notas, la versión de la configuración y el nombre propio del resumen "
+  133: "(resumen_v2_v64_experimental.csv, revisión interna H2); config_v2.json sin cambios",
+  135: and cfg64["plantilla"]["version"] == "V6.4 experimental" and cfg64.get("resumen_csv_nombre") == "resumen_v2_v64_experimental.csv"
+  143: "test_integracion_v64.py" in vp and "-ge 58" in vp and all(x > 0 for x in pos) and pos == sorted(pos)
+  178: comprobar("constata", "el material auditado incluye configuracion_economica.json, plantilla_activa.json y configuracion_v64_variantes.json",
+  179: {"configuracion_economica.json", "plantilla_activa.json", "configuracion_v64_variantes.json"} <= set(mat.get("archivos") or []))
+  181: cv = fc.get("configuracion_v64") or {}
+  183: var = j(os.path.join(PIL, "configuracion_v64_variantes.json")) or {}
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py · 18 coincidencias
+  28: TMP = tempfile.mkdtemp(prefix="control412_")
+  37: "personaje_v2/pruebas/agentes_sinteticos.py", "personaje_v2/pruebas/test_integracion_v64.py",
+  40: "pipeline.py", "resumen.py", "seleccion_plantilla.py", "variantes_configuracion_v64.py", "volcar_datos_v63.py")}
+  42: "comparar_zip.py", "dominios_v64.py", "entradas_economicas.py", "objetivo_v64.py", "trazabilidad_v64.py"))
+  86: árbol, ni __pycache__, .lo_perfil/ o pruebas/_v64/ (como en el LEEME de los controles)."""
+  90: for r, ds, fs in os.walk(RAIZ):
+  91: ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+  108: import objetivo_v64 as OB
+  122: {"configuracion_economica.json", "plantilla_activa.json", "configuracion_v64_variantes.json", "cadena_trazabilidad.json"} <= set(mat.get("archivos") or []))
+  124: var = j(os.path.join(c, "configuracion_v64_variantes.json")) or {}
+  126: if (fc.get("configuracion_v64") or {}).get("objetivo") is not None:
+  129: comprobar("reejecuta", f"{nombre}: objetivo_v64.evaluar sobre el material final da el tratamiento que publica la ficha y el estado del expediente",
+  139: os.path.join(c, "variantes_v64", "recalc", "activa.xlsx"))
+  173: rc, out = run([sys.executable, "-I", os.path.join(V64, "scripts", "verificar_v64.py"), pl64, os.path.join(V64, "referencia", "referencia_V6.4_experimental.json")])
+  174: comprobar("reejecuta", "verificar_v64.py: la plantilla V6.4 es ÍNTEGRA con su referencia", rc == 0 and "ÍNTEGRO" in out, out[-200:])
+  176: rc, out = run([sys.executable, "-I", os.path.join(V64, "scripts", "construir_v64_experimental.py"), os.path.join(RAIZ, "v6", "entregables", "Plantilla_V6.3.xlsx"), nueva])
+  187: "test_integracion_v64.py" in vp and "-ge 127" in vp and all(x > 0 for x in pos) and pos == sorted(pos) and all(f"-ge {n}" in vp for n in (78, 103, 55, 28, 45)))
+  188: tv = leer(os.path.join(PV, "pruebas", "test_integracion_v64.py"))
+
+## personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py · 27 coincidencias
+  31: TMP = tempfile.mkdtemp(prefix="control413_")
+  40: "personaje_v2/pruebas/agentes_sinteticos.py", "personaje_v2/pruebas/test_integracion_v64.py",
+  42: "cierre_v2.py", "comprobacion_conjunta.py", "configuracion_economica.py", "dominios_v64.py", "entradas_economicas.py", "ficha.py", "informe.py",
+  43: "leer_v63.py", "objetivo_v64.py", "pipeline.py", "referencias_mecanicas.py", "rellenar_fase1_v63.py", "resumen.py", "seleccion_plantilla.py",
+  44: "trazabilidad_v64.py", "variantes_configuracion_v64.py", "volcar_datos_v63.py")}
+  45: NUEVOS_PERMITIDOS = (REL_EXP, "v6/v641_experimental/", "personaje_v2/scripts/estructura_json.py", "personaje_v2/config_v2_v641_experimental.json")
+  55: return {os.path.join(r, f): os.path.getmtime(os.path.join(r, f)) for r, _d, fs in os.walk(RAIZ) if os.path.basename(r) == "__pycache__" for f in fs}
+  101: """Archivos del árbol en disco, sin __pycache__, .lo_perfil/, pruebas/_v64/ ni las salidas de las baterías en personaje_v2/pruebas/
+  106: for r, ds, fs in os.walk(RAIZ):
+  107: ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+  125: import objetivo_v64 as OB
+  138: {"configuracion_economica.json", "plantilla_activa.json", "configuracion_v64_variantes.json", "cadena_trazabilidad.json"} <= set(mat.get("archivos") or []))
+  143: var = j(os.path.join(c, "configuracion_v64_variantes.json")) or {}
+  147: comprobar("reejecuta", f"{nombre}: objetivo_v64.evaluar sobre el material final da el tratamiento que publica la ficha y el estado del expediente",
+  150: comprobar("reejecuta", f"{nombre}: objetivo_v64.contradicciones_salida no encuentra ninguna contradicción en la salida final (acción, estado, protocolo y los dos objetivos)",
+  155: dif_ee, _inst, nota_ee = EE.comparar(var.get("entradas_economicas"), os.path.join(c, f"{emp}_v63_evaluada.xlsx"), os.path.join(c, "variantes_v64", "recalc", "activa.xlsx"))
+  160: pars = (fc.get("configuracion_v64") or {}).get("parametros") or []
+  166: gv = (fc.get("configuracion_v64") or {}).get("avisos_de_dominio_variantes") or []
+  182: ant = [os.path.join(r, f) for r, _d, fs in os.walk(os.path.join(os.path.dirname(c), "antecedentes")) for f in fs if f == "auditoria.md"]
+  183: ant += [os.path.join(r, f) for r, _d, fs in os.walk(os.path.join(c, "historial_cierres")) for f in fs if f.startswith("auditoria")]
+  222: rc, out = run([sys.executable, "-I", "-B", os.path.join(V641, "scripts", "verificar_v64.py"), pl641, os.path.join(V641, "referencia", "referencia_V6.4.1_experimental.json")])
+  223: comprobar("reejecuta", "verificar_v64.py (V6.4.1): la plantilla V6.4.1 es ÍNTEGRA con su referencia nueva", rc == 0 and "ÍNTEGRO" in out, out[-200:])
+  225: rc, out = run([sys.executable, "-I", "-B", os.path.join(V641, "scripts", "construir_v641_experimental.py"), pl64, nueva])
+  229: cp = j(os.path.join(EXP, "resultados", "compatibilidad_v641.json")) or {}
+  238: "test_integracion_v64.py" in vp and m is not None and int(m.group(1)) >= 195 and all(f"-ge {n}" in vp for n in (78, 103, 55, 28, 45)), (m.group(1) if m else "sin mínimo"))
+  239: tv = leer(os.path.join(PV, "pruebas", "test_integracion_v64.py"))
+  316: vv = {x.get("clave"): x for x in (j(os.path.join(VIS, "configuracion_v64_variantes.json")) or {}).get("variantes") or []}
+
+## líneas citadas por la v3 y la Propuesta
+4_8_1:38: TMP = tempfile.mkdtemp(prefix="control481_")
+4_8_1:73: def arbol(nombre, codigo_4_8=False, fechas_renovadas=False):
+4_8_1:74:     """Árbol temporal con personaje_v2 (sin los originales ni los expedientes salvo el de la 4.6.1) y enlaces a v6 y al kit."""
+4_8_1:75:     raiz = os.path.join(TMP, nombre, "munger_v2_r1")
+4_8_1:76:     shutil.copytree(PV2, os.path.join(raiz, "personaje_v2"), ignore=lambda d, fs: [f for f in fs if f in ("empresas_v2", ".lo_perfil", "__pycache__")
+4_8_1:77:                                                                                      or (os.path.basename(d) == "empresas_v2_correcciones" and f != "2026-11_Vidrala_ensayo_4_6_1")])
+4_8_1:109:     a48 = arbol("codigo_4_8", codigo_4_8=True)
+4_8_1:124:     for etiqueta, cod48, esperado in (("actual", False, "28/28"), ("de la 4.8", True, "27/28")):
+4_8_1:125:         ar = arbol(f"estados_renovadas_{'48' if cod48 else '481'}", codigo_4_8=cod48, fechas_renovadas=True)
+4_8_1:130:     mut = arbol("mutaciones")
+4_8_1:184:     shutil.rmtree(TMP, ignore_errors=True)
+4_8:54: def arbol_codigo_471(tmp):
+4_8:55:     """Árbol de código de la 4.7.1: el de este paquete con pipeline.py y ficha.py sustituidos por las copias de la 4.7.1
+4_8:56:     (reproduccion/codigo_4_7_1/*.py.txt), comprobadas contra el manifiesto de la 4.7.1. v6 y el kit se enlazan."""
+4_8:57:     m471 = manifiesto(os.path.join(AQUI, "reproduccion", "MANIFIESTO_SHA256_4_7_1.txt"))
+4_8:58:     raiz = os.path.join(tmp, "arbol471")
+4_8:59:     os.makedirs(raiz)
+4_8:60:     shutil.copytree(P2, os.path.join(raiz, "personaje_v2"), ignore=shutil.ignore_patterns("empresas_v2", "empresas_v2_correcciones", ".lo_perfil", "__pycache__", "sintetico"))
+4_8:75: tmp = tempfile.mkdtemp(prefix="c48_")
+4_8:82:     raiz471, iguales471 = arbol_codigo_471(tmp)
+4_8:84:     rep = os.path.join(AQUI, "scripts", "reproducir_xa_xc.py")
+4_8:85:     rc, out = run([PY, "-I", rep, "--raiz", raiz471, "--etiqueta", "entrega 4.7.1"])
+4_8:91:     rc, out = run([PY, "-B", os.path.join("pruebas", "test_estados_v2.py")], cwd=P2)
+4_8:94:     rc, out = run([PY, "-B", os.path.join("pruebas", "test_estados_v2.py"), "--expediente", os.path.join(CORR, "2026-11_Vidrala_ensayo_4_6_1", "Vidrala")], cwd=os.path.join(raiz471, "personaje_v2"))
+4_8:195:     shutil.rmtree(tmp, ignore_errors=True)
+4_9:84:    actuales = {os.path.relpath(os.path.join(r, f), RAIZ) for r, ds, fs in os.walk(RAIZ) for f in fs if "__pycache__" not in r}
+4_11:87:         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+4_12:91:         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+4_13:55:     return {os.path.join(r, f): os.path.getmtime(os.path.join(r, f)) for r, _d, fs in os.walk(RAIZ) if os.path.basename(r) == "__pycache__" for f in fs}
+4_13:107:         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+controles_historicos:39:     ("4_8_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py", None),
+controles_historicos:41:     ("4_8_1_comprobar_entrega", C + "2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py", None),
+controles_historicos:59:         r = subprocess.run([sys.executable, "-I", "-B", script], cwd=RAIZ, capture_output=True, text=True)
+
+## REG resumen.md:15 y :17
+| 4_8_comprobar_entrega | 1 | RESULTADO: 32 de 36 comprobaciones cumplen. | — | sí |
+| 4_8_1_comprobar_entrega | 1 | shutil.Error: [('<traspaso>/copia_limpia_1/munger_v2_r1/personaje_v2/pruebas/_v64/vigencia/r1_roto_fase_a_json/piloto/Vidrala/texto/CF_2019.txt', '/tmp/control481_qrg3x6vo/mutaciones/munger_v2_r1/personaje_v2/pruebas/_v64/vigenc

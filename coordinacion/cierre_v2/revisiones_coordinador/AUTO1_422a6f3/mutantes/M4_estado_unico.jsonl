@@ -1,0 +1,27 @@
+{"prueba": "test_auto1_transporte.M1CutTests.test_m1_any_exception_after_reserve_is_published", "resultado": "FAIL", "detalle": "AssertionError: 'RESULTADO_NO_ACEPTADO_NO_REINTENTAR' != 'INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO'"}
+{"prueba": "test_auto1_transporte.M1CutTests.test_m1_incomplete_read_inside_chunk_is_pilot_error_one_open", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.M1CutTests.test_m1_line_too_long_is_pilot_error", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.M1CutTests.test_m1_run_with_cut_publishes_report_and_reservation", "resultado": "FAIL", "detalle": "AssertionError: 'RESULTADO_NO_ACEPTADO_NO_REINTENTAR' != 'INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO'"}
+{"prueba": "test_auto1_transporte.M2InvalidJSONTests.test_m2_deep_nesting_is_rejected", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.M2InvalidJSONTests.test_m2_each_wrong_type_is_rejected", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.M2InvalidJSONTests.test_m2_transport_turns_deep_nesting_into_pilot_error", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.M3FinalUsageTests.test_m3_missing_final_usage_is_rejected", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.M3FinalUsageTests.test_m3_missing_input_tokens_is_rejected", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.M3FinalUsageTests.test_m3_run_without_final_usage_is_uncertain_with_partial_usage", "resultado": "FAIL", "detalle": "AssertionError: 'RESULTADO_NO_ACEPTADO_NO_REINTENTAR' != 'INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO'"}
+{"prueba": "test_auto1_transporte.M3FinalUsageTests.test_m3_two_cumulative_deltas_with_input_tokens", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.M4CostStateTests.test_m4_real_transport_timeout_keeps_partial_usage_in_report_and_reservation", "resultado": "FAIL", "detalle": "AssertionError: Tuples differ: ('RESULTADO_NO_ACEPTADO_NO_REINTENTAR', '1.357904') != ('INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO', '1.357904')"}
+{"prueba": "test_auto1_transporte.M4CostStateTests.test_m4_timeout_and_max_tokens_have_distinct_states", "resultado": "FAIL", "detalle": "AssertionError: Tuples differ: ('RESULTADO_NO_ACEPTADO_NO_REINTENTAR', 'INCIERTO') != ('INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO', 'INCIERTO')"}
+{"prueba": "test_auto1_transporte.M4CostStateTests.test_m4_unverifiable_usage_is_uncertain_with_bound", "resultado": "FAIL", "detalle": "AssertionError: Tuples differ: ('RESULTADO_NO_ACEPTADO_NO_REINTENTAR', 'CO[29 chars]RTO') != ('INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO',[33 chars]RTO')"}
+{"prueba": "test_auto1_transporte.M4CostStateTests.test_m4_usage_beyond_reserve_has_no_bound", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.M4CostStateTests.test_m4_wrong_model_is_uncertain_without_bound", "resultado": "FAIL", "detalle": "AssertionError: Tuples differ: ('RESULTADO_NO_ACEPTADO_NO_REINTENTAR', 'FA[39 chars]OTA') != ('INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO',[43 chars]OTA')"}
+{"prueba": "test_auto1_transporte.MinorTests.test_m1_event_line_error_or_mismatch_is_rejected", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.MinorTests.test_m1_non_streaming_transport_catches_http_exception", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.MinorTests.test_m2_long_line_bounded_in_memory", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.MinorTests.test_m2_unbounded_iterator_is_not_read", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.MinorTests.test_m3_body_model_bound_before_connection", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.MinorTests.test_m3_non_streaming_transport_also_binds_model", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.MinorTests.test_m4_billing_fields_checked", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.MinorTests.test_m5_deadline_failure_is_published_as_uncertain", "resultado": "FAIL", "detalle": "AssertionError: 'RESULTADO_NO_ACEPTADO_NO_REINTENTAR' != 'INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO'"}
+{"prueba": "test_auto1_transporte.MinorTests.test_m5_deadline_fits_inside_job_timeout", "resultado": "OK", "detalle": ""}
+{"prueba": "test_auto1_transporte.MinorTests.test_m5_total_deadline_with_slow_reader", "resultado": "OK", "detalle": ""}
+{"ejecutadas": 26, "fallos": 8, "errores": 0, "omitidas": 0, "intentos_de_red": []}
