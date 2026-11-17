@@ -1,0 +1,44 @@
+== F2-D1/D2/D7 · inventario reproducible byte a byte + huellas completas · 2026-11-17T09:34:27Z ==
+rama mistral/f-alcance-real (base 868f448) · python3 -I (stdlib) · rutas por argumento, sin /workspace fijo
+
+$ sha256sum "$ZIP_414"   # ZIP_414 = asset de la release base-4.14 de jluisplagos/munger-v2
+bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e  /workspace/.trabajo/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+
+$ python3 -I resultados_cierre/alcance_real/preparacion_b3_c1/scripts/inventario_desde_zip.py "$ZIP_414" /tmp/inv_check.csv /tmp/huellas_check.csv
+/tmp/inv_check.csv: 131 recursos, 6799 archivos en el ZIP
+/tmp/huellas_check.csv: 71 PDF con SHA-256 completo + release bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e
+exit=0
+
+$ # prueba de cierre D1: el script regenera el CSV PUBLICADO byte a byte desde el ZIP
+rerun exit=0
+INVENTARIO_Y_HUECOS.csv == regenerado desde el ZIP (byte a byte)
+fuentes/huellas_todas_las_fuentes.csv == regenerado desde el ZIP (byte a byte)
+
+$ wc -l resultados_cierre/alcance_real/preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv resultados_cierre/alcance_real/preparacion_b3_c1/fuentes/huellas_todas_las_fuentes.csv
+  135 resultados_cierre/alcance_real/preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv
+   72 resultados_cierre/alcance_real/preparacion_b3_c1/fuentes/huellas_todas_las_fuentes.csv
+  207 total
+filas PDF con SHA-256 completo en huellas_todas_las_fuentes.csv:
+71
+fila release (SHA completo, antes truncado bb51942c):
+release/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip,1130912246,bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e,producto
+
+== filas clave (añadidas al final las de vidrala/documentacion para completar) ==
+piloto_Vidrala_2025,contrastes,0,0,8,2,1,,
+vidrala_2023_arrendamientos,contrastes,0,2,9,3,8,,
+vidrala_revision_financiera,contrastes,0,0,12,1,3,,
+2026-11_Vidrala_ensayo/fuentes,correcciones · 2026-11_Vidrala_ensayo,0,0,0,9,0,,
+viscofan,correcciones · 2026-11_Vidrala_ensayo_4_12,44,142,132,12,2,,
+viscofan,correcciones · 2026-11_Vidrala_ensayo_4_13,44,93,82,0,10,,
+elis,correcciones · 2026-11_Vidrala_ensayo_4_14,6,26,46,14,3,,
+elis_decisiones,correcciones · 2026-11_Vidrala_ensayo_4_14,12,83,102,14,7,,
+elis_motor_A,correcciones · 2026-11_Vidrala_ensayo_4_14,6,40,60,14,6,,
+viscofan,correcciones · 2026-11_Vidrala_ensayo_4_14,44,112,75,1,0,,
+viscofan_decisiones,correcciones · 2026-11_Vidrala_ensayo_4_14,88,197,122,1,2,,
+
+== D7: verificacion ejecutable de las 29 huellas de FUENTES_CONSERVADAS.csv @ daa7478 ==
+/tmp/fuentes_daa7478.csv: 29/29 PDF coinciden en bytes y SHA-256 con munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+RESULTADO: TODO COINCIDE
+documentacion_cierre_4_14,correcciones · 2026-11_Vidrala_ensayo_4_14,1,21,112,0,17,,
+vidrala,correcciones · 2026-11_Vidrala_ensayo_4_14,46,117,73,0,2,,
+vidrala_decisiones,correcciones · 2026-11_Vidrala_ensayo_4_14,92,199,118,0,4,,
