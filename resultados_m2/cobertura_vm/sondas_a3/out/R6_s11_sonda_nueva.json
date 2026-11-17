@@ -1,0 +1,59 @@
+{
+  "modulo": "/workspace/wt-a/resultados_m2/cobertura_vm/scripts/verificar_contexto.py",
+  "sondas": [
+    {
+      "sonda": "R6a_EUR_millions",
+      "descripcion": "Página \"Figures in EUR millions\" con cabecera en miles: CONFLICTO (escala contraria).",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "la pagina declara escala 'in EUR millions' (millones, escala contraria); la pagina manda sobre la cabecera del documento; no acredita miles de euros ni escala 0,001",
+      "defecto": false
+    },
+    {
+      "sonda": "R6b_euro_million_simbolo",
+      "descripcion": "Página \"Amounts in € million\" con cabecera en miles: CONFLICTO.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "la pagina declara escala '€ million' (millones, escala contraria); la pagina manda sobre la cabecera del documento; no acredita miles de euros ni escala 0,001",
+      "defecto": false
+    },
+    {
+      "sonda": "R6c_millones_de_euro_simbolo",
+      "descripcion": "Página \"(Millones de €)\" con cabecera en miles: CONFLICTO.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "la pagina declara escala 'Millones de €' (millones, escala contraria); la pagina manda sobre la cabecera del documento; no acredita miles de euros ni escala 0,001",
+      "defecto": false
+    },
+    {
+      "sonda": "R6d_million_EUR_orden_inverso",
+      "descripcion": "Página \"Amounts in million EUR\" (orden inverso) con cabecera en miles: CONFLICTO.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "la pagina declara escala 'million EUR' (millones, escala contraria); la pagina manda sobre la cabecera del documento; no acredita miles de euros ni escala 0,001",
+      "defecto": false
+    },
+    {
+      "sonda": "R6e_control_positivo_miles",
+      "descripcion": "Control positivo: página en miles, unidad miles -> OK (no falso positivo de la ampliación).",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "unidad en miles confirmada en la pagina: 'Miles de euros'",
+      "defecto": false
+    }
+  ]
+}

@@ -290,7 +290,8 @@ UNIT_DECLARED_CANON = {
 # v4.0 (A2-R3): 'in thousands' solo cuenta como miles de EUROS si lo acompaña euros;
 # millones/millions es escala contraria explicita (la pagina manda sobre la cabecera)
 MILES_RE = re.compile(r'miles de euros|thousands of euros|mil(?:es)? de euros|in thousands of euros|thousand euros', re.IGNORECASE)
-MILLONES_RE = re.compile(r'millones de euros|millions of euros|in millions of euros|amounts? in millions|expressed in millions', re.IGNORECASE)
+MILLONES_RE = re.compile(r'millones de euros|millions of euros|in millions of euros|amounts? in millions|expressed in millions'
+                         r'|millones?\s+de\s+€|millones?\s+€|€\s*millones?\b|€\s*millions?\b|EUR\s+millions?\b|millions?\s+of\s+EUR\b|millions?\s+EUR\b|in\s+EUR\s+millions?\b', re.IGNORECASE)  # A3-R6: 'EUR million', '€ million' y 'Millones €'
 EUROS_ONLY_RE = re.compile(r'\bin euros\b|amounts? in euros|expressed in euros\b|figures in euros', re.IGNORECASE)
 
 
