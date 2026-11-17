@@ -194,35 +194,66 @@ def find_header_block(page_lines, row_idx, modo='max'):
         if not ys:
             return False
         otros = [t for t in NUM_RE.findall(line) if not YEAR_RE.fullmatch(t)]
-        return not any(value_like(t) for t in otros)
+        if any(value_like(t) for t in otros):
+            return False
+        # A3-R2: fuera de paréntesis, una línea tabular no puede tener más palabras
+        # alfabéticas (len>=3, salvo conectores) que años; si no, es una frase narrativa
+        sin_par = re.sub(r'\([^)]*\)', ' ', line)
+        palabras = [w for w in re.findall(r'[A-Za-zÀ-ÿ]{3,}', sin_par)
+                    if w.lower() not in ('and', 'the', 'of', 'in', 'at', 'for', 'con', 'por', 'del', 'las', 'los')]
+        return len(palabras) <= len(ys)
+
+    def fusionar_cabecera_partida(candidatos, row_idx, col_years, col_line):
+        # A3-R2: cabecera partida en varias líneas (p. ej. '2025' / '2024' en líneas
+        # consecutivas justo arriba de la fila): sus años se fusionan en orden; si aportan
+        # más años que la línea elegida, la columna no es inequívoca tal cual
+        zona = [l for i, l in candidatos if row_idx - 3 <= i <= row_idx]
+        if not zona:
+            return col_years, col_line
+        zy = []
+        for l in zona:
+            for y in YEAR_RE.findall(l):
+                if y not in zy:
+                    zy.append(y)
+        if len(zy) > len(col_years):
+            return zy, zona[-1]
+        return col_years, col_line
     if modo == 'near':
         for line in block:
             years_in_block.extend(YEAR_RE.findall(line))
-        for line in reversed(block):
-            if es_linea_columnas(line) and len(YEAR_RE.findall(line)) >= 2:
+        candidatos = [(i, l) for i, l in enumerate(block) if es_linea_columnas(l)]
+        for i, line in reversed(candidatos):
+            if len(YEAR_RE.findall(line)) >= 2:
                 col_years = YEAR_RE.findall(line)
                 col_line = line
                 break
         if col_line is None:
-            for line in reversed(block):
-                if es_linea_columnas(line):
-                    col_years = YEAR_RE.findall(line)
-                    col_line = line
-                    break
+            for i, line in reversed(candidatos):
+                col_years = YEAR_RE.findall(line)
+                col_line = line
+                break
         if col_line is None:
             for line in page_lines[row_idx + 1:row_idx + 4]:
                 if es_linea_columnas(line):
                     col_years = YEAR_RE.findall(line)
                     col_line = line
                     break
+        else:
+            col_years, col_line = fusionar_cabecera_partida(candidatos, row_idx, col_years, col_line)
         return years_in_block, col_line, col_years
-    for line in block:
+    candidatos = []
+    for i, line in enumerate(block):
         ys = YEAR_RE.findall(line)
         if ys:
             years_in_block.extend(ys)
-            if es_linea_columnas(line) and len(ys) > len(col_years):
-                col_years = ys
-                col_line = line
+            if es_linea_columnas(line):
+                candidatos.append((i, line))
+                # A3-R2: a igualdad de años gana la cabecera más próxima a la fila
+                if len(ys) >= len(col_years):
+                    col_years = ys
+                    col_line = line
+    if candidatos:
+        col_years, col_line = fusionar_cabecera_partida(candidatos, row_idx, col_years, col_line)
     if col_line is None:
         for line in page_lines[row_idx + 1:row_idx + 4]:
             if es_linea_columnas(line):
@@ -444,10 +475,17 @@ def check_columna(row_idx, page_lines, years_in_block, col_line, col_years, colu
         return 'NO_DECIDIBLE', 'valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)'
     if len(nums) != len(col_years):
         return 'NO_DECIDIBLE', f'fila con {len(nums)} valores no alineable 1:1 con {len(col_years)} columnas {col_years}: sin mapeo posicional'
-    # A3-R1: la comparacion posicional compara CON SIGNO (parentesis/U+2212/'-'); sin
-    # normalizar el signo impreso, 79 CONFLICTO reales eran artificiales
-    vdec = C.dec(str(valor))
-    positions = [k for k, t in enumerate(nums) if vdec is not None and signed_num(t) == vdec]
+    # A3-R1: la comparacion posicional compara CON SIGNO (parentesis/U+2212/'-') y la
+    # magnitud en espacio de digitos (como antes); sin normalizar el signo impreso,
+    # 79 CONFLICTO reales eran artificiales
+    raw_val = str(valor).strip()
+    neg_target = raw_val.startswith('-') or raw_val.startswith('−') or (raw_val.startswith('(') and raw_val.endswith(')'))
+    mag_target = normalize_num(raw_val.strip('()').lstrip('-').lstrip('−').replace('.', '').replace(',', ''))
+    positions = []
+    for k, t in enumerate(nums):
+        s = signed_num(t)
+        if s is not None and normalize_num(str(abs(s))) == mag_target and (s < 0) == neg_target:
+            positions.append(k)
     if not positions:
         return 'CONFLICTO', f'el valor declarado {valor} no esta en la fila {nums!r} (cabecera {col_years}); declarado {sorted(declared_years)}'
     if len(positions) > 1:

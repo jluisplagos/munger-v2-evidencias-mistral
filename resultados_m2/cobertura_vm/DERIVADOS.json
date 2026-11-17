@@ -65,7 +65,7 @@
       "id": "acciones",
       "estado_contextual": "REUTILIZADO_M1",
       "limites_contextuales": [
-        "aux:acciones_emitidas_2025: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
+        "aux:acciones_emitidas_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:acciones_propias_2025: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt', 'ES_2024_informa)"
       ],
       "coherencia_unidades_origenes": true,
@@ -2922,8 +2922,8 @@
       "id": "acciones",
       "estado_contextual": "REUTILIZADO_M1",
       "limites_contextuales": [
-        "aux:AR2025_p76_acciones_emitidas_2025: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional)",
-        "aux:AR2025_p83_acciones_propias_2025: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional)"
+        "aux:AR2025_p76_acciones_emitidas_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:AR2025_p83_acciones_propias_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-acciones · número de acciones en una fecha · motores ABC: siempre · D3: acciones en circulación a 31-dic-2025 (emitidas − propias)",
@@ -3124,7 +3124,7 @@
       "limites_contextuales": [
         "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (años declarados ['2024'] no figuran en la pagina ['2025'] (fila no tabular o año fuera de tabla))",
         "aux:AR2025_p28_pagos_arrend_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )",
-        "aux:AR2025_p28_pagos_arrend_2025: dimension columna no decidible (fila con 3 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional)"
+        "aux:AR2025_p28_pagos_arrend_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "C-leases_media · flujo (media de ejercicios) · motores A: siempre en A (0 explícito si no hay)",
@@ -4156,7 +4156,7 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:AR2017_p83_total_pasivos_financieros_2016: dimension columna no decidible (fila con 7 valores no alineable 1:1 con 1 columnas ['2017']: sin mapeo posicional)",
+        "aux:AR2017_p83_total_pasivos_financieros_2016: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:AR2017_p83_total_pasivos_financieros_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
         "aux:AR2017_p83_derivados_2016: dimension columna no decidible (años declarados ['2016'] no figuran en la pagina ['2017'] (fila no tabular o año fuera de tabla))",
         "aux:AR2017_p83_derivados_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
@@ -4269,8 +4269,12 @@
       "id": "h_deuda",
       "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
+        "aux:AR2019_p11_pasivo_fin_nc_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
         "aux:AR2019_p11_pasivo_fin_nc_2018: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
-        "aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))"
+        "aux:AR2019_p11_pasivo_fin_c_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:AR2019_p11_pasivo_fin_c_2018: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2018 (['IA_2018_es.txt']))",
+        "aux:AR2019_p11_derechos_uso_nc_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+        "aux:AR2019_p11_derechos_uso_c_2018: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_deuda · stock a cierre · motores B: B",

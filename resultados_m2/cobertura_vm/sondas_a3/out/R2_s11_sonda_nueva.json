@@ -1,0 +1,36 @@
+{
+  "modulo": "/workspace/wt-a/resultados_m2/cobertura_vm/scripts/verificar_contexto.py",
+  "sondas": [
+    {
+      "sonda": "R2g_frase_con_tres_anios_no_suplanta_cabecera",
+      "descripcion": "La frase narrativa tiene 3 años pero muchas palabras; la cabecera tabular real es \"2025 2024\". 9.000 en columna 2024 -> OK.",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024'] | cabecera: '2025 2024'",
+      "defecto": false
+    },
+    {
+      "sonda": "R2h_cabecera_partida_tres_lineas",
+      "descripcion": "Cabecera en 3 líneas; el valor 2030 está en la columna 2024 (pos 1 de 3 columnas reales). Con la fusión la fila alinea 3:1 y 2030 mapea a 2024 -> debería ser OK; si no alinea, NO_DECIDIBLE (nunca OK falso por desplazar).",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "fila con 3 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional | cabecera: '2024'",
+      "defecto": false
+    },
+    {
+      "sonda": "R2i_tabla_una_columna_legitima",
+      "descripcion": "Control positivo: cabecera de una sola columna \"(Thousand of Euros) 2019\" no es cabecera partida; 1.234 en 2019 -> OK.",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 0 de 1 valores -> columna 2019 (linea de columnas ['2019']); declarado ['2019'] | cabecera: '(Thousand of Euros) 2019'",
+      "defecto": false
+    }
+  ]
+}

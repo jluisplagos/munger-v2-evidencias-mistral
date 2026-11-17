@@ -1,0 +1,35 @@
+{
+  "modulo": "/workspace/wt-a/resultados_m2/cobertura_vm/scripts/verificar_contexto.py",
+  "sondas": [
+    {
+      "sonda": "R1f_signo_impreso_negativo_no_iguala_a_positivo",
+      "descripcion": "Valor declarado +9000 en columna 2024 pero impreso \"(9.000)\" (negativo): debe ser CONFLICTO, no OK.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "el valor declarado 9000 no esta en la fila ['(10.000)', '(9.000)'] (cabecera ['2025', '2024']); declarado ['2024'] | cabecera: '2025 2024'",
+      "defecto": false
+    },
+    {
+      "sonda": "R1g_unicode_menos_columna_equivocada",
+      "descripcion": "Declarado 2025 = -7660 pero el valor -7.660 esta en la columna 2024: CONFLICTO por posicion.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "posicion 1 -> columna 2024, pero declarado ['2025'] (linea de columnas ['2025', '2024']) | cabecera: '2025 2024'",
+      "defecto": false
+    },
+    {
+      "sonda": "R1h_unicode_menos_en_su_columna",
+      "descripcion": "Control positivo: -7.660 impreso con U+2212 en la columna 2024 declarada -> OK.",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024'] | cabecera: '2025 2024'",
+      "defecto": false
+    }
+  ]
+}
