@@ -26,7 +26,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:acciones_emitidas_2025\"] - o[\"aux:acciones_propias_2025\"] -> 35.182858 (valor_modelo 35.182858, diff 0.000000)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula o[\"aux:acciones_emitidas_2025\"] - o[\"aux:acciones_propias_2025\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. acciones en circulación a 31-dic-2025 = 35.206.258 emitidas − 23.400 propias = 35.182.858 (35,182858 millones); la sociedad no tiene acciones potencialmente dilutivas (nota 27). No es la media ponderada (35.206 miles).",
-      "limites_contextuales": "aux:acciones_emitidas_2025: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional) | aux:acciones_propias_2025: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt', 'ES_2024_informa)",
+      "limites_contextuales": "aux:acciones_emitidas_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:acciones_propias_2025: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt', 'ES_2024_informa)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -44,7 +44,7 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "aux:acciones_emitidas_2025: dimension columna no decidible (fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional)",
+          "aux:acciones_emitidas_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
           "aux:acciones_propias_2025: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt', 'ES_2024_informa)"
         ]
       }
@@ -186,7 +186,7 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Revenues 4 & 22 1,465,160 1,588,267'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Revenues 4 & 22 1,465,160 1,588,267'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "columna: fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
       "checks_contextuales": {
@@ -199,7 +199,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Revenues 4 & 22 1,465,160 1,588,267",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December 2025 and 2024",
       "transformacion": "1465160 x 0.001 x 1 = 1465.160",
       "comparacion_libro": "XLSX(solo lectura) Historia!L6 = 1465.16 (coincide); revision M1 reutilizada",
@@ -216,7 +216,7 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 4] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Profit loss from operating activities 292,068 331,008'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Profit loss from operating activities 292,068 331,008'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December '; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo +; incluye deterioro de inmovilizado | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -229,7 +229,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Profit loss from operating activities 292,068 331,008",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Income Statements | for the years ended | 31 December 2025 and 2024",
       "transformacion": "292068 x 0.001 x 1 = 292.068",
       "comparacion_libro": "XLSX(solo lectura) Historia!L7 = 292.068 (coincide); revision M1 reutilizada",
@@ -246,7 +246,7 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Amortisation and depreciation 7&8 132,948 117,720'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Amortisation and depreciation 7&8 132,948 117,720'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo +; el deterioro de inmovilizado no se incluye | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "columna: fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
       "checks_contextuales": {
@@ -259,7 +259,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Amortisation and depreciation 7&8 132,948 117,720",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2025 and 2024 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "132948 x 0.001 x 1 = 132.948",
       "comparacion_libro": "XLSX(solo lectura) Historia!L8 = 132.948 (coincide); revision M1 reutilizada",
@@ -278,7 +278,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2023\"] + o[\"aux:capex_int_2023\"] -> 151.700 (valor_modelo 151.7, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula o[\"aux:capex_mat_2023\"] + o[\"aux:capex_int_2023\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 143.848 + 7.852 = 151.7 mm. Rótulos «Payments from sale of…»: son pagos por adquisición. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
-      "limites_contextuales": "aux:capex_mat_2023: dimension columna no decidible (el valor declarado -143848 no esta en la fila ['(160,063)', '(143,848)'] (cabecera ['2024', '2023']); declarado ['2023']) | aux:capex_int_2023: dimension columna no decidible (el valor declarado -7852 no esta en la fila ['(8,737)', '(7,852)'] (cabecera ['2024', '2023']); declarado ['2023'])",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -295,10 +295,7 @@
         "exacto": true,
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
-        "limites_contextuales": [
-          "aux:capex_mat_2023: dimension columna no decidible (el valor declarado -143848 no esta en la fila ['(160,063)', '(143,848)'] (cabecera ['2024', '2023']); declarado ['2023'])",
-          "aux:capex_int_2023: dimension columna no decidible (el valor declarado -7852 no esta en la fila ['(8,737)', '(7,852)'] (cabecera ['2024', '2023']); declarado ['2023'])"
-        ]
+        "limites_contextuales": []
       }
     },
     {
@@ -312,7 +309,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2024\"] + o[\"aux:capex_int_2024\"] -> 168.800 (valor_modelo 168.8, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula o[\"aux:capex_mat_2024\"] + o[\"aux:capex_int_2024\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 160.063 + 8.737 = 168.8 mm. Rótulos «Payments from sale of…»: son pagos por adquisición. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
-      "limites_contextuales": "aux:capex_mat_2024: dimension columna no decidible (el valor declarado -160063 no esta en la fila ['(178,746)', '(160,063)'] (cabecera ['2025', '2024']); declarado ['2024']) | aux:capex_int_2024: dimension columna no decidible (el valor declarado -8737 no esta en la fila ['(9,757)', '(8,737)'] (cabecera ['2025', '2024']); declarado ['2024'])",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -329,10 +326,7 @@
         "exacto": true,
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
-        "limites_contextuales": [
-          "aux:capex_mat_2024: dimension columna no decidible (el valor declarado -160063 no esta en la fila ['(178,746)', '(160,063)'] (cabecera ['2025', '2024']); declarado ['2024'])",
-          "aux:capex_int_2024: dimension columna no decidible (el valor declarado -8737 no esta en la fila ['(9,757)', '(8,737)'] (cabecera ['2025', '2024']); declarado ['2024'])"
-        ]
+        "limites_contextuales": []
       }
     },
     {
@@ -346,7 +340,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:capex_mat_2025\"] + o[\"aux:capex_int_2025\"] -> 188.503 (valor_modelo 188.503, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula o[\"aux:capex_mat_2025\"] + o[\"aux:capex_int_2025\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. capex = pagos por inmovilizado material + pagos por intangibles = 178.746 + 9.757 = 188.503 mm. Rótulos «Payments from sale of…»: son pagos por adquisición. No incluye cobros por ventas de inmovilizado ni compras de negocios.",
-      "limites_contextuales": "aux:capex_mat_2025: dimension columna no decidible (el valor declarado -178746 no esta en la fila ['(178,746)', '(160,063)'] (cabecera ['2025', '2024']); declarado ['2025']) | aux:capex_int_2025: dimension columna no decidible (el valor declarado -9757 no esta en la fila ['(9,757)', '(8,737)'] (cabecera ['2025', '2024']); declarado ['2025'])",
+      "limites_contextuales": "sin limites propagados",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -363,10 +357,7 @@
         "exacto": true,
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
-        "limites_contextuales": [
-          "aux:capex_mat_2025: dimension columna no decidible (el valor declarado -178746 no esta en la fila ['(178,746)', '(160,063)'] (cabecera ['2025', '2024']); declarado ['2025'])",
-          "aux:capex_int_2025: dimension columna no decidible (el valor declarado -9757 no esta en la fila ['(9,757)', '(8,737)'] (cabecera ['2025', '2024']); declarado ['2025'])"
-        ]
+        "limites_contextuales": []
       }
     },
     {
@@ -378,20 +369,20 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Cash used in operating activities 799 (84,994)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=CONFLICTO, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Cash used in operating activities 799 (84,994)'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; aumento del circulante = −(subtotal de variación del circulante) (convención de la Historia, fase1_decisiones.json); conciliación con las líneas: 36,800 − 15,655 + 3,916 − 106,417 − 3,638 = −84,994 (la línea «Other current liabilities» imprime «106,417)» sin paréntesis de apertura: P1) | reexpresado: no (igual que CF_2024 p.7 y que el informe español 2024, doc. 2118 p.14) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: el valor declarado -84994 no esta en la fila ['799', '(84,994)'] (cabecera ['2025', '2024']); declar",
+      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "CONFLICTO",
+        "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Cash used in operating activities 799 (84,994)",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2025 and 2024 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "-84994 x 0.001 x -1 = 84.994",
       "comparacion_libro": "XLSX(solo lectura) Historia!K14 = 84.994 (coincide); revision M1 reutilizada",
@@ -408,7 +399,7 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Cash used in operating activities 799 (84,994)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Cash used in operating activities 799 (84,994)'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; aumento del circulante = −(subtotal de variación del circulante) (convención de la Historia, fase1_decisiones.json); conciliación con las líneas: −2,097 + 25,166 − 2,914 − 23,477 + 4,121 = 799 | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -421,7 +412,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Cash used in operating activities 799 (84,994)",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2025 and 2024 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "799 x 0.001 x -1 = -0.799",
       "comparacion_libro": "XLSX(solo lectura) Historia!L14 = -0.799 (coincide); revision M1 reutilizada",
@@ -438,12 +429,12 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Interest paid (20,800) (32,100)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=CONFLICTO, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Interest paid (20,800) (32,100)'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo −1: pago registrado en positivo | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: el valor declarado -20800 no esta en la fila ['(20,800)', '(32,100)'] (cabecera ['2025', '2024']); d",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "CONFLICTO",
+        "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
@@ -451,7 +442,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Interest paid (20,800) (32,100)",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2025 and 2024 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "-20800 x 0.001 x -1 = 20.800",
       "comparacion_libro": "XLSX(solo lectura) Historia!L15 = 20.8 (coincide); revision M1 reutilizada",
@@ -468,9 +459,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/ES_2025_informacion_financiera_consolidada.txt [PDF PAGE 67] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Al 31 de diciembre de 2025 35.206.258 35.910 - 35.910'; encabezado: 'El movimiento de las acciones en circulación durante los ejercicios 2025 y 2024 es como sigue:'; titulo pagina: 'VIDRALA, S.A. Y SOCIEDADES DEPENDIENTES | Memoria de las Cuentas Anuales Consolidadas'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=NO_APLICA, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Al 31 de diciembre de 2025 35.206.258 35.910 - 35.910'; encabezado: 'None'; titulo pagina: 'VIDRALA, S.A. Y SOCIEDADES DEPENDIENTES | Memoria de las Cuentas Anuales Consolidadas'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=NO_APLICA, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: acciones → millones de acciones (× 1e-6) | reexpresado: no aplica | perimetro: no aplica (capital de la sociedad dominante) | perimetro_justificacion: número de acciones de Vidrala, S.A. | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila con 4 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
+      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -481,7 +472,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Al 31 de diciembre de 2025 35.206.258 35.910 - 35.910",
-      "encabezado": "El movimiento de las acciones en circulación durante los ejercicios 2025 y 2024 es como sigue:",
+      "encabezado": null,
       "titulo_pagina": "VIDRALA, S.A. Y SOCIEDADES DEPENDIENTES | Memoria de las Cuentas Anuales Consolidadas",
       "transformacion": "35206258 x 1e-06 x 1 = 35.206258",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:acciones_emitidas_2025 = 35.206258 (coincide); revision M1 reutilizada",
@@ -498,7 +489,7 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/ES_2025_informacion_financiera_consolidada.txt [PDF PAGE 67] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Al 31 de diciembre 23.400 -'; encabezado: 'El movimiento de las acciones en circulación durante los ejercicios 2025 y 2024 es como sigue:'; titulo pagina: 'VIDRALA, S.A. Y SOCIEDADES DEPENDIENTES | Memoria de las Cuentas Anuales Consolidadas'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=NO_APLICA, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Al 31 de diciembre 23.400 -'; encabezado: '2025 2024'; titulo pagina: 'VIDRALA, S.A. Y SOCIEDADES DEPENDIENTES | Memoria de las Cuentas Anuales Consolidadas'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=NO_APLICA, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: acciones → millones de acciones (× 1e-6) | reexpresado: no aplica | perimetro: no aplica (capital de la sociedad dominante) | perimetro_justificacion: acciones propias de Vidrala, S.A. | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "reexpresion: el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.tx",
       "checks_contextuales": {
@@ -511,7 +502,7 @@
         "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Al 31 de diciembre 23.400 -",
-      "encabezado": "El movimiento de las acciones en circulación durante los ejercicios 2025 y 2024 es como sigue:",
+      "encabezado": "2025 2024",
       "titulo_pagina": "VIDRALA, S.A. Y SOCIEDADES DEPENDIENTES | Memoria de las Cuentas Anuales Consolidadas",
       "transformacion": "23400 x 1e-06 x 1 = 0.023400",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:acciones_propias_2025 = 0.0234 (coincide); revision M1 reutilizada",
@@ -528,12 +519,12 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Payments from sale of other intangible assets (8,737) (7,852)'; encabezado: '31 December 2024 and 2023'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=CONFLICTO, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Payments from sale of other intangible assets (8,737) (7,852)'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo −1: pago (salida) registrado en positivo | reexpresado: no (igual que CF_2023 p.7: incluye Italia, el flujo no se reexpresa por partidas) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: el valor declarado -7852 no esta en la fila ['(8,737)', '(7,852)'] (cabecera ['2024', '2023']); decl",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "CONFLICTO",
+        "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
@@ -541,7 +532,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Payments from sale of other intangible assets (8,737) (7,852)",
-      "encabezado": "31 December 2024 and 2023",
+      "encabezado": "Note 2024 2023(*)",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2024 and 2023 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "-7852 x 0.001 x -1 = 7.852",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:capex_int_2023 = 7.852 (coincide); revision M1 reutilizada",
@@ -558,12 +549,12 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: '(9,757) (8,737)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=CONFLICTO, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: '(9,757) (8,737)'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo −1: pago (salida) registrado en positivo | reexpresado: no (igual que CF_2024 p.7) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: el valor declarado -8737 no esta en la fila ['(9,757)', '(8,737)'] (cabecera ['2025', '2024']); decl",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "CONFLICTO",
+        "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
@@ -571,7 +562,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "(9,757) (8,737)",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2025 and 2024 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "-8737 x 0.001 x -1 = 8.737",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:capex_int_2024 = 8.737 (coincide); revision M1 reutilizada",
@@ -588,12 +579,12 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: '(9,757) (8,737)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=CONFLICTO, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: '(9,757) (8,737)'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo −1: pago (salida) registrado en positivo | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: el valor declarado -9757 no esta en la fila ['(9,757)', '(8,737)'] (cabecera ['2025', '2024']); decl",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "CONFLICTO",
+        "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
@@ -601,7 +592,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "(9,757) (8,737)",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2025 and 2024 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "-9757 x 0.001 x -1 = 9.757",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:capex_int_2025 = 9.757 (coincide); revision M1 reutilizada",
@@ -618,12 +609,12 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Payments from sale of property, plant and equipment (160,063) (143,848)'; encabezado: '31 December 2024 and 2023'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=CONFLICTO, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Payments from sale of property, plant and equipment (160,063) (143,848)'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo −1: pago (salida) registrado en positivo | reexpresado: no (igual que CF_2023 p.7: incluye Italia, el flujo no se reexpresa por partidas) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: el valor declarado -143848 no esta en la fila ['(160,063)', '(143,848)'] (cabecera ['2024', '2023'])",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "CONFLICTO",
+        "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
@@ -631,7 +622,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Payments from sale of property, plant and equipment (160,063) (143,848)",
-      "encabezado": "31 December 2024 and 2023",
+      "encabezado": "Note 2024 2023(*)",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2024 and 2023 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "-143848 x 0.001 x -1 = 143.848",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:capex_mat_2023 = 143.848 (coincide); revision M1 reutilizada",
@@ -648,12 +639,12 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Payments from sale of property, plant and equipment (178,746) (160,063)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=CONFLICTO, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Payments from sale of property, plant and equipment (178,746) (160,063)'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo −1: pago (salida) registrado en positivo | reexpresado: no (igual que CF_2024 p.7) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: el valor declarado -160063 no esta en la fila ['(178,746)', '(160,063)'] (cabecera ['2025', '2024'])",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "CONFLICTO",
+        "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
@@ -661,7 +652,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Payments from sale of property, plant and equipment (178,746) (160,063)",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2025 and 2024 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "-160063 x 0.001 x -1 = 160.063",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:capex_mat_2024 = 160.063 (coincide); revision M1 reutilizada",
@@ -678,12 +669,12 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Payments from sale of property, plant and equipment (178,746) (160,063)'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=CONFLICTO, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Payments from sale of property, plant and equipment (178,746) (160,063)'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo −1: pago (salida) registrado en positivo | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: el valor declarado -178746 no esta en la fila ['(178,746)', '(160,063)'] (cabecera ['2025', '2024'])",
+      "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
         "fila": "OK",
-        "columna": "CONFLICTO",
+        "columna": "OK",
         "unidad": "OK",
         "signo": "OK",
         "perimetro": "OK",
@@ -691,7 +682,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Payments from sale of property, plant and equipment (178,746) (160,063)",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2025 and 2024 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "-178746 x 0.001 x -1 = 178.746",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:capex_mat_2025 = 178.746 (coincide); revision M1 reutilizada",
@@ -708,7 +699,7 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Net cash from operating activities 362,516 263,437'; encabezado: '31 December 2024 and 2023'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Net cash from operating activities 362,516 263,437'; encabezado: 'Note 2024 2023(*)'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo +; incluye el flujo de operaciones interrumpidas (Italia) | reexpresado: no (igual que CF_2023 p.7) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -721,7 +712,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Net cash from operating activities 362,516 263,437",
-      "encabezado": "31 December 2024 and 2023",
+      "encabezado": "Note 2024 2023(*)",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2024 and 2023 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "263437 x 0.001 x 1 = 263.437",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:cfo_2023 = 263.437 (coincide); revision M1 reutilizada",
@@ -738,7 +729,7 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Net cash from operating activities 380,287 362,516'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Net cash from operating activities 380,287 362,516'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo +; incluye el flujo de operaciones interrumpidas (11,558 según la extracción) | reexpresado: no (igual que CF_2024 p.7) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -751,7 +742,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Net cash from operating activities 380,287 362,516",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2025 and 2024 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "362516 x 0.001 x 1 = 362.516",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:cfo_2024 = 362.516 (coincide); revision M1 reutilizada",
@@ -768,7 +759,7 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2025.txt [PDF PAGE 7] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Net cash from operating activities 380,287 362,516'; encabezado: '31 December 2025 and 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Net cash from operating activities 380,287 362,516'; encabezado: 'Note 2025 2024'; titulo pagina: 'VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 De'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: miles → mm; signo + | reexpresado: no aplica (ejercicio del último informe) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "sin pendientes contextuales",
       "checks_contextuales": {
@@ -781,7 +772,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Net cash from operating activities 380,287 362,516",
-      "encabezado": "31 December 2025 and 2024",
+      "encabezado": "Note 2025 2024",
       "titulo_pagina": "VIDRALA, S.A. AND SUBSIDIARIES | Consolidated Statements of Cash Flows | for the years ended | 31 December 2025 and 2024 | (Indirect Method) | (Expressed in thousands of Euros)",
       "transformacion": "380287 x 0.001 x 1 = 380.287",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:cfo_2025 = 380.287 (coincide); revision M1 reutilizada",
@@ -800,7 +791,7 @@
       "evidencia": "derivado recalculado con Decimal: o[\"aux:AR2025_p76_acciones_emitidas_2025\"] - o[\"aux:AR2025_p83_acciones_propias_2025\"] -> 45.993399 (valor_modelo 45.993399, diff 0.000000)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula o[\"aux:AR2025_p76_acciones_emitidas_2025\"] - o[\"aux:AR2025_p83_acciones_propias_2025\"] (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Acciones EN CIRCULACIÓN a 31-dic-2025 = 46.500.000 emitidas (AR_2025, nota 12.1, PDF p. 76) − 506.601 propias (nota 12.4, PDF p. 83) = 45.993.399 → 45,993399 millones; el libro guarda 45.993399 (fase1_v63.json, acciones_diluidas). Resultado de la fórmula con los orígenes registrados: 45.993399; valor del libro: 45.993399. Fechas distintas, declaradas: acciones a 31-dic-2025 (cuentas de 2025) y precio del 3-nov-2026; no es una actualización a 2026 (las acciones a la fecha del precio no constan en el expediente; en 2026 hubo amortización de autocartera y recompra). Dilución potencial NO incluida (decisión D3: se declara aparte): plan de incentivos a largo plazo 2025–2027 (AR_2025, nota 22.3, PDF pp. 129–130): «a maximum of 315,000 shares for the Target Incentive and 472,500 shares for the Maximum Incentive for overperformance», liquidables en el primer semestre de 2028; la nota no dice si se entregarán con autocartera o con acciones nuevas. Hasta 0,315 (objetivo) o 0,4725 (máximo) millones de acciones. No es la media ponderada «diluida» de la nota 20.2 (45.479.209, menor que la básica 45.656.226: contradictoria con la NIC 33), que queda descartada por D3.",
-      "limites_contextuales": "aux:AR2025_p76_acciones_emitidas_2025: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional) | aux:AR2025_p83_acciones_propias_2025: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional)",
+      "limites_contextuales": "aux:AR2025_p76_acciones_emitidas_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina) | aux:AR2025_p83_acciones_propias_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -818,8 +809,8 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "aux:AR2025_p76_acciones_emitidas_2025: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional)",
-          "aux:AR2025_p83_acciones_propias_2025: dimension columna no decidible (fila con 5 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional)"
+          "aux:AR2025_p76_acciones_emitidas_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
+          "aux:AR2025_p83_acciones_propias_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)"
         ]
       }
     },
@@ -832,9 +823,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 76] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'As at December 31, 2025, the capital of the Parent Company consisted of 46,500,000 bearer shares with a par value of €0.'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'As at December 31, 2025, the capital of the Parent Company consisted of 46,500,000 bearer shares with a par value of €0.'; encabezado: 'None'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: de acciones a millones de acciones; sin otra transformación | reexpresado: no aplica: ejercicio corriente | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila con 5 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional",
+      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -845,7 +836,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "As at December 31, 2025, the capital of the Parent Company consisted of 46,500,000 bearer shares with a par value of €0.70 each. The total capital value was €32,550,000, the same as on",
-      "encabezado": "Consolidated Financial Statements for the year ended December 31, 2025 Management report",
+      "encabezado": null,
       "titulo_pagina": "Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for the year ended December 31, 2025 Management report",
       "transformacion": "46500000 x 1e-06 x 1 = 46.500000",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:AR2025_p76_acciones_emitidas_2025 = 46.5 (coincide); revision M1 reutilizada",
@@ -862,9 +853,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 83] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Thus, as at December 31, 2025, Viscofan, S.A. has 506,601 of its own shares representing 1.09% of the voting rights wort'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Thus, as at December 31, 2025, Viscofan, S.A. has 506,601 of its own shares representing 1.09% of the voting rights wort'; encabezado: 'None'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: de acciones a millones de acciones, en positivo; la derivación de C55 las resta de las emitidas | reexpresado: no aplica: ejercicio corriente | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila con 5 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional",
+      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -875,7 +866,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Thus, as at December 31, 2025, Viscofan, S.A. has 506,601 of its own shares representing 1.09% of the voting rights worth 23,641 thousand euros.",
-      "encabezado": "Consolidated Financial Statements for the year ended December 31, 2025 Management report",
+      "encabezado": null,
       "titulo_pagina": "Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for the year ended December 31, 2025 Management report",
       "transformacion": "506601 x 1e-06 x 1 = 0.506601",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:AR2025_p83_acciones_propias_2025 = 0.506601 (coincide); revision M1 reutilizada",
@@ -894,7 +885,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:CF2024_p9_cfo_2023\"] + o[\"aux:AR2025_p27_cfo_2024\"] + o[\"aux:AR2025_p27_cfo_2025\"]) / 3 -> 192.3003333333333333333333333 (valor_modelo 192.3, diff 0.0003333333333333333333333)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"aux:CF2024_p9_cfo_2023\"] + o[\"aux:AR2025_p27_cfo_2024\"] + o[\"aux:AR2025_p27_cfo_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media 2023–2025 del flujo de explotación (período fijado por el inversor el 23-oct-2026: Control maestro E88): (145,710 + 235,822 + 195,369) / 3 = 192,300 miles. El flujo de explotación ya descuenta impuestos pagados; los intereses pagados van en financiación (C48). Resultado de la fórmula con los orígenes registrados: 192.300333; valor del libro: 192.3.",
-      "limites_contextuales": "aux:CF2024_p9_cfo_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)",
+      "limites_contextuales": "aux:CF2024_p9_cfo_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi) | aux:AR2025_p27_cfo_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -912,7 +903,8 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "aux:CF2024_p9_cfo_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)"
+          "aux:CF2024_p9_cfo_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)",
+          "aux:AR2025_p27_cfo_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )"
         ]
       }
     },
@@ -927,7 +919,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"Historia!J12\"] + o[\"Historia!K12\"] + o[\"Historia!L12\"]) / 3 -> 77.53333333333333333333333333 (valor_modelo 77.533, diff 0.00033333333333333333333333)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"Historia!J12\"] + o[\"Historia!K12\"] + o[\"Historia!L12\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media exacta 2023–2025: (77,126 + 75,027 + 80,447) / 3 = 77,533 mm (Historia J12:L12, capex); el libro guarda 77.533 (decisión E1: sustituye el redondeo 77.5 que el inversor escribió en la etapa 1; cambio_de_base.md, «Entradas sustituidas en fase1_v63.json»). La fórmula reproduce el libro (diferencia < 0,001 mm, redondeo a tres decimales).",
-      "limites_contextuales": "Historia!J12: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)",
+      "limites_contextuales": "Historia!J12: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi) | Historia!K12: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -945,7 +937,8 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "Historia!J12: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)"
+          "Historia!J12: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)",
+          "Historia!K12: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )"
         ]
       }
     },
@@ -960,7 +953,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"Historia!J15\"] + o[\"Historia!K15\"] + o[\"Historia!L15\"]) / 3 -> 8.294 (valor_modelo 8.294, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"Historia!J15\"] + o[\"Historia!K15\"] + o[\"Historia!L15\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media exacta 2023–2025: (6,275 + 9,726 + 8,881) / 3 = 8,294 mm (Historia J15:L15, intereses pagados; la fila 16, «Intereses pagados en financiación (IFRS)», tiene los mismos valores); el libro guarda 8.294 (decisión E1: sustituye el redondeo 8.3 que el inversor escribió en la etapa 1; cambio_de_base.md, «Entradas sustituidas en fase1_v63.json»). La fórmula reproduce el libro (diferencia < 0,001 mm, redondeo a tres decimales).",
-      "limites_contextuales": "Historia!J15: dimension reexpresion no decidible (declara no reexpresado (\"no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos d)",
+      "limites_contextuales": "Historia!J15: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -978,7 +971,7 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "Historia!J15: dimension reexpresion no decidible (declara no reexpresado (\"no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos d)"
+          "Historia!J15: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)"
         ]
       }
     },
@@ -993,7 +986,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:CF2024_p9_pagos_arrend_2023\"] + o[\"aux:AR2025_p28_pagos_arrend_2024\"] + o[\"aux:AR2025_p28_pagos_arrend_2025\"]) / 3 -> 5.547333333333333333333333333 (valor_modelo 5.547, diff 0.000333333333333333333333333)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"aux:CF2024_p9_pagos_arrend_2023\"] + o[\"aux:AR2025_p28_pagos_arrend_2024\"] + o[\"aux:AR2025_p28_pagos_arrend_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media exacta 2023–2025: (5,296 + 5,843 + 5,503) / 3 = 5,547 mm (pagos por arrendamientos de CF_2024 p. 9 y AR_2025 p. 28; los mismos valores que la Historia J17:L17); el libro guarda 5.547 (decisión E1: sustituye el redondeo 5.5 que el inversor escribió en la etapa 1; cambio_de_base.md, «Entradas sustituidas en fase1_v63.json»). La fórmula reproduce el libro (diferencia < 0,001 mm, redondeo a tres decimales).",
-      "limites_contextuales": "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (años declarados ['2024'] no figuran en la pagina ['2025'] (fila no tabular o año fuera de tabla)) | aux:AR2025_p28_pagos_arrend_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion ) | aux:AR2025_p28_pagos_arrend_2025: dimension columna no decidible (fila con 3 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional)",
+      "limites_contextuales": "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi) | aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (años declarados ['2024'] no figuran en la pagina ['2025'] (fila no tabular o año fuera de tabla)) | aux:AR2025_p28_pagos_arrend_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion ) | aux:AR2025_p28_pagos_arrend_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -1011,9 +1004,10 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
+          "aux:CF2024_p9_pagos_arrend_2023: dimension reexpresion no decidible (el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2023; reexpresi)",
           "aux:AR2025_p28_pagos_arrend_2024: dimension columna no decidible (años declarados ['2024'] no figuran en la pagina ['2025'] (fila no tabular o año fuera de tabla))",
           "aux:AR2025_p28_pagos_arrend_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )",
-          "aux:AR2025_p28_pagos_arrend_2025: dimension columna no decidible (fila con 3 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional)"
+          "aux:AR2025_p28_pagos_arrend_2025: dimension columna no decidible (sin linea de columnas de encabezado identificable en la pagina)"
         ]
       }
     },
@@ -1028,7 +1022,7 @@
       "evidencia": "derivado recalculado con Decimal: (o[\"aux:CF2024_p9_pagos_acciones_2023\"] + o[\"aux:AR2025_p27_pagos_acciones_2024\"] + o[\"aux:AR2025_p27_pagos_acciones_2025\"]) / 3 -> 3.707333333333333333333333333 (valor_modelo 3.707, diff 0.000333333333333333333333333)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula (o[\"aux:CF2024_p9_pagos_acciones_2023\"] + o[\"aux:AR2025_p27_pagos_acciones_2024\"] + o[\"aux:AR2025_p27_pagos_acciones_2025\"]) / 3 (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Media exacta 2023–2025: (2,346 + 2,001 + 6,775) / 3 = 3,707 mm (ajuste «Share-based payment(s)» de CF_2024 p. 9 y AR_2025 p. 27; los mismos valores que la Historia J18:L18); el libro guarda 3.707 (decisión E1: sustituye el redondeo 3.71 que el inversor escribió en la etapa 1; cambio_de_base.md, «Entradas sustituidas en fase1_v63.json»). La fórmula reproduce el libro (diferencia < 0,001 mm, redondeo a tres decimales).",
-      "limites_contextuales": "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (declara no reexpresado (\"no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo)\") pero el original CA_202)",
+      "limites_contextuales": "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (declara no reexpresado (\"no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo)\") pero el original CA_202) | aux:AR2025_p27_pagos_acciones_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -1046,7 +1040,8 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (declara no reexpresado (\"no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo)\") pero el original CA_202)"
+          "aux:CF2024_p9_pagos_acciones_2023: dimension reexpresion no decidible (declara no reexpresado (\"no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo)\") pero el original CA_202)",
+          "aux:AR2025_p27_pagos_acciones_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )"
         ]
       }
     },
@@ -1179,9 +1174,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 27] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Payments for the acquisition of PP&E and intangible fixed assets -80,447 -75,027'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Payments for the acquisition of PP&E and intangible fixed assets -80,447 -75,027'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: capex = pagos por inmovilizado material e intangible, en positivo (no incluye las altas de derechos de uso) | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1189,7 +1184,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "OK"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Payments for the acquisition of PP&E and intangible fixed assets -80,447 -75,027",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -1305,9 +1300,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Interest paid 12.1 -9,726 -6,275'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=CONFLICTO | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Interest paid 12.1 -9,726 -6,275'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: intereses pagados, en positivo | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los cambios normativos de 2024 no afectaron al ejercicio anterior (CF_2024 p. 25) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: declara no reexpresado (\"no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo); los ",
+      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la col",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1315,7 +1310,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "CONFLICTO"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Interest paid 12.1 -9,726 -6,275",
       "encabezado": "(Thousands of euros) Notes 2024 2023",
@@ -1605,9 +1600,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 27] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Net cash generated from operating activities 195,369 235,822'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Net cash generated from operating activities 195,369 235,822'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: cifra publicada, de miles a millones | reexpresado: sí: comparativo reexpresado de 2024 en AR_2025 (el que usó el modelo); coincide con el original de CF_2024 p. 9 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1615,7 +1610,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "OK"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Net cash generated from operating activities 195,369 235,822",
       "encabezado": "(Thousands of euros) Notes 2025 2024",
@@ -1665,9 +1660,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/CF_2024.txt [PDF PAGE 9] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Payments for right-of-use assets 12.1 -5,843 -5,296'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Payments for right-of-use assets 12.1 -5,843 -5,296'; encabezado: '(Thousands of euros) Notes 2024 2023'; titulo pagina: 'VISCOFAN, S.A. AND SUBSIDIARIES | Consolidated financial statements at 31 December 2024'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: pagos por arrendamientos, en positivo | reexpresado: no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en CA_2023_es.txt pero no en una fila con el rotulo completo mapeable 1:1 en la col",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1675,7 +1670,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "NO_APLICA"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Payments for right-of-use assets 12.1 -5,843 -5,296",
       "encabezado": "(Thousands of euros) Notes 2024 2023",
@@ -1695,7 +1690,7 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 28] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Lease payments for right-of-use assets 12.1 -5,503 -5,843'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Lease payments for right-of-use assets 12.1 -5,503 -5,843'; encabezado: 'None'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: pagos por arrendamientos, en positivo | reexpresado: sí: comparativo reexpresado de 2024 en AR_2025; coincide con CF_2024 p. 9 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
       "limites_contextuales": "columna: años declarados ['2024'] no figuran en la pagina ['2025'] (fila no tabular o año fuera de tabla) | reexpresion: el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
@@ -1708,7 +1703,7 @@
         "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Lease payments for right-of-use assets 12.1 -5,503 -5,843",
-      "encabezado": "Consolidated Financial Statements for the year ended December 31, 2025 Management report",
+      "encabezado": null,
       "titulo_pagina": "Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for the year ended December 31, 2025 Management report",
       "transformacion": "-5843 x 0.001 x -1 = 5.843",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:AR2025_p28_pagos_arrend_2024 = 5.843 (coincide); revision M1 reutilizada",
@@ -1725,9 +1720,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 28] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Lease payments for right-of-use assets 12.1 -5,503 -5,843'; encabezado: 'Consolidated Financial Statements for the year ended December 31, 2025 Management report'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Lease payments for right-of-use assets 12.1 -5,503 -5,843'; encabezado: 'None'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=NO_DECIDIBLE, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_APLICA | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: pagos por arrendamientos, en positivo | reexpresado: no aplica: ejercicio corriente | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "columna: fila con 3 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional",
+      "limites_contextuales": "columna: sin linea de columnas de encabezado identificable en la pagina",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "NO_DECIDIBLE",
@@ -1738,7 +1733,7 @@
         "reexpresion": "NO_APLICA"
       },
       "fila_leida": "Lease payments for right-of-use assets 12.1 -5,503 -5,843",
-      "encabezado": "Consolidated Financial Statements for the year ended December 31, 2025 Management report",
+      "encabezado": null,
       "titulo_pagina": "Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for the year ended December 31, 2025 Management report",
       "transformacion": "-5503 x 0.001 x -1 = 5.503",
       "comparacion_libro": "verificacion_entradas.json del expediente (celda aux:) aux:AR2025_p28_pagos_arrend_2025 = 5.503 (coincide); revision M1 reutilizada",
@@ -1785,9 +1780,9 @@
       "estado_contextual": "REUTILIZADO_M1",
       "origen_revision": "M1_REUTILIZADA",
       "evidencia": "texto/AR_2025.txt [PDF PAGE 27] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
-      "evidencia_contextual": "fila leida: 'Share-based payments 6,775 2,001'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=OK | reutilizada del piloto M1 (alcance y huellas propios)",
+      "evidencia_contextual": "fila leida: 'Share-based payments 6,775 2,001'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: ajuste no monetario del flujo de explotación, en positivo | reexpresado: sí: comparativo reexpresado de 2024 en AR_2025; coincide con CF_2024 p. 9 | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "sin pendientes contextuales",
+      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1795,7 +1790,7 @@
         "signo": "OK",
         "perimetro": "OK",
         "version": "OK",
-        "reexpresion": "OK"
+        "reexpresion": "NO_DECIDIBLE"
       },
       "fila_leida": "Share-based payments 6,775 2,001",
       "encabezado": "(Thousands of euros) Notes 2025 2024",

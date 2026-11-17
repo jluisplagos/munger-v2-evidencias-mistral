@@ -1,0 +1,4 @@
+[ok     ] R4g_sin_atajo_valor_suelto_con_nota: obtenido=NO_DECIDIBLE esperado=['CONFLICTO', 'NO_DECIDIBLE'] | el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion no decidible
+[ok     ] R4h_negacion_never_restated: obtenido=CONFLICTO esperado=['CONFLICTO'] | declara no reexpresado ("comparatives were never restated") pero el original CF_2024.txt imprime 10000 en la columna 2024 (fila 4) y el comparativo cita 9000: c
+[ok     ] R4i_fila_distinta_mismo_prefijo: obtenido=CONFLICTO esperado=['CONFLICTO'] | declara no reexpresado ("no reexpresado") pero el original CF_2024.txt imprime 10000 en la columna 2024 (fila 5) y el comparativo cita 9000: contradiccion expli
+[ok     ] R4j_control_igualdad_rotulo_completo: obtenido=NO_APLICA esperado=['NO_APLICA', 'OK'] | declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (9000) en la fila 4; coherente

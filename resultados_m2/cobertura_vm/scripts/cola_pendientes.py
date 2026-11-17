@@ -5,15 +5,19 @@ bloque documental — y las ordena por prioridad:
   1. entradas con material_declarada=True (catalogo_entradas.csv);
   2. entradas de las que dependen (transitivamente) derivados materiales;
   3. el resto.
-Tambien lista los 46 derivados pendientes con sus limites propagados.
+Tambien lista los derivados pendientes que resultan del CSV vigente (el número lo
+da la salida, no este docstring; en v4.0 son 26, no 46).
 
 No resuelve nada: solo ordena y empaqueta. Salida: resultados/cola_pendientes.json
 """
 import csv
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 
+# A3-R8: debe funcionar también con python3 -I (sin anteponer la carpeta del script)
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 import comun as C
 
 

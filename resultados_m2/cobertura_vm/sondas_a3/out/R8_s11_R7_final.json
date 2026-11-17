@@ -1,0 +1,41 @@
+{
+  "modulo": "derivaciones.py",
+  "sondas": [
+    {
+      "sonda": "R7a_derivado_pendiente_bloquea_a_dependiente",
+      "descripcion": "D=f(E), E=f(F), F en PENDIENTE_CONTEXTUAL: D debe propagar PENDIENTE (antes NO_APLICA->REVISADO).",
+      "esperado": [
+        "PENDIENTE_CONTEXTUAL"
+      ],
+      "obtenido": "PENDIENTE_CONTEXTUAL",
+      "defecto": false
+    },
+    {
+      "sonda": "R7b_derivado_conflicto_bloquea_a_dependiente",
+      "descripcion": "F en CONFLICTO: D debe ser CONFLICTO.",
+      "esperado": [
+        "CONFLICTO_CONTEXTUAL"
+      ],
+      "obtenido": "CONFLICTO_CONTEXTUAL",
+      "defecto": false
+    },
+    {
+      "sonda": "R7c_control_positivo_todo_revisado",
+      "descripcion": "Control positivo: F REVISADO -> D REVISADO.",
+      "esperado": [
+        "REVISADO_CONTEXTUAL"
+      ],
+      "obtenido": "REVISADO_CONTEXTUAL",
+      "defecto": false
+    },
+    {
+      "sonda": "R7d_piloto_reutilizado_m1",
+      "descripcion": "E cubierto en piloto -> REUTILIZADO_M1 (alcance del piloto), aunque F esté pendiente.",
+      "esperado": [
+        "REUTILIZADO_M1"
+      ],
+      "obtenido": "REUTILIZADO_M1",
+      "defecto": false
+    }
+  ]
+}

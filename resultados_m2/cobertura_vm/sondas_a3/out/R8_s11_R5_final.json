@@ -1,0 +1,47 @@
+{
+  "modulo": "/workspace/wt-a/resultados_m2/cobertura_vm/scripts/verificar_contexto.py",
+  "sondas": [
+    {
+      "sonda": "R5a_version_no_acreditada_por_12025",
+      "descripcion": "El único \"2025\" está dentro del importe 12025: la versión declarada (CF_2025) no debe acreditarse.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "el año del archivo 2025 no aparece en la pagina ni en la cabecera del documento",
+      "defecto": false
+    },
+    {
+      "sonda": "R5b_version_no_acreditada_por_2025,4",
+      "descripcion": "El único \"2025\" es el importe 2025,4: no acredita la versión.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "el año del archivo 2025 no aparece en la pagina ni en la cabecera del documento",
+      "defecto": false
+    },
+    {
+      "sonda": "R5c_control_positivo_titulo_2025",
+      "descripcion": "Control positivo: el año 2025 en el título acredita CF_2025.",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "el informe declarado (CF_2025.txt, año 2025) figura en la pagina/cabecera del documento",
+      "defecto": false
+    },
+    {
+      "sonda": "R5d_anio_con_coma_en_titulo",
+      "descripcion": "«2025,» con coma en el título es un año de verdad (no un importe): acredita.",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "el informe declarado (CF_2025.txt, año 2025) figura en la pagina/cabecera del documento",
+      "defecto": false
+    }
+  ]
+}

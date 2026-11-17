@@ -48,8 +48,15 @@ def main():
             if not path.exists():
                 pdf_pages_cache[key] = None
             else:
-                reader = PdfReader(str(path))
-                pdf_pages_cache[key] = [(p.extract_text() or '') for p in reader.pages]
+                # A3-R8: con pypdf 6.x estos PDF dan PdfReadError con traza; mensaje claro
+                # y versión real exigida (probada con 7.1.0)
+                try:
+                    reader = PdfReader(str(path))
+                    pdf_pages_cache[key] = [(p.extract_text() or '') for p in reader.pages]
+                except Exception as e:
+                    sys.exit(f'asociacion_pdf.py: pypdf {pypdf.__version__} no pudo leer {path.name} '
+                             f'({type(e).__name__}: {str(e)[:120]}). Use pypdf >= 7.0 (probado con 7.1.0) '
+                             f'o revise el PDF; no se continúa con una asociación a ciegas.')
         return pdf_pages_cache[key]
 
     # agrupa entradas por (empresa, archivo txt)

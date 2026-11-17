@@ -1,0 +1,23 @@
+{
+ "euros_no_miles": [
+  "CONFLICTO",
+  "la pagina declara escala 'Amounts in euros' (euros, no miles); no acredita miles de euros ni escala 0,001"
+ ],
+ "escala_erronea_con_cabecera": [
+  "CONFLICTO",
+  "cabecera del documento en miles pero escala declarada 1 != 0.001"
+ ],
+ "columna_equivocada_aceptada": [
+  "CONFLICTO",
+  "posicion 0 -> columna 2025, pero declarado ['2024'] (linea de columnas ['2025', '2024'])"
+ ],
+ "reexpresion_toma_otra_columna": [
+  "CONFLICTO",
+  "declara no reexpresado (\"no reexpresado; igual al original\") pero el original CF_2024.txt imprime 10000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita"
+ ],
+ "contradiccion_reexpresion_devuelve_ok": [
+  "CONFLICTO",
+  "declara no reexpresado (\"no reexpresado; igual al original\") pero el original CF_2024.txt imprime 10000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita"
+ ],
+ "_conflicto": "5/5"
+}

@@ -22,7 +22,11 @@ resultados/resoluciones_bloque2.json
 """
 import json
 import re
+import sys
+from pathlib import Path
 
+# A3-R8: debe funcionar también con python3 -I (sin anteponer la carpeta del script)
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 import comun as C
 
 

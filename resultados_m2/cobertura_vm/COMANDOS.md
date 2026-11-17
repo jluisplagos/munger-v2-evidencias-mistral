@@ -40,3 +40,26 @@ git ls-remote origin mistral/m2-cobertura-vm    # comprobar que el SHA remoto ==
 ```
 
 Versiones: `python3 --version` → Python 3.12.15; `openpyxl.__version__` → 3.1.5; `pypdf.__version__` → 7.1.0 (comprobado con `PYTHONPATH=.trabajo/pylibs python3 -c "import openpyxl, pypdf, sys; print(sys.version.split()[0], openpyxl.__version__, pypdf.__version__)"`).
+
+## Bloque A3 (corrección A3-R1…R8, control @ 57b34a60)
+
+Tras el pipeline anterior, con el código A3 definitivo:
+
+```bash
+# sondas del informe (publicadas en sondas_a3/sondas_informe/) y sondas nuevas propias
+python3 -I -B resultados_m2/cobertura_vm/sondas_a3/sondas_informe/s02_sondas_revisor_A.py resultados_m2/cobertura_vm/scripts/verificar_contexto.py /tmp/s02.json
+python3 -I -B resultados_m2/cobertura_vm/sondas_a3/sondas_informe/s03_sondas_d375d80_A.py resultados_m2/cobertura_vm/scripts/verificar_contexto.py /tmp/s03.json
+python3 -I -B resultados_m2/cobertura_vm/sondas_a3/sondas_informe/s07_sondas_nuevas_A2.py resultados_m2/cobertura_vm/scripts/verificar_contexto.py /tmp/s07.json
+python3 -I -B resultados_m2/cobertura_vm/sondas_a3/s11_R1_sonda_nueva.py resultados_m2/cobertura_vm/scripts/verificar_contexto.py /tmp/r1.json   # idem R2..R6
+python3 -I -B resultados_m2/cobertura_vm/sondas_a3/s11_R7_sonda_nueva.py resultados_m2/cobertura_vm/scripts /tmp/r7.json
+
+# A3-R8: huellas/recuentos de ENTREGA.json y textos desde las salidas (generados, no a mano)
+python3 -B resultados_m2/cobertura_vm/scripts/generar_entrega_json.py
+python3 -B resultados_m2/cobertura_vm/scripts/actualizar_textos_resumen.py
+
+# diff de estados vs la base revisada y por punto
+python3 -B resultados_m2/cobertura_vm/scripts/generar_cambios_estado.py 8b88fab28261506c60bc7631fd24894e225099d2 a3
+
+# nota: cola_pendientes.py y resolver_bloque2.py ya funcionan con python3 -I -B (A3-R8);
+# asociacion_pdf.py con pypdf 6.x sale con mensaje claro (exit 1); con 7.1.0 exit 0
+```

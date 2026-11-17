@@ -1,0 +1,4 @@
+[ok     ] R3g_anio_con_coma_en_fila_no_es_importe: obtenido=OK esperado=['OK'] | posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024'] | cabecera: '2025 2024' | años bloque: ['2025', '2024', '2024']
+[ok     ] R3h_valor_2030_en_columna_2025: obtenido=OK esperado=['OK'] | posicion 0 de 2 valores -> columna 2025 (linea de columnas ['2025', '2024']); declarado ['2025'] | cabecera: '2025 2024' | años bloque: ['2025', '2024', '2030']
+[ok     ] R3i_valor_2030_declarado_en_otra_columna: obtenido=CONFLICTO esperado=['CONFLICTO'] | posicion 0 -> columna 2025, pero declarado ['2024'] (linea de columnas ['2025', '2024']) | cabecera: '2025 2024' | años bloque: ['2025', '2024', '2030']
+[ok     ] R3j_anio_con_coma_cuenta_en_bloque: obtenido=OK esperado=['OK'] | años ['2024', '2023', '2024', '2023']
