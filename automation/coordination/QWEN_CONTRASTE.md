@@ -63,3 +63,18 @@ revisión. Se corrige leyendo únicamente metadatos del catálogo exportado.
 La reanudación explícita de la misma tarea exige esa evidencia exacta de cero
 generaciones, el mismo SHA de paquete y una transición con SHA esperado. No borra
 la reserva ni abre otra tarea para repetir una inferencia de consumo incierto.
+
+El intento completo sí generó después una vez (ed9d3c5, Actions 44080061002):
+modelo configurado mistral-large-4-0, esfuerzo high, uso informado 42992 entrada /
+16384 salida, 1024 entrada en caché. Terminó por límite de salida, sin texto
+visible y sin revisión entregada. Coste CLI 0; imputación al plan no comprobada.
+La reserva y el fallo se conservan; la tarea completa no se vuelve a ejecutar.
+
+Nuevo alcance por tandas: qwen-bank-group-01…06, seis casos cada una. La proyección
+conserva las líneas originales de esos casos, todos sus fixtures íntegros, el plan
+y el resumen. Declara expresamente la selección de líneas y conserva el hash del
+paquete íntegro original. Las seis tandas cubren exactamente 36 ids sin solaparse.
+Una generación máxima por tanda, 32768 tokens de salida, mismo esfuerzo alto
+anunciado por el modelo y 300 segundos. Primero se activa solo la tanda 01; las
+demás esperan un informe utilizable y comprobado. No cambia la clasificación del
+banco ni cuenta como un recorrido del producto. Se preserva el consumo anterior.

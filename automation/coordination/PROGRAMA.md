@@ -116,6 +116,13 @@ en requisitos. El trabajo y su resultado son distintos de la prueba de conexión
 La comprobación horaria debe consultar también su informe y el de vibe-auth-001;
 no activar trabajos nuevos por encontrar estos documentos.
 
+Resultado 001: generación de mistral-large-4-0/high agotó 16384 tokens de salida
+sin informe visible. Uso informado 42992/16384; se conserva el fallo y no se repite
+la tarea completa. Se prepara contraste por tandas de seis, qwen-bank-group-01…06,
+con salida de 32768 y la misma calidad configurada. Solo se activa primero 01.
+Consultar sus informes en la misma carpeta reviews/ y no dar por ejecutado el
+producto por una cobertura documental del banco.
+
 ## Aceleración: medición, no promesa
 
 Registrar por bloque: publicación, inicio de revisión, fin de revisión, corrección,

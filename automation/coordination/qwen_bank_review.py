@@ -123,7 +123,8 @@ def verify(bundle):
     return sources
 
 
-def validate(raw, sources):
+def validate(raw, sources, expected_ids=None):
+    expected_ids = IDS if expected_ids is None else expected_ids
     raw = raw.strip()
     match = re.fullmatch(r'```json\r?\n([\s\S]*)\r?\n```', raw)
     d = json.loads(match.group(1) if match else raw)
@@ -131,7 +132,7 @@ def validate(raw, sources):
         raise pilot.PilotError('FORMATO_INVALIDO')
     if not isinstance(d['limits'], list) or not d['limits'] or any(not isinstance(s, str) or not s for s in d['limits']):
         raise pilot.PilotError('LIMITES_INVALIDOS')
-    if not isinstance(d['cases'], list) or sorted(c.get('id', '') for c in d['cases']) != IDS:
+    if not isinstance(d['cases'], list) or sorted(c.get('id', '') for c in d['cases']) != expected_ids:
         raise pilot.PilotError('FALTAN_CASOS_O_HAY_DUPLICADOS')
     for c in d['cases']:
         if set(c) != {'id', 'assessment', 'reason', 'source_path', 'quote'} or any(not isinstance(v, str) or not v for v in c.values()):
@@ -145,7 +146,7 @@ def validate(raw, sources):
     for f in d['findings']:
         if set(f) != {'severity', 'cases', 'description', 'source_path', 'quote', 'recommendation'}:
             raise pilot.PilotError('HALLAZGO_INVALIDO')
-        if f['severity'] not in ('material', 'media', 'menor', 'limite') or not f['cases'] or any(i not in IDS for i in f['cases']):
+        if f['severity'] not in ('material', 'media', 'menor', 'limite') or not f['cases'] or any(i not in expected_ids for i in f['cases']):
             raise pilot.PilotError('ALCANCE_HALLAZGO_INVALIDO')
         if any(not isinstance(f[k], str) or not f[k] for k in ('description', 'source_path', 'quote', 'recommendation')):
             raise pilot.PilotError('HALLAZGO_VACIO')
