@@ -1,5 +1,5 @@
 {
- "nota": "Adaptación de los 36 casos del banco Q1 v2 (resultados_qwen/q1_v2/banco_revisado, SHA 4745f3887f7fd86bb3052f5d5e32285862df18e3) a componentes reales de la candidata 957af652cdc3bef3d67e8623c9572138bac685e9. Estados iniciales del bloque 1; el bloque 2 los actualiza con ejecuciones. · v2 (CORRECCION_D): estado/veredicto/evidencia ya NO viven aquí; la matriz los deriva solo de evidencias/*/resultado_ejecucion.json (fuente única validada).",
+ "nota": "v3 (D2-R3/R5): preserva_sentido justificado por caso; observacion_compartida y veredicto_caso_fijo como datos (antes estaban escritos a mano en generar_matriz.py); cobertura_banco mapea cada uno de los 109 criterios observables del banco a la asercion del arnes que la acredita o a 'sin asercion' con su relevo.",
  "casos": {
   "Q1-001": {
    "componente": "verificacion_entradas.py · registro de entradas (clase cero_comprobado)",
@@ -13,7 +13,29 @@
    ],
    "artefacto": "evidencias/Q1-001/*.json + verificacion_entradas.json del expediente de prueba",
    "adaptacion": "la línea cero del expediente sintético es Historia!C23 (arrendamientos=0); el concepto 'deuda cero publicado' se declara en fuente.concepto",
-   "sin_comprobar": "respuesta del personaje al prompt del caso y recorrido completo del expediente (relevo supervisado)"
+   "sin_comprobar": "respuesta del personaje al prompt del caso y recorrido completo del expediente (relevo supervisado)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": 2,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-002": {
    "componente": "verificacion_entradas.py · clases no_aplicable e hipotesis",
@@ -27,7 +49,29 @@
    ],
    "artefacto": "verificacion_entradas.json + salida comprobar",
    "adaptacion": "fixture f1_002_registro.json -> entrada no_aplicable con justificacion + entrada hipotesis en celda de hipótesis del modelo",
-   "sin_comprobar": "toda la ejecución sobre el producto; componente mapeado"
+   "sin_comprobar": "toda la ejecución sobre el producto; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-003": {
    "componente": "verificacion_entradas.py · clase dato_ausente",
@@ -41,7 +85,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "tabla sin arrendamientos -> celda Historia!C23 como dato_ausente (en el expediente sintético la celda vale 0, así que el control usa una celda con valor para forzar el contraste)",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-004": {
    "componente": "verificacion_entradas.py · clase hipotesis vs dato_publicado",
@@ -55,7 +121,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "nota 'margen 18% estimado' -> entrada hipotesis en celda de tipo dato con justificacion_clase declarada",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-005": {
    "componente": "verificacion_entradas.py · clase derivado + reglas T1-T5/U1-U4 (fórmulas con fracciones exactas, sensibilidad)",
@@ -69,7 +157,29 @@
    ],
    "artefacto": "salida comprobar --json · derivados_comprobados",
    "adaptacion": "fixtures f1_005_origen.csv -> aux:ingresos (comprobado) + aux:costes (pendiente) + derivado en celda auxiliar",
-   "sin_comprobar": "ejecución del derivado y su control de sensibilidad; revisión semántica U1 (relevo)"
+   "sin_comprobar": "ejecución del derivado y su control de sensibilidad; revisión semántica U1 (relevo)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-006": {
    "componente": "verificacion_entradas.py · R2 conservación local + clase cero_comprobado/dato_ausente",
@@ -84,7 +194,29 @@
    ],
    "artefacto": "evidencias/Q1-006/*.json",
    "adaptacion": "minoritarios -> Historia!C26 (valor 0.217 en el libro); Excel 0 sin fuente -> cero_comprobado con archivo inexistente (control) y dato_ausente (control)",
-   "sin_comprobar": "resolución real de la fuente por agente; conclusión del personaje"
+   "sin_comprobar": "resolución real de la fuente por agente; conclusión del personaje",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-007": {
    "componente": "verificacion_entradas.py · unidad/escala de la fuente (R3, U7)",
@@ -97,7 +229,35 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f2_007 tabla (2500 sin unidad) vs nota (2,5 millones) -> entrada con unidad 'no declarada' -> control rechaza escala asumida",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 3,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-008": {
    "componente": "verificacion_entradas.py · R415-SIGNO (signo de la cifra publicada)",
@@ -111,7 +271,29 @@
    ],
    "artefacto": "salida comprobar + derivacion del BAI",
    "adaptacion": "f2_008 estado -> Historia!C15/C16 intereses con valor_fuente negativo y cita entre paréntesis",
-   "sin_comprobar": "ejecución del caso de signo; componente mapeado (la batería 415 ya cubre R415-SIGNO con 190/190, ver HITO_2_4_15 §4)"
+   "sin_comprobar": "ejecución del caso de signo; componente mapeado (la batería 415 ya cubre R415-SIGNO con 190/190, ver HITO_2_4_15 §4)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-009": {
    "componente": "verificacion_entradas.py · columna/período + cita literal en la página (R1, R3)",
@@ -124,7 +306,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f2_009 -> entrada ventas Historia!C6 con cita '480' que no está en la página de ingresos 2025 -> control rechaza",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-010": {
    "componente": "verificacion_entradas.py · escala declarada (miles 1500 = millones 1,5)",
@@ -137,7 +341,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f2_010 nota (1,5 millones) + csv (1500 miles) -> misma celda caja con fuente en miles escala 0.001",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-011": {
    "componente": "verificacion_entradas.py · R415-SIGNO / doble negación en derivado",
@@ -151,7 +377,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f2_011 -> derivado aux:ebitda - aux:da con signo correcto; control negativo con doble negación",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-012": {
    "componente": "verificacion_entradas.py · campo perimetro",
@@ -164,7 +412,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f2_012 -> entrada ventas con perimetro 'segmento A' -> control rechaza frente al perímetro consolidado del expediente",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-013": {
    "componente": "verificacion_entradas.py · contraste completo (documento, versión, página, período, perímetro, cita)",
@@ -177,7 +447,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f3_013 -> Historia!C24 caja con fuente local en 2 archivos coincidentes",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-014": {
    "componente": "verificacion_entradas.py · version/reexpresado",
@@ -190,7 +482,29 @@
    ],
    "artefacto": "verificacion_entradas.json + salida comprobar",
    "adaptacion": "f3_014 -> dos entradas (2024 reexpresado en el universo, 2024 original en aux) con reexpresado='sí, por discontinuadas'",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-015": {
    "componente": "verificacion_entradas.py · discrepancia entre fuentes + revisor independiente",
@@ -204,7 +518,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f3_015 -> entrada caja con fuente A (120) cuando el libro dice 45.054 -> discrepancia; luego fuente B correcta -> verificada",
-   "sin_comprobar": "ejecución y resolución del conflicto (relevo)"
+   "sin_comprobar": "ejecución y resolución del conflicto (relevo)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-016": {
    "componente": "verificacion_entradas.py · moneda/unidad (U7) + tratamiento/tipo de cambio (N9)",
@@ -217,7 +553,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f3_016 -> fuente en 'dólares' (unidad no reconocida) -> pendiente; control: no se acepta como EUR",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-017": {
    "componente": "verificacion_entradas.py · R2 (fuente sin bytes conservados)",
@@ -231,7 +589,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f3_017 -> entrada con conservacion local, archivo ausente, sha256 null -> pendiente",
-   "sin_comprobar": "ejecución (mismo patrón que Q1-006 ya ejecutado en el piloto)"
+   "sin_comprobar": "ejecución (mismo patrón que Q1-006 ya ejecutado en el piloto)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-018": {
    "componente": "verificacion_entradas.py · version vigente vs histórica",
@@ -245,7 +625,29 @@
    ],
    "artefacto": "verificacion_entradas.json + comprobar",
    "adaptacion": "f3_018 -> Historia!C14 circulante con fuente v2; aux con v1; derivado de diferencia",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-019": {
    "componente": "verificacion_entradas.py · recuentos I9 + aptitud por entradas I20",
@@ -259,7 +661,29 @@
    ],
    "artefacto": "salida comprobar --json (Q1-036 piloto muestra el patrón)",
    "adaptacion": "estado parcial del registro (1 sellada + pendientes) ya ejecutado en el piloto Q1-036",
-   "sin_comprobar": "veredicto propio del caso (el patrón mecánico quedó probado en Q1-036)"
+   "sin_comprobar": "veredicto propio del caso (el patrón mecánico quedó probado en Q1-036)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-020": {
    "componente": "verificacion_entradas.py · vínculo I13 + cambio de hipótesis",
@@ -272,7 +696,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "hipótesis en celda de tipo hipótesis: cambiar hipotesis.fundamento -> la entrada pasa a desactualizada/pendiente",
-   "sin_comprobar": "ejecución; componente mapeado (mismo mecanismo que Q1-027 ejecutado)"
+   "sin_comprobar": "ejecución; componente mapeado (mismo mecanismo que Q1-027 ejecutado)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-021": {
    "componente": "verificacion_entradas.py · el texto de una fuente es dato, no orden (el producto no ejecuta texto de fuentes)",
@@ -285,7 +731,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f4_021 -> fuente con página 3 que 'ordena' marcar verificado: el control sigue exigiendo cita con la cifra en la página citada",
-   "sin_comprobar": "ejecución del componente + evaluación semántica del agente (relevo)"
+   "sin_comprobar": "ejecución del componente + evaluación semántica del agente (relevo)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-022": {
    "componente": "verificacion_entradas.py · universo fijo (cobertura: ninguna sobra) + discrepancia",
@@ -299,7 +767,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f4_022 -> dos fuentes para caja con valores distintos -> discrepancia; no se puede 'borrar' la nota",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-023": {
    "componente": "verificacion_entradas.py · período/columna (el período debe contener el año de la columna de la Historia)",
@@ -312,7 +802,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f4_023 -> entrada caja con periodo 'ejercicio 2016' (columna C) usando la cita de 95: si la cita no está en esa página -> pendiente",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-024": {
    "componente": "verificacion_entradas.py · N2 dato como hipótesis + docstring 'una firma no las demuestra'",
@@ -325,7 +837,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f4_024 -> entrada hipotesis con nota de acta en justificacion; control: no pasa a dato_publicado",
-   "sin_comprobar": "ejecución; componente mapeado"
+   "sin_comprobar": "ejecución; componente mapeado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-025": {
    "componente": "verificacion_entradas.py · vigencia I13 (reutilización solo si coinciden huella y fundamento)",
@@ -337,8 +871,30 @@
     "desactualizada si cambia"
    ],
    "artefacto": "salida comprobar --json",
-   "adaptacion": "ejecutado como patrón en Q1-027 (antes de la mutación C24 seguía comprobada)",
-   "sin_comprobar": "veredicto propio; el patrón positiva quedó en el piloto Q1-027 (02_comprobar_antes_mutacion.json)"
+   "adaptacion": "ejecutado con su propia spec (bloque2/Q1-025.json): con la fuente intacta (mismo sha256) la entrada sigue comprobada entre dos comprobar; el patron positivo de vigencia quedo ademas documentado en Q1-027 (02_comprobar_antes_mutacion.json)",
+   "sin_comprobar": "veredicto de caso completo con agente (recorrido del personaje)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-026": {
    "componente": "cambiar_base.py + verificacion_entradas.py · corrección en copia nueva (nunca sobrescribe)",
@@ -351,8 +907,30 @@
     "verificacion_entradas del nuevo expediente"
    ],
    "artefacto": "expediente copia + salida comprobar",
-   "adaptacion": "f5_026 -> CAMBIO.json con caja 95->90 y fuente v2; deuda 300 de la nota como aux; derivado deuda_neta",
-   "sin_comprobar": "cambiar_base completo (necesita pdftotext para los textos de los PDF y LibreOffice para el recálculo del libro) + recálculo de dependientes (deuda neta 82.019-45.000=37.019) + auditoría nueva del material final (relevo)"
+   "adaptacion": "f5_026 -> CAMBIO.json con caja 95->90 millones EUR y deuda 300 de la misma nota (cita exacta del fixture); deuda neta esperada 300-90=210; bloque evidencia restaurado (Análisis!C24 E/M)",
+   "sin_comprobar": "cambiar_base completo (necesita pdftotext para AR_2021..AR_2024 y soffice para el recalculo) + recalculo de dependientes (deuda neta 210) + auditoria nueva del material final (agente auditor) -> BLOQUEO_ENTORNO, no cuenta como componente CUMPLE",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "bloqueo_entorno",
+     "razon": "bloqueo de entorno: recalculo con soffice y auditoria con agente (runtime del coordinador)"
+    },
+    {
+     "indice": 2,
+     "asercion": "C3",
+     "cobertura": "asercion",
+     "razon": ""
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "tras D2-R3: cifras del banco f5_026 (95->90, deuda 300, deuda neta 210); las anteriores (45.000/82.019/37.019) no estan en el fixture y se retiraron"
   },
   "Q1-027": {
    "componente": "verificacion_entradas.py · vigencia R2/I13 (sha256 de la fuente)",
@@ -365,8 +943,30 @@
     "no sigue comprobada"
    ],
    "artefacto": "evidencias/Q1-027/*.json",
-   "adaptacion": "caja Historia!C24 sellada con fuente local; mutación de la fuente a caja 80054 (edición 2026-11-10)",
-   "sin_comprobar": "aprobación dependiente (registro de aprobaciones del pipeline, paso 13/14: relevo); nuevo contraste por agente"
+   "adaptacion": "caja Historia!C24 sellada con fuente local (95 millones, revision 2026-11-05); mutacion de la fuente a caja 80 (edicion 2026-11-10) segun f5_027_excel.csv; deuda 300 presente en el mismo extracto; esperado del banco con recalculo: 300-80=220",
+   "sin_comprobar": "aprobacion dependiente (registro de aprobaciones del pipeline: relevo); nuevo contraste por agente; esperado numerico 300-80=220 con soffice (relevo)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": "C4",
+     "cobertura": "asercion",
+     "razon": ""
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-028": {
    "componente": "cierre_v2.py · material auditado y retirada de aprobaciones (cualquier cambio del material retira la aprobación en la primera llamada)",
@@ -379,7 +979,30 @@
    ],
    "artefacto": "evidencias/Q1-036/03_ficha_oficial_concluido.txt (retirada observada)",
    "adaptacion": "f5_028 -> mutar el registro/material tras una aprobación simulada y leer ficha.py; la transformación deuda+arrendamientos-caja como derivado con arrendamientos 40",
-   "sin_comprobar": "reaprobación por auditoría nueva (relevo); ejecución aislada del derivado 245"
+   "sin_comprobar": "reaprobación por auditoría nueva (relevo); ejecución aislada del derivado 245",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_auditor",
+     "razon": "relevo: reaprobacion con auditor real (agente nuevo) tras el cambio de material"
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_derivado_245",
+     "razon": "relevo: deuda neta vigente 300+40-95=245 pendiente de verificar en ejecucion aislada"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos",
+   "observacion_compartida": "observacion compartida con Q1-036 (retirada de aprobacion al cambiar material auditado); no acredita reaprobacion nueva ni el derivado 245"
   },
   "Q1-029": {
    "componente": "verificacion_entradas.py · R2 (fuentes ausentes en rehidratación)",
@@ -393,7 +1016,29 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f5_029 -> 3 entradas con fuentes locales + 2 con archivo ausente",
-   "sin_comprobar": "ejecución (mismo patrón R2 que Q1-006/Q1-017)"
+   "sin_comprobar": "ejecución (mismo patrón R2 que Q1-006/Q1-017)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "sin asercion propia: observable de actividad/conclusion no asertado por el componente (relevo)"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-030": {
    "componente": "verificacion_entradas.py · vigencia por material idéntico (sin caducidad por mero tiempo en el contrato del registro)",
@@ -406,7 +1051,33 @@
    ],
    "artefacto": "salida comprobar --json",
    "adaptacion": "f5_030 -> entrada sellada con fuente intacta: sigue comprobada; la 'caducidad' no existe en el contrato -> DECISION_PENDIENTE",
-   "sin_comprobar": "ejecución del componente (patrón ya cubierto por Q1-027/Q1-025); la política temporal es decisión pendiente del responsable"
+   "sin_comprobar": "ejecución del componente (patrón ya cubierto por Q1-027/Q1-025); la política temporal es decisión pendiente del responsable",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": null,
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos",
+   "veredicto_caso_fijo": {
+    "veredicto": "DECISION_PENDIENTE",
+    "nota": "caducidad temporal por antigüedad: política no fijada (responsable)"
+   }
   },
   "Q1-031": {
    "componente": "fase1_v63.json · precio (dato histórico fechado) + precio_de_si.py",
@@ -419,7 +1090,29 @@
    ],
    "artefacto": "fase1_v63.json del expediente + ficha",
    "adaptacion": "f6_031 -> fase1_v63.json.precio con fecha 31/12/2025 declarada histórica",
-   "sin_comprobar": "ejecución parcial (entrada en fase1) y recorrido del personaje (relevo); precio_de_si --autotest PASA en entorno (comprobar_entorno.sh)"
+   "sin_comprobar": "ejecución parcial (entrada en fase1) y recorrido del personaje (relevo); precio_de_si --autotest PASA en entorno (comprobar_entorno.sh)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-032": {
    "componente": "verificacion_entradas.py · aptitud por entradas (I20) vs aptitud de uso (ficha.py aptitud_de_uso)",
@@ -433,7 +1126,30 @@
    ],
    "artefacto": "evidencias/Q1-036/05_ficha_provisional.json (patrón ejecutado)",
    "adaptacion": "igual patrón que el piloto Q1-036",
-   "sin_comprobar": "recuentos exactos 4/1/5 del caso sobre un universo de 5 (el universo real es 321); veredicto del caso completo con agente"
+   "sin_comprobar": "recuentos exactos 4/1/5 del caso sobre un universo de 5 (el universo real es 321); veredicto del caso completo con agente",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_recuento_4_1_5",
+     "razon": "relevo: recuento 4/1/5 del fixture sobre un universo de 5 soportado (el universo real es 321) o NO_OBSERVABLE"
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_recuento_4_1_5",
+     "razon": "relevo: recuento 4/1/5 del fixture sobre un universo de 5 soportado (el universo real es 321) o NO_OBSERVABLE"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos",
+   "observacion_compartida": "observacion compartida con Q1-036 (ficha provisional: apta por entradas no); 1/321 NO prueba 4/1/5 del fixture -> recuento propio no observable aqui"
   },
   "Q1-033": {
    "componente": "fase1_v63.json · precio actual ausente (S-19 dato ausente material)",
@@ -446,7 +1162,29 @@
    ],
    "artefacto": "ficha.json objetivo + estado_pipeline.json",
    "adaptacion": "f6_031 con precio solo histórico -> expediente sin precio actual; el pipeline/ficha no presentan el histórico como actual",
-   "sin_comprobar": "recorrido del pipeline con agente (relevo); componente de fechas en fase1 inspeccionado"
+   "sin_comprobar": "recorrido del pipeline con agente (relevo); componente de fechas en fase1 inspeccionado",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_agente",
+     "razon": "relevo: fase A/objetivo con agente real sobre fase1_v63.json"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-034": {
    "componente": "objetivo_v64.py / configuracion_economica · rango acotado como lambda_rango/theta_rango (punto de cálculo declarado, sin central adoptada)",
@@ -460,7 +1198,29 @@
    ],
    "artefacto": "configuracion_economica.json + ficha objetivo",
    "adaptacion": "f6_034 -> rango acotado en parámetro de configuración como rango, con tratamiento documentado pendiente",
-   "sin_comprobar": "ejecución de configuracion_economica.py validar con rango; decisión de política del responsable"
+   "sin_comprobar": "ejecucion de configuracion_economica.py validar con rango (relevo); decision de politica del responsable; valoracion puntual apta impedida mientras no haya fundamento del punto (observado en componente)",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "sin_asercion_relevo_politica",
+     "razon": "relevo: decision de politica del responsable (tratamiento del litigio) y fase C con agente"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   },
   "Q1-035": {
    "componente": "ficha.py aptitud_de_uso + validación de motor (alcance por motor)",
@@ -474,7 +1234,33 @@
    ],
    "artefacto": "evidencias/Q1-036/05_ficha_provisional.json (aptitud_de_uso experimental; apto_para_dinero_real false)",
    "adaptacion": "f6_035 -> expediente con motor experimental declarado; la ficha no emite apto para dinero real",
-   "sin_comprobar": "política de validación del motor (responsable); ejecución con el motor sintético del caso"
+   "sin_comprobar": "política de validación del motor (responsable); ejecución con el motor sintético del caso",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": null,
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    },
+    {
+     "indice": 1,
+     "asercion": null,
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    },
+    {
+     "indice": 2,
+     "asercion": null,
+     "cobertura": "decision_usuario",
+     "razon": "decision de politica del responsable (usuario), no del banco ni del arnes"
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos",
+   "veredicto_caso_fijo": {
+    "veredicto": "DECISION_PENDIENTE",
+    "nota": "validación de motores: política no fijada (responsable)"
+   }
   },
   "Q1-036": {
    "componente": "ficha.py / informe.py / cierre_v2.py · vías de salida y bloqueo del pipeline",
@@ -489,7 +1275,29 @@
    ],
    "artefacto": "evidencias/Q1-036/* (03 ficha oficial exit 3; 05 ficha provisional; 07 informe provisional; 08 informe oficial exit 3)",
    "adaptacion": "registro con 1 comprobada y 320 pendientes sobre el universo real del expediente sintético (el caso pide 3/2/5; el patrón es el mismo)",
-   "sin_comprobar": "auditoría APROBADO real y cierre oficial (relevo supervisado); recuentos exactos 3/2/5 del fixture"
+   "sin_comprobar": "auditoría APROBADO real y cierre oficial (relevo supervisado); recuentos exactos 3/2/5 del fixture",
+   "cobertura_banco": [
+    {
+     "indice": 0,
+     "asercion": "C2",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 1,
+     "asercion": "C3",
+     "cobertura": "asercion",
+     "razon": ""
+    },
+    {
+     "indice": 2,
+     "asercion": "C1",
+     "cobertura": "asercion",
+     "razon": ""
+    }
+   ],
+   "preserva_sentido": "si",
+   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
   }
  }
 }

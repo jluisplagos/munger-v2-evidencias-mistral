@@ -101,6 +101,8 @@ def evaluar_afirmacion(caso, a):
             ok = val in a["valor"]
         elif op == "contiene":
             ok = isinstance(val, str) and a["valor"] in val
+        elif op == "no_vacia":
+            ok = isinstance(val, (list, dict, str)) and len(val) > 0
         else:
             ok = False
         return ok, f"{a['archivo']}:{a['ruta']} = {val!r} (op {op} {a['valor']!r}) -> {'OK' if ok else 'FALLA'}"

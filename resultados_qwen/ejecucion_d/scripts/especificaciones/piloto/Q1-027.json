@@ -1,6 +1,7 @@
 {
  "id": "Q1-027",
- "descripcion": "CAMBIO POSTERIOR A REVISIÓN: caja verificada y sellada el día de la revisión; después el 'Excel' (fuente local) cambia (caja 45054 -> 80054 miles, edición 2026-11-10). El producto debe invalidar la comprobación (fuente cambió, sha256 distinto del registrado) y dejar la celda desactualizada, no comprobada.",
+ "harness_version": "3.0",
+ "descripcion": "CONFLICTO_CARENCIA del banco f5_027: caja verificada y sellada el 2026-11-05 (fixtures/f5_027_revision.json: valor_verificado 95); despues el 'Excel' cambia (fixtures/f5_027_excel.csv: caja,80,2026-11-10; deuda,300,2026-11-05, millones EUR). El producto debe invalidar la comprobacion (fuente cambiada, sha256 distinto del registrado) y dejar la celda desactualizada, no comprobada. Cifras del banco en millones EUR; en el libro la celda Historia!C24 va en miles (escala 0.001): 95000 -> 80000 miles. Esperado del banco con recalculo: deuda neta 300-80=220 (relevo, necesita soffice).",
  "pasos": [
   {
    "op": "nuevo_expediente"
@@ -9,9 +10,9 @@
    "op": "escribir_fuente",
    "nombre": "f5_027_excel.txt",
    "paginas": [
-    "Extracto sintético ES-1 (simula el Excel de partida, revisión 2026-11-05).",
-    "Tabla 4 pág.2: caja = 45054 (miles de euros, consolidado, ejercicio 2016).",
-    "Nota 5 pág.3: deuda financiera = 82019 (miles de euros, consolidado, ejercicio 2016)."
+    "Extracto sintetico ES-1 (simula el Excel de partida, revision 2026-11-05; fixture f5_027_excel.csv).",
+    "Tabla 4 pag.2: caja = 95 (millones EUR, consolidado, ejercicio 2025) = 95000 miles.",
+    "Nota 5 pag.3: deuda financiera = 300 (millones EUR, consolidado, edicion 2026-11-05) = 300000 miles."
    ]
   },
   {
@@ -19,21 +20,21 @@
    "celda": "Historia!C24",
    "clase": "dato_publicado",
    "fuente": {
-    "documento": "Extracto sintético ES-1 (fixture f5_027_excel.csv)",
+    "documento": "Extracto sintetico ES-1 (fixture f5_027_excel.csv)",
     "archivo": "fuentes_sinteticas/f5_027_excel.txt",
-    "version": "sintética v1 (revisión 2026-11-05)",
+    "version": "sintetica v1 (revision 2026-11-05; fixtures/f5_027_revision.json: valor_verificado 95)",
     "pagina": 2,
     "ubicacion": "Tabla 4",
     "concepto": "caja",
-    "periodo": "ejercicio 2016",
+    "periodo": "ejercicio 2025",
     "unidad": "miles de euros",
     "escala": 0.001,
     "signo": 1,
     "tratamiento": "ninguno",
     "perimetro": "consolidado",
     "reexpresado": "no aplica",
-    "valor_fuente": 45054,
-    "cita": "Tabla 4 pág.2: caja = 45054 (miles de euros, consolidado, ejercicio 2016)"
+    "valor_fuente": 95000,
+    "cita": "Tabla 4 pag.2 (f5_027_excel.csv): caja = 95 millones EUR (2026-11-05) = 95000 miles; deuda financiera = 300 millones EUR (Nota 5 pag.3, 2026-11-05)"
    },
    "comprobacion": "verificada"
   },
@@ -60,9 +61,9 @@
    "op": "mutar_fuente",
    "archivo": "fuentes_sinteticas/f5_027_excel.txt",
    "paginas": [
-    "Extracto sintético ES-1 (edición 2026-11-10, después de la revisión del 2026-11-05).",
-    "Tabla 4 pág.2: caja = 80054 (miles de euros, consolidado, ejercicio 2016).",
-    "Nota 5 pág.3: deuda financiera = 82019 (miles de euros, consolidado, ejercicio 2016)."
+    "Extracto sintetico ES-1 (edicion 2026-11-10, despues de la revision del 2026-11-05; fixture f5_027_excel.csv).",
+    "Tabla 4 pag.2: caja = 80 (millones EUR, consolidado, ejercicio 2025) = 80000 miles.",
+    "Nota 5 pag.3: deuda financiera = 300 (millones EUR, consolidado, edicion 2026-11-05) = 300000 miles."
    ]
   },
   {
@@ -96,60 +97,66 @@
  "criterios": [
   {
    "id": "C1",
-   "texto": "antes de la mutación la caja queda comprobada (sellada)",
+   "texto": "antes de la mutacion la caja (95) queda comprobada (sellada)",
    "afirma": [
     {
      "tipo": "json_lista_contiene",
      "archivo": "02_comprobar_antes_mutacion.json",
      "lista": "comprobadas",
-     "elemento": "Historia!C24",
-     "prefijo": null
+     "elemento": "Historia!C24"
     }
    ]
   },
   {
    "id": "C2",
-   "texto": "tras mutar la fuente: desactualizada por sha256, ya no comprobada, apto false",
+   "texto": "tras mutar la fuente (caja 80, edicion 2026-11-10): desactualizada por sha256, ya no comprobada (ESTAS aserciones discriminan; la invalidacion se prueba aqui)",
    "afirma": [
     {
      "tipo": "json_lista_contiene_texto",
      "archivo": "03_comprobar_tras_mutacion.json",
      "lista": "desactualizadas",
      "prefijo": "Historia!C24",
-     "contiene": "sha256",
-     "elemento": null
+     "contiene": "sha256"
     },
     {
      "tipo": "json_lista_no_contiene",
      "archivo": "03_comprobar_tras_mutacion.json",
      "lista": "comprobadas",
-     "prefijo": "Historia!C24",
-     "elemento": null
+     "prefijo": "Historia!C24"
+    }
+   ]
+  },
+  {
+   "id": "C3",
+   "texto": "re-sellar tras la mutacion se rechaza",
+   "afirma": [
+    {
+     "tipo": "texto_contiene",
+     "archivo": "04_sellar_tras_mutacion.txt",
+     "contiene": "rechazadas 1"
+    }
+   ]
+  },
+  {
+   "id": "C4",
+   "texto": "apto_por_entradas=false antes y despues de la mutacion: NO discriminante por si solo (ya era false antes por los errores de contrato del universo de 321 celdas); se registra como observacion, la invalidacion la prueban C2/C3",
+   "afirma": [
+    {
+     "tipo": "json_campo",
+     "archivo": "02_comprobar_antes_mutacion.json",
+     "ruta": "apto_por_entradas",
+     "op": "eq",
+     "valor": false
     },
     {
      "tipo": "json_campo",
      "archivo": "03_comprobar_tras_mutacion.json",
      "ruta": "apto_por_entradas",
      "op": "eq",
-     "valor": false,
-     "elemento": null,
-     "prefijo": null
-    }
-   ]
-  },
-  {
-   "id": "C3",
-   "texto": "re-sellar tras la mutación se rechaza",
-   "afirma": [
-    {
-     "tipo": "texto_contiene",
-     "archivo": "04_sellar_tras_mutacion.txt",
-     "contiene": "rechazadas 1",
-     "elemento": null,
-     "prefijo": null
+     "valor": false
     }
    ]
   }
  ],
- "harness_version": "2.0"
+ "harness_version": "3.0"
 }

@@ -19,9 +19,11 @@
     {"op": "comprobar", "guardar": "02_comprobar_punto_medio_rechazado.json", "esperado": [0, 1]}
   ],
   "criterios": [
-    {"id": "C1", "texto": "el rango 0-200 se conserva como hipótesis acotada (no dato, no punto)",
-     "afirma": [{"tipo": "json_lista_no_contiene", "archivo": "01_comprobar_rango_acotado.json", "lista": "comprobadas", "prefijo": "aux:litigio"},
-                {"tipo": "json_lista_no_contiene", "archivo": "01_comprobar_rango_acotado.json", "lista": "datos_como_hipotesis", "prefijo": "aux:litigio"}]},
+    {"id": "C1", "texto": "el rango 0-200 se conserva como hipótesis acotada en el registro (limites con 0-200, clase hipotesis) y no queda comprobada",
+     "afirma": [{"tipo": "json_entrada_campo", "archivo": "run:Viscofan/verificacion_entradas.json", "celda": "aux:litigio", "ruta": "hipotesis.limites", "op": "contiene", "valor": "0-200"},
+                {"tipo": "json_entrada_campo", "archivo": "run:Viscofan/verificacion_entradas.json", "celda": "aux:litigio", "ruta": "clase", "op": "eq", "valor": "hipotesis"},
+                {"tipo": "json_lista_no_contiene", "archivo": "01_comprobar_rango_acotado.json", "lista": "comprobadas", "prefijo": "aux:litigio"},
+                {"tipo": "json_lista_contiene_texto", "archivo": "01_comprobar_rango_acotado.json", "lista": "pendientes", "prefijo": "aux:litigio", "contiene": "rango acotado"}]},
     {"id": "C2", "texto": "el punto medio inventado (100) como dato_publicado sin fuente -> pendiente, no verificado",
      "afirma": [{"tipo": "json_lista_contiene_texto", "archivo": "02_comprobar_punto_medio_rechazado.json", "lista": "pendientes", "prefijo": "aux:litigio", "contiene": "no est"},
                 {"tipo": "json_lista_no_contiene", "archivo": "02_comprobar_punto_medio_rechazado.json", "lista": "comprobadas", "prefijo": "aux:litigio"}]}
