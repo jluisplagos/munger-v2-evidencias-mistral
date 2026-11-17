@@ -15,13 +15,14 @@
  "autor_contexto_modelo_herramientas": "Revisor: sesion Mistral C/F, modelo mistral-large-4-0 (Vibe Code). Autor: Mistral B (misma familia de modelo, sesion previa) -> la independencia es de sesion/metodo/hashes, NO de familia de modelo; declarado en el informe. Herramientas: git/gh CLI, Python 3.12 stdlib. Nada instalado; sin LibreOffice ni pipeline. Esfuerzo/consumo no visibles; no declarados.",
  "fuentes_y_preservacion": [
   "Dossier resultados_m2/pm1 @ daa7478 via git archive desde origin/mistral/m2-fundamento-pm1 (rama del autor intacta; no fusionada ni modificada)",
-  "Textos conservados Vidrala CF_2017..CF_2025 + ES_2024/ES_2025: sha256 byte-identicos al ZIP base-4.14 (release verificada); 29 PDF de FUENTES_CONSERVADAS.csv verificados sha256+bytes en .trabajo/insumos_m2",
+  "Textos conservados Vidrala CF_2017..CF_2025 + ES_2024/ES_2025: sha256 byte-identicos al ZIP base-4.14 (sha256 completo bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e); 29 PDF de FUENTES_CONSERVADAS.csv verificados contra el propio ZIP con correccion_f2/scripts/verificar_huellas.py (29/29, exit 0; evidencia correccion_f2/evidencias/d7_verificar_huellas_daa7478.txt), no contra un .trabajo local",
   "Release fuentes-mistral-m2-20261116 consultada: assets vacios (coherente con el 401 documentado); no reintente uploads ni pedi credenciales",
   "CONTROL.json @ coordinacion/cierre-v2: B-PM1 PARCIAL/LIMITADA, bloqueo P-M1 (theta/lambda no delimitados; 4 PDF con preservacion pendiente)"
  ],
  "cambios_respecto_entrega_anterior": [
   "Se anade revisiones_b_pm1/ a los informes F-REV (W1-W3, C20, CSV) ya entregados; su material no se toca",
-  "COMANDOS.md, PUNTO_DE_RECUPERACION.md y MANIFIESTO_SHA256.txt actualizados"
+  "COMANDOS.md, PUNTO_DE_RECUPERACION.md y MANIFIESTO_SHA256.txt actualizados",
+  "F2-D7 (c761cc8): extractor con ruta por argumento y prueba 0 ejecutable; F3-R9/R11 (este bloque): comandos de las pruebas 1 y 2 ejecutables tal cual (con $ZIP_414 definido), textos de fuentes y siguiente accion actualizados"
  ],
  "pruebas": [
   {
@@ -39,20 +40,20 @@
   },
   {
    "tipo": "componente (rerun del script del autor en copia aislada)",
-   "comando": "python3 -I .trabajo/pm1/scripts/tablas_vidrala.py (copia en .trabajo; salida redirigida y worktree limpiado despues)",
+   "comando": "rm -rf /tmp/pm1_rerun && mkdir -p /tmp/pm1_rerun/.trabajo/insumos_m2 &&\ngit archive origin/mistral/m2-fundamento-pm1 resultados_m2 | tar -x -C /tmp/pm1_rerun &&\nunzip -oq \"$ZIP_414\" 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto/*' -d /tmp/pm1_rerun/.trabajo/insumos_m2 &&\nmv /tmp/pm1_rerun/.trabajo/insumos_m2/munger_v2_r1/personaje_v2 /tmp/pm1_rerun/.trabajo/insumos_m2/personaje_v2 &&\ngit show origin/mistral/m2-fundamento-pm1:resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv > /tmp/vidrala_daa7478.csv &&\ncd /tmp/pm1_rerun && python3 -I resultados_m2/pm1/scripts/tablas_vidrala.py &&\ncmp /tmp/pm1_rerun/resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv /tmp/vidrala_daa7478.csv   # byte-identico, exit 0",
    "exit_esperado": 0,
    "exit_observado": 0,
    "criterios_cubiertos": [
     "salida VIDRALA_REPOSICION_CAPACIDAD.csv byte-identica a la commiteada @ daa7478; control negativo superado (intangibles rechazadas como PP&E)"
    ],
    "criterios_sin_cubrir": [],
-   "evidencia": "evidencias/tablas_vidrala_run.log; cmp byte-identical registrado en evidencias/verificacion_fuentes_y_runs.txt",
+   "evidencia": "evidencias/tablas_vidrala_run.log; rerun F3 ejecutado con el comando de arriba: exit 0 y CSV byte-identico al de daa7478 (correccion_f3/evidencias/r9_rerun_tablas_vidrala.txt)",
    "sha_material": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
    "resultado": "EJECUTADO"
   },
   {
    "tipo": "componente (extraccion independiente propia, metodo distinto: nota por titulo + slot de columna, no ventanas regex del autor)",
-   "comando": "python3 -I evidencias/extraccion_independiente_pm1.py sobre los textos hash-verificados",
+   "comando": "unzip -oq \"$ZIP_414\" 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto/*' -d /tmp/insumos_m2 &&\npython3 -I resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py /tmp/insumos_m2/munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto | cmp - resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_out.txt   # byte-identico, exit 0",
    "exit_esperado": 0,
    "exit_observado": 0,
    "criterios_cubiertos": [
@@ -99,7 +100,7 @@
   "Bloqueo P-M1 se conserva: theta/lambda no identificados; 4 PDF nuevos con preservacion pendiente (release assets vacios, 401)",
   "No se eligio ningun parametro (theta/lambda) ni se adopto politica alguna"
  ],
- "siguiente_accion_exacta": "Tras commit/push: re-consultar CONTROL.json y pasar a Cola 2 (F-B3/F-C1): inventario de recursos ya conservados de las 116 empresas, hasta 3 candidatas por recorrido con protocolo congelado antes de calcular; sin usar precios de valoracion para seleccionar.",
+ "siguiente_accion_exacta": "B-PM1 cerrado (CONFORME_CON_LIMITES en CONTROL). En curso: respuesta F3 a CORRECCION_F3 @ F2_195766f_98bdf8f (correccion_f3/). Pendiente externo: preservacion de los 4 PDF nuevos (bloqueo 401 en uploads.github.com, documentado por el frente B).",
  "integrado_en_producto": false,
  "apto_dinero_real": "No se declara por este formulario",
  "criterios_cubiertos": [

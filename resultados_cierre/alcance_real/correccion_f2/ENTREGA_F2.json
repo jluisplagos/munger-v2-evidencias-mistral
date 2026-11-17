@@ -1,106 +1,145 @@
 {
-  "es_plantilla": false,
-  "frente": "F · respuesta a CORRECCION_F2 (revisiones_coordinador/F_223f16d_52fb120) @ coordinacion/cierre-v2 57b34a6",
-  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
-  "rama": "mistral/f-alcance-real",
-  "base_revisada_sha": "868f44841858b705231d7e6f683ee951e348c22a",
-  "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
-  "directorio_entrega": "resultados_cierre/alcance_real/correccion_f2/ (y ediciones en preparacion_b3_c1/, revisiones_b_pm1/evidencias/, COMANDOS.md, PUNTO_DE_RECUPERACION.md, MANIFIESTO_SHA256.txt)",
-  "tareas_control": ["F-B3", "F-C1"],
-  "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
-  "banco_sha": null,
-  "naturaleza": "respuesta a correccion (F2-D1..D7): inventario reproducible byte a byte con huellas completas, contrato C corregido fiel al motor real del producto con ejemplo numerico comprobado, protocolo de C con criterios previos, recuperacion/estados/comandos/rutas corregidos. Nada ejecutado con el producto; nada adoptado.",
-  "autor_contexto_modelo_herramientas": "Relevo de Mistral F (antigua sesion C), modelo mistral-large-4-0 (Vibe Code). Herramientas: gh CLI autenticado, clon solo-lectura de jluisplagos/munger-v2 @957af65, ZIP base-4.14 de la Release base-4.14 (sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e comprobado), python3 -I stdlib, unzip, sha256sum, git. No se ejecuto LibreOffice ni el pipeline ni macros. Horas reales de sesion 2026-11-17 09:24-09:44 UTC (date -u); horas de bloques previos tomadas de los commits (git log --format=%ad). Esfuerzo/consumo no visibles; no declarados.",
-  "fuentes_y_preservacion": [
-    "ZIP base-4.14 (release base-4.14 de jluisplagos/munger-v2): 1.130.912.246 bytes, SHA-256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e; 6799 archivos; 71 PDF huella completa en preparacion_b3_c1/fuentes/huellas_todas_las_fuentes.csv",
-    "Producto de referencia solo lectura @957af65: build_v6.py, test_fill.py, relacion_entradas_materiales.py, patch_v62_base.py (E62), v6/pruebas/fixtures/LEEME.txt (citas en correccion_f2/evidencias/d3_citas_producto_957af65.txt)",
-    "FUENTES_CONSERVADAS.csv @ daa7478 (rama mistral/m2-fundamento-pm1): 29/29 PDF verificados contra el ZIP (correccion_f2/scripts/verificar_huellas.py)",
-    "coordinacion/cierre_v2 @57b34a6 (rama coordinacion/cierre-v2, sin cambios posteriores): PROGRAMA.md, INTEGRACION.md, CONTROL.json, PLANTILLA_ENTREGA.json, CORRECCION_F2.md, REVISION_F_223f16d_52fb120.md"
-  ],
-  "cambios_respecto_entrega_anterior": [
-    "F2-D1/D2/D7 (commit 195766f): scripts/inventario_desde_zip.py reescrito (ruta del ZIP por argumento; recorre empresas_v2 + todos los ensayos de correcciones incl. elis_decisiones y ensayo/fuentes + contrastes); INVENTARIO_Y_HUECOS.csv regenerado byte a byte (131 recursos, 6799 archivos); fuentes/huellas_todas_las_fuentes.csv nuevo (71 PDF + release, SHA-256 completo); release con SHA completo en huellas_fuentes_conservadas.csv; correccion_f2/scripts/verificar_huellas.py nuevo",
-    "F2-D3 (commit e9f76a9): CONTRATO_C_PROPUESTA.md y filas C de MAPA_ENTRADAS.jsonl reescritos desde el codigo @957af65 con cita de linea; correccion_f2/scripts/verificar_contrato_c.py (exit 0): puente E1=1060 vs 1170, ROE 0,094340 vs 0,126214, B15 payout 40% -> x2,42 (115,06 -> 278,45); guarda de capital regulatorio y base de valor como propuesta pendiente de decision sin numeros",
-    "F2-D6 (commit 9873234): PROTOCOLO_CONGELADO.md §2.1 criterios de seleccion de C fijados 2026-11-17 antes de nombrar candidata, sin precios; errata I18/I20 -> I19/I20; COMANDOS.md horas corregidas a las de los commits",
-    "F2-D4/D5/D7 (commit c761cc8): PUNTO_DE_RECUPERACION.md siguiente accion vigente; ENTREGA_B3_C1.json y PUNTO sin sobredeclaracion (preparacion entregada, no ejecutado; estados propios, CONTROL solo del coordinador); ENTREGA_B3_C1/ENTREGA_B_PM1 prueba 0 con comandos ejecutables; extraccion_independiente_pm1.py con ruta por argumento (rerun byte-identico)",
-    "B-PM1 (223f16d), contrastes F1/C20/CSV (90329a1/e94ee7c/c7716a0) y C2 no se tocan; G-DOCS es de A/G",
-    "Ninguna publicacion posterior respondia F2 (f-alcance-real seguia en 868f448; ninguna rama con commits posteriores sobre alcance_real)"
-  ],
-  "pruebas": [
-    {
-      "tipo": "dato (inventario reproducible byte a byte + huellas completas)",
-      "comando": "python3 -I resultados_cierre/alcance_real/preparacion_b3_c1/scripts/inventario_desde_zip.py \"$ZIP_414\" /tmp/inv_check.csv /tmp/huellas_check.csv && cmp /tmp/inv_check.csv resultados_cierre/alcance_real/preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv && cmp /tmp/huellas_check.csv resultados_cierre/alcance_real/preparacion_b3_c1/fuentes/huellas_todas_las_fuentes.csv",
-      "exit_esperado": 0, "exit_observado": 0,
-      "criterios_cubiertos": ["F2-D1: script regenera el CSV byte a byte desde el ZIP bb51942c...7b93e", "F2-D2: recorrido completo; 71/71 PDF + release con SHA-256 completo", "F2-D7: ruta por argumento"],
-      "criterios_sin_cubrir": [],
-      "evidencia": "correccion_f2/evidencias/d1_d2_inventario_y_huellas.txt; d2_diff_inventario_52fb120_vs_f2.txt",
-      "sha_material": "ZIP base-4.14 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
-      "resultado": "EJECUTADO"
-    },
-    {
-      "tipo": "dato (huellas de FUENTES_CONSERVADAS.csv @ daa7478 contra el ZIP)",
-      "comando": "git show origin/mistral/m2-fundamento-pm1:resultados_m2/pm1/FUENTES_CONSERVADAS.csv > /tmp/fuentes_daa7478.csv && python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_huellas.py \"$ZIP_414\" /tmp/fuentes_daa7478.csv",
-      "exit_esperado": 0, "exit_observado": 0,
-      "criterios_cubiertos": ["29/29 PDF coinciden en bytes y SHA-256; comando ejecutable con ruta por argumento (F2-D7)"],
-      "criterios_sin_cubrir": [],
-      "evidencia": "correccion_f2/evidencias/d7_verificar_huellas_daa7478.txt",
-      "sha_material": "daa7478 FUENTES_CONSERVADAS.csv; ZIP bb51942c...7b93e",
-      "resultado": "EJECUTADO"
-    },
-    {
-      "tipo": "componente (contrato C verificado contra el codigo del producto)",
-      "comando": "python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_contrato_c.py",
-      "exit_esperado": 0, "exit_observado": 0,
-      "criterios_cubiertos": ["F2-D3: puente correcto (E1=1060; viejo 1170, otros -110); ROE = BN/patrimonio de cierre = 0,094340 (no BAI/medio 0,126214); flujo_t = B(t-1)*ROE_t - dB_t; B15 se lee como ROE objetivo (payout 40% -> valor x2,42: 115,06 -> 278,45)"],
-      "criterios_sin_cubrir": ["los fixtures xlsx del motor C NO se han recalculado (requieren LibreOffice, prohibido en este frente): la verificacion es la replica Python de las mismas formulas de test_fill.py/build_v6.py @957af65"],
-      "evidencia": "correccion_f2/evidencias/d3_verificar_contrato_c.txt; d3_citas_producto_957af65.txt; CONTRATO_C_PROPUESTA.md; MAPA_ENTRADAS.jsonl",
-      "sha_material": "producto 957af652cdc3bef3d67e8623c9572138bac685e9",
-      "resultado": "EJECUTADO (replica en Python; recálculo del xlsx NO_EJECUTADO por prohibicion de LibreOffice)"
-    },
-    {
-      "tipo": "dato (extractor B-PM1 con ruta por argumento)",
-      "comando": "python3 -I resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py <ruta_textos_CF_20YY> | cmp - resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_out.txt",
-      "exit_esperado": 0, "exit_observado": 0,
-      "criterios_cubiertos": ["F2-D7: sin ruta /workspace fija; salida byte-identica a la publicada (TODO COINCIDE)"],
-      "criterios_sin_cubrir": [],
-      "evidencia": "correccion_f2/evidencias/d7_extractor_ruta_argumento.txt",
-      "sha_material": "textos CF_20YY desde el ZIP bb51942c...7b93e",
-      "resultado": "EJECUTADO"
-    },
-    {
-      "tipo": "dato (horas reales de los bloques previos)",
-      "comando": "git log --format='%h %ad %s' --date=format:'%Y-%m-%dT%H:%M:%SZ' -7",
-      "exit_esperado": 0, "exit_observado": 0,
-      "criterios_cubiertos": ["F2-D6: COMANDOS.md usa las horas de commit (90329a1 21:16:13Z ... 868f448 22:07:42Z); bloque F2 con horas de sesion 09:24-09:44 UTC"],
-      "criterios_sin_cubrir": [],
-      "evidencia": "correccion_f2/evidencias/d6_horas_reales_commits.txt; COMANDOS.md",
-      "sha_material": null,
-      "resultado": "EJECUTADO"
-    },
-    {
-      "tipo": "componente (recorrido real de F-B3 o F-C1)",
-      "comando": "NO EJECUTADO: Cola 3 bloqueada por insumos externos (Excel etapa 1 de Ahold u otra empresa fuera de muestra designada; banco/aseguradora designados con informes oficiales en bytes y SHA-256) y prohibido LibreOffice/pipeline en este frente",
-      "exit_esperado": null, "exit_observado": null,
-      "criterios_cubiertos": [],
-      "criterios_sin_cubrir": ["ejecucion del tercer B real y del primer C real: dependen de datos de la persona responsable y de la candidata fijada por el coordinador"],
-      "evidencia": "SELECCION.csv; PROTOCOLO_CONGELADO.md §2.1 y §3; PUNTO_DE_RECUPERACION.md",
-      "sha_material": null,
-      "resultado": "NO_EJECUTADO"
-    }
-  ],
-  "precondiciones_simuladas": [],
-  "revision_por_otro_contexto": "Pendiente: el coordinador (Claude) registra esta respuesta a CORRECCION_F2 en CONTROL.json y asigna contraste. No me autoaprobo.",
-  "limites_y_bloqueos": [
-    "F-B3 bloqueado por insumo de la persona responsable: Excel evaluado de etapa 1 de Ahold + respuesta + fuentes (informes 2016-2025, folleto NIIF 16 2018) en bytes y SHA-256, u otra empresa fuera de muestra designada (lista de las 116 no conservada); no se fuerza el caso ni se inventan insumos",
-    "F-C1 bloqueado por fuente: banco/aseguradora concretos designados con informes oficiales (cuentas/Pilar 3/SFCR) en bytes y SHA-256; solo hay 2 fixtures sinteticos; la lista de las 116 no esta conservada",
-    "F2-D5: estados declarados por el autor (preparacion entregada; nada ejecutado); CONTROL.json/ESTADO.md solo los actualiza el coordinador; no se toco ningun CONTROL/ESTADO",
-    "Solo se escribio resultados_cierre/alcance_real/ en la rama mistral/f-alcance-real; producto y main intactos",
-    "La verificacion del contrato C es replica Python de las formulas del producto; el recalculo de los xlsx fixture requiere LibreOffice (prohibido aqui) y queda NO_EJECUTADO",
-    "Misma familia de modelo que sesiones Mistral anteriores (independencia de sesion, no de familia); modelo y herramientas declarados arriba"
-  ],
-  "siguiente_accion_exacta": "El coordinador registra en CONTROL.json la respuesta a CORRECCION_F2 @ F_223f16d_52fb120 (esta rama, correccion_f2/ENTREGA_F2.json + RESPUESTA_F2.md, commits 195766f/e9f76a9/9873234/c761cc8 y el de este bloque) y asigna contraste; si llega antes, contraste G-MANUAL (solicitud LISTA en CONTROL @ 57b34a6). Bloqueos materiales: insumos de Ahold y banco/aseguradora designados.",
-  "integrado_en_producto": false,
-  "apto_dinero_real": "No se declara por este formulario",
-  "criterios_cubiertos": ["F2-D1 inventario byte a byte", "F2-D2 alcance completo + 71/71 PDF y release con SHA-256 completo", "F2-D3 contrato/mapa C fiel al codigo @957af65 con puente correcto y ejemplo numerico comprobado (guarda y base de valor: propuesta pendiente de decision, sin numeros)", "F2-D4 recuperacion actualizada", "F2-D5 estados propios: preparacion entregada vs ejecutado, sin sobredeclaracion", "F2-D6 protocolo de C con criterios previos sin precios + horas reales de commit", "F2-D7 rutas por argumento en todos los scripts"],
-  "criterios_pendientes": ["revision externa de esta respuesta F2 por el coordinador", "ejecucion real F-B3/F-C1 (bloqueada por insumos externos)", "recalculo de fixtures xlsx del motor C con LibreOffice (prohibido en este frente)"],
-  "salida_siguiente": "correccion_f2/: RESPUESTA_F2.md, ENTREGA_F2.json, scripts/ (verificar_huellas.py, verificar_contrato_c.py), evidencias/ (d1_d2, d2_diff, d3_verificar, d3_citas, d6_horas, d7_verificar_huellas, d7_extractor); ediciones en preparacion_b3_c1/ (script, INVENTARIO, huellas, contrato, mapa, protocolo, README, ENTREGA_B3_C1), revisiones_b_pm1/ (ENTREGA_B_PM1, extractor), COMANDOS.md, PUNTO_DE_RECUPERACION.md, MANIFIESTO_SHA256.txt"
+ "es_plantilla": false,
+ "frente": "F · respuesta a CORRECCION_F2 (revisiones_coordinador/F_223f16d_52fb120) @ coordinacion/cierre-v2 57b34a6",
+ "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+ "rama": "mistral/f-alcance-real",
+ "base_revisada_sha": "868f44841858b705231d7e6f683ee951e348c22a",
+ "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+ "directorio_entrega": "resultados_cierre/alcance_real/correccion_f2/ (y ediciones en preparacion_b3_c1/, revisiones_b_pm1/evidencias/, COMANDOS.md, PUNTO_DE_RECUPERACION.md, MANIFIESTO_SHA256.txt)",
+ "tareas_control": [
+  "F-B3",
+  "F-C1",
+  "B-PM1"
+ ],
+ "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+ "banco_sha": null,
+ "naturaleza": "respuesta a correccion (F2-D1..D7): inventario reproducible byte a byte con huellas completas, contrato C corregido fiel al motor real del producto con ejemplo numerico comprobado, protocolo de C con criterios previos, recuperacion/estados/comandos/rutas corregidos. Nada ejecutado con el producto; nada adoptado.",
+ "autor_contexto_modelo_herramientas": "Relevo de Mistral F (antigua sesion C), modelo mistral-large-4-0 (Vibe Code). Herramientas: gh CLI autenticado, clon solo-lectura de jluisplagos/munger-v2 @957af65, ZIP base-4.14 de la Release base-4.14 (sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e comprobado), python3 -I stdlib, unzip, sha256sum, git. No se ejecuto LibreOffice ni el pipeline ni macros. Horas reales de sesion 2026-11-17 09:24-09:44 UTC (date -u); horas de bloques previos tomadas de los commits (git log --format=%ad). Esfuerzo/consumo no visibles; no declarados.",
+ "fuentes_y_preservacion": [
+  "ZIP base-4.14 (release base-4.14 de jluisplagos/munger-v2): 1.130.912.246 bytes, SHA-256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e; 6799 archivos; 71 PDF huella completa en preparacion_b3_c1/fuentes/huellas_todas_las_fuentes.csv",
+  "Producto de referencia solo lectura @957af65: build_v6.py, test_fill.py, relacion_entradas_materiales.py, patch_v62_base.py (E62), v6/pruebas/fixtures/LEEME.txt (citas en correccion_f2/evidencias/d3_citas_producto_957af65.txt)",
+  "FUENTES_CONSERVADAS.csv @ daa7478 (rama mistral/m2-fundamento-pm1): 29/29 PDF verificados contra el ZIP (correccion_f2/scripts/verificar_huellas.py)",
+  "coordinacion/cierre_v2 @57b34a6 (rama coordinacion/cierre-v2, sin cambios posteriores): PROGRAMA.md, INTEGRACION.md, CONTROL.json, PLANTILLA_ENTREGA.json, CORRECCION_F2.md, REVISION_F_223f16d_52fb120.md"
+ ],
+ "cambios_respecto_entrega_anterior": [
+  "F2-D1/D2/D7 (commit 195766f): scripts/inventario_desde_zip.py reescrito (ruta del ZIP por argumento; recorre empresas_v2 + todos los ensayos de correcciones incl. elis_decisiones y ensayo/fuentes + contrastes); INVENTARIO_Y_HUECOS.csv regenerado byte a byte (131 recursos, 6799 archivos); fuentes/huellas_todas_las_fuentes.csv nuevo (71 PDF + release, SHA-256 completo); release con SHA completo en huellas_fuentes_conservadas.csv; correccion_f2/scripts/verificar_huellas.py nuevo",
+  "F2-D3 (commit e9f76a9): CONTRATO_C_PROPUESTA.md y filas C de MAPA_ENTRADAS.jsonl reescritos desde el codigo @957af65 con cita de linea; correccion_f2/scripts/verificar_contrato_c.py (exit 0): puente E1=1060 vs 1170, ROE 0,094340 vs 0,126214, B15 payout 40% -> x2,42 (115,06 -> 278,45); guarda de capital regulatorio y base de valor como propuesta pendiente de decision sin numeros",
+  "F2-D6 (commit 9873234): PROTOCOLO_CONGELADO.md §2.1 criterios de seleccion de C fijados 2026-11-17 antes de nombrar candidata, sin precios; errata I18/I20 -> I19/I20; COMANDOS.md horas corregidas a las de los commits",
+  "F2-D4/D5/D7 (commit c761cc8): PUNTO_DE_RECUPERACION.md siguiente accion vigente; ENTREGA_B3_C1.json y PUNTO sin sobredeclaracion (preparacion entregada, no ejecutado; estados propios, CONTROL solo del coordinador); ENTREGA_B3_C1/ENTREGA_B_PM1 prueba 0 con comandos ejecutables; extraccion_independiente_pm1.py con ruta por argumento (rerun byte-identico)",
+  "B-PM1 (223f16d), contrastes F1/C20/CSV (90329a1/e94ee7c/c7716a0) y C2 no se tocan; G-DOCS es de A/G",
+  "Ninguna publicacion posterior respondia F2 (f-alcance-real seguia en 868f448; ninguna rama con commits posteriores sobre alcance_real)",
+  "F3 (27c5931.., este bloque de correccion): R3-R15 de REVISION_F2_195766f_98bdf8f corregidos en correccion_f3/ (ENTREGA_F3.json); este ENTREGA_F2 se actualiza in place en sus afirmaciones inexactas (R14/R15): resultado simple, rango fijo en prueba 4, $ZIP_414/$RUTA_TEXTOS definidos, tareas_control incluye B-PM1"
+ ],
+ "pruebas": [
+  {
+   "tipo": "dato (inventario reproducible byte a byte + huellas completas)",
+   "comando": "python3 -I resultados_cierre/alcance_real/preparacion_b3_c1/scripts/inventario_desde_zip.py \"$ZIP_414\" /tmp/inv_check.csv /tmp/huellas_check.csv && cmp /tmp/inv_check.csv resultados_cierre/alcance_real/preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv && cmp /tmp/huellas_check.csv resultados_cierre/alcance_real/preparacion_b3_c1/fuentes/huellas_todas_las_fuentes.csv",
+   "exit_esperado": 0,
+   "exit_observado": 0,
+   "criterios_cubiertos": [
+    "F2-D1: script regenera el CSV byte a byte desde el ZIP bb51942c...7b93e",
+    "F2-D2: recorrido completo; 71/71 PDF + release con SHA-256 completo",
+    "F2-D7: ruta por argumento"
+   ],
+   "criterios_sin_cubrir": [],
+   "evidencia": "correccion_f2/evidencias/d1_d2_inventario_y_huellas.txt; d2_diff_inventario_52fb120_vs_f2.txt",
+   "sha_material": "ZIP base-4.14 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+   "resultado": "EJECUTADO"
+  },
+  {
+   "tipo": "dato (huellas de FUENTES_CONSERVADAS.csv @ daa7478 contra el ZIP)",
+   "comando": "git show origin/mistral/m2-fundamento-pm1:resultados_m2/pm1/FUENTES_CONSERVADAS.csv > /tmp/fuentes_daa7478.csv && python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_huellas.py \"$ZIP_414\" /tmp/fuentes_daa7478.csv",
+   "exit_esperado": 0,
+   "exit_observado": 0,
+   "criterios_cubiertos": [
+    "29/29 PDF coinciden en bytes y SHA-256; comando ejecutable con ruta por argumento (F2-D7)"
+   ],
+   "criterios_sin_cubrir": [],
+   "evidencia": "correccion_f2/evidencias/d7_verificar_huellas_daa7478.txt",
+   "sha_material": "daa7478 FUENTES_CONSERVADAS.csv; ZIP bb51942c...7b93e",
+   "resultado": "EJECUTADO"
+  },
+  {
+   "tipo": "componente (contrato C verificado contra el codigo del producto)",
+   "comando": "python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_contrato_c.py",
+   "exit_esperado": 0,
+   "exit_observado": 0,
+   "criterios_cubiertos": [
+    "F2-D3: puente correcto (E1=1060; viejo 1170, otros -110); ROE = BN/patrimonio de cierre = 0,094340 (no BAI/medio 0,126214); flujo_t = B(t-1)*ROE_t - dB_t; B15 se lee como ROE objetivo (payout 40% -> valor x2,42: 115,06 -> 278,45)"
+   ],
+   "criterios_sin_cubrir": [
+    "el recalculo de los xlsx fixture requiere LibreOffice (prohibido en este frente): la prueba es la replica Python de las formulas de build_v6.py/test_fill.py @957af65; el limite queda aqui, no en resultado"
+   ],
+   "evidencia": "correccion_f2/evidencias/d3_verificar_contrato_c.txt; d3_citas_producto_957af65.txt; CONTRATO_C_PROPUESTA.md; MAPA_ENTRADAS.jsonl",
+   "sha_material": "producto 957af652cdc3bef3d67e8623c9572138bac685e9",
+   "resultado": "EJECUTADO"
+  },
+  {
+   "tipo": "dato (extractor B-PM1 con ruta por argumento)",
+   "comando": "unzip -oq \"$ZIP_414\" 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto/*' -d /tmp/insumos_m2 &&\npython3 -I resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py /tmp/insumos_m2/munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto | cmp - resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_out.txt   # byte-identico, exit 0",
+   "exit_esperado": 0,
+   "exit_observado": 0,
+   "criterios_cubiertos": [
+    "F2-D7: sin ruta /workspace fija; salida byte-identica a la publicada (TODO COINCIDE)"
+   ],
+   "criterios_sin_cubrir": [],
+   "evidencia": "correccion_f2/evidencias/d7_extractor_ruta_argumento.txt",
+   "sha_material": "textos CF_20YY desde el ZIP bb51942c...7b93e",
+   "resultado": "EJECUTADO"
+  },
+  {
+   "tipo": "dato (horas reales de los bloques previos)",
+   "comando": "git log --format='%h %ad %s' --date=format:'%Y-%m-%dT%H:%M:%SZ' 868f448..98bdf8f   # rango fijo, no depende del HEAD del ejecutor",
+   "exit_esperado": 0,
+   "exit_observado": 0,
+   "criterios_cubiertos": [
+    "F2-D6: COMANDOS.md usa las horas de commit (90329a1 21:16:13Z ... 868f448 22:07:42Z); bloque F2 con horas de sesion 09:24-09:44 UTC"
+   ],
+   "criterios_sin_cubrir": [],
+   "evidencia": "correccion_f2/evidencias/d6_horas_reales_commits.txt; COMANDOS.md",
+   "sha_material": null,
+   "resultado": "EJECUTADO"
+  },
+  {
+   "tipo": "componente (recorrido real de F-B3 o F-C1)",
+   "comando": "NO EJECUTADO: Cola 3 bloqueada por insumos externos (Excel etapa 1 de Ahold u otra empresa fuera de muestra designada; banco/aseguradora designados con informes oficiales en bytes y SHA-256) y prohibido LibreOffice/pipeline en este frente",
+   "exit_esperado": null,
+   "exit_observado": null,
+   "criterios_cubiertos": [],
+   "criterios_sin_cubrir": [
+    "ejecucion del tercer B real y del primer C real: dependen de datos de la persona responsable y de la candidata fijada por el coordinador"
+   ],
+   "evidencia": "SELECCION.csv; PROTOCOLO_CONGELADO.md §2.1 y §3; PUNTO_DE_RECUPERACION.md",
+   "sha_material": null,
+   "resultado": "NO_EJECUTADO"
+  }
+ ],
+ "precondiciones_simuladas": [],
+ "revision_por_otro_contexto": "Pendiente: el coordinador (Claude) registra esta respuesta a CORRECCION_F2 en CONTROL.json y asigna contraste. No me autoaprobo.",
+ "limites_y_bloqueos": [
+  "F-B3 bloqueado por insumo de la persona responsable: Excel evaluado de etapa 1 de Ahold + respuesta + fuentes (informes 2016-2025, folleto NIIF 16 2018) en bytes y SHA-256, u otra empresa fuera de muestra designada (lista de las 116 no conservada); no se fuerza el caso ni se inventan insumos",
+  "F-C1 bloqueado por fuente: banco/aseguradora concretos designados con informes oficiales (cuentas/Pilar 3/SFCR) en bytes y SHA-256; solo hay 2 fixtures sinteticos; la lista de las 116 no esta conservada",
+  "F2-D5: estados declarados por el autor (preparacion entregada; nada ejecutado); CONTROL.json/ESTADO.md solo los actualiza el coordinador; no se toco ningun CONTROL/ESTADO",
+  "Solo se escribio resultados_cierre/alcance_real/ en la rama mistral/f-alcance-real; producto y main intactos",
+  "La verificacion del contrato C es replica Python de las formulas del producto; el recalculo de los xlsx fixture requiere LibreOffice (prohibido aqui) y queda NO_EJECUTADO",
+  "Misma familia de modelo que sesiones Mistral anteriores (independencia de sesion, no de familia); modelo y herramientas declarados arriba"
+ ],
+ "siguiente_accion_exacta": "El coordinador registra en CONTROL.json la respuesta a CORRECCION_F2 @ F_223f16d_52fb120 (esta rama, correccion_f2/ENTREGA_F2.json + RESPUESTA_F2.md, commits 195766f/e9f76a9/9873234/c761cc8 y el de este bloque) y asigna contraste; si llega antes, contraste G-MANUAL (solicitud LISTA en CONTROL @ 57b34a6). Bloqueos materiales: insumos de Ahold y banco/aseguradora designados.",
+ "integrado_en_producto": false,
+ "apto_dinero_real": "No se declara por este formulario",
+ "criterios_cubiertos": [
+  "F2-D1 inventario byte a byte",
+  "F2-D2 alcance completo + 71/71 PDF y release con SHA-256 completo",
+  "F2-D3 contrato/mapa C fiel al codigo @957af65 con puente correcto y ejemplo numerico comprobado (guarda y base de valor: propuesta pendiente de decision, sin numeros)",
+  "F2-D4 recuperacion actualizada",
+  "F2-D5 estados propios: preparacion entregada vs ejecutado, sin sobredeclaracion",
+  "F2-D6 protocolo de C con criterios previos sin precios + horas reales de commit",
+  "F2-D7 rutas por argumento en todos los scripts"
+ ],
+ "criterios_pendientes": [
+  "revision externa de esta respuesta F2 por el coordinador",
+  "ejecucion real F-B3/F-C1 (bloqueada por insumos externos)",
+  "recalculo de fixtures xlsx del motor C con LibreOffice (prohibido en este frente)"
+ ],
+ "salida_siguiente": "correccion_f2/: RESPUESTA_F2.md, ENTREGA_F2.json, scripts/ (verificar_huellas.py, verificar_contrato_c.py), evidencias/ (d1_d2, d2_diff, d3_verificar, d3_citas, d6_horas, d7_verificar_huellas, d7_extractor); ediciones en preparacion_b3_c1/ (script, INVENTARIO, huellas, contrato, mapa, protocolo, README, ENTREGA_B3_C1), revisiones_b_pm1/ (ENTREGA_B_PM1, extractor), COMANDOS.md, PUNTO_DE_RECUPERACION.md, MANIFIESTO_SHA256.txt"
 }

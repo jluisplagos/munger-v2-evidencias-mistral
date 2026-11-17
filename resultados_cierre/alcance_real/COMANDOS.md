@@ -136,7 +136,13 @@ git show daa7478:resultados_m2/pm1/FUENTES_CONSERVADAS.csv
 # NO se ejecuto LibreOffice ni el pipeline; no hay recorrido real ejecutado (bloqueos declarados)
 ```
 
-## Bloque F2 (respuesta a CORRECCION_F2 @ F_223f16d_52fb120) · 2026-11-17 09:24–09:44 UTC (horas reales de sesión, `date -u`)
+## Bloque F2 (respuesta a CORRECCION_F2 @ F_223f16d_52fb120) · 2026-11-17 09:24–09:47:33 UTC (horas reales; commit final 98bdf8f a las 09:47:33Z — F3-R14 corrigiendo el 09:44 anterior)
+
+Variables usadas en este bloque (definidas, no implicitas): `ZIP_414` = ruta local del asset
+`munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip` descargado de la release `base-4.14`
+de `jluisplagos/munger-v2` (sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e);
+`RUTA_TEXTOS` = `/tmp/insumos_m2/munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto`
+(extraído del ZIP con `unzip -oq "$ZIP_414" 'munger_v2_r1/…/vidrala_decisiones/Vidrala/texto/*' -d /tmp/insumos_m2`).
 
 ```bash
 # entorno y producto de referencia (solo lectura): clon de jluisplagos/munger-v2 @ 957af65
@@ -167,4 +173,26 @@ python3 -I resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion
 # higiene por bloque: manifiesto y push
 cd resultados_cierre/alcance_real && find . -type f ! -name MANIFIESTO_SHA256.txt | sort | xargs sha256sum > MANIFIESTO_SHA256.txt && sha256sum -c --quiet MANIFIESTO_SHA256.txt
 git add resultados_cierre/alcance_real && git commit -m "F · F2-D..." && git push origin mistral/f-alcance-real
+```
+
+
+## Bloque F3 (respuesta a CORRECCION_F3 @ F2_195766f_98bdf8f) · 2026-11-17 ~13:05–13:20 UTC (horas reales de sesión, `date -u`)
+
+```bash
+# misma definición de $ZIP_414 que arriba; producto de referencia @957af65 (solo lectura)
+git -C <clon_producto> checkout 957af652cdc3bef3d67e8623c9572138bac685e9
+
+# F3-R3/R4 · .bat registrado con huella + alcance negativo (commit 27c5931)
+unzip -p "$ZIP_414" 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/descargas_bat/descargar_fuentes_ahold.bat' | sha256sum
+# 04feebd409754a91e509dfde1e8dd63a1e8534695d05cb75fffca6a97bd53d88
+python3 -I resultados_cierre/alcance_real/preparacion_b3_c1/scripts/inventario_desde_zip.py "$ZIP_414" /tmp/inv3.csv /tmp/huellas3.csv   # exit 0; 131 recursos + 4 .bat; 6476 dentro / 323 fuera
+cmp /tmp/inv3.csv resultados_cierre/alcance_real/preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv   # byte-identico
+
+# F3-R5/R6/R7/R8/R12/R13 · contrato alineado con U3, citas reales (commit c4d918f)
+python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_contrato_c.py   # exit 0, TODO CUADRA (quiebra 105,55; OCI 1025/75/50; ROE 9,434% vs 10%)
+sed -n '581p;926,937p;960-963p;971p;1102p;1132p' <clon_producto>/munger_v2_r1/v6/scripts/V6.1/build_v6.py   # citas verificadas (evidencias/r6_citas_reales_957af65.txt)
+
+# F3-R9 · comandos de ENTREGA ejecutables tal cual (rerun capturado en evidencias/r9_*.txt)
+git archive origin/mistral/m2-fundamento-pm1 resultados_m2 | tar -x -C /tmp/pm1_rerun   # + textos del ZIP + python3 -I resultados_m2/pm1/scripts/tablas_vidrala.py -> exit 0, CSV byte-identico
+python3 -I resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py "$RUTA_TEXTOS" | cmp - resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_out.txt   # exit 0, byte-identico
 ```

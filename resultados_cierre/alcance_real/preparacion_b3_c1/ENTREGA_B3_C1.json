@@ -15,7 +15,7 @@
  "naturaleza": "paquete de preparacion (seleccion de ensayo + protocolo congelado + inventario + mapa de entradas + contrato C propuesto); nada ejecutado con el producto, nada adoptado",
  "autor_contexto_modelo_herramientas": "Sesion Mistral C/F, modelo mistral-large-4-0 (Vibe Code). Herramientas: gh CLI (API de arboles/contenidos), Python 3.12 stdlib, unzip sobre el ZIP base-4.14 ya descargado. No se ejecuto LibreOffice ni el pipeline. Esfuerzo/consumo no visibles; no declarados.",
  "fuentes_y_preservacion": [
-  "Release base-4.14 del producto (SHA-256 bb51942c..., 6798/6798 verificados por el hito 2 y por mi listado): inventario de recursos conservados por empresa",
+  "Release base-4.14 del producto (SHA-256 completo bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e; 6799 archivos = 6798 del manifiesto 4.14 + el propio MANIFIESTO_SHA256.txt; inventario propio: 6476 dentro del alcance, 323 fuera declarado): inventario de recursos conservados por empresa",
   "MATRIZ_ALCANCE_4_14.md y HITO_2_4_15.md (producto @ 957af65) leidos via gh api: estado de motores, I19/I20, tercera empresa Elis, Ahold sin insumos",
   "v6/pruebas/fixtures/LEEME.txt (motor C: 2 fixtures sinteticos con valores esperados)",
   "patch_v62_base.py @ 716cbd6 linea E62: limite del motor C (no valida solvencia ni capital regulatorio)",
@@ -25,7 +25,8 @@
  ],
  "cambios_respecto_entrega_anterior": [
   "Nueva carpeta preparacion_b3_c1/; los informes de Cola 1 (revisiones_claude/, revisiones_b_pm1/) no se tocan",
-  "COMANDOS.md, PUNTO_DE_RECUPERACION.md y MANIFIESTO_SHA256.txt actualizados"
+  "COMANDOS.md, PUNTO_DE_RECUPERACION.md y MANIFIESTO_SHA256.txt actualizados",
+  "F2 (195766f..98bdf8f): inventario byte a byte, 71/71 PDF, contrato C corregido, estados propios (ver correccion_f2/ENTREGA_F2.json); F3 (27c5931..): .bat de Ahold con SHA, alcance negativo, contrato alineado con U3, comandos ejecutables (ver correccion_f3/ENTREGA_F3.json)"
  ],
  "pruebas": [
   {
@@ -46,15 +47,15 @@
   },
   {
    "tipo": "dato (verificacion de huellas de fuentes)",
-   "comando": "sha256+bytes de los 29 PDF de FUENTES_CONSERVADAS.csv @ daa7478 contra .trabajo/insumos_m2",
+   "comando": "git show origin/mistral/m2-fundamento-pm1:resultados_m2/pm1/FUENTES_CONSERVADAS.csv > /tmp/fuentes_daa7478.csv && python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_huellas.py \"$ZIP_414\" /tmp/fuentes_daa7478.csv   # 29/29, exit 0",
    "exit_esperado": 0,
    "exit_observado": 0,
    "criterios_cubiertos": [
     "29/29 PDF OK; huellas volcadas en fuentes/huellas_fuentes_conservadas.csv"
    ],
    "criterios_sin_cubrir": [],
-   "evidencia": "fuentes/huellas_fuentes_conservadas.csv; verificacion registrada en revisiones_b_pm1/evidencias/verificacion_fuentes_y_runs.txt",
-   "sha_material": "daa7478 FUENTES_CONSERVADAS.csv",
+   "evidencia": "fuentes/huellas_todas_las_fuentes.csv; correccion_f2/evidencias/d7_verificar_huellas_daa7478.txt (29/29, exit 0); verificacion registrada en revisiones_b_pm1/evidencias/verificacion_fuentes_y_runs.txt",
+   "sha_material": "ZIP base-4.14 sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e; daa7478 FUENTES_CONSERVADAS.csv",
    "resultado": "EJECUTADO"
   },
   {

@@ -1,0 +1,5 @@
+== F3-R9 · extractor con ruta por argumento (comando tal cual del ENTREGA_B_PM1 prueba 2 / ENTREGA_F2 prueba 3) ==
+$ unzip -oq "$ZIP_414" '.../vidrala_decisiones/Vidrala/texto/*' -d /tmp/insumos_m2 && python3 -I resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py /tmp/insumos_m2/munger_v2_r1/.../texto | cmp - resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_out.txt
+exit=0
+cmp: salida == extraccion_independiente_out.txt (BYTE-IDENTICO)
+RESULTADO: TODO COINCIDE

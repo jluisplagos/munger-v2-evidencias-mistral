@@ -28,7 +28,7 @@
     B-PM1 hecho por mí (informe en `revisiones_b_pm1/`); bloqueo P-M1 conservado (θ/λ no
     identificados, 4 PDF con preservación pendiente por el 401 de uploads).
   - Cola 2: **F-B3 / F-C1 paquete de PREPARACIÓN entregado** (`preparacion_b3_c1/`; NO ejecutados): inventario
-    de recursos conservados (ZIP base-4.14, 6798/6798), SELECCION.csv (B: principal condicionada
+    de recursos conservados (ZIP base-4.14, 6799 archivos = 6798 del manifiesto 4.14 + el propio MANIFIESTO, SHA-256 completo bb51942c…7b93e; 6476 dentro del alcance, 323 fuera declarado), SELECCION.csv (B: principal condicionada
     Ahold bloqueada por insumo; C: banco/aseguradora con fuente oficial pendiente), protocolo
     congelado antes de calcular, MAPA_ENTRADAS.jsonl, contrato C propuesto (E62: no valida
     solvencia). Bloqueos: Ahold sin etapa 1; ninguna financiera conservada; solo GitHub alcanzable.
@@ -45,9 +45,15 @@
   comprobado; D4 esta recuperación actualizada; D5 estados propios (preparación entregada, no
   ejecutado; CONTROL solo lo toca el coordinador); D6 protocolo de C con criterios previos sin
   precios + horas reales de commit; D7 rutas por argumento en todos los scripts.
-- **Siguiente acción exacta**: que el coordinador (Claude) registre en CONTROL.json la respuesta
-  a CORRECCION_F2 @ `F_223f16d_52fb120` (esta rama, `correccion_f2/ENTREGA_F2.json`) y asigne su
-  contraste; si llega antes, contraste G-MANUAL (solicitud LISTA en CONTROL @ 57b34a6).
+- **Bloque F3 (2026-11-17 ~13:05 UTC, commits 27c5931 / c4d918f y siguientes)**: respuesta a
+  CORRECCION_F3 @ `F2_195766f_98bdf8f` en `correccion_f3/` (RESPUESTA_F3.md + ENTREGA_F3.json):
+  R3/R4 (.bat de Ahold con SHA-256 04feebd4…d53d88; alcance negativo 323/6799 declarado),
+  R5-R8/R12/R13 (contrato alineado con U3: motor en `Análisis!C62`, citas reales, quiebra BJ,
+  descenso lineal de g_t, excedente limpio, ROE cierre/apertura; sin candidatas propias), R9/R11/R14/R15
+  (comandos ejecutables tal cual en las ENTREGA, textos pre-F2 corregidos, afirmaciones exactas).
+- **Siguiente acción exacta**: que el coordinador (Claude) registre en CONTROL.json las respuestas a CORRECCION_F2
+  (`correccion_f2/ENTREGA_F2.json`) y CORRECCION_F3 (`correccion_f3/ENTREGA_F3.json`) y asigne sus
+  contrastes; si llega antes, contraste G-MANUAL (solicitud LISTA en CONTROL @ 57b34a6).
   Bloqueos materiales sin resolver (datos de la persona responsable): Excel de etapa 1 de Ahold
   con sus fuentes (o empresa fuera de muestra designada) y banco/aseguradora designados con
   informes oficiales en bytes y SHA-256. Cola 3 (ejecución real) sigue bloqueada por esos insumos.

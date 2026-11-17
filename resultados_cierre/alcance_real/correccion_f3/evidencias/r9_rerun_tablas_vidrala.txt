@@ -1,0 +1,6 @@
+== F3-R9 · rerun ejecutable de tablas_vidrala.py @ daa7478 (comando tal cual del ENTREGA_B_PM1 prueba 1) ==
+$ rm -rf /tmp/pm1_rerun && mkdir -p /tmp/pm1_rerun/.trabajo/insumos_m2 && git archive origin/mistral/m2-fundamento-pm1 resultados_m2 | tar -x -C /tmp/pm1_rerun && unzip -oq "$ZIP_414" '.../vidrala_decisiones/Vidrala/texto/*' -d /tmp/pm1_rerun/.trabajo/insumos_m2 && mv /tmp/pm1_rerun/.trabajo/insumos_m2/munger_v2_r1/personaje_v2 /tmp/pm1_rerun/.trabajo/insumos_m2/personaje_v2 && git show origin/mistral/m2-fundamento-pm1:resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv > /tmp/vidrala_daa7478.csv && cd /tmp/pm1_rerun && python3 -I resultados_m2/pm1/scripts/tablas_vidrala.py && cmp resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv /tmp/vidrala_daa7478.csv
+exit=0
+control negativo superado: las filas antiguas de 'PP&E' viven en la nota Intangible Assets y el extractor las rechaza
+recurring capex: recurring capex captured in the valuation models [CF_2019.txt p46 l2082-2082]
+cmp: CSV rerun == CSV @ daa7478 (BYTE-IDENTICO)
