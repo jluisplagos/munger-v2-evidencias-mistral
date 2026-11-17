@@ -580,7 +580,7 @@
       "tarea": "Manual, instalación y recuperación desde contexto limpio",
       "autor": "Claude coordinador (borrador por un subagente de redacción)",
       "revisor_propuesto": "Claude + receptor distinto",
-      "entrega": "PARCIAL",
+      "entrega": "ENTREGADO",
       "revision": "CONFORME_CON_LIMITES",
       "integracion": "NO",
       "commit_origen": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
@@ -589,7 +589,10 @@
         "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_957af65.md",
         "coordinacion/cierre_v2/manual/CONTRADICCIONES_GUIA.md",
         "resultados_cierre/manual_revision/INFORME_REVISION_GMANUAL.md @ 78ba1ca (mistral/g-manual-traspaso)",
-        "resultados_cierre/manual_revision/verificacion_criterios.json @ 78ba1ca"
+        "resultados_cierre/manual_revision/verificacion_criterios.json @ 78ba1ca",
+        "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_3149128.md",
+        "coordinacion/cierre_v2/manual/CAMBIOS_FRENTE_A_957af65.md",
+        "coordinacion/cierre_v2/manual/PROPUESTA_CONTINUIDAD_2_5.md"
       ],
       "pruebas_autor": "NO_EJECUTADAS",
       "pruebas_externas": "PARCIALES",
@@ -597,40 +600,30 @@
         "T-CAND"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Manual aceptado con límites (78ba1ca) y probado en T-TRASPASO. Pendiente: aplicar MEJORAS_MANUAL.md (disco y _v64, pasos 12–14 y H9, resultado esperado de los controles históricos sobre 4.15, flock, registro del receptor, comandos que faltan) con revisión de un contexto distinto.",
-      "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones. T-TRASPASO (17-nov) encontró 14 ambigüedades o errores del manual; mejoras pendientes.",
+      "siguiente_accion": "Revisión por un contexto distinto del borrador v2 (solicitud LISTA). Después, la propuesta de CONTINUIDAD §2.5 como corrección documental de la candidata, con su propia revisión.",
+      "observacion": "Manual revisado para la candidata 3149128 (borrador v2): las siete mejoras de MEJORAS_MANUAL.md con fuente; comandos nuevos marcados según dónde se probaron (traspaso del 17-nov o preparación F1 del 15-nov); lo no probado, [NO DOCUMENTADO]. Corrige dos atribuciones del encargo (copiar_binarios_a_b.py y sha256sum -c son de la preparación F1, no del traspaso). Propuesta de corrección de CONTINUIDAD §2.5 (_v64/), sin aplicar.",
       "commit_revisado": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "alcance_aceptado": [
         "borrador del manual operativo de 957af65 y tabla de contradicciones, como documento de coordinación (no integrado en el producto)"
       ],
       "solicitud_revision": {
-        "estado": "RESPONDIDA",
-        "sha_autor": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
-        "base_revisada": "957af652cdc3bef3d67e8623c9572138bac685e9",
+        "estado": "LISTA",
+        "sha_autor": "ef36ab18ff485e40dbb727b1b95eb177e5346683",
+        "base_revisada": "31491289a9a13a670dd563c1b2df85dad54eb74a",
         "diff_rutas": [
-          "coordinacion/cierre_v2/manual/"
+          "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_3149128.md",
+          "coordinacion/cierre_v2/manual/CAMBIOS_FRENTE_A_957af65.md",
+          "coordinacion/cierre_v2/manual/PROPUESTA_CONTINUIDAD_2_5.md"
         ],
         "criterios": [
-          "Cada afirmación operativa sale de su fuente archivo:línea en 957af65; ningún comando inventado",
-          "No reintroduce límites I19/I20 corregidos; H9/I19 marcado pendiente de verificar por cambio afectado",
-          "No adopta política ni valores (R, θ, λ, probabilidades, k, umbrales); experimental supervisado, no apto para dinero real",
-          "La tabla de textos desfasados de la guía (G-1…G-9) y de continuidad (O-1…O-18) es correcta y completa en lo afectado",
-          "La lista T-TRASPASO es ejecutable por un receptor sin historial y separa lo que exige LibreOffice o agentes reales"
+          "Las siete mejoras de traspaso/revision_20261117/MEJORAS_MANUAL.md aplicadas con su fuente archivo:línea en 3149128 o en el control",
+          "Ningún comando inventado: cada uno marcado con dónde se probó (traspaso 17-nov o preparación F1 15-nov) o [NO DOCUMENTADO]",
+          "Controles históricos sobre 4.15: 4.10 (39/44, .PARTES.txt), 4.11 (33/38, entorno; 4.12 miembro a miembro CUMPLE), el resto «observado una vez, no fijado»",
+          "H9 abierto y sin procedimiento inventado; I19/I20 no reintroducidos; ninguna política económica",
+          "La propuesta de CONTINUIDAD §2.5 es exacta (frase actual, frase nueva, fuente) y no se aplica aquí"
         ],
-        "revisor_asignado": "Mistral A, en rama propia mistral/g-manual-traspaso, carpeta resultados_cierre/manual_revision/ (reanudación c241a59)",
-        "informe_revision": {
-          "commit": "78ba1ca",
-          "rama": "mistral/g-manual-traspaso",
-          "ruta": "resultados_cierre/manual_revision/INFORME_REVISION_GMANUAL.md",
-          "veredicto": "CONFORME CON LÍMITES en los cinco criterios; ninguna corrección material; una sugerencia menor (ruta completa de sellar)",
-          "limites": [
-            "revisión documental por muestreo; T-TRASPASO no ejecutado",
-            "reproducción del coordinador: el script publicado (con sus tres rutas /workspace sustituidas) da código 0 y todos sus hallazgos CONFORME, pero no genera tres comprobaciones adicionales del JSON publicado (C1 comandos completos, C5 números frente a los registros, C-01/C-03)",
-            "MANIFIESTO_SHA256.txt se incluye a sí mismo (falla su propia línea); los demás 5 archivos, OK",
-            "Mistral A conoce el proyecto: no vale como receptor sin historial de T-TRASPASO"
-          ],
-          "aceptacion_del_coordinador": "Aceptado con esos límites; el coordinador no es autor del informe ni lo modifica"
-        }
+        "revisor_asignado": "Primera sesión Mistral libre o un contexto distinto del autor",
+        "informe_revision": null
       }
     },
     {
@@ -1197,6 +1190,11 @@
       "tipo": "REVISION",
       "fecha": "2026-11-17",
       "hecho": "A3 de Mistral A (0946971) revisado: R7 cerrado, R1/R5/R6 con límites, R2/R3/R4/R8 abiertos; CORRECCION_A4. CSV 209/283/19; ninguna acreditación sin evidencia; polaridad invertida (J6/J7) comprobada por el coordinador."
+    },
+    {
+      "tipo": "ENTREGA",
+      "fecha": "2026-11-17",
+      "hecho": "Borrador v2 del manual (para 3149128) con las mejoras del traspaso y propuesta de CONTINUIDAD §2.5; solicitud de revisión LISTA."
     }
   ],
   "consulta_remotos_arranque": {
