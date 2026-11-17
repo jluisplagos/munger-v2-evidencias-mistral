@@ -8,7 +8,8 @@ Reescrito al cerrar cada bloque. B/P-M1 se conserva intacta en `mistral/m2-funda
 - **Bloque 1 cerrado:** inventario (`PREGUNTAS_Y_RESULTADOS.csv`, `FUENTES_Y_BUSQUEDA.csv`, `scripts/inventario_bloque1.py`; dependencias declaradas, exit 2 + `git fetch` si falta un commit).
 - **Bloque 2 cerrado:** 12 documentos oficiales nuevos de `fr.elis.com` (HTTP 200, TLS, magic `%PDF` validado), sha256/bytes/páginas/URL pedida y final en `fuentes_descargadas/INDICE_DESCARGAS.csv` (Git) y `.trabajo/elis_fuentes/INDICE_DESCARGAS.csv`; lectura verificada en `LECTURA_FUENTES.jsonl`.
 - **Bloque 3 cerrado:** entrega final de la etapa E (HALLAZGOS, RESUMEN, ENTREGA, manifiesto, recuperación).
-- **Bloque 4 cerrado (este commit): corrección E1 (E-R1…E-R9) sobre `93a9780`** — ver `RESPUESTA_REVISION_E1.md`. 52 citas reescritas sin `.*`/alternativas y verificadas con PyMuPDF + pypdf 7.1.0 (52/52); `tipo_evidencia` nueva/corroboracion_base; 32 extractos acotados con sha256 del PDF en `extractos/`; idempotencia probada (2 ejecuciones, sha256 idénticos); exit 1 en fallo de descarga y exit 2 en dependencia ausente, ambos con negativos ejecutados; re-descarga 2026-11-17 con 12/12 sha256 idénticos a `93a9780`.
+- **Bloque 4 cerrado (`23718fb`): corrección E1 (E-R1…E-R9) sobre `93a9780`** — ver `RESPUESTA_REVISION_E1.md`. 52 citas reescritas sin `.*`/alternativas y verificadas con PyMuPDF + pypdf 7.1.0 (52/52); `tipo_evidencia` nueva/corroboracion_base; 32 extractos acotados con sha256 del PDF en `extractos/`; idempotencia probada (2 ejecuciones, sha256 idénticos); exit 1 en fallo de descarga y exit 2 en dependencia ausente, ambos con negativos ejecutados; re-descarga 2026-11-17 con 12/12 sha256 idénticos a `93a9780`.
+- **Bloque 5 cerrado (relevo, este commit): checkpoint de recuperación** — ver `CHECKPOINT_RELEVO.md`. Paquete `23718fb` recuperado y verificado integro en la nueva sesión (HEAD local == remoto == `23718fb`; fsck OK; 48/48 sha256 del manifiesto presentes en Git OK; 32 extractos; 12 descargas; 52/52 citas con dos extractores). Sin devolución de Claude sobre `23718fb` (ramas remotas, mensajes de commit, grep en todas las ramas, `revisiones_coordinador/`, issues/PRs) ni asignación nueva en el control vigente (`coordinacion/cierre-v2` @ `57b34a6`). Siguiente acción: **revisión del coordinador Claude sobre `23718fb`**.
 
 ## Resultados tras la corrección E1 (por pregunta)
 
@@ -19,7 +20,8 @@ Reescrito al cerrar cada bloque. B/P-M1 se conserva intacta en `mistral/m2-funda
 
 ## Commits
 
-- `b4a4703` bloque 1; `78d2898` bloque 2; entrega bloque 3; `93a9780` entrega revisada externamente (E1); **este commit: bloque 4, respuesta E-R1…E-R9**. Remoto verificado tras el push: `git ls-remote origin mistral/e-fuentes-elis` == HEAD local.
+- `b4a4703` bloque 1; `78d2898` bloque 2; entrega bloque 3; `93a9780` entrega revisada externamente (E1); **`23718fb`: bloque 4, respuesta E-R1…E-R9**. Remoto verificado tras el push: `git ls-remote origin mistral/e-fuentes-elis` == HEAD local.
+- Relevo (bloque 5, este commit): checkpoint de recuperación sobre `23718fb` (`CHECKPOINT_RELEVO.md`); remoto verificado tras el push con `git ls-remote origin mistral/e-fuentes-elis` == HEAD local.
 
 ## Estado de cierre
 

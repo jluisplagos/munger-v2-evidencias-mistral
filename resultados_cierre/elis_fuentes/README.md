@@ -8,5 +8,6 @@ Objetivo: evidencia primaria nueva o búsqueda acotada que identifique lo no enc
 - Bloque 2 (publicado): búsqueda finita (12 documentos oficiales nuevos) y lectura verificada — `LECTURA_FUENTES.jsonl`, `scripts/descargar_fuentes_elis.py` + `scripts/lectura_bloque2.py`.
 - Bloque 3 (publicado): entrega final de la etapa E — `HALLAZGOS_ELIS.md`, `RESUMEN_PARA_INTEGRADOR.md`, `ENTREGA.json`, `MANIFIESTO_SHA256.txt`, `PUNTO_DE_RECUPERACION.md`.
 - Bloque 4 (publicado): **corrección E1 (E-R1…E-R9)** sobre `93a9780` — `RESPUESTA_REVISION_E1.md`, citas reescritas (52, sin `.*`/alternativas, verificadas con PyMuPDF y pypdf 7.1.0), `tipo_evidencia` nueva/corroboración_base, índice de descarga en Git (`fuentes_descargadas/`), extractos acotados con huella PDF (`extractos/`), idempotencia y códigos de error probados.
+- Bloque 5 (publicado): **checkpoint de recuperación del relevo** sobre `23718fb` — `CHECKPOINT_RELEVO.md`: integridad verificada (fsck OK; 48/48 sha256 del manifiesto presentes en Git OK; 32 extractos; 12 descargas; 52/52 citas con dos extractores), sin devolución de Claude sobre `23718fb` ni asignación nueva en el control vigente (`57b34a6`); siguiente acción: revisión de Claude sobre `23718fb`.
 
 La entrega anterior B/P-M1 se conserva en `mistral/m2-fundamento-pm1` @ `daa7478` y no se modifica desde aquí.
