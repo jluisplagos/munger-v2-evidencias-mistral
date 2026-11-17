@@ -1,0 +1,102 @@
+PA código 0 · estado final: concluido · paso 14
+--- PA · sin entrada_efectiva.json ni declaración (F1 no exigido) · empresa NIIF con C49 > 0 · precio 8
+{
+ "estado_pipeline": "concluido",
+ "paso": 14,
+ "auditoria": "APROBADO",
+ "motor": "A",
+ "motor_a_f1_en_estado": null,
+ "ficha": {
+  "estado_analisis": "concluido",
+  "cubo": "Sí",
+  "motor": "A",
+  "valor_ponderado": 19.1084859137171,
+  "precio": 8
+ },
+ "ficha_decision": {
+  "accion": "comprar",
+  "precio_objetivo": null
+ },
+ "ficha_cierre": {
+  "auditoria": "APROBADO",
+  "material_auditado": "bc7dc50757f1d1a1"
+ },
+ "ficha_escalera": {
+  "precio": 8,
+  "zona": "bajo_malo",
+  "precio_si": 18.11562878884521,
+  "ponderado": 19.1084859137171
+ },
+ "ficha_valores_por_accion": {
+  "MALO": 15.6334859766655,
+  "NORMAL": 19.3758310526059,
+  "BUENO": 21.7814504341023
+ },
+ "ficha_bloque_motor_a_f1": null,
+ "informe_linea_estado": "**Estado `concluido` · cubo Sí · acción comprar** · precio 8 EUR · zona bajo_malo · precio de Sí 18.12 · precio esc. MALO 15.63 · ponderado 19.11 · **con datos de etapa 1 incompletos** (causas: evidencia Análisis!C46 — Caja de las operaciones (media 3–5 años): no verificable; evidencia Análisis!C47 — Capex (positivo; media 3–5 años): no verificable; evidencia Análisis!C48 — Intereses pagados clasi",
+ "informe_linea_F1": null
+}
+{"Análisis!C49": 3.71, "Análisis!C52": 79.79, "Historia!L23 (pasivo arrendamientos)": 50, "Historia!L17 (principal)": 4, "Historia!C58 (f, A0)": 0.0139966830951207, "Control maestro!L4": "IFRS"}
+PB-1 código 0 · estado final: pendiente_de_datos · paso 7 · causa: falta_de_datos: motor A · F1 (motor_a_f1_resultado.md): el resultado del motor A no se usa para una conclusión · F1-NORMA INCOMPLETO: norma contable sin dec · continuar desde el paso 2 (ver diagnostico.md)
+--- PB-1 · 4.15 sin declaración F1: primera pasada
+{
+ "estado_pipeline": "pendiente_de_datos",
+ "paso": 7,
+ "auditoria": null,
+ "motor": "A",
+ "motor_a_f1_en_estado": {
+  "paso": 7,
+  "bloquea": true,
+  "estado_propuesto": "pendiente_de_datos",
+  "declaracion_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "libro_sha256": "f4ec011e2896b980f18b46fd70127c5474b33a5e04c8e28ee3e3754c3ae83bc3"
+ },
+ "ficha": {
+  "estado_analisis": "pendiente_de_datos",
+  "cubo": null,
+  "motor": null,
+  "valor_ponderado": null,
+  "precio": null
+ },
+ "ficha_decision": null,
+ "ficha_cierre": null,
+ "ficha_escalera": null,
+ "ficha_valores_por_accion": {
+  "MALO": null,
+  "NORMAL": null,
+  "BUENO": null
+ },
+ "ficha_bloque_motor_a_f1": {
+  "utilizable": false,
+  "bloquean": [
+   "F1-NORMA",
+   "F1-PERIMETRO",
+   "V-F1b",
+   "V-F1g",
+   "V-F1h",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ]
+ },
+ "informe_linea_estado": "**Estado `pendiente_de_datos` · cubo Vigilar · acción ninguna** · **con datos de etapa 1 incompletos** (causas: evidencia Análisis!C46 — Caja de las operaciones (media 3–5 años): no verificable; evidencia Análisis!C47 — Capex (positivo; media 3–5 años): no verificable; evidencia Análisis!C48 — Intereses pagados clasificados en financiación · IFRS: no verificable; evidencia Análisis!C49 — Principal",
+ "informe_linea_F1": "> **Motor A · F1:** el resultado del motor A no se usa para una conclusión; bloquean: F1-NORMA, F1-PERIMETRO, V-F1b, V-F1g, V-F1h, V-F1i, V-F1j, V-F1k; perímetro declarado: sin declarar; flujo sin crecimiento frente a A0 (diagnóstico): B_cota_capex -40.0. Detalle en motor_a_f1_resultado.md. Apta para dinero real: no."
+}
+Traceback (most recent call last):
+  File "/tmp/claude-0/revision_f1impl/mis_scripts/sondas_pipeline.py", line 70, in <module>
+    rc, out = lanzar(c, reac, "--desde", "8")
+              ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/revision_f1impl/mis_scripts/sondas_pipeline.py", line 46, in lanzar
+    reac(c, esp.split("**")[1])
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/revision_f1impl/munger_v2_r1/personaje_v2/pruebas/test_pipeline_sintetico.py", line 84, in r
+    AG.fase_b(c, justificar=True)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/revision_f1impl/munger_v2_r1/personaje_v2/pruebas/agentes_sinteticos.py", line 67, in fase_b
+    motor = refs["motor"]
+            ~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+real	1m15.168s
+user	1m13.982s
+sys	0m15.820s

@@ -1,0 +1,53 @@
+
+=== S1 · NIIF 16 con los pagos de principal FUERA del FCF base (C49 = 0 o vacío) y perímetro A1/A2: ¿bloquea algo?
+  C49=0.0   · declarado A0_total   : F0 A0 68.0 · A1 78.0 (verdadero 68) · bloquean ['V-F1m']
+  C49=0.0   · declarado A1_sin_ROU : F0 A0 68.0 · A1 78.0 (verdadero 68) · bloquean ['F1-LIBRO']
+  C49=0.0   · declarado A2_propio  : F0 A0 68.0 · A1 78.0 (verdadero 68) · bloquean ['F1-LIBRO']
+  C49=None  · declarado A0_total   : F0 A0 68.0 · A1 78.0 (verdadero 68) · bloquean ['V-F1m']
+  C49=None  · declarado A1_sin_ROU : F0 A0 68.0 · A1 78.0 (verdadero 68) · bloquean ['F1-LIBRO']
+  C49=None  · declarado A2_propio  : F0 A0 68.0 · A1 78.0 (verdadero 68) · bloquean ['F1-LIBRO']
+
+=== S2 · A0 con ROU declarada a cero y C49 vacío, mientras Historia filas 17 (principal) y 23 (pasivo) dicen que hay arrendamientos
+  utilizable_para_conclusion: True · bloquean [] · rótulo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no ap
+
+=== S3 · empresa con 8 años de historia (C5:D5 vacías; la V6.3 lo admite con ≥ 5 años)
+  ErrorDeclaracion → Historia C5:L5 no tiene los diez años (el CLI devuelve 2 y el pipeline lo convierte en no_entregable · fallo_de_implementacion)
+
+=== S4 · N1: ¿se puede elegir «solo la ventana» por omisión y normalizar una partida que no es un earnout?
+  V-F1l salta: False · F1-PARAM salta: False · F1-REGISTRO salta: False · bloquean ['F1-LIBRO']
+  (sin registro de la normalización; partida de reestructuración con su caja EN el FCF base; nada lo señala salvo F1-LIBRO)
+
+=== S5 · compras de reposición «con importes por año» (sin proporción): ¿qué cobra el año 11 y los años sin importe?
+  V-F1j salta: False · cargo por año 1–10: [9.0, 9.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] · cargo año 11: 0.0
+  ancla E4 con compras-término: None · sin ellas: None
+
+=== S6 · transición como término explícito con «ancla_s2c_excluye_terminos: true» y sin importes históricos: ¿cambia el ancla calculada?
+  V-F1i salta: False · ancla con término declarado fuera del ancla: 1.655021 · ancla sin transición declarada: 1.655021 · ancla correcta sin los 7 de transición: 2.0
+
+=== S7 · «transicion.conocida: false» sin registro (fecha, persona, motivo)
+  utilizable: True · bloquean []
+
+=== S8 · F1-NORMA: declaración «NIIF» frente a textos de Control maestro L4
+  L4='US GAAP'                                          → F1-NORMA bloquea: True
+  L4='US GAAP (no IFRS)'                                → F1-NORMA bloquea: False
+  L4='PCGA de EE. UU.; concilia con IFRS en la nota 3'  → F1-NORMA bloquea: False
+  L4='Swiss GAAP FER'                                   → F1-NORMA bloquea: True
+  L4='NIIF-UE'                                          → F1-NORMA bloquea: False
+
+=== S9 · Diagnóstico V6!C5 sin valor en caché (None) con un expediente de motor A
+  aplica: False · bloquea: False · motivo: el libro usa el motor None: F1 solo afecta al motor A (T11) → el CLI devuelve 0 y el gancho del pipeline sigue
+
+=== S10 · K3 con datos arbitrarios y con un FCF base que resta el alquiler DOS veces
+  500 libros aleatorios (FCF base, EBIT, D&A, capex sin relación entre sí): K3 «cuadra» en los cuatro perímetros en 500 de 500
+  FCF verdadero 68; FCF base registrado 56 (alquiler restado dos veces): flujo sin crecimiento 56.0 · K3 cuadra: True · partidas sin explicar: [] · utilizable: True
+
+=== S11 · exigencia F1 con el modo declarado en alcance_v2.json (forma del hito 1) y sin declaración
+  alcance_v2.json {entrada_efectiva: estricta} (expediente 4.15, hito 1) → exigido: False
+  + fase1_metadatos.json con el modo → exigido: False
+  carpeta nueva sin nada → exigido: False
+
+=== S12 · T9: «(149.5)» declarado como +149,5 con signo 1 y tratamiento «ninguno» (la magnitud positiva sin la declaración del signo)
+  V-F1e salta: False (la capa no lee la fuente: no puede saber cómo está publicada la cifra)
+
+=== S13 · serie con documento y página inventados
+  V-F1e salta: False · bloquean ['F1-LIBRO']
