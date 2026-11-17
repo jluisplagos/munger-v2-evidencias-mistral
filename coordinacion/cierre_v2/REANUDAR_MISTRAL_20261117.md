@@ -9,6 +9,23 @@ Hay que pegar cada bloque en su sesión Mistral. Repositorio: `jluisplagos/munge
 - Si un punto depende del runtime del coordinador o de una decisión del usuario, se publica el relevo exacto en vez de inventar el éxito.
 - El coordinador (Claude) revisa con un contexto distinto y solo lo afectado.
 
+## 0 · Si la sesión es nueva (se cerró la ventana anterior)
+
+Pega esto primero y, a continuación, el bloque de tu frente:
+
+> Trabajas en el programa de cierre de Munger V2. Repositorio GitHub `jluisplagos/munger-v2-evidencias-mistral`. Tu memoria está en GitHub, no en esta conversación. Clona el repositorio o consúltalo y lee, en este orden:
+> 1. En la rama `coordinacion/cierre-v2`, `coordinacion/cierre_v2/`: LEEME.md, PROGRAMA.md, INTEGRACION.md, ESTADO.md, el `PROMPT_MISTRAL_<tu frente>.md` y este archivo (REANUDAR_MISTRAL_20261117.md).
+> 2. En tu rama de trabajo, `PUNTO_DE_RECUPERACION.md` y `RESUMEN_PARA_CLAUDE.md` de tu carpeta de resultados, más el último commit.
+>
+> Antes de escribir nada, resume en 5 líneas el estado de tu frente y la corrección que te toca. Después trabaja sobre el último commit de tu rama, sin rehacer lo ya cerrado.
+
+Frentes, ramas y carpetas:
+- D: `mistral/d-qwen-aceptacion`, `resultados_qwen/ejecucion_d/`.
+- A: `mistral/m2-cobertura-vm`, `resultados_m2/cobertura_vm/`; G-RAIZ en `mistral/g-manual-traspaso`, `resultados_cierre/manual_revision/`.
+- E: `mistral/e-fuentes-elis`, `resultados_cierre/elis_fuentes/`.
+- F: `mistral/f-alcance-real`, `resultados_cierre/alcance_real/`.
+- R: rama nueva; no tiene prompt previo.
+
 Desde hoy no hay contraste ChatGPT. Para conservar una mirada de otra familia de modelos, la sesión **Mistral R** (bloque 5) contrasta las revisiones del coordinador.
 
 ## 1 · Mistral D · prioridad máxima (desbloquea el personaje)
