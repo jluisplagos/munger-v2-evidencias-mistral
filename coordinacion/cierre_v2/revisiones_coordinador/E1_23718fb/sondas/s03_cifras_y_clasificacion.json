@@ -1,0 +1,107 @@
+[
+ {
+  "prueba": "p350 +25,7 en fila propia y en 'of which net gain on disposal'",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p350 'of which monetary items' = -28,2 (fila distinta)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p350 suma de 'of which' = OOIE -3,1",
+  "ok": true,
+  "detalle": "suma=-3.1; provisiones=-0.6"
+ },
+ {
+  "prueba": "p327 (23,1) antes del subtotal operativo",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p327 cobros 15,3 entre subtotal operativo y de inversion",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p327 adquisiciones (117,6) en inversion",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p349 'Change in receivables on disposal of fixed assets 16.9 (0.1)'",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p217 26,2+183,9+887,1+62,7 = 1.159,9 (~1.160,0 de p.215)",
+  "ok": true,
+  "detalle": "suma=1159.9"
+ },
+ {
+  "prueba": "p215 alineado 72,6 = clima 1,9 + economia circular 70,7",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p306 lista de 'major acquisitions' 2025",
+  "ok": true,
+  "detalle": "Wäscherei Bodensee in Switzerland; Bugadería Neutral in Spain; Larosé in Germany; Acquaﬂash in Brazil; JP Muller in France and Switzerland; Adrett in Germany"
+ },
+ {
+  "prueba": "p306: Acquaflash es 'major' 2025",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p306: Lavartex NO esta entre las 'major' 2025",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p341 columna Lavartex: sin caja de adquisicion; solo earnout/aplazado (19,7)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p341 seis 'major' 2025 suman 60,8",
+  "ok": true,
+  "detalle": "suma=-60.8"
+ },
+ {
+  "prueba": "p341 columnas 1..8 suman 117,8 frente a total impreso 117,6 (redondeo 0,2)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p341 'Other acquisitions' 37,3, de los que (3,6) earnouts/aplazados",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p342 (tabla 2024): Carsan y Ernst con columna propia; Lavartex con earnout 83,2",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "p341: Ernst y Carsan en 'Major acquisitions' del ejercicio anterior (2024)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "prueba": "ENTREGA no presenta Lavartex como 'importante' de 2025",
+  "ok": false,
+  "detalle": "2 apariciones: ): cada adquisicion importante de 2025 tiene COLUMNA PROPIA (Bodensee, Bugaderia Neutral, Larose, JP Muller, Adrett, Lavartex) y 'Other acquisitions' es una columna a"
+ },
+ {
+  "prueba": "ENTREGA nombra Acquaflash al clasificar las importantes",
+  "ok": false,
+  "detalle": ""
+ },
+ {
+  "prueba": "ENTREGA clasifica Carsan y Ernst (importantes de 2024) con pagina",
+  "ok": false,
+  "detalle": ""
+ }
+]

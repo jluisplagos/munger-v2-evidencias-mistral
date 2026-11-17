@@ -1,0 +1,70 @@
+== entorno
+python 3.13.18 | PyMuPDF 2.1 | pypdf 7.1.0
+== A. descarga simulada (sin red) + lectura x2 + extractos x2 + segundo extractor x2
+h1_2026_comunicado_en 200 498753 5a84458c26fc5b06 pags 13
+descargados OK: 12/12; indice Git: resultados_cierre/elis_fuentes/fuentes_descargadas/INDICE_DESCARGAS.csv; trabajo: .trabajo/elis_fuentes/INDICE_DESCARGAS.csv
+EXIT_SCRIPT 0
+carpetas creadas: <rev_E1>/repro/A/.trabajo/elis_fuentes/pdf <rev_E1>/repro/A/.trabajo/elis_fuentes/texto 
+indice regenerado = indice publicado en id..sha256 (columnas 1-8)
+lectura run1 exit 0
+extractos run1 exit 0
+segundo extractor (pypdf 7.1.0): 52/52 citas verifican; informe en resultados_cierre/elis_fuentes/VERIFICACION_SEGUNDO_EXTRACTOR.json
+segundo extractor run1 exit 0
+lectura run2 exit 0
+extractos run2 exit 0
+segundo extractor (pypdf 7.1.0): 52/52 citas verifican; informe en resultados_cierre/elis_fuentes/VERIFICACION_SEGUNDO_EXTRACTOR.json
+segundo extractor run2 exit 0
+-- idempotencia (run1 vs run2):
+12c12
+< 79ab7dbc7f1e9fd4d838aeaf3e3498b5b322e1ec8ae3f3d51c76c36b97c3fe8c  ./VERIFICACION_SEGUNDO_EXTRACTOR.json
+---
+> 0c600051dedc4934d28330dc017ce59d8345b057698bd25de8c818ae45abfb23  ./VERIFICACION_SEGUNDO_EXTRACTOR.json
+-- run2 frente a lo entregado en f00c5dd (archivos distintos):
+< ./VERIFICACION_SEGUNDO_EXTRACTOR.json
+> ./VERIFICACION_SEGUNDO_EXTRACTOR.json
+-- detalle de diferencias en VERIFICACION_SEGUNDO_EXTRACTOR.json (si las hay):
+iguales salvo 'fecha'
+== B. negativo: excepcion de red en una descarga
+descargados OK: 11/12; indice Git: resultados_cierre/elis_fuentes/fuentes_descargadas/INDICE_DESCARGAS.csv; trabajo: .trabajo/elis_fuentes/INDICE_DESCARGAS.csv
+FALLOS: q1_2025_revenue
+EXIT_SCRIPT 1
+indice publicado en Git tras el fallo: filas FALLO_DESCARGA = 1; igual al anterior: NO
+FileNotFoundError: [Errno 2] No such file or directory: '<rev_E1>/repro/B/.trabajo/elis_fuentes/texto/q1_2025_revenue.txt'
+lectura tras descarga fallida exit 1
+== C. negativo: 200 text/html en una descarga
+descargados OK: 12/12; indice Git: resultados_cierre/elis_fuentes/fuentes_descargadas/INDICE_DESCARGAS.csv; trabajo: .trabajo/elis_fuentes/INDICE_DESCARGAS.csv
+FALLOS: q1_2025_revenue
+EXIT_SCRIPT 1
+== D. negativo: patron desplazado a otra pagina -> lectura debe fallar
+AssertionError: cita no verificada: urd2025 p348 /Change in receivables on disposal of fixed assets 16\.9 \(0\.1\)/
+exit 1
+== E. negativo: patron con alternativa -> guarda
+lineas modificadas: 1
+AssertionError: patron prohibido (.* codicioso o alternativa): urd2025 p349 /Change in receivables on disposal of fixed assets 16\.9 \(0\.1\)|XYZ/
+exit 1
+== F. inventario_bloque1.py en un directorio sin los commits (repo git vacio)
+DEPENDENCIA AUSENTE: 716cbd6794b7fcde8b3862c9d1e7acdaf516d262 (repositorio del producto (solo lectura)) no esta en este clon del auxiliar.
+Ejecuta: git fetch https://github.com/jluisplagos/munger-v2.git 716cbd6794b7fcde8b3862c9d1e7acdaf516d262
+exit 2
+== G. dependencias de importacion declaradas en los scripts
+scripts/descargar_fuentes_elis.py:122:            import fitz
+scripts/verificar_segundo_extractor.py:28:    import pypdf
+README.md:7:- Bloque 1 (publicado): inventario — `PREGUNTAS_Y_RESULTADOS.csv`, `FUENTES_Y_BUSQUEDA.csv`, `scripts/inventario_bloque1.py` (reproduce desde SHAs fijados: producto f1 `716cbd6`, revisión `f5775dc`, contro
+README.md:10:- Bloque 4 (publicado): **corrección E1 (E-R1…E-R9)** sobre `93a9780` — `RESPUESTA_REVISION_E1.md`, citas reescritas (52, sin `.*`/alternativas, verificadas con PyMuPDF y pypdf 7.1.0), `tipo_evidencia` 
+PUNTO_DE_RECUPERACION.md:8:- **Bloque 1 cerrado:** inventario (`PREGUNTAS_Y_RESULTADOS.csv`, `FUENTES_Y_BUSQUEDA.csv`, `scripts/inventario_bloque1.py`; dependencias declaradas, exit 2 + `git fetch` si falta un commit).
+PUNTO_DE_RECUPERACION.md:11:- **Bloque 4 cerrado (`23718fb`): corrección E1 (E-R1…E-R9) sobre `93a9780`** — ver `RESPUESTA_REVISION_E1.md`. 52 citas reescritas sin `.*`/alternativas y verificadas con PyMuPDF + pypdf
+PUNTO_DE_RECUPERACION.md:44:Vibe Code de Mistral AI, modelo `mistral-large-4-0`; consumo no visible desde la sesión. Python 3.12 + PyMuPDF (extractor primario, marcadores `[PDF PAGE n]`) y pypdf 7.1.0 (segundo extractor
+== H. fallo de descarga DESPUES de una ejecucion buena (textos y PDF viejos presentes) y lectura
+EXIT_SCRIPT 1
+ampliado resultados_cierre/elis_fuentes/FUENTES_Y_BUSQUEDA.csv (filas de descarga re-anadidas sin duplicar)
+lectura exit 0
+documento sha256= '' estado= FALLO_DESCARGA
+cita sha256= '' estado= -
+cita sha256= '' estado= -
+== I. descargar sin PyMuPDF instalado (python del sistema)
+python del sistema sin fitz
+descargados OK: 12/12; indice Git: resultados_cierre/elis_fuentes/fuentes_descargadas/INDICE_DESCARGAS.csv; trabajo: .trabajo/elis_fuentes/INDICE_DESCARGAS.csv
+EXIT_SCRIPT 0
+ERROR_EXTRACCION: ModuleNotFoundError No module named 'fitz'
+lineas indice: 13
+paginas_pdf registradas sin PyMuPDF: ['']

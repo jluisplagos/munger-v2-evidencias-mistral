@@ -318,14 +318,15 @@
         "resultados_qwen/ejecucion_d/PUNTO_DE_RECUPERACION.md",
         "resultados_qwen/ejecucion_d/ @ 1ac661b (mistral/d-qwen-aceptacion)",
         "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/REVISION_D_1ac661b.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/CORRECCION_D2.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/CORRECCION_D2.md",
+        "mistral/d-qwen-aceptacion @ 3934bc9"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
       "siguiente_accion": "Mistral D corrige D2-R1…R7 (CORRECCION_D2.md): aserciones que aceptan resultados vacíos o forjados, Q1-026 incoherente con el banco, relevos vacíos de Q1-028/032, correspondencia de criterios, manifiesto. Se conserva D-R2 y la detección de las sondas de d375d80.",
-      "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
+      "observacion": "D2 bloque 1 (D2-R1/R7) entregado en 3934bc9; revisión del coordinador pendiente.",
       "commit_revisado": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -375,18 +376,20 @@
         "coordinacion/cierre_v2/revisiones_coordinador/E_93a9780/CORRECCION_E1.md",
         "coordinacion/cierre_v2/revisiones_coordinador/E_93a9780/adenda_20261117/ADENDA.md",
         "Release fuentes-elis-e-20261117 (11 PDF + INDICE_11_PDF.csv + SHA256SUMS), creada por el flujo preservar-fuentes-elis, ejecución 44054890531 (éxito) sobre coordinacion/release-fuentes-elis @ a99d9f1",
-        "resultados_cierre/elis_fuentes/ @ 23718fb (respuesta a E1) y f00c5dd (checkpoint de relevo)"
+        "resultados_cierre/elis_fuentes/ @ 23718fb (respuesta a E1) y f00c5dd (checkpoint de relevo)",
+        "coordinacion/cierre_v2/revisiones_coordinador/E1_23718fb/REVISION_E1_23718fb.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/E1_23718fb/CORRECCION_E2.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "El coordinador revisa la respuesta a E1 (23718fb/f00c5dd), solo E-R1…E-R9. Preservación duradera ya resuelta (Release fuentes-elis-e-20261117).",
+      "siguiente_accion": "Mistral E corrige E2-D1…D9 (CORRECCION_E2.md) y actualiza el estado de preservación a la Release. M1/M2/M6/N2 ABIERTOS; Elis pendiente_de_datos.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": "93a97801f8c4f6a4dc5cabd4540248390cf113d0",
+      "commit_revisado": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
       "alcance_aceptado": [],
       "solicitud_revision": {
-        "estado": "EN_CURSO",
+        "estado": "RESPONDIDA",
         "sha_autor": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
         "base_revisada": "93a97801f8c4f6a4dc5cabd4540248390cf113d0",
         "diff_rutas": [
@@ -398,7 +401,13 @@
           "extractos acotados con huella"
         ],
         "revisor_asignado": "Claude coordinador (subagente de revisión)",
-        "informe_revision": null
+        "informe_revision": {
+          "ruta": "coordinacion/cierre_v2/revisiones_coordinador/E1_23718fb/REVISION_E1_23718fb.md",
+          "veredicto": "E-R1 y E-R3 cerrados; E-R4…E-R9 cerrados con límites; E-R2 abierto (clasificación por sociedad: Lavartex no es importante de 2025 y falta Acquaflash, comprobado por el coordinador en p.341). 52/52 citas en su página; 32 extractos coherentes; conservación cumplida",
+          "limites": [
+            "la entrega llama PROVISIONAL a los 11 PDF, ya preservados en la Release fuentes-elis-e-20261117 (desfase no imputable al autor)"
+          ]
+        }
       }
     },
     {
@@ -497,14 +506,15 @@
         "coordinacion/cierre_v2/u2_tercer_b/RECURSOS_EXISTENTES.md",
         "coordinacion/cierre_v2/u2_tercer_b/PROPUESTA_TERCER_B.md",
         "coordinacion/cierre_v2/u2_tercer_b/INDICE_FUENTES.csv",
-        "coordinacion/cierre_v2/u2_tercer_b/LEEME.md"
+        "coordinacion/cierre_v2/u2_tercer_b/LEEME.md",
+        "mistral/f-alcance-real @ 9873234"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": "Historia irrecuperable de la persona responsable: Ahold_evaluada.xlsx (V5.3) y Ahold_respuesta.md de la etapa 1 (sin ellos el pipeline se detiene en el paso 1 y la r heredada C56 no puede reconstruirse sin elegirla); huellas de sus PDF 2019–2025 (HUELLAS.txt del .bat); y si el resultado de la etapa 1 influyó en elegir a Ahold como reserva.",
       "siguiente_accion": "U2 (decisión del 17-nov): recursos recuperados (solo el .bat), 10 informes anuales oficiales 2016–2025 descargados y verificados (sin preservación duradera), propuesta Ahold Delhaize. Pendiente: la etapa 1 de la persona responsable, revisión independiente y dónde preservar los 10 PDF. F2 de Mistral C/F sigue vigente para el inventario.",
-      "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
+      "observacion": "F2 bloque F2-D1/D2/D7 entregado en 195766f (inventario reproducible, 71 PDF con huella); revisión del coordinador pendiente.",
       "commit_revisado": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -607,7 +617,8 @@
       "commit_origen": "c0542b83b9923f98124d3c72e48b7fc7245284d2",
       "commit_destino": null,
       "evidencia": [
-        "jluisplagos/munger-v2 · integracion/docs-operativos-957af65 @ c0542b8 (base 957af65): munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md, munger_v2_r1/CONTINUIDAD.md, CAMBIOS_ARCHIVOS.txt y MANIFIESTO_SHA256.txt regenerados con generar_cambios_y_manifiesto_4_15.py"
+        "jluisplagos/munger-v2 · integracion/docs-operativos-957af65 @ c0542b8 (base 957af65): munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md, munger_v2_r1/CONTINUIDAD.md, CAMBIOS_ARCHIVOS.txt y MANIFIESTO_SHA256.txt regenerados con generar_cambios_y_manifiesto_4_15.py",
+        "mistral/g-manual-traspaso @ a0524d9"
       ],
       "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
@@ -616,7 +627,7 @@
       ],
       "bloqueo": null,
       "siguiente_accion": "Revisión por un contexto distinto (solicitud LISTA). Si es conforme, el coordinador incorpora los cuatro archivos a la candidata con origen, revisión y destino. C-01…C-04 y O-12/O-13 (README y CLAUDE.md de la raíz, MIGRATION_STATUS.json) son instrucciones del usuario: se proponen en DECISIONES, no se cambian.",
-      "observacion": "Pruebas del autor: manifiesto 7762/7762 tras regenerar; diff de CAMBIOS limitado a los dos documentos y su recuento; ninguna batería de verificar_paquete lee esos documentos (solo controles históricos 4.7–4.13).",
+      "observacion": "Revisión de Mistral A entregada en a0524d9 (declara CONFORME CON LÍMITES); el coordinador la reproduce antes de aceptarla.",
       "commit_revisado": null,
       "alcance_aceptado": [],
       "solicitud_revision": {
@@ -1048,6 +1059,16 @@
       "tipo": "ENTREGA",
       "fecha": "2026-11-17",
       "hecho": "U2: recursos de Ahold (solo el .bat), 10/10 informes anuales 2016–2025 descargados de aholddelhaize.com y verificados, propuesta del tercer B publicada en u2_tercer_b/ (borrador). Pendiente la etapa 1 de la persona responsable."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "E1 de Mistral E (23718fb/f00c5dd) revisado: E-R1/E-R3 cerrados, E-R4…E-R9 con límites, E-R2 abierto; CORRECCION_E2 (E2-D1…D9). Lista de importantes de 2025 comprobada por el coordinador en URD25 p.341."
+    },
+    {
+      "tipo": "CONSULTA",
+      "fecha": "2026-11-17",
+      "hecho": "Recogidas sin revisar: D2 bloque 1 (3934bc9), F2 bloque 1 (195766f) y la revisión de G-DOCS por Mistral A (a0524d9)."
     }
   ],
   "consulta_remotos_arranque": {
