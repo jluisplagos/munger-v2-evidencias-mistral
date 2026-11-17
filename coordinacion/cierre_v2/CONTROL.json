@@ -518,13 +518,17 @@
       "evidencia": [
         "resultados_cierre/alcance_real/ @ 52fb120 (mistral/f-alcance-real)",
         "coordinacion/cierre_v2/revisiones_coordinador/F_223f16d_52fb120/REVISION_F_223f16d_52fb120.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/F_223f16d_52fb120/CORRECCION_F2.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/F_223f16d_52fb120/CORRECCION_F2.md",
+        "coordinacion/cierre_v2/u3_motor_c/CONTRATO_C_DESDE_EL_MOTOR.md",
+        "coordinacion/cierre_v2/u3_motor_c/PROTOCOLO_SELECCION_C.md",
+        "coordinacion/cierre_v2/u3_motor_c/CANDIDATOS_C.md",
+        "coordinacion/cierre_v2/u3_motor_c/LEEME.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
-      "bloqueo": "Datos de la persona responsable: un banco o aseguradora concretos, sus informes oficiales (cuentas, Pilar 3 o SFCR) con huellas y, si existe, el Excel de la etapa 1.",
-      "siguiente_accion": "Mistral C/F corrige F2-D3 (contrato C frente al motor real) y F2-D1/D2/D5/D6. Bloqueo real: un banco o aseguradora designados y sus informes oficiales.",
+      "bloqueo": "Documentos oficiales de los candidatos sin verificar: descarga de FinecoBank denegada por el control de permisos de la sesión; Hannover Re responde 403 a curl. Hace falta que la persona responsable autorice esas descargas o deje ella los documentos (informe anual 2025 y Pilar 3 o SFCR 2025 de cada candidato).",
+      "siguiente_accion": "U3 (decisión del 17-nov): contrato C reescrito desde el motor real (corrige F2-D3), protocolo de selección fijado antes de nombrar candidatos, y dos candidatos propuestos sin verificar (FinecoBank, Hannover Rück). Pendiente: documentos oficiales, revisión independiente y elección de la persona responsable. F2 de Mistral C/F sigue vigente para el resto (D1, D2, D4–D7).",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
       "alcance_aceptado": [],
@@ -1030,6 +1034,11 @@
       "tipo": "INCIDENCIA",
       "fecha": "2026-11-17",
       "hecho": "«1 fallido» en segundo plano = b0vtcdi3x (16-nov, C18): 26/26 pasos con código 0; el código 1 lo da el grep final sin coincidencias. Negativo esperado, sin impacto. Evidencia en coordinacion/cierre_v2/incidencias/."
+    },
+    {
+      "tipo": "ENTREGA",
+      "fecha": "2026-11-17",
+      "hecho": "U3: contrato C desde el motor, protocolo y dos candidatos sin verificar publicados en u3_motor_c/ (borrador). Descargas de los candidatos: denegada (Fineco) y 403 del sitio (Hannover Re). Hallazgo H-C1 comprobado en parte."
     }
   ],
   "consulta_remotos_arranque": {

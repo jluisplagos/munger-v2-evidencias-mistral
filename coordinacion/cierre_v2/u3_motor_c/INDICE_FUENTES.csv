@@ -1,0 +1,11 @@
+candidato,documento,url,fecha_utc,http,bytes,sha256,paginas,estado,nota
+FinecoBank S.p.A.,portada del sitio oficial (solo cabecera),https://finecobank.com/,2026-11-17T09:31Z,302 -> https://it.finecobank.com/,,,,EXISTE_SITIO,curl con TLS verificado y -o /dev/null; no se guardó contenido
+FinecoBank S.p.A.,portada del sitio oficial (solo cabecera),https://www.finecobank.com/,2026-11-17T09:31Z,302 -> https://it.finecobank.com/,,,,EXISTE_SITIO,curl con TLS verificado y -o /dev/null; no se guardó contenido
+FinecoBank S.p.A.,rutas /en/ e /it/ (solo cabecera),https://finecobank.com/en/,2026-11-17T09:32Z,301 -> https://it.finecobank.com/,,,,EXISTE_SITIO,todas las rutas redirigen a it.finecobank.com
+FinecoBank S.p.A.,portada it.finecobank.com (para localizar informe anual y Pilar 3),https://it.finecobank.com/,2026-11-17T09:32Z,NO_EJECUTADO,,,,NO_VERIFICADO,host añadido al entorno; la descarga la denegó el clasificador de permisos de la sesión (Unauthorized Access); no se intentó rodear
+FinecoBank S.p.A.,último informe anual consolidado (ejercicio 2025),(no localizado),,NO_EJECUTADO,,,,NO_VERIFICADO,depende de la fila anterior
+FinecoBank S.p.A.,último Pilar 3 (31-12-2025),(no localizado),,NO_EJECUTADO,,,,NO_VERIFICADO,depende de la fila anterior
+Hannover Rück SE,portada del sitio oficial (solo cabecera),https://www.hannover-re.com/,2026-11-17T09:31Z,403 (CloudFront: Error from cloudfront),,,,NO_VERIFICADO,rechazo del propio sitio a curl (no del proxy); no se cambió el agente de usuario para no sortear el bloqueo
+Hannover Rück SE,último informe anual (ejercicio 2025),(no localizado),,NO_EJECUTADO,,,,NO_VERIFICADO,depende de la fila anterior
+Hannover Rück SE,último SFCR de grupo (31-12-2025),(no localizado),,NO_EJECUTADO,,,,NO_VERIFICADO,depende de la fila anterior
+(previo al protocolo),prueba de conectividad,https://finecobank.com/ · https://www.hannover-re.com/ · https://www.bankinter.com/,antes de 2026-11-17T09:30:00Z,proxy 403 (host no permitido),,,,SIN_DATOS,declarado en PROTOCOLO_SELECCION_C.md §0

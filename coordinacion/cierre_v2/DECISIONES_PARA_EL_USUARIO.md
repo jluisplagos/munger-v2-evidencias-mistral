@@ -46,7 +46,7 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
   - (c) reducir el alcance a dos casos B. Esto exige una decisión explícita de reducir el alcance.
 - **Qué no se valida aunque se resuelva:** el recorrido con agentes reales y la auditoría de otro contexto siguen pendientes.
 
-### U3 · Primer caso C real (F-C1) · **en preparación** (17-nov: contrato C corregido y uno o dos candidatos)
+### U3 · Primer caso C real (F-C1) · **contrato corregido y candidatos propuestos sin verificar** (17-nov; `u3_motor_c/`). Candidatos: FinecoBank (banco) y Hannover Rück (reaseguro, con riesgo alto de límite del modelo). Para verificarlos hace falta que autorices las descargas desde sus sitios oficiales o que aportes su informe anual 2025 y su Pilar 3 o SFCR 2025
 
 - **Situación.** No se conserva ninguna financiera. El contrato C propuesto describe mal el motor C (F2-D3) y hay que corregirlo antes de usarlo.
 - **Recomendada:** designar un banco o una aseguradora concretos y aportar sus informes oficiales (cuentas, Pilar 3 o SFCR) con SHA-256, y su Excel de la etapa 1 si existe.
