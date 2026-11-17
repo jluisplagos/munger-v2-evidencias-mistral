@@ -1,6 +1,6 @@
 # Estado único de Munger V2
 
-Corte: 2026-11-17 (reanudación); consulta remota del coordinador Claude tras revision/chatgpt-reanudacion-20261117 @ c241a59.
+Corte: 2026-11-17 ~09:50 UTC; consulta remota del coordinador (F hasta c761cc8, D hasta 5f4b2a2).
 
 Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud económica global acreditada.
 
@@ -14,14 +14,14 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | C20 | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | bf0d5c2 |
 | CSV | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | 77ff89f |
 | A-CTX | Mistral A | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 8b88fab |
-| D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
-| D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
+| D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 5f4b2a2 |
+| D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 5f4b2a2 |
 | E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | f00c5dd |
 | B-PM1 | Mistral B (autor previo) | PARCIAL | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | daa7478 |
 | C-C2 | Mistral C (autor previo) | ENTREGADO | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | 1ec4f18 |
 | F-REV | Antigua Mistral C, nueva F | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / NO_EJECUTADAS | c7716a0 |
-| F-B3 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
-| F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
+| F-B3 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | c761cc8 |
+| F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | c761cc8 |
 | G-MANUAL | Claude coordinador (borrador por un subagente de redacción) | PARCIAL | CONFORME_CON_LIMITES | NO | NO_EJECUTADAS / PARCIALES | 341831f |
 | G-DOCS | Claude coordinador | ENTREGADO | CONFORME_CON_LIMITES | SI | EJECUTADAS / REPRODUCIDAS | c0542b8 |
 | G-RAIZ | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 3d66437 |

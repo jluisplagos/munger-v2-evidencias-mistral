@@ -33,4 +33,8 @@ En total, 28 pasos con código 0: es la cifra que declara la respuesta a la revi
 
 **Impacto.** Ninguno en pruebas, entregas ni revisiones. C18 y lo posterior (C20, CSV) no cambian. No hay nada que corregir en el producto ni que repetir.
 
-**Corrección de procedimiento.** En los comandos de comprobación, la búsqueda de fallos se escribe de modo que su ausencia no ponga el código a 1. Por ejemplo, `grep … || echo "ningún paso con código ≠ 0"`. Así el código del comando refleja el resultado de las pruebas.
+**Corrección de procedimiento** (sustituye a la propuesta inicial «`grep … || echo`», que no basta: el código 1 de grep «sin coincidencias» seguiría confundiéndose con el 2 «no se puede leer», y el `echo` taparía los dos).
+
+Los lanzadores usan ahora `../herramientas/lanzador_comun.sh`, que propaga el resultado de los pasos (también un `cd` o una copia fallidos). Los registros se comprueban con `../herramientas/comprobar_registro.py`, que da 0 sin fallos, 1 con fallos, 2 ante un error de lectura o un registro mal formado y 3 si el número de pasos no es el esperado. Pruebas: `../herramientas/test_herramientas.out`, 18/18; el registro real de C18 da 0.
+
+Según el contraste de ChatGPT, no hay que repetir las 26 comprobaciones por este aviso.

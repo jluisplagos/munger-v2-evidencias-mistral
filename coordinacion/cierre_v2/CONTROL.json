@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "fecha_corte": "2026-11-17 (reanudación); consulta remota del coordinador Claude tras revision/chatgpt-reanudacion-20261117 @ c241a59",
+  "fecha_corte": "2026-11-17 ~09:50 UTC; consulta remota del coordinador (F hasta c761cc8, D hasta 5f4b2a2)",
   "zona_usuario": "Europe/Amsterdam",
   "mantenedor": "Claude coordinador, único escritor",
   "repositorio_control": "jluisplagos/munger-v2-evidencias-mistral",
@@ -11,15 +11,16 @@
     "candidata": "957af652cdc3bef3d67e8623c9572138bac685e9",
     "f1": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
     "A": "8b88fab28261506c60bc7631fd24894e225099d2",
-    "D": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
-    "E": "93a97801f8c4f6a4dc5cabd4540248390cf113d0",
-    "F": "868f44841858b705231d7e6f683ee951e348c22a",
+    "D": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
+    "E": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
+    "F": "c761cc89e49faa18e57c56777cf0d7db08c00f88",
     "B": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
     "C": "1ec4f18f950aecdda10c0e48c946c71cedcd644e",
     "qwen": "4745f3887f7fd86bb3052f5d5e32285862df18e3",
     "revision_F1": "f5775dc07a61b829df2b0e7a4a97c556869ae0f4",
     "revision_AD": "d375d80a5df19a661f80bab9cbdd42b39a28742b",
-    "reanudacion": "c241a599fc76249429a1a49ee5e7bbc50bdd6f0b"
+    "reanudacion": "c241a599fc76249429a1a49ee5e7bbc50bdd6f0b",
+    "G": "a0524d9f2e0fbcd3b6352453bba1c1e0475eac0a"
   },
   "candidata_integrada": {
     "repositorio": "jluisplagos/munger-v2",
@@ -311,7 +312,7 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
+      "commit_origen": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
       "commit_destino": null,
       "evidencia": [
         "resultados_qwen/ejecucion_d/RESUMEN_PARA_INTEGRADOR.md",
@@ -319,14 +320,15 @@
         "resultados_qwen/ejecucion_d/ @ 1ac661b (mistral/d-qwen-aceptacion)",
         "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/REVISION_D_1ac661b.md",
         "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/CORRECCION_D2.md",
-        "mistral/d-qwen-aceptacion @ 3934bc9"
+        "mistral/d-qwen-aceptacion @ 3934bc9",
+        "resultados_qwen/ejecucion_d/ @ 3934bc9 (D2-R1/R7, bloque 1) y 5f4b2a2 (D2-R2…R5, bloque 2)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
       "siguiente_accion": "Mistral D corrige D2-R1…R7 (CORRECCION_D2.md): aserciones que aceptan resultados vacíos o forjados, Q1-026 incoherente con el banco, relevos vacíos de Q1-028/032, correspondencia de criterios, manifiesto. Se conserva D-R2 y la detección de las sondas de d375d80.",
-      "observacion": "D2 bloque 1 (D2-R1/R7) entregado en 3934bc9; revisión del coordinador pendiente.",
+      "observacion": "Respuesta a D2 entregada en dos bloques (3934bc9, 5f4b2a2); revisión del coordinador en curso (contexto distinto). 0/36 casos del personaje ejecutados.",
       "commit_revisado": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -339,13 +341,14 @@
       "entrega": "PARCIAL",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
+      "commit_origen": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
       "commit_destino": null,
       "evidencia": [
         "resultados_qwen/ejecucion_d/ @ 1ac661b (mistral/d-qwen-aceptacion)",
         "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/REVISION_D_1ac661b.md",
         "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/CORRECCION_D2.md",
-        "coordinacion/cierre_v2/pruebas_candidata/957af65/MECANISMO_PERSONAJE.md"
+        "coordinacion/cierre_v2/pruebas_candidata/957af65/MECANISMO_PERSONAJE.md",
+        "resultados_qwen/ejecucion_d/ @ 3934bc9 (D2-R1/R7, bloque 1) y 5f4b2a2 (D2-R2…R5, bloque 2)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
@@ -355,7 +358,7 @@
       ],
       "bloqueo": "No falta capacidad: el personaje se ejecuta con código 10 y subagentes de la sesión orquestadora (modelo y esfuerzo de config_v2.json, fase C con el mismo agente, auditoría con agente nuevo; sin API). Comprobado en 957af65: réplica hasta el código 10, paso 5. Bloqueo real: la adaptación de los 36 casos sintéticos a vías soportadas y la correspondencia criterio→observable (D2-R4/R5, Mistral D), que exige el propio PLAN_DE_EJECUCION del banco.",
       "siguiente_accion": "Cuando D2 entregue relevos íntegros por caso, el coordinador ejecuta cada caso con agentes reales y LibreOffice en secuencia, y registra el veredicto por criterio.",
-      "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
+      "observacion": "Respuesta a D2 entregada en dos bloques (3934bc9, 5f4b2a2); revisión del coordinador en curso (contexto distinto). 0/36 casos del personaje ejecutados.",
       "commit_revisado": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -497,7 +500,7 @@
       "entrega": "PARCIAL",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
+      "commit_origen": "c761cc89e49faa18e57c56777cf0d7db08c00f88",
       "commit_destino": null,
       "evidencia": [
         "resultados_cierre/alcance_real/ @ 52fb120 (mistral/f-alcance-real)",
@@ -507,14 +510,15 @@
         "coordinacion/cierre_v2/u2_tercer_b/PROPUESTA_TERCER_B.md",
         "coordinacion/cierre_v2/u2_tercer_b/INDICE_FUENTES.csv",
         "coordinacion/cierre_v2/u2_tercer_b/LEEME.md",
-        "mistral/f-alcance-real @ 9873234"
+        "mistral/f-alcance-real @ 9873234",
+        "resultados_cierre/alcance_real/ @ 195766f (F2-D1/D2/D7), e9f76a9 (F2-D3), 9873234 (F2-D6), c761cc8 (F2-D4/D5/D7)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": "Historia irrecuperable de la persona responsable: Ahold_evaluada.xlsx (V5.3) y Ahold_respuesta.md de la etapa 1 (sin ellos el pipeline se detiene en el paso 1 y la r heredada C56 no puede reconstruirse sin elegirla); huellas de sus PDF 2019–2025 (HUELLAS.txt del .bat); y si el resultado de la etapa 1 influyó en elegir a Ahold como reserva.",
       "siguiente_accion": "U2 (decisión del 17-nov): recursos recuperados (solo el .bat), 10 informes anuales oficiales 2016–2025 descargados y verificados (sin preservación duradera), propuesta Ahold Delhaize. Pendiente: la etapa 1 de la persona responsable, revisión independiente y dónde preservar los 10 PDF. F2 de Mistral C/F sigue vigente para el inventario.",
-      "observacion": "F2 bloque F2-D1/D2/D7 entregado en 195766f (inventario reproducible, 71 PDF con huella); revisión del coordinador pendiente.",
+      "observacion": "Respuesta a F2 entregada en cuatro commits (195766f…c761cc8); revisión del coordinador en curso (contexto distinto), solo F2-D1…D7.",
       "commit_revisado": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -527,7 +531,7 @@
       "entrega": "PARCIAL",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
+      "commit_origen": "c761cc89e49faa18e57c56777cf0d7db08c00f88",
       "commit_destino": null,
       "evidencia": [
         "resultados_cierre/alcance_real/ @ 52fb120 (mistral/f-alcance-real)",
@@ -536,14 +540,15 @@
         "coordinacion/cierre_v2/u3_motor_c/CONTRATO_C_DESDE_EL_MOTOR.md",
         "coordinacion/cierre_v2/u3_motor_c/PROTOCOLO_SELECCION_C.md",
         "coordinacion/cierre_v2/u3_motor_c/CANDIDATOS_C.md",
-        "coordinacion/cierre_v2/u3_motor_c/LEEME.md"
+        "coordinacion/cierre_v2/u3_motor_c/LEEME.md",
+        "resultados_cierre/alcance_real/ @ 195766f (F2-D1/D2/D7), e9f76a9 (F2-D3), 9873234 (F2-D6), c761cc8 (F2-D4/D5/D7)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": "Documentos oficiales de los candidatos sin verificar: descarga de FinecoBank denegada por el control de permisos de la sesión; Hannover Re responde 403 a curl. Hace falta que la persona responsable autorice esas descargas o deje ella los documentos (informe anual 2025 y Pilar 3 o SFCR 2025 de cada candidato).",
       "siguiente_accion": "U3 (decisión del 17-nov): contrato C reescrito desde el motor real (corrige F2-D3), protocolo de selección fijado antes de nombrar candidatos, y dos candidatos propuestos sin verificar (FinecoBank, Hannover Rück). Pendiente: documentos oficiales, revisión independiente y elección de la persona responsable. F2 de Mistral C/F sigue vigente para el resto (D1, D2, D4–D7).",
-      "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
+      "observacion": "Respuesta a F2 entregada en cuatro commits (195766f…c761cc8); revisión del coordinador en curso (contexto distinto), solo F2-D1…D7. F2-D3 se contrasta también con el contrato de u3_motor_c/.",
       "commit_revisado": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -1088,6 +1093,16 @@
       "tipo": "INTEGRACION",
       "fecha": "2026-11-17",
       "hecho": "G-DOCS integrado en la candidata (3149128): 4 archivos de c0542b8, revisión de Mistral A a0524d9 reproducida por el coordinador; manifiesto 7762/7762."
+    },
+    {
+      "tipo": "INCIDENCIA",
+      "fecha": "2026-11-17",
+      "hecho": "Procedimiento de lanzadores corregido (contraste de ChatGPT): herramientas/lanzador_comun.sh propaga el resultado (incluidos cd y copias fallidos) y comprobar_registro.py distingue 0/1/2 (lectura o formato)/3 (recuento); 18/18 pruebas positivas y negativas. No se repiten las 26 comprobaciones de C18."
+    },
+    {
+      "tipo": "CONSULTA",
+      "fecha": "2026-11-17",
+      "hecho": "F hasta c761cc8 (e9f76a9 F2-D3, 9873234 F2-D6, c761cc8 F2-D4/D5/D7) y D hasta 5f4b2a2 (D2 bloque 2) registrados como entregados; revisiones ampliadas a esos commits."
     }
   ],
   "consulta_remotos_arranque": {
