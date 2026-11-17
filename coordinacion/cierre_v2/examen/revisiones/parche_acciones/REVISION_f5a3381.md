@@ -96,3 +96,55 @@ Nada de esto obliga a retirar el parche ni a rehacer Ahold. Antes de extraer emp
 - El efecto aguas abajo del pipeline completo de Ahold con la fila corregida: el pipeline está detenido en el paso 2 por otro motivo (C46/C47).
 
 Guiones y copias de la revisión: `/tmp/claude-0/revision_acciones/scripts/casos.py`, `/tmp/claude-0/revision_acciones/scripts/barrido.py`, `/tmp/claude-0/revision_acciones/test_nuevo.log`.
+
+---
+
+## Segunda ronda: corrección 38149b8 (revisión limitada a lo que cambia)
+
+### Veredicto de la segunda ronda: CONFORME CON LÍMITES
+
+La corrección resuelve el hallazgo 1 (bloqueo de series incoherentes), el 3 (pruebas) y el 4 (mensaje en vez de TypeError en la unidad de la partida). No bloquea ninguno de los expedientes coherentes. Las pruebas nuevas detectan 7 de las 8 mutaciones que les apliqué. Los límites que quedan son menores y basta con declararlos (R2-1 a R2-4). Ninguno exige otra ronda.
+
+### Qué comprobé (copias en `/tmp/claude-0/revision_acciones/ronda2/`)
+
+1. **No bloquea expedientes coherentes.**
+   - **Qué ejecuté.** Construí con `f5a3381^` y con `38149b8` sobre los ocho expedientes de `2026-11_Vidrala_ensayo_4_14` que tienen `fase1_partes/`: elis, elis_decisiones, elis_motor_A, vidrala, vidrala_decisiones, vidrala_decisiones_INVALIDO_perdio_analisis, viscofan y viscofan_decisiones. Los scripts corrieron dentro de una copia del árbol, porque `construir` importa `verificacion_entradas`.
+   - **Resultado.** Los ocho dan rc=0 y `fase1_v63.json` e `historia_revision.md` son idénticos byte a byte al código anterior al parche.
+   - **Ahold.** En `ahold/Ahold` y en `ahold_4_15/Ahold`, rc=0 y la serie es 1.031 … 905. En `ahold/Ahold`, la salida de 38149b8 es idéntica a la de f5a3381.
+2. **Bloquea lo que debe** (copias de Ahold; siempre rc=1, sin `fase1_v63.json` y con el motivo en «## BLOQUEA» de `historia_revision.md`):
+   - un solo año sin unidad (AR_2021): saltos 1112→1,072→1034;
+   - las diez partes sin unidad: salto 1,001 (2022) → 966 (2023), el caso que antes pasaba sin ninguna nota;
+   - las diez partes en «miles» (error uniforme, sin saltos): el control frente a C55 da 0,905 frente a 905;
+   - C55 escrito en unidades (905.000.000).
+   - **Límites y bordes:** con C55 = 9.050 (×10 exacto) no bloquea; con 9.051 bloquea. Con C55 en texto («905») se compara bien. Sin C55, ya se detenía antes por «falta acciones_diluidas».
+3. **Nike, con los valores guardados en `empresas_v2/Nike/fase1_v63.json`:**
+   - `incoherencias_acciones` da «1.4876 millones en 2025 frente a 1487.6 en los metadatos». Si Nike se regenerara, ahora se detendría, que es lo correcto según el hallazgo 2.
+   - Aarsleff, Hermes, Rational, Vidrala y Viscofan (empresas_v2) son coherentes con el control.
+4. **Mutaciones** (sobre la copia de `scripts/fase1_historia.py`; restaurada y comprobada con `cmp` frente a 38149b8). `pruebas/test_acciones_unidad_examen.py` sin mutar da 10/10.
+
+   | Mutación | Resultado | Pruebas que fallan |
+   |---|---|---|
+   | M1 `incoherencias_acciones` devuelve [] | detectada (7/10) | salto, C55, Ahold sin unidad |
+   | M2 sin el `return 1` del bloqueo | detectada (9/10) | Ahold sin unidad |
+   | M3 se ignora la unidad declarada | detectada (8/10) | Ahold construye; 1.031…905 |
+   | M4 se quita el `isinstance` de `comprobar_anio` | detectada (9/10) | unidad [] |
+   | M5 sin el control frente a C55 | detectada (9/10) | C55 |
+   | M6 umbral ×10 000 | detectada (8/10) | salto; Ahold sin unidad |
+   | M7 «millones» = 1e-3 | detectada (7/10) | Ahold ×3 |
+   | M8 «miles» = 1e-6 | **sobrevive (10/10)** | — |
+
+5. **`test_comprobadores.py` en la copia** (con flock): 114/114 PASAN, rc=0. El repositorio queda intacto: ni `git status` ni ningún archivo más nuevo que la marca de inicio.
+
+### Hallazgos de la segunda ronda
+
+- **R2-1 (BAJA). Las pruebas solo ejercitan la unidad «millones».** Lo demuestra la mutación M8: un factor erróneo para «miles» o «unidades» no lo detecta ninguna prueba. En datos reales lo frenaría el control frente a C55, porque el error sale uniforme y de ×1000. Corrección propuesta: añadir a la prueba el caso de las tres unidades con la misma cifra (como el caso [1] de la primera ronda).
+- **R2-2 (BAJA, anterior al parche). La unidad del informe no textual sigue cayéndose.** Con `"unidad": []` en la raíz de AR_*.json (línea 181), `comprobar_anio` lanza `TypeError: unhashable type: 'list'`. La corrección solo arregló la unidad de la partida. Basta con declararlo o aplicar el mismo `isinstance`.
+- **R2-3 (BAJA, declarar). El umbral ×10 deja casos fuera por los dos lados.**
+  - Detiene también un salto real de más de ×10, como un *split* 20:1 no reexpresado en los años antiguos. La única salida es `fase1_decisiones.json`, que solo escribe una persona. Es correcto, pero conviene decirlo en la documentación.
+  - No detecta *splits* de ×10 o menos (2:1, 5:1) con la serie sin homogeneizar, que siguen falseando C28 sin aviso. Esto ya ocurría antes y queda fuera del alcance del parche.
+- **R2-4 (BAJA). La prueba nueva depende de expedientes vivos.** Lee `ahold_4_15/Ahold`, que es un expediente de examen en curso de otra sesión, y `elis_motor_A`. Si alguno cambia, la prueba fallará de forma visible (no pasa en silencio). Conviene fijar una copia propia de la prueba o un manifiesto de huellas.
+- **Detalle irrelevante.** Un `True` en `acciones_diluidas.valor` de los metadatos se toma como 1. Ese valor ya sería inválido por otras vías.
+
+### Lo que no pude comprobar
+- Nike con `construir`: falta `texto/`. Solo apliqué la función a los valores guardados.
+- Un caso real con un *split* de más de ×10.
