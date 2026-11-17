@@ -60,10 +60,12 @@ def run(receipt, original, group, output, invoker=q.invoke):
         q.SYSTEM = q.SYSTEM.replace('los 36 casos de Qwen', 'los 6 casos asignados de Qwen').replace(
             'cases (36 objetos, uno por Q1-001..036)', 'cases (6 objetos, uno por cada id de scope_ids)')
         q.SYSTEM += '\nEsta tanda comprende exactamente estos ids: ' + ', '.join(bundle['scope_ids']) + '. No revises los demás.\n'
+        q.SYSTEM += 'Cita fragmentos continuos exactos; no unas líneas ni uses elipsis para formar una cita.\n'
         q.BASE_CONFIG = q.BASE_CONFIG.replace('agent_max_output_tokens = 16384', 'agent_max_output_tokens = 32768')
         try:
             raw = invoker(bundle, r, output)
-            r['review'] = q.validate(raw, sources, expected_ids=bundle['scope_ids'])
+            r['citation_layout_adjustments'] = []
+            r['review'] = q.validate(raw, sources, expected_ids=bundle['scope_ids'], quote_corrections=r['citation_layout_adjustments'])
             r['state'] = 'REVISION_DOCUMENTAL_PENDIENTE_DE_ACEPTACION'
         except q.pilot.PilotError as err:
             r.update(state='RESULTADO_NO_ACEPTADO_NO_REINTENTAR', error=str(err))

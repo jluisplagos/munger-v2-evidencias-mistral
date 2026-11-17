@@ -123,7 +123,23 @@ def verify(bundle):
     return sources
 
 
-def validate(raw, sources, expected_ids=None):
+def literal_quote(quote, path, text):
+    if quote in text:
+        return quote, None
+    if not path.endswith('.md') or '\n' in quote or not quote.strip():
+        raise pilot.PilotError('CITA_NO_LITERAL')
+    # Solo maquetación de Markdown: mismos caracteres, con saltos suaves de línea.
+    pattern = re.escape(quote).replace(r'\ ', r'(?: |\r?\n[ \t]*)')
+    match = re.search(pattern, text)
+    if not match or '\n' not in match.group(0) or re.search(r'\n[ \t]*\n', match.group(0)):
+        raise pilot.PilotError('CITA_NO_LITERAL')
+    return match.group(0), {'source_path': path, 'model_quote': quote,
+                            'verbatim_source_quote': match.group(0),
+                            'source_start': match.start(), 'source_end': match.end(),
+                            'rule': 'SOLO_SALTOS_SUAVES_DE_LINEA_MARKDOWN'}
+
+
+def validate(raw, sources, expected_ids=None, quote_corrections=None):
     expected_ids = IDS if expected_ids is None else expected_ids
     raw = raw.strip()
     match = re.fullmatch(r'```json\r?\n([\s\S]*)\r?\n```', raw)
@@ -139,8 +155,13 @@ def validate(raw, sources, expected_ids=None):
             raise pilot.PilotError('CASO_INVALIDO')
         if c['assessment'] not in ('COHERENTE_INTERNAMENTE', 'AMBIGUO', 'INCONSISTENTE', 'NO_EVALUABLE_CON_FUENTES'):
             raise pilot.PilotError('VEREDICTO_NO_DOCUMENTAL')
-        if c['source_path'] not in sources or c['quote'] not in sources[c['source_path']]:
+        if c['source_path'] not in sources:
             raise pilot.PilotError('CITA_NO_LITERAL')
+        c['quote'], correction = literal_quote(c['quote'], c['source_path'], sources[c['source_path']])
+        if correction is not None:
+            if quote_corrections is None:
+                raise pilot.PilotError('CORRECCION_CITA_REQUIERE_REGISTRO_EXPLICITO')
+            quote_corrections.append(correction)
     if not isinstance(d['findings'], list) or len(d['findings']) > 8:
         raise pilot.PilotError('HALLAZGOS_INVALIDOS')
     for f in d['findings']:
@@ -150,8 +171,13 @@ def validate(raw, sources, expected_ids=None):
             raise pilot.PilotError('ALCANCE_HALLAZGO_INVALIDO')
         if any(not isinstance(f[k], str) or not f[k] for k in ('description', 'source_path', 'quote', 'recommendation')):
             raise pilot.PilotError('HALLAZGO_VACIO')
-        if f['source_path'] not in sources or f['quote'] not in sources[f['source_path']]:
+        if f['source_path'] not in sources:
             raise pilot.PilotError('CITA_NO_LITERAL')
+        f['quote'], correction = literal_quote(f['quote'], f['source_path'], sources[f['source_path']])
+        if correction is not None:
+            if quote_corrections is None:
+                raise pilot.PilotError('CORRECCION_CITA_REQUIERE_REGISTRO_EXPLICITO')
+            quote_corrections.append(correction)
     return d
 
 
@@ -224,7 +250,8 @@ def run(receipt, bundle, output, invoker=invoke):
             receipt.claim_after_zero_generation(reservation, previous)
         try:
             raw = invoker(bundle, report, output)
-            report['review'] = validate(raw, sources)
+            report['citation_layout_adjustments'] = []
+            report['review'] = validate(raw, sources, quote_corrections=report['citation_layout_adjustments'])
             report['state'] = 'REVISION_DOCUMENTAL_PENDIENTE_DE_ACEPTACION'
         except pilot.PilotError as err:
             report.update(state='RESULTADO_NO_ACEPTADO_NO_REINTENTAR', error=str(err))

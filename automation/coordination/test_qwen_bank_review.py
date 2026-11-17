@@ -99,6 +99,17 @@ class QwenReviewTests(unittest.TestCase):
         with patch.dict(os.environ, {'MISTRAL_VIBE_CLI_KEY': 'fake'}, clear=True):
             with self.assertRaisesRegex(q.pilot.PilotError, '409'):
                 q.run(receipt, self.bundle, self.tmp.name, lambda *a: self.fail('No debe inferir'))
+    def test_soft_markdown_line_wrap_returns_actual_source_and_provenance(self):
+        quote, proof = q.literal_quote('Afirmación de fuente con número 150.', 'plan.md', 'Afirmación de fuente\n   con número 150.\n')
+        self.assertEqual(quote, 'Afirmación de fuente\n   con número 150.')
+        self.assertEqual(proof['model_quote'], 'Afirmación de fuente con número 150.')
+    def test_line_wrap_does_not_allow_changed_numbers_or_cross_paragraphs(self):
+        for quote, source in [('Valor 151.', 'Valor\n 150.'), ('Afirmación coherente.', 'Afirmación\n\n coherente.')]:
+            with self.assertRaises(q.pilot.PilotError):
+                q.literal_quote(quote, 'plan.md', source)
+    def test_line_wrap_normalization_is_not_applied_to_csv_or_json(self):
+        with self.assertRaises(q.pilot.PilotError):
+            q.literal_quote('dato 150', 'fixture.csv', 'dato\n150')
 
 
 if __name__ == '__main__':

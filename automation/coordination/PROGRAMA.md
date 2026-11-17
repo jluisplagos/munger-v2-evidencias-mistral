@@ -5,6 +5,13 @@ conjunto. La automatización pasa a formar parte del programa y debe revisarse;
 dejarla «fuera de alcance» por ser una rama nueva no cierra esta asignación.
 No se adopta ninguna política económica ni se reduce el alcance original.
 
+Estado operativo de esta ampliación: Vibe conectado; primera tanda documental
+Q1-001…006 entregada por Mistral, pendiente de revisión externa. Se repuso un
+salto suave de línea en una cita, con texto y fallo originales conservados y
+sin nueva inferencia. Se prepara contraste por Sonnet 5.5/high, máximo calculado
+USD 0,50 por tanda, sin aceptación automática. Las tandas 02…06 aún no activadas.
+El intento completo de 36 agotó salida; no se confunde con esta entrega parcial.
+
 ## Autoridad y roles
 
 - Claude coordinador conserva CONTROL/ESTADO y la integración de la candidata.
@@ -122,6 +129,15 @@ la tarea completa. Se prepara contraste por tandas de seis, qwen-bank-group-01�
 con salida de 32768 y la misma calidad configurada. Solo se activa primero 01.
 Consultar sus informes en la misma carpeta reviews/ y no dar por ejecutado el
 producto por una cobertura documental del banco.
+
+Recogida: qwen-bank-group-01/postprocessed_report.json contiene los seis casos y
+cinco observaciones de Mistral (coherencia interna, no CUMPLE); report.json conserva
+el rechazo original por una cita que había unido líneas Markdown. Se permite
+reponer solo saltos suaves con los mismos caracteres, sin cruzar párrafos, y se
+registra la cita original y su ubicación/texto literal. No se inventa una cita.
+qwen-peer-group-01 recibirá el contraste Claude API; su reserva es propia y una
+repetición del workflow no autoriza otra llamada. Una crítica de modelo tampoco
+constituye aceptación del coordinador.
 
 ## Aceleración: medición, no promesa
 

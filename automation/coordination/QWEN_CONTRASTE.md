@@ -78,3 +78,18 @@ Una generación máxima por tanda, 32768 tokens de salida, mismo esfuerzo alto
 anunciado por el modelo y 300 segundos. Primero se activa solo la tanda 01; las
 demás esperan un informe utilizable y comprobado. No cambia la clasificación del
 banco ni cuenta como un recorrido del producto. Se preserva el consumo anterior.
+
+Tanda 01: Mistral entregó seis casos y cinco observaciones (12424 entrada / 11781
+salida, 1024 caché; coste CLI 0, saldo aplicado no comprobado). El control original
+rechazó una cita de Markdown que unía líneas. postprocessed_report.json conserva
+el texto visible original y registra la cita recompuesta con los saltos literales
+del archivo, su ubicación y la regla aplicada; cero inferencias añadidas. Los
+caracteres permanecen iguales y no se permite cruzar párrafos ni corregir números.
+
+Siguiente contraste: qwen-peer-group-01, Claude Sonnet 5.5/high, entrada USD 2/MTok,
+salida USD 10/MTok, máximo 16384 salida y reserva calculada <= USD 0,50. Fuentes
+fijadas a un commit de la rama de registro y a la proyección exacta del banco;
+rechaza casos incompletos, fuentes alteradas o atribuciones de pruebas del producto.
+Sin herramientas, una llamada como máximo, streaming, sin reintentos; dictamen
+documental pendiente de aceptación. No se activa esta llamada desde el chequeo
+horario: forma parte de la prueba operativa solicitada de colaboración.

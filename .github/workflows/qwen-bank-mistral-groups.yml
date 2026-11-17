@@ -39,6 +39,14 @@ jobs:
           python automation/coordination/qwen_group_review.py
           --group "${{ matrix.group }}" --code-sha "$GITHUB_SHA"
           --output "$RUNNER_TEMP/munger-qwen-group-${{ matrix.group }}"
+      - name: Revision por Claude API en contexto distinto
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: >-
+          python automation/coordination/qwen_peer_review.py
+          --group "${{ matrix.group }}" --code-sha "$GITHUB_SHA"
+          --output "$RUNNER_TEMP/munger-qwen-group-${{ matrix.group }}/peer"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
