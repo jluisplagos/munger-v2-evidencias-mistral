@@ -333,15 +333,17 @@
         "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/REVISION_D_d032691.md",
         "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/ESTADO_D3_TRAS_d032691.md",
         "contraste documental (no del personaje): automation/claude_review/results/munger-d-relevos-001 (ae8edcb, truncado) y munger-d-relevos-002 (a882874, postprocessed_report) en automatizacion/claude-api-piloto-registro, sobre D @ d032691, Q1-028/Q1-032",
-        "mistral/d-qwen-aceptacion @ 328fa31 (D3 bloque A: R1/R2/R7) y c734ca1 (bloque B: R3/R5)"
+        "mistral/d-qwen-aceptacion @ 328fa31 (D3 bloque A: R1/R2/R7) y c734ca1 (bloque B: R3/R5)",
+        "coordinacion/cierre_v2/revisiones_coordinador/D3_328fa31_c734ca1/REVISION_D3_328fa31_c734ca1.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/D3_328fa31_c734ca1/CORRECCION_D4.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "PARCIALES",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Respuesta a D3 entregada en dos bloques (328fa31, c734ca1). Revisión crítica por un contexto distinto en curso. Faltan, según el autor, R4/R8 si no vienen en estos bloques; el revisor lo comprobará.",
+      "siguiente_accion": "Revisión crítica de D3 (328fa31 y c734ca1) hecha por un contexto distinto (Fable, máximo): NO cierra D3. R4 y R8 sin tratar: generar_relevo.py sin cambios desde 5f4b2a2, lo comprobó el coordinador; en lo publicado, 0/36 paquetes con estado inicial, fases y artefacto por criterio. R1 abierto (cinco vías nuevas de autolectura) y R2 abierto (prueba 34 que no puede fallar; Q1-017). Q1-026 no tiene bloqueo de entorno. R6 empeora: el manifiesto da código 1. pruebas_arnes v4 aborta en la prueba 4. CORRECCION_D4 va a Mistral D.",
       "observacion": "Bloque 3 (d032691) posterior a la revisión de 5f4b2a2: regenera artefactos y cambia ejecutar_todo.sh y especificaciones; no modifica lib_arnes.py, ejecutar_caso.py ni generar_matriz.py (contraste externo 35d0fb9). Revisión del coordinador frente a D3 en curso. Contraste del piloto Claude API (relevos-002) sobre d032691: los relevos Q1-028 y Q1-032 no tienen estado inicial, fases ni un artefacto por criterio, y comando_relevo es null. Coincide con D3-R4 y lo refuerza. No es ejecución del personaje ni sustituye D3.",
-      "commit_revisado": "d032691ef2b926e387de3965460469d0994948df",
+      "commit_revisado": "c734ca151d415501d564bf426df7d98ecef694f8",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -367,7 +369,9 @@
         "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/REVISION_D_d032691.md",
         "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/ESTADO_D3_TRAS_d032691.md",
         "contraste documental (no del personaje): automation/claude_review/results/munger-d-relevos-001 (ae8edcb, truncado) y munger-d-relevos-002 (a882874, postprocessed_report) en automatizacion/claude-api-piloto-registro, sobre D @ d032691, Q1-028/Q1-032",
-        "mistral/d-qwen-aceptacion @ 328fa31 (D3 bloque A: R1/R2/R7) y c734ca1 (bloque B: R3/R5)"
+        "mistral/d-qwen-aceptacion @ 328fa31 (D3 bloque A: R1/R2/R7) y c734ca1 (bloque B: R3/R5)",
+        "coordinacion/cierre_v2/revisiones_coordinador/D3_328fa31_c734ca1/REVISION_D3_328fa31_c734ca1.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/D3_328fa31_c734ca1/CORRECCION_D4.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "PARCIALES",
@@ -376,7 +380,7 @@
         "T-CAND"
       ],
       "bloqueo": "No falta capacidad: el personaje se ejecuta con código 10 y subagentes de la sesión orquestadora (modelo y esfuerzo de config_v2.json, fase C con el mismo agente, auditoría con agente nuevo; sin API). Comprobado en 957af65: réplica hasta el código 10, paso 5. Bloqueo real: la adaptación de los 36 casos sintéticos a vías soportadas y la correspondencia criterio→observable (D2-R4/R5, Mistral D), que exige el propio PLAN_DE_EJECUCION del banco.",
-      "siguiente_accion": "0/36 casos del personaje (correcto). No se ejecutan con un arnés sin aceptar; el runtime del coordinador los ejecutará cuando D3-R1…R4 estén cerrados.",
+      "siguiente_accion": "0/36 casos ejecutables sin interpretar: falta el relevo en los 29 con componente y en Q1-026, y todo en Q1-028/031/032/033; Q1-030 y Q1-035 esperan decisión del usuario. Los 30 componentes sí se ejecutan con ejecutar_todo.sh y SHA_CANDIDATA_ESPERADO=b129b36. El personaje no se ejecuta hasta que se cierre D4.",
       "observacion": "Respuesta a D2 entregada en dos bloques (3934bc9, 5f4b2a2); revisión del coordinador en curso (contexto distinto). 0/36 casos del personaje ejecutados.",
       "commit_revisado": "d032691ef2b926e387de3965460469d0994948df",
       "alcance_aceptado": [],
@@ -581,7 +585,7 @@
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "Documentos oficiales de los candidatos sin verificar: descarga de FinecoBank denegada por el control de permisos de la sesión; Hannover Re responde 403 a curl. Hace falta que la persona responsable autorice esas descargas o deje ella los documentos (informe anual 2025 y Pilar 3 o SFCR 2025 de cada candidato).",
-      "siguiente_accion": "U3: Fineco descartada por la persona responsable (C4 y C3). Sus fuentes se conservan en una Release por workflow (rama coordinacion/release-fuentes-fineco @ 26e78a8, tag fuentes-fineco-u3-20261117). Un contexto aplica el protocolo al siguiente candidato C y lo verifica; el caso no se fuerza.",
+      "siguiente_accion": "U3, por decisión de la persona responsable: Hannover Rück se conserva como prueba negativa de «modelo no aplicable», no como sustituto del caso C aplicable. Se busca un banco compatible con el motor y el protocolo, separando los bloqueos de acceso a documentos de los incumplimientos del protocolo. Las fuentes de Hannover se conservan en una Release.",
       "observacion": "Respuesta a F2 entregada en cuatro commits (195766f…c761cc8); revisión del coordinador en curso (contexto distinto), solo F2-D1…D7. F2-D3 se contrasta también con el contrato de u3_motor_c/.",
       "commit_revisado": "98bdf8f7a48ee01c764834c5305b268fdde2b989",
       "alcance_aceptado": [],
@@ -1520,6 +1524,16 @@
       "tipo": "CONSULTA",
       "fecha": "2026-11-17",
       "hecho": "U3, Hannover Rück. La persona aprobó abrir assets.hannover-re.com y hannover-re.canto.de, y se descargaron 5 PDF desde assets. El informe anual 2025 está auditado (PwC, sin salvedades); el SFCR del grupo es una publicación voluntaria. Coinciden los fondos propios admisibles (20 672,6), el SCR (8 061,2) y el ratio (256,4 %). C4 se cumple: hay diez informes anuales y diez SFCR. R3: los minoritarios son el 7,2 % del patrimonio (E+S Rück). R7 es alto: lo más probable es modelo_no_aplicable. Resultado: NO DECIDIBLE solo por C3, porque existen el inglés y el alemán, el ESEF fehaciente es alemán y el inglés no declara su estatus. Decide la persona responsable."
+    },
+    {
+      "tipo": "DECISION",
+      "fecha": "2026-11-17",
+      "hecho": "U3 (persona responsable): Hannover Rück se conserva como prueba negativa de «modelo no aplicable» y no sustituye al caso C aplicable, que sigue pendiente. Se busca un banco compatible con el motor y el protocolo, distinguiendo los bloqueos de acceso a documentos de los incumplimientos del protocolo. Las fuentes de Hannover van a una Release."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "D3 (328fa31 y c734ca1) revisado por un contexto distinto con Fable, esfuerzo máximo: CORRECCIONES materiales. R4 y R8 sin tratar, R1, R2, R3 y R5 abiertos, R6 empeora y Q1-026 no es bloqueo de entorno. Se ejecutan 0/36 casos del personaje; los 30 componentes sí son ejecutables. CORRECCION_D4 publicada."
     }
   ],
   "consulta_remotos_arranque": {

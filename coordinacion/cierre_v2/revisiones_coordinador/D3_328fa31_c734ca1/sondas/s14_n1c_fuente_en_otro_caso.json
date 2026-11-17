@@ -1,0 +1,72 @@
+{
+ "id": "Q1-031",
+ "harness_version": "4.0",
+ "descripcion": "SONDA DEL REVISOR N1c: la fuente de la entrada está en el RUN_DIR de OTRO caso (../../Q1-036/Viscofan/fuentes_sinteticas/ajena.txt)",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:caja",
+   "clase": "dato_publicado",
+   "valor_modelo": 95,
+   "fuente": {
+    "documento": "fuente de otro caso",
+    "archivo": "../../Q1-036/Viscofan/fuentes_sinteticas/ajena.txt",
+    "version": "sintetica v1",
+    "pagina": 2,
+    "ubicacion": "Tabla 4",
+    "concepto": "caja",
+    "periodo": "ejercicio 2025",
+    "unidad": "millones de euros",
+    "escala": 1,
+    "signo": 1,
+    "tratamiento": "ninguno",
+    "perimetro": "consolidado",
+    "reexpresado": "no aplica",
+    "valor_fuente": 95,
+    "cita": "Tabla 4 pag.2: caja = 95 millones EUR."
+   },
+   "comprobacion": "verificada"
+  },
+  {
+   "op": "sellar",
+   "celdas": [
+    "aux:caja"
+   ],
+   "guardar": "01_sellar.txt",
+   "esperado": [
+    0,
+    1
+   ]
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar.json",
+   "esperado": [
+    0,
+    1
+   ]
+  }
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "la caja queda comprobada y sellada",
+   "afirma": [
+    {
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar.json",
+     "lista": "comprobadas",
+     "elemento": "aux:caja"
+    },
+    {
+     "tipo": "texto_contiene",
+     "archivo": "01_sellar.txt",
+     "contiene": "selladas 1"
+    }
+   ]
+  }
+ ]
+}

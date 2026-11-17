@@ -1,0 +1,107 @@
+{
+ "alcance": "sondas del arnés con candidata falsa (stubs); no son resultados del producto",
+ "R1_sin_scripts_producto": {
+  "exit_arnes": 2,
+  "stdout": "ERROR Q1-001: entorno inválido: ['falta <rev_D3>/trabajo/tmp/tmpwgtqdnzx/r1/cand/munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py (CANDIDATA_DIR=<rev_D3>/trabajo/tmp/tmpwgt",
+  "estado_caso": "ERROR_ENTORNO",
+  "esperado_revisor": "exit != 0 y estado no positivo",
+  "veredicto": "DETECTA"
+ },
+ "R2_matriz_sin_evidencias": {
+  "exit": 0,
+  "carpeta_evidencias_existe": true,
+  "filas": 36,
+  "veredicto_componente": {
+   "(vacío)": 36
+  },
+  "stderr_ultima_linea": "",
+  "veredicto": "DETECTA (sin CUMPLE)"
+ },
+ "P1_especificacion_vacia": {
+  "exit_arnes": 2,
+  "estado_caso": "ERROR_ESPECIFICACION",
+  "criterios": [],
+  "esperado_revisor": "un resultado vacío debe fallar",
+  "veredicto": "DETECTA"
+ },
+ "P2_criterio_sin_aserciones": {
+  "exit_arnes": 2,
+  "estado_caso": "ERROR_ESPECIFICACION",
+  "criterios": [],
+  "veredicto": "DETECTA"
+ },
+ "P3_evidencia_de_otro_caso": {
+  "exit_arnes": 2,
+  "estado_caso": "ERROR_ESPECIFICACION",
+  "criterios": [],
+  "veredicto": "DETECTA"
+ },
+ "P4_resultado_forjado_en_matriz": {
+  "exit": 0,
+  "Q1-031": {
+   "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+   "veredicto_componente": "",
+   "criterios_evaluados": "",
+   "comandos_reproducibles": "pendiente de especificación ejecutable"
+  },
+  "recuentos_veredicto_componente": {
+   "CUMPLE": 29,
+   "sin veredicto de componente": 7
+  },
+  "veredicto": "DETECTA"
+ },
+ "P5_Q1-034_sin_rango": {
+  "exit_arnes": 1,
+  "estado_caso": "COMPONENTE_FALLA",
+  "salida_01": "{\"comprobadas\": [], \"pendientes\": [\"aux:litigio: no est\\u00e1 acreditado (sin menci\\u00f3n de rango)\"]}",
+  "menciona_0_200": false,
+  "criterios": [
+   [
+    "C1",
+    "FALLA_COMPONENTE"
+   ],
+   [
+    "C2",
+    "FALLA_COMPONENTE"
+   ]
+  ],
+  "veredicto": "DETECTA"
+ },
+ "P6_salida_obsoleta_Q1-036": {
+  "exit_arnes": 1,
+  "estado_caso": "ERROR",
+  "copiados": [],
+  "exits": [
+   0,
+   1,
+   1,
+   3,
+   2
+  ],
+  "veredicto": "DETECTA"
+ },
+ "P7_Q1-026": {
+  "exit_arnes": 2,
+  "estado_caso": "ERROR_ENTORNO",
+  "criterios": [],
+  "origen_reutilizado": "{\"origen\": \"PREEXISTENTE Y MUTADO\"}",
+  "escribe_en_candidata (git status)": [
+   "?? munger_v2_r1/pruebas_d/"
+  ],
+  "veredicto": "DETECTA"
+ },
+ "P8_candidata_sucia": {
+  "exit_arnes": 2,
+  "estado_caso": "ERROR_ENTORNO",
+  "candidata_sha_registrado": "0bf1c3d4a90c28d01430b020955e8f5c484ff990",
+  "git_status": [
+   "M munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py",
+   "?? munger_v2_r1/pruebas_d/"
+  ],
+  "veredicto": "DETECTA"
+ },
+ "P9_log_acumulado": {
+  "ejecuciones_en_un_log": 1,
+  "veredicto": "OK"
+ }
+}

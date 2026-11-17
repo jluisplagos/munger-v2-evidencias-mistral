@@ -1,0 +1,46 @@
+{
+ "id": "Q1-017",
+ "descripcion": "SONDA DEL REVISOR: Q1-017 SIN ningún paso del caso (ni la entrada 'verificada sin bytes'); mismos criterios publicados",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "entrada",
+   "celda": "Historia!C23"
+  },
+  {
+   "op": "comprobar",
+   "guardar": "02_comprobar_lectura_externa_declarada.json",
+   "esperado": [
+    0,
+    1
+   ]
+  }
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "verificado declarado sin bytes conservados -> NO comprobado y apto false",
+   "afirma": [
+    {
+     "tipo": "json_lista_no_contiene",
+     "archivo": "02_comprobar_lectura_externa_declarada.json",
+     "lista": "comprobadas",
+     "prefijo": "Historia!C24",
+     "elemento": null
+    },
+    {
+     "tipo": "json_campo",
+     "archivo": "02_comprobar_lectura_externa_declarada.json",
+     "ruta": "apto_por_entradas",
+     "op": "eq",
+     "valor": false,
+     "elemento": null,
+     "prefijo": null
+    }
+   ]
+  }
+ ],
+ "harness_version": "4.0"
+}

@@ -1,0 +1,165 @@
+
+=== 0 · objeto
+worktree: c734ca151d415501d564bf426df7d98ecef694f8 · limpio: 0 cambios
+c734ca1 13:30:36 D3-R3/R5 (bloque B): regeneracion v4 verificada (29 CUMPLE componente reevaluados, Q1-026 BLO
+328fa31 13:25:45 D3-R1/R2/R7 (bloque A): arnes v4 — id validado antes de tocar el disco; todas las rutas (as
+banco: sha256sum -c exit 0 · casos e505e0c1f98a838e…
+cand957: HEAD 957af65 · manifiesto del producto exit 0
+herramientas en este entorno: pdftotext=/usr/bin/pdftotext soffice=/usr/bin/soffice python=Python 3.13.18
+
+=== 1 · D3-R6 manifiesto (cd resultados_qwen/ejecucion_d && sha256sum -c MANIFIESTO_SHA256.txt)
+exit 1 · OK 98 · FAILED 106 · entradas 204 · archivos 204
+
+=== 2 · D3-R8/R3 último commit que toca cada documento de entrega
+ENTREGA.json                       d032691 09:59:44
+RESPUESTA_D2.md                    d032691 09:59:44
+PUNTO_DE_RECUPERACION.md           d032691 09:59:44
+README.md                          d032691 09:59:44
+HALLAZGOS.md                       d032691 09:59:44
+RESUMEN_PARA_INTEGRADOR.md         d032691 09:59:44
+RELEVO_SUPERVISADO.md              d032691 09:59:44
+CONFIGURACION.json                 d032691 09:59:44
+MANIFIESTO_SHA256.txt              d032691 09:59:44
+evidencias/pruebas_arnes.log       d032691 09:59:44
+scripts/generar_relevo.py          5f4b2a2 09:45:39
+scripts/preparar_entorno.sh        3934bc9 09:32:07
+scripts/lib_arnes.py               328fa31 13:25:45
+scripts/generar_matriz.py          328fa31 13:25:45
+especificaciones en disco: 30 · resultados: 30 · documentos que dicen «28 esp…»: 4
+textos caducados frente a c734ca1: CONFIGURACION.harness_version=3.0 (el arnés es HARNESS_VERSION = "4.0") · «59 con aserción» en 4 documentos (el MAPA dice 54) · «16/16» en 7 documentos (pruebas_arnes.py declara 36 pruebas)
+RESPUESTA_D3*: 0 archivos · base_revisada_sha de ENTREGA.json: 1ac661b
+
+=== 3 · D3-R3 regeneración desde la evidencia publicada (cmp con lo publicado)
+generar_matriz.py exit 0
+generar_correspondencia.py exit 0
+generar_relevo.py exit 0
+cmp MATRIZ_EJECUCION.csv = 0
+cmp MAPA_CRITERIOS_BANCO.csv = 0
+cmp relevo/PAQUETES_RELEVO.json = 0
+cmp evidencias/recuentos.json = 0
+{'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6} {'CUMPLE': 29, 'sin veredicto de componente': 7} {'sin veredicto de caso': 29, 'NO_OBSERVABLE': 1, 'sin veredicto': 4, 'DECISION_PENDIENTE': 2} {'total': 109, 'con_asercion': 54, 'sin_asercion': 55}
+
+=== 4 · sondas de las revisiones anteriores, SIN CAMBIOS, sobre c734ca1 (stubs)
+sondas_arnes_d3.py exit 0
+sondas_arnes_d2.py exit 0
+sondas/sondas_d2.py DEL AUTOR exit 0 · veredictos:  10 "veredicto": "DETECTA; 1 "veredicto": "OK;
+  P3va_copiar_artefacto_../../Q1-036: exit 1 estado ERROR → CERRADO
+  P3vb_guardar_../Q1-036: exit 1 estado ERROR → CERRADO
+  N1a_escribir_fuente_nombre_../../../Q1-036 (nueva): exit 1 estado ERROR → CERRADO
+  N1b_copiar_artefacto_ruta_absoluta (nueva): exit 1 estado ERROR → CERRADO
+  P1v_asercion_sobre_ejecucion.log: exit 1 estado ERROR → CERRADO
+  N3_asercion_run:_sobre_fuente_escrita_por_el_arnes (nueva): exit 1 estado ERROR → CERRADO
+  P9w_id_punto: exit 2 estado - → CERRADO
+  N4_id_../fuera (nueva): exit 2 estado - → CERRADO
+  N4b_id_vacio (nueva): exit 2 estado - → CERRADO
+  P8va_skip_worktree: exit 2 estado ERROR_ENTORNO → CERRADO
+  P8vb_no_rastreado_en_scripts: exit 2 estado ERROR_ENTORNO → CERRADO
+  N5a_assume_unchanged (nueva): exit 2 estado ERROR_ENTORNO → CERRADO
+  N5b_no_rastreado_oculto_por_.git/info/exclude (nueva): exit 2 estado ERROR_ENTORNO → CERRADO
+  M2_resultado_de_4_campos_Q1-001: ERROR (COMPONENTE_OK) / -
+  N2a_salida_del_producto_vaciada_Q1-003 (nueva): ERROR (COMPONENTE_OK) / -
+  N2b_otra_candidata_otro_banco_harness_2.0_Q1-004 (nueva): ERROR (COMPONENTE_OK) / -
+  M3_Q1-026_ERROR_ENTORNO: BLOQUEO_ENTORNO / -
+  P7c_stderr_real: exit 0 COMPONENTE_OK
+  P7v_ajeno_con_lineas_antiguas: exit 1 COMPONENTE_FALLA
+  P7v2_CAMBIO_invalido_mas_lineas_reales (nueva): exit 1 COMPONENTE_FALLA
+  Q1-034_con_producto_de_eco: exit 1 COMPONENTE_FALLA
+  R4: Q1-005→COMPONENTE_FALLA deja solo: ['revisión externa por otro contexto'] · Q1-028/Q1-032: {'Q1-028': {'comando_relevo': None, 'paso_de_agente': True}, 'Q1-032': {'comando_relevo': None, 'paso_de_agente': False}}
+
+=== 5 · sondas NUEVAS (stubs): s02
+s02 exit 0
+  A1_N3b_copiar_artefacto_de_fuente_escrita_por_el_arnes: exit 0 estado COMPONENTE_OK matriz ['PARCIAL_COMPONENTE', 'CUMPLE'] → ABIERTO: COMPONENTE_OK sin que ninguna salida del producto contenga lo asertado; matriz = ('PAR
+  A2_N3c_copiar_artefacto_del_registro_escrito_por_el_arnes: exit 0 estado COMPONENTE_OK matriz ['PARCIAL_COMPONENTE', 'CUMPLE'] → ABIERTO: COMPONENTE_OK sin que ninguna salida del producto contenga lo asertado; matriz = ('PAR
+  A3_N3d_mutar_fuente_sobre_artefacto_y_copiar_artefacto: exit 0 estado COMPONENTE_OK matriz ['PARCIAL_COMPONENTE', 'CUMPLE'] → ABIERTO: COMPONENTE_OK sin que ninguna salida del producto contenga lo asertado; matriz = ('PAR
+  A4_P1v2_guardar_con_el_nombre_del_log_del_arnes: exit 0 estado COMPONENTE_OK matriz ['PARCIAL_COMPONENTE', 'CUMPLE'] → ABIERTO: COMPONENTE_OK sin que ninguna salida del producto contenga lo asertado; matriz = ('PAR
+  A5_P7v3_preparar_cambio_guardar=origen_estado.txt_con_fallo_ajeno: exit 0 estado COMPONENTE_OK matriz ['BLOQUEO_ENTORNO', ''] → ABIERTO: COMPONENTE_OK sin que ninguna salida del producto contenga lo asertado; matriz = ('BLO
+  B1a_N1c_entrada_fuente_archivo_../../Q1-036: exit 0 estado COMPONENTE_OK matriz - → ABIERTO (el arnés lee fuera del caso sin ERROR)
+  B1b_N1c_entrada_fuente_archivo_absoluto: exit 0 estado COMPONENTE_OK matriz - → ABIERTO (el arnés lee fuera del caso sin ERROR)
+  C1_id_con_salto_de_linea_final: exit 1 estado - matriz - → id aceptado por la validación; el caso termina con traza y sin resultado
+  C2_id_Q1-999_inexistente_en_el_banco: exit 1 estado - matriz - → id aceptado por la validación; el caso termina con traza y sin resultado
+  C2b_id_con_digitos_no_ASCII: exit 1 estado - matriz - → id aceptado por la validación; el caso termina con traza y sin resultado
+  C3_archivo_Q1-031.json_con_id_Q1-001: exit 0 estado - matriz - → límite: no se comprueba que el id coincida con el nombre de la especificación
+  D0_control_candidata_intacta: exit 1 estado COMPONENTE_FALLA matriz - → sin alteración efectiva: COMPONENTE_FALLA
+  D0a_P8va_skip_worktree: exit 2 estado ERROR_ENTORNO matriz - → CERRADO (ERROR_ENTORNO)
+  D0b_N5a_assume_unchanged: exit 2 estado ERROR_ENTORNO matriz - → CERRADO (ERROR_ENTORNO)
+  D0c_P8vb_archivo_no_rastreado: exit 2 estado ERROR_ENTORNO matriz - → CERRADO (ERROR_ENTORNO)
+  D0d_N5b_archivo_no_rastreado_oculto_por_exclude: exit 2 estado ERROR_ENTORNO matriz - → CERRADO (ERROR_ENTORNO)
+  D1_N5c_assume_unchanged_Y_skip_worktree (nueva): exit 0 estado COMPONENTE_OK matriz - → ABIERTO (candidata alterada pasa como limpia y la alteración decide el CUMPLE)
+  D2_N5g_directorio_enlazado_no_rastreado_oculto_por_exclude (nueva): exit 0 estado COMPONENTE_OK matriz - → ABIERTO (candidata alterada pasa como limpia y la alteración decide el CUMPLE)
+  E1: BLOQUEO_ENTORNO | E2: ERROR_ENTORNO → BLOQUEO_ENTORNO · NO_OBSERVABLE (bloqueo de entorno: faltan pdftotext/soffice/agente; pa
+  E3: ejecutar_caso con EVIDENCIAS_DIR propio → COMPONENTE_FALLA | generar_matriz con el mismo EVIDENCIAS_DIR → CUMPLE
+
+=== 5b · A1 y A2 repetidas con el PRODUCTO REAL 957af65 (s16)
+OK Q1-031 · criterios=[('C1', 'CUMPLE_COMPONENTE'), ('C2', 'CUMPLE_COMPONENTE')] · evidencias en <
+  exit 0
+OK Q1-033 · criterios=[('C1', 'CUMPLE_COMPONENTE')] · evidencias en <rev_D3>/trabajo/s16/ev/Q1-033
+  exit 0
+   Q1-031 COMPONENTE_OK · comandos del producto ejecutados: [('plantilla del registro', 0)] · archivos «del producto» según el arnés: ['salida_precio.txt'] · origen real: ['f6_031_precio.txt']
+   Q1-033 COMPONENTE_OK · comandos del producto ejecutados: [('plantilla del registro', 0)] · archivos «del producto» según el arnés: ['registro.json'] · origen real: ['verificacion_entradas.json']
+
+=== 6 · pruebas del autor (python3 -B scripts/pruebas_arnes.py) contra el producto real 957af65
+tal cual: 3 PASA · 0 FALLA · FileExistsError: [Errno 17] File exists: '<rev_D3>/trabajo/tmp/pruebas_arnes_v4_28ffgism/cand_fake/munger_v2_r1/personaje_v2/scripts' · exit 1
+con 4 parches mínimos del revisor (s04_parches…diff): 33 PASA · FALLA: [ 16 toda comprobación del arnés marcada _simulada/[SIMULADO] (incl. --revisor) · marcadas=False revisor_sim=True] · FileNotFoundError: [Errno 2] No such file or directory: '<rev_D3>/trabajo/tmp/pruebas_arnes_v4_egf6zwvr/run_rev/Q1-001/Viscofan/verificacion_entradas. · exit 1
+sobre el arnés MUTADO (A: ruta_dentro sin contención; B: Q1-027 C4 sin marca no_discriminante):
+  FALLA · 10 aserción con ruta ../ -> rc!=0 y error registrado · rc=1 errores=["aserción sobre archivo no producido po
+  PASA · 17 P3va copiar_artefacto ../../Q1-036 -> rc!=0, no copiado · rc=1 estado=ERROR copiado=False
+  PASA · 18 P3vb guardar ../Q1-036 -> víctima intacta, rc!=0 · rc=1 victima='ORIGINAL Q1-036'
+  PASA · 19 N1a escribir_fuente ../../../Q1-036 -> registro ajeno intacto · registro='{"original": "Q1-036"}' rc=1
+  PASA · 20 N1b copiar_artefacto ruta absoluta -> rc!=0 · rc=1 estado=ERROR
+  PASA · 34 D3-R2 control contra el ESTADO PREVIO: toda aserción falla salvo las marcadas no_discriminante · mal=[]
+
+=== 7 · D3-R3 reejecución REAL de las 30 especificaciones (bash scripts/ejecutar_todo.sh) y comparación byte a byte
+[sin_pdf: pdftotext ausente] 30 OK · exit 0 ·   estados: {'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6}
+cmp MATRIZ_EJECUCION.csv=0 · cmp MAPA_CRITERIOS_BANCO.csv=0 · cmp relevo/PAQUETES_RELEVO.json=0 · cmp evidencias/recuentos.json=0 · 
+  salidas del producto publicadas vs reejecutadas: 82/84 idénticas; distintas (solo cambia RUN_DIR): ['Q1-026/CAMBIO_Q1-026.json', 'Q1-026/origen_estado.txt']
+[con_pdf: pdftotext presente] 30 OK · exit 0 ·   estados: {'PARCIAL_COMPONENTE': 29, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6}
+cmp MATRIZ_EJECUCION.csv=0 · cmp MAPA_CRITERIOS_BANCO.csv=0 · cmp relevo/PAQUETES_RELEVO.json=0 · cmp evidencias/recuentos.json=0 · 
+  salidas del producto publicadas vs reejecutadas: 82/84 idénticas; distintas (solo cambia RUN_DIR): ['Q1-026/CAMBIO_Q1-026.json', 'Q1-026/origen_estado.txt']
+Q1-026: con pdftotext y soffice en el PATH, cambiar_base_preparar.txt es IDÉNTICO al publicado (las mismas 9 líneas)
+
+=== 8 · Q1-026: de dónde salen las 9 líneas, y qué pasa con otro expediente base
+fase1_historia.py construir sobre el origen (plantilla 4.13 Viscofan): 14 líneas de error (6 textos ausentes, 8 ceros sin cita) · exit 1 · bytes 1032 (cambiar_base.py:300 publica solo los últimos 600 caracteres)
+texto/ de la plantilla: AR_2017.txt AR_2019.txt AR_2020.txt AR_2025.txt CA_2023_es.txt CF_2021.txt CF_2022_compilacion.txt CF_2024.txt IA_2016_es.txt IA_2018_es.txt IA_2021_es.txt IA_2023_es.txt 
+PDF o texto AR_2021..AR_2024 de Viscofan en toda la candidata: 0
+  construir sobre 2026-11_Vidrala_ensayo_4_14/viscofan/Viscofan: exit 0 · fase1_v63.json escrito (10 años, 4 diferencias con el compa
+  construir sobre 2026-11_Vidrala_ensayo_4_14/viscofan_decisiones/Viscofan: exit 0 · fase1_v63.json escrito (10 años, 4 diferencias con el compa
+  construir sobre 2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala: exit 0 · fase1_v63.json escrito (10 años, 25 diferencias con el comp
+  construir sobre 2026-11_Vidrala_ensayo_4_14/elis_decisiones/Elis: exit 0 · fase1_v63.json escrito (10 años, 71 diferencias con el comp
+arnés (misma spec, PLANTILLA_EXP = Viscofan 4.14): exit 1 · ERROR Q1-026 · criterios=[('C1', 'FALLA_COMPONENTE')] · evidencias e
+  cambiar_base.py preparar: exit 0 (la spec espera [1] ) · stderr vacío: True · - Entradas sustituidas en fase1_v63.json: C24 → 90.0
+
+=== 9 · D3-R2 control REAL contra el estado previo (s09) y Q1-017 sin los pasos del caso (s09b)
+estado previo regenerado == s09_estado_previo_plantilla_957af65.json: cmp 0
+  aserciones 84 · sobre comprobar 72
+  criterios íntegros sobre su estado previo: [('Q1-017', 'C1', 'SIN MARCA: cuenta como CUMPLE'), ('Q1-027', 'C4', 'marcado')]
+OK Q1-017 · criterios=[('C1', 'CUMPLE_COMPONENTE')] · evidencias en <rev_D3>/trabajo/q01
+  exit 0
+
+=== 10 · N1c con el producto real, D3-R7 y candidata compartida
+COMPONENTE_FALLA Q1-031 · criterios=[('C1', 'FALLA_COMPONENTE')] · e
+  N1c (fuente.archivo=../../Q1-036/…):   aux:caja: no pasa los controles automáticos (aux:caja: la fuente local '../../Q1-036/Viscofan/fuentes_sinteticas/ajena.txt' no está en el expediente ni en el paquete:
+  R7a --revisor: revisora independiente (nombre de persona) [SIMULADO]
+  R7b auxiliar sin comprobación: [True]
+  R7c ARNES_EVIDENCIAS_LIMPIAS=0: evidencias_limpiadas False · cabeceras en el log 3 · avisos 2
+  R7d preparar_entorno.sh:33 lee r['good'] → 1 aparición; tools/base_414.py escribe: "verified" 
+  candidata compartida HEAD b129b36 · diff de personaje_v2/scripts frente a 957af65: 0 archivos
+  sin SHA_CANDIDATA_ESPERADO: ERROR Q1-001: entorno inválido: ["SHA candidata observado 'b129b36f0aaf7e705fd206efd743fc01a9e96c10' != esperado 957af652cdc3bef3d67e8623c9572138bac6
+  con SHA_CANDIDATA_ESPERADO=HEAD: OK Q1-001 · criterios=[('C1', 'CUMPLE_COMPONENTE'), ('C2', 'CUMPLE_COMPONENTE')] · evide
+  candidata compartida tras la prueba: 0 cambios · 0 archivos nuevos
+
+=== 11 · D3-R5 (s10, s12) y D3-R4 (s13)
+   {'PARCIAL': 29, 'NO_OBSERVA': 13, 'OBSERVA': 12} · NO_OBSERVA: ['Q1-001#2', 'Q1-005#0', 'Q1-007#0', 'Q1-010#1', 'Q1-012#1', 'Q1-017#0', 'Q1-017#1', 'Q1-019#1', 'Q1-020#0', 'Q1-023#1', 'Q1-034#0', 'Q1-036#1', 'Q1-036#2']
+  CAMBIO: {'a0': (1, True), 'a1': (2, False), 'a2': (2, False), 'a3': (2, False), 'a4': (2, False), 'a5': (2, False), 'a6': (2, False), 'a7': (1, True)}
+  MAPA con aserción: 54 → 56 tras declarar dos filas sin respaldo
+  prueba 36 del autor: FALLA · 253 incumplimientos {'sin estado_inicial': 36, 'sin fases': 36, 'sin entrada': 36, 'sin artefacto_por_criterio': 36, 'criterio del banco sin artefacto': 109} · comando_relevo null: ['Q1-028', 'Q1-030', 'Q1-031', 'Q1-032', 'Q1-033', 'Q1-035'] · mismo texto genérico en 29 paquetes
+  paquetes de relevo que cambian d032691→c734ca1: ['Q1-025', 'Q1-026', 'Q1-027', 'Q1-034'] · Q1-028 y Q1-032 idénticos: True
+  filas del MAPA que cambian de aserción d032691→c734ca1: ['Q1-025#2', 'Q1-026#0', 'Q1-026#2', 'Q1-027#0', 'Q1-027#2']
+
+=== 12 · bloque A (328fa31) por separado: ¿su MATRIZ sale de su evidencia?
+  estados: {'ERROR (COMPONENTE_FALLA)': 1, 'PARCIAL_COMPONENTE': 28, 'BLOQUEO_ENTORNO': 1, 'NO_EJECUTADO': 6}
+  cmp MATRIZ regenerada vs publicada en 328fa31 = 1 · candidata_sha de Q1-001 en 328fa31: "candidata_sha": "d5dec122cd · # candidato: /tmp/tmpxiump0yo/R1_ejecutar_todo_y_M2/cand_et (SHA esper
+
+=== 13 · higiene
+rutas fuera de resultados_qwen/ejecucion_d en d032691..c734ca1: 0 · binarios: 0 · pyc rastreados: 0
+rutas absolutas en especificaciones: 0 archivos · en el CAMBIO publicado: 2 (origen y destino)
+worktree de revisión sigue limpio: 0 cambios · cand957: 0 cambios rastreados, 0 __pycache__

@@ -1,0 +1,15 @@
+86c86
+<     os.makedirs(sc)
+---
+>     os.makedirs(os.path.dirname(sc))  # PARCHE DEL REVISOR (1 línea): el original hace os.makedirs(sc) y copytree falla con FileExistsError
+153a154,155
+>     for _s in ("lib_arnes.py", "ejecutar_caso.py"):  # PARCHE DEL REVISOR 2: generar_matriz v4 los importa
+>         shutil.copy(os.path.join(AQUI, _s), os.path.join(aux_tmp, "scripts", _s))
+214c216
+<     os.makedirs(os.path.join(t, "scripts", "especificaciones"))
+---
+>     os.makedirs(os.path.join(t, "scripts"))  # PARCHE DEL REVISOR 4: el original crea .../especificaciones y después copytree falla
+216c218
+<     for s in ("generar_matriz.py",):
+---
+>     for s in ("generar_matriz.py", "lib_arnes.py", "ejecutar_caso.py"):  # PARCHE DEL REVISOR 3

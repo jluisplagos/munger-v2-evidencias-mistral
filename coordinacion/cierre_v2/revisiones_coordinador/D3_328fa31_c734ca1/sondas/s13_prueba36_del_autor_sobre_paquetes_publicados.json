@@ -1,0 +1,47 @@
+{
+ "prueba_36": "FALLA",
+ "incumplimientos": 253,
+ "por_tipo": {
+  "sin estado_inicial": 36,
+  "sin fases": 36,
+  "sin entrada": 36,
+  "sin artefacto_por_criterio": 36,
+  "criterio del banco sin artefacto": 109
+ },
+ "paquetes": 36,
+ "programa_declarado_en_el_paquete": "coordinacion/cierre-v2 (PROMPT_MISTRAL_D) respuesta D2-R4 sobre 1ac661b",
+ "paquetes_con_las_4_claves": 0,
+ "comando_relevo_null": [
+  "Q1-028",
+  "Q1-030",
+  "Q1-031",
+  "Q1-032",
+  "Q1-033",
+  "Q1-035"
+ ],
+ "comando_relevo_es_el_del_componente": 30,
+ "textos_que_distintos_en_falta_para_caso_completo": 6,
+ "paquetes_con_el_mismo_texto_generico_de_agente": 29,
+ "Q1-028": {
+  "comando_relevo": null,
+  "motivo_sin_comando": "sin especificación ejecutable del arnés: el caso requiere agente/política, no un comando de componente",
+  "falta_para_caso_completo": [
+   {
+    "qué": "reaprobación NUEVA con auditor real (la observación compartida con Q1-036 solo muestra la retirada) y deuda neta vigente 300+40-95=245 documentada como transformación pendiente de verificar",
+    "quién": "agente auditor nuevo (runtime del coordinador)",
+    "necesita": "expediente con la transformación vigente (arrendamientos 40, deuda 300, caja 95 del fixture f5_028_aprobacion.json)"
+   }
+  ]
+ },
+ "Q1-032": {
+  "comando_relevo": null,
+  "motivo_sin_comando": "sin especificación ejecutable del arnés: el caso requiere agente/política, no un comando de componente",
+  "falta_para_caso_completo": [
+   {
+    "qué": "recuento 4 verificadas / 1 pendiente / 5 total del fixture f6_032_matriz.json sin doble conteo (el universo real es 321: 1/321 no lo prueba)",
+    "quién": "runtime del coordinador",
+    "necesita": "expediente de prueba con universo de 5 soportado o registrar NO_OBSERVABLE; ficha provisional que distinga estado de entradas vs estado de la conclusión"
+   }
+  ]
+ }
+}

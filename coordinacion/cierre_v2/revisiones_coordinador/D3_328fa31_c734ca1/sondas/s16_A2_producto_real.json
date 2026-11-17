@@ -1,0 +1,49 @@
+{
+ "id": "Q1-033",
+ "harness_version": "4.0",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "entrada",
+   "celda": "aux:litigio",
+   "clase": "hipotesis",
+   "hipotesis": {
+    "fundamento": "Nota 12: rango acotado 0-200 millones EUR",
+    "alternativas": [],
+    "limites": "0-200"
+   }
+  },
+  {
+   "op": "copiar_artefacto",
+   "archivo": "verificacion_entradas.json",
+   "guardar": "registro.json"
+  }
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "el rango 0-200 queda registrado como hipótesis",
+   "afirma": [
+    {
+     "tipo": "json_entrada_campo",
+     "archivo": "registro.json",
+     "celda": "aux:litigio",
+     "ruta": "clase",
+     "op": "eq",
+     "valor": "hipotesis"
+    },
+    {
+     "tipo": "json_entrada_campo",
+     "archivo": "registro.json",
+     "celda": "aux:litigio",
+     "ruta": "hipotesis.fundamento",
+     "op": "contiene",
+     "valor": "0-200"
+    }
+   ]
+  }
+ ],
+ "descripcion": "SONDA DEL REVISOR A2 con el producto real: las aserciones leen solo lo que escribió el arnés"
+}

@@ -1,0 +1,1180 @@
+{
+ "objeto": "c734ca1: especificaciones + evidencia publicada",
+ "estado_previo": "s09_estado_previo_plantilla_957af65.json",
+ "aserciones": 84,
+ "aserciones_sobre_comprobar": 72,
+ "aserciones_que_pasan_en_BASE": [
+  "Q1-002 C1.1 json_lista_no_contiene 02_comprobar_na_e_hipotesis.json",
+  "Q1-003 C2.1 json_lista_no_contiene 02_comprobar_cero_no_publicado.json",
+  "Q1-005 C1.1 json_lista_no_contiene 01_comprobar_derivado_origen_pendiente.json",
+  "Q1-015 C1.1 json_lista_no_contiene 01_comprobar_conflicto.json",
+  "Q1-017 C1.0 json_lista_no_contiene 02_comprobar_lectura_externa_declarada.json",
+  "Q1-017 C1.1 json_campo 02_comprobar_lectura_externa_declarada.json",
+  "Q1-019 C1.5 json_campo 02_comprobar_parcial_4_1.json",
+  "Q1-020 C2.0 json_lista_no_contiene 03_comprobar_tras_cambio_fundamento.json",
+  "Q1-025 C1.2 json_lista_no_contiene 03_comprobar_reutilizada.json",
+  "Q1-034 C1.1 json_lista_no_contiene 01_comprobar_rango_acotado.json",
+  "Q1-034 C2.1 json_lista_no_contiene 02_comprobar_punto_medio_rechazado.json",
+  "Q1-001 C2.1 json_lista_no_contiene 04_comprobar_control_dato_ausente.json",
+  "Q1-027 C2.1 json_lista_no_contiene 03_comprobar_tras_mutacion.json",
+  "Q1-027 C4.0 json_campo 02_comprobar_antes_mutacion.json",
+  "Q1-027 C4.1 json_campo 03_comprobar_tras_mutacion.json"
+ ],
+ "aserciones_que_pasan_en_PREV": [
+  "Q1-003 C2.1 json_lista_no_contiene 02_comprobar_cero_no_publicado.json",
+  "Q1-017 C1.0 json_lista_no_contiene 02_comprobar_lectura_externa_declarada.json",
+  "Q1-017 C1.1 json_campo 02_comprobar_lectura_externa_declarada.json",
+  "Q1-025 C1.1 json_lista_contiene 03_comprobar_reutilizada.json",
+  "Q1-025 C1.2 json_lista_no_contiene 03_comprobar_reutilizada.json",
+  "Q1-034 C2.1 json_lista_no_contiene 02_comprobar_punto_medio_rechazado.json",
+  "Q1-027 C4.1 json_campo 03_comprobar_tras_mutacion.json"
+ ],
+ "CRITERIOS_que_pasan_integros_en_el_estado_previo": [
+  {
+   "caso": "Q1-017",
+   "criterio": "C1",
+   "texto": "verificado declarado sin bytes conservados -> NO comprobado y apto false",
+   "pasa_integro_en": [
+    "su estado previo de referencia: 0→PREV, 1→PREV"
+   ],
+   "marcado_no_discriminante": false,
+   "cuenta_para_COMPONENTE_OK": true
+  },
+  {
+   "caso": "Q1-027",
+   "criterio": "C4",
+   "texto": "apto_por_entradas=false antes y despues: NO discriminante (ya era false antes por los errores de contrato del universo de 321 celdas); queda fuera del",
+   "pasa_integro_en": [
+    "su estado previo de referencia: 0→BASE, 1→PREV"
+   ],
+   "marcado_no_discriminante": true,
+   "cuenta_para_COMPONENTE_OK": false
+  }
+ ],
+ "CRITERIOS_no_discriminantes_SIN_MARCA_que_cuentan_como_CUMPLE": [
+  "Q1-017 C1 (pasa íntegro en su estado previo de referencia: 0→PREV, 1→PREV)"
+ ],
+ "prueba_34_del_autor": "copia a `prev` solo los archivos de pasos ANTERIORES al que produce el archivo leído (pruebas_arnes.py:449-456), así que el archivo leído nunca está y toda aserción falla por 'RUTA NO PERMITIDA': mal == [] siempre. Ver s05 (mutante B: Q1-027 C4 sin marca -> PASA igual).",
+ "detalle": {
+  "Q1-002 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_campo",
+     "archivo": "02_comprobar_na_e_hipotesis.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "02_comprobar_na_e_hipotesis.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": null,
+     "REF": true
+    }
+   ]
+  },
+  "Q1-002 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_na_e_hipotesis.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-003 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_dato_ausente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-003 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_cero_no_publicado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "02_comprobar_cero_no_publicado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": true,
+     "REF": true
+    }
+   ]
+  },
+  "Q1-004 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "01_comprobar_hipotesis_listada.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-005 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_derivado_origen_pendiente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "01_comprobar_derivado_origen_pendiente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": null,
+     "REF": true
+    }
+   ]
+  },
+  "Q1-005 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "04_comprobar_formula_trivial_origenes_comprobados.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-007 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_escala_no_declarada.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-007 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_unidad_declarada.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-008 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_signo_parentesis.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-008 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "03_comprobar_signo_menos1_sin_tratamiento.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-009 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_cita_columna_equivocada.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-009 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_corregido.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-010 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_equivalencia_miles.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-010 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "03_comprobar_control_escala_incoherente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-011 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_signo_tratamiento.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-011 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "03_comprobar_doble_negacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-012 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_perimetro_segmento_sin_justificacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-012 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "02_comprobar_perimetro_segmento_justificado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-013 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_trazabilidad_completa.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-014 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_reexpresado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-014 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "03_comprobar_historico_conservado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-015 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_conflicto.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "01_comprobar_conflicto.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": null,
+     "REF": true
+    }
+   ]
+  },
+  "Q1-015 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_resuelto.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-016 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_moneda_no_reconocida.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-017 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "02_comprobar_lectura_externa_declarada.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": true,
+     "REF": true
+    },
+    {
+     "n": 1,
+     "tipo": "json_campo",
+     "archivo": "02_comprobar_lectura_externa_declarada.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": true,
+     "REF": true
+    }
+   ]
+  },
+  "Q1-018 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_version_vigente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-018 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_version_vigente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_version_vigente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-019 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_parcial_4_1.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_parcial_4_1.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 2,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_parcial_4_1.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 3,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_parcial_4_1.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 4,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_parcial_4_1.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 5,
+     "tipo": "json_campo",
+     "archivo": "02_comprobar_parcial_4_1.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": null,
+     "REF": true
+    },
+    {
+     "n": 6,
+     "tipo": "json_campo",
+     "archivo": "02_comprobar_parcial_4_1.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-020 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_antes_cambio.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-020 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "03_comprobar_tras_cambio_fundamento.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-021 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_cita_en_pagina_instruccion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-021 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_tabla_normal.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-022 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_contradiccion_visible.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-023 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_periodo_incorrecto.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-023 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_periodo_correcto.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-024 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_dato_como_hipotesis_sin_justificacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-024 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_dato_como_hipotesis_listado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-025 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_primera.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_reutilizada.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": true,
+     "REF": true
+    },
+    {
+     "n": 2,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "03_comprobar_reutilizada.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": true,
+     "REF": true
+    }
+   ]
+  },
+  "Q1-026 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "stderr_lineas_eq",
+     "archivo": "cambiar_base_preparar.txt",
+     "op": "preparar_cambio",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    }
+   ]
+  },
+  "Q1-029 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_rehidratacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_rehidratacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 2,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_rehidratacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-029 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_rehidratacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_rehidratacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-034 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_rango_acotado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "01_comprobar_rango_acotado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": null,
+     "REF": true
+    }
+   ]
+  },
+  "Q1-034 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "02_comprobar_punto_medio_rechazado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "02_comprobar_punto_medio_rechazado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": true,
+     "REF": true
+    }
+   ]
+  },
+  "Q1-001 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "03_comprobar_sellado.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "texto_contiene",
+     "archivo": "02_sellar.txt",
+     "op": "sellar",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    }
+   ]
+  },
+  "Q1-001 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "04_comprobar_control_dato_ausente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "04_comprobar_control_dato_ausente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-006 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "01_comprobar_cero_sin_fuente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "texto_contiene",
+     "archivo": "02_sellar_rechazado.txt",
+     "op": "sellar",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    }
+   ]
+  },
+  "Q1-006 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "03_comprobar_dato_ausente.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-027 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene",
+     "archivo": "02_comprobar_antes_mutacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": null,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "texto_contiene",
+     "archivo": "01_sellar.txt",
+     "op": "sellar",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    }
+   ]
+  },
+  "Q1-027 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_lista_contiene_texto",
+     "archivo": "03_comprobar_tras_mutacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": false,
+     "PREV": false,
+     "REF": false
+    },
+    {
+     "n": 1,
+     "tipo": "json_lista_no_contiene",
+     "archivo": "03_comprobar_tras_mutacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": false,
+     "REF": false
+    }
+   ]
+  },
+  "Q1-027 C3": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "texto_contiene",
+     "archivo": "04_sellar_tras_mutacion.txt",
+     "op": "sellar",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    }
+   ]
+  },
+  "Q1-027 C4": {
+   "no_discriminante_declarado": true,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "json_campo",
+     "archivo": "02_comprobar_antes_mutacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": null,
+     "REF": true
+    },
+    {
+     "n": 1,
+     "tipo": "json_campo",
+     "archivo": "03_comprobar_tras_mutacion.json",
+     "op": "comprobar",
+     "publicada": true,
+     "BASE": true,
+     "PREV": true,
+     "REF": true
+    }
+   ]
+  },
+  "Q1-036 C1": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "texto_contiene",
+     "archivo": "03_ficha_oficial_concluido.txt",
+     "op": "ficha",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    },
+    {
+     "n": 1,
+     "tipo": "texto_contiene",
+     "archivo": "03_ficha_oficial_concluido.txt",
+     "op": "ficha",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    }
+   ]
+  },
+  "Q1-036 C2": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "archivo_existe",
+     "archivo": "05_ficha_provisional.json",
+     "op": "copiar_artefacto",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    },
+    {
+     "n": 1,
+     "tipo": "json_campo",
+     "archivo": "05_ficha_provisional.json",
+     "op": "copiar_artefacto",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    },
+    {
+     "n": 2,
+     "tipo": "json_campo",
+     "archivo": "05_ficha_provisional.json",
+     "op": "copiar_artefacto",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    }
+   ]
+  },
+  "Q1-036 C3": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "texto_contiene",
+     "archivo": "07_informe_provisional.md",
+     "op": "copiar_artefacto",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    }
+   ]
+  },
+  "Q1-036 C4": {
+   "no_discriminante_declarado": false,
+   "aserciones": [
+    {
+     "n": 0,
+     "tipo": "texto_contiene",
+     "archivo": "08_informe_oficial.txt",
+     "op": "informe",
+     "publicada": true,
+     "BASE": null,
+     "PREV": null,
+     "REF": null
+    }
+   ]
+  }
+ }
+}

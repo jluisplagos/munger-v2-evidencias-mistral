@@ -1,0 +1,686 @@
+{
+ "alcance": "sondas con candidata falsa (stubs); no son resultados del producto Munger",
+ "bloque1_3934bc9": {
+  "arnes": {
+   "P1_spec_vacia": {
+    "exit": 2,
+    "estado": "ERROR_ESPECIFICACION",
+    "veredicto": "DETECTA"
+   },
+   "P1v_P2v_asercion_sobre_log_del_arnes": {
+    "exit": 1,
+    "estado": "ERROR",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P2_criterio_sin_aserciones": {
+    "exit": 2,
+    "estado": "ERROR_ESPECIFICACION",
+    "veredicto": "DETECTA"
+   },
+   "P3_lectura_otro_caso": {
+    "exit": 1,
+    "estado": "ERROR",
+    "errores": [
+     "ruta fuera de las evidencias del caso: '../Q1-036/07_informe_provisional.md'"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P3va_copiar_artefacto_de_otro_caso": {
+    "exit": 1,
+    "estado": "ERROR",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "artefactos": [],
+    "veredicto": "DETECTA"
+   },
+   "P3vb_guardar_escribe_en_otro_caso": {
+    "exit": 1,
+    "estado": "ERROR",
+    "contenido_Q1-036_tras_la_ejecucion": "EVIDENCIA ORIGINAL DE Q1-036",
+    "veredicto": "OK"
+   },
+   "P5_Q1-034_sin_universo": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "01_comprobar_rango_acotado.json:pendientes con prefijo 'aux:litigio' contiene 'pendiente' -> FALLA",
+     "01_comprobar_rango_acotado.json: salida sin universo positivo (vacía); el negativo no acredita"
+    ],
+    "veredicto": "C1 FALLA"
+   },
+   "P5v_Q1-034_universo_sin_rango": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "01_comprobar_rango_acotado.json:pendientes con prefijo 'aux:litigio' contiene 'pendiente' -> FALLA",
+     "01_comprobar_rango_acotado.json:comprobadas sin prefijo 'aux:litigio' (universo=321) -> OK"
+    ],
+    "veredicto": "C1 FALLA"
+   },
+   "P5w_Q1-034_eco_de_la_nota_del_arnes": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "01_comprobar_rango_acotado.json:pendientes con prefijo 'aux:litigio' contiene 'pendiente' -> FALLA",
+     "01_comprobar_rango_acotado.json:comprobadas sin prefijo 'aux:litigio' (universo=321) -> OK"
+    ],
+    "veredicto": "C1 FALLA"
+   },
+   "P7a_residuo_en_candidata": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "errores": [
+     "la candidata contiene residuo pruebas_d/ del arnés: ['?? munger_v2_r1/pruebas_d/']"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P7b_fallo_ajeno_subcadena": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [
+     "[C1] cambiar_base_preparar.txt: stderr con 1 líneas == 9 esperadas -> FALLA (diferencia en [\"ERROR ajeno a pdftotext: CAMBIO inválido; «archivo» ausente o inexistente en texto/: 'X.txt'\"])"
+    ],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "ERROR ajeno a pdftotext: CAMBIO inválido; «archivo» ausente o inexistente en texto/: 'X.txt'"
+     ],
+     "otros_errores": [],
+     "nota": "diagnostico del arnes; las aserciones solo leen salidas del producto (cambiar_base_preparar.txt)"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P7c_replay_stderr_real": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "AR_2021: AR_2021: «archivo» ausente o inexistente en texto/: 'AR_2021.txt'",
+      "AR_2022: AR_2022: «archivo» ausente o inexistente en texto/: 'AR_2022.txt'",
+      "AR_2023: AR_2023: «archivo» ausente o inexistente en texto/: 'AR_2023.txt'",
+      "AR_2024: AR_2024: «archivo» ausente o inexistente en texto/: 'AR_2024.txt'"
+     ],
+     "otros_errores": [
+      "fase1_historia.py construir falló: ipal: «cero» sin «cita» literal de la página 12",
+      "AR_2019: sbc: «cero» sin «cita» literal de la página 13",
+      "AR_2019: arrendamientos: «cero» sin «cita» literal de la página 62",
+      "AR_2019: minoritarios: «cero» sin «cita» literal de la página 11",
+      "AR_2020: minoritarios: «cero» sin «cita» literal de la página 4"
+     ],
+     "nota": "diagnostico del arnes; las aserciones solo leen salidas del producto (cambiar_base_preparar.txt)"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P7v_fallo_ajeno_con_lineas_esperadas": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [
+     "[C1] cambiar_base_preparar.txt: stderr con 6 líneas == 9 esperadas -> FALLA (diferencia en [\"ERROR: CAMBIO mal formado: clave 'version_formato' no admitida\"])"
+    ],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "AR_2021: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2022: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2023: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2024: (diagnóstico previo) «archivo» ausente o inexistente en texto/"
+     ],
+     "otros_errores": [
+      "ERROR: CAMBIO mal formado: clave 'version_formato' no admitida",
+      "ipal: aviso: la cita no se ha podido revisar"
+     ],
+     "nota": "diagnostico del arnes; las aserciones solo leen salidas del producto (cambiar_base_preparar.txt)"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P8_rastreado_modificado": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "errores": [
+     "cambios sin commit respecto a HEAD: ['munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py']"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P8va_skip_worktree": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "candidata_sha": true,
+    "git_status": "",
+    "script_alterado_ejecutado": false,
+    "veredicto": "DETECTA"
+   },
+   "P8vb_no_rastreado_en_scripts": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "candidata_no_rastreadas": 1,
+    "salida_alterada": false,
+    "veredicto": "DETECTA"
+   },
+   "P9_un_log_por_ejecucion": {
+    "cabeceras_en_log": 1,
+    "veredicto": "OK"
+   },
+   "P9v_opcion_ARNES_EVIDENCIAS_LIMPIAS_0": {
+    "cabeceras_en_log": 2,
+    "resultado_registra_la_opcion": false,
+    "veredicto": "ACUMULA sin registrarlo"
+   },
+   "P9w_id_punto_borra_evidencias": {
+    "exit": 2,
+    "Q1-001_sobrevive": true,
+    "stderr_ultima": "",
+    "veredicto": "OK"
+   },
+   "R7a_marcas": {
+    "revisor_en_comando_sellar": "revisora independiente (nombre de persona) [SIMULADO]",
+    "aux_comprobacion_escrita_por_el_arnes": {
+     "extractor": null,
+     "revisor": null,
+     "fecha": null,
+     "resultado": "pendiente",
+     "fuente_examinada": null,
+     "nota": null,
+     "vinculo": null,
+     "_simulada": true
+    },
+    "veredicto": "OK"
+   },
+   "R7c_sha_observado": {
+    "candidata_sha": "60e9f7c558fcb64b1d06e34d65e46785a6fe6c16",
+    "esperado": "60e9f7c558fcb64b1d06e34d65e46785a6fe6c16",
+    "spec_sha256": true,
+    "banco_casos_sha256": true,
+    "harness_version": "4.0"
+   }
+  },
+  "matriz": {
+   "exit": 0,
+   "M1_P4_dos_campos_Q1-031": {
+    "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+    "veredicto_componente": ""
+   },
+   "M2_P4v_forjado_5_campos_Q1-001_sin_evidencia": {
+    "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+    "veredicto_componente": ""
+   },
+   "M3_Q1-026_ERROR_ENTORNO": {
+    "estado_ejecucion": "BLOQUEO_ENTORNO",
+    "veredicto_componente": ""
+   },
+   "M4_Q1-002_resultado_v3_legitimo": {
+    "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+    "veredicto_componente": ""
+   },
+   "Q1-003_publicado_v2_sin_tocar": {
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE"
+   },
+   "recuentos_estado": {
+    "ERROR (COMPONENTE_OK)": 3,
+    "PARCIAL_COMPONENTE": 27,
+    "BLOQUEO_ENTORNO": 1,
+    "NO_EJECUTADO": 5
+   },
+   "recuentos_veredicto_componente": {
+    "sin veredicto de componente": 9,
+    "CUMPLE": 27
+   }
+  }
+ },
+ "bloque2_5f4b2a2": {
+  "arnes": {
+   "P1_spec_vacia": {
+    "exit": 2,
+    "estado": "ERROR_ESPECIFICACION",
+    "veredicto": "DETECTA"
+   },
+   "P1v_P2v_asercion_sobre_log_del_arnes": {
+    "exit": 1,
+    "estado": "ERROR",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P2_criterio_sin_aserciones": {
+    "exit": 2,
+    "estado": "ERROR_ESPECIFICACION",
+    "veredicto": "DETECTA"
+   },
+   "P3_lectura_otro_caso": {
+    "exit": 1,
+    "estado": "ERROR",
+    "errores": [
+     "ruta fuera de las evidencias del caso: '../Q1-036/07_informe_provisional.md'"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P3va_copiar_artefacto_de_otro_caso": {
+    "exit": 1,
+    "estado": "ERROR",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "artefactos": [],
+    "veredicto": "DETECTA"
+   },
+   "P3vb_guardar_escribe_en_otro_caso": {
+    "exit": 1,
+    "estado": "ERROR",
+    "contenido_Q1-036_tras_la_ejecucion": "EVIDENCIA ORIGINAL DE Q1-036",
+    "veredicto": "OK"
+   },
+   "P5_Q1-034_sin_universo": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "01_comprobar_rango_acotado.json:pendientes con prefijo 'aux:litigio' contiene 'pendiente' -> FALLA",
+     "01_comprobar_rango_acotado.json: salida sin universo positivo (vacía); el negativo no acredita"
+    ],
+    "veredicto": "C1 FALLA"
+   },
+   "P5v_Q1-034_universo_sin_rango": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "01_comprobar_rango_acotado.json:pendientes con prefijo 'aux:litigio' contiene 'pendiente' -> FALLA",
+     "01_comprobar_rango_acotado.json:comprobadas sin prefijo 'aux:litigio' (universo=321) -> OK"
+    ],
+    "veredicto": "C1 FALLA"
+   },
+   "P5w_Q1-034_eco_de_la_nota_del_arnes": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "01_comprobar_rango_acotado.json:pendientes con prefijo 'aux:litigio' contiene 'pendiente' -> FALLA",
+     "01_comprobar_rango_acotado.json:comprobadas sin prefijo 'aux:litigio' (universo=321) -> OK"
+    ],
+    "veredicto": "C1 FALLA"
+   },
+   "P7a_residuo_en_candidata": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "errores": [
+     "la candidata contiene residuo pruebas_d/ del arnés: ['?? munger_v2_r1/pruebas_d/']"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P7b_fallo_ajeno_subcadena": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [
+     "[C1] cambiar_base_preparar.txt: stderr con 1 líneas == 9 esperadas -> FALLA (diferencia en [\"ERROR ajeno a pdftotext: CAMBIO inválido; «archivo» ausente o inexistente en texto/: 'X.txt'\"])"
+    ],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "ERROR ajeno a pdftotext: CAMBIO inválido; «archivo» ausente o inexistente en texto/: 'X.txt'"
+     ],
+     "otros_errores": [],
+     "nota": "diagnostico del arnes; las aserciones solo leen salidas del producto (cambiar_base_preparar.txt)"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P7c_replay_stderr_real": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "AR_2021: AR_2021: «archivo» ausente o inexistente en texto/: 'AR_2021.txt'",
+      "AR_2022: AR_2022: «archivo» ausente o inexistente en texto/: 'AR_2022.txt'",
+      "AR_2023: AR_2023: «archivo» ausente o inexistente en texto/: 'AR_2023.txt'",
+      "AR_2024: AR_2024: «archivo» ausente o inexistente en texto/: 'AR_2024.txt'"
+     ],
+     "otros_errores": [
+      "fase1_historia.py construir falló: ipal: «cero» sin «cita» literal de la página 12",
+      "AR_2019: sbc: «cero» sin «cita» literal de la página 13",
+      "AR_2019: arrendamientos: «cero» sin «cita» literal de la página 62",
+      "AR_2019: minoritarios: «cero» sin «cita» literal de la página 11",
+      "AR_2020: minoritarios: «cero» sin «cita» literal de la página 4"
+     ],
+     "nota": "diagnostico del arnes; las aserciones solo leen salidas del producto (cambiar_base_preparar.txt)"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P7v_fallo_ajeno_con_lineas_esperadas": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [
+     "[C1] cambiar_base_preparar.txt: stderr con 6 líneas == 9 esperadas -> FALLA (diferencia en [\"ERROR: CAMBIO mal formado: clave 'version_formato' no admitida\"])"
+    ],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "AR_2021: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2022: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2023: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2024: (diagnóstico previo) «archivo» ausente o inexistente en texto/"
+     ],
+     "otros_errores": [
+      "ERROR: CAMBIO mal formado: clave 'version_formato' no admitida",
+      "ipal: aviso: la cita no se ha podido revisar"
+     ],
+     "nota": "diagnostico del arnes; las aserciones solo leen salidas del producto (cambiar_base_preparar.txt)"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P8_rastreado_modificado": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "errores": [
+     "cambios sin commit respecto a HEAD: ['munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py']"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P8va_skip_worktree": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "candidata_sha": true,
+    "git_status": "",
+    "script_alterado_ejecutado": false,
+    "veredicto": "DETECTA"
+   },
+   "P8vb_no_rastreado_en_scripts": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "candidata_no_rastreadas": 1,
+    "salida_alterada": false,
+    "veredicto": "DETECTA"
+   },
+   "P9_un_log_por_ejecucion": {
+    "cabeceras_en_log": 1,
+    "veredicto": "OK"
+   },
+   "P9v_opcion_ARNES_EVIDENCIAS_LIMPIAS_0": {
+    "cabeceras_en_log": 2,
+    "resultado_registra_la_opcion": false,
+    "veredicto": "ACUMULA sin registrarlo"
+   },
+   "P9w_id_punto_borra_evidencias": {
+    "exit": 2,
+    "Q1-001_sobrevive": true,
+    "stderr_ultima": "",
+    "veredicto": "OK"
+   },
+   "R7a_marcas": {
+    "revisor_en_comando_sellar": "revisora independiente (nombre de persona) [SIMULADO]",
+    "aux_comprobacion_escrita_por_el_arnes": {
+     "extractor": null,
+     "revisor": null,
+     "fecha": null,
+     "resultado": "pendiente",
+     "fuente_examinada": null,
+     "nota": null,
+     "vinculo": null,
+     "_simulada": true
+    },
+    "veredicto": "OK"
+   },
+   "R7c_sha_observado": {
+    "candidata_sha": "3d5f4dabf4ac1b02c6ff8adac9c0815717c4d7a6",
+    "esperado": "3d5f4dabf4ac1b02c6ff8adac9c0815717c4d7a6",
+    "spec_sha256": true,
+    "banco_casos_sha256": true,
+    "harness_version": "4.0"
+   }
+  },
+  "matriz": {
+   "exit": 0,
+   "M1_P4_dos_campos_Q1-031": {
+    "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+    "veredicto_componente": ""
+   },
+   "M2_P4v_forjado_5_campos_Q1-001_sin_evidencia": {
+    "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+    "veredicto_componente": ""
+   },
+   "M3_Q1-026_ERROR_ENTORNO": {
+    "estado_ejecucion": "BLOQUEO_ENTORNO",
+    "veredicto_componente": ""
+   },
+   "M4_Q1-002_resultado_v3_legitimo": {
+    "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+    "veredicto_componente": ""
+   },
+   "Q1-003_publicado_v2_sin_tocar": {
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE"
+   },
+   "recuentos_estado": {
+    "ERROR (COMPONENTE_OK)": 3,
+    "PARCIAL_COMPONENTE": 27,
+    "BLOQUEO_ENTORNO": 1,
+    "NO_EJECUTADO": 5
+   },
+   "recuentos_veredicto_componente": {
+    "sin veredicto de componente": 9,
+    "CUMPLE": 27
+   }
+  },
+  "R2_Q1-027": {
+   "tabla": {
+    "C1.0": {
+     "vacio": false,
+     "estado_previo": true,
+     "evidencia_publicada": true
+    },
+    "C1.1": {
+     "vacio": false,
+     "estado_previo": false,
+     "evidencia_publicada": true
+    },
+    "C2.0": {
+     "vacio": false,
+     "estado_previo": false,
+     "evidencia_publicada": true
+    },
+    "C2.1": {
+     "vacio": false,
+     "estado_previo": false,
+     "evidencia_publicada": true
+    },
+    "C3.0": {
+     "vacio": false,
+     "estado_previo": false,
+     "evidencia_publicada": true
+    },
+    "C4.0": {
+     "vacio": false,
+     "estado_previo": true,
+     "evidencia_publicada": true
+    },
+    "C4.1": {
+     "vacio": false,
+     "estado_previo": true,
+     "evidencia_publicada": true
+    }
+   },
+   "no_discriminan_frente_al_estado_previo": [
+    "C1.0",
+    "C4.0",
+    "C4.1"
+   ],
+   "pasan_en_vacio_(lo_que_mide_la_prueba_15)": []
+  },
+  "regeneracion_con_evidencia_publicada": {
+   "exits": {
+    "generar_matriz.py": 0,
+    "generar_correspondencia.py": 0,
+    "generar_relevo.py": 0
+   },
+   "matriz_regenerada_estados": {
+    "PARCIAL_COMPONENTE": 29,
+    "BLOQUEO_ENTORNO": 1,
+    "NO_EJECUTADO": 6
+   },
+   "matriz_regenerada_CUMPLE": 29,
+   "matriz_publicada_CUMPLE": 29,
+   "matriz_publicada_igual_a_regenerada": true,
+   "mapa_filas": 109,
+   "mapa_con_asercion": 54,
+   "mapa_publicado_existe": true,
+   "relevos_sin_ningun_paso_de_agente": [
+    "Q1-032"
+   ],
+   "relevos_Q1-028_Q1-032": {
+    "Q1-028": {
+     "comando_relevo": null,
+     "falta": [
+      {
+       "qué": "reaprobación NUEVA con auditor real (la observación compartida con Q1-036 solo muestra la retirada) y deuda neta vigente 300+40-95=245 documentada como transformación pendiente de verificar",
+       "quién": "agente auditor nuevo (runtime del coordinador)",
+       "necesita": "expediente con la transformación vigente (arrendamientos 40, deuda 300, caja 95 del fixture f5_028_aprobacion.json)"
+      }
+     ]
+    },
+    "Q1-032": {
+     "comando_relevo": null,
+     "falta": [
+      {
+       "qué": "recuento 4 verificadas / 1 pendiente / 5 total del fixture f6_032_matriz.json sin doble conteo (el universo real es 321: 1/321 no lo prueba)",
+       "quién": "runtime del coordinador",
+       "necesita": "expediente de prueba con universo de 5 soportado o registrar NO_OBSERVABLE; ficha provisional que distinga estado de entradas vs estado de la conclusión"
+      }
+     ]
+    }
+   },
+   "relevo_Q1-001_falta": [
+    {
+     "qué": "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los modelos de config_v2.json, fase C en dos turnos con el mismo agente, verificacion con agente nuevo, auditoria APROBADO con auditor nuevo) — no simulable por el arnés",
+     "quién": "runtime del coordinador (Claude) con agentes configurados",
+     "necesita": "candidata 957af65 materializada + config_v2.json; sin API"
+    }
+   ]
+  }
+ }
+}
