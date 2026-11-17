@@ -27,8 +27,9 @@ Fijados el **2026-11-17, antes de nombrar ninguna candidata concreta de C** (en 
 no hay ninguna entidad financiera nombrada; la de B es Ahold, condicionada y bloqueada por
 insumo). **Sin precios de mercado** en ningún paso de la selección:
 
-1. **Tipo de entidad**: banco o aseguradora (caso especial «Financiera» → motor C,
-   `Palancas C6` @ 957af65), fuera de la muestra ya usada.
+1. **Tipo de entidad**: banco o aseguradora, fuera de la muestra ya usada. El motor C se elige en
+   **`Análisis!C62`** (fase A; `build_v6.py:169-170,581-582,1102` @ 957af65), NO en `Palancas C6`
+   (C6 solo da el aviso REVISAR `B6:588-590` y bloquea A/B con V11 `B6:1132-1133`; F3-R5).
 2. **Fuente mínima**: informe oficial (cuentas anuales / Pilar 3 / SFCR) con bytes y SHA-256
    conservados, o Excel de etapa 1 ya verificado; procedencia y vigencia comprobadas.
 3. **Método posible**: el contrato C corregido según el motor real (CONTRATO_C_PROPUESTA.md,
@@ -36,6 +37,10 @@ insumo). **Sin precios de mercado** en ningún paso de la selección:
 4. **Desempate entre candidatas**: primero la mejor fuente documental con huella; después el
    encaje de negocio declarado. Nunca por la valoración/precio resultante.
 5. Las probabilidades de escenarios y r son juicio/convención declarada, sin valor fijado aquí.
+6. **Candidatas:** este protocolo fija criterios y **no nombra candidatas** (F3-R12): la elección es
+   de la persona responsable sobre `u3_motor_c/` de `coordinacion/cierre-v2`
+   (`PROTOCOLO_SELECCION_C.md` + `CANDIDATOS_C.md`, p. ej. FinecoBank/Hannover Re con descargas
+   bloqueadas por permisos). No se mantiene un segundo protocolo paralelo.
 
 ## 3. Protocolo de ejecución (cuando exista candidata con insumos)
 
