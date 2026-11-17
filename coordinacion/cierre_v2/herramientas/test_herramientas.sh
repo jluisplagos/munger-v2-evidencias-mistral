@@ -20,6 +20,19 @@ mkdir $T/dir.log; $C $T/dir.log >/dev/null; espera "ruta que es un directorio (e
 printf '\xff\xfe\x00basura\n' > $T/bin.log; $C $T/bin.log >/dev/null; espera "registro no UTF-8" 2 $?
 : > $T/vacio.log; $C $T/vacio.log >/dev/null; espera "registro vacío" 2 $?
 printf '== a 10:00:00\n   código 0\notra cosa\nfin 10:00:01\n' > $T/raro.log; $C $T/raro.log >/dev/null; espera "línea no reconocida" 2 $?
+# --- cierre del registro (contraste externo REVISION_0955, S1 y S2) ---
+printf '== primero 10:00:00\n   código 0\nfin 10:00:01\n== segundo 10:00:02\n   código 0\n' > $T/s1.log; $C $T/s1.log --json >/dev/null; espera "S1: pasos después de fin" 2 $?
+printf '== primero 10:00:00\n   código 0\nfin 10:00:01 · ejecutados 1 · esperados 1 · fallidos 1 · resultado 1\n' > $T/s2.log; $C $T/s2.log --json >/dev/null; espera "S2: resumen que declara un fallo inexistente" 2 $?
+printf '== a 10:00:00\n   código 0\nfin 10:00:01\n   código 0\n' > $T/s1b.log; $C $T/s1b.log >/dev/null; espera "código suelto después de fin" 2 $?
+printf '== a 10:00:00\n   código 0\nfin 10:00:01\nfin 10:00:02\n' > $T/dosfin.log; $C $T/dosfin.log >/dev/null; espera "dos líneas fin" 2 $?
+printf '== a 10:00:00\n   código 0\n== b 10:00:01\n   código 0\nfin 10:00:02 · ejecutados 1 · esperados 2 · fallidos 0 · resultado 0\n' > $T/n.log; $C $T/n.log >/dev/null; espera "resumen con ejecutados distinto de los pasos" 2 $?
+printf '== a 10:00:00\n   código 0\nfin 10:00:01 · ejecutados 1 · esperados 2 · fallidos 0 · resultado 0\n' > $T/r.log; $C $T/r.log >/dev/null; espera "resumen con resultado 0 cuando las reglas dan 3" 2 $?
+printf '== a 10:00:00\n   código 0\nfin 10:00:01 · ejecutados 1 · esperados 2 · fallidos 0 · resultado 3\n' > $T/r3.log; $C $T/r3.log >/dev/null; espera "resumen coherente con menos pasos de los declarados" 3 $?
+printf '== a 10:00:00\n   código 2\nfin 10:00:01 · ejecutados 1 · esperados 1 · fallidos 1 · resultado 1\n' > $T/r1.log; $C $T/r1.log >/dev/null; espera "resumen coherente con un fallo real" 1 $?
+printf '# lanzador · inicio 2026-11-17T10:00:00Z · esperados 5\n== a 10:00:00\n   código 0\nfin 10:00:01 · ejecutados 1 · esperados 1 · fallidos 0 · resultado 0\n' > $T/cab.log; $C $T/cab.log >/dev/null; espera "cabecera y resumen con esperados distintos" 2 $?
+printf '== a 10:00:00\n   código 0\nfin 10:00:01 · resultado 0\n' > $T/finraro.log; $C $T/finraro.log >/dev/null; espera "línea fin con formato no reconocido" 2 $?
+printf '== a 10:00:00\n   código 0\nfin 10:00:01\n' > $T/hist.log; $C $T/hist.log >/dev/null; espera "positivo: formato histórico fin HH:MM:SS" 0 $?
+printf '# lanzador · inicio 2026-11-17T10:00:00Z · esperados 1\n== a 10:00:00\n   código 0\nfin 10:00:01 · ejecutados 1 · esperados 1 · fallidos 0 · resultado 0\n' > $T/ampl.log; $C $T/ampl.log --esperados 1 >/dev/null; espera "positivo: formato ampliado coherente" 0 $?
 # --- biblioteca ---
 cat > $T/l_ok.sh <<EOS
 source $D/lanzador_comun.sh; iniciar $T/ok.log 3

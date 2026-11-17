@@ -11,6 +11,19 @@ Sustituye al lanzador ad hoc de C18, cuyo código de salida no reflejaba el resu
 | `run … && cp …`: un `cp` fallido no se anotaba | `copiar` anota la copia como un paso |
 | La comprobación posterior usaba `grep`. Su código 1 («sin coincidencias», es decir, sin fallos) se confundía con un error y el 2 («no se puede leer») no se distinguía. `grep … \|\| echo` lo ocultaría todo | `comprobar_registro.py`: **0** si no hay fallos; **1** si hay fallos, listados; **2** si hay un error de lectura o el registro está mal formado (no existe, ilegible, vacío, truncado, sin «fin», un paso sin código o una línea desconocida); **3** si el número de pasos no es el esperado |
 
+**Cierre del registro** (corrección del 17-nov, contraste externo `revision_externa/seguimiento_20261117/REVISION_0955.md` @ `0004775`, S1 y S2).
+- Debe haber **una sola línea «fin», la última**. Un paso o un código después de ella, o una segunda «fin», dan 2.
+- Se aceptan dos formatos:
+  - el **histórico**, `fin HH:MM:SS`, de los lanzadores anteriores (C18 sigue dando 0);
+  - el **ampliado** de `lanzador_comun.sh`, `fin HH:MM:SS · ejecutados N · esperados M · fallidos K · resultado R`.
+- En el ampliado se exige:
+  - N = los pasos leídos;
+  - K = los pasos con código ≠ 0;
+  - R = la regla de `terminar` (1 si K > 0; si no, 3 si N ≠ M; si no, 0).
+- La cabecera `# lanzador · … · esperados M`, si existe, debe coincidir con el M del resumen.
+- Cualquier contradicción da 2, con su causa.
+- Un resumen coherente sigue dando 1 con un fallo real y 3 con un recuento distinto del declarado, aunque no se pase `--esperados`.
+
 ## Uso
 
 ```bash
@@ -33,7 +46,7 @@ El resultado es 0 solo si los dos son 0. Cualquier otro código se informa tal c
 
 ## Pruebas
 
-`bash test_herramientas.sh registro_real_C18b.log` da 18 de 18 casos con el código esperado (`test_herramientas.out`). Las pruebas cubren:
+`bash test_herramientas.sh registro_real_C18b.log` da **30 de 30** casos con el código esperado (`test_herramientas.out`): los 18 iniciales, sin cambios, y 12 del cierre del registro (S1 y S2 literales, con sus variantes y un positivo de cada formato). Las pruebas cubren:
 - el registro real de C18 (26 pasos, todos con código 0) → 0; con 28 esperados → 3;
 - un paso con código 1 → 1;
 - registros truncados, sin «fin», con un paso sin código, vacíos, no UTF-8, inexistentes, que son un directorio o con una línea desconocida → 2;
