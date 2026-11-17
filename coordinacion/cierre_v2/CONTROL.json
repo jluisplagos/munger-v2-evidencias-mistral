@@ -593,7 +593,7 @@
         "T-CAND"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Corregir los textos operativos desfasados (G-1…G-9 y C-07/C-08/C-09/C-12 de CONTINUIDAD) en una rama aislada de la candidata y publicarlo para revisión por un contexto distinto. C-01…C-04 (README/CLAUDE.md raíz) son instrucciones del usuario: se proponen, no se cambian. Después, T-TRASPASO con un receptor realmente nuevo.",
+      "siguiente_accion": "Manual aceptado con límites (78ba1ca) y probado en T-TRASPASO. Pendiente: aplicar MEJORAS_MANUAL.md (disco y _v64, pasos 12–14 y H9, resultado esperado de los controles históricos sobre 4.15, flock, registro del receptor, comandos que faltan) con revisión de un contexto distinto.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones. T-TRASPASO (17-nov) encontró 14 ambigüedades o errores del manual; mejoras pendientes.",
       "commit_revisado": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "alcance_aceptado": [
@@ -807,7 +807,7 @@
       "autor": "Claude + receptor sin historial",
       "revisor_propuesto": "Auditor distinto si corresponde",
       "entrega": "ENTREGADO",
-      "revision": "PENDIENTE",
+      "revision": "CONFORME_CON_LIMITES",
       "integracion": "NO",
       "commit_origen": "788f25c73af698709d9b550b132780c86f7e203d",
       "commit_destino": null,
@@ -815,19 +815,23 @@
         "coordinacion/cierre_v2/traspaso/PROMPT_RECEPTOR.md",
         "coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md",
         "coordinacion/cierre_v2/traspaso/resultado_20261117/LEEME.md",
-        "coordinacion/cierre_v2/traspaso/resultado_20261117/registro/"
+        "coordinacion/cierre_v2/traspaso/resultado_20261117/registro/",
+        "coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md",
+        "coordinacion/cierre_v2/traspaso/revision_20261117/MEJORAS_MANUAL.md"
       ],
       "pruebas_autor": "EJECUTADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "PARCIALES",
       "dependencias": [
         "T-CAND",
         "G-MANUAL"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Revisión del informe por un agente distinto del receptor. Las deficiencias del manual (disco, comandos no documentados, pasos 12–13, H9, referencias desfasadas) pasan a mejoras del manual. Los pasos con agentes reales quedan para el runtime del coordinador.",
+      "siguiente_accion": "Aceptado con límites (sin pasos de agentes; el registro no guarda transcripción ni la mayoría de códigos; receptor de la misma familia de modelo). Pasos con agentes reales: runtime del coordinador. Mejoras del manual en MEJORAS_MANUAL.md (G-MANUAL).",
       "observacion": "Receptor sin historial sobre 957af65: reconstrucción desde clones y descarga propia de la Release (6798/6798; 1008 binarios copiados; manifiesto 7762/7762), verificar_paquete.sh completa PASA con registro idéntico byte a byte al del coordinador (23fd7aa1…), control 4.14 29/35 como espera el manual, relevo caducado (I19) observado con LibreOffice sin --desde, H9 observado (vuelta al paso 12 con fase_c.md cambiado) y pendiente. Pasos con agentes: no ejecutables por el receptor. Controles históricos 4.10 39/44 y 4.11 33/38 (difieren de los del árbol 4.14; sin investigar; esperado sobre 4.15 no documentado).",
-      "commit_revisado": null,
-      "alcance_aceptado": [],
+      "commit_revisado": "788f25c73af698709d9b550b132780c86f7e203d",
+      "alcance_aceptado": [
+        "reconstrucción y verificación de la candidata 957af65 por un receptor sin historial, solo con el manual (sin pasos de agentes)"
+      ],
       "solicitud_revision": null
     },
     {
@@ -1169,6 +1173,11 @@
       "tipo": "REVISION",
       "fecha": "2026-11-17",
       "hecho": "D bloque 3 (d032691) revisado frente a D3: R6 cerrado (manifiesto 204/204, comprobado por el coordinador), regeneración byte a byte y recuentos coherentes (0/36); R1–R5 y R8 abiertos, con 7 variantes nuevas. d032691 es anterior a CORRECCION_D3: D3 sigue vigente, sin corrección nueva."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "Informe de T-TRASPASO revisado por un agente distinto del receptor: CONFORME CON LÍMITES. 4.10 39/44 por un cambio documental de la 4.15 (.PARTES.txt; comprobado por el coordinador) y 4.11 33/38 atribuible al entorno (compresión; v6 sin cambios, comprobado). Mejoras del manual priorizadas."
     }
   ],
   "consulta_remotos_arranque": {
