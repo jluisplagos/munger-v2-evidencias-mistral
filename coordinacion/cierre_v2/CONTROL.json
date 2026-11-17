@@ -608,7 +608,8 @@
         "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/REVISION_MANUAL_v2_ef36ab1.md",
         "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/CORRECCION_MANUAL_v3.md",
         "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_3149128_v3.md (v3: cierra M1–M4 y m1–m12; autor, un contexto Claude)",
-        "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v3_88144b5/REVISION_MANUAL_v3.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v3_88144b5/REVISION_MANUAL_v3.md",
+        "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_b129b36_v4.md @ ea70e23 (v4 para la candidata b129b36; cierra N1 y n1–n9 de la revisión de la v3)"
       ],
       "pruebas_autor": "NO_EJECUTADAS",
       "pruebas_externas": "PARCIALES",
@@ -616,7 +617,7 @@
         "T-CAND"
       ],
       "bloqueo": null,
-      "siguiente_accion": "v3 revisada: CONFORME_CON_LIMITES como manual de 3149128 (los 16 hallazgos cerrados; el autor tenía razón en m5, S-12 y el sondeo). N1 (medio, sobrevenido): la candidata pasó a b129b36 con G-RAIZ, así que hay que fijar 3149128 en el paso 5 o hacer una v4 corta que actualice HEAD, la fila 1, C-01, C-02 y las citas de CLAUDE.md. Nueve menores n1–n9. El autor (contexto Claude) prepara la v4; después, la propuesta §2.5 como cambio documental.",
+      "siguiente_accion": "v4 (ea70e23) entregada para b129b36 por un contexto Claude autor: cierra N1 y n1–n9. Falta la revisión de lo afectado por otro contexto; se propone que la haga Mistral R, que es de otra familia de modelos. Después, la propuesta §2.5 (ampliada al 4.8) como cambio documental de la candidata, con su revisión.",
       "observacion": "Manual revisado para la candidata 3149128 (borrador v2): las siete mejoras de MEJORAS_MANUAL.md con fuente; comandos nuevos marcados según dónde se probaron (traspaso del 17-nov o preparación F1 del 15-nov); lo no probado, [NO DOCUMENTADO]. Corrige dos atribuciones del encargo (copiar_binarios_a_b.py y sha256sum -c son de la preparación F1, no del traspaso). Propuesta de corrección de CONTINUIDAD §2.5 (_v64/), sin aplicar.",
       "commit_revisado": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "alcance_aceptado": [
@@ -1509,6 +1510,11 @@
       "tipo": "REVISION",
       "fecha": "2026-11-17",
       "hecho": "Revisiones de contextos distintos: AUTO1 422a6f3 conforme con observaciones (sin materiales); E2 ea641e7, CORRECCIONES → CORRECCION_E3 (E3-1 y E3-2 medios), con E2-D1 cerrado; F3 c504830, CORRECCIONES → CORRECCION_F4 (R12, R14 y R15 abiertos); manual v3, CONFORME_CON_LIMITES (N1: la candidata pasó a b129b36). El coordinador comprobó E3-2: INDICE_DESCARGAS.csv reescrito en ea641e7."
+    },
+    {
+      "tipo": "ENTREGA",
+      "fecha": "2026-11-17",
+      "hecho": "Manual v4 (ea70e23) para la candidata b129b36: C-01/C-02 resueltas por G-RAIZ, citas desplazadas y n1–n9. Límite: las citas de CONTROL.json siguen en acea175. Pendiente de revisión por un contexto distinto."
     }
   ],
   "consulta_remotos_arranque": {
