@@ -923,13 +923,14 @@
         "coordinacion/cierre_v2/revisiones_coordinador/AUTO_a508d6b/REVISION_AUTOMATIZACION_a508d6b.md",
         "coordinacion/cierre_v2/revisiones_coordinador/AUTO_a508d6b/CORRECCION_AUTO1.md",
         "coordinacion/cierre_v2/revisiones_coordinador/AUTO_a508d6b/sondas/",
-        "PR #2 (borrador, abierto): automatizacion/coordinacion-api-v1 @ 267ad18; respecto de a508d6b solo añade observations/ (seguimiento de las 12:41 y ESTADO_CHATGPT.json)"
+        "PR #2 (borrador, abierto): automatizacion/coordinacion-api-v1 @ 267ad18; respecto de a508d6b solo añade observations/ (seguimiento de las 12:41 y ESTADO_CHATGPT.json)",
+        "corrección AUTO1: automatizacion/correccion-auto1 @ 422a6f3d273cf6f0e731f4cb6affa255cedb43d1 (contexto Claude autor; ENTREGA_AUTO1.json)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "Infraestructura, no producto. Ni se adopta ni se fusiona main; PR #1 queda en borrador. No hay agente API que aplique correcciones ni una cola continua autorizada. audit-pilot-code-001 no se repite. No se cambia la facturación ni se activa pay-as-you-go. Sus informes son contrastes documentales: no ejecutan el personaje, no aceptan entregas y no sustituyen correcciones (D3) ni revisiones del coordinador.",
-      "siguiente_accion": "CORRECCION_AUTO1 (M1–M7, m1–m9), a cargo de quien mantiene la rama (el usuario con ChatGPT). Prioridad: M6, porque los workflows lanzan inferencias de pago con un push. Mientras siga abierta, no se hace push que toque los scripts o workflows de inferencia sin una decisión expresa. El coordinador revisa solo lo afectado. Como no queda saldo de ChatGPT y el usuario ha pedido avanzar en todo, un contexto Claude escribe la corrección en una rama aparte, automatizacion/correccion-auto1. No toca la rama del usuario ni lanza inferencias. Adoptarla o fusionarla le corresponde al usuario.",
+      "siguiente_accion": "La corrección AUTO1 está entregada en 422a6f3, en una rama aparte y no en la del usuario. Pruebas reproducidas por el coordinador: 95 OK y 49 OK. sonda_sse da 25/25, según el autor. Ningún job con secreto de inferencia se lanza con push: lo comprobó el coordinador leyendo los YAML. Pendiente: revisión por otro contexto (Mistral R o un subagente). Para usarla, el usuario tiene que crear el environment inferencia-aprobada con revisores, mover allí las claves y fijar MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD. Los hashes de M7 y el ruleset m6 siguen abiertos. Hay un efecto nuevo que revisar: el paquete de auditoría supera su límite de bytes y snapshot() se detiene antes de llamar.",
       "observacion": "Costes estimados: relevos-001 USD 0,070368 (reserva 0,115726; truncado a 4096) y relevos-002 USD 0,094358, conjunto 0,164726; crédito pendiente de confirmar en Console. audit-pilot-code-001 (Fable 5.2/max): ANTHROPIC_ERROR_RED_TIMEOUT tras 180 s, sin veredicto ni uso recibido; reserva 1,912936, coste incierto; no se repite. qwen-peer-group-01: estimado 0,102272 (reserva 0,25281). vibe-auth-001: conexión comprobada (7269/50 tokens) con coste 0. qwen-bank-review-001 (Mistral): fallo por longitud de salida (42992/16384). qwen-bank-group-01 (Mistral, Q1-001…006): entregado. Comprobado por el coordinador: el report.json de relevos-002 en 953af02 tiene sha256 1bd8a638…, igual a la source_response_sha256 fijada en 5b12950. El postprocessed_report.review es igual al JSON de raw_model_output una vez quitado un único envoltorio ```json…```; no se añadió ni se quitó contenido. La cabecera 267ad18 solo cambia observations/; la revisión de a508d6b sigue valiendo para el código. ChatGPT tiene una comprobación horaria activa, de solo lectura, que no lanza inferencias, según ESTADO_CHATGPT.json @ 267ad18.",
       "commit_revisado": "a508d6b38168933d9e6ef480e0d23627b8d748fb",
       "alcance_aceptado": [],
@@ -1381,6 +1382,11 @@
       "tipo": "REVISION",
       "fecha": "2026-11-17",
       "hecho": "G-RAIZ (3d66437) revisado por un contexto distinto: CORRECCIONES (G1 material, «1–6 corregidos» exagera; G2–G4 medios; G5 menor). Tanda Qwen 01 cotejada: los dos informes contrastados tienen hallazgos parciales; correcciones del banco propuestas sin aplicar."
+    },
+    {
+      "tipo": "ENTREGA",
+      "fecha": "2026-11-17",
+      "hecho": "AUTO1 corregido por un contexto Claude en la rama automatizacion/correccion-auto1 @ 422a6f3, sin inferencias. Cerrados M1–M4, M6, m1–m5 y m7–m9. M5 queda parcial: el tope lo fija el usuario. M7 queda parcial: faltan los hashes. m6 sigue abierto. El coordinador reprodujo 95+49 pruebas y comprobó que ningún secreto de inferencia se usa bajo push. Falta la revisión de otro contexto."
     }
   ],
   "consulta_remotos_arranque": {
