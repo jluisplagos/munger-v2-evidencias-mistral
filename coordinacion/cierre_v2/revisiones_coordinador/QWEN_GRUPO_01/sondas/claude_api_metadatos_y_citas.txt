@@ -1,0 +1,31 @@
+accepted false
+api_messages_sent 1
+budget {"counted_input_tokens": 17461, "max_output_tokens": 16384, "prices_checked": "2026-11-17", "reserved_input_tokens": 44485, "reserved_usd": "0.25281", "usd_per_mtok_input": "2", "usd_per_mtok_output": "10"}
+bundle_sha256 "41db4d711e78686e9457c1c622336f5c6bfd40129bd00ab293eba5c0932f5be2"
+code_sha "a508d6b38168933d9e6ef480e0d23627b8d748fb"
+credit_source "NO_COMPROBADA_EN_CONSOLE"
+effort_requested "high"
+estimated_cost_usd "0.102272"
+integrated false
+message_id "msg_011Ch8WAeiMdWHMjDkozXvGg"
+model_requested "claude-sonnet-5-5"
+model_returned "claude-sonnet-5-5"
+product_executed false
+raw_model_output "{\"findings\":[{\"description\":\"El caso exige que la salida conserve alternativas y límites de la hipótesis, y la conducta inaceptable es \\\"Eliminar alternativas y límites al reetiquetar\\\". Pero el único fixture (f1_004_nota.txt) solo dice \\\"Margen EBITDA estimado por el analista: 18%. Estimacion interna; no es cifra publicada\\\". No contiene fundamento, alternativas ni límites que conse
+state "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION"
+stop_reason "end_turn"
+task_id "qwen-peer-group-01"
+usage {"cache_creation": {"ephemeral_1h_input_tokens": 0, "ephemeral_5m_input_tokens": 0}, "cache_creation_input_tokens": 0, "cache_read_input_tokens": 0, "inference_geo": "global", "input_tokens": 17461, "output_tokens": 6735, "output_tokens_details": {"thinking_tokens": 4658}, "service_tier": "standard", "speed": "standard"}
+claves: ['accepted', 'api_messages_sent', 'budget', 'bundle_sha256', 'code_sha', 'credit_source', 'effort_requested', 'estimated_cost_usd', 'integrated', 'message_id', 'model_requested', 'model_returned', 'product_executed', 'raw_model_output', 'review', 'state', 'stop_reason', 'task_id', 'usage']
+--- citas de Claude API
+s00 cita_literal_en_fuente= True | El registro de la hipótesis (alternativas, límites) se mantiene y la actividad continúa.
+mistral_review cita_literal_en_fuente= True | Los tres casos de carencia usan como criterio observable que la conclusión afectada
+mistral_review cita_literal_en_fuente= True | coherente con §3 citado y con la corrección v2 de no reetiquetar hipótesis
+mistral_review cita_literal_en_fuente= True | ninguno de los criterios observables permite distinguir si el producto examinó la Nota 2
+'no se presenta como apta para dinero real' apariciones casos= 1 fixture f1_004= 0
+'no se presenta como apta.' apariciones casos= 1 fixture f1_004= 0
+'no se presenta como apta mientras no se resuelva' apariciones casos= 1 fixture f1_004= 0
+'Margen EBITDA estimado por el analista: 18%. Estimacion interna; no es cifra publicada' apariciones casos= 0 fixture f1_004= 1
+'dinero real' apariciones casos= 2 fixture f1_004= 0
+ linea 1 Q1-001 contiene "dinero real" en campos: ['conclusion_afectada']
+ linea 3 Q1-003 contiene "dinero real" en campos: ['criterios_observables']

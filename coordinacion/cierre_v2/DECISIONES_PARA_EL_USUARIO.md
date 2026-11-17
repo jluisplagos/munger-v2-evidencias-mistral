@@ -37,7 +37,7 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
 - **Alternativa:** (b) aceptar como preservación el índice de descarga (URL, fecha, SHA-256 y bytes) y los extractos acotados en Git, con el riesgo de que el emisor cambie o retire los documentos.
 - **Qué no se valida aunque se resuelva:** M1, M2, M6 y N2 siguen ABIERTOS según la revisión (E-R1…E-R9). Elis sigue `pendiente_de_datos`.
 
-### U2 · Tercer caso B fuera de muestra (F-B3) · **propuesta: Ahold Delhaize** (17-nov; `u2_tercer_b/`). Falta de ti: `Ahold_evaluada.xlsx` y `Ahold_respuesta.md` de la etapa 1, tal cual; el `HUELLAS.txt` de tus PDF 2019–2025; si el resultado de la etapa 1 influyó en elegirla como reserva; y dónde conservar los 10 informes anuales descargados (por ejemplo, una Release como en U1). La lista de las 116 no hace falta
+### U2 · Tercer caso B fuera de muestra (F-B3) · **DECIDIDA el 17-nov: Ahold.** El usuario aporta Ahold_evaluada.xlsx y Ahold_respuesta.md, que se preservan como originales. Las huellas se buscan antes en los registros disponibles; las que se calculen después se rotulan como NUEVAS. La correspondencia histórica no verificada se declara. La etapa 1 no se rehace. · Propuesta anterior: Ahold Delhaize (17-nov; `u2_tercer_b/`). Falta de ti: `Ahold_evaluada.xlsx` y `Ahold_respuesta.md` de la etapa 1, tal cual; el `HUELLAS.txt` de tus PDF 2019–2025; si el resultado de la etapa 1 influyó en elegirla como reserva; y dónde conservar los 10 informes anuales descargados (por ejemplo, una Release como en U1). La lista de las 116 no hace falta
 
 - **Situación.** En el ZIP no está el Excel evaluado de la etapa 1 de Ahold; solo hay un `.bat` de descarga sin ejecutar. La lista de las 116 empresas no está conservada. Hermès y Aarsleff no sirven: ya están en la muestra.
 - **Recomendada:** aportar el Excel de la etapa 1 de Ahold, su respuesta y sus fuentes (informes 2016–2025 y el folleto NIIF 16 de 2018), en bytes y con SHA-256.
@@ -46,7 +46,7 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
   - (c) reducir el alcance a dos casos B. Esto exige una decisión explícita de reducir el alcance.
 - **Qué no se valida aunque se resuelva:** el recorrido con agentes reales y la auditoría de otro contexto siguen pendientes.
 
-### U3 · Primer caso C real (F-C1) · **contrato corregido y candidatos propuestos sin verificar** (17-nov; `u3_motor_c/`). Candidatos: FinecoBank (banco) y Hannover Rück (reaseguro, con riesgo alto de límite del modelo). Para verificarlos hace falta que autorices las descargas desde sus sitios oficiales o que aportes su informe anual 2025 y su Pilar 3 o SFCR 2025
+### U3 · Primer caso C real (F-C1) · **DECIDIDA el 17-nov: descarga autorizada** del informe anual 2025 y del Pilar 3 de FinecoBank desde sus sitios oficiales, con comprobación de edición, período, perímetro, protocolo y contrato antes de fijarla. Si no encaja, no se fuerza. No valida el motor C. · Antes: contrato corregido y candidatos propuestos sin verificar (17-nov; `u3_motor_c/`). Candidatos: FinecoBank (banco) y Hannover Rück (reaseguro, con riesgo alto de límite del modelo). Para verificarlos hace falta que autorices las descargas desde sus sitios oficiales o que aportes su informe anual 2025 y su Pilar 3 o SFCR 2025
 
 - **Situación.** No se conserva ninguna financiera. El contrato C propuesto describe mal el motor C (F2-D3) y hay que corregirlo antes de usarlo.
 - **Recomendada:** designar un banco o una aseguradora concretos y aportar sus informes oficiales (cuentas, Pilar 3 o SFCR) con SHA-256, y su Excel de la etapa 1 si existe.
@@ -64,3 +64,5 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
 - **Recomendada:** que, en la rama de la candidata, la persona responsable apruebe sustituir esas frases por el estado verificable. Es decir: 4.15 · hito 2 integrado en `integracion/candidata-cierre-v2`; `main` conserva la 4.14; nada adoptado económicamente.
 - **Alternativa:** (b) dejarlas como están. El manual las marca como [CONTRADICCIÓN] C-01…C-04.
 - **Qué no se valida aunque se resuelva:** nada económico. Solo evita que un receptor nuevo espere una entrega que ya está.
+
+### F1 (3b) · Vía para M1, M2, M6 y el plan climático · **DECIDIDA el 17-nov: (iv) mantener el bloqueo.** Elis sigue pendiente_de_datos.

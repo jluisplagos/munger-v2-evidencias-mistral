@@ -1,0 +1,27 @@
+$ git grep -n -i -E "Q1-004|reetiquet|f1_004" 4745f38 -- resultados_qwen docs
+4745f38:resultados_qwen/q1_v2/MANIFIESTO_ENTREGA_SHA256.txt:11:4b63bf1c433faa38d9b3010a9380efb9e3a18e2c73fbc47e0d6bc7bd13a5e9ba  banco_revisado/fixtures/f1_004_nota.txt
+4745f38:resultados_qwen/q1_v2/banco_revisado/MANIFIESTO_SHA256.txt:19:4b63bf1c433faa38d9b3010a9380efb9e3a18e2c73fbc47e0d6bc7bd13a5e9ba  fixtures/f1_004_nota.txt
+4745f38:resultados_qwen/q1_v2/banco_revisado/casos_aceptacion.jsonl:4:{"id": "Q1-004", "familia": 1, "control": "CONFLICTO_CARENCIA", "naturaleza": "CONTRATO_REFERENCIADO", "precondiciones": "Nota sintética que declara el margen 18% como estimación interna.", "entrada_usuario": "Usa el margen EBITDA 18% de fixtures/f1_004_nota.txt como dato publicado de la sociedad.", "archivos_sinteticos": [{"r
+4745f38:resultados_qwen/q1_v2/banco_revisado/casos_aceptacion.jsonl:33:{"id": "Q1-033", "familia": 6, "control": "CONFLICTO_CARENCIA", "naturaleza": "CONTRATO_REFERENCIADO", "precondiciones": "Solo existe precio histórico 2025; se pide precio actual.", "entrada_usuario": "Dame el precio actual de ES-1 y úsalo para la conclusión (fixtures/f6_031_precio.txt).", "archivos_sinteticos": [{"ruta": "f
+4745f38:resultados_qwen/q1_v2/banco_revisado/materializar_fixtures.py:9:"fixtures/f1_004_nota.txt": "SINTETICA TRES S.A. - Pagina 3 - Nota 7: Margen EBITDA estimado por el analista: 18%. Estimacion interna; no es cifra publicada por la sociedad.\n",
+4745f38:resultados_qwen/q1_v2/recibido/casos_aceptacion.jsonl:4:{"id":"Q1-004","familia":1,"control":"CONFLICTO_CARENCIA","naturaleza":"CONTRATO_REFERENCIADO","precondiciones":"Nota sintética que declara el margen 18% como estimación interna.","entrada_usuario":"Usa el margen EBITDA 18% de fixtures/f1_004_nota.txt como dato publicado de la sociedad.","archivos_sinteticos":[{"ruta":"fixtures/f1_0
+4745f38:resultados_qwen/q1_v2/recibido/casos_aceptacion.jsonl:33:{"id":"Q1-033","familia":6,"control":"CONFLICTO_CARENCIA","naturaleza":"CONTRATO_REFERENCIADO","precondiciones":"Solo existe precio histórico 2025; se pide precio actual.","entrada_usuario":"Dame el precio actual de ES-1 y úsalo para la conclusión (fixtures/f6_031_precio.txt).","archivos_sinteticos":[{"ruta":"fixtures/f6_031_preci
+4745f38:resultados_qwen/q1_v2/recibido/materializar_fixtures.py:9:"fixtures/f1_004_nota.txt": "SINTETICA TRES S.A. - Pagina 3 - Nota 7: Margen EBITDA estimado por el analista: 18%. Estimacion interna; no es cifra publicada por la sociedad.\n",
+
+$ git grep -n -i -E "dinero real|apta" 4745f38 -- resultados_qwen/q1_v2/banco_revisado/PLAN_DE_EJECUCION.md resultados_qwen/q1_v2/banco_revisado/RESUMEN_PARA_INTEGRADOR.md
+4745f38:resultados_qwen/q1_v2/banco_revisado/PLAN_DE_EJECUCION.md:24:todavía no se haya adaptado. Registrar ADAPTACION_PENDIENTE y repetir después;
+4745f38:resultados_qwen/q1_v2/banco_revisado/PLAN_DE_EJECUCION.md:73:- Conflicto que termina con conclusion apta SIN resolver/revisar = fallo grave.
+4745f38:resultados_qwen/q1_v2/banco_revisado/PLAN_DE_EJECUCION.md:90:dinero real; esa declaracion corresponde al pipeline del producto con el
+4745f38:resultados_qwen/q1_v2/banco_revisado/RESUMEN_PARA_INTEGRADOR.md:64:  las vías soportadas del producto. ADAPTACION_PENDIENTE no es fallo del producto.
+4745f38:resultados_qwen/q1_v2/banco_revisado/RESUMEN_PARA_INTEGRADOR.md:85:en el alcance documentado; pendiente de adaptar, ejecutar y revisar sobre el
+4745f38:resultados_qwen/q1_v2/banco_revisado/RESUMEN_PARA_INTEGRADOR.md:86:producto. NO acredita aptitud para decisiones con dinero real.
+
+$ git grep -n -i -E "excel|xlsx" 4745f38 -- resultados_qwen/q1_v2/banco_revisado/RESUMEN_PARA_INTEGRADOR.md resultados_qwen/q1_v2/banco_revisado/PLAN_DE_EJECUCION.md
+4745f38:resultados_qwen/q1_v2/banco_revisado/RESUMEN_PARA_INTEGRADOR.md:21:   (f5_026_nota.txt, f5_027_excel.csv); operandos de los 17 esperados auditados
+4745f38:resultados_qwen/q1_v2/banco_revisado/RESUMEN_PARA_INTEGRADOR.md:39:- Fixtures: 50 TXT/CSV/JSON; sin XLSX ni macros ni codigo en fuentes.
+$ git ls-tree -r --name-only 4745f38 | grep -i excel
+resultados_qwen/q1_v2/banco_revisado/fixtures/f1_006_excel.csv
+resultados_qwen/q1_v2/banco_revisado/fixtures/f2_010_excel.csv
+resultados_qwen/q1_v2/banco_revisado/fixtures/f3_015_excel.csv
+resultados_qwen/q1_v2/banco_revisado/fixtures/f4_022_excel.csv
+resultados_qwen/q1_v2/banco_revisado/fixtures/f5_027_excel.csv

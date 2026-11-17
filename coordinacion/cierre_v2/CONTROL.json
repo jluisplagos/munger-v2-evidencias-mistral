@@ -705,23 +705,24 @@
       "autor": "Claude coordinador",
       "revisor_propuesto": "Contexto distinto del autor",
       "entrega": "ENTREGADO",
-      "revision": "PENDIENTE",
+      "revision": "CORRECCIONES",
       "integracion": "NO",
       "commit_origen": "3d66437e797b6b0bf137b42fa62b561f39121722",
       "commit_destino": null,
       "evidencia": [
-        "jluisplagos/munger-v2 · integracion/hechos-raiz-957af65 @ 3d66437 (base 957af65): CLAUDE.md, README.md, docs/MIGRATION_STATUS.json"
+        "jluisplagos/munger-v2 · integracion/hechos-raiz-957af65 @ 3d66437 (base 957af65): CLAUDE.md, README.md, docs/MIGRATION_STATUS.json",
+        "coordinacion/cierre_v2/revisiones_coordinador/G-RAIZ_3d66437/REVISION_G-RAIZ_3d66437.md"
       ],
       "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Revisión independiente en curso, a cargo de un contexto Claude distinto del autor, para que Mistral A pueda pasar directamente a A4. Si es conforme, se incorpora a la candidata con su origen, revisión y destino.",
+      "siguiente_accion": "El coordinador, autor del cambio, corrige G1–G5 en la misma rama. La nueva versión la revisa otro contexto (Mistral R o un subagente distinto) antes de integrarla en la candidata. Comprobado por el coordinador: CLAUDE.md:11 de 3d66437 dice «1–6 corregidos».",
       "observacion": "Fuera del manifiesto de munger_v2_r1: no requiere regenerarlo. Diff de 15 líneas: identidad de la rama, contenido (4.15 · hito 2), estado de los hallazgos 1–7, prueba 4.15 que cubre los tres huecos e importación ya hecha.",
-      "commit_revisado": null,
+      "commit_revisado": "3d66437e797b6b0bf137b42fa62b561f39121722",
       "alcance_aceptado": [],
       "solicitud_revision": {
-        "estado": "LISTA",
+        "estado": "RESPONDIDA",
         "sha_autor": "3d66437e797b6b0bf137b42fa62b561f39121722",
         "base_revisada": "957af652cdc3bef3d67e8623c9572138bac685e9",
         "diff_rutas": [
@@ -735,7 +736,13 @@
           "No se declara aptitud ni se adopta nada; main sigue con la 4.14"
         ],
         "revisor_asignado": "Subagente Claude, contexto distinto del autor; Mistral A solo si ya la había empezado (contraste)",
-        "informe_revision": null
+        "informe_revision": {
+          "ruta": "coordinacion/cierre_v2/revisiones_coordinador/G-RAIZ_3d66437/REVISION_G-RAIZ_3d66437.md",
+          "veredicto": "CORRECCIONES. G1 (material): CLAUDE.md:11 dice «1–6 corregidos», pero los expedientes siguen no aptos por entradas y C48/C50 no son reproducibles hasta su regeneración (HITO_2:194-196). G2–G4 (medios): se suprimen instrucciones aún vigentes (esperar entrega, revisión externa del hito 2) y se añade una regla de integración sin respaldo en 957af65. G5 (menor). El JSON es válido y la aplicación sobre 3149128 es limpia.",
+          "limites": [
+            "sin baterías ni LibreOffice; no se verificó si G3 responde a una decisión registrada"
+          ]
+        }
       }
     },
     {
@@ -952,7 +959,7 @@
       "autor": "Mistral (Vibe) + contraste Claude API",
       "revisor_propuesto": "Coordinador (cotejo con el banco y con D)",
       "entrega": "PARCIAL",
-      "revision": "PENDIENTE",
+      "revision": "LIMITADA",
       "integracion": "NO",
       "commit_origen": "953af02c43a36b090fff5f4df3c754e1a4ad59ee",
       "commit_destino": null,
@@ -960,7 +967,8 @@
         "automation/coordination/QWEN_CONTRASTE.md @ a508d6b",
         "automation/coordination/reviews/qwen-bank-review-001 @ 997ae8f: intento completo fallido por longitud; se conserva",
         "automation/coordination/reviews/qwen-bank-group-01 @ e5caa02: Mistral, Q1-001…006 coherentes, cinco observaciones",
-        "automation/coordination/reviews/qwen-peer-group-01 @ 953af02: contraste Claude API, AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION"
+        "automation/coordination/reviews/qwen-peer-group-01 @ 953af02: contraste Claude API, AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+        "coordinacion/cierre_v2/revisiones_coordinador/QWEN_GRUPO_01/COTEJO_QWEN_GRUPO_01.md"
       ],
       "pruebas_autor": "NO_EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
@@ -968,7 +976,7 @@
         "T-AUTO"
       ],
       "bloqueo": "Revisión documental del banco. No ejecuta casos del personaje (siguen 0/36) y no sustituye el banco anterior, que se conserva, ni la aceptación D-36.",
-      "siguiente_accion": "Cotejo de la tanda 01 en curso, a cargo de un contexto distinto: observaciones de Mistral y objeciones de Claude API frente al banco 4745f38. Cotejar la tanda 01 con su contraste: el fixture de Q1-004 sin alternativas ni límites (media); exageración en «dinero real»; corrección v2 inexistente citada; Q1-002 sobredimensionado. Las tandas 02–06 se recogen solo cuando se publiquen. Nada se acepta automáticamente.",
+      "siguiente_accion": "Tanda 01 cotejada por un contexto distinto. Mistral: M1–M5 confirmadas con límites; Q1-004 «coherente internamente», no confirmada. Claude API: C3 confirmada, C1 y C2 con límites, C4 no confirmada. Ninguno de los dos revisores tuvo el contrato §2–§7 (ENCARGO_LOCAL_COMPLETO.md:69-165). Correcciones propuestas al banco sin aplicar (Q1-004 opción B, mínima; Q1-002 §4; Q1-001 doble fuente del cero). Las aplica, si procede, el dueño del banco o Mistral D dentro de D3. Tandas 02–06 aparcadas.",
       "observacion": "El contraste Claude API de la tanda 01 discrepa en parte de Mistral; ninguno de los dos queda aceptado.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -1353,6 +1361,26 @@
       "tipo": "ASIGNACION",
       "fecha": "2026-11-17",
       "hecho": "El usuario pide avanzar en todo. Quedan en curso con contextos distintos: la v3 del manual (autor), la corrección AUTO1 en una rama aparte (autor, sin inferencias ni push a la rama del usuario), el cotejo Qwen de la tanda 01 y la revisión de G-RAIZ. Mistral A pasa directamente a A4. Mistral R contrasta AUTO_a508d6b."
+    },
+    {
+      "tipo": "DECISION",
+      "fecha": "2026-11-17",
+      "hecho": "U2 (persona responsable): se mantiene Ahold. El usuario tiene Ahold_evaluada.xlsx y Ahold_respuesta.md, que se preservarán como originales; no sabe si conserva HUELLAS.txt. Primero se buscan las huellas en los archivos y registros disponibles. Si se calculan huellas de los PDF actuales, se rotulan como NUEVAS: no demuestran que sean los PDF usados originalmente. Se indicará qué correspondencia histórica queda sin verificar. La etapa 1 no se rehace por faltar HUELLAS.txt."
+    },
+    {
+      "tipo": "DECISION",
+      "fecha": "2026-11-17",
+      "hecho": "U3 (persona responsable): autoriza descargar de los sitios oficiales de FinecoBank el informe anual 2025 y el Pilar 3. Hay que comprobar edición, período, perímetro y correspondencia entre documentos; registrar URL y SHA-256; y conservar los originales. Antes de fijarla como primer caso C se verifica el protocolo de selección y el contrato vigente. Si no encaja o falla el acceso, se documenta el motivo y no se fuerza el caso. La autorización no valida el motor C ni adopta política económica."
+    },
+    {
+      "tipo": "DECISION",
+      "fecha": "2026-11-17",
+      "hecho": "F1 (3b) (persona responsable): se mantiene el bloqueo, vía (iv). No se pregunta a la empresa ni se estima. M1, M2, M6 y el plan climático siguen pendientes; Elis, pendiente_de_datos; R, sin fijar."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "G-RAIZ (3d66437) revisado por un contexto distinto: CORRECCIONES (G1 material, «1–6 corregidos» exagera; G2–G4 medios; G5 menor). Tanda Qwen 01 cotejada: los dos informes contrastados tienen hallazgos parciales; correcciones del banco propuestas sin aplicar."
     }
   ],
   "consulta_remotos_arranque": {

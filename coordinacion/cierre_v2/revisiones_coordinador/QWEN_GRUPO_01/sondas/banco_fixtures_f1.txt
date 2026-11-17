@@ -1,0 +1,50 @@
+$ git show 4745f38:resultados_qwen/q1_v2/banco_revisado/fixtures/f1_001_nota.txt | cat -n
+     1	SINTETICA UNO S.A. - Informe anual sintetico 2025 (v1).
+     2	Pagina 1 - Tabla 1 (millones de EUR, consolidado): Ingresos 1000; EBITDA 150; Deuda financiera 0.
+     3	Pagina 2 - Nota 3: La sociedad no mantiene deuda financiera a 31/12/2025 (cero publicado).
+
+$ git show 4745f38:resultados_qwen/q1_v2/banco_revisado/fixtures/f1_002_registro.json | cat -n
+     1	{
+     2	  "na_justificado": {
+     3	    "linea": "diferencias de conversion",
+     4	    "motivo": "sin operaciones en moneda extranjera (Nota 2, pag. 2)",
+     5	    "estado_propuesto": "NO_APLICABLE_JUSTIFICADO"
+     6	  },
+     7	  "hipotesis": {
+     8	    "campo": "crecimiento ingresos",
+     9	    "valor_pct": 2,
+    10	    "fundamento": "media sintetica 3 ejercicios",
+    11	    "alternativas": [
+    12	      1,
+    13	      3
+    14	    ],
+    15	    "limites": "no extrapolable mas de 3 ejercicios",
+    16	    "publicada": false
+    17	  },
+    18	  "nota_soporte": {
+    19	    "documento": "Informe anual sintético 2025 de SINTETICA UNO S.A.",
+    20	    "pagina": 2,
+    21	    "nota": 2,
+    22	    "texto": "El grupo opera exclusivamente en euros. Todas sus entidades tienen el euro como moneda funcional y de presentación; no hay conversión de estados financieros desde otras monedas. La partida de diferencias de conversión no resulta aplicable en este expediente sintético."
+    23	  }
+    24	}
+
+$ git show 4745f38:resultados_qwen/q1_v2/banco_revisado/fixtures/f1_003_tabla.txt | cat -n
+     1	SINTETICA DOS S.A. 2025 - Pagina 1 - Tabla 2 (millones EUR, consolidado): Deuda bancaria 300; Caja 95.
+     2	La tabla no incluye linea de deuda por arrendamientos; ninguna nota la publica.
+
+$ git show 4745f38:resultados_qwen/q1_v2/banco_revisado/fixtures/f1_004_nota.txt | cat -n
+     1	SINTETICA TRES S.A. - Pagina 3 - Nota 7: Margen EBITDA estimado por el analista: 18%. Estimacion interna; no es cifra publicada por la sociedad.
+
+$ git show 4745f38:resultados_qwen/q1_v2/banco_revisado/fixtures/f1_005_origen.csv | cat -n
+     1	concepto,valor_millones_eur,fuente,estado_origen
+     2	ingresos,1200,Tabla 1 pag.1,contrastado
+     3	costes_operativos,1050,SIN_FUENTE,pendiente
+
+$ git show 4745f38:resultados_qwen/q1_v2/banco_revisado/fixtures/f1_006_excel.csv | cat -n
+     1	concepto,valor_millones_eur,fuente
+     2	minoritarios,0,
+
+$ git show 4745f38:resultados_qwen/q1_v2/banco_revisado/fixtures/f1_006_nota.txt | cat -n
+     1	SINTETICA CUATRO S.A. 2025 - Pagina 2 - Tabla 4: no publica linea de minoritarios ni nota asociada.
+
