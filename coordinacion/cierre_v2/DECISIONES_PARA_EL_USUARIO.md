@@ -52,3 +52,15 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
 - **Recomendada:** designar un banco o una aseguradora concretos y aportar sus informes oficiales (cuentas, Pilar 3 o SFCR) con SHA-256, y su Excel de la etapa 1 si existe.
 - **Alternativa:** (b) sacar el motor C real del alcance de este cierre. Es una reducción de alcance y exige decisión.
 - **Qué no se valida aunque se resuelva:** la solvencia y el capital regulatorio, que el contrato C declara no validar.
+
+### U4 · Textos de la raíz del producto que describen el hito 1 (README, CLAUDE.md, MIGRATION_STATUS.json) · documental
+
+- **Situación.** `README.md:1-17`, `CLAUDE.md:1` y `:35`, y `docs/MIGRATION_STATUS.json` dicen:
+  - «rama de revisión intermedia 4.15 hito 1»;
+  - que las correcciones de Claude «no se han importado»;
+  - que hay que «esperar» la entrega.
+
+  La candidata ya contiene el hito 2, `957af65` (`munger_v2_r1/VERSION`). Son tus instrucciones de proyecto. La corrección documental G-DOCS (`c0542b8`) no las toca.
+- **Recomendada:** que, en la rama de la candidata, la persona responsable apruebe sustituir esas frases por el estado verificable. Es decir: 4.15 · hito 2 integrado en `integracion/candidata-cierre-v2`; `main` conserva la 4.14; nada adoptado económicamente.
+- **Alternativa:** (b) dejarlas como están. El manual las marca como [CONTRADICCIÓN] C-01…C-04.
+- **Qué no se valida aunque se resuelva:** nada económico. Solo evita que un receptor nuevo espere una entrega que ya está.

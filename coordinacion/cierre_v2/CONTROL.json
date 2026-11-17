@@ -718,12 +718,14 @@
       "tarea": "Traspaso sin historial y revisión de manual",
       "autor": "Claude + receptor sin historial",
       "revisor_propuesto": "Auditor distinto si corresponde",
-      "entrega": "PENDIENTE",
+      "entrega": "PARCIAL",
       "revision": "PENDIENTE",
       "integracion": "NO",
-      "commit_origen": null,
+      "commit_origen": "788f25c73af698709d9b550b132780c86f7e203d",
       "commit_destino": null,
-      "evidencia": [],
+      "evidencia": [
+        "coordinacion/cierre_v2/traspaso/PROMPT_RECEPTOR.md"
+      ],
       "pruebas_autor": "NO_EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [
@@ -731,8 +733,8 @@
         "G-MANUAL"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Reproducir desde documentación y fuente fijadas; registrar lo no ejecutable.",
-      "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
+      "siguiente_accion": "Ensayo en curso con un receptor sin historial: un agente nuevo que solo recibe PROMPT_RECEPTOR.md y trabaja desde clones y descargas propias, siguiendo el manual §10. Límite declarado: el receptor es de la misma familia de modelo que el autor del manual y no puede lanzar los agentes del personaje (pasos con agentes reales: no ejecutables por el receptor). Mistral A no vale como receptor.",
+      "observacion": "Prueba de un receptor nuevo de la candidata 957af65 (manual aceptado con límites en 78ba1ca); reproducción independiente expresamente registrada.",
       "commit_revisado": null,
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -959,6 +961,11 @@
       "tipo": "ENTREGA",
       "fecha": "2026-11-17",
       "hecho": "G-DOCS: corrección documental de la guía y de CONTINUIDAD en integracion/docs-operativos-957af65 @ c0542b8 (manifiesto 7762/7762); revisión asignada a Mistral A."
+    },
+    {
+      "tipo": "PRUEBA",
+      "fecha": "2026-11-17",
+      "hecho": "T-TRASPASO lanzado con un receptor sin historial (PROMPT_RECEPTOR.md @ 788f25c); resultado pendiente."
     }
   ],
   "consulta_remotos_arranque": {
