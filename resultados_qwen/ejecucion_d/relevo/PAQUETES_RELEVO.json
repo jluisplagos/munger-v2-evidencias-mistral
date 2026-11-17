@@ -78,8 +78,8 @@
   "criterios_banco_total": 109,
   "criterios_banco": {
    "total": 109,
-   "con_asercion": 59,
-   "sin_asercion": 50
+   "con_asercion": 54,
+   "sin_asercion": 55
   }
  },
  "paquetes": [
@@ -1397,7 +1397,7 @@
      "criterio": "La coincidencia de dato, fuente, versión, período, perímetro y transformación se comprueba y registra.",
      "asercion": "C1",
      "cobertura": "asercion",
-     "razon": ""
+     "razon": "parcial: C1 prueba fuente intacta (mismo sha256) -> sigue comprobada; los seis ejes de coincidencia no se asertan todos"
     },
     {
      "indice": "1",
@@ -1409,9 +1409,9 @@
     {
      "indice": "2",
      "criterio": "La matriz conserva la referencia a la verificación reutilizada.",
-     "asercion": "C1",
-     "cobertura": "asercion",
-     "razon": ""
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "la referencia a la verificación reutilizada en la matriz del producto no se expone en el componente -> relevo"
     }
    ]
   },
@@ -1454,23 +1454,23 @@
     {
      "indice": "0",
      "criterio": "El histórico no se modifica; la corrección vive en copia nueva con original/corrección/evidencia.",
-     "asercion": "C2",
-     "cobertura": "asercion",
-     "razon": ""
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "origen intacto verificado por comprobación dura del arnés (sha256 antes/después), no por aserción de evidencia; no cuenta como criterio del banco observado"
     },
     {
      "indice": "1",
      "criterio": "Dependencias recalculadas con operandos presentes: deuda neta 300-90=210 (deuda 300 de la nota); auditoría nueva del material final cuando corresponda.",
      "asercion": "sin aserción",
      "cobertura": "bloqueo_entorno",
-     "razon": "bloqueo de entorno: recalculo con soffice y auditoria con agente (runtime del coordinador)"
+     "razon": "deuda neta 300-90=210 requiere recálculo con soffice + auditoría con agente (runtime del coordinador)"
     },
     {
      "indice": "2",
      "criterio": "No se cambian fórmulas ni palancas para compensar; la actividad continúa.",
-     "asercion": "C3",
-     "cobertura": "asercion",
-     "razon": ""
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "'no compensar con palancas': el CAMBIO no declara configuracion_economica (validado estáticamente contra el banco), no es aserción de ejecución"
     }
    ],
    "paquete_runtime": {
@@ -1530,9 +1530,9 @@
     {
      "indice": "0",
      "criterio": "La comprobación dependiente y la aprobación quedan invalidadas (observable en el registro/estado de aprobación; si el producto no lo expone, NO_OBSERVABLE y escalar).",
-     "asercion": "C2",
-     "cobertura": "asercion",
-     "razon": ""
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "la invalidación de la APROBACIÓN no se observa en el componente (registro de aprobaciones del pipeline no expuesto por comprobar/sellar); NO_OBSERVABLE o escalar"
     },
     {
      "indice": "1",
@@ -1544,9 +1544,9 @@
     {
      "indice": "2",
      "criterio": "La actividad no dependiente continúa; el nuevo contraste usa deuda 300 presente en el Excel.",
-     "asercion": "C4",
-     "cobertura": "asercion",
-     "razon": ""
+     "asercion": "sin aserción",
+     "cobertura": "sin_asercion",
+     "razon": "la deuda 300 no se observa en el componente (la celda es aux:caja); el esperado 300-80=220 requiere recálculo (soffice) -> relevo"
     }
    ]
   },
@@ -1915,7 +1915,7 @@
      "criterio": "El rango se registra como acotado/delimitado (0-200), no como incertidumbre sin delimitar.",
      "asercion": "C1",
      "cobertura": "asercion",
-     "razon": ""
+     "razon": "sobre la salida del producto (01): pendiente con rango acotado, no comprobada"
     },
     {
      "indice": "1",
@@ -1929,7 +1929,7 @@
      "criterio": "Una valoración puntual única presentada como apta sin fundamento para el punto ni tratamiento documentado de la incertidumbre queda impedida; el análisis con sensibilidad acotada puede continuar. Un punto elegido conserva su naturaleza de hipótesis, no se marca como dato publicado o comprobado por firma.",
      "asercion": "sin aserción",
      "cobertura": "sin_asercion_relevo_politica",
-     "razon": "relevo: decision de politica del responsable (tratamiento del litigio) y fase C con agente"
+     "razon": "relevo: decisión de política del responsable (tratamiento del litigio) y fase C con agente"
     }
    ]
   },

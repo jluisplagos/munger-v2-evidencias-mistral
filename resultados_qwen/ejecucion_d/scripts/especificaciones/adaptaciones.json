@@ -34,8 +34,8 @@
      "razon": ""
     }
    ],
-   "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido": "parcial",
+   "preserva_sentido_justificacion": "el banco nombra 'fila de deuda financiera'; la plantilla solo tiene la línea cero de arrendamientos (Historia!C23 = 0 en el libro) y el concepto se declara en fuente.concepto; el mecanismo cero-vs-ausencia se preserva"
   },
   "Q1-002": {
    "componente": "verificacion_entradas.py · clases no_aplicable e hipotesis",
@@ -71,7 +71,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: fixture f1_002_registro.json -> entrada no_aplicable con justificacion + entrada hipotesis en celda de hipótesis del modelo"
   },
   "Q1-003": {
    "componente": "verificacion_entradas.py · clase dato_ausente",
@@ -107,7 +107,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: tabla sin arrendamientos -> celda Historia!C23 como dato_ausente (en el expediente sintético la celda vale 0, así que el control usa una celda con valor para fo"
   },
   "Q1-004": {
    "componente": "verificacion_entradas.py · clase hipotesis vs dato_publicado",
@@ -143,7 +143,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: nota 'margen 18% estimado' -> entrada hipotesis en celda de tipo dato con justificacion_clase declarada"
   },
   "Q1-005": {
    "componente": "verificacion_entradas.py · clase derivado + reglas T1-T5/U1-U4 (fórmulas con fracciones exactas, sensibilidad)",
@@ -179,7 +179,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: fixtures f1_005_origen.csv -> aux:ingresos (comprobado) + aux:costes (pendiente) + derivado en celda auxiliar"
   },
   "Q1-006": {
    "componente": "verificacion_entradas.py · R2 conservación local + clase cero_comprobado/dato_ausente",
@@ -216,7 +216,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: minoritarios -> Historia!C26 (valor 0.217 en el libro); Excel 0 sin fuente -> cero_comprobado con archivo inexistente (control) y dato_ausente (control)"
   },
   "Q1-007": {
    "componente": "verificacion_entradas.py · unidad/escala de la fuente (R3, U7)",
@@ -257,7 +257,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f2_007 tabla (2500 sin unidad) vs nota (2,5 millones) -> entrada con unidad 'no declarada' -> control rechaza escala asumida"
   },
   "Q1-008": {
    "componente": "verificacion_entradas.py · R415-SIGNO (signo de la cifra publicada)",
@@ -293,7 +293,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f2_008 estado -> Historia!C15/C16 intereses con valor_fuente negativo y cita entre paréntesis"
   },
   "Q1-009": {
    "componente": "verificacion_entradas.py · columna/período + cita literal en la página (R1, R3)",
@@ -328,7 +328,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f2_009 -> entrada ventas Historia!C6 con cita '480' que no está en la página de ingresos 2025 -> control rechaza"
   },
   "Q1-010": {
    "componente": "verificacion_entradas.py · escala declarada (miles 1500 = millones 1,5)",
@@ -363,7 +363,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f2_010 nota (1,5 millones) + csv (1500 miles) -> misma celda caja con fuente en miles escala 0.001"
   },
   "Q1-011": {
    "componente": "verificacion_entradas.py · R415-SIGNO / doble negación en derivado",
@@ -399,7 +399,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f2_011 -> derivado aux:ebitda - aux:da con signo correcto; control negativo con doble negación"
   },
   "Q1-012": {
    "componente": "verificacion_entradas.py · campo perimetro",
@@ -434,7 +434,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f2_012 -> entrada ventas con perimetro 'segmento A' -> control rechaza frente al perímetro consolidado del expediente"
   },
   "Q1-013": {
    "componente": "verificacion_entradas.py · contraste completo (documento, versión, página, período, perímetro, cita)",
@@ -469,7 +469,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f3_013 -> Historia!C24 caja con fuente local en 2 archivos coincidentes"
   },
   "Q1-014": {
    "componente": "verificacion_entradas.py · version/reexpresado",
@@ -504,7 +504,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f3_014 -> dos entradas (2024 reexpresado en el universo, 2024 original en aux) con reexpresado='sí, por discontinuadas'"
   },
   "Q1-015": {
    "componente": "verificacion_entradas.py · discrepancia entre fuentes + revisor independiente",
@@ -540,7 +540,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f3_015 -> entrada caja con fuente A (120) cuando el libro dice 45.054 -> discrepancia; luego fuente B correcta -> verificada"
   },
   "Q1-016": {
    "componente": "verificacion_entradas.py · moneda/unidad (U7) + tratamiento/tipo de cambio (N9)",
@@ -575,7 +575,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f3_016 -> fuente en 'dólares' (unidad no reconocida) -> pendiente; control: no se acepta como EUR"
   },
   "Q1-017": {
    "componente": "verificacion_entradas.py · R2 (fuente sin bytes conservados)",
@@ -611,7 +611,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f3_017 -> entrada con conservacion local, archivo ausente, sha256 null -> pendiente"
   },
   "Q1-018": {
    "componente": "verificacion_entradas.py · version vigente vs histórica",
@@ -647,7 +647,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f3_018 -> Historia!C14 circulante con fuente v2; aux con v1; derivado de diferencia"
   },
   "Q1-019": {
    "componente": "verificacion_entradas.py · recuentos I9 + aptitud por entradas I20",
@@ -683,7 +683,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: estado parcial del registro (1 sellada + pendientes) ya ejecutado en el piloto Q1-036"
   },
   "Q1-020": {
    "componente": "verificacion_entradas.py · vínculo I13 + cambio de hipótesis",
@@ -718,7 +718,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: hipótesis en celda de tipo hipótesis: cambiar hipotesis.fundamento -> la entrada pasa a desactualizada/pendiente"
   },
   "Q1-021": {
    "componente": "verificacion_entradas.py · el texto de una fuente es dato, no orden (el producto no ejecuta texto de fuentes)",
@@ -753,7 +753,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f4_021 -> fuente con página 3 que 'ordena' marcar verificado: el control sigue exigiendo cita con la cifra en la página citada"
   },
   "Q1-022": {
    "componente": "verificacion_entradas.py · universo fijo (cobertura: ninguna sobra) + discrepancia",
@@ -789,7 +789,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f4_022 -> dos fuentes para caja con valores distintos -> discrepancia; no se puede 'borrar' la nota"
   },
   "Q1-023": {
    "componente": "verificacion_entradas.py · período/columna (el período debe contener el año de la columna de la Historia)",
@@ -824,7 +824,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f4_023 -> entrada caja con periodo 'ejercicio 2016' (columna C) usando la cita de 95: si la cita no está en esa página -> pendiente"
   },
   "Q1-024": {
    "componente": "verificacion_entradas.py · N2 dato como hipótesis + docstring 'una firma no las demuestra'",
@@ -859,7 +859,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f4_024 -> entrada hipotesis con nota de acta en justificacion; control: no pasa a dato_publicado"
   },
   "Q1-025": {
    "componente": "verificacion_entradas.py · vigencia I13 (reutilización solo si coinciden huella y fundamento)",
@@ -878,7 +878,7 @@
      "indice": 0,
      "asercion": "C1",
      "cobertura": "asercion",
-     "razon": ""
+     "razon": "parcial: C1 prueba fuente intacta (mismo sha256) -> sigue comprobada; los seis ejes de coincidencia no se asertan todos"
     },
     {
      "indice": 1,
@@ -888,13 +888,13 @@
     },
     {
      "indice": 2,
-     "asercion": "C1",
-     "cobertura": "asercion",
-     "razon": ""
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "la referencia a la verificación reutilizada en la matriz del producto no se expone en el componente -> relevo"
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: ejecutado con su propia spec (bloque2/Q1-025.json): con la fuente intacta (mismo sha256) la entrada sigue comprobada entre dos comprobar; el patron positivo de "
   },
   "Q1-026": {
    "componente": "cambiar_base.py + verificacion_entradas.py · corrección en copia nueva (nunca sobrescribe)",
@@ -912,25 +912,25 @@
    "cobertura_banco": [
     {
      "indice": 0,
-     "asercion": "C2",
-     "cobertura": "asercion",
-     "razon": ""
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "origen intacto verificado por comprobación dura del arnés (sha256 antes/después), no por aserción de evidencia; no cuenta como criterio del banco observado"
     },
     {
      "indice": 1,
      "asercion": null,
      "cobertura": "bloqueo_entorno",
-     "razon": "bloqueo de entorno: recalculo con soffice y auditoria con agente (runtime del coordinador)"
+     "razon": "deuda neta 300-90=210 requiere recálculo con soffice + auditoría con agente (runtime del coordinador)"
     },
     {
      "indice": 2,
-     "asercion": "C3",
-     "cobertura": "asercion",
-     "razon": ""
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "'no compensar con palancas': el CAMBIO no declara configuracion_economica (validado estáticamente contra el banco), no es aserción de ejecución"
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "tras D2-R3: cifras del banco f5_026 (95->90, deuda 300, deuda neta 210); las anteriores (45.000/82.019/37.019) no estan en el fixture y se retiraron"
+   "preserva_sentido_justificacion": "cifras exactas del banco f5_026 (caja 95->90, deuda 300, deuda neta 210) validadas contra el fixture por el arnés; CAMBIO con bloque evidencia"
   },
   "Q1-027": {
    "componente": "verificacion_entradas.py · vigencia R2/I13 (sha256 de la fuente)",
@@ -943,14 +943,14 @@
     "no sigue comprobada"
    ],
    "artefacto": "evidencias/Q1-027/*.json",
-   "adaptacion": "caja Historia!C24 sellada con fuente local (valor del libro 45054 miles; f5_027_revision.json declara 95 millones EUR verificados el 2026-11-05); mutacion de la fuente a 80000 miles = 80 millones (f5_027_excel.csv: caja,80,2026-11-10); deuda 300 millones presente en el mismo extracto (f5_027_excel.csv); esperado del banco con recalculo: 300-80=220 millones (relevo, soffice)",
-   "sin_comprobar": "aprobacion dependiente (registro de aprobaciones del pipeline: relevo); nuevo contraste por agente; esperado numerico 300-80=220 millones observable solo con recalculo (soffice)",
+   "adaptacion": "aux:caja con cifras exactas del banco: verificada 95 millones (f5_027_revision.json, 2026-11-05), mutada a 80 millones (f5_027_excel.csv, 2026-11-10); deuda 300 millones citada del mismo CSV; esperado 300-80=220 con recálculo (relevo)",
+   "sin_comprobar": "aprobación dependiente (registro de aprobaciones del pipeline: NO_OBSERVABLE en el componente, escalar); nuevo contraste por agente; esperado numérico 220 con soffice (relevo)",
    "cobertura_banco": [
     {
      "indice": 0,
-     "asercion": "C2",
-     "cobertura": "asercion",
-     "razon": ""
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "la invalidación de la APROBACIÓN no se observa en el componente (registro de aprobaciones del pipeline no expuesto por comprobar/sellar); NO_OBSERVABLE o escalar"
     },
     {
      "indice": 1,
@@ -960,13 +960,13 @@
     },
     {
      "indice": 2,
-     "asercion": "C4",
-     "cobertura": "asercion",
-     "razon": ""
+     "asercion": null,
+     "cobertura": "sin_asercion",
+     "razon": "la deuda 300 no se observa en el componente (la celda es aux:caja); el esperado 300-80=220 requiere recálculo (soffice) -> relevo"
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "cifras exactas del banco en aux:caja: verificada 95 millones (f5_027_revision.json, 2026-11-05) -> 80 (f5_027_excel.csv, 2026-11-10); deuda 300 citada; esperado 300-80=220 solo con recálculo (relevo/soffice)"
   },
   "Q1-028": {
    "componente": "cierre_v2.py · material auditado y retirada de aprobaciones (cualquier cambio del material retira la aprobación en la primera llamada)",
@@ -1001,7 +1001,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos",
+   "preserva_sentido_justificacion": "si: f5_028 -> mutar el registro/material tras una aprobación simulada y leer ficha.py; la transformación deuda+arrendamientos-caja como derivado con arrendamientos ",
    "observacion_compartida": "observacion compartida con Q1-036 (retirada de aprobacion al cambiar material auditado); no acredita reaprobacion nueva ni el derivado 245"
   },
   "Q1-029": {
@@ -1038,7 +1038,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f5_029 -> 3 entradas con fuentes locales + 2 con archivo ausente"
   },
   "Q1-030": {
    "componente": "verificacion_entradas.py · vigencia por material idéntico (sin caducidad por mero tiempo en el contrato del registro)",
@@ -1073,7 +1073,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos",
+   "preserva_sentido_justificacion": "si: f5_030 -> entrada sellada con fuente intacta: sigue comprobada; la 'caducidad' no existe en el contrato -> DECISION_PENDIENTE",
    "veredicto_caso_fijo": {
     "veredicto": "DECISION_PENDIENTE",
     "nota": "caducidad temporal por antigüedad: política no fijada (responsable)"
@@ -1112,7 +1112,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f6_031 -> fase1_v63.json.precio con fecha 31/12/2025 declarada histórica"
   },
   "Q1-032": {
    "componente": "verificacion_entradas.py · aptitud por entradas (I20) vs aptitud de uso (ficha.py aptitud_de_uso)",
@@ -1147,8 +1147,8 @@
      "razon": "relevo: recuento 4/1/5 del fixture sobre un universo de 5 soportado (el universo real es 321) o NO_OBSERVABLE"
     }
    ],
-   "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos",
+   "preserva_sentido": "no",
+   "preserva_sentido_justificacion": "el universo real del expediente es 321 celdas frente a las 5 del fixture f6_032_matriz.json; el recuento 4/1/5 no es observable sin un expediente de 5 entradas soportado (relevo) o NO_OBSERVABLE",
    "observacion_compartida": "observacion compartida con Q1-036 (ficha provisional: apta por entradas no); 1/321 NO prueba 4/1/5 del fixture -> recuento propio no observable aqui"
   },
   "Q1-033": {
@@ -1184,7 +1184,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: f6_031 con precio solo histórico -> expediente sin precio actual; el pipeline/ficha no presentan el histórico como actual"
   },
   "Q1-034": {
    "componente": "objetivo_v64.py / configuracion_economica · rango acotado como lambda_rango/theta_rango (punto de cálculo declarado, sin central adoptada)",
@@ -1204,7 +1204,7 @@
      "indice": 0,
      "asercion": "C1",
      "cobertura": "asercion",
-     "razon": ""
+     "razon": "sobre la salida del producto (01): pendiente con rango acotado, no comprobada"
     },
     {
      "indice": 1,
@@ -1216,11 +1216,11 @@
      "indice": 2,
      "asercion": null,
      "cobertura": "sin_asercion_relevo_politica",
-     "razon": "relevo: decision de politica del responsable (tratamiento del litigio) y fase C con agente"
+     "razon": "relevo: decisión de política del responsable (tratamiento del litigio) y fase C con agente"
     }
    ],
-   "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido": "parcial",
+   "preserva_sentido_justificacion": "la adaptación usa aux:litigio como hipótesis con el rango en limites; el banco preveía un parámetro de configuración económica; el observable clave (rango 0-200 preservado, punto medio rechazado) se conserva en la salida del producto"
   },
   "Q1-035": {
    "componente": "ficha.py aptitud_de_uso + validación de motor (alcance por motor)",
@@ -1256,7 +1256,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos",
+   "preserva_sentido_justificacion": "si: f6_035 -> expediente con motor experimental declarado; la ficha no emite apto para dinero real",
    "veredicto_caso_fijo": {
     "veredicto": "DECISION_PENDIENTE",
     "nota": "validación de motores: política no fijada (responsable)"
@@ -1297,7 +1297,7 @@
     }
    ],
    "preserva_sentido": "si",
-   "preserva_sentido_justificacion": "la adaptacion usa los fixtures y cifras del banco; la spec y las aserciones se evaluan contra ellos"
+   "preserva_sentido_justificacion": "si: registro con 1 comprobada y 320 pendientes sobre el universo real del expediente sintético (el caso pide 3/2/5; el patrón es el mismo)"
   }
  }
 }
