@@ -37,7 +37,7 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
 - **Alternativa:** (b) aceptar como preservación el índice de descarga (URL, fecha, SHA-256 y bytes) y los extractos acotados en Git, con el riesgo de que el emisor cambie o retire los documentos.
 - **Qué no se valida aunque se resuelva:** M1, M2, M6 y N2 siguen ABIERTOS según la revisión (E-R1…E-R9). Elis sigue `pendiente_de_datos`.
 
-### U2 · Tercer caso B fuera de muestra (F-B3) · **en preparación** (17-nov: recuperar recursos, fuentes públicas y propuesta concreta)
+### U2 · Tercer caso B fuera de muestra (F-B3) · **propuesta: Ahold Delhaize** (17-nov; `u2_tercer_b/`). Falta de ti: `Ahold_evaluada.xlsx` y `Ahold_respuesta.md` de la etapa 1, tal cual; el `HUELLAS.txt` de tus PDF 2019–2025; si el resultado de la etapa 1 influyó en elegirla como reserva; y dónde conservar los 10 informes anuales descargados (por ejemplo, una Release como en U1). La lista de las 116 no hace falta
 
 - **Situación.** En el ZIP no está el Excel evaluado de la etapa 1 de Ahold; solo hay un `.bat` de descarga sin ejecutar. La lista de las 116 empresas no está conservada. Hermès y Aarsleff no sirven: ya están en la muestra.
 - **Recomendada:** aportar el Excel de la etapa 1 de Ahold, su respuesta y sus fuentes (informes 2016–2025 y el folleto NIIF 16 de 2018), en bytes y con SHA-256.
