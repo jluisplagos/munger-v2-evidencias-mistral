@@ -1,0 +1,64 @@
+name: Piloto Claude API
+
+on:
+  push:
+    branches: [automatizacion/piloto-claude-api]
+    paths:
+      - automation/claude_review/**
+      - .github/workflows/piloto-claude-api.yml
+  workflow_dispatch:
+
+# Nunca se usan pull_request_target ni entradas de forks con secretos.
+permissions:
+  contents: read
+
+concurrency:
+  group: munger-claude-api-piloto-unico
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Pruebas sin API
+        run: python3 -m unittest discover -s automation/claude_review -p test_pilot.py -v
+
+  pilot:
+    needs: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Preparar o ejecutar la única revisión
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: >-
+          python3 automation/claude_review/pilot.py
+          --request automation/claude_review/request.json
+          --output "$RUNNER_TEMP/munger-api-report"
+          --code-sha "$GITHUB_SHA"
+      - name: Publicar resumen
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/munger-api-report/report.md" ]; then
+            cat "$RUNNER_TEMP/munger-api-report/report.md" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'El piloto no produjo informe. Consultar el código de error del paso anterior; no hay aceptación.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Conservar paquete e informe
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: munger-claude-api-${{ github.run_id }}
+          path: ${{ runner.temp }}/munger-api-report/
+          if-no-files-found: warn
+          retention-days: 30
