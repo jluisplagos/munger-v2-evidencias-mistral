@@ -2,7 +2,7 @@
 
 Corte: 2026-11-17 ~12:10 UTC; consulta remota del coordinador (A 0946971, D d032691, E f00c5dd, F 98bdf8f, G a0524d9 sin cambios; automatización a508d6b, registro 953af02).
 
-Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud económica global acreditada.
+Reorientado al universo real de la persona responsable (17-nov): examen del personaje con cinco empresas reales y tope de 4–6 días; sin aptitud económica acreditada hasta el veredicto final.
 
 **Fuente:** CONTROL.json. Este panel resume evidencia registrada; no observa sesiones privadas, no ejecuta agentes y no acredita por sí solo aptitud económica.
 

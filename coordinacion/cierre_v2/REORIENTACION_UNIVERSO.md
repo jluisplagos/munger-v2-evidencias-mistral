@@ -89,3 +89,32 @@ Se eligen **para examinar el juicio**, no porque sean compras:
   - cambios de versión del modelo de IA;
   - un procedimiento corto para usarlo sin esta conversación;
   - lo que el personaje no hace: la cartera en conjunto, financieras, sumas de partes.
+
+## 9. Decisión del 17-nov y arranque
+
+- **La persona responsable aprueba el plan recortado** («Excelente, empecemos»), con las empresas del examen de §5, el tope de 4–6 días y la regla de parada. Lo aparcado en §7 se conserva sin borrar.
+- **Tasa:** sin decidir. Se usa el 9 % heredado como **provisional**, y cada análisis muestra la sensibilidad a ±1–2 puntos.
+- **Compromiso del coordinador:** al final dirá una de tres cosas, con sus razones:
+  - «Sí, aquí metería dinero real, con poco para empezar»;
+  - «Todavía no» y qué falta;
+  - «No, para».
+- **Topes contra el crecimiento del proyecto:**
+  - alcance cerrado: lo nuevo se consulta antes de añadirse;
+  - como máximo dos rondas de corrección por pieza;
+  - Fable en 6 sesiones como máximo;
+  - criterios fijados antes de empezar;
+  - un estado diario de cinco líneas sin jerga.
+
+## 10. Cuestión de fondo para volver más adelante: ¿aportan algo las fases A, B y C?
+
+- **Pregunta de la persona responsable, que quiere examinarla con detalle más adelante:** ¿el pipeline de varias fases del personaje (extracción, fases A, B y C y auditoría) da mejores juicios que un análisis directo de un modelo potente sobre los mismos datos verificados?
+- **Cómo se contrasta en el examen:** en dos casos (por ejemplo Ahold y Zoetis, primer tiempo), se compara el personaje completo con un análisis directo en una sola pasada, con los mismos datos verificados y la misma tasa. Se miden:
+  - el veredicto;
+  - el precio de Sí;
+  - si se cae en la trampa de Zoetis;
+  - los errores económicos detectados por la revisión;
+  - el coste y el tiempo.
+- **Lectura del resultado:**
+  - Si el personaje no es claramente mejor, hay que plantearse simplificarlo y abaratar cada análisis futuro.
+  - Si lo es, la estructura queda justificada con evidencia.
+- **Esta comparación no sustituye al examen ni retrasa el veredicto final.**
