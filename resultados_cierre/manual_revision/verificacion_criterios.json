@@ -1,0 +1,104 @@
+{
+ "revision": "G-MANUAL por Mistral A (independiente del autor Claude)",
+ "solicitud": {
+  "sha_autor": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
+  "base_revisada": "957af652cdc3bef3d67e8623c9572138bac685e9",
+  "control_vigente": "cdec2f5dab654a9149ed510475feae3ed2f0662f",
+  "rama_revision": "mistral/g-manual-traspaso"
+ },
+ "metodo": "solo lectura (git show) del producto @957af65 y del auxiliar @9871f59; ningun comando del producto ejecutado; sin LibreOffice; sin red",
+ "hallazgos": [
+  {
+   "criterio": "C1 citas archivo:linea",
+   "estado": "CONFORME",
+   "detalle": "266 citas resueltas y con linea dentro del archivo; faltan 0; linea fuera de rango 0",
+   "fuente": "MANUAL_OPERATIVO_957af65.md + CONTRADICCIONES_GUIA.md vs producto@957af65 y auxiliar@9871f59"
+  },
+  {
+   "criterio": "C1 hashes §13",
+   "estado": "CONFORME",
+   "detalle": "30 hashes declarados; discordantes: ninguno",
+   "fuente": "MANUAL §13 vs sha256 real de cada archivo citado"
+  },
+  {
+   "criterio": "C1 comandos literales",
+   "estado": "CONFORME",
+   "detalle": "OK gh release download base-4.14 --repo jluisplagos/munger-v2 --pattern m (README.md); OK gh api -H \"Accept: application/octet-stream\" repos/jluisplagos/munger- (munger_v2_r1/PROMPT_NUEVA_VENTANA.md); OK python tools/base_414.py materialize --source .downloads/munger_v2_r1_ (README.md); OK python tools/base_414.py verify --report docs/VERIFICACION_BASE_COMPLE (README.md); OK python tools/base_414.py verify --git-only (README.md); OK bash verificar_paquete.sh completa (munger_v2_r1/verificar_paquete.sh); OK python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_en (munger_v2_r1/CONTINUIDAD.md)",
+   "fuente": "bloque de comandos del manual vs fuente citada"
+  },
+  {
+   "criterio": "C2 I19/I20/H9",
+   "estado": "CONFORME",
+   "detalle": "OK CONTINUIDAD.md:9 declara I19/I20 corregidos; OK HITO_2_4_15.md:82-93 cubre I20 (verificacion_entradas en ficha/informe) y I19 (relevo caducado); OK HITO_2_4_15.md:92-93 declara H9 pendiente (vuelve siempre a paso 12); OK test_relevo_i19_415.py existe con >=5 pruebas (paso(...)) y exige n>=5; OK ficha.py:383-391 contiene verificacion_entradas; OK pipeline.py:1060-1083 contiene relevos_caducados; OK el manual y la guia no reintroducen I19/I20 y marcan H9 pendiente; OK el manual no presenta --desde 12 como procedimiento vigente del relevo caducado",
+   "fuente": "producto@957af65 CONTINUIDAD.md:9, HITO_2_4_15.md:82-93, test_relevo_i19_415.py, ficha.py:383-391, pipeline.py:1060-1083 vs manual/guia"
+  },
+  {
+   "criterio": "C3 no politicas/valores",
+   "estado": "CONFORME",
+   "detalle": "hallazgos de asignacion de parametros: ninguno; el manual declara \"no adopta ni propone ningun valor\" (§1)",
+   "fuente": "busqueda regex sobre manual+guia; PROGRAM.md:7 del control"
+  },
+  {
+   "criterio": "C4 tabla G/O alcanzable",
+   "estado": "CONFORME",
+   "detalle": "9 filas G y 18 filas O (27 filas, 77 citas); citas no alcanzables: ninguna (todas existen en 957af65/9871f59)",
+   "fuente": "CONTRADICCIONES_GUIA.md §2-3 vs producto@957af65 y auxiliar@9871f59"
+  },
+  {
+   "criterio": "C4 muestra textual G/O",
+   "estado": "CONFORME",
+   "detalle": "G-1@114-114 busco 'Relevo': OK (- **Relevo caducado.** Si, mientras el paso 13 espera, cambi); G-2@98-98 busco 'V6.3': OK (- Un registro no apto no impide recorrer el pipeline, y ning); G-7@1-1 busco '4.13': OK (# Guía breve del recorrido supervisado · plantillas V6.4 y V); G-8@14-14 busco 'descompresi': OK (1. Comprobar el paquete en una descompresión limpia: `bash v); O-1@351-351 busco 'I19': OK (- **Relevo caducado** (I19): que el paso 13 vuelva a fijar e); O-5@130-132 busco 'quince': OK (En «completa», las quince baterías (desde el hito 2 de la 4.); O-8@386-390 busco 'ZIP': OK (## 12. Cómo continuar en una ventana nueva); O-15@31-32 busco '198': OK (- el resultado de cada bloque: manifiesto, entorno, contrast)",
+   "fuente": "muestra de 6 entradas de la tabla vs lineas reales del producto"
+  },
+  {
+   "criterio": "C5 T-TRASPASO",
+   "estado": "CONFORME",
+   "detalle": "19 pasos en la tabla (esperados 19); requisitos usados: ['AG', 'LO', 'RED', 'S']; separacion LO/AG/RED declarada: True; entorno->soffice verificado en codigo: True",
+   "fuente": "manual §10 vs verificar_paquete.sh y comprobar_entorno.sh @957af65"
+  },
+  {
+   "criterio": "C1 comandos completos (todos los bloques)",
+   "estado": "CONFORME",
+   "detalle": "11 comandos en bloques indentados del manual; los 3 que no aparecian literalmente en el corpus広 se resolvieron: `sellar <expediente> --revisor NOMBRE --fecha AAAA-MM-DD(hoy) CELDA [CELDA …]` es exactamente verificacion_entradas.py:84 (citado en CONTRADICCIONES_GUIA G-3), y los dos comandos pipeline con config_v2_v64_experimental / config_v2_v641_experimental son literales de GUIA_RECORRIDO_SUPERVISADO.md:34 (el comentario final es de la fuente). Ningun comando inventado.",
+   "fuente": "MANUAL_OPERATIVO_957af65.md vs corpus citado"
+  },
+  {
+   "criterio": "C5 numeros de §5.2 vs logs de pruebas",
+   "estado": "CONFORME",
+   "detalle": "{\"log PASA global\": true, \"log 7762\": true, \"log 114/114\": true, \"log 199/199\": true, \"log 190/190\": true, \"log 62/62\": true, \"log 55/55 cierre\": true, \"readme pruebas 22:18-23:18\": true, \"readme flock\": true, \"readme 1008 copiados\": true, \"log414 29/35\": true}; zip size/sha en README: {'size_ok': True, 'sha_ok': True}; VERSION=munger_v2 · r1 · entrega 4.15 · hito 2 (corrección técnica t",
+   "fuente": "PRUEBAS/verificar_paquete_completa.log, comprobar_entrega_4_14.log, README.md @9871f59 y producto@957af65"
+  },
+  {
+   "criterio": "C1/C5 contraste C-01/C-03 y entorno",
+   "estado": "CONFORME",
+   "detalle": "C-03 confirmado: PROMPT_NUEVA_VENTANA.md:19 nombra claude/hopeful-bardeen-qap6y0 (rama de trabajo del hito 2), no la candidata; C-01 confirmado: README.md:1 y CLAUDE.md:1 describen la rama de revision hito 1; comprobar_entorno.sh:5-8 lista openpyxl/lxml/pypdf/jsonschema + soffice/pdftotext, :20 autotest precio_de_si.py; VERSION = \"4.15 · hito 2\"",
+   "fuente": "producto@957af65 PROMPT_NUEVA_VENTANA.md:3,19; README.md:1; CLAUDE.md:1; comprobar_entorno.sh:5-20; VERSION:1"
+  }
+ ],
+ "chequeos_adicionales": {
+  "comandos_bloques": 11,
+  "comandos_no_literales": [
+   "verificacion_entradas.py sellar <expediente> --revisor NOMBRE --fecha AAAA-MM-DD(hoy) CELDA [CELDA …]",
+   "python3 personaje_v2/scripts/pipeline.py CARPETA --config personaje_v2/config_v2_v64_experimental.json     (V6.4, motor B)",
+   "python3 personaje_v2/scripts/pipeline.py CARPETA --config personaje_v2/config_v2_v641_experimental.json    (V6.4.1)"
+  ],
+  "chequeos_numericos": {
+   "log PASA global": true,
+   "log 7762": true,
+   "log 114/114": true,
+   "log 199/199": true,
+   "log 190/190": true,
+   "log 62/62": true,
+   "log 55/55 cierre": true,
+   "readme pruebas 22:18-23:18": true,
+   "readme flock": true,
+   "readme 1008 copiados": true,
+   "log414 29/35": true
+  },
+  "zip_readme": {
+   "size_ok": true,
+   "sha_ok": true
+  },
+  "version": "munger_v2 · r1 · entrega 4.15 · hito 2 (corrección técnica t"
+ }
+}

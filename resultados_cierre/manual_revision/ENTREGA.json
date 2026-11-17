@@ -1,0 +1,65 @@
+{
+    "es_plantilla": false,
+    "frente": "A",
+    "bloque": "G-MANUAL · revisión independiente del borrador de manual @341831f contra la candidata 957af65 (cinco criterios de la solicitud)",
+    "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+    "rama": "mistral/g-manual-traspaso",
+    "base_revisada_sha": "957af652cdc3bef3d67e8623c9572138bac685e9 (producto, integracion/candidata-cierre-v2); control vigente cdec2f5dab654a9149ed510475feae3ed2f0662f; sha_autor 341831fd8b4c9081c09f1ebe7b31799042402d0f",
+    "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+    "directorio_entrega": "resultados_cierre/manual_revision/",
+    "tareas_control": ["G-MANUAL"],
+    "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+    "banco_sha": null,
+    "naturaleza": "revisión independiente del autor del manual (Claude), hecha por Mistral A; no es el ensayo T-TRASPASO ni acredita integración",
+    "autor_contexto_modelo_herramientas": "Sesión Vibe Code de Mistral AI, modelo mistral-large-4-0 (único expuesto; consumo/facturación no visible). Solo git (lectura) + Python 3.12 stdlib. Sin LibreOffice, sin pipeline, sin red, sin agentes del producto.",
+    "fuentes_y_preservacion": [
+        "Producto jluisplagos/munger-v2 @957af65 leído solo con git show (no modificado)",
+        "Auxiliar @9871f59 para EVID/ y PRUEBAS/ (solo lectura)",
+        "Manual y guía de 341831f (idénticos a cdec2f5 en coordinacion/cierre_v2/manual/, verificado con git diff vacío)"
+    ],
+    "cambios_respecto_entrega_anterior": [
+        "Primera entrega de esta rama: informe de revisión G-MANUAL en resultados_cierre/manual_revision/ (no existía rama mistral/g-manual-traspaso en origin antes)",
+        "Rama A intacta: mistral/m2-cobertura-vm @8b88fab con RESPUESTA_A2_CIERRE_V2.md, ENTREGA.json y COMANDOS.md confirmados en ese SHA (git ls-tree)"
+    ],
+    "pruebas": [
+        {
+            "tipo": "componente",
+            "comando": "python3 -B resultados_cierre/manual_revision/scripts/verificar_manual.py",
+            "exit_esperado": 0,
+            "exit_observado": 0,
+            "criterios_cubiertos": [
+                "C1: 266 citas archivo:linea resueltas (0 faltantes); 30/30 hashes §13 exactos; 11/11 comandos literales de la fuente; ningún comando inventado",
+                "C2: I19/I20 corregidos no reintroducidos (CONTINUIDAD.md:9, HITO_2_4_15.md:82-93, ficha.py:383-391, pipeline.py:1060-1083, test_relevo_i19_415.py >=5 pruebas); H9 marcado pendiente",
+                "C3: ninguna política ni valor adoptado (regex sobre manual+guía; VERSION=4.15·hito 2)",
+                "C4: 9 filas G + 18 filas O (77 citas) todas alcanzables; 8/8 muestras textuales coinciden; C-01/C-03 confirmados",
+                "C5: tabla T-TRASPASO 19/19 pasos con requisito S/LO/AG/RED y fuente; números §5.2 coinciden con logs PRUEBAS (PASA, 7762, 114/114, 199/199, 190/190, 62/62, 29/35)"
+            ],
+            "criterios_sin_cubrir": [
+                "T-TRASPASO no ejecutado (requiere LibreOffice y agentes reales; no ejecutable en este entorno y no afirmado)",
+                "verificación textual muestral, no exhaustiva de las 266 citas"
+            ],
+            "evidencia": "resultados_cierre/manual_revision/verificacion_criterios.json (11 hallazgos CONFORME) + INFORME_REVISION_GMANUAL.md",
+            "sha_material": "producto @957af65 y auxiliar @9871f59 (git show, sin modificar)",
+            "resultado": "CONFORME_CON_LIMITES"
+        }
+    ],
+    "precondiciones_simuladas": [],
+    "revision_por_otro_contexto": "Hecha: esta revisión es de un contexto distinto del autor del manual (Claude). Queda pendiente la aceptación del coordinador en CONTROL.json y la prueba T-TRASPASO por un receptor sin historial.",
+    "limites_y_bloqueos": [
+        "Nada del producto ejecutado: ni verificar_paquete.sh, ni LibreOffice, ni agentes, ni red",
+        "12 [NO DOCUMENTADO] del manual son carencias reales del material del producto (comprobadas en muestra), no defectos del borrador",
+        "Los logs de PRUEBAS son pruebas del autor de la candidata, no revisión independiente (el manual lo declara)"
+    ],
+    "siguiente_accion_exacta": "El coordinador registra este informe en CONTROL.json (informe_revision de G-MANUAL, commit_revisado = SHA remoto de esta rama), corrige los textos desfasados en una copia aislada de la candidata y prepara T-TRASPASO con un receptor sin historial (no Mistral A).",
+    "integrado_en_producto": false,
+    "apto_dinero_real": "No se declara por este formulario",
+    "criterios_cubiertos": [
+        "los cinco criterios de la solicitud G-MANUAL, CONFORME CON LÍMITES (ver informe)"
+    ],
+    "criterios_pendientes": [
+        "aceptación del coordinador en CONTROL.json",
+        "T-TRASPASO ejecutado por receptor sin historial (LO/AG)",
+        "posible corrección A2 devuelta por Claude sobre la rama A (8b88fab), atendida después en mistral/m2-cobertura-vm"
+    ],
+    "salida_siguiente": "commit+push de mistral/g-manual-traspaso con esta carpeta; el coordinador fija el SHA remoto en el control"
+}
