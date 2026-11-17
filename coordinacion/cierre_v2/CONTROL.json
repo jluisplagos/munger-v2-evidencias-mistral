@@ -276,18 +276,20 @@
         "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/REVISION_A2_8b88fab.md",
         "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/CORRECCION_A3.md",
         "resultados_m2/cobertura_vm/ @ 93a02e0 (A3-R1) y d11ee44 (A3-R2), entregas parciales de A3",
-        "resultados_m2/cobertura_vm/ @ 93a02e0…0946971 (A3-R1…R8, un commit por punto)"
+        "resultados_m2/cobertura_vm/ @ 93a02e0…0946971 (A3-R1…R8, un commit por punto)",
+        "coordinacion/cierre_v2/revisiones_coordinador/A3_0946971/REVISION_A3_0946971.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/A3_0946971/CORRECCION_A4.md"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Mistral A: primero la revisión de G-MANUAL (rama mistral/g-manual-traspaso); después CORRECCION_A3.md (A3-R1…R8) en la rama A, en un bloque separado. T-EXP sigue bloqueado por A-CTX.",
-      "observacion": "Respuesta a A3 completa (8 commits hasta 0946971); revisión del coordinador en curso (contexto distinto). G-RAIZ, asignada a Mistral A, sigue sin revisar.",
-      "commit_revisado": "8b88fab28261506c60bc7631fd24894e225099d2",
+      "siguiente_accion": "Mistral A: primero la revisión de G-RAIZ (3d66437); después A4-R1…R6 (CORRECCION_A4.md) en la rama A. T-EXP sigue bloqueado por A-CTX.",
+      "observacion": "A3 revisado: CORRECCION_A4 (A4-R1…R6). Polaridad invertida en Vidrala Historia!J6/J7 comprobada por el coordinador. G-RAIZ, asignada a Mistral A, sigue sin revisar y va antes que A4.",
+      "commit_revisado": "0946971e1e4cf10cb85ed4c757968a4bd060d6a7",
       "alcance_aceptado": [],
       "solicitud_revision": {
-        "estado": "EN_CURSO",
+        "estado": "RESPONDIDA",
         "sha_autor": "0946971e1e4cf10cb85ed4c757968a4bd060d6a7",
         "base_revisada": "8b88fab28261506c60bc7631fd24894e225099d2",
         "diff_rutas": [
@@ -299,7 +301,13 @@
           "cambio de estados en los datos reales sin acreditación nueva sin evidencia"
         ],
         "revisor_asignado": "Claude coordinador (subagente de revisión)",
-        "informe_revision": null
+        "informe_revision": {
+          "ruta": "coordinacion/cierre_v2/revisiones_coordinador/A3_0946971/REVISION_A3_0946971.md",
+          "veredicto": "R7 cerrado; R1, R5 y R6 cerrados con límites; R2, R3, R4 y R8 abiertos. CSV 169/209/133 → 209/283/19; ninguna entrada en REVISADO sin todas sus dimensiones; los 15 CONFLICTO de fuente examinados no son reales (13 artefactos nuevos de R3/R4)",
+          "limites": [
+            "sin red ni LibreOffice; reproducción 192/196 byte a byte"
+          ]
+        }
       }
     },
     {
@@ -1184,6 +1192,11 @@
       "tipo": "CONSULTA",
       "fecha": "2026-11-17",
       "hecho": "Rama nueva automatizacion/piloto-claude-api (53c8797), de la persona responsable: piloto aislado de revisión por la API de Claude en modo de prueba sin consumo. Fuera de las tareas del coordinador; no se toca."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "A3 de Mistral A (0946971) revisado: R7 cerrado, R1/R5/R6 con límites, R2/R3/R4/R8 abiertos; CORRECCION_A4. CSV 209/283/19; ninguna acreditación sin evidencia; polaridad invertida (J6/J7) comprobada por el coordinador."
     }
   ],
   "consulta_remotos_arranque": {

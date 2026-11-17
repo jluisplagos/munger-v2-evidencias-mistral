@@ -1,0 +1,373 @@
+## python3 -I -B inventario.py 
+{"entradas": 677, "nuevas": 617, "lotes": 22, "fuentes": {"CONFORME": 21}, "huecos": 0, "catalogo_ok": true}
+
+exit=0
+## python3 -I -B verificar_fuentes.py 
+{"entradas_con_fuente": 467, "estados": {"COINCIDE_PROPUESTO": 467}, "observaciones_pagina": 123, "salidas": ["<rev_A3>/repro/resultados_m2/cobertura_vm/resultados/verificacion_fuentes.jsonl", "<rev_A3>/repro/resultados_m2/cobertura_vm/OBSERVACIONES.jsonl"]}
+
+exit=0
+## python3 -I -B verificar_contexto.py 
+{"entradas": 677, "estados_contextuales": {"PENDIENTE_CONTEXTUAL": 233, "NO_APLICA": 210, "REVISADO_CONTEXTUAL": 176, "CONFLICTO_CONTEXTUAL": 15, "REUTILIZADO_M1": 43}, "checks": {"columna:CONFLICTO": 2, "columna:NO_DECIDIBLE": 104, "columna:OK": 361, "fila:NO_DECIDIBLE": 1, "fila:OK": 466, "perimetro:NO_APLICA": 4, "perimetro:OK": 463, "reexpresion:CONFLICTO": 14, "reexpresion:NO_APLICA": 220, "reexpresion:NO_DECIDIBLE": 196, "reexpresion:OK": 37, "signo:NO_APLICA": 19, "signo:OK": 448, "unidad:OK": 467, "version:OK": 467}, "observaciones_pagina": 123}
+
+exit=0
+## python3 -I -B derivaciones.py 
+{"nodos": 101, "reutilizados": 14, "nuevos": 87, "estados": {"COINCIDE_PROPUESTO": 101}, "ciclos": 0}
+
+exit=0
+## python3 -I -B construir_cobertura.py 
+{"filas": 677, "estados_mecanicos": {"COINCIDE_PROPUESTO": 568, "DATO_AUSENTE": 6, "HIPOTESIS": 52, "NO_APLICABLE": 16, "CONVENCION": 35}, "estados_contextuales": {"PENDIENTE_CONTEXTUAL": 283, "REUTILIZADO_M1": 60, "REVISADO_CONTEXTUAL": 209, "CONFLICTO_CONTEXTUAL": 19, "NO_APLICA": 106}, "origen": {"M2_NUEVA": 617, "M1_REUTILIZADA": 60}, "salida": "<rev_A3>/repro/resultados_m2/cobertura_vm/COBERTURA_677.csv"}
+
+exit=0
+## python3 -I -B control_negativo.py 
+{"muestra": 54, "mutaciones": 219, "bilaterales_ok": true, "detectadas_por_contextual": 140, "detectadas_por_mecanico": 40, "resumen": {"bilateral: cabecera_miles_pero_escala_1|ctx=True|mec=False": 1, "bilateral: columna_correcta_valor_en_2024|ctx=True|mec=False": 1, "bilateral: columna_equivocada_valor_2025_en_col_2024|ctx=True|mec=False": 1, "bilateral: euros_en_pagina_vs_miles_declarados|ctx=True|mec=False": 1, "bilateral: metadato_anio_unidad_anio|ctx=True|mec=False": 1, "bilateral: miles_en_cabecera_escala_0001|ctx=True|mec=False": 1, "bilateral: miles_en_pagina_escala_0001|ctx=True|mec=False": 1, "bilateral: perimetro_consolidado_correcto|ctx=True|mec=False": 1, "bilateral: perimetro_individual_en_doc_consolidado|ctx=True|mec=False": 1, "bilateral: reexpresion_ambigua_no_localizada|ctx=False|mec=False": 1, "bilateral: reexpresion_confirmada_misma_fila_columna|ctx=True|mec=False": 1, "bilateral: reexpresion_igualdad_declarada_no_reexpresado|ctx=True|mec=False": 1, "bilateral: version_informe_correcto_en_pagina|ctx=True|mec=False": 1, "bilateral: version_informe_inexistente|ctx=True|mec=False": 1, "euros frente a miles (sonda del revisor)|ctx=True|mec=False": 1, "partida de otra fila|ctx=False|mec=False": 7, "partida de otra fila|ctx=True|mec=False": 33, "perimetro incorrecto|ctx=True|mec=False": 40, "periodo/columna equivocado|ctx=False|mec=False": 40, "reexpresion declarada como no aplica|ctx=False|mec=False": 2, "reexpresion declarada como no aplica|ctx=True|mec=False"
+exit=0
+## python3 -I -B control_cobertura.py 
+{"PASS": true, "violaciones": [], "recuentos": {"total": 677, "por_empresa": {"Vidrala": 347, "Viscofan": 330}, "por_clase": {"dato_publicado": 454, "derivado": 101, "dato_ausente": 6, "hipotesis": 52, "no_aplicable": 16, "convencion": 35, "cero_comprobado": 13}, "por_estado": {"COINCIDE_PROPUESTO": 568, "DATO_AUSENTE": 6, "HIPOTESIS": 52, "NO_APLICABLE": 16, "CONVENCION": 35}, "por_empresa_estado": {"Vidrala": {"COINCIDE_PROPUESTO": 294, "DATO_AUSENTE": 4, "HIPOTESIS": 27, "NO_APLICABLE": 5, "CONVENCION": 17}, "Viscofan": {"COINCIDE_PROPUESTO": 274, "NO_APLICABLE": 11, "DATO_AUSENTE": 2, "CONVENCION": 18, "HIPOTESIS": 25}}, "por_empresa_clase": {"Vidrala": {"dato_publicado": 233, "derivado": 56, "dato_ausente": 4, "hipotesis": 27, "no_aplicable": 5, "convencion": 17, "cero_comprobado": 5}, "Viscofan": {"dato_publicado": 221, "derivado": 45, "no_aplicable": 11, "cero_comprobado": 8, "dato_ausente": 2, "convencion": 18, "hipotesis": 25}}, "piloto_reutilizadas": 60, "nuevas": 617, "derivados_total": 101, "derivados_piloto": 14, "derivados_nuevos": 87, "por_estado_contextual": {"PENDIENTE_CONTEXTUAL": 283, "REUTILIZADO_M1": 60, "REVISADO_CONTEXTUAL": 209, "CONFLICTO_CONTEXTUAL": 19, "NO_APLICA": 106}}}
+
+exit=0
+## python3 -I -B cola_pendientes.py 
+{
+ "fuentes_pendientes": 233,
+ "derivados_pendientes": 50,
+ "grupos": 88,
+ "top5": [
+  {
+   "g": "Viscofan/texto/CF_2022_compilacion.txt p.25",
+   "n": 8,
+   "prio": 842,
+   "celdas": [
+    "aux:CF2022_p25_var_acreedores_2021",
+    "aux:CF2022_p25_var_deudores_2021",
+    "aux:CF2022_p25_var_existencias_2021",
+    "Historia!H12",
+    "Historia!H13",
+    "Historia!H15"
+   ]
+  },
+  {
+   "g": "Viscofan/texto/AR_2020.txt p.8",
+   "n": 7,
+   "prio": 740,
+   "celdas": [
+    "aux:AR2020_p8_var_acreedores_2019",
+    "aux:AR2020_p8_var_deudores_2019",
+    "aux:AR2020_p8_var_existencias_2019",
+    "Historia!F12",
+    "Historia!F13",
+    "Historia!F15"
+   ]
+  },
+  {
+   "g": "Vidrala/texto/CF_2017.txt p.14",
+   "n": 7,
+   "prio": 731,
+   "celdas": [
+    "aux:capex_int_2016",
+    "aux:capex_mat_2016",
+    "Historia!C13",
+    "Historia!C14",
+    "Historia!C15",
+    "Historia!C8"
+   ]
+  },
+  {
+   "g": "Vidrala/texto/CF_2017.txt p.11",
+   "n": 6,
+   "prio": 661,
+   "celdas": [
+    "aux:bai_2016",
+    "aux:gto_fin_2016",
+    "aux:impuesto_2016",
+    "aux:ing_fin_2016",
+    "Historia!C6",
+    "Historia!C9"
+   ]
+  },
+  {
+   "g": "Viscofan/texto/AR_2019.txt p.11",
+   "n": 6,
+   "prio": 656,
+   "celdas": [
+    "aux:AR2019_p11_derechos_uso_c_2018",
+    "aux:AR2019_p11_derechos_uso_nc_2018",
+    "aux:AR2019_p11_pasivo_fin_c_2018",
+    "aux:AR2019_p11_pasivo_fin_nc_2018",
+    "Historia!E21",
+    "Historia!E26"
+   ]
+  }
+ ]
+}
+
+exit=0
+## python3 -I -B resolver_bloque2.py 
+{
+ "grupos": 88,
+ "fuentes": 233,
+ "derivados": 50,
+ "clasificaciones": {
+  "OTRO": 125,
+  "NO_TABULAR": 88,
+  "NO_MAPEABLE_1a1": 12,
+  "SIN_ORIGINAL": 36,
+  "NO_LOCALIZADA": 10,
+  "CONTINUACION": 1
+ }
+}
+
+exit=0
+## revisar_lote L00..L21 ejecutado
+## python3 -I -B control_cobertura.py 
+{"PASS": true, "violaciones": [], "recuentos": {"total": 677, "por_empresa": {"Vidrala": 347, "Viscofan": 330}, "por_clase": {"dato_publicado": 454, "derivado": 101, "dato_ausente": 6, "hipotesis": 52, "no_aplicable": 16, "convencion": 35, "cero_comprobado": 13}, "por_estado": {"COINCIDE_PROPUESTO": 568, "DATO_AUSENTE": 6, "HIPOTESIS": 52, "NO_APLICABLE": 16, "CONVENCION": 35}, "por_empresa_estado": {"Vidrala": {"COINCIDE_PROPUESTO": 294, "DATO_AUSENTE": 4, "HIPOTESIS": 27, "NO_APLICABLE": 5, "CONVENCION": 17}, "Viscofan": {"COINCIDE_PROPUESTO": 274, "NO_APLICABLE": 11, "DATO_AUSENTE": 2, "CONVENCION": 18, "HIPOTESIS": 25}}, "por_empresa_clase": {"Vidrala": {"dato_publicado": 233, "derivado": 56, "dato_ausente": 4, "hipotesis": 27, "no_aplicable": 5, "convencion": 17, "cero_comprobado": 5}, "Viscofan": {"dato_publicado": 221, "derivado": 45, "no_aplicable": 11, "cero_comprobado": 8, "dato_ausente": 2, "convencion": 18, "hipotesis": 25}}, "piloto_reutilizadas": 60, "nuevas": 617, "derivados_total": 101, "derivados_piloto": 14, "derivados_nuevos": 87, "por_estado_contextual": {"PENDIENTE_CONTEXTUAL": 283, "REUTILIZADO_M1": 60, "REVISADO_CONTEXTUAL": 209, "CONFLICTO_CONTEXTUAL": 19, "NO_APLICA": 106}}}
+
+exit=0
+## python3 -I -B asociacion_pdf.py 
+fontTools is required to fully parse the encoding of a CFF Type1 font in font dictionary {'/BaseFont': '/OVGHYT+Bliss2-Light', '/Encoding': IndirectObject(9587, 0, 139838528104208), '/FirstChar': 1, '/FontDescriptor': IndirectObject(9585, 0, 139838528104208), '/LastChar': 93, '/Subtype': '/Type1', '/Type': '/Font', '/Widths': [226, 607, 246, 491, 590, 750, 447, 586, 718, 216, 216, 647, 652, 534, 540, 468, 516, 506, 379, 242, 225, 507, 461, 347, 463, 425, 802, 791, 474, 320, 501, 302, 510, 466, 526, 410, 500, 504, 552, 468, 313, 496, 505, 313, 534, 447, 506, 548, 690, 439, 528, 547, 444, 382, 502, 504, 356, 428, 682, 673, 352, 236, 288, 900, 750, 536, 588, 226, 537, 516, 461, 225, 352, 195, 827, 216, 463, 546, 450, 340, 216, 800, 226, 715, 384, 384, 474, 506, 592, 592, 523, 505, 505]}, but is not installed. Consider installing fontTools if you encounter encoding problems.
+fontTools is required to fully parse the encoding of a CFF Type1 font in font dictionary {'/BaseFont': '/OVGHYT+Bliss2-Light', '/Encoding': IndirectObject(9587, 0, 139838528104208), '/FirstChar': 1, '/FontDescriptor': IndirectObject(9585, 0, 139838528104208), '/LastChar': 93, '/Subtype': '/Type1', '/Type': '/Font', '/Widths': [226, 607, 246, 491, 590, 750, 447, 586, 718, 216, 216, 647, 652, 534, 540, 468, 516, 506, 379, 242, 225, 507, 461, 347, 463, 425, 802, 791, 474, 320, 501, 302, 510, 466, 526, 410, 500, 504, 552, 468, 313, 496, 505, 313, 534, 447, 506, 548, 690, 439, 528, 547, 444, 382, 502, 504, 356, 42
+exit=1
+## python3 -I -B generar_recuentos_doc.py 
+MAPA_REGENERACION.md actualizado (bloque generado)
+escrito <rev_A3>/repro/resultados_m2/cobertura_vm/resultados/RECUENTOS_VIGENTES.md
+
+exit=0
+## GIT_DIR=<clon> python3 -I -B generar_cambios_estado.py 8b88fab... a3
+{
+ "base": "8b88fab28261506c60bc7631fd24894e225099d2",
+ "nuevo": "arbol de trabajo",
+ "n_cambios_fuente": 142,
+ "n_cambios_csv": 184,
+ "transiciones_fuente": {
+  "CONFLICTO_CONTEXTUAL -> PENDIENTE_CONTEXTUAL": 51,
+  "CONFLICTO_CONTEXTUAL -> REVISADO_CONTEXTUAL": 36,
+  "PENDIENTE_CONTEXTUAL -> CONFLICTO_CONTEXTUAL": 7,
+  "PENDIENTE_CONTEXTUAL -> REVISADO_CONTEXTUAL": 20,
+  "REVISADO_CONTEXTUAL -> CONFLICTO_CONTEXTUAL": 2,
+  "REVISADO_CONTEXTUAL -> PENDIENTE_CONTEXTUAL": 26
+ },
+ "transiciones_csv": {
+  "CONFLICTO_CONTEXTUAL -> PENDIENTE_CONTEXTUAL": 72,
+  "CONFLICTO_CONTEXTUAL -> REVISADO_CONTEXTUAL": 52,
+  "PENDIENTE_CONTEXTUAL -> CONFLICTO_CONTEXTUAL": 8,
+  "PENDIENTE_CONTEXTUAL -> REVISADO_CONTEXTUAL": 20,
+  "REVISADO_CONTEXTUAL -> CONFLICTO_CONTEXTUAL": 2,
+  "REVISADO_CONTEXTUAL -> PENDIENTE_CONTEXTUAL": 30
+ },
+ "nota": "Lista generada por diff de estados contextuales; no sustituye cifras ni fuentes. Una entrada que pierde acreditacion queda PENDIENTE (o CONFLICTO si hay contradiccion documentada)."
+}
+escrito <rev_A3>/repro/resultados_m2/cobertura_vm/resultados/cambios_estado_a3.json
+
+exit=0
+## python3 -I -B generar_entrega_json.py 
+{"csv": {"PENDIENTE_CONTEXTUAL": 283, "REUTILIZADO_M1": 60, "REVISADO_CONTEXTUAL": 209, "CONFLICTO_CONTEXTUAL": 19, "NO_APLICA": 106}, "pend_str": "233 fuentes y 50 derivados pendientes contextuales", "sin_orig": 36}
+
+exit=0
+## python3 -I -B actualizar_textos_resumen.py 
+ANCLA NO ENCONTRADA en RESUMEN_PARA_CLAUDE.md: 198 REVISADO_CONTEXTUAL, 313 PENDIENTE_CONTEXTUAL, 60 REUTILIZADO_M1, 106 NO_APL
+
+exit=1
+## python3 -I -B generar_manifiesto.py 
+196 archivos con huella en MANIFIESTO_SHA256.txt
+
+exit=0
+## comparacion sha256 publicado vs reproducido (archivos del manifiesto publicado)
+IGUAL  COBERTURA_677.csv
+IGUAL  COMANDOS.md
+IGUAL  DERIVADOS.json
+DIFIERE ENTREGA.json
+IGUAL  HALLAZGOS.md
+IGUAL  INVENTARIO.md
+DIFIERE MAPA_REGENERACION.md
+IGUAL  OBSERVACIONES.jsonl
+IGUAL  PUNTO_DE_RECUPERACION.md
+IGUAL  RESPUESTA_A2_CIERRE_V2.md
+IGUAL  RESPUESTA_A3_CIERRE_V2.md
+IGUAL  RESPUESTA_A_D_20261116.md
+IGUAL  RESPUESTA_REVISION_EXTERNA.md
+IGUAL  RESPUESTA_SEGUIMIENTO_20261116.md
+IGUAL  RESUMEN_PARA_CLAUDE.md
+DIFIERE resultados/RECUENTOS_VIGENTES.md
+IGUAL  resultados/asociacion_pdf_texto.json
+IGUAL  resultados/cambios_estado_a2_v4.json
+IGUAL  resultados/cambios_estado_a3.json
+IGUAL  resultados/cambios_estado_a3_R1.json
+IGUAL  resultados/cambios_estado_a3_R2.json
+IGUAL  resultados/cambios_estado_a3_R3.json
+IGUAL  resultados/cambios_estado_a3_R4.json
+IGUAL  resultados/cambios_estado_a3_R5.json
+IGUAL  resultados/cambios_estado_a3_R6.json
+IGUAL  resultados/cambios_estado_a3_R7.json
+IGUAL  resultados/cola_pendientes.json
+IGUAL  resultados/control_cobertura.json
+IGUAL  resultados/control_negativo.json
+DIFIERE resultados/inventario.json
+IGUAL  resultados/lotes/lote_L00.json
+IGUAL  resultados/lotes/lote_L01.json
+IGUAL  resultados/lotes/lote_L02.json
+IGUAL  resultados/lotes/lote_L03.json
+IGUAL  resultados/lotes/lote_L04.json
+IGUAL  resultados/lotes/lote_L05.json
+IGUAL  resultados/lotes/lote_L06.json
+IGUAL  resultados/lotes/lote_L07.json
+IGUAL  resultados/lotes/lote_L08.json
+IGUAL  resultados/lotes/lote_L09.json
+IGUAL  resultados/lotes/lote_L10.json
+IGUAL  resultados/lotes/lote_L11.json
+IGUAL  resultados/lotes/lote_L12.json
+IGUAL  resultados/lotes/lote_L13.json
+IGUAL  resultados/lotes/lote_L14.json
+IGUAL  resultados/lotes/lote_L15.json
+IGUAL  resultados/lotes/lote_L16.json
+IGUAL  resultados/lotes/lote_L17.json
+IGUAL  resultados/lotes/lote_L18.json
+IGUAL  resultados/lotes/lote_L19.json
+IGUAL  resultados/lotes/lote_L20.json
+IGUAL  resultados/lotes/lote_L21.json
+IGUAL  resultados/recuentos.json
+IGUAL  resultados/resoluciones_bloque2.json
+IGUAL  resultados/verificacion_contexto.jsonl
+IGUAL  resultados/verificacion_fuentes.jsonl
+IGUAL  scripts/actualizar_textos_resumen.py
+IGUAL  scripts/asociacion_pdf.py
+IGUAL  scripts/cola_pendientes.py
+IGUAL  scripts/comun.py
+IGUAL  scripts/construir_cobertura.py
+IGUAL  scripts/control_cobertura.py
+IGUAL  scripts/control_negativo.py
+IGUAL  scripts/derivaciones.py
+IGUAL  scripts/generar_cambios_estado.py
+IGUAL  scripts/generar_entrega_json.py
+IGUAL  scripts/generar_manifiesto.py
+IGUAL  scripts/generar_recuentos_doc.py
+IGUAL  scripts/inventario.py
+IGUAL  scripts/resolver_bloque2.py
+IGUAL  scripts/revisar_lote.py
+IGUAL  scripts/verificar_contexto.py
+IGUAL  scripts/verificar_fuentes.py
+IGUAL  sondas_a3/out/R1_control_cobertura.stdout
+IGUAL  sondas_a3/out/R1_control_negativo.stdout
+IGUAL  sondas_a3/out/R1_s02_sondas_informe.json
+IGUAL  sondas_a3/out/R1_s02_sondas_informe.txt
+IGUAL  sondas_a3/out/R1_s03_sondas_informe.json
+IGUAL  sondas_a3/out/R1_s03_sondas_informe.txt
+IGUAL  sondas_a3/out/R1_s07_sondas_informe.json
+IGUAL  sondas_a3/out/R1_s07_sondas_informe.txt
+IGUAL  sondas_a3/out/R1_s11_sonda_nueva.json
+IGUAL  sondas_a3/out/R1_verificar_contexto.stdout
+IGUAL  sondas_a3/out/R2_control_cobertura.stdout
+IGUAL  sondas_a3/out/R2_control_negativo.stdout
+IGUAL  sondas_a3/out/R2_s02_sondas_informe.json
+IGUAL  sondas_a3/out/R2_s02_sondas_informe.txt
+IGUAL  sondas_a3/out/R2_s03_sondas_informe.json
+IGUAL  sondas_a3/out/R2_s03_sondas_informe.txt
+IGUAL  sondas_a3/out/R2_s07_check.json
+IGUAL  sondas_a3/out/R2_s07_sondas_informe.json
+IGUAL  sondas_a3/out/R2_s07_sondas_informe.txt
+IGUAL  sondas_a3/out/R2_s11_R1_sonda_nueva.json
+IGUAL  sondas_a3/out/R2_s11_sonda_nueva.json
+IGUAL  sondas_a3/out/R2_s11_sonda_nueva.txt
+IGUAL  sondas_a3/out/R2_verificar_contexto.stdout
+IGUAL  sondas_a3/out/R3_control_cobertura.stdout
+IGUAL  sondas_a3/out/R3_control_negativo.stdout
+IGUAL  sondas_a3/out/R3_s02_informe.json
+IGUAL  sondas_a3/out/R3_s02_informe.txt
+IGUAL  sondas_a3/out/R3_s03_informe.json
+IGUAL  sondas_a3/out/R3_s03_informe.txt
+IGUAL  sondas_a3/out/R3_s07_informe.json
+IGUAL  sondas_a3/out/R3_s07_informe.txt
+IGUAL  sondas_a3/out/R3_s11_sonda_nueva.json
+IGUAL  sondas_a3/out/R3_s11_sonda_nueva.txt
+IGUAL  sondas_a3/out/R3_verificar_contexto.stdout
+IGUAL  sondas_a3/out/R4_control_cobertura.stdout
+IGUAL  sondas_a3/out/R4_control_negativo.stdout
+IGUAL  sondas_a3/out/R4_s02_informe.json
+IGUAL  sondas_a3/out/R4_s02_informe.txt
+IGUAL  sondas_a3/out/R4_s03_informe.json
+IGUAL  sondas_a3/out/R4_s03_informe.txt
+IGUAL  sondas_a3/out/R4_s07_informe.json
+IGUAL  sondas_a3/out/R4_s07_informe.txt
+IGUAL  sondas_a3/out/R4_s11_sonda_nueva.json
+IGUAL  sondas_a3/out/R4_s11_sonda_nueva.txt
+IGUAL  sondas_a3/out/R4_verificar_contexto.stdout
+IGUAL  sondas_a3/out/R5_control_cobertura.stdout
+IGUAL  sondas_a3/out/R5_control_negativo.stdout
+IGUAL  sondas_a3/out/R5_s02_informe.json
+IGUAL  sondas_a3/out/R5_s02_informe.txt
+IGUAL  sondas_a3/out/R5_s03_informe.json
+IGUAL  sondas_a3/out/R5_s03_informe.txt
+IGUAL  sondas_a3/out/R5_s07_informe.json
+IGUAL  sondas_a3/out/R5_s07_informe.txt
+IGUAL  sondas_a3/out/R5_s11_sonda_nueva.json
+IGUAL  sondas_a3/out/R5_s11_sonda_nueva.txt
+IGUAL  sondas_a3/out/R5_verificar_contexto.stdout
+IGUAL  sondas_a3/out/R6_control_cobertura.stdout
+IGUAL  sondas_a3/out/R6_control_negativo.stdout
+IGUAL  sondas_a3/out/R6_s02_informe.json
+IGUAL  sondas_a3/out/R6_s02_informe.txt
+IGUAL  sondas_a3/out/R6_s03_informe.json
+IGUAL  sondas_a3/out/R6_s03_informe.txt
+IGUAL  sondas_a3/out/R6_s07_informe.json
+IGUAL  sondas_a3/out/R6_s07_informe.txt
+IGUAL  sondas_a3/out/R6_s11_sonda_nueva.json
+IGUAL  sondas_a3/out/R6_s11_sonda_nueva.txt
+IGUAL  sondas_a3/out/R6_verificar_contexto.stdout
+IGUAL  sondas_a3/out/R7_control_cobertura.stdout
+IGUAL  sondas_a3/out/R7_control_negativo.stdout
+IGUAL  sondas_a3/out/R7_derivaciones.stdout
+IGUAL  sondas_a3/out/R7_s02_informe.json
+IGUAL  sondas_a3/out/R7_s02_informe.txt
+IGUAL  sondas_a3/out/R7_s03_informe.json
+IGUAL  sondas_a3/out/R7_s03_informe.txt
+IGUAL  sondas_a3/out/R7_s07_informe.json
+IGUAL  sondas_a3/out/R7_s07_informe.txt
+IGUAL  sondas_a3/out/R7_s11_sonda_nueva.json
+IGUAL  sondas_a3/out/R7_s11_sonda_nueva.txt
+IGUAL  sondas_a3/out/R8_asociacion_pdf_pypdf6.stdout
+IGUAL  sondas_a3/out/R8_asociacion_pdf_pypdf7.stdout
+IGUAL  sondas_a3/out/R8_cola_pendientes_I.stdout
+IGUAL  sondas_a3/out/R8_control_cobertura_final.stdout
+IGUAL  sondas_a3/out/R8_generar_recuentos.stdout
+IGUAL  sondas_a3/out/R8_resolver_bloque2_I.stdout
+IGUAL  sondas_a3/out/R8_s02_final.json
+IGUAL  sondas_a3/out/R8_s02_final.txt
+IGUAL  sondas_a3/out/R8_s03_final.json
+IGUAL  sondas_a3/out/R8_s03_final.txt
+IGUAL  sondas_a3/out/R8_s07_final.json
+IGUAL  sondas_a3/out/R8_s07_final.txt
+IGUAL  sondas_a3/out/R8_s11_R1_final.json
+IGUAL  sondas_a3/out/R8_s11_R2_final.json
+IGUAL  sondas_a3/out/R8_s11_R2_final.txt
+IGUAL  sondas_a3/out/R8_s11_R3_final.json
+IGUAL  sondas_a3/out/R8_s11_R3_final.txt
+IGUAL  sondas_a3/out/R8_s11_R4_final.json
+IGUAL  sondas_a3/out/R8_s11_R4_final.txt
+IGUAL  sondas_a3/out/R8_s11_R5_final.json
+IGUAL  sondas_a3/out/R8_s11_R5_final.txt
+IGUAL  sondas_a3/out/R8_s11_R6_final.json
+IGUAL  sondas_a3/out/R8_s11_R6_final.txt
+IGUAL  sondas_a3/out/R8_s11_R7_final.json
+IGUAL  sondas_a3/out/R8_s11_R7_final.txt
+IGUAL  sondas_a3/s11_R1_sonda_nueva.py
+IGUAL  sondas_a3/s11_R2_sonda_nueva.py
+IGUAL  sondas_a3/s11_R3_sonda_nueva.py
+IGUAL  sondas_a3/s11_R4_sonda_nueva.py
+IGUAL  sondas_a3/s11_R5_sonda_nueva.py
+IGUAL  sondas_a3/s11_R6_sonda_nueva.py
+IGUAL  sondas_a3/s11_R7_sonda_nueva.py
+IGUAL  sondas_a3/sondas_informe/README.md
+IGUAL  sondas_a3/sondas_informe/s00_preparar_copia.py
+IGUAL  sondas_a3/sondas_informe/s01_reproducir.sh
+IGUAL  sondas_a3/sondas_informe/s01b_cola_resolver.sh
+IGUAL  sondas_a3/sondas_informe/s02_sondas_revisor_A.py
+IGUAL  sondas_a3/sondas_informe/s03_sondas_d375d80_A.py
+IGUAL  sondas_a3/sondas_informe/s04_seguimiento_entradas_A2.py
+IGUAL  sondas_a3/sondas_informe/s05_auditoria_datos_reales.py
+IGUAL  sondas_a3/sondas_informe/s06_propagacion.py
+IGUAL  sondas_a3/sondas_informe/s07_sondas_nuevas_A2.py
+IGUAL  sondas_a3/sondas_informe/s08_impacto_sondas_nuevas.py
+IGUAL  sondas_a3/sondas_informe/s09_contrafactual_signo.py
+IGUAL  sondas_a3/sondas_informe/s10_higiene.sh
+## ENTREGA.json y MANIFIESTO (no estan en el manifiesto)
+DIFIERE ENTREGA.json
+DIFIERE MANIFIESTO_SHA256.txt
+## archivos en REPRO que no estan en el manifiesto publicado
+MANIFIESTO_SHA256.txt

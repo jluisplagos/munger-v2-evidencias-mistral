@@ -1,0 +1,27 @@
+## sha256sum -c MANIFIESTO_SHA256.txt (desde la raiz de la carpeta)
+exit=0
+lineas=196
+## archivos de la carpeta que no estan en el manifiesto
+MANIFIESTO_SHA256.txt
+## git diff --name-only 8b88fab 0946971
+archivos=181
+fuera de resultados_m2/cobertura_vm/: 0
+pdf/xlsx/zip/pyc/pycache/.trabajo/.DS_Store: 0
+binarios (numstat -/-): 0
+## patrones de secreto en las lineas anadidas
+1
+## rutas absolutas anadidas (/home, /tmp, /workspace, /root)
+     21 /workspace/wt-a/resultados_m2/cobertura_vm/scripts/verificar_contexto.py
+      3 /tmp/pylibs6
+      3 /tmp/_s10
+      3 /tmp/_plant.json
+      1 /workspace/wt-a/resultados_m2/cobertura_vm/resultados/RECUENTOS_VIGENTES.md
+      1 /workspace/wt-a/.trabajo/insumos_m2
+      1 /tmp/s07.json
+      1 /tmp/s03.json
+      1 /tmp/s02.json
+      1 /tmp/r7.json
+      1 /tmp/r1.json
+      1 /tmp/out.json
+## arbol 0946971: pdf/xlsx/zip/pyc
+0

@@ -1,0 +1,32 @@
+{
+ "a_0946971": {
+  "piloto_desactivado": 1,
+  "derivaciones_exit": 0,
+  "estados": {
+   "Análisis!C41": "CONFLICTO_CONTEXTUAL",
+   "Análisis!C55": "CONFLICTO_CONTEXTUAL"
+  }
+ },
+ "a_8b88fab": {
+  "piloto_desactivado": 1,
+  "derivaciones_exit": 0,
+  "estados": {
+   "Análisis!C41": "PENDIENTE_CONTEXTUAL",
+   "Análisis!C55": "CONFLICTO_CONTEXTUAL"
+  }
+ },
+ "b_0946971": {
+  "control_exit": 1,
+  "PASS": false,
+  "violaciones_C41": [
+   "derivado Vidrala Análisis!C41: estado_contextual PENDIENTE_CONTEXTUAL != propagacion de orígenes CONFLICTO_CONTEXTUAL"
+  ],
+  "n_violaciones": 2
+ },
+ "b_8b88fab": {
+  "control_exit": 1,
+  "PASS": false,
+  "violaciones_C41": [],
+  "n_violaciones": 1
+ }
+}

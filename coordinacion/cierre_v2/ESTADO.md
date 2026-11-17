@@ -39,7 +39,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - **C20 · C20: U1–U6 del verificador respondidas; contraste pendiente**: Nada en esta tarea. No es software del producto: no se integra en la candidata; queda en la rama F1.
 - **CSV · Cifras [LECTURA] al CSV verificado (bloque CSV de ENCARGO_C20_CSV.md, f5775dc)**: Nada en esta tarea. No es software del producto: no se integra en la candidata; queda en la rama F1.
   Dependencias: C20.
-- **A-CTX · Evidencia contextual A v3**: Mistral A: primero la revisión de G-MANUAL (rama mistral/g-manual-traspaso); después CORRECCION_A3.md (A3-R1…R8) en la rama A, en un bloque separado. T-EXP sigue bloqueado por A-CTX.
+- **A-CTX · Evidencia contextual A v3**: Mistral A: primero la revisión de G-RAIZ (3d66437); después A4-R1…R6 (CORRECCION_A4.md) en la rama A. T-EXP sigue bloqueado por A-CTX.
 - **D-HARNESS · Arnés D v2 y paquetes íntegros**: D3 sigue vigente (d032691 es anterior a CORRECCION_D3). Tras d032691: R6 cerrado, la regeneración cerrada y el MAPA publicado; R1–R5 y R8 abiertos, con 7 variantes nuevas (ESTADO_D3_TRAS_d032691.md). Mistral D responde a D3 sobre d032691.
 - **D-36 · Aceptación completa de 36 casos Qwen**: 0/36 casos del personaje (correcto). No se ejecutan con un arnés sin aceptar; el runtime del coordinador los ejecutará cuando D3-R1…R4 estén cerrados.
   Dependencias: D-HARNESS, T-CAND.
@@ -79,7 +79,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - F1-W: RESPONDIDA; revisor asignado: Mistral C/F; SHA: d519eb04978e64d04f1d1795c570ca96bdd7ad7f.
 - C20: RESPONDIDA; revisor asignado: Mistral C/F; SHA: bf0d5c25d136ae9b2b1f14e4688081e1792d2363.
 - CSV: RESPONDIDA; revisor asignado: Mistral C/F; SHA: 77ff89f8fe99a1b5f013243ea1ccd4b84512ac51.
-- A-CTX: EN_CURSO; revisor asignado: Claude coordinador (subagente de revisión); SHA: 0946971e1e4cf10cb85ed4c757968a4bd060d6a7.
+- A-CTX: RESPONDIDA; revisor asignado: Claude coordinador (subagente de revisión); SHA: 0946971e1e4cf10cb85ed4c757968a4bd060d6a7.
 - E-ELIS: RESPONDIDA; revisor asignado: Claude coordinador (subagente de revisión); SHA: f00c5dd64cb956b93ebb199389ce748e9d218f6c.
 - G-MANUAL: RESPONDIDA; revisor asignado: Mistral A, en rama propia mistral/g-manual-traspaso, carpeta resultados_cierre/manual_revision/ (reanudación c241a59); SHA: 341831fd8b4c9081c09f1ebe7b31799042402d0f.
 - G-DOCS: RESPONDIDA; revisor asignado: Mistral A, en mistral/g-manual-traspaso (antes de A3), u otro contexto distinto; SHA: c0542b83b9923f98124d3c72e48b7fc7245284d2.
