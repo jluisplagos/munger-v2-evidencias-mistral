@@ -1,0 +1,13 @@
+== 1. Puente de patrimonio: los dividendos RESTAN (contrato viejo los sumaba) ==
+  E0=1000, beneficio neto=100, impuesto=30 (BAI=130), dividendos=40
+  E1 real (B(t)=B(t-1)+BN+OCI-dividendos-recompras+ampliaciones+otros) = 1060
+  puente del contrato viejo (sumaba BAI y dividendos) = 1170; "otros movimientos" tendria que absorber -110
+== 2. ROE del producto: beneficio neto atribuible (Historia fila 9) / patrimonio de cierre (fila 21) ==
+  ROE producto (L9/L21) = 0.094340   ROE contrato viejo (BAI/patrimonio medio) = 0.126214
+== 3. Identidad del motor C: flujo_t = B(t-1)*ROE_t - dB_t ; dividendo = BN - dB ==
+  B0=1000, ROE0=10%, g=3%: dB=30, flujo_t=70, dividendo=BN-dB=70
+== 4. Palancas B15 se lee como ROE objetivo (NO como payout) ==
+  B15 = ROE objetivo 10%: valor = 115.06
+  B15 rellenado con payout 40% (se lee como ROE objetivo 40%): valor = 278.45 (x2.42)
+
+RESULTADO: TODO CUADRA
