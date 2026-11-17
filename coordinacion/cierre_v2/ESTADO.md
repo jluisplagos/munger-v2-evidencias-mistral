@@ -67,7 +67,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Dependencias: T-CAND, D-HARNESS.
 - **T-TRASPASO · Traspaso sin historial y revisión de manual**: Aceptado con límites (sin pasos de agentes; el registro no guarda transcripción ni la mayoría de códigos; receptor de la misma familia de modelo). Pasos con agentes reales: runtime del coordinador. Mejoras del manual en MEJORAS_MANUAL.md (G-MANUAL).
   Dependencias: T-CAND, G-MANUAL.
-- **H-DEC · Decisiones económicas pendientes con fundamento**: Decididas el 17-nov por la persona responsable: (3b), con la vía (iv) de mantener el bloqueo; (1a), alternativa (b); (1b), media como convención; (2), correspondencia (i)–(v); (4a), un solo perímetro. Pendientes: (4b), (3a), (5a) con sus opciones, (5b), E8.1 y el umbral de V-F1a. F1-IMPL las aplica cuando estén completas o por bloques, con revisión independiente.
+- **H-DEC · Decisiones económicas pendientes con fundamento**: Decididas el 17-nov: (1a) b, (1b), (2), (3a), (3b) iv, (4a), (4b) A, (5a) regla N1 con N2 pendiente, (5b) y E8.1 (τ de cinco años). Pendientes de propuesta y revisión: el alcance de N1 en los ejercicios de τ, la actualización del earnout de México (por separado) y el umbral de V-F1a. Elis sigue pendiente_de_datos (R).
   Dependencias: F1-W.
   Bloqueo/límite: No hay adopción de políticas económicas nuevas en este programa.
 - **F1-IMPL · Implementación económica F1 autorizada**: Puede preparar parche propuesto separado; no activar cambios económicos antes de decisión explícita.

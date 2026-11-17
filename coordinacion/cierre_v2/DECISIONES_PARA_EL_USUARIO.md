@@ -74,3 +74,12 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
 - (4a): un solo perímetro para f, el ancla de S2C, el margen y el ROIC del terminal.
 
 Ninguna de ellas fija R; Elis sigue `pendiente_de_datos`.
+
+### F1 (3a), (4b), (5a), (5b) y E8.1 · **DECIDIDAS el 17-nov**
+- (3a): R sigue pendiente, con su perímetro.
+- (4b): opción A, pendiente hasta M6.
+- (5a): regla N1, con N2 pendiente. El alcance en los ejercicios de τ y la actualización de México se justificarán por separado antes de decidirlos.
+- (5b): clasificación por finalidad documentada.
+- E8.1: se mantiene el τ de cinco años.
+
+**Umbral de V-F1a:** se pide una propuesta; nada adoptado.
