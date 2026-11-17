@@ -5,6 +5,27 @@ Q1-032 publicados por Mistral D. No es un coordinador autónomo de las tres
 plataformas. No ejecuta el personaje ni sus pruebas, no acepta entregas, no
 modifica CONTROL/ESTADO y no escribe en el repositorio producto.
 
+## Adenda: ensayo real y ajuste acotado
+
+El primer ensayo (munger-d-relevos-001, workflow 44067759033) autenticó y publicó
+su registro. No produjo una revisión completa: alcanzó 4096 tokens de salida,
+3735 de ellos de razonamiento. Uso: 14704 de entrada y 4096 de salida; coste
+estimado USD 0,070368. El resultado se conserva y no se borra su reserva.
+
+El código actual prepara un segundo y último ensayo (munger-d-relevos-002),
+con **8192 tokens de salida**, razonamiento adaptativo y esfuerzo high explícitos.
+Antes de llamar, lee el registro real anterior, verifica identidad, paquete y
+consumo, y exige que coste anterior + reserva nueva no supere **USD 0,25 total**.
+No es un reintento automático ni reinicia el identificador anterior. Ambas
+peticiones conservan su evidencia. El texto recibido se guarda incluso si no
+supera la validación. No se preparan terceros intentos.
+
+El segundo ensayo se activa en mode=api con la clave ya configurada. No tiene
+periodicidad ni autoriza otras llamadas después de su reserva.
+
+Los apartados de arranque siguientes describen el mecanismo general; para el
+segundo ensayo los límites e identificador son los de esta adenda.
+
 ## Estado de arranque
 
 - Rama aislada: `automatizacion/piloto-claude-api`, desde el main del auxiliar.
@@ -30,7 +51,7 @@ modifica CONTROL/ESTADO y no escribe en el repositorio producto.
    Una cita literal no acredita por sí misma una interpretación correcta.
 7. Publica paquete, informe y reserva en
    `automatizacion/claude-api-piloto-registro`, bajo
-   `automation/claude_review/results/munger-d-relevos-001/`.
+  `automation/claude_review/results/munger-d-relevos-002/`.
    El informe siempre lleva `accepted:false`, `integrated:false` y
    `product_executed:false`. Lo revisa el coordinador.
 
@@ -68,7 +89,7 @@ activar este piloto.
 - Modelo de ensayo: `claude-sonnet-5-5`, sin fallback automático.
 - Tarifas estándar verificadas el 17-nov-2026: USD 2 / millón de entrada y
   USD 10 / millón de salida. No se solicita Priority, herramientas o caché.
-- Máximo de salida: 4096 tokens.
+- Máximo actual de salida: 8192 tokens, incluido el razonamiento.
 - Se calcula una reserva conservadora desde el conteo y los bytes; el programa
   rechaza una reserva mayor de **USD 0,25**. No es una promesa de tarifa inmutable:
   la facturación y límites efectivos los administra Anthropic. Revisar las tarifas

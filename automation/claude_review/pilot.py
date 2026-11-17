@@ -15,13 +15,15 @@ from urllib.parse import quote
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 
 REPO = 'jluisplagos/munger-v2-evidencias-mistral'
-PILOT_ID = 'munger-d-relevos-001'
+PRIOR_PILOT_ID = 'munger-d-relevos-001'
+PILOT_ID = 'munger-d-relevos-002'
+PRIOR_CODE_SHA = 'f70aa906016a36589bff546239452acdbdc497a8'
 LEDGER_BRANCH = 'automatizacion/claude-api-piloto-registro'
 MODEL = 'claude-sonnet-5-5'
 API_VERSION = '2026-10-21'
 MAX_SOURCE_BYTES = 250_000
 MAX_BUNDLE_BYTES = 60_000
-MAX_OUTPUT = 4096
+MAX_OUTPUT = 8192
 RESERVE_USD = Decimal('0.25')
 INPUT_RATE = Decimal('2')  # USD / millón, fuentes oficiales en README, 17-nov-2026
 OUTPUT_RATE = Decimal('10')
@@ -180,19 +182,47 @@ def messages(bundle):
     return [{'role': 'user', 'content': 'SOURCE_BUNDLE\n' + canonical(bundle).decode()}]
 
 
-def admission(bundle, count):
+def admission(bundle, count, prior_cost=Decimal('0')):
     if type(count) is not int or count <= 0:
         raise PilotError('CONTEO_TOKENS_INVALIDO')
     # Contar no es facturar. Reserva conservadora adicional por bytes y margen.
     raw_bytes = len(SYSTEM.encode()) + len(canonical(messages(bundle)))
     bound = max(count + 4096, raw_bytes + 4096)
     reserve = (Decimal(bound) * INPUT_RATE + Decimal(MAX_OUTPUT) * OUTPUT_RATE) / 1_000_000
-    if reserve > RESERVE_USD:
+    if prior_cost < 0 or reserve + prior_cost > RESERVE_USD:
         raise PilotError('RESERVA_SUPERA_025_USD')
     return {'counted_input_tokens': count, 'reserved_input_tokens': bound,
             'max_output_tokens': MAX_OUTPUT, 'reserved_usd': str(reserve),
+            'previous_estimated_cost_usd': str(prior_cost),
+            'reserved_total_usd': str(reserve + prior_cost),
             'price_source_date': '2026-11-17', 'input_usd_per_mtok': str(INPUT_RATE),
             'output_usd_per_mtok': str(OUTPUT_RATE)}
+
+
+def previous_trial(http, bundle):
+    """Solo este segundo ensayo, enlazado al primero y bajo el mismo techo total."""
+    path = f'automation/claude_review/results/{PRIOR_PILOT_ID}/report.json'
+    data = http.call('github', 'GET', f'/repos/{REPO}/contents/{path}?ref={LEDGER_BRANCH}')
+    try:
+        prior = json.loads(base64.b64decode(data['content']).decode())
+        previous_bundle = {**bundle, 'pilot_id': PRIOR_PILOT_ID}
+        if (prior['pilot_id'] != PRIOR_PILOT_ID or prior['code_sha'] != PRIOR_CODE_SHA
+                or prior['error'] != 'RESPUESTA_INCOMPLETA_NO_ACEPTADA'
+                or prior['model_returned'] != MODEL or prior['api_messages_sent'] != 1
+                or prior['bundle_sha256'] != digest(canonical(previous_bundle))):
+            raise PilotError('ENSAYO_PREVIO_NO_CORRESPONDE')
+        usage = prior['usage']
+        it, ot = usage['input_tokens'], usage['output_tokens']
+        if type(it) is not int or type(ot) is not int or it < 0 or ot < 0:
+            raise PilotError('CONSUMO_PREVIO_NO_VERIFICABLE')
+        if any(usage.get(k, 0) for k in ('cache_creation_input_tokens', 'cache_read_input_tokens')):
+            raise PilotError('CONSUMO_PREVIO_NO_VERIFICABLE')
+        cost = (Decimal(it) * INPUT_RATE + Decimal(ot) * OUTPUT_RATE) / 1_000_000
+        if str(cost) != prior['estimated_cost_usd']:
+            raise PilotError('CONSUMO_PREVIO_CONTRADICTORIO')
+        return cost
+    except (ValueError, KeyError, TypeError, UnicodeError):
+        raise PilotError('ENSAYO_PREVIO_INVALIDO') from None
 
 
 class Ledger:
@@ -275,6 +305,7 @@ def run(http, request, output, code_sha, ledger=None):
     (output / 'sources.json').write_bytes(canonical(bundle))
     report = {'pilot_id': PILOT_ID, 'code_sha': code_sha, 'bundle_sha256': bundle_hash,
               'model_requested': MODEL, 'scope': CASES, 'review_type': 'documental_parcial',
+              'effort_requested': 'high', 'thinking_requested': 'adaptive',
               'product_executed': False, 'independent_tests_executed': False,
               'accepted': False, 'integrated': False, 'financial_fitness': 'NO_ACREDITADA',
               'billing_source': 'NO_COMPROBADA_EN_CONSOLE', 'api_messages_sent': 0,
@@ -284,10 +315,12 @@ def run(http, request, output, code_sha, ledger=None):
         return report
     if not http.api_key or not http.github_token:
         raise PilotError('FALTA_ANTHROPIC_API_KEY_O_GITHUB_TOKEN')
+    prior_cost = previous_trial(http, bundle)
+    report['previous_trial'] = PRIOR_PILOT_ID
     http.call('anthropic', 'GET', '/v1/models/' + MODEL)
     count = http.call('anthropic', 'POST', '/v1/messages/count_tokens',
                       {'model': MODEL, 'system': SYSTEM, 'messages': messages(bundle)})
-    report['budget'] = admission(bundle, count.get('input_tokens'))
+    report['budget'] = admission(bundle, count.get('input_tokens'), prior_cost)
     ledger = ledger or Ledger(http, code_sha)
     reservation = {'pilot_id': PILOT_ID, 'state': 'RESERVADO_NO_REINTENTAR',
                    'code_sha': code_sha, 'bundle_sha256': bundle_hash, 'budget': report['budget']}
@@ -297,9 +330,11 @@ def run(http, request, output, code_sha, ledger=None):
                       estimated_cost_usd=None)
         response = http.call('anthropic', 'POST', '/v1/messages',
                              {'model': MODEL, 'system': SYSTEM, 'messages': messages(bundle),
-                              'max_tokens': MAX_OUTPUT, 'service_tier': 'standard_only'})
+                              'max_tokens': MAX_OUTPUT, 'service_tier': 'standard_only',
+                              'thinking': {'type': 'adaptive'}, 'output_config': {'effort': 'high'}})
         report.update(model_returned=response.get('model'), message_id=response.get('id'),
-                      usage=response.get('usage', {}))
+                      usage=response.get('usage', {}), stop_reason=response.get('stop_reason'),
+                      raw_model_output=''.join(c.get('text', '') for c in response.get('content', []) if c.get('type') == 'text'))
         usage = report['usage']
         if any(usage.get(k, 0) for k in ('cache_creation_input_tokens', 'cache_read_input_tokens')):
             raise PilotError('CACHE_NO_PREVISTA_REVISAR_FACTURACION')

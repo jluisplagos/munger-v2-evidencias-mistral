@@ -1,5 +1,21 @@
 # Validación del piloto · 17-nov-2026
 
+## Adenda del segundo ensayo
+
+- El primer ensayo autenticó contra Anthropic y publicó su consumo real de tokens.
+  Se conserva su resultado incompleto, sin aceptación: 14704/4096 tokens, coste
+  estimado USD 0,070368, workflow 44067759033.
+- Ajuste probado: 43 pruebas locales pasan. Se añaden el cómputo acumulado del
+  presupuesto y rechazos de consumo previo contradictorio y paquete cambiado.
+- El segundo ensayo no puede reservar si su reserva + consumo previo supera
+  USD 0,25. Con el paquete actual, la reserva conjunta calculada por bytes es
+  USD 0,227054 (no es una factura ni un segundo conteo del proveedor).
+- Las afirmaciones de falta de autenticación de la sección histórica inferior
+  quedan superadas por el primer ensayo. La aplicación del crédito promocional
+  sigue requiriendo comprobar Console; no se infiere del uso devuelto por API.
+- Sigue pendiente un informe completo y validado de salida. El segundo ensayo
+  conserva texto visible y stop_reason para poder diagnosticarlo sin repetirlo.
+
 Estado: preparado y probado localmente; pendiente de prueba de API real y de
 revisión por otro contexto. No hay aceptación de entregas ni aptitud económica.
 
