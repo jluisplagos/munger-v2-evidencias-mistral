@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "fecha_corte": "2026-11-16 ~21:05 Europe/Amsterdam; consulta remota del coordinador Claude (arranque)",
+  "fecha_corte": "2026-11-17 (reanudación); consulta remota del coordinador Claude tras revision/chatgpt-reanudacion-20261117 @ c241a59",
   "zona_usuario": "Europe/Amsterdam",
   "mantenedor": "Claude coordinador, único escritor",
   "repositorio_control": "jluisplagos/munger-v2-evidencias-mistral",
@@ -8,14 +8,18 @@
   "versiones_fijadas": {
     "producto_main": "d69d4837f0e99ce30f38d3461f15cceee9a58730",
     "producto_tecnico": "957af652cdc3bef3d67e8623c9572138bac685e9",
-    "f1": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262",
-    "A": "d2419e5af2c91d89038a210a77242632d5823950",
-    "D": "bdcbba789244d167c9cef360d8225ae29275e917",
+    "candidata": "957af652cdc3bef3d67e8623c9572138bac685e9",
+    "f1": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
+    "A": "8b88fab28261506c60bc7631fd24894e225099d2",
+    "D": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
+    "E": "93a97801f8c4f6a4dc5cabd4540248390cf113d0",
+    "F": "868f44841858b705231d7e6f683ee951e348c22a",
     "B": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
     "C": "1ec4f18f950aecdda10c0e48c946c71cedcd644e",
     "qwen": "4745f3887f7fd86bb3052f5d5e32285862df18e3",
     "revision_F1": "f5775dc07a61b829df2b0e7a4a97c556869ae0f4",
-    "revision_AD": "d375d80a5df19a661f80bab9cbdd42b39a28742b"
+    "revision_AD": "d375d80a5df19a661f80bab9cbdd42b39a28742b",
+    "reanudacion": "c241a599fc76249429a1a49ee5e7bbc50bdd6f0b"
   },
   "candidata_integrada": {
     "repositorio": "jluisplagos/munger-v2",
@@ -28,7 +32,7 @@
   "colas_propias": {
     "A": [
       "A-CTX",
-      "G-MANUAL"
+      "G-MANUAL (revisión)"
     ],
     "D": [
       "D-HARNESS",
@@ -254,23 +258,39 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "9d676cefdfeb3771a43414fcb93f430e9340fae0",
+      "commit_origen": "8b88fab28261506c60bc7631fd24894e225099d2",
       "commit_destino": null,
       "evidencia": [
         "resultados_m2/cobertura_vm/PUNTO_DE_RECUPERACION.md @ d2419e5",
         "resultados_m2/cobertura_vm/ @ 2c41d68 (mistral/m2-cobertura-vm)",
         "coordinacion/cierre_v2/revisiones_coordinador/A_2c41d68/REVISION_A_2c41d68.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/A_2c41d68/CORRECCION_A2.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/A_2c41d68/CORRECCION_A2.md",
+        "resultados_m2/cobertura_vm/RESPUESTA_A2_CIERRE_V2.md @ 8b88fab",
+        "resultados_m2/cobertura_vm/ENTREGA.json @ 8b88fab"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Mistral A responde a CORRECCION_A2.md (A2-R1…R5) sobre 160faf9; las entradas REVISADO acreditadas con las reglas defectuosas deben regenerarse. El coordinador revisa solo lo afectado cuando haya respuesta.",
-      "observacion": "Seguimiento de A2: 94d1a87, 160faf9, f046b3e, 51d87e9, bda0b1e y 9d676ce no citan CORRECCION_A2. En 9d676ce siguen YEAR_RE sin límites (l.24), MILES_RE con «in thousands» (l.236) y la salida OK «decidido por año» de check_columna (l.420); los REVISADO suben a 428 con esas reglas. A2-R1…R5 siguen abiertos; la revisión registrada es la de 2c41d68 y lo posterior no está revisado ni aceptado.",
+      "siguiente_accion": "El coordinador revisa la respuesta A2 @ 8b88fab (solo A2-R1…R5, reproducción de salidas y sondas, propagación de CONFLICTO).",
+      "observacion": "Respuesta a A2 entregada en 8b88fab (v4.0). Revisión del coordinador solo de A2-R1…R5, en curso. La revisión registrada sigue siendo la de 2c41d68.",
       "commit_revisado": "2c41d689fde13dbb9e6affbdb470181291ec2519",
       "alcance_aceptado": [],
-      "solicitud_revision": null
+      "solicitud_revision": {
+        "estado": "EN_CURSO",
+        "sha_autor": "8b88fab28261506c60bc7631fd24894e225099d2",
+        "base_revisada": "2c41d689fde13dbb9e6affbdb470181291ec2519",
+        "diff_rutas": [
+          "resultados_m2/cobertura_vm/"
+        ],
+        "criterios": [
+          "A2-R1…R5 según CORRECCION_A2.md",
+          "sondas del revisor reproducidas",
+          "propagación de CONFLICTO a derivados"
+        ],
+        "revisor_asignado": "Claude coordinador (subagente de revisión)",
+        "informe_revision": null
+      }
     },
     {
       "id": "D-HARNESS",
@@ -525,7 +545,7 @@
         "T-CAND"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Borrador del manual operativo de la candidata 957af65 (solo lectura de documentos, 358 citas archivo:línea; 12 [NO DOCUMENTADO] y 13 [CONTRADICCIÓN]). Revisión por un contexto distinto; después, prueba T-TRASPASO por un receptor sin historial y corrección de los textos desfasados del producto (C-01…C-13, G-1…G-9) como cambio documental de la candidata, revisado.",
+      "siguiente_accion": "Mistral A revisa el borrador de 341831f contra 957af65 (cinco criterios de la solicitud). No es el ensayo T-TRASPASO: Mistral A conoce el proyecto. Tras el contraste, el coordinador corrige los textos desfasados en una copia aislada de la candidata y lo publica para revisión.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -543,7 +563,7 @@
           "La tabla de textos desfasados de la guía (G-1…G-9) y de continuidad (O-1…O-18) es correcta y completa en lo afectado",
           "La lista T-TRASPASO es ejecutable por un receptor sin historial y separa lo que exige LibreOffice o agentes reales"
         ],
-        "revisor_asignado": "Primera sesión Mistral libre (PROGRAMA, F) u otro contexto distinto",
+        "revisor_asignado": "Mistral A, en rama propia mistral/g-manual-traspaso, carpeta resultados_cierre/manual_revision/ (reanudación c241a59)",
         "informe_revision": null
       }
     },
@@ -833,6 +853,16 @@
       "tipo": "REVISION",
       "fecha": "2026-11-16",
       "hecho": "F-REV actualizado: los tres contrastes de Mistral C/F (90329a1, e94ee7c, c7716a0) aceptados con límites."
+    },
+    {
+      "tipo": "CONSULTA",
+      "fecha": "2026-11-17",
+      "hecho": "Reanudación (c241a59): HEAD consultados; A entregó la respuesta a A2 en 8b88fab; D2, E1 y F2 sin respuesta (1ac661b, 93a9780, 868f448)."
+    },
+    {
+      "tipo": "ASIGNACION",
+      "fecha": "2026-11-17",
+      "hecho": "Revisión de G-MANUAL asignada a Mistral A en mistral/g-manual-traspaso; Mistral C/F conserva F2."
     }
   ],
   "consulta_remotos_arranque": {
@@ -867,5 +897,17 @@
     "zip_base_414": "presente en el contenedor (descarga previa del frente E); huella por comprobar antes de usar",
     "agentes_del_producto": "no verificado: no hay credenciales de API del producto en el entorno (solo nombres comprobados); la sesión puede lanzar subagentes y sesiones de Claude Code, que no equivalen al runtime del personaje",
     "limite": "las capacidades del entorno Mistral no se observan desde aquí"
+  },
+  "versiones_fijadas_arranque": {
+    "producto_main": "d69d4837f0e99ce30f38d3461f15cceee9a58730",
+    "producto_tecnico": "957af652cdc3bef3d67e8623c9572138bac685e9",
+    "f1": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262",
+    "A": "d2419e5af2c91d89038a210a77242632d5823950",
+    "D": "bdcbba789244d167c9cef360d8225ae29275e917",
+    "B": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
+    "C": "1ec4f18f950aecdda10c0e48c946c71cedcd644e",
+    "qwen": "4745f3887f7fd86bb3052f5d5e32285862df18e3",
+    "revision_F1": "f5775dc07a61b829df2b0e7a4a97c556869ae0f4",
+    "revision_AD": "d375d80a5df19a661f80bab9cbdd42b39a28742b"
   }
 }

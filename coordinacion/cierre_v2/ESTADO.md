@@ -1,6 +1,6 @@
 # Estado único de Munger V2
 
-Corte: 2026-11-16 ~21:05 Europe/Amsterdam; consulta remota del coordinador Claude (arranque).
+Corte: 2026-11-17 (reanudación); consulta remota del coordinador Claude tras revision/chatgpt-reanudacion-20261117 @ c241a59.
 
 Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud económica global acreditada.
 
@@ -13,7 +13,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | F1-W | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | d519eb0 |
 | C20 | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | bf0d5c2 |
 | CSV | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | 77ff89f |
-| A-CTX | Mistral A | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 9d676ce |
+| A-CTX | Mistral A | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 8b88fab |
 | D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
 | D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 1ac661b |
 | E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | CORRECCIONES | NO | DECLARADAS / PARCIALES | 93a9780 |
@@ -37,7 +37,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - **C20 · C20: U1–U6 del verificador respondidas; contraste pendiente**: Nada en esta tarea. No es software del producto: no se integra en la candidata; queda en la rama F1.
 - **CSV · Cifras [LECTURA] al CSV verificado (bloque CSV de ENCARGO_C20_CSV.md, f5775dc)**: Nada en esta tarea. No es software del producto: no se integra en la candidata; queda en la rama F1.
   Dependencias: C20.
-- **A-CTX · Evidencia contextual A v3**: Mistral A responde a CORRECCION_A2.md (A2-R1…R5) sobre 160faf9; las entradas REVISADO acreditadas con las reglas defectuosas deben regenerarse. El coordinador revisa solo lo afectado cuando haya respuesta.
+- **A-CTX · Evidencia contextual A v3**: El coordinador revisa la respuesta A2 @ 8b88fab (solo A2-R1…R5, reproducción de salidas y sondas, propagación de CONFLICTO).
 - **D-HARNESS · Arnés D v2 y paquetes íntegros**: Mistral D corrige D2-R1…R7 (CORRECCION_D2.md): aserciones que aceptan resultados vacíos o forjados, Q1-026 incoherente con el banco, relevos vacíos de Q1-028/032, correspondencia de criterios, manifiesto. Se conserva D-R2 y la detección de las sondas de d375d80.
 - **D-36 · Aceptación completa de 36 casos Qwen**: Ningún caso del personaje ejecutado (0/36). Recuento del revisor: 29 componentes con precondiciones del arnés, 1 bloqueo de entorno (Q1-026), 2 observación compartida, 2 pendientes de agente, 2 de decisión del usuario. El runtime del coordinador ejecuta el personaje cuando D2-R4 dé relevos completos.
   Dependencias: D-HARNESS, T-CAND.
@@ -52,7 +52,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Bloqueo/límite: Datos de la persona responsable: el Excel evaluado de la etapa 1 de Ahold con su respuesta y sus fuentes, u otra empresa fuera de muestra designada (la lista de las 116 no está conservada).
 - **F-C1 · Primer recorrido C real y contrato específico**: Mistral C/F corrige F2-D3 (contrato C frente al motor real) y F2-D1/D2/D5/D6. Bloqueo real: un banco o aseguradora designados y sus informes oficiales.
   Bloqueo/límite: Datos de la persona responsable: un banco o aseguradora concretos, sus informes oficiales (cuentas, Pilar 3 o SFCR) con huellas y, si existe, el Excel de la etapa 1.
-- **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: Borrador del manual operativo de la candidata 957af65 (solo lectura de documentos, 358 citas archivo:línea; 12 [NO DOCUMENTADO] y 13 [CONTRADICCIÓN]). Revisión por un contexto distinto; después, prueba T-TRASPASO por un receptor sin historial y corrección de los textos desfasados del producto (C-01…C-13, G-1…G-9) como cambio documental de la candidata, revisado.
+- **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: Mistral A revisa el borrador de 341831f contra 957af65 (cinco criterios de la solicitud). No es el ensayo T-TRASPASO: Mistral A conoce el proyecto. Tras el contraste, el coordinador corrige los textos desfasados en una copia aislada de la candidata y lo publica para revisión.
   Dependencias: T-CAND.
 - **T-CAND · Candidata única de integración técnica**: Candidata 957af65 materializada (manifiesto 7762/7762) y verificada: verificar_paquete.sh completa, código 0, RESULTADO GLOBAL PASA (15 baterías); control 4.14 29/35, lo esperado sobre clon Git. Nada aceptado es software del producto: no hay integración pendiente. Reproducción por otro contexto: pendiente (requiere LibreOffice; el entorno Mistral no lo declara). Al aceptar software de A/D, integrar por archivo con origen, destino y pruebas.
 - **T-EXP · Expedientes nuevos regenerados y auditados**: Regenerar entradas/fuentes/derivados, sin sustituir hipótesis o ausencias; auditoría del material nuevo.
@@ -75,8 +75,9 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - F1-W: RESPONDIDA; revisor asignado: Mistral C/F; SHA: d519eb04978e64d04f1d1795c570ca96bdd7ad7f.
 - C20: RESPONDIDA; revisor asignado: Mistral C/F; SHA: bf0d5c25d136ae9b2b1f14e4688081e1792d2363.
 - CSV: RESPONDIDA; revisor asignado: Mistral C/F; SHA: 77ff89f8fe99a1b5f013243ea1ccd4b84512ac51.
+- A-CTX: EN_CURSO; revisor asignado: Claude coordinador (subagente de revisión); SHA: 8b88fab28261506c60bc7631fd24894e225099d2.
 - E-ELIS: RESPONDIDA; revisor asignado: Claude coordinador (subagente de revisión); SHA: 93a97801f8c4f6a4dc5cabd4540248390cf113d0.
-- G-MANUAL: LISTA; revisor asignado: Primera sesión Mistral libre (PROGRAMA, F) u otro contexto distinto; SHA: 341831fd8b4c9081c09f1ebe7b31799042402d0f.
+- G-MANUAL: LISTA; revisor asignado: Mistral A, en rama propia mistral/g-manual-traspaso, carpeta resultados_cierre/manual_revision/ (reanudación c241a59); SHA: 341831fd8b4c9081c09f1ebe7b31799042402d0f.
 
 ## Cómo se decide el cierre
 
