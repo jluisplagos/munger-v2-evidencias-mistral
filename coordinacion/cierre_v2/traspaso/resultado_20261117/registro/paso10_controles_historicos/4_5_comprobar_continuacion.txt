@@ -1,0 +1,76 @@
+EXPEDIENTE DE CONTINUACIÓN DEL ENSAYO DE VIDRALA · entrega 4.5 · controles de solo lectura
+====================================================================================================
+
+1. REGISTRO HUMANO DE P1
+  [CUMPLE] Archivo recibido conservado con su huella (SHA-256 b4e47afc…c445a4)
+  [CUMPLE] fase1_decisiones.json del expediente idéntico byte a byte al archivo recibido
+  [CUMPLE] validar_registro_P1.py: 10 de 10 requisitos (decisiones anteriores, solo circulante_lineas 2024, 84.994, fuente, campos humanos) · RESULTADO: 10 de 10 requisitos cumplen.
+  [CUMPLE] Salida de la validación conservada idéntica (registro_P1/validacion_salida.txt)
+
+2. REFERENCIAS INTACTAS
+  [CUMPLE] Los 83 originales de empresas_v2/Vidrala/ conservan su huella del manifiesto
+  [CUMPLE] Los 50 archivos de la entrega 4.4 (expediente, fuentes, documentos, script y salidas) conservan su huella del manifiesto
+  [CUMPLE] La copia de continuación conserva todos los archivos de entrada de la 4.4 sin cambios (salvo fase1_decisiones.json, el estado del pipeline y el LÉEME de la 4.4, sustituido por el de la 4.5)
+
+3. CONSTRUCCIÓN (fase1_v63.json) FRENTE AL ORIGINAL
+  [CUMPLE] Mismas 21 partidas y mismos años · 21
+  [CUMPLE] Historia: la única diferencia de valor es el circulante de 2024 (−127,84 → 84,994) · [('circulante', 8, -127.84, 84.994)]
+  [CUMPLE] Metadatos (precio, acciones, capitalización, fecha, tasa sin riesgo, geografía…) iguales a los originales
+  [CUMPLE] La fuente del circulante de 2024 recoge la decisión humana registrada (persona y fecha del registro)
+  [CUMPLE] 38 ceros PENDIENTES de verificación en fase1_v63.json (la IA no confirma ceros) · 38
+  [CUMPLE] construir registró 38 ceros pendientes y 0 confirmados por decisión humana · _v63.json escrito (10 años, 27 diferencias con el comparativo, 38 ceros pendientes de verificación, 0 confirmados por decisión humana; ver historia_revision.md)
+  [CUMPLE] AR_*.json de la copia idénticos a los de la 4.4 (P8 y citas de ceros conservadas) · 10
+
+4. LIBRO DE DATOS RECALCULADO FRENTE AL LIBRO EVALUADO ORIGINAL (Historia)
+  [CUMPLE] Celdas numéricas distintas: K14 y sus derivadas (K30, K31, C53, C58, C76, C77, C79, C80) · C53, C58, C76, C77, C79, C80, K14, K30, K31
+  [CUMPLE] K14 = 84,994 (antes −127,84)
+  [CUMPLE] C53 (S2C de referencia) ≈ 0,9159 (antes 1,5492) · (1.54921660243955, 0.915854136412881)
+  [CUMPLE] C58 (f de referencia) ≈ −0,027608 (antes 0,019890) · (0.0198902473163874, -0.0276077999509027)
+  [CUMPLE] Las otras ocho son fórmulas que dependen de la fila 14 (directamente o por la fila 31 o C58)
+  [CUMPLE] Las demás diferencias son notas y fuentes de la columna M y C68 (=Palancas!C9, que escribe la fase B; vacía antes de las fases) · M8, M13, M14, M16, M17, M23, M26, C68
+
+5. COMPROBACIÓN DE ENTRADA
+  [CUMPLE] 0 bloqueantes y libro íntegro
+  [CUMPLE] Motores A, B y C calculables
+  [CUMPLE] 6 evidencias pendientes para LISTO · PROVISIONAL (C48 y los ceros pendientes), visibles · evidencia Historia!C23:L23; evidencia Historia!C26:L26; evidencia Análisis!C48; evidencia Historia!C13:L13; evidencia Historia!C16:L16; evidencia Historia!C17:L17
+
+6. FASES, RESULTADOS Y ESTADO
+  [CUMPLE] Pipeline terminado en el paso 14: estado concluido, auditoría APROBADO, motor B
+  [CUMPLE] Sin correcciones ni vueltas (fase B, fase C, auditoría, C→B, B→A: 0) · {'fase_b': 0, 'fase_c': 0, 'auditoria': 0, 'vueltas_c_a_b': 0, 'vueltas_b_a_a': 0}
+  [CUMPLE] Historial del pipeline: verificar_todo.sh: PASS
+  [CUMPLE] Historial del pipeline: comprobar_celdas_v2 (fases A, B, C): 0 errores
+  [CUMPLE] Historial del pipeline: gramática tras la fase C: código 0, 0 errores
+  [CUMPLE] Historial del pipeline: ficha.json válida
+  [CUMPLE] fase_a.json es nuevo: distinto del original (no se reutilizan salidas antiguas)
+  [CUMPLE] fase_b.json es nuevo: distinto del original (no se reutilizan salidas antiguas)
+  [CUMPLE] fase_c.json es nuevo: distinto del original (no se reutilizan salidas antiguas)
+  [CUMPLE] extracto_v63.md nuevo y distinto del original
+  [CUMPLE] auditoria.md nuevo y distinto del original
+  [CUMPLE] fase_a.md nuevo y distinto del original
+  [CUMPLE] fase_b.md nuevo y distinto del original
+  [CUMPLE] fase_c.md nuevo y distinto del original
+  [CUMPLE] Fase A: C62 = «No · financiación cambia mucho» (motor B, hipótesis principal fijada antes de los resultados)
+  [CUMPLE] Fase A: r (C56) = 0,09 conservada
+  [CUMPLE] Libro evaluado: Análisis!C56 = 0,09 y C62 = motor B; C76 vacía (motor B)
+  [CUMPLE] Fase B: S2C decidido por la fase (0,9 / 0,9 / 1,0), no copiado de la referencia Historia C53 ≈ 0,9159 · [0.9, 0.9, 1] · C53 0.9159
+  [CUMPLE] Condiciones del motor B en los tres escenarios: g < r_op y ROIC a largo plazo > g · g [0.01, 0.02, 0.025] · ROIC [0.09, 0.11, 0.12] · r_op 0.0869
+  [CUMPLE] Probabilidades de la lista que suman 1
+  [CUMPLE] Caja (Historia L24) = 108,352, sin restar el dividendo a cuenta de 43,338
+  [CUMPLE] Puente del motor B = deuda + arrendamientos + pensiones + minoritarios − caja de 31-dic-2025 = 160,784 (sin doble cómputo del dividendo) · 160.784
+  [CUMPLE] Resultados mecánicos conservados (V 53,67 / 70,77 / 86,49; ponderado 70,50; precio de Sí 65,69; zona caro)
+  [CUMPLE] Ponderado = Σ p·V y la escalera coincide con la hoja (C86)
+  [CUMPLE] C104 empieza por «Pendiente de decisión de cartera», sin porcentajes, y declara que es un resultado mecánico no comparable con el precio ni una recomendación
+  [CUMPLE] Análisis!B101 sin cifras heredadas de la etapa 1 (Chile, 30-jun-2026, ≈74 €, ≈48 €)
+  [CUMPLE] Análisis!B102 sin cifras heredadas de la etapa 1 (Chile, 30-jun-2026, ≈74 €, ≈48 €)
+  [CUMPLE] Análisis!C103 sin cifras heredadas de la etapa 1 (Chile, 30-jun-2026, ≈74 €, ≈48 €)
+  [CUMPLE] Análisis!C93 sin cifras heredadas de la etapa 1 (Chile, 30-jun-2026, ≈74 €, ≈48 €)
+  [CUMPLE] ficha.json: concluido, cubo Vigilar, motor B, valor ponderado igual a precio.json
+  [CUMPLE] auditoria.md: «Veredicto: APROBADO» y ningún punto FALLA
+  [CUMPLE] Fase C: estado concluido con la condición de ensayo exploratorio de ruta A
+  [CUMPLE] Contraste: hecho sobre el libro evaluado final (huella igual)
+  [CUMPLE] Contraste B0 reproduce el ensayo principal (ponderado y precio de Sí)
+  [CUMPLE] Contraste: f de A1 (T1) y de A2/A2a/A2b (T3, C49 4,5 / 6,8 / 0) iguales a las réplicas de la 4.3 · {'A1': -0.027608, 'A2': -0.009847, 'A2a': -0.008307, 'A2b': -0.01286}
+  [CUMPLE] Contraste: las variantes A tienen motor A y r = 0,09; B0 motor B
+  [CUMPLE] Descomposición: la réplica reproduce las cinco variantes de la hoja y la salida conservada es idéntica
+
+RESULTADO: 60 de 60 comprobaciones cumplen.

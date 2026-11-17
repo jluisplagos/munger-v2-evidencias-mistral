@@ -1,0 +1,36 @@
+EXPEDIENTE REGENERADO DEL ENSAYO DE VIDRALA · entrega 4.6 · controles de solo lectura
+====================================================================================================
+
+1. REFERENCIAS INTACTAS
+  [CUMPLE] Los 489 originales de personaje_v2/empresas_v2/ conservan su huella del manifiesto
+  [CUMPLE] Los 50 archivos de la 4.4 conservan su huella del manifiesto
+  [CUMPLE] Los 131 archivos de la 4.5 (expediente, registro de P1, contraste, controles) conservan su huella del manifiesto
+  [CUMPLE] Registro humano de P1 sin cambios en la copia 4.6 (SHA-256 b4e47afc…c445a4)
+
+2. CIERRE (I1)
+  [CUMPLE] Pipeline concluido en el paso 14 con auditoría APROBADO
+  [CUMPLE] auditoria.md: APROBADO por la regla estricta de H2 y «Material auditado» igual al material fijado · 74b94f8072dd58c1
+  [CUMPLE] El material actual es el auditado (ningún artefacto cambió después de la aprobación)
+  [NO CUMPLE] cierre_v2.motivo_rechazo_cierre: ningún motivo de rechazo
+  [CUMPLE] La primera auditoría 4.6 (APROBADO de una versión anterior del material) se rechazó y no cerró
+  [CUMPLE] La auditoría 4.5 se conserva como antecedente (sin línea de material: no sirve para cerrar la 4.6)
+  [CUMPLE] ficha.json oficial: concluido con cierre {APROBADO, material auditado} y sin bloque provisional
+  [CUMPLE] ficha_provisional.json: estado propuesto, confirmado = false, y huella del libro igual a la del libro auditado
+  [CUMPLE] resumen_v2.csv: fila concluido con verificación APROBADO
+
+3. MARCA (I2), ETIQUETA DE C104 (I3) Y AVISOS DE ALCANCE (I4) EN LAS SALIDAS OFICIALES
+  [CUMPLE] I2 · ficha: marca «con datos de etapa 1 incompletos» con las causas exactas de entrada_v63.json · 6 causas
+  [CUMPLE] I2 · informe: la marca y sus causas en la sección 1, y en ninguna otra
+  [CUMPLE] I3 · C104 con la etiqueta de la tabla para concluido · esperar · no_procede, y coherencia de la fase C sin errores
+  [CUMPLE] I4 · ficha.alcance igual a alcance_v2.json
+  [CUMPLE] I4 · informe, sección 1 leída por separado: el aviso una vez
+  [CUMPLE] I4 · informe, sección 6 leída por separado: el aviso una vez
+  [CUMPLE] I4 · informe, sección 7 leída por separado: el aviso una vez
+  [CUMPLE] I4 · el aviso no aparece en otras secciones (3 apariciones en total) y el informe oficial no lleva la nota de material provisional
+
+4. COMPARACIÓN NUMÉRICA CON LA 4.5 Y REPRODUCCIÓN
+  [CUMPLE] comparar_con_4_5.py: 30 de 30 controles iguales o cumplidos, y la salida conservada es idéntica
+  [CUMPLE] Reproducción con el código 4.5: las cuatro incidencias (cinco comprobaciones) REPRODUCIDAS
+  [CUMPLE] Reproducción con el código 4.6: ninguna se reproduce
+
+RESULTADO: 23 de 24 comprobaciones cumplen.

@@ -1,0 +1,77 @@
+SUBSANACIÓN 4.3.1 · ENTRADAS DEL MOTOR B, FECHAS Y ACCIONES · script de solo lectura
+====================================================================================================
+
+1. HUELLAS
+  [CUMPLE] EN25: SHA-256 ebfe0f35db7e…
+  [CUMPLE] BORME_PDF: SHA-256 59ec693b4aa9…
+  [CUMPLE] BORME: SHA-256 4c90c93be02c…
+  [CUMPLE] LIBRO: SHA-256 21c386711613…
+  datos_v63.json (Control maestro heredado, solo lectura): SHA-256 975fbc32c8c1…
+
+2. HECHOS CITADOS · cuentas consolidadas 2025 (EN25)
+  [CUMPLE] p.60: acciones emitidas a 31-dic-2025 = 35,206,258
+  [CUMPLE] p.61: autocartera a 31-dic-2025 = 23,400 acciones
+  [CUMPLE] p.76: promedio ponderado de 2025 = 35,205,947 acciones; sin acciones potenciales dilutivas
+  [CUMPLE] p.61: programa de recompra de 12 meses de hasta 350,000 acciones y 33 mm como máximo
+  [CUMPLE] p.64: dividendo a cuenta de 2025 de 1,2318 €/acción (43,338 miles) aprobado el 19-dic-2025 y pagado el 13-feb-2026
+  [CUMPLE] p.65: dividendo complementario propuesto de 16.490.205,54 € (pendiente de la junta)
+  [CUMPLE] p.78: Toro, valor de empresa ≈77 mm con deuda asumida y pago aplazado; ventas ≈70 mm y EBITDA ajustado ≈12 mm esperados en 2025
+  [CUMPLE] p.78: cierre de Toro sujeto a un plan de ajuste y a la refinanciación con los acreedores actuales
+  [CUMPLE] p.78: borrasca Kristin en Portugal a comienzos de 2026, impacto preliminar de 10 a 15 mm antes de seguros y ayudas
+  [CUMPLE] p.72: la provisión de personal recoge planes de prestación definida «y otras obligaciones con empleados»; plan británico de pensión y cobertura médica
+  [CUMPLE] p.71: provisión de personal a 31-dic-2025 = 6,223 (sin desglose de obligación y activos del plan en esa tabla)
+  [CUMPLE] p.3: la deuda del balance (préstamos) no incluye dividendos a pagar ni otros pasivos corrientes
+
+3. HECHOS CITADOS · BORME núm. 208, 28-oct-2026, anuncio 5696 (conservado en esta entrega)
+  [CUMPLE] Fecha de publicación: miércoles 28 de octubre de 2026
+  [CUMPLE] Ejecuta el acuerdo sexto de la junta de 29-abr-2026: 1.760.312 acciones nuevas, liberadas, a 1,02 €
+  [CUMPLE] Proporción: una acción nueva por cada veinte antiguas
+  [CUMPLE] Período de asignación: catorce días naturales desde el día siguiente a la publicación en el BORME y en la web de la sociedad
+  [CUMPLE] Legitimados: titulares al final del día inmediatamente anterior al inicio del período de asignación
+  [CUMPLE] El balance de base es el de 31-dic-2025
+  [CUMPLE] 1.760.312 × 20 = 35.206.240 acciones antiguas con derecho, frente a 35.206.258 emitidas a 31-dic-2025 (18 de diferencia por redondeo)
+  [Interpretación] Si la web publicó el mismo día, el período empieza el 29-oct-2026 y termina el 11-nov-2026: el 3-nov-2026 está dentro.
+  [Interpretación] En el mercado español la acción cotiza sin derecho desde el inicio del período; el BORME no fija esa fecha. Confirmarla exige el
+  calendario de la operación (hecho relevante o documento informativo de la CNMV/web, no conservados).
+
+4. LIBRO (valores en caché, solo lectura)
+  [CUMPLE] Análisis C37 (precio) = 87.9; C41 (capitalización) = 3094.6; C55 (acciones) = 35.206; C56 (r) = 0.09
+  [CUMPLE] C41 = C37 × C55 redondeado a un decimal · 3.094,6074
+  [CUMPLE] Palancas C45 (fecha del precio) = 03-11-2026; C46 (fecha de las acciones) = 31-12-2025
+  [CUMPLE] Palancas C47 (causa declarada de la diferencia de capitalización) = «Ninguna»
+  [CUMPLE] Historia L20 (media diluida del año 2025) = C55 = 35,206
+  [CUMPLE] Análisis D4 (fecha de análisis) = «2026-11-03», escrita como texto (aviso V31 del libro)
+  [CUMPLE] Análisis C53 y C54 (contexto, 30-jun-2026) = 109,4 y 409,6; no entran en el motor B (convención 5)
+  [CUMPLE] Motor: los flujos 1–10 se descuentan con exponentes enteros 1…10 (fila 3) y el terminal con ^10: valor referido al cierre del año base
+  [CUMPLE] Historia C64 (deuda con arrendamientos, 31-dic-2025) = 262,913; C63 (i) y C52 (τ) del libro · i 0.063393 · τ 0.20032
+
+5. CONTROL MAESTRO HEREDADO (datos_v63.json): notas sobre 2026, NO CONTRASTADAS en esta entrega
+  [CUMPLE] C37: el campo «periodo» dice «Cierre 09/10/2026», pero la fuente es una cotización intradía de Bolsamanía del 03/11/2026 a las 10:13 (secundaria, un solo proveedor)
+  [CUMPLE] C37: la nota califica el precio de «con derecho» porque la liberada «no consta ejecutada a 09/10/2026»
+  [CUMPLE] C41: la nota del Control maestro calcula otra capitalización, 88,70 × 34,185 (netas de una autocartera ≈1,021 mm) = 3.032,2, distinta de la del libro
+  [CUMPLE] C41: la autocartera de 2026 es una suma de informes semanales con un supuesto (sin compras 23/06–22/07)
+  [CUMPLE] C55: la nota anticipa ≈35,89 mm de acciones si se ejecuta la liberada con precio ex
+  [CUMPLE] C34 (fuente: informe semestral 1S2026, doc. 2487, no conservado): emisión 259,4; recompras 52,7; dividendos 43,3; Chile 23,6
+  [CUMPLE] C53: dividendo complementario ≈16,5 mm pagado el 15/07/2026 (heredado)
+  [CUMPLE] C54: 30-jun-2026, pasivos financieros 409,6 con arrendamientos; sin NIIF 16, 361,7; deuda neta APM 252,3 (heredado)
+
+6. ARITMÉTICA DE ACCIONES, FECHAS Y SALDOS (no es una valoración)
+  Acciones del libro (C55): 35.206 · emitidas 31-dic-2025 35,206258 · en circulación 31-dic-2025 35,182858 (-0,0657 %)
+  Tras la liberada: emitidas 36,966570 (+5,0008 %)
+  En circulación tras la liberada, con la autocartera de 31-dic-2025 (23.400): 36,942001 (+4,9310 %)
+  En circulación tras la liberada, con la autocartera heredada de 2026 (≈1,021 mm, no contrastada): 35,894521 (+1,9557 %)
+  [CUMPLE] La autocartera heredada (≈1,021 mm) no cabe en el programa documentado de 350.000 acciones: exige otro programa no documentado aquí
+  Días entre la fecha de referencia del motor (31-dic-2025) y la del precio (3-nov-2026): 307 → (1 + r)^(307/365) − 1 = 7,5175 % con r = 0,09
+  Parte transcurrida del año 1 del motor (2026) en la fecha del precio: 84,1 %
+  Dividendos de 2026 que el comprador del 3-nov-2026 ya no recibe: 43,338 (hecho) + 16,490 (propuesto; pago heredado) = 59,828 mm = 1,6994 €/acción sobre C55 = 1,93 % de C41
+  Deuda neta con arrendamientos: 31-dic-2025 154,561 (documentada) · 30-jun-2026 300,2 (heredada) · variación 145,6 = 4,71 % de C41
+  Toro: valor de empresa ≈77 mm (EN25 p.78) = 2,49 % de C41; ventas ≈70 mm = 4,78 % de V0
+  Borrasca Kristin: 10–15 mm antes de seguros (EN25 p.78) = 0,32 %–0,48 % de C41
+  r_op de la convención 4 (aritmética; no es una valoración):
+    libro: E = 87,9 × 35,206 (3-nov-2026 × 31-dic-2025); D a 31-dic-2025: 0,086922 (+0,0 pb)
+    E con acciones en circulación tras la liberada y autocartera heredada: 0,086977 (+0,5 pb)
+    E del libro; D con los pasivos financieros heredados a 30-jun-2026 (409,6): 0,085406 (−15,2 pb)
+  [CUMPLE] El libro mezcla fechas en E (precio de 3-nov-2026 por acciones de 31-dic-2025) y en D (31-dic-2025)
+  [CUMPLE] El libro no ha cambiado durante la ejecución
+
+RESULTADO: 43 de 43 comprobaciones cumplen.

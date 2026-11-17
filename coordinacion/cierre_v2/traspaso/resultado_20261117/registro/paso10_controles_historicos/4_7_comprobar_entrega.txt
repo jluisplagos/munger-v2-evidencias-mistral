@@ -1,0 +1,66 @@
+ENTREGA 4.7 · controles de solo lectura
+====================================================================================================
+
+1. REFERENCIAS INTACTAS FRENTE A LA 4.6.1
+  [NO CUMPLE] [recalcula] Los 1342 archivos de la 4.6.1 que no son código del bloque A ni documentación conservan su huella (originales, expedientes 4.4–4.6.1, libros, fases, fuentes) · personaje_v2/esquema/fase_c.esquema.json, personaje_v2/esquema/ficha.esquema.json, personaje_v2/prompts/fase_a.md, personaje_v2/prompts/fase_b.md, personaje_v2/prompts/fase_c_turno1.md
+  [CUMPLE] [recalcula] Entre ellos, los 489 originales de personaje_v2/empresas_v2/ · 489
+  [CUMPLE] [recalcula] Registro humano de P1 sin cambios (SHA-256 b4e47afc…c445a4)
+  [CUMPLE] [recalcula] El manifiesto 4.6.1 conservado (reproduccion/MANIFIESTO_SHA256_4_6_1.txt) es el del paquete 4.6.1 (SHA-256 cbf63486…6792)
+
+2. BLOQUE A · CÓDIGO, REPRODUCCIÓN Y PRUEBAS
+  [NO CUMPLE] [recalcula] El código del bloque A conserva las huellas del cierre definitivo (CIERRE_TECNICO_BLOQUE_A.md §5, 7 archivos) · personaje_v2/scripts/cierre_v2.py, personaje_v2/scripts/ficha.py, personaje_v2/scripts/informe.py, personaje_v2/scripts/pipeline.py, personaje_v2/scripts/resumen.py, verificar_paquete.sh, personaje_v2/pruebas/test_resumen_v2.py
+  [CUMPLE] [recalcula] Las huellas del primer cierre son las del material de la primera auditoría (MATERIAL_AUDITADO_4_7.txt)
+  [CUMPLE] [constata] Reproducción con el código 4.6.1 (árbol íntegro): el fallo se reproduce en las dos rutas
+  [CUMPLE] [constata] Reproducción con el código 4.7 revisado: no se reproduce en ninguna
+  [CUMPLE] [constata] test_resumen_v2.py: 34/34 con el código 4.7 definitivo (salida conservada; se reejecuta en verificar_paquete.sh completa)
+  [CUMPLE] [constata] test_resumen_v2.py con el código de la primera auditoria: 19/34 (15 en FALLA, las de los hallazgos posteriores)
+  [CUMPLE] [constata] test_resumen_v2.py con el código de la auditoria de control: 27/34 (7 en FALLA, las de los hallazgos posteriores)
+  [CUMPLE] [constata] test_resumen_v2.py con el código de la auditoria final: 30/34 (4 en FALLA, las de los hallazgos posteriores)
+  [CUMPLE] [constata] test_resumen_v2.py con el código del control de vigencia: 33/34 (1 en FALLA, las de los hallazgos posteriores)
+  [CUMPLE] [constata] test_resumen_v2.py con el código 4.6.1: 6/34
+  [CUMPLE] [constata] test_cierre_v2.py: 55/55 con el código 4.7 revisado (salida conservada; se reejecuta en verificar_paquete.sh completa)
+  [NO CUMPLE] [reejecuta] Integración de la batería del resumen en verificar_paquete.sh completa (mínimo 34): 13 de 13 y salida idéntica a la conservada
+  [CUMPLE] [reejecuta] Integración de la batería de cierre (mínimo 55, de la 4.6.1): 13 de 13
+  [CUMPLE] [recalcula] El expediente de referencia 4.6.1 sigue vigente con el código 4.7 y sin registro de publicaciones
+  [CUMPLE] [recalcula] La evidencia anota la columna publicada; «cambio de tipo» de 2021 viene de la conciliación, no del desglose (auditoría de control, C-7)
+
+3. BLOQUE B · EVIDENCIA, RÉPLICA Y MATRIZ
+  [CUMPLE] [reejecuta] analisis_n1_n3.py termina con código 0 («evidencia y control correctos»)
+  [CUMPLE] [reejecuta] financiero/salida.txt conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/evidencia.json conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/matriz.csv conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/matriz.json conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/matriz.md conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/n3_anio_a_anio.csv conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/evidencia.md conservado = regenerado byte a byte
+  [CUMPLE] [recalcula] Matriz de evidencia: 109 datos, todos reproducidos con su signo, con archivo, página, concepto, columna, período, perímetro, unidad y signo publicado
+  [CUMPLE] [recalcula] La evidencia incluye las conciliaciones fiscales completas 2021–2025 (31 líneas) y el segmento de Italia de 2018–2019
+  [CUMPLE] [recalcula] Cada conciliación cuadra con su gasto publicado
+  [CUMPLE] [recalcula] Control de la réplica: T0·M0·R0 = libro de referencia (53,67 / 70,77 / 86,49; 70,50; 65,69) con tolerancia 0,005
+  [CUMPLE] [recalcula] 27 combinaciones, como máximo 3 alternativas por asunto (base incluida), con las columnas pedidas
+  [CUMPLE] [recalcula] Constantes: r = 0,09, probabilidades 0,2 / 0,6 / 0,2, puente 160,784 y 35,206 acciones del libro de referencia
+  [CUMPLE] [recalcula] Clases: 15 sensibilidades mecánicas (T0 o M0), 11 hipótesis coherentes alternativas y 1 recomendada (T1·M1·R1)
+  [CUMPLE] [recalcula] T1 = media 2023–2025 del tipo efectivo (22,05 %); la formulación inicial (23,30 %) queda registrada como descartada
+
+4. BLOQUE B · LIBROS DE PROPUESTA
+  [CUMPLE] [constata] propuesta_excel.py: las dos propuestas reproducen la réplica y solo difieren en las celdas declaradas (salida conservada, 4 de 4)
+  [CUMPLE] [recalcula] M2/precio.json del libro recalculado = réplica T0·M2·R0 (tolerancia 0,005) y con el aviso de no comparabilidad
+  [CUMPLE] [recalcula] T1_M1/precio.json del libro recalculado = réplica T1·M1·R0 (tolerancia 0,005) y con el aviso de no comparabilidad
+  [CUMPLE] [recalcula] PROPUESTA_M2_ultimo_anio.xlsx: fórmulas y entradas iguales a la referencia salvo ['Palancas!C8'] · Palancas!C8
+  [CUMPLE] [recalcula] PROPUESTA_T1_M1.xlsx: fórmulas y entradas iguales a la referencia salvo ['Diagnóstico V6!C10', 'Diagnóstico V6!C11'] · Diagnóstico V6!C10, Diagnóstico V6!C11
+
+5. DECISIONES HUMANAS Y ALCANCE
+  [CUMPLE] [recalcula] decisiones_propuestas_N1_N3.json preparado sin decidir: decision, fecha y confirmado_por vacíos en las 3
+  [CUMPLE] [constata] El informe declara que los resultados no son comparables con el precio de noviembre ni una recomendación
+  [CUMPLE] [constata] El informe mantiene el estado real de N4, N9, N10, P-N1 y P-N2
+
+6. AUDITORÍAS INTERNAS DE CLAUDE Y CONTROL DE VIGENCIA
+  [CUMPLE] [recalcula] Primera auditoría conservada: nombra MATERIAL_AUDITADO_4_7.txt (b849b5db…), su veredicto es «Sin hallazgos bloqueantes» y ese archivo conserva su huella
+  [CUMPLE] [recalcula] Auditoría de control conservada: nombra MATERIAL_CONTROL_4_7.txt (b75c2292…), su veredicto es «Sin hallazgos bloqueantes» y ese archivo conserva su huella
+  [CUMPLE] [recalcula] Auditoría final conservada: nombra MATERIAL_FINAL_4_7.txt (fb044c67…), su veredicto es «Sin hallazgos bloqueantes» y ese archivo conserva su huella
+  [CUMPLE] [recalcula] Control de vigencia conservado: nombra MATERIAL_VIGENCIA_4_7.txt (2d804f7f…), su veredicto es «Sin hallazgos bloqueantes» y ese archivo conserva su huella
+  [NO CUMPLE] [recalcula] Control de vigencia final: el material vigente (MATERIAL_VIGENCIA2_4_7.txt, 2a8716b4…) no ha cambiado desde su control (63 archivos), salvo el texto de la 4.6.1 repuesto en el Anexo D, que vuelve a estar completo y en orden, y este comprobador frente a su versión controlada · personaje_v2/scripts/cierre_v2.py, personaje_v2/scripts/ficha.py, personaje_v2/scripts/informe.py, personaje_v2/scripts/pipeline.py, personaje_v2/scripts/resumen.py
+  [CUMPLE] [recalcula] El segundo control de vigencia nombra ese material y su veredicto empieza por «Sin hallazgos bloqueantes»
+
+Tipos de control: 10 reejecutan, 27 recalculan y 12 solo constatan lo conservado.
+RESULTADO: 45 de 49 comprobaciones cumplen.

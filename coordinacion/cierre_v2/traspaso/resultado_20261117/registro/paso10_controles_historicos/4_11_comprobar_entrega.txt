@@ -1,0 +1,58 @@
+1. ALCANCE DE LOS CAMBIOS (frente a la 4.10.1)
+NO CUMPLE · [constata] los archivos de la 4.10.1 que cambian son exactamente los declarados · de más ['personaje_v2/prompts/historia_anio.md', 'personaje_v2/pruebas/agentes_sinteticos.py', 'personaje_v2/pruebas/test_cierre_v2.py', 'personaje_v2/scripts/fase1_historia.py', 'personaje_v2/scripts/referencias_mecanicas.py'] · sin cambiar []
+CUMPLE   · [constata] ningún archivo de la 4.10.1 desaparece
+NO CUMPLE · [constata] los archivos nuevos están en el expediente 4.11, en v6/v64_experimental/ o son los scripts, la configuración y la batería declarados · ['v6/v641_experimental/scripts/trasladar_entradas.py', 'v6/v641_experimental/scripts/verificar_v64.py', 'v6/v641_experimental/scripts/generar_referencia.py', 'v6/v641_experimental/scripts/comparar_libros.py', 'v6/v641_experimental/scripts/inventario_entradas.py']
+CUMPLE   · [constata] originales intactos: los 489 archivos de personaje_v2/empresas_v2/ con la huella de la 4.10.1
+CUMPLE   · [constata] expedientes y entregas anteriores intactos (1374 archivos de empresas_v2_correcciones/)
+
+2. PLANTILLAS
+CUMPLE   · [reejecuta] V6.3: entregables y referencia con sus SHA-256
+CUMPLE   · [reejecuta] V6.4 experimental: plantilla y referencia con sus SHA-256
+CUMPLE   · [reejecuta] verificar_v64.py: la plantilla V6.4 es ÍNTEGRA con su referencia
+NO CUMPLE · [reejecuta] la reconstrucción desde la V6.3 da el mismo SHA-256 que la plantilla entregada (determinista) ·  1240 flujos anuales envueltos · 28 comprobaciones de configuración · conciliación [('BUENO', 65), ('MALO', 5), ('NORMAL', 35)] · partes restauradas 6 → /tmp/control411_bndnh87e/V64_reconstruida.xlsx
+
+CUMPLE   · [constata] la referencia V6.4 salió de la plantilla entregada
+CUMPLE   · [constata] config_v2_v64_experimental.json = config_v2.json salvo la plantilla, las notas, la versión de la configuración y el nombre propio del resumen (resumen_v2_v64_experimental.csv, revisión interna H2); config_v2.json sin cambios
+
+3. VERIFICADOR DEL PAQUETE
+NO CUMPLE · [constata] verificar_paquete.sh completa exige la batería de la V6.4 (al menos 58 pruebas), la primera de las obligatorias, y conserva las demás con sus mínimos
+
+4. CAMBIO DE BASE
+CUMPLE   · [reejecuta] control heredado: entradas concordantes y ningún resto de la base anterior en la evidencia activa ni en las notas
+CUMPLE   · [reejecuta] piloto: entradas concordantes y ningún resto de la base anterior en la evidencia activa ni en las notas
+CUMPLE   · [reejecuta] las dos configuraciones de cambio de base se reproducen byte a byte con preparar_configuraciones_4_11.py (en un temporal)
+CUMPLE   · [constata] piloto/Vidrala: etapa 1 original archivada con la huella de la 4.6.1 y fechas separadas
+CUMPLE   · [constata] control_heredado/Vidrala: etapa 1 original archivada con la huella de la 4.6.1 y fechas separadas
+
+5. CONTROL HEREDADO
+CUMPLE   · [constata] control heredado: V6.4 en modo heredado = 4.10.1 (V, ponderado, precio de Sí, zona y estados; libro sin otras diferencias)
+
+6. PILOTO (V6.4 experimental, configuración de demostración)
+CUMPLE   · [constata] plantilla_activa.json: V6.4 experimental con la huella de la plantilla entregada
+CUMPLE   · [constata] la configuración del piloto es la de demostración declarada (válida, experimental, no adoptada)
+CUMPLE   · [constata] el pipeline del piloto terminó (estado 'concluido', paso 14, auditoría 'APROBADO') sin una espera abierta
+CUMPLE   · [constata] el material auditado incluye configuracion_economica.json, plantilla_activa.json y configuracion_v64_variantes.json
+CUMPLE   · [constata] la fase C evalúa cada parámetro activo y el mantenimiento (adoptada = false) y solo afirma «no cambia la zona» si las variantes calculadas lo respaldan
+CUMPLE   · [constata] las variantes del paso 10 incluyen heredado, activa, componentes aislados y las otras cuatro estructuras con entradas compatibles
+CUMPLE   · [constata] ficha e informe: plantilla V6.4 experimental, configuración no adoptada (§14) y distancias con denominador identificado
+CUMPLE   · [constata] auditoría del piloto: APROBADO, interna y ligada a su solicitud y su material
+CUMPLE   · [constata] ningún campo humano relleno: fase1_decisiones.json del piloto = el del origen 4.6.1
+
+7. RÉPLICA, AISLAMIENTO Y PROPUESTA
+CUMPLE   · [constata] réplica independiente sobre los libros de la plantilla final: 117 de 117 casos coinciden
+CUMPLE   · [constata] aislamiento de C46/C47 (precisión) y C49 (P3): el control reproduce el expediente y cada variante tiene su efecto
+CUMPLE   · [constata] propuesta humana única y agrupada, con recomendación argumentada, alternativas, evidencia, efectos y consecuencias, y sin ningún campo humano relleno
+CUMPLE   · [constata] la propuesta recoge las decisiones que abrió la revisión interna (D411-MATERIALIDAD por H4 y D411-DOMINIOS por H13): 13 en total
+
+7b. RESPUESTA A LA REVISIÓN INTERNA (ejecuciones del §5)
+CUMPLE   · [constata] selección inversa sobre una copia de un expediente V6.3 cerrado (H1): código 2, ningún archivo nuevo ni cambiado
+CUMPLE   · [constata] extremos del rango de λ recalculados en el libro (H11), con la variante «activa» igual al precio.json del piloto
+CUMPLE   · [constata] vigencia del piloto con el código final, en lectura: cierre vigente, selección, variantes y celdas conformes, y piloto intacto
+CUMPLE   · [constata] concordancia del cambio de base guardada para el libro de datos y el evaluado del piloto y del control (H9)
+
+8. DOCUMENTACIÓN DE LA VERSIÓN
+NO CUMPLE · [constata] VERSION, CONTINUIDAD.md y PROMPT_NUEVA_VENTANA.md describen la 4.11
+CUMPLE   · [constata] documentación de la V6.4 (README con fórmulas y límites) y formatos nuevos en el Anexo D (D.12)
+CUMPLE   · [constata] informe de integración, registro de la entrega, registro de pruebas, revisión interna y LEEME de controles históricos presentes
+
+RESULTADO: 33 de 38 comprobaciones cumplen (7 reejecutan, 31 constatan).

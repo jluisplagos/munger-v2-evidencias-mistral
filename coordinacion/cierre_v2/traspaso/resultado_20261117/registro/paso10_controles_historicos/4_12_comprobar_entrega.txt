@@ -1,0 +1,84 @@
+1. ALCANCE DE LOS CAMBIOS (frente a la 4.11)
+NO CUMPLE · [constata] los archivos de la 4.11 que cambian son exactamente los declarados · de más ['personaje_v2/prompts/historia_anio.md', 'personaje_v2/pruebas/test_cierre_v2.py', 'personaje_v2/scripts/cambiar_base.py', 'personaje_v2/scripts/fase1_historia.py', 'personaje_v2/scripts/leer_v63.py'] · sin cambiar []
+CUMPLE   · [constata] ningún archivo de la 4.11 desaparece
+NO CUMPLE · [constata] los archivos nuevos están en el expediente 4.12 o son la guía y los cinco módulos nuevos declarados · ['v6/v641_experimental/scripts/trasladar_entradas.py', 'v6/v641_experimental/scripts/verificar_v64.py', 'v6/v641_experimental/scripts/generar_referencia.py', 'v6/v641_experimental/scripts/comparar_libros.py', 'v6/v641_experimental/scripts/inventario_entradas.py']
+CUMPLE   · [constata] originales de personaje_v2/empresas_v2/: 489 archivos con la huella de la 4.11
+CUMPLE   · [constata] expedientes y entregas anteriores: 1854 archivos con la huella de la 4.11
+CUMPLE   · [constata] plantillas, referencias y scripts de v6/ (salvo el README de la V6.4): 79 archivos con la huella de la 4.11
+CUMPLE   · [constata] contrastes de entregas anteriores: 49 archivos con la huella de la 4.11
+
+2. PLANTILLAS Y RECONSTRUCCIÓN (§6)
+CUMPLE   · [reejecuta] V6.3: entregables y referencia con sus SHA-256
+CUMPLE   · [reejecuta] V6.4 experimental: plantilla y referencia con su huella ESTRICTA (artefacto entregado)
+CUMPLE   · [reejecuta] verificar_v64.py: la plantilla V6.4 es ÍNTEGRA con su referencia
+CUMPLE   · [reejecuta] la reconstrucción desde la V6.3 tiene el mismo contenido, miembro a miembro, que la plantilla entregada (la huella del archivo depende de la compresión)
+
+3. VERIFICADOR DEL PAQUETE Y BATERÍA
+NO CUMPLE · [constata] verificar_paquete.sh completa exige la batería de la V6.4 con al menos 127 pruebas, la primera de las obligatorias, y conserva las demás con sus mínimos
+CUMPLE   · [constata] la batería de la V6.4 tiene los grupos E (vigencia), F (materialidad y protocolos) y G (coherencia) además de A–D
+
+4. VIGENCIA ANTES DEL RECHAZO (§3)
+CUMPLE   · [constata] el fallo de la 4.11 está reproducido (código 4.11: rechazo con la aprobación conservada) y corregido (código 4.12: retirada antes del rechazo)
+
+5. PROTOCOLOS, MATERIALIDAD Y TRAZABILIDAD (§4 y §5)
+CUMPLE   · [constata] los dos protocolos experimentales existen y ninguno es el de omisión (la configuración los declara)
+CUMPLE   · [constata] diferencias entre el piloto 4.11 y el código final documentadas, con el piloto intacto
+CUMPLE   · [constata] cierre condicionado: cadena de trazabilidad del paso 12 (fuente → … → conclusión) con entradas, resultado y conclusión
+CUMPLE   · [constata] cierre con bloqueo: cadena de trazabilidad del paso 12 (fuente → … → conclusión) con entradas, resultado y conclusión
+CUMPLE   · [constata] Viscofan: cadena de trazabilidad del paso 12 (fuente → … → conclusión) con entradas, resultado y conclusión
+
+6. RF (§6)
+CUMPLE   · [constata] la fuente de rf del Bundesbank: o el PDF con su huella real, o la limitación exacta registrada (sin afirmar el ejemplar)
+
+7. VIDRALA (§7)
+CUMPLE   · [constata] control con las palancas de la 4.11 y el código final: CONCUERDA (valoración, 13 variantes y entradas económicas)
+CUMPLE   · [constata] cierre condicionado: el pipeline terminó (estado 'concluido', auditoría 'APROBADO') sin una espera abierta
+CUMPLE   · [constata] cierre condicionado: no termina por una interrupción técnica (fallo_de_implementacion)
+CUMPLE   · [constata] cierre condicionado: configuración experimental válida, declarada como ensayo y con protocolo del objetivo
+CUMPLE   · [constata] cierre condicionado: plantilla_activa.json = V6.4 experimental con la huella de la plantilla entregada
+CUMPLE   · [constata] cierre condicionado: el material auditado incluye la configuración, la selección, las variantes y la cadena de trazabilidad
+CUMPLE   · [reejecuta] cierre condicionado: objetivo_v64.evaluar sobre el material final da el tratamiento que publica la ficha y el estado del expediente
+CUMPLE   · [reejecuta] cierre condicionado: la variante «activa» reproduce precio.json (1e-9) y las variantes son de las entradas económicas del libro final (instantánea recalculada, formato 4.12)
+CUMPLE   · [constata] cierre condicionado: auditoría ligada a su solicitud y a su material
+CUMPLE   · [constata] cierre con bloqueo: el pipeline terminó (estado 'pendiente_de_datos', auditoría 'APROBADO') sin una espera abierta
+CUMPLE   · [constata] cierre con bloqueo: no termina por una interrupción técnica (fallo_de_implementacion)
+CUMPLE   · [constata] cierre con bloqueo: configuración experimental válida, declarada como ensayo y con protocolo del objetivo
+CUMPLE   · [constata] cierre con bloqueo: plantilla_activa.json = V6.4 experimental con la huella de la plantilla entregada
+CUMPLE   · [constata] cierre con bloqueo: el material auditado incluye la configuración, la selección, las variantes y la cadena de trazabilidad
+CUMPLE   · [reejecuta] cierre con bloqueo: objetivo_v64.evaluar sobre el material final da el tratamiento que publica la ficha y el estado del expediente
+CUMPLE   · [reejecuta] cierre con bloqueo: la variante «activa» reproduce precio.json (1e-9) y las variantes son de las entradas económicas del libro final (instantánea recalculada, formato 4.12)
+CUMPLE   · [constata] cierre con bloqueo: auditoría ligada a su solicitud y a su material
+CUMPLE   · [constata] las dos copias difieren SOLO en el protocolo del objetivo (y en su nota): misma configuración económica
+CUMPLE   · [constata] no se copia una aprobación: auditorías y solicitudes distintas, y la de la copia se retiró antes (historial_cierres)
+CUMPLE   · [constata] agentes reales: fase_a.json del cierre nuevo no es el del piloto 4.11
+CUMPLE   · [constata] agentes reales: fase_b.json del cierre nuevo no es el del piloto 4.11
+CUMPLE   · [constata] agentes reales: fase_c.json del cierre nuevo no es el del piloto 4.11
+CUMPLE   · [constata] comparación homogénea heredado/experimental con las mismas entradas y palancas
+CUMPLE   · [constata] revisión económica y comparación de protocolos presentes
+CUMPLE   · [constata] ningún campo humano relleno: fase1_decisiones.json del cierre = el del origen 4.6.1
+
+8. VISCOFAN (§8)
+CUMPLE   · [reejecuta] publicaciones recuperadas con su huella (12): cada PDF conserva el SHA-256 inventariado
+CUMPLE   · [constata] ninguna edición distinta se llama «original recuperado» ni lleva el nombre de la fuente de la fase 1; la misma paginación no se dice «mismo archivo»
+CUMPLE   · [constata] resultado heredado reproducido con el código final en V6.3 y en V6.4 heredado (cifras completas, |Δ| ≤ 1e-9)
+CUMPLE   · [constata] análisis propio de la configuración: todas las cifras citadas están en su página
+CUMPLE   · [constata] configuración propia de Viscofan: válida, sin central para θ (rango [0, 1]) y sin parámetros de Vidrala
+CUMPLE   · [constata] Viscofan: el pipeline terminó (estado 'concluido', auditoría 'APROBADO') sin una espera abierta
+CUMPLE   · [constata] Viscofan: no termina por una interrupción técnica (fallo_de_implementacion)
+CUMPLE   · [constata] Viscofan: configuración experimental válida, declarada como ensayo y con protocolo del objetivo
+CUMPLE   · [constata] Viscofan: plantilla_activa.json = V6.4 experimental con la huella de la plantilla entregada
+CUMPLE   · [constata] Viscofan: el material auditado incluye la configuración, la selección, las variantes y la cadena de trazabilidad
+CUMPLE   · [reejecuta] Viscofan: objetivo_v64.evaluar sobre el material final da el tratamiento que publica la ficha y el estado del expediente
+CUMPLE   · [reejecuta] Viscofan: la variante «activa» reproduce precio.json (1e-9) y las variantes son de las entradas económicas del libro final (instantánea recalculada, formato 4.12)
+CUMPLE   · [constata] Viscofan: auditoría ligada a su solicitud y a su material
+CUMPLE   · [constata] Viscofan: fechas separadas (base, ejecución, precio, acciones, rf y fuentes) y origen intacto
+
+9. PROPUESTA HUMANA
+CUMPLE   · [constata] propuesta humana única y breve, separada en decisiones de uso del sistema y elecciones económicas, sin ningún campo humano relleno
+
+10. DOCUMENTACIÓN DE LA VERSIÓN
+NO CUMPLE · [constata] VERSION, CONTINUIDAD.md y PROMPT_NUEVA_VENTANA.md describen la 4.12
+CUMPLE   · [constata] guía breve del recorrido supervisado y Anexo D (D.13)
+CUMPLE   · [constata] informe integrado (con la evaluación de aptitud), registro de la entrega, registro de pruebas, revisión interna y LEEME de controles históricos presentes
+
+RESULTADO: 59 de 63 comprobaciones cumplen (11 reejecutan, 52 constatan).

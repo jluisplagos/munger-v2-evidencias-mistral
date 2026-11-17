@@ -1,0 +1,1363 @@
+{
+ "empresa": "Elis SA",
+ "ticker": "ELIS (Euronext Paris, compartimento A; ISIN FR0012435121)",
+ "fecha": "2026-11-14",
+ "moneda": "EUR",
+ "versiones": {
+  "personaje": "v2.2",
+  "plantilla": "V6.3",
+  "gramatica": "0.2.1",
+  "referencias_mecanicas": "0.2.1",
+  "config": "0.2.2"
+ },
+ "hashes": {
+  "libro_entrada": "10ffac33f27d1970c447325dce3aaa8212a18cb0ac4f337f8810313cb228e1a1",
+  "libro_evaluado": "0de09464b8a84f83391e8248cd470f45241337a84754c4dd5721e2d883455460"
+ },
+ "estado_analisis": "pendiente_de_datos",
+ "causa_si_no_concluido": {
+  "tipo": "falta_de_datos",
+  "detalle": "extracto_v63: Reparto del capex entre mantenimiento y crecimiento: no publicado.: Decide cuánto de la inversión propia por encima de su amortización (+136,7 de media en 2023–25, cálculo propio con [DEU2024, PDF p. 296; URD2025, PDF p. 350]) es crecimiento: con todo reposición el precio de Sí corregido es ≈9,95 € y con todo crecimiento ≈19,65 € (réplica del motor fuera de la hoja), frente a 6,56 € de la hoja. Sin él no puedo sostener un precio objetivo; la zona caro sí se sostiene en todo el rang",
+  "comprobacion": null,
+  "categoria": null
+ },
+ "etapa1": {
+  "cubo": "0% · Watchlist · precio de Sí ≈ 15 €",
+  "cubo_juicio": null,
+  "precio_de_si": null,
+  "fecha": null,
+  "r": 0.09
+ },
+ "cubo": "Vigilar",
+ "cubo_cualitativo_fase_a": "Vigilar",
+ "decision": {
+  "accion": null,
+  "precio_objetivo": null,
+  "condicion": null,
+  "condiciones_revision": {
+   "al_alza": "Que el reparto del capex de 2023–25 muestre que la mayor parte de la inversión propia por encima de su amortización es crecimiento (precio de Sí corregido hacia ≈19,65 €, fuera de la hoja, interpretación); un orgánico sostenido por encima del 4 % con contratos nuevos en récord como en el primer semestre de 2026 [H1-2026, PDF p. 5]; un margen EBIT ajustado por encima del 16,8 % (16,0 % en 2024 y 2025 [URD2025, PDF p. 307, 345]); o una caída del precio de mercado. Ninguna, sola, emite precio objetivo: hace falta el dato material.",
+   "a_la_baja": "Que el reparto del capex muestre casi todo como reposición (precio de Sí corregido hacia ≈9,95 €, fuera de la hoja); margen EBIT ajustado bajo el 15,5 %; orgánico bajo el 2 % con pérdidas de contratos como la de México [H1-2026, PDF p. 5]; apalancamiento por encima de 2,5x con nuevas recompras con deuda (2,09x en junio de 2026 [H1-2026, PDF p. 11]); o una sanción o un veto amplio en Brasil [URD2025, PDF p. 373–374]."
+  }
+ },
+ "insumos_decision_cartera": {
+  "precio_actual": 24.18,
+  "zona": "caro",
+  "precio_de_si": 6.556340324610303,
+  "precio_escenario_malo": 5.01343498992311,
+  "ponderado": 7.17350245848518,
+  "distancia_a_precio_si": 0.7288527574602852,
+  "distancia_a_malo": 0.79266191108672,
+  "fundamento": "pendiente de datos: el reparto del capex entre reposición y crecimiento, que Elis no publica [URD2025, PDF p. 312], decide el precio de Sí; además, dos hipótesis sin fundamento suficiente con base para acotarlas (ancla f del motor A en Historia C58 dentro de Análisis!C62; rendimiento del capital orgánico en Palancas C16, D16, C18, D18). Sin comprobación conjunta: la conclusión provisional no es favorable.",
+  "datos_ausentes_materiales": [
+   "Reparto del capex entre mantenimiento (reposición) y crecimiento (extracto §9; datos_ausentes.json): afecta al precio de Sí y al flujo de partida del motor A (Historia!C58 dentro de Análisis!C62) y a los S2C orgánicos de Palancas B16:D16."
+  ],
+  "descalificadores_considerados": [
+   "No puedo explicar de dónde viene la caja: no aplica (fase A; servicio = 97 % de las ventas [URD2025, PDF p. 347]).",
+   "El valor depende de predecir macro, tipos, divisas o materias primas: no aplica (costes trasladados por contrato o cubiertos [URD2025, PDF p. 141, 378]).",
+   "Cambio tecnológico que no me deja juzgar si el foso dura: no aplica (fase A).",
+   "Gestión en la que no confío: no aplica; dudas concretas (recompra de 2026 a 26,25 € con deuda [H1-2026, PDF p. 46]; ventas del Presidente del Directorio en enero de 2026 [URD2025, PDF p. 442]).",
+   "Deuda que puede matar la empresa en un mal año: no aplica (1,75x a 31-dic-2025 [URD2025, PDF p. 314]; 2,09x en junio de 2026 [H1-2026, PDF p. 11]).",
+   "Reinvierte toda la caja solo para mantenerse, con retornos mediocres: no aplica, pero es el más cercano (Historia C55 = 4,7 % sobre el capital total; C52 = 308 después de reinvertir).",
+   "Demasiadas piezas móviles: no aplica (un solo negocio; 22 compras pequeñas en 2025 [URD2025, PDF p. 13]).",
+   "Sin historial: no aplica (diez años en la Historia).",
+   "Reestructuración o la nueva dirección lo arreglará: no aplica (fase A)."
+  ],
+  "r": 0.09,
+  "r_minima": 0.0885026,
+  "palanca_mas_influyente": "Margen / ROE objetivo (±2 pts) (información del tornado, no criterio)"
+ },
+ "motor": "A",
+ "escenarios": {
+  "MALO": {
+   "historia": {
+    "historia": "Los clientes grandes de Sanidad con presupuesto apretado y los Estados de Latinoamérica que suben salarios mínimos imponen costes que no se trasladan del todo; entran menos contratos nuevos, Hostelería flojea y la deuda barata vence y se renueva más cara. El margen retrocede hacia el de antes de las subidas de precio de 2022–23 y el crecimiento se queda en el orgánico bajo de 2016–2018.",
+    "mecanismo": "Poder de precio limitado frente a los clientes que licitan: los contratos permiten trasladar parte o todo el coste, no siempre todo, y en mercados fragmentados con actores locales ágiles y lavanderías internas defender el precio cuesta contratos. El personal es el mayor coste (2.026,5 mm frente a 4.796,8 de ventas) y en Latinoamérica lo fija el Estado. La deuda vieja es barata (EMTN de 550 mm al 1,625 % hasta 2028) y la nueva cuesta 3,375–3,875 %.",
+    "quien_se_queda_la_mejora": "El cliente (precio) y el empleado (salarios fijados por ley): la productividad no se queda en casa.",
+    "que_lo_pararia": "Las cláusulas de indexación, con las que la empresa dice haber trasladado en general los aumentos de coste; la cobertura energética de 2026 (≈93 % del gas y de la electricidad en Europa); y que la mayoría de los clientes son pequeños, atendidos por una fuerza comercial propia.",
+    "hechos_en_que_se_apoya": [
+     "Sanidad alemana con presupuesto apretado y menos contratos firmados en la mayoría de mercados en 2025 [URD2025, PDF p. 307]",
+     "Latinoamérica −130 pb de margen EBITDA en 2025 por salarios, jornada y primas decididos por los Estados [URD2025, PDF p. 308]",
+     "Pérdida de contratos de Hostelería en Reino Unido por disciplina de precio en 2023 [URD2023, PDF p. 261]; negociaciones largas con grandes clientes de Sanidad en 2022–23 [URD2022, PDF p. 244; URD2023, PDF p. 262]",
+     "Mercados fragmentados, actores locales ágiles, lavanderías interhospitalarias y compra directa [URD2025, PDF p. 139, 312]",
+     "Gasto de personal 2.026,5 mm en 2025 [URD2025, PDF p. 344]",
+     "EMTN de 550 mm al 1,625 % hasta abr-2028; bono de sep-2025 al 3,375 % y de mar-2026 al 3,875 % [URD2025, PDF p. 315, 379–380]",
+     "Orgánico 2,7 / 2,4 / 2,4 % en 2016–2018 (extracto §8)",
+     "Brasil: procesos con posible veto a contratos públicos, sin provisión [URD2025, PDF p. 373–374]"
+    ]
+   },
+   "frase": "Los clientes grandes de Sanidad y los Estados de Latinoamérica imponen precios y costes laborales que no se trasladan del todo, entran menos contratos y la deuda barata se renueva más cara: el margen retrocede hacia el de antes de 2022 y la mejora se la quedan clientes y empleados.",
+   "probabilidad": 0.2,
+   "valor_accion": 5.01343498992311,
+   "palancas": {
+    "g15": {
+     "referencia_mecanica": -0.08,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.02,
+     "desviacion": 0.1,
+     "clase": "fundamentada",
+     "confianza": "media"
+    },
+    "m_obj": {
+     "referencia_mecanica": 0.095,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.105,
+     "desviacion": 0.01,
+     "clase": "fundamentada",
+     "confianza": "media"
+    },
+    "s2c": {
+     "referencia_mecanica": 0.8,
+     "referencia_no_disponible_motivo": null,
+     "valor": 1.0,
+     "desviacion": 0.2,
+     "clase": "fundamentada",
+     "confianza": "baja"
+    },
+    "g_inf": {
+     "referencia_mecanica": 0.015,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.01,
+     "desviacion": -0.005,
+     "clase": "fundamentada",
+     "confianza": "media"
+    },
+    "roic_lp": {
+     "referencia_mecanica": 0.09,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.07,
+     "desviacion": -0.02,
+     "clase": "fundamentada",
+     "confianza": "media"
+    }
+   }
+  },
+  "NORMAL": {
+   "historia": {
+    "historia": "Elis sigue como en sus años normales: orgánico parecido al de 2016–2019 y 2025, precios indexados que trasladan costes, compras pequeñas dentro del presupuesto anunciado y margen ajustado plano como en 2023–25. La densidad sostiene el margen y la inflación de costes la paga el cliente.",
+    "mecanismo": "Indexación contractual más densidad de rutas: cada cliente nuevo en una ruta y una planta existentes aporta margen; el lino se repone en 18 meses a 5 años y crece con las ventas; las compras pequeñas suman densidad local.",
+    "quien_se_queda_la_mejora": "Repartida: la empresa conserva su margen; el cliente paga la inflación de costes y se queda la productividad que la competencia obliga a devolver.",
+    "que_lo_pararia": "Pérdidas de contratos en las renovaciones de cuatro años, una recesión en Hostelería (2020: orgánico −13,3 %) o compras pagadas caras.",
+    "hechos_en_que_se_apoya": [
+     "Orgánico 2,4–3,8 % en años normales; H1-2026 +3,2 % (extracto §8; [H1-2026, PDF p. 5])",
+     "EBIT ajustado 15,85 / 16,02 / 15,98 % en 2023–25 [URD2025, PDF p. 345; DEU2024, PDF p. 291]",
+     "Indexación contractual y organización de ventas para trasladar costes [URD2025, PDF p. 141; DEU2024, PDF p. 279]",
+     "Presupuesto de compras de 50–150 mm al año; 22 adquisiciones en 2025 [URD2025, PDF p. 13, 394]",
+     "Inversión neta 18,1–19,2 % de ventas en 2021–25; lino 12,4 % en 2025 [URD2025, PDF p. 311; extracto §3]",
+     "2020: orgánico −13,3 %, Hostelería ≈1/3 de Francia y > 60 % de Europa del Sur [URD2020, PDF p. 155]"
+    ]
+   },
+   "frase": "Orgánico como en los años normales, precios indexados que trasladan costes, compras pequeñas dentro del presupuesto y margen ajustado plano: la densidad sostiene el margen y la inflación de costes la paga el cliente.",
+   "probabilidad": 0.6,
+   "valor_accion": 7.02533015103011,
+   "palancas": {
+    "g15": {
+     "referencia_mecanica": 0.115,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.045,
+     "desviacion": -0.07,
+     "clase": "fundamentada",
+     "confianza": "media"
+    },
+    "m_obj": {
+     "referencia_mecanica": 0.13,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.125,
+     "desviacion": -0.005,
+     "clase": "fundamentada",
+     "confianza": "media"
+    },
+    "s2c": {
+     "referencia_mecanica": 1.0,
+     "referencia_no_disponible_motivo": null,
+     "valor": 1.2,
+     "desviacion": 0.2,
+     "clase": "fundamentada",
+     "confianza": "baja"
+    },
+    "g_inf": {
+     "referencia_mecanica": 0.025,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.02,
+     "desviacion": -0.005,
+     "clase": "fundamentada",
+     "confianza": "media"
+    },
+    "roic_lp": {
+     "referencia_mecanica": 0.09,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.1,
+     "desviacion": 0.01,
+     "clase": "fundamentada",
+     "confianza": "baja"
+    }
+   }
+  },
+  "BUENO": {
+   "historia": {
+    "historia": "La productividad de las plantas reformadas, la energía cubierta y la densidad de rutas suben el margen poco a poco, como entre 2016 y 2025; la externalización avanza en los países donde está empezando y Elis gana densidad donde hoy es pequeña. La mejora se queda en casa en los clientes pequeños y medianos.",
+    "mecanismo": "Escala local: más volumen por planta y por ruta baja el coste unitario; el patrón de Francia (n.º 1, margen EBIT ajustado 22,3 %) se reproduce en parte donde Elis gana densidad (Alemania +450 pb de EBITDA en 2024; Europa del Sur +100 pb en 2025).",
+    "quien_se_queda_la_mejora": "La empresa en los clientes pequeños, con gasto medio que sube cada año y una fuerza comercial propia; en las licitaciones de Sanidad, el cliente.",
+    "que_lo_pararia": "Que la mejora de coste se devuelva en precio en las licitaciones; que las compras para ganar densidad se paguen caras; Brasil.",
+    "hechos_en_que_se_apoya": [
+     "EBITDA ajustado de 30,9 % (2016) a 35,4 % (2025), con NIIF 16 desde 2019 [Doc2016, PDF p. 165; URD2019, PDF p. 146; URD2025, PDF p. 307]",
+     "Margen EBIT ajustado de Francia 22,3 % frente a 9,7 % en Reino Unido e Irlanda [URD2025, PDF p. 344]; Francia n.º 1 con 40–50 % en 2017 [RD2017, PDF p. 42]",
+     "Alemania +450 pb de EBITDA en 2024 [DEU2024, PDF p. 254]; Reino Unido +70 pb y Europa del Sur +100 pb en 2025 [URD2025, PDF p. 308]",
+     "Externalización que avanza en Finlandia, Bálticos, Noruega, España, Portugal, Italia y Latinoamérica [URD2025, PDF p. 307–308]",
+     "Clientes pequeños: más del 25 % de ventas con fuerza comercial dedicada, hasta el 60 % en Francia y Europa del Sur; el gasto medio sube cada año [URD2025, PDF p. 50]",
+     "Plantas nuevas y reformas en 2025: Plan-les-Ouates, Mannheim, Belém, Lübbenau, Wismar [URD2025, PDF p. 19]"
+    ]
+   },
+   "frase": "Productividad de plantas, energía cubierta y densidad de rutas suben el margen poco a poco, como en 2016–2025, y la externalización avanza donde empieza: Elis se queda la mejora en los clientes pequeños, no en las licitaciones de Sanidad.",
+   "probabilidad": 0.2,
+   "valor_accion": 9.77808684941246,
+   "palancas": {
+    "g15": {
+     "referencia_mecanica": 0.135,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.055,
+     "desviacion": -0.08,
+     "clase": "fundamentada",
+     "confianza": "baja"
+    },
+    "m_obj": {
+     "referencia_mecanica": 0.13,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.135,
+     "desviacion": 0.005,
+     "clase": "fundamentada",
+     "confianza": "baja"
+    },
+    "s2c": {
+     "referencia_mecanica": 1.0,
+     "referencia_no_disponible_motivo": null,
+     "valor": 1.5,
+     "desviacion": 0.5,
+     "clase": "fundamentada",
+     "confianza": "baja"
+    },
+    "g_inf": {
+     "referencia_mecanica": 0.03,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.025,
+     "desviacion": -0.005,
+     "clase": "fundamentada",
+     "confianza": "media"
+    },
+    "roic_lp": {
+     "referencia_mecanica": 0.09,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.12,
+     "desviacion": 0.03,
+     "clase": "fundamentada",
+     "confianza": "baja"
+    }
+   }
+  }
+ },
+ "valor_ponderado": 7.17350245848518,
+ "precio": 24.18,
+ "escalera": {
+  "k": 3.0,
+  "convencion": "escalera experimental del ejercicio (D11), k = 3; la zona no es la conclusión: no mide riesgo ni fundamento",
+  "copia_de_prueba": false,
+  "V": [
+   5.01343498992311,
+   7.02533015103011,
+   9.77808684941246
+  ],
+  "p": [
+   0.2,
+   0.6,
+   0.2
+  ],
+  "precio": 24.18,
+  "P_estrella": 6.556340324610303,
+  "precio_si": 6.556340324610303,
+  "tope_normal_aplicado": false,
+  "precio_escenario_malo": 5.01343498992311,
+  "nota_malo": "no es un suelo de valor ni la pérdida máxima posible (D11)",
+  "ponderado": 7.17350245848518,
+  "zona": "caro",
+  "G": 0.9257432008123158,
+  "L": 0.3085810669374386,
+  "g_impl_actual": "no utilizable",
+  "g_impl_si": "no utilizable",
+  "tabla_dcf_inverso_ok": false,
+  "coincide_C86": null,
+  "C156_regla_antigua": 5.01343498992311,
+  "distancias": {
+   "a_precio_si": 0.7288527574602852,
+   "a_malo": 0.79266191108672
+  },
+  "aviso_tasa_descuento_mas_influyente": false,
+  "notas": [
+   "tabla del DCF inverso no utilizable (B193 = '⚠ REVISAR · con tus palancas crecer destruye valor: el DCF inverso no aplica', C14 = 0.045)"
+  ]
+ },
+ "fundamento_material": {
+  "hipotesis_sin_fundamento": [
+   {
+    "celda": "Análisis!C62 (motor A) con Historia!C58 (f = 0,0417)",
+    "hipotesis": "el motor A, con f calibrado sobre la reinversión orgánica de 2023–25, reproduce el flujo de partida de Elis",
+    "clase": "fundamentada (C62, fase A, por la financiación); la calibración de f no fue juzgada",
+    "porque_sin_fundamento": "Los hechos lo contradicen: el motor arranca en 248,6, por debajo de C52 = 308, que ya va después de la inversión propia de crecimiento; la D&A que calibra f incluye 149,5 de derechos de uso y 85,7 de intangibles comprados [URD2025, PDF p. 350] que el capex no repone.",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": {
+      "fcf_partida_mm": [
+       308.0,
+       477.8
+      ],
+      "precio_si_eur_fuera_de_la_hoja": [
+       9.95,
+       19.65
+      ],
+      "ponderado_eur_fuera_de_la_hoja": [
+       10.76,
+       21.02
+      ]
+     },
+     "evidencia": "Suelo 308 = C52 (flujos publicados 2023–25, Análisis C46–C50): acota por abajo porque a crecimiento cero el capex propio no superaría el de hoy, que ya financia un orgánico del 3,8 % [URD2025, PDF p. 307] y cuyo gasto en lino es en gran parte de crecimiento [URD2025, PDF p. 312]. Techo 477,8 = arranque del motor más la amortización media de derechos de uso (132,5) y de intangibles comprados (85,4) escalada a 2025 [DEU2024, PDF p. 296; URD2025, PDF p. 350]: acota por arriba porque supone que toda la inversión propia sobre su amortización (+136,7 de media) es crecimiento, cuando el capex industrial incluye reposición de equipos [URD2025, PDF p. 312] y el lino se amortiza a coste histórico en 18 meses a 5 años [URD2025, PDF p. 367]. El punto dentro del rango exige el reparto del capex, no publicado."
+    }
+   },
+   {
+    "celda": "Palancas!C16, D16, C18, D18",
+    "hipotesis": "el capital nuevo orgánico rinde por encima del capital total (lectura de C18), lo que sostiene S2C 1,2 / 1,5 y ROIC 0,10 / 0,12",
+    "clase": "fundamentada",
+    "porque_sin_fundamento": "La fase B declara que no pudo fundamentar del todo la lectura de C18; el ROIC propio de cinco años (C55 = 4,7 %) está bajo r en todos los años y el ROIC incremental de C24 (≈13–17 %) está inflado por el traslado de inflación a precios.",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": {
+      "Palancas!C16": [
+       1.0,
+       1.2
+      ],
+      "Palancas!C18": [
+       0.09,
+       0.11
+      ]
+     },
+     "evidencia": "S2C del NORMAL: el suelo 1,0 combina el orgánico que repone volumen perdido (1,2) con lo comprado en caja (0,65, Historia K13:L13); el techo 1,2 es el ancla orgánica de 2024–25 (≈1,5) [URD2025, PDF p. 311, 350, 367] con lo comprado al precio (0,89) [URD2025, PDF p. 340, 342]. ROIC del NORMAL: suelo 0,09 = dos tercios a ≈11 % orgánico (C24, descontada la inflación) y un tercio a ≈5 % de las compras (cálculo de la fase B con [URD2025, PDF p. 340, 342]); techo 0,11 con 13 % y 7 %."
+    }
+   }
+  ],
+  "comprobacion_conjunta": {
+   "procede": false,
+   "combinacion": null,
+   "coherencia_economica": null,
+   "sobrevive": null
+  },
+  "resultado": "no_procede",
+  "hipotesis_que_mas_condiciona": "Análisis!C62 con Historia!C58: el flujo de partida del motor A (248,6) frente al que dan los hechos (308–478); decide el precio objetivo (≈9,95–19,65 € fuera de la hoja frente a 6,56 € de la hoja), no la zona",
+  "que_lo_resolveria": "El reparto del capex de 2023–25 entre reposición y crecimiento para el lino, los otros artículos de alquiler y el resto del inmovilizado (pregunta a Relación con Inversores, o nota del URD si se publicara), y una decisión de la persona responsable sobre el tratamiento en el ancla f del motor A de la amortización de derechos de uso NIIF 16 y de intangibles de combinaciones (propuesta, no adoptada)."
+ },
+ "comprobacion_conjunta": null,
+ "revision_datos_ausentes": {
+  "revisados": [
+   {
+    "dato": "evidencia Historia!C17:L17",
+    "que_falta": "Ceros de 2016–2018 del principal de arrendamientos NIIF 16 sin contrastar con la partida (decisión humana pendiente).",
+    "conclusion_afectada": "ninguna celda de juicio: C52 (C46–C50, media 2023–25), f (Historia C58, 2023–25), C55 (ROIC 2021–25) y el S2C de la fase B (2024–25) no usan 2016–2018",
+    "material_para_conclusion_favorable": false,
+    "porque": "La NIIF 16 se aplica desde 2019 (la Historia registra 73,3 de principal en 2019); un cero anterior es coherente con la norma y no entra en ninguna ancla que sostenga mis palancas ni el flujo de partida. Solo afecta a la marca técnica de la ficha («datos de etapa 1 incompletos»), que no es mía."
+   },
+   {
+    "dato": "evidencia Historia!C23:L23",
+    "que_falta": "Ceros de 2016–2018 del pasivo por arrendamientos NIIF 16 sin contrastar con la partida (decisión humana pendiente).",
+    "conclusion_afectada": "ninguna celda de juicio: el capital invertido de 2016–2018 queda sin arrendamientos, pero C55 (ROIC medio) usa 2021–25 y C54 (S2C medio) el último año",
+    "material_para_conclusion_favorable": false,
+    "porque": "La serie de capital cambia de perímetro en 2019 (407,4 de pasivo), lo que ya sé; ninguna ancla de mis palancas, de f ni de C64 (último año, 4.121,5) toca 2016–2018. No cambia la zona ni el objetivo."
+   },
+   {
+    "dato": "Palancas!C24",
+    "que_falta": "Tamaño del mercado en el año 10 (Palancas!C24): sin cifra de fuente primaria.",
+    "conclusion_afectada": "Palancas!C24 (vacía) y la comprobación de cuota G17 del BUENO",
+    "material_para_conclusion_favorable": false,
+    "porque": "El BUENO llega a 7.516,8 de ventas en el año 10 con un orgánico del 4 %, más bajo que lo que ya hacen Europa del Sur (+6,7 %) y Latinoamérica (+8,2 %) [URD2025, PDF p. 307]; con un peso de 0,2, una cuota que no puedo medir no mueve el objetivo frente al sesgo del flujo de partida, ni la zona."
+   },
+   {
+    "dato": "extracto_v63: Tamaño y cuota de mercado posteriores a 2017: no publicados en los URD 2018–2025.",
+    "que_falta": "Tamaño y cuota de mercado posteriores a 2017.",
+    "conclusion_afectada": "Análisis!C18 (foso por densidad) y la narrativa del BUENO",
+    "material_para_conclusion_favorable": false,
+    "porque": "La densidad como causa del margen se prueba con hechos de 2025, no con cuotas: EBIT ajustado de 22,3 % en Francia frente a 9,7 % en Reino Unido [URD2025, PDF p. 344]. Sería material para comprar (¿quién me mata?), no para esperar ni para el objetivo."
+   },
+   {
+    "dato": "extracto_v63: Crecimiento anual del mercado de alquiler-mantenimiento (por país o total): no publicado.",
+    "que_falta": "Crecimiento anual del mercado de alquiler-mantenimiento.",
+    "conclusion_afectada": "Palancas!B14:D14 y Análisis!B68:D68",
+    "material_para_conclusion_favorable": false,
+    "porque": "El crecimiento sale de la historia orgánica de Elis (2,4–3,3 % en 2016–19, 3,8 % en 2025 [URD2025, PDF p. 307]) y g queda bajo la tasa sin riesgo (C57); el dato del mercado contrastaría, pero no movería el NORMAL fuera de esos hechos."
+   },
+   {
+    "dato": "extracto_v63: Tasa de externalización por país o mercado: no publicada.",
+    "que_falta": "Tasa de externalización por país o mercado.",
+    "conclusion_afectada": "Palancas!D14 y la narrativa del BUENO (D66)",
+    "material_para_conclusion_favorable": false,
+    "porque": "El BUENO se apoya en el orgánico observado donde avanza la externalización [URD2025, PDF p. 307]; el peso del BUENO es 0,2 y el objetivo depende sobre todo del flujo de partida. No cambia acción ni objetivo de forma material."
+   },
+   {
+    "dato": "extracto_v63: Lista de competidores posterior a 2018: no encontrada.",
+    "que_falta": "Lista de competidores posterior a 2018.",
+    "conclusion_afectada": "Análisis!C18 (prueba «quién me mata»)",
+    "material_para_conclusion_favorable": false,
+    "porque": "La empresa describe en 2025 la competencia (actores locales ágiles, lavanderías interhospitalarias, compra directa [URD2025, PDF p. 139]); sin nombres actuales no puedo sostener un Sí, pero el cubo es Vigilar y la zona caro no depende de ello."
+   },
+   {
+    "dato": "extracto_v63: Tasa de bajas («attrition») o de renovación de clientes: se sigue en el Comité Ejecutivo, pero no se publica la cifra [Elis - 2025 Universal Registration Docume",
+    "que_falta": "Tasa de bajas o de renovación de clientes (se sigue en el Comité Ejecutivo pero no se publica).",
+    "conclusion_afectada": "Palancas!B14, B15 (MALO), probabilidades B69:D69 y Análisis!C18",
+    "material_para_conclusion_favorable": false,
+    "porque": "El MALO se construye con pérdidas observadas (Reino Unido 2023, Alemania 2025 [URD2023, PDF p. 261; URD2025, PDF p. 141]) y con 2020; la tasa afinaría p(MALO), pero aun con p(MALO) = 0,4 el objetivo seguiría dominado por el flujo de partida y la zona seguiría siendo caro (el techo del ponderado corregido es 21,02 €). Sería material para comprar."
+   },
+   {
+    "dato": "extracto_v63: Efecto precio y efecto volumen numéricos de 2024 y 2025: solo descripción cualitativa.",
+    "que_falta": "Efecto precio y efecto volumen numéricos de 2024 y 2025.",
+    "conclusion_afectada": "Palancas!C14 (reparto del orgánico del NORMAL)",
+    "material_para_conclusion_favorable": false,
+    "porque": "El NORMAL usa el orgánico total observado (3,8 % en 2025 [URD2025, PDF p. 307]; 3,2 % en H1-2026 [H1-2026, PDF p. 5]); separar precio y volumen no cambia esa suma ni la zona."
+   },
+   {
+    "dato": "extracto_v63: Margen por línea de servicio (lino plano, ropa de trabajo, higiene) y por tipo de cliente: no publicado.",
+    "que_falta": "Margen por línea de servicio y por tipo de cliente.",
+    "conclusion_afectada": "Palancas!B15:D15 (quién se queda la mejora)",
+    "material_para_conclusion_favorable": false,
+    "porque": "El margen se ancla en el EBIT del grupo y en los márgenes por país [URD2025, PDF p. 344]; el desglose por línea afinaría el BUENO, de peso 0,2, sin mover la zona ni el objetivo frente al sesgo del flujo de partida."
+   },
+   {
+    "dato": "extracto_v63: Reparto del capex entre mantenimiento y crecimiento: no publicado.",
+    "que_falta": "Reparto del capex entre mantenimiento (reposición) y crecimiento.",
+    "conclusion_afectada": "Precio objetivo (precio de Sí de la escalera) y flujo de partida del motor A (Historia!C58 dentro de Análisis!C62); también los S2C orgánicos de Palancas!B16:D16",
+    "material_para_conclusion_favorable": true,
+    "porque": "Decide cuánto de la inversión propia por encima de su amortización (+136,7 de media en 2023–25, cálculo propio con [DEU2024, PDF p. 296; URD2025, PDF p. 350]) es crecimiento: con todo reposición el precio de Sí corregido es ≈9,95 € y con todo crecimiento ≈19,65 € (réplica del motor fuera de la hoja), frente a 6,56 € de la hoja. Sin él no puedo sostener un precio objetivo; la zona caro sí se sostiene en todo el rango."
+   },
+   {
+    "dato": "extracto_v63: Importe de I+D (y % de ventas): no publicado.",
+    "que_falta": "Importe de I+D y su peso en las ventas.",
+    "conclusion_afectada": "Palancas!C9 y C10",
+    "material_para_conclusion_favorable": false,
+    "porque": "La empresa declara que no tiene otras actividades de I+D [URD2025, PDF p. 316]; C9 = No es coherente y la capitalización no aplicaría."
+   },
+   {
+    "dato": "extracto_v63: Plan de capacidad en toneladas o capex por proyecto para 2026 en adelante: no publicado; no hay compromisos firmes significativos.",
+    "que_falta": "Plan de capacidad o capex por proyecto desde 2026; sin compromisos firmes significativos.",
+    "conclusion_afectada": "Palancas!D16 (S2C del BUENO, que supone llenar plantas)",
+    "material_para_conclusion_favorable": false,
+    "porque": "El S2C del BUENO afecta a un escenario de peso 0,2 y su ancla es la inversión observada [URD2025, PDF p. 311]; no cambia la zona ni de forma material el objetivo frente al reparto del capex."
+   },
+   {
+    "dato": "extracto_v63: Múltiplo pagado (precio ÷ EBITDA o EBIT) por adquisición: no publicado; solo precio y ventas.",
+    "que_falta": "Múltiplo pagado (precio ÷ EBITDA o EBIT) por adquisición.",
+    "conclusion_afectada": "S2C comprado dentro de Palancas!B16:D16 y ROIC comprado dentro de C18:D18",
+    "material_para_conclusion_favorable": false,
+    "porque": "La fase B ya acota el S2C comprado entre 0,65 en caja (Historia) y 0,89 al precio [URD2025, PDF p. 340, 342]; el múltiplo EBITDA daría el mismo orden. No mueve la zona; su efecto sobre el objetivo es menor que el del reparto del capex."
+   },
+   {
+    "dato": "extracto_v63: Precio por separado de las compras pequeñas de 2025 agrupadas en «otras» (38,6 en conjunto).",
+    "que_falta": "Precio por separado de las compras pequeñas de 2025 agrupadas en «otras» (38,6 en conjunto).",
+    "conclusion_afectada": "ninguna celda de juicio: el S2C comprado usa el total",
+    "material_para_conclusion_favorable": false,
+    "porque": "Las 38,6 son una parte de un total que ya está en las anclas; el precio de cada una no cambia ninguna palanca."
+   },
+   {
+    "dato": "extracto_v63: Coste medio ponderado de la deuda: no publicado.",
+    "que_falta": "Coste medio ponderado de la deuda.",
+    "conclusion_afectada": "Narrativa del MALO (refinanciación más cara) y Palancas!C22",
+    "material_para_conclusion_favorable": false,
+    "porque": "La Historia da un coste aparente (C63 = 2,37 %) y los cupones nuevos (3,375–3,875 % [URD2025, PDF p. 315, 379–380]); con 1,75x de apalancamiento [URD2025, PDF p. 314] el diferencial no cambia la zona ni de forma material el objetivo."
+   },
+   {
+    "dato": "extracto_v63: Guía numérica de capex para 2026: no publicada.",
+    "que_falta": "Guía numérica de capex para 2026.",
+    "conclusion_afectada": "ninguna celda de juicio: por método no uso guías como palanca",
+    "material_para_conclusion_favorable": false,
+    "porque": "Las palancas salen del capex observado (18,2 % de las ventas en 2025 [URD2025, PDF p. 311]); una guía no resolvería el reparto entre reposición y crecimiento."
+   },
+   {
+    "dato": "extracto_v63: Utilización de capacidad de las plantas: no publicada.",
+    "que_falta": "Utilización de capacidad de las plantas.",
+    "conclusion_afectada": "Palancas!D16 (BUENO)",
+    "material_para_conclusion_favorable": false,
+    "porque": "Solo afinaría el S2C del BUENO (peso 0,2); no toca la zona ni el flujo de partida."
+   },
+   {
+    "dato": "extracto_v63: Cartera de pedidos o ventas contratadas pendientes: no publicadas.",
+    "que_falta": "Cartera de pedidos o ventas contratadas pendientes.",
+    "conclusion_afectada": "Palancas!C14 (visibilidad del NORMAL)",
+    "material_para_conclusion_favorable": false,
+    "porque": "Los contratos son por lo general de cuatro años con indexación [URD2025, PDF p. 141]; el NORMAL se apoya en el orgánico observado. No cambia la zona ni el objetivo."
+   },
+   {
+    "dato": "extracto_v63: Peso de los contratos públicos en las ventas (Brasil y total): no publicado.",
+    "que_falta": "Peso de los contratos públicos en las ventas (Brasil y total).",
+    "conclusion_afectada": "Riesgo de Brasil fuera de los escenarios (Análisis!B102, C98) y probabilidades",
+    "material_para_conclusion_favorable": false,
+    "porque": "Brasil es el 5,7 % de las ventas (271,5 de 4.796,8 [URD2025, PDF p. 346]): incluso un veto amplio queda acotado por ese peso y no lleva el ponderado corregido por encima del precio; sería material para comprar, no para esperar."
+   },
+   {
+    "dato": "extracto_v63: Cumplimiento de la guía 2026 (informes de 2026): fuera de las entradas de este paso (texto/ solo llega al URD 2025).",
+    "que_falta": "Cumplimiento de la guía de 2026 en los informes de 2026.",
+    "conclusion_afectada": "ninguna celda de juicio: las predicciones del turno 2 usarán hechos medibles posteriores",
+    "material_para_conclusion_favorable": false,
+    "porque": "Por método no uso guías como hecho; el H1-2026 ya da orgánico +3,2 % [H1-2026, PDF p. 5], coherente con el NORMAL, y la zona no depende de ello."
+   }
+  ],
+  "alguno_material": true
+ },
+ "estado_libro": "LISTO · PROVISIONAL (26 estimaciones justificadas)",
+ "estado_evidencias": "PROVISIONAL · 26 estimación(es) justificada(s) · documentadas 19 de 19 · hipótesis confirmadas 0 de 26",
+ "palanca_mas_influyente": {
+  "nombre": "Margen / ROE objetivo (±2 pts)",
+  "nota": "información, no criterio (D10)"
+ },
+ "semaforos": {
+  "fila40": [
+   "Crecimiento frente al sector y a su historia",
+   "✓ PASA",
+   "✓ PASA",
+   "✓ PASA"
+  ],
+  "fila41": [
+   "Margen frente a su máximo y al sector",
+   "✓ PASA",
+   "✓ PASA",
+   "⚠ REVISAR · margen por encima de su máximo o del Q3 del sector"
+  ],
+  "fila42": [
+   "ROIC marginal frente a su historia",
+   "✓ PASA",
+   "⚠ REVISAR · cada euro nuevo rendiría 11 %, más del doble de su historia",
+   "⚠ REVISAR · cada euro nuevo rendiría 14 %, más del doble de su historia"
+  ],
+  "fila43": [
+   "ROIC (o ROE) a largo plazo",
+   "✓ PASA",
+   "✓ PASA",
+   "✓ PASA"
+  ],
+  "fila44": [
+   "Peso del «para siempre»",
+   "✓ PASA",
+   "✓ PASA",
+   "✓ PASA"
+  ],
+  "fila45": [
+   "Cuota de mercado implícita",
+   "—",
+   "—",
+   "—"
+  ],
+  "fila46": [
+   "S2C medio frente al sector",
+   null,
+   "⚠ REVISAR · su capital por euro de ventas está fuera del rango del sector",
+   null
+  ],
+  "fila47": [
+   "Orden de los escenarios (MALO ≤ NORMAL ≤ BUENO)",
+   null,
+   "✓ PASA",
+   null
+  ],
+  "fila48": [
+   "Tu r frente a la r mínima",
+   null,
+   "✓ PASA · r ≥ r mínima",
+   null
+  ],
+  "fila49": [
+   "Tipo de empresa frente a motor",
+   null,
+   "✓ PASA · tipo y motor coherentes",
+   null
+  ],
+  "fila50": [
+   "Fugas al accionista (f) en un rango razonable",
+   null,
+   "✓ PASA",
+   null
+  ]
+ },
+ "salto_anio_11": [
+  "Salto en el año 11 (puntos; positivo = la rentabilidad marginal cae al pasar al terminal)",
+  0.00473899999999999,
+  0.00676999999999998,
+  0.0241395
+ ],
+ "peso_terminal": [
+  0.495922879440829,
+  0.656975138472233,
+  0.646048849461022
+ ],
+ "cambios_vs_etapa1": [
+  {
+   "celda": "C11",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "Revisé las páginas que sostienen las cinco frases: servicio 4.673,8 de 4.796,8 mm de ventas [URD2025, PDF p. 347]; ≈400.000 clientes, 10 mayores < 10 % y contratos de cuatro años con salida que cuesta casi todo el valor residual [URD2025, PDF p. 6, 141]; lino y artículos alquilados como inmovilizado propio [URD2025, PDF p. 367]. Sé de dónde sale la caja."
+  },
+  {
+   "celda": "C12",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "El extracto V6.3 fija el borde: tasa de bajas no publicada [URD2025, PDF p. 141], cuotas y tamaño de mercado solo de 2017 [RD2017, PDF p. 42], competidores solo de 2018 [RD2018, PDF p. 43], procesos de Brasil que no sé juzgar [URD2025, PDF p. 373–374]. Las variables que deciden el valor no dependen de tecnología rápida: sé dónde termina lo que sé."
+  },
+  {
+   "celda": "C13",
+   "antes": "No",
+   "despues": "No",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "FCF base 308 mm (C52) sobre 6.264,5 mm de capitalización (C41) = 4,9 %; P/FCF LTM 17,6x frente a mediana histórica 14,6x (C88). Rendimiento más orgánico de los años normales queda cerca de r: sin la hoja no veo margen."
+  },
+  {
+   "celda": "C14",
+   "antes": "Calidad a precio razonable",
+   "despues": "Calidad a precio razonable",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "Historia de diez años: ROIC sobre capital total 2021–25 entre 2,6 % y 6,2 %, media 4,7 % (C55), por debajo de r, con ROCE de la empresa 14,7 % y ≈23 % sobre capital tangible (C24); orgánico 2,4–3,8 % en años normales. Ni Compounder ni cíclica (2020: ventas −14,5 % y FCF de 141,0 a 197,3)."
+  },
+  {
+   "celda": "C17",
+   "antes": "No",
+   "despues": "No",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "Serie orgánica de diez años (extracto §8): 2,4–3,8 % en años normales; 2022–23 fue recuperación y precio por inflación [URD2023, PDF p. 261]. La empresa llama a la externalización tendencia estructural sin dar tasa [URD2025, PDF p. 306; extracto §9]: no hay ola medida."
+  },
+  {
+   "celda": "C18",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "La Historia contradice en parte el Sí: ROIC sobre capital total 4,7 % (C55) < r. Lo mantengo porque la ventaja se ve en el negocio y no en el capital pagado por adquisiciones: margen EBIT ajustado 22,3 % en Francia (n.º 1) frente a 9,7 % en Reino Unido [URD2025, PDF p. 344; RD2017, PDF p. 42]; 2020 con margen EBITDA al alza y FCF récord [URD2019, PDF p. 146; URD2020, PDF p. 154; Historia]. Foso estrecho, que solo justifica ROIC > r en el capital nuevo orgánico."
+  },
+  {
+   "celda": "C19",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "Historia: ventas al alza todos los años de 2016 a 2025 salvo 2020; beneficio neto al alza cada año de 2020 a 2025; orgánico positivo salvo 2020 (extracto §8). Parte es comprado (adquisiciones 691,5 mm en 2021–25)."
+  },
+  {
+   "celda": "C20",
+   "antes": "Ambos bajos",
+   "despues": "Ambos bajos",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "Negocio recurrente (10 mayores < 10 % [URD2025, PDF p. 141]), 2020 superado con FCF al alza (Historia), 1,75x frente a covenant 3,75x [URD2025, PDF p. 314, 380]. El riesgo al precio es de rentabilidad insuficiente, que recogen C13 y el cubo; Brasil es acotado [URD2025, PDF p. 373–374]."
+  },
+  {
+   "celda": "C25",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "Fila de FCF de la Historia, diez años: de 105,8 (2016) a 338,0 (2025), con −129,5 en 2017 (Berendsen) y al alza desde 2018 salvo una pausa en 2020–22. No resta adquisiciones y parte de 2022–24 fue precio por inflación."
+  },
+  {
+   "celda": "C27",
+   "antes": "Estable",
+   "despues": "Estable",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "La fila de margen de la Historia sube de 8,6 % (2021) a 13,1 % (2025), pero es recuperación y menos otros gastos operativos; el EBIT ajustado está plano en 15,85 / 16,02 / 15,98 % en 2023–25 [URD2025, PDF p. 345; DEU2024, PDF p. 291] y el EBITDA ajustado de H1-2026 también (34,7 %) [H1-2026, PDF p. 5]."
+  },
+  {
+   "celda": "C51",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "SBC 34,7 mm en 2025 y 27,1 en 2024 [URD2025, PDF p. 327, 353]; 8,4 % del FCF base (C59). Se resta siempre: es regla del ejercicio con apoyo en el corpus."
+  },
+  {
+   "celda": "C56",
+   "antes": 0.09,
+   "despues": 0.09,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "Es la r heredada; no la cambio. Está por encima de la r mínima de la hoja (0,0885, Diagnóstico C17) y del coste de capital de las pruebas de deterioro en Europa (7,0–8,3 %, C24) [URD2025, PDF p. 369]."
+  },
+  {
+   "celda": "C61",
+   "antes": "No está claro",
+   "despues": "No está claro",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "Acciones diluidas medias 241,5 → 262,6 → 259,1 (2021, 2023, 2025; Historia fila 20); 2025 neutralizó (4,71 m canceladas [URD2025, PDF p. 394]); en 2026 la recompra (17,79 m a 26,25 € [H1-2026, PDF p. 46]) sirvió sobre todo para entregar 18,10 m a la conversión de las OCEANE, con 5,47 m nuevas (comunicado OCEANE del 7-oct-2026). Un año no es un patrón."
+  },
+  {
+   "celda": "C62",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "Historia de diez años: deuda neta sin NIIF 16 entre 3.020 y 3.372 mm de 2017 a 2025 con ventas que más que se duplican; política de bajar el apalancamiento como mucho ≈0,1x al año y repartir el resto [URD2025, PDF p. 394]; f = 0,042 dentro del rango; FCF base positivo después de intereses y del pago completo de arrendamientos. La financiación es estable en términos absolutos: motor A. Los cambios de 2026 son posteriores a la base y no cambian el régimen."
+  },
+  {
+   "celda": "C97",
+   "antes": "Neutral",
+   "despues": "Neutral",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "Con la fuente primaria [URD2025, PDF p. 442]: vende el Presidente del Directorio (17.825 y 75.000 acciones en ene-26) y CPPIB vende un bloque de 7.027.199 a 25,00 €, que compra BW, miembro del Consejo de Supervisión. Hay compras de un consejero: señales mixtas. Las ventas posteriores que citaba la etapa 1 venían de un agregador secundario que no está en mis entradas."
+  },
+  {
+   "celda": "C98",
+   "antes": "Aceptable",
+   "despues": "Aceptable",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "Precios de adquisición del extracto §3 (Berendsen 2.431,5 con 2.342,0 de goodwill [RD2017, PDF p. 216]; Lavartex 220,2 por 92,0 de ventas [URD2022, PDF p. 273–274]); apalancamiento de 3,3x a 1,75x con deuda neta plana [RD2018, PDF p. 159; URD2025, PDF p. 314]; recompra de 2025 a 22,87 € con cancelación [URD2025, PDF p. 394] y de 2026 a 26,25 € con deuda [H1-2026, PDF p. 46]. Ni buena ni dudosa."
+  },
+  {
+   "celda": "B65",
+   "antes": "Márgenes se comprimen (costes o precios)",
+   "despues": "Márgenes se comprimen (costes o precios)",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "El extracto V6.3 trae más casos de precio que no se traslada: Sanidad alemana y menos contratos en 2025 [URD2025, PDF p. 307], Latinoamérica −130 pb [URD2025, PDF p. 308], Hostelería en Reino Unido en 2023 [URD2023, PDF p. 261], negociaciones largas en 2022–23 [URD2022, PDF p. 244]. El ciclo ya lo probó 2020; el precio no."
+  },
+  {
+   "celda": "C65",
+   "antes": "Márgenes estables, sin sorpresas",
+   "despues": "Márgenes estables, sin sorpresas",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "Margen EBIT ajustado plano en 2023–25 [URD2025, PDF p. 345] y orgánico de los años normales 2,4–3,8 % (extracto §8). No repito 2021–23, que fueron recuperación e inflación."
+  },
+  {
+   "celda": "D65",
+   "antes": "Márgenes suben por escala o precios",
+   "despues": "Márgenes suben por escala o precios",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "EBITDA ajustado de 30,9 % (2016) a 35,4 % (2025) [Doc2016, PDF p. 165; URD2025, PDF p. 307]; Alemania +450 pb en 2024 [DEU2024, PDF p. 254]; Europa del Sur +100 pb y Reino Unido +70 pb en 2025 [URD2025, PDF p. 308]. El camino bueno con evidencia es margen por densidad, no un salto de ventas."
+  },
+  {
+   "celda": "B66",
+   "antes": "Los grandes clientes de Sanidad y Workwear aprietan el precio, los costes laborales que fijan los Estados en Latinoamérica no se trasladan del todo, Hospitality flojea y la deuda se refinancia más cara: la caja libre no crece en diez años.",
+   "despues": "Los clientes grandes de Sanidad y los Estados de Latinoamérica imponen precios y costes laborales que no se trasladan del todo, entran menos contratos y la deuda barata se renueva más cara: el margen retrocede hacia el de antes de 2022 y la mejora se la quedan clientes y empleados.",
+   "decision": "cambia",
+   "motivo": "definicion_o_medicion_distinta",
+   "evidencia_y_razonamiento": "En la V6.3 el crecimiento del FCF es fórmula y el escenario se cuenta en palancas: quito «la caja libre no crece» y digo el mecanismo y quién se queda la mejora. Los hechos son los mismos más los del extracto V6.3 [URD2025, PDF p. 307–308, 315, 379]."
+  },
+  {
+   "celda": "C66",
+   "antes": "Crecimiento orgánico del 3–4 % con precios que trasladan costes, margen EBIT en torno al 16 % y capex en el 17–19 % de las ventas: la caja libre crece un 5 % al año.",
+   "despues": "Orgánico como en los años normales, precios indexados que trasladan costes, compras pequeñas dentro del presupuesto y margen ajustado plano: la densidad sostiene el margen y la inflación de costes la paga el cliente.",
+   "decision": "cambia",
+   "motivo": "definicion_o_medicion_distinta",
+   "evidencia_y_razonamiento": "Quito el crecimiento del FCF (fórmula en la V6.3) y las cifras de palanca, que son de la fase B; dejo el mecanismo (indexación y densidad) con sus hechos [URD2025, PDF p. 141, 345, 394]."
+  },
+  {
+   "celda": "D66",
+   "antes": "Productividad, energía cubierta y densidad de rutas suben el margen EBIT hacia el 17–18 % y el orgánico se mantiene en el 4–5 %: la caja libre crece un 8 % al año.",
+   "despues": "Productividad de plantas, energía cubierta y densidad de rutas suben el margen poco a poco, como en 2016–2025, y la externalización avanza donde empieza: Elis se queda la mejora en los clientes pequeños, no en las licitaciones de Sanidad.",
+   "decision": "cambia",
+   "motivo": "definicion_o_medicion_distinta",
+   "evidencia_y_razonamiento": "Quito el crecimiento del FCF y las cifras de palanca y añado quién se queda la mejora (clientes pequeños, no licitaciones de Sanidad) con sus hechos [URD2025, PDF p. 50, 307–308]."
+  },
+  {
+   "celda": "B68",
+   "antes": 0.01,
+   "despues": 0.01,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "La etapa 1 ponía el 1 % para un MALO que crece por debajo de la inflación. Revisada la misma evidencia (orgánico bajo de 2016–2018 [RD2017, PDF p. 187; RD2018, PDF p. 154] y costes que no se trasladan en Latinoamérica [URD2025, PDF p. 308]) con mi MALO de 2 % en los años 1–5 y sin compras a perpetuidad, sostiene 0,01, medio punto bajo la referencia (0,015)."
+  },
+  {
+   "celda": "C68",
+   "antes": 0.02,
+   "despues": 0.02,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "La etapa 1 ponía 2 % para un servicio necesario que traslada costes, con el contraste del múltiplo implícito (14,6x, C88). Revisado con el orgánico de los años normales (2,4–3,3 % en 2016–2019 [Doc2016, PDF p. 150; URD2019, PDF p. 145]) y sin compras a perpetuidad, sostiene 0,02, medio punto bajo la referencia (0,025)."
+  },
+  {
+   "celda": "D68",
+   "antes": 0.025,
+   "despues": 0.025,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "La etapa 1 ponía 2,5 % porque ni el mejor foso local es eterno. La misma evidencia (mercados fragmentados, actores locales, lavanderías interhospitalarias [URD2025, PDF p. 139, 312]) lo sostiene; medio punto bajo la referencia (0,03)."
+  },
+  {
+   "celda": "B69",
+   "antes": 0.2,
+   "despues": 0.2,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "Sin razón concreta para sesgar hacia el MALO (2020 se superó con caja al alza, Historia G35) ni para quitarle peso (Latinoamérica −130 pb y Sanidad alemana [URD2025, PDF p. 307–308]); subirla castigaría dos veces lo que ya llevan sus palancas."
+  },
+  {
+   "celda": "C69",
+   "antes": 0.6,
+   "despues": 0.6,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "El centro es lo más frecuente de la década: EBIT ajustado 15,85–16,02 % en 2023–25 [URD2025, PDF p. 345; DEU2024, PDF p. 291]; las tres suman 1."
+  },
+  {
+   "celda": "D69",
+   "antes": 0.2,
+   "despues": 0.2,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "El BUENO tiene mecanismo (Alemania +450 pb [DEU2024, PDF p. 254]) pero no razón estructural para pesar más que el MALO."
+  },
+  {
+   "celda": "C76",
+   "antes": 0,
+   "despues": 0,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "La caja no sobra: 398,1 a 31-dic-2025 frente a 800,5 de deuda a un año, con 45,8 en Latinoamérica sin México y 8,0 en Rusia [URD2025, PDF p. 383], y los intereses de C48 son netos de los cobrados."
+  },
+  {
+   "celda": "C93",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "La etapa 1 decía Sí por un 2 % nominal con capital tangible muy rentable. Con la V6.3 veo además el salto del año 11 del NORMAL (0,68 puntos) y el peso del terminal (0,66), bajo sus umbrales, y g = 0,02 (C68) bajo la tasa sin riesgo (C57) y bajo el orgánico de 2017 y 2025 [RD2017, PDF p. 187; URD2025, PDF p. 307]. Sostienen el Sí; el sesgo del ancla f es de nivel, no de g."
+  },
+  {
+   "celda": "B101",
+   "antes": "Elis alquila y mantiene ropa plana, ropa de trabajo y equipos de higiene a unos 400.000 clientes en 31 países, con contratos, por lo general de cuatro años, que se facturan cada mes. Gana por densidad local de plantas y rutas: sobre el capital tangible rinde mucho (≈23 % antes de impuestos), pero sobre el capital total, cargado con los intangibles del LBO y el goodwill de las adquisiciones, Berendsen la mayor, gana poco más que su coste (ROCE 9,8 %, ROIC después de impuestos 7,4 %). Pasó la prueba de 2020 con caja libre récord y en 2021–25 la dirección cumplió casi todo lo que anunció. A 24,18 € pago más o menos su valor normal (≈23 € estimado), sin margen. La vigilo y la compraría cerca de 15 €.",
+   "despues": "Elis alquila y mantiene lino plano, ropa de trabajo y equipos de higiene a unos 400.000 clientes en 31 países [URD2025, PDF p. 6], con contratos de cuatro años de plazo inicial habitual [URD2025, PDF p. 141], y gana por densidad local: margen EBIT ajustado del 22,3 % en Francia frente al 9,7 % en Reino Unido [URD2025, PDF p. 344]. El negocio es estable: orgánico del 2,4–3,8 % en los años normales [RD2017, PDF p. 187; URD2025, PDF p. 307], +3,2 % en el primer semestre de 2026 [H1-2026, PDF p. 5] y caja libre positiva todos los años desde 2018, también en 2020 (197,3 mm, Historia). Sobre el capital total, con un fondo de comercio del 42,2 % del activo (Historia C32), rinde un 4,7 % de media en 2021–25 (Historia C55), por debajo de r = 0,09 (C56): leo que el valor de las compras se lo cobraron los vendedores. La hoja da un ponderado de 7,17 € y un precio de Sí de 6,56 €, pero el ancla f del motor A (Historia C58) cuenta dos veces arrendamientos NIIF 16 e intangibles comprados; fuera de la hoja el precio de Sí iría de ≈9,95 € a ≈19,65 € según el reparto del capex, que Elis no publica [URD2025, PDF p. 312]. A 24,18 € (C37) está cara en todo ese rango: la vigilo, sin precio objetivo hasta tener ese dato.",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "Reescrita (sección 13). Mantengo la densidad local [URD2025, PDF p. 344] y la caja de 2020 (Historia). Cambia la frase del precio: la Historia da un ROIC sobre capital total del 4,7 % (Historia C55), bajo r, y las notas de D&A [URD2025, PDF p. 350] muestran que el ancla f del motor A está sesgada; sin el reparto del capex no puedo sostener ni el valor ≈23 € ni la compra cerca de 15 € de la v1."
+  },
+  {
+   "celda": "B102",
+   "antes": "Elis necesita invertir cada año el 18 % de sus ventas, dos tercios en lino, para crecer un 3–4 % orgánico, y al accionista le llega como caja libre solo un 7 % de las ventas. Sobre el capital total gana lo que cuesta ese capital: leo que el valor de las compras grandes se lo quedaron los vendedores, no quien compra hoy la acción. El poder de precio es limitado: la disciplina de precios le costó contratos en Alemania (2023) y Dinamarca (2024), los grandes clientes de Sanidad negocian duro, creo que los precios de 2022–23 fueron sobre todo traslado de inflación, y el propio informe describe mercados fragmentados con actores locales ágiles y lavanderías interhospitalarias. En 2026 subió la deuda para recomprar acciones a ≈26,3 €, por encima del precio actual; la deuda a corto (1.181,7 mm) supera la caja; el Presidente del Directorio vendió ≈9,8 mm € en 2026 (parte solo consta en un agregador secundario); y en Brasil hay investigaciones por sobornos en filiales, sin provisión, con riesgo de veto a contratos públicos. El beneficio «headline» deja fuera la SBC y la amortización de intangibles de adquisiciones, los gastos «no recurrentes» aparecen todos los años, y a ≈17,6x la caja libre LTM (19,3x pro forma), frente a una mediana histórica de 14,6x, creo que el precio ya descuenta el escenario normal y deja el riesgo al comprador.",
+   "despues": "Elis invierte cada año el 18–19 % de sus ventas (18,7 / 18,1 / 19,0 / 19,2 / 18,2 % en 2021–25 [URD2022, PDF p. 247; URD2023, PDF p. 265; DEU2024, PDF p. 257; URD2025, PDF p. 311]; 19,5 % en el primer semestre de 2026 [H1-2026, PDF p. 10]) para crecer un 3–4 % orgánico, y no dice cuánto es reposición [URD2025, PDF p. 312]: si casi todo lo es, al accionista le quedan los 308 mm de C52 y el precio de Sí corregido no pasa de ≈9,95 € (réplica fuera de la hoja), menos de la mitad del precio. Sobre el capital total rinde un 4,7 % (Historia C55), por debajo de r, con un fondo de comercio del 42,2 % del activo (Historia C32): leo que el valor de las compras se lo quedaron los vendedores, y en 2025 cerró 22 más [URD2025, PDF p. 13] sin publicar múltiplos. En 2026 recompró 17,8 m de acciones a 26,25 € de media [H1-2026, PDF p. 46], por encima de los 24,18 € de hoy, y el apalancamiento subió de 1,75x a 2,09x [H1-2026, PDF p. 11]; el Presidente del Directorio vendió 75.000 acciones a 24,53 € el 30-ene-2026 [URD2025, PDF p. 442]. El cliente aprieta: México perdió volumen tras una licitación pública [H1-2026, PDF p. 5]; Brasil, el 5,7 % de las ventas (271,5 de 4.796,8 mm [URD2025, PDF p. 346]), tiene investigaciones por sobornos y riesgo de veto a contratos públicos [URD2025, PDF p. 373–374]; la tasa de bajas no se publica [URD2025, PDF p. 141]; y unas 60 lavanderías quedarían en estrés hídrico alto con +4 °C [URD2025, PDF p. 143]. A 24,18 € el precio pide que los 308 mm crezcan ≈3,9 % al año para siempre sin más reinversión (cálculo propio, turno 1), por encima de la tasa sin riesgo del 3,29 % (C57), y supera incluso el ponderado más generoso fuera de la hoja (≈21,02 €). Lo que no rompe: la densidad local y la caja de 2020 (197,3 mm, Historia); por eso Vigilar y no No.",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "Reescrita (sección 13). Conservo el peso del capex, el ROIC sobre capital total y Brasil, ahora con página [URD2025, PDF p. 311, 346, 373–374]. Añado hechos que la v1 no tenía con fuente primaria: apalancamiento de 2,09x en junio de 2026 [H1-2026, PDF p. 11], recompra a 26,25 € [H1-2026, PDF p. 46], pérdida de volumen en México [H1-2026, PDF p. 5]. Quito las ventas de directivos que solo constaban en un agregador secundario."
+  },
+  {
+   "celda": "C103",
+   "antes": "No",
+   "despues": "No",
+   "decision": "mantiene",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "La Historia de diez años confirma el No de la etapa 1: ROIC sobre capital total del 4,7 % en 2021–25 (Historia C55), bajo r, orgánico del 2,4–3,8 % en años normales [RD2017, PDF p. 187; URD2025, PDF p. 307] y dependencia de comprar bien (22 compras en 2025 [URD2025, PDF p. 13]). «Nunca vender» es propiedad del negocio, y este no compone solo."
+  },
+  {
+   "celda": "C104",
+   "antes": "0% · Watchlist · precio de Sí ≈ 15 €",
+   "despues": "Pendiente de decisión de cartera · conclusión del personaje: sin conclusión (pendiente de datos: Historia!C58 dentro de Análisis!C62, reparto del capex entre reposición y crecimiento) · zona caro · precio de Sí ≤ 6.56 · precio esc. MALO 5.01 · ponderado 7.17 · fundamento pendiente de datos",
+   "decision": "cambia",
+   "motivo": "definicion_o_medicion_distinta",
+   "evidencia_y_razonamiento": "La V6.3 escribe C104 sin tamaño de posición (D16) y define el precio de Sí con la escalera k = 3 de precio.json, no como el menor entre el escenario malo y tres cuartos del ponderado de la v1. Además hay un dato ausente material (reparto del capex [URD2025, PDF p. 312]) que impide emitir conclusión con precio objetivo: «sin conclusión (pendiente de datos)»."
+  }
+ ],
+ "n_cambios_vs_etapa1": 34,
+ "predicciones": [
+  {
+   "texto": "Elis publicará para el ejercicio 2027 un crecimiento orgánico de sus ventas de entre el 2,0 % y el 4,5 % (informe o comunicado de resultados anuales de 2027).",
+   "fecha": "2028-03-31",
+   "prob": 0.7,
+   "resultado": null
+  },
+  {
+   "texto": "El margen EBIT ajustado del grupo que Elis publique para el ejercicio 2027 estará entre el 15,5 % y el 16,8 % de las ventas.",
+   "fecha": "2028-03-31",
+   "prob": 0.7,
+   "resultado": null
+  },
+  {
+   "texto": "La inversión neta que Elis publique para 2027 (compras de lino, otros artículos de alquiler y demás inmovilizado e intangibles, neta de ventas de activos y subvenciones) estará entre el 17,0 % y el 19,5 % de sus ventas.",
+   "fecha": "2028-03-31",
+   "prob": 0.75,
+   "resultado": null
+  }
+ ],
+ "incertidumbre_pendiente": "Análisis!C62 con Historia!C58 (f = 0,0417): que el motor A reproduce el flujo de partida de Elis. Arranca en 248,6 mm frente a C52 = 308, que ya va después de la inversión propia; la D&A que calibra f lleva 149,5 de derechos de uso NIIF 16 y 85,7 de intangibles de combinaciones [URD2025, PDF p. 350] que el capex no repone. Decide el precio de Sí (≈9,95–19,65 € fuera de la hoja frente a 6,56 €), no la zona, que es caro en todo el rango.",
+ "que_lo_resolveria": "Pregunta a Relación con Inversores de Elis: de la inversión neta de 2023, 2024 y 2025 (874,7 mm en 2025: lino 594,2; otros artículos de alquiler 40,8; otro inmovilizado e intangibles 255,2 [URD2025, PDF p. 311]), ¿qué parte fue dotación de clientes nuevos y ampliación de capacidad y qué parte reposición? O la nota del URD si se publicara. Y una decisión de la persona responsable sobre el tratamiento en el ancla f del motor A de la amortización de derechos de uso NIIF 16 y de intangibles de combinaciones (propuesta del turno 1, no adoptada).",
+ "cambiaria_de_cubo": {
+  "a_si": "Tres cosas a la vez: (1) el reparto del capex de 2023–25 (Relación con Inversores) y una decisión de la persona responsable sobre el ancla f, que permitan recalcular un precio de Sí con fundamento (hoy, fuera de la hoja, ≈9,95–19,65 €); (2) un precio de mercado por debajo de ese precio de Sí (zona cumple_regla_k o bajo_malo), sin descalificador nuevo (Brasil, deuda); y (3) fundamento para Palancas C16 y C18 (que el capital nuevo orgánico rinde más que el total: retorno por país o por planta nueva, o ROIC incremental sin efecto precio), o una comprobación conjunta superada con sus rangos.",
+  "a_no": "Hechos que harían del problema el negocio y no el precio: margen EBIT ajustado bajo el 15 % dos años seguidos sin causa cíclica (16,0 % en 2024 y 2025 [URD2025, PDF p. 307, 345]); orgánico bajo el 2 % dos años con pérdidas de contratos como la de México [H1-2026, PDF p. 5]; una sanción o un veto amplio a contratos públicos en Brasil [URD2025, PDF p. 373–374]; o recompras repetidas con deuda que lleven el apalancamiento por encima de 2,5x (2,09x en junio de 2026 [H1-2026, PDF p. 11]).",
+  "a_demasiado_dificil": "Si Relación con Inversores confirma que no sigue el reparto entre reposición y crecimiento y ninguna nota permite acotarlo, el precio de Sí quedaría en un rango que se duplica (≈9,95–19,65 €, interpretación) sin dato razonable que lo cierre: dejaría de ser pendiente de datos y pasaría a Demasiado difícil. También si los procesos de Brasil [URD2025, PDF p. 373–374] crecieran hasta no poder acotar su efecto."
+ },
+ "autocomprobacion": [
+  {
+   "sesgo": "anclaje en la etapa 1",
+   "hallazgo": "Miré C18 (Sí), C62 (A), B68:D68 (0,01/0,02/0,025) y B69:D69 (convención) heredadas: cada una tiene su evidencia nueva (Historia de diez años, notas de D&A). El precio de Sí de la etapa 1 (≈15 €, C104 heredada) cae dentro de mi rango corregido (9,95–19,65 €), pero los límites salen de C52 y de [DEU2024, PDF p. 296; URD2025, PDF p. 350], no de ella.",
+   "cambio": "ninguno en celdas; no uso los 15 € de la etapa 1 como objetivo ni como límite"
+  },
+  {
+   "sesgo": "anclaje en el precio o en la fuente externa",
+   "hallazgo": "Comparé mis cifras con C38 (Simply Wall St 29,45 €) y con el objetivo medio de analistas de la nota de C38 (29,89 €): ni la hoja (7,17 €) ni el techo corregido (21,02 €) se acercan; no calibré nada al precio. El DCF inverso de la hoja no aplica; lo hice aparte: a r = 0,09 el precio pide g ≈ 3,9 % para siempre sobre 308 sin más reinversión, por encima de C57 (3,29 %).",
+   "cambio": "ninguno; dejo constancia de que la zona no depende de la fuente externa"
+  },
+  {
+   "sesgo": "consistencia y compromiso",
+   "hallazgo": "La fase A dijo Vigilar por precio antes de ver números. Comprobé si el sesgo del flujo de partida podía mover la zona a vigilar o cumple_regla_k: con la corrección más generosa el ponderado es 21,02 € y el precio de Sí 19,65 €, bajo 24,18 €; ni con 238,31 m acciones (≈22,85 €). También comprobé el contrario: que el valor bajo de la hoja no me empuje a No.",
+   "cambio": "mantengo Vigilar, pero retiro el precio objetivo: el dato del capex es material (S-19)"
+  },
+  {
+   "sesgo": "historia bonita / viento de cola atribuido a la empresa",
+   "hallazgo": "El 21,0 % y el 11,8 % de orgánico de 2022–23 fueron vuelta de Hostelería y precio por inflación [URD2023, PDF p. 261]; el NORMAL usa 3,0 % orgánico, no eso. La externalización como tendencia no tiene tasa publicada (extracto §9). La mejora de margen del BUENO se apoya en Alemania (+450 pb en 2024 [DEU2024, PDF p. 254]), que puede ser recuperación de un año.",
+   "cambio": "ninguno en palancas; el BUENO pesa 0,2 y su margen sube 0,9 puntos sobre el 12,6 % subyacente"
+  },
+  {
+   "sesgo": "optimismo del BUENO frente a la tasa base",
+   "hallazgo": "BUENO: orgánico 4,0 % (ningún año sin inflación pasó del 3,8 %), margen 13,5 % (el 13,13 % de 2025 lleva +25,7 de plusvalía [URD2025, PDF p. 350]) y ROIC 0,12 puesto en el tope de r + 3 puntos (MR p. 63; E2). Elegir la cifra en el tope del criterio es un riesgo de método; el hecho que la acota por arriba es la renovación de contratos cada cuatro años [URD2025, PDF p. 141]. No hay tamaño de mercado para comprobar si cabe (C24 vacía).",
+   "cambio": "ninguno, porque la conclusión no es favorable; lo anoto para la tesis inversa del turno 2"
+  },
+  {
+   "sesgo": "doble castigo del mismo riesgo",
+   "hallazgo": "El motor A cuenta dos veces el coste de los arrendamientos: la amortización de derechos de uso (149,5 en 2025) dentro del margen y el pago (177,9 con intereses [URD2025, PDF p. 327]) dentro de f; y cuenta dentro de f la amortización de intangibles comprados (85,7) que el capex no repone, mientras el S2C cobra las compras. No es un riesgo castigado dos veces, es un coste; la quiebra de 0,05 tiene disparadores mecánicos (C34 = No, C64) y r no lleva prima de quiebra (PA pp. 20–21; E6).",
+   "cambio": "no compenso con palancas; lo trato como límite de calibración del motor y dato ausente material para el objetivo"
+  },
+  {
+   "sesgo": "disponibilidad (lo vívido del extracto)",
+   "hallazgo": "Lo vívido es Brasil (sobornos, investigación penal, disputa fiscal de hasta ≈66 mm € [URD2025, PDF p. 373–374]) y la recompra de 2026 a 26,25 € [H1-2026, PDF p. 46]. Brasil es el 5,7 % de las ventas [URD2025, PDF p. 346] y la disputa son ≈0,25 € por acción; la recompra pesa en C98 (Aceptable), no en palancas. Lo que la Historia muestra en diez filas (FCF positivo desde 2018, también en 2020) pesa más.",
+   "cambio": "ninguno: Brasil queda en la tesis inversa y la recompra en C98, no en palancas"
+  },
+  {
+   "sesgo": "autoridad (guía de la dirección como hecho)",
+   "hallazgo": "Busqué guía copiada en palancas. El orgánico del NORMAL sale de la historia, no de la guía; la guía de desapalancamiento solo es contexto de C62. El crecimiento comprado del MALO se apoya en el suelo del presupuesto de compras de la dirección (50 mm [URD2025, PDF p. 394]); la Historia confirma que ningún año de 2018–25 bajó de 53,2 en adquisiciones.",
+   "cambio": "ninguno; el presupuesto queda contrastado con lo pagado"
+  },
+  {
+   "sesgo": "¿el MALO es de verdad malo?",
+   "hallazgo": "El MALO (crecimiento 2 %, margen 10,5 %, ROIC 0,07, g 0,01) es real pero moderado: deja fuera una recesión como 2020 (ventas −14,5 %, Historia) y Brasil, como dice la fase B. Su FCF del año 1 (139,3) supera al del NORMAL (75,3) solo porque reinvierte menos con un f sesgado: su valor también está infravalorado por el artefacto.",
+   "cambio": "ninguno en palancas; lo digo para que nadie lea 5,01 € como suelo (no lo es, D11)"
+  },
+  {
+   "sesgo": "lo no numerable que pesa y no está en las palancas",
+   "hallazgo": "Fuera de las celdas quedan: Brasil y los vetos a contratos públicos, unas 60 lavanderías en estrés hídrico alto con +4 °C [URD2025, PDF p. 143], las ventas del Presidente del Directorio en enero de 2026, las acciones pignoradas de BW (C96), la recompra de 2026 con deuda por encima del precio actual y el tratamiento pendiente de la OCEANE (E6/D3).",
+   "cambio": "ninguno en celdas; van a la tesis inversa, a B222 y a «qué me haría cambiar de cubo» del turno 2"
+  }
+ ],
+ "recuento_clases": {
+  "fundamentada": 53,
+  "convencion": 13,
+  "tecnico": 0,
+  "sin_juicio": 0
+ },
+ "desviaciones_justificadas": {
+  "n": 6,
+  "lista": [
+   {
+    "comprobacion": "G7",
+    "escenario": "NORMAL",
+    "clase": "fundamentada",
+    "justificacion": "La rentabilidad marginal de 10,7 % (1,2 × 0,125 × 0,7118) dobla de largo el ROIC histórico de C55 (4,7 %) porque C55 mide el capital total, con un fondo de comercio que es el 42,2 % del activo (C32) pagado en compras como Berendsen (fondo de comercio 2.342,0). El euro nuevo orgánico va a activos propios: en 2024–25, 258,2 mm de inversión en lino, otros artículos y resto del capex por encima de su amortización, más circulante, para ≈397,9 mm de ventas orgánicas nuevas (S2C 1,5, ≈13 % después de impuestos con el margen del NORMAL). El euro comprado rinde ≈7 % (compras de 2024–25) y baja la media a 10,7 %. No incluye derechos de uso NIIF 16. Depende de la lectura de C18 (foso del capital orgánico) que la fase A dejó dudosa; si no se sostiene, el S2C vuelve a 1,0.",
+    "hechos": [
+     "Historia C55 (4,7 %) y C53",
+     "Análisis C32 (fondo de comercio 42,2 % del activo)",
+     "Berendsen [RD2017, PDF p. 216]",
+     "capex por bloques y amortización por tipo [URD2025, PDF p. 311, 350, 367]",
+     "orgánico 5,2 % y 3,8 % [DEU2024, PDF p. 253; URD2025, PDF p. 307]",
+     "Historia K14:L14 (circulante) y K13:L13 (adquisiciones)",
+     "compras 2024 y 2025 [URD2025, PDF p. 340, 342]"
+    ]
+   },
+   {
+    "comprobacion": "G7",
+    "escenario": "BUENO",
+    "clase": "fundamentada",
+    "justificacion": "La rentabilidad marginal de 14,4 % (1,5 × 0,135 × 0,7118) supera 2 × C55 por la misma razón que en el NORMAL (C55 incluye el fondo de comercio de las compras, 42,2 % del activo) y porque el BUENO llena capacidad: en 2021–25 la relación entre ventas orgánicas nuevas e inversión en activos propios fue 3,1 al reabrir plantas, y en 2025 se reformaron o abrieron Plan-les-Ouates, Mannheim, Belém, Lübbenau y Wismar. Queda por debajo del rendimiento del capital tangible, ≈23 % antes de impuestos (≈16 % después). El comprado sigue a 0,9 y rinde por debajo de r. Depende de la lectura de C18 sobre el capital orgánico.",
+    "hechos": [
+     "Historia C55",
+     "Análisis C24 y C32",
+     "plantas 2025 [URD2025, PDF p. 19]",
+     "capex por bloques [URD2025, PDF p. 311, 350, 367]",
+     "orgánico 2021–2025 [URD2021, PDF p. 211; URD2022, PDF p. 243; URD2023, PDF p. 261; DEU2024, PDF p. 253; URD2025, PDF p. 307]",
+     "compras [URD2025, PDF p. 340, 342]"
+    ]
+   },
+   {
+    "comprobacion": "G5",
+    "escenario": "BUENO",
+    "clase": "fundamentada",
+    "justificacion": "El 13,5 % supera el máximo propio (13,13 %, C51, que además lleva 25,7 mm de plusvalía) y el Q3 del sector (13,47 %). Mecanismo: escala local y densidad; el EBITDA ajustado ganó ≈2,4 puntos sin NIIF 16 en 2016–2025 (≈0,27 al año) y tomo +0,9 puntos en cinco años sobre el 12,6 % subyacente, menos que ese ritmo, porque el ajustado está plano desde 2023. La prueba de que la densidad sube el margen está en la propia empresa: Francia 22,3 % de EBIT ajustado frente a 9,7 % en Reino Unido; Alemania +450 pb de EBITDA en 2024; Europa del Sur +100 pb y Reino Unido +70 pb en 2025. Quién se queda la mejora: Elis en los clientes pequeños (más del 25 % de las ventas, hasta el 60 % en Francia y Europa del Sur); en las licitaciones de Sanidad, el cliente.",
+    "hechos": [
+     "Historia C51 y L29",
+     "Palancas I15 (Q3 del sector)",
+     "[Doc2016, PDF p. 165]",
+     "[URD2019, PDF p. 146]",
+     "[URD2025, PDF p. 307, 308, 344, 350]",
+     "[DEU2024, PDF p. 254]",
+     "[URD2025, PDF p. 50]"
+    ]
+   },
+   {
+    "comprobacion": "G5",
+    "escenario": "BUENO",
+    "justificacion": "El máximo histórico de 13,13 % lleva +25,7 de plusvalía por bajas de inmovilizado; sin ella 2025 da 12,6 % y el BUENO sube 0,9 puntos en cinco años por escala local y densidad, con la mejora para Elis en los clientes pequeños y para el cliente en las licitaciones de Sanidad.",
+    "hechos": [
+     "plusvalía +25,7 en 2025 [URD2025, PDF p. 350]",
+     "EBIT ajustado 22,3 % Francia frente a 9,7 % Reino Unido [URD2025, PDF p. 344]",
+     "Alemania +450 pb de EBITDA en 2024 [DEU2024, PDF p. 254]",
+     "clientes pequeños con fuerza comercial propia [URD2025, PDF p. 50]",
+     "Historia: margen EBIT 2025 0,1313 (630,0 ÷ 4.796,8)"
+    ],
+    "clase": "fundamentada"
+   },
+   {
+    "comprobacion": "G7",
+    "escenario": "NORMAL",
+    "justificacion": "C55 (4,7 %) mide el capital total con un fondo de comercio del 42,2 % del activo; el euro nuevo orgánico se ancla en la inversión propia sobre la amortización propia de 2024–25 (S2C ≈1,5) y rinde más. Reserva: depende de la lectura de C18 y, dentro del motor, ese euro rinde 5,7 % después de f.",
+    "hechos": [
+     "C32 = 0,422 (goodwill ÷ activo)",
+     "C24: ROCE tangible ≈23 % antes de impuestos",
+     "inversión propia 2024–25 [URD2025, PDF p. 311, 350, 367]",
+     "Historia C55 = 0,0473"
+    ],
+    "clase": "fundamentada"
+   },
+   {
+    "comprobacion": "G7",
+    "escenario": "BUENO",
+    "justificacion": "El 14,4 % del BUENO queda por debajo del ≈23 % antes de impuestos del capital tangible y supone llenar las plantas de 2025; misma reserva que el NORMAL sobre C18 y sobre el f del motor, y con peso 0,2.",
+    "hechos": [
+     "C24: ROCE tangible ≈23 % antes de impuestos",
+     "plantas de 2025 [URD2025, PDF p. 19]",
+     "Historia C55 = 0,0473"
+    ],
+    "clase": "fundamentada"
+   }
+  ]
+ },
+ "avisos": [
+  {
+   "id": "A1",
+   "categoria": "aviso",
+   "escenario": null,
+   "motor": "A",
+   "motores": "A, B",
+   "detalle": "S2C medio fuera del rango del sector: ⚠ REVISAR · su capital por euro de ventas está fuera del rango del sector",
+   "requiere_justificacion": false,
+   "justificada": null,
+   "consecuencia": "se informa"
+  },
+  {
+   "id": "A3",
+   "categoria": "aviso",
+   "escenario": null,
+   "motor": "A",
+   "motores": "A, B, C",
+   "detalle": "fechas del precio y de las acciones: Precio y acciones con fechas separadas más de 90 días (Palancas C45, C46)",
+   "requiere_justificacion": false,
+   "justificada": null,
+   "consecuencia": "se informa"
+  }
+ ],
+ "confianza_global": "media",
+ "que_falta": {
+  "bloqueantes": [],
+  "necesarios_para_listo_provisional": [
+   {
+    "dato": "evidencia Historia!C17:L17",
+    "que": "Principal de arrendamientos (IFRS 16): cero pendiente de verificación",
+    "origen_esperado": "decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona)",
+    "nota": "[H1] Depende de un cero PENDIENTE DE VERIFICACIÓN (Historia, arrendamientos_principal; 2016, 2017, 2018): la cita del informe no se ha contrastado con la partida. El valor se conserva; solo una decisión humana registrada en fase1_decisiones.json lo confirma."
+   },
+   {
+    "dato": "evidencia Historia!C23:L23",
+    "que": "Pasivo por arrendamientos: cero pendiente de verificación",
+    "origen_esperado": "decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona)",
+    "nota": "[H1] Depende de un cero PENDIENTE DE VERIFICACIÓN (Historia, arrendamientos; 2016, 2017, 2018): la cita del informe no se ha contrastado con la partida. El valor se conserva; solo una decisión humana registrada en fase1_decisiones.json lo confirma."
+   }
+  ],
+  "no_bloqueantes": [
+   {
+    "dato": "Palancas!C24",
+    "que": "tamaño del mercado año 10",
+    "origen_esperado": "extractos (solo con cifra de fuente primaria)",
+    "nota": ""
+   }
+  ],
+  "datos_ausentes": [
+   {
+    "dato": "evidencia Historia!C17:L17",
+    "que": "Principal de arrendamientos (IFRS 16): cero pendiente de verificación",
+    "nivel": "necesario para LISTO·PROVISIONAL",
+    "origen_esperado": "decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona)",
+    "nota": "[H1] Depende de un cero PENDIENTE DE VERIFICACIÓN (Historia, arrendamientos_principal; 2016, 2017, 2018): la cita del informe no se ha contrastado con la partida. El valor se conserva; solo una decisión humana registrada en fase1_decisiones.json lo confirma."
+   },
+   {
+    "dato": "evidencia Historia!C23:L23",
+    "que": "Pasivo por arrendamientos: cero pendiente de verificación",
+    "nivel": "necesario para LISTO·PROVISIONAL",
+    "origen_esperado": "decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona)",
+    "nota": "[H1] Depende de un cero PENDIENTE DE VERIFICACIÓN (Historia, arrendamientos; 2016, 2017, 2018): la cita del informe no se ha contrastado con la partida. El valor se conserva; solo una decisión humana registrada en fase1_decisiones.json lo confirma."
+   },
+   {
+    "dato": "Palancas!C24",
+    "que": "tamaño del mercado año 10",
+    "nivel": "no bloqueante",
+    "origen_esperado": "extractos (solo con cifra de fuente primaria)",
+    "nota": ""
+   },
+   {
+    "dato": "extracto_v63: Tamaño y cuota de mercado posteriores a 2017: no publicados en los URD 2018–2025.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Crecimiento anual del mercado de alquiler-mantenimiento (por país o total): no publicado.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Tasa de externalización por país o mercado: no publicada.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Lista de competidores posterior a 2018: no encontrada.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Tasa de bajas («attrition») o de renovación de clientes: se sigue en el Comité Ejecutivo, pero no se publica la cifra [Elis - 2025 Universal Registration Docume",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Efecto precio y efecto volumen numéricos de 2024 y 2025: solo descripción cualitativa.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Margen por línea de servicio (lino plano, ropa de trabajo, higiene) y por tipo de cliente: no publicado.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Reparto del capex entre mantenimiento y crecimiento: no publicado.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Importe de I+D (y % de ventas): no publicado.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Plan de capacidad en toneladas o capex por proyecto para 2026 en adelante: no publicado; no hay compromisos firmes significativos.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Múltiplo pagado (precio ÷ EBITDA o EBIT) por adquisición: no publicado; solo precio y ventas.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Precio por separado de las compras pequeñas de 2025 agrupadas en «otras» (38,6 en conjunto).",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Coste medio ponderado de la deuda: no publicado.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Guía numérica de capex para 2026: no publicada.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Utilización de capacidad de las plantas: no publicada.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Cartera de pedidos o ventas contratadas pendientes: no publicadas.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Peso de los contratos públicos en las ventas (Brasil y total): no publicado.",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Cumplimiento de la guía 2026 (informes de 2026): fuera de las entradas de este paso (texto/ solo llega al URD 2025).",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   }
+  ]
+ },
+ "citas": {
+  "munger": 29,
+  "damodaran": 19
+ },
+ "dos_errores": {
+  "mas_cerca_de": "regatear",
+  "porque": "Con estas palancas y este motor, el error que tengo más cerca es regatear. La fase A dijo lo contrario (pagar de más por la calidad, porque el negocio es fácil de querer y cotiza a 17,6x la caja libre LTM frente a 14,6x de mediana, C88) y sigue siendo la tentación cualitativa; pero los números que entrego empujan al otro lado: el motor arranca en 248,6 mm de flujo frente a C52 = 308 (D&A con derechos de uso e intangibles de compras que el capex no repone), no cuento la caída mecánica de la amortización de relaciones con clientes, cobro las compras a su precio aunque C52 no las reste, pongo el margen del NORMAL medio punto bajo m0 y mantengo 0,05 de quiebra. Si la fase C lee un valor bajo como falta de margen sin corregir el sesgo, descartaría un buen negocio por un artefacto: «We left a lot of money on the table through early fretting» (TCI p.79; HIM). Y al revés, el sesgo no convierte el precio en barato: «I know it's wonderful, but is it wonderful enough to justify that big a premium?» (DR p.308; HIM)."
+ },
+ "seis_preguntas": {
+  "lo_entiendo": "Sí. Vende el uso, no el producto: alquila y lava su propio textil e higiene con contratos plurianuales y factura cada mes; la caja sale de la densidad de plantas y rutas [URD2025, PDF p. 141, 347]. El lino y los artículos alquilados son inmovilizado propio (capex de caja que se amortiza); los derechos de uso NIIF 16 son inmuebles, vehículos y máquinas que Elis arrienda [URD2025, PDF p. 366–367].",
+  "confio_en_la_gestion": "En lo básico, sí. El historial es mejor que la presentación: cumplió casi todas sus guías de 2017 a 2025 (extracto §5), cuenta las malas noticias (menos contratos firmados, Latinoamérica) [URD2025, PDF p. 307–308] y llevó el apalancamiento de 3,3x a 1,75x sin subir la deuda neta [RD2018, PDF p. 159; URD2025, PDF p. 314]. Me frenan la recompra de 2026 a 26,25 € con deuda, por encima del precio actual [H1-2026, PDF p. 46], que el Presidente del Directorio vendiera en enero de 2026 [URD2025, PDF p. 442] y que no publique el retorno de cada compra.",
+  "puede_danar_reputacion": "Sí, en Brasil: procesos por presuntos sobornos de 2003–2011 en Río de Janeiro, una investigación de contratos de 2013–2016 en Brasilia anterior a la compra de Lavebras, una disputa fiscal de hasta ≈66 mm € y una acción sobre un contrato público de Megalav, todo sin provisión y con posibles vetos a contratos públicos [URD2025, PDF p. 373–374]. Brasil es el 5,7 % de las ventas [URD2025, PDF p. 346]. También el agua: unas 60 lavanderías en zonas de estrés hídrico alto en el escenario +4 °C [URD2025, PDF p. 143].",
+  "que_puede_salir_mal": "El margen: clientes grandes de Sanidad que no aceptan el precio, salarios fijados por los Estados en Latinoamérica, menos contratos nuevos [URD2025, PDF p. 307–308]. Hostelería en recesión (27 % de ventas; 2020: orgánico −13,3 %) [URD2025, PDF p. 49; URD2020, PDF p. 155]. Deuda barata que se renueva más cara [URD2025, PDF p. 379–380]. Compras caras: el goodwill es el 42,2 % del activo (C32). Brasil.",
+  "necesita_capital": "Sí, y mucho: inversión neta del 18–20 % de las ventas todos los años, dos tercios en lino [URD2025, PDF p. 311; extracto §3]; parte es crecimiento (cada cliente nuevo pide su dotación de lino [URD2025, PDF p. 312]), pero no se publica el reparto. Se autofinancia: el FCF al accionista es positivo desde 2018, también en 2020 (Historia).",
+  "que_caja_espero": "Unos 308 mm al año después de capex, intereses, pago completo de arrendamientos y SBC como punto de partida (C52), que crecen con el orgánico y con el precio que traslade, sin contar las compras, que el FCF de la hoja no resta. El crecimiento y su ritmo son de la fase B."
+ },
+ "descalificadores": [
+  {
+   "nombre": "No puedo explicar de dónde viene la caja",
+   "aplica": false,
+   "evidencia": "La explico en cinco frases con el URD 2025 [URD2025, PDF p. 6, 141, 311, 344, 347, 367]: el servicio es el 97 % de las ventas [URD2025, PDF p. 347]."
+  },
+  {
+   "nombre": "El valor depende de predecir macro, tipos, divisas o materias primas",
+   "aplica": false,
+   "evidencia": "Energía y costes se trasladan por contrato o se cubren (≈93 % en 2026) [URD2025, PDF p. 141, 378]; 37,6 % de ventas fuera del euro es exposición, no la tesis [URD2025, PDF p. 378]. El refinanciamiento a tipos más altos pesa, pero no decide el valor."
+  },
+  {
+   "nombre": "Cambio tecnológico que no me deja juzgar si el foso dura",
+   "aplica": false,
+   "evidencia": "Lavar, reparar y repartir textil no cambia deprisa; la empresa no publica I+D [URD2025, PDF p. 316]."
+  },
+  {
+   "nombre": "Gestión en la que no confío",
+   "aplica": false,
+   "evidencia": "Guías cumplidas casi siempre (extracto §5) y deuda neta plana con apalancamiento a la baja; dudas concretas (recompra de 2026 con deuda, ventas del Presidente en ene-26 [URD2025, PDF p. 442; H1-2026, PDF p. 46]) que no llegan a desconfianza."
+  },
+  {
+   "nombre": "Deuda que puede matar la empresa en un mal año",
+   "aplica": false,
+   "evidencia": "1,75x frente a covenant de 3,75x, BBB-/Baa3/BBB, vida media 3,1 años, RCF de 900 mm sin disponer [URD2025, PDF p. 314, 376, 380–381]; 2,09x en jun-26 tras la recompra [H1-2026, PDF p. 11]. En 2020 llegó a 3,7x y se ajustó el covenant [URD2020, PDF p. 154, 162]: sobrevivió, pero no fue sin coste. La caja no cubre la deuda a corto (C34): depende de renovar papel comercial y titulización."
+  },
+  {
+   "nombre": "Reinvierte toda la caja solo para mantenerse, con retornos mediocres",
+   "aplica": false,
+   "evidencia": "Es el riesgo más cercano: reinvierte ≈18 % de las ventas y sobre el capital total gana menos que r (C55 4,7 %). Pero le quedan 308 mm al accionista después de reinvertir (C52) y el capital tangible rinde ≈23 % (C24): el retorno bajo viene del goodwill pagado, no de la operación."
+  },
+  {
+   "nombre": "Demasiadas piezas móviles",
+   "aplica": false,
+   "evidencia": "Un solo negocio en 31 países; 22 compras pequeñas en 2025 [URD2025, PDF p. 13] añaden piezas, pero del mismo tipo."
+  },
+  {
+   "nombre": "Sin historial (start-up, salida a bolsa reciente)",
+   "aplica": false,
+   "evidencia": "Cotiza desde 2015 [URD2025, PDF p. 13] y hay diez años de cuentas en la Historia."
+  },
+  {
+   "nombre": "Reestructuración o la nueva dirección lo arreglará",
+   "aplica": false,
+   "evidencia": "No es una tesis de cambio: la dirección es la misma y el negocio funciona."
+  }
+ ],
+ "foso": {
+  "tipo": "Escala local y densidad de rutas y plantas (coste por cliente servido), con contratos de cuatro años, clientes atomizados y cláusulas de indexación. Foso estrecho: no es poder de precio sin usar.",
+  "pruebas": {
+   "sobrino_idiota": "Creo que lo aguanta en lo operativo: en 2020, con ventas −14,5 % y unas 100 plantas paradas, el margen EBITDA subió de 33,6 % a 33,8 % y el FCF al accionista pasó de 141,0 a 197,3 [URD2019, PDF p. 146; URD2020, PDF p. 154; Historia]. No lo aguanta en la asignación de capital: un sobrino que comprara caro destruiría valor, como dice el ROIC sobre capital total (C55).",
+   "duracion": "Diez años de margen al alza lento y tres planos; la ventaja es local y se renueva contrato a contrato cada cuatro años [URD2025, PDF p. 141]. «The question of how long your period in the sun will be is a very good one» (AIWTK p.127; HIM): aquí no veo una amenaza tecnológica, sí la presión de precio de los grandes.",
+   "quien_me_mata": "No lo sé con nombre actual: la última lista de competidores es de 2018 (Rentokil Initial, CWS-boco, Lindström, Mewa, Alsco, Johnson Service, entre otros) [RD2018, PDF p. 43]; en 2025 la empresa habla de actores locales ágiles, lavanderías interhospitalarias y compra directa [URD2025, PDF p. 139]. «I think it's important to know which competitor is most likely to do you in» (AIWTK p.131; HIM): lo pediría.",
+   "empresa_o_nicho": "Sobre todo de la empresa donde es densa (Francia, 22,3 % de EBIT ajustado) y del nicho donde no lo es (Reino Unido 9,7 %) [URD2025, PDF p. 344]. El viento de cola de demografía y turismo es del sector y lo dan terceros [URD2025, PDF p. 26–27]."
+  }
+ },
+ "comparacion_etapa_1": {
+  "cubo_v1": "Vigilar",
+  "precio_de_si_v1": 15.0,
+  "cubo_v2": "Vigilar",
+  "precio_de_si_v2": 6.56,
+  "por_que_difieren": "Cubo igual (Watchlist en la v1, Vigilar en la v2) y por la misma razón: el precio, no el negocio. Precio de Sí: la v1 estimaba ≈15 € como el menor entre su escenario malo (≈15,0 €) y tres cuartos de su ponderado (≈17,3 €), con FCF base 308, r 0,09 y 240,69 m de acciones; la v2 usa la escalera k = 3 sobre los tres escenarios del motor A con 259,08 m de acciones diluidas (Análisis!C55, [URD2025, PDF p. 395], folio impreso 393) y da 6,56 €. La diferencia grande no es de juicio sino de motor: el ancla f (Historia C58) cuenta dos veces arrendamientos NIIF 16 e intangibles comprados; corregido fuera de la hoja el rango es ≈9,95–19,65 € (interpretación), que contiene los 15 € de la v1 sin validarlos. Y la v2 no emite precio objetivo (pendiente de datos), mientras la v1 lo daba sin el reparto del capex. Los 6,56 € de la v2 son el valor de la escalera, no un objetivo."
+ },
+ "datos_etapa1_incompletos": {
+  "marca": "con datos de etapa 1 incompletos",
+  "causas": [
+   {
+    "dato": "evidencia Historia!C17:L17",
+    "que": "Principal de arrendamientos (IFRS 16): cero pendiente de verificación",
+    "origen_esperado": "decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona)",
+    "nota": "[H1] Depende de un cero PENDIENTE DE VERIFICACIÓN (Historia, arrendamientos_principal; 2016, 2017, 2018): la cita del informe no se ha contrastado con la partida. El valor se conserva; solo una decisión humana registrada en fase1_decisiones.json lo confirma."
+   },
+   {
+    "dato": "evidencia Historia!C23:L23",
+    "que": "Pasivo por arrendamientos: cero pendiente de verificación",
+    "origen_esperado": "decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona)",
+    "nota": "[H1] Depende de un cero PENDIENTE DE VERIFICACIÓN (Historia, arrendamientos; 2016, 2017, 2018): la cita del informe no se ha contrastado con la partida. El valor se conserva; solo una decisión humana registrada en fase1_decisiones.json lo confirma."
+   }
+  ],
+  "nota": "Limitación visible; no sustituye la revisión de materialidad (S-19): un dato material mantiene pendiente_de_datos."
+ },
+ "alcance": null,
+ "verificacion_entradas": {
+  "apto_por_entradas": false,
+  "resumen": {
+   "universo": 292,
+   "comprobadas": 0,
+   "comprobadas_universo": 0,
+   "auxiliares": 135,
+   "universo_calculo": 193,
+   "universo_juicio": 99,
+   "comprobadas_calculo": 0,
+   "comprobadas_juicio": 0,
+   "lecturas_externas": 0,
+   "formato_registro": "4.14",
+   "entradas_no_reproducibles": 4,
+   "datos_como_hipotesis": 0,
+   "no_materiales": 0,
+   "no_materiales_sin_revisar": 0,
+   "no_aplicables": 4,
+   "resumen": "0 de 292 celdas del universo comprobadas (0 de 193 de cálculo y 0 de 99 de juicio); 0 entradas declaradas no materiales (de juicio o auxiliares) (0 con el juicio de materialidad revisado, 0 sin revisar); 0 datos tratados como hipótesis o convención; 4 no aplicables; 0 lecturas externas sin bytes; 0 derivados comprobados (su significado económico lo acredita la revisión independiente, no el control automático)",
+   "derivados_comprobados": 0,
+   "pendientes": 418,
+   "desactualizadas": 0,
+   "discrepancias": 8,
+   "errores": 1,
+   "materiales_no_comprobadas": 292,
+   "apto_por_entradas": false,
+   "motivo": "0 de 292 celdas del universo comprobadas (0 de 193 de cálculo y 0 de 99 de juicio; +135 datos de origen auxiliares); 0 lecturas externas sin bytes; 4 entradas del FCF base no reproducibles; 0 datos tratados como hipótesis o convención; 0 entradas de juicio no materiales (0 sin el juicio de materialidad revisado); 4 no aplicables; 292 entradas materiales sin comprobar; 0 desactualizadas; 8 discrepancias; 1 errores del contrato; 99 sin entrada",
+   "huella_entradas_economicas": "96ecc629b6c580f93b33bb6a396a305adc062532ba49520b6b853b90d77a63c6",
+   "nota": "condición necesaria, no suficiente, para presentar una conclusión como apta para dinero real; los controles automáticos comprueban cobertura, conciliaciones y coherencia, no la corrección semántica (revisión independiente de las fuentes)"
+  },
+  "apto_para_dinero_real": false,
+  "motivo_modo": null,
+  "entrada_efectiva": {
+   "aplicada_en_paso_2": null,
+   "declarada": {
+    "modo": "registrada",
+    "declarado_en": null
+   },
+   "coinciden": null
+  },
+  "nota": "condición necesaria, no suficiente: superar los controles de software no acredita la aptitud para dinero real (motor A sin validar: F1; plantillas y criterios económicos no adoptados)"
+ },
+ "provisional": {
+  "estado_propuesto": "pendiente_de_datos",
+  "confirmado": false,
+  "nota": "material para la auditoría del paso 13; no es la salida oficial: el estado lo propone la fase C y solo se confirma tras una auditoría APROBADO del material vigente"
+ }
+}

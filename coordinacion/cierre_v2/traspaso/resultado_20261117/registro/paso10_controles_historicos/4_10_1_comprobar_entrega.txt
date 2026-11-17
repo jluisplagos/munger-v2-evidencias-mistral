@@ -1,0 +1,51 @@
+1. CONSERVACIÓN FRENTE A LA 4.10
+CUMPLE   · [constata] el manifiesto de la 4.10 conservado es el del ZIP base (SHA-256 1e63e7c0…, 1.938 archivos)
+NO CUMPLE · [recalcula] frente a la 4.10 solo cambian los seis archivos declarados y ninguno desaparece · fuera de lo declarado: ['personaje_v2/ANEXO_D_salidas_y_formatos.md', 'personaje_v2/esquema/fase_c.esquema.json', 'personaje_v2/esquema/ficha.esquema.json', 'personaje_v2/prompts/fase_a.md', 'personaje_v2/prompts/fase_b.md', 'personaje_v2/prompts/fase_c_turno1.md', 'personaje_v2/prompts/fase_c_turno2.md', 'personaje_v2/prompts/historia_anio.md', 'personaje_v2/prompts/verificacion.md', 'personaje_v2/pruebas/agentes_sinteticos.py', 'personaje_v2/pruebas/test_cierre_v2.py', 'personaje_v2/scripts/cierre_v2.py', 'personaje_v2/scripts/comprobacion_conjunta.py', 'personaje_v2/scripts/comprobar_entorno.sh', 'personaje_v2/scripts/comprobar_entrada_v63.py', 'personaje_v2/scripts/comprobar_gramatica.py', 'personaje_v2/scripts/config_v2.py', 'personaje_v2/scripts/escribir_v63.py', 'personaje_v2/scripts/fase1_historia.py', 'personaje_v2/scripts/ficha.py', 'personaje_v2/scripts/informe.py', 'personaje_v2/scripts/leer_resultados.py', 'personaje_v2/scripts/leer_v63.py', 'personaje_v2/scripts/migrar_v53_a_v63.py', 'personaje_v2/scripts/pipeline.py', 'personaje_v2/scripts/referencias_mecanicas.py', 'personaje_v2/scripts/rellenar_fase1_v63.py', 'personaje_v2/scripts/resumen.py', 'personaje_v2/scripts/verificar_todo.sh', 'personaje_v2/scripts/volcar_datos_v63.py'] · desaparecidos []
+NO CUMPLE · [recalcula] todos los archivos nuevos están en el expediente de la 4.10.1 · ['personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md', 'personaje_v2/config_v2_v641_experimental.json', 'personaje_v2/config_v2_v64_experimental.json', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/INFORME_INTEGRACION_4_11.md', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/REGISTRO_AVANCE_4_11.md', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/REGISTRO_ENTREGA_4.11.md']
+NO CUMPLE · [recalcula] el resto del árbol de la 4.10 conserva sus bytes en disco (1932 archivos: código de producción, expedientes anteriores, originales, fuentes, plantilla y kit) · ['personaje_v2/ANEXO_D_salidas_y_formatos.md', 'personaje_v2/esquema/fase_c.esquema.json', 'personaje_v2/esquema/ficha.esquema.json', 'personaje_v2/prompts/fase_a.md', 'personaje_v2/prompts/fase_b.md']
+NO CUMPLE · [recalcula] el código de producción (personaje_v2/scripts/, 31 archivos) no cambia: la corrección de T-1 está solo en la prueba
+2. T-1 · PREPARACIÓN DEL GRUPO L
+CUMPLE   · [reejecuta] la batería de trazabilidad pasa entera (78/78)
+CUMPLE   · [recalcula] se conservan los 74 casos de la 4.10 (mismos grupos y nombres, de la ejecución del archivo de la 4.10) y se añaden 4
+CUMPLE   · [constata] el grupo L pasa entero (11 de 11)
+CUMPLE   · [constata] la preparación sigue el orden del encargo: fichas con la identidad del libro antes de m0 y, después, mutaciones separadas y reconstrucción inocua
+CUMPLE   · [reejecuta] reproducir_T1.py, ejecutado de nuevo, da el diagnóstico guardado: con bytes distintos e inocuos la preparación antigua falla y la nueva es coherente en los dos entornos
+CUMPLE   · [constata] verificar_paquete.sh completa exige la batería de trazabilidad con al menos 78 pruebas
+3. ENTRADAS DE LA BASE 2025
+CUMPLE   · [reejecuta] concordancia_2025.py (libro de datos): CONCUERDA, sin residuos ni migrados que prevalezcan, e igual a la guardada
+CUMPLE   · [reejecuta] concordancia_2025.py (libro evaluado): CONCUERDA, sin residuos ni migrados que prevalezcan, e igual a la guardada
+CUMPLE   · [constata] los textos heredados con cifras de la base anterior (no son datos) están identificados uno a uno, incluidos M41 y M52 (capitalización y acciones de la etapa 1), y el informe del recorrido lo dice
+CUMPLE   · [constata] configuración principal: 90,10 €; 35.206.258 − 23.400 = 35.182.858; E = 3.169,9755058; rf 0,0285; con derecho; caja 108,352; puente 160,784; r 0,09; 0,2/0,6/0,2; k 3
+CUMPLE   · [constata] caso principal: C46/C47 con la precisión de referencia (335,4/169,7) y C48 = 0 / C49 = 4,5 como supuesto heredado declarado
+CUMPLE   · [recalcula] preparación 2: la etapa 1 original es la de la 4.6.1 y la copia de ensayo solo vacía las celdas declaradas (7 datos y 10 filas de evidencia)
+CUMPLE   · [recalcula] el libro evaluado lleva los datos reexpresados a 31-dic-2025 (0,1394; Sí; 0,36; Sí; 7,82; 108,352; 262,913), ninguno de 30-jun-2026
+CUMPLE   · [recalcula] ninguna mención del precio de 87,90 € o de la capitalización antigua en los productos activos sin identificarla como antecedente o comparación
+4. RECORRIDO, AUDITORÍA Y CIERRE
+CUMPLE   · [constata] estado_pipeline.json propio: paso 14, concluido, auditoría APROBADO, sin espera operativa sin resolver, iniciado el 11-nov-2026 en este ensayo
+CUMPLE   · [constata] el pipeline consumió las cinco salidas de agente de este recorrido y sus contadores no se reiniciaron ni se agotaron (0 correcciones)
+CUMPLE   · [constata] extracción y fases A, B y C nuevas: ninguna es la del antecedente 4.6.1 y la fase A no es la de la primera preparación
+CUMPLE   · [constata] la fase B es propia: margen del NORMAL 0,185 frente a 0,18 del antecedente, y cada palanca con referencia, desviación y apoyo
+CUMPLE   · [recalcula] auditoría nueva ligada a su solicitud (SA-433ea31c3f7fc4bd, respondida) y al material fijado (e60b272b654aeece), con veredicto H2 APROBADO e identificada como interna
+CUMPLE   · [recalcula] el material fijado sigue siendo el actual (las huellas de material_auditoria.json coinciden con los archivos)
+CUMPLE   · [constata] ninguna aprobación heredada: la auditoría vigente no es ninguna de las conocidas antes de la solicitud ni de las de antecedentes
+CUMPLE   · [recalcula] salidas oficiales vigentes (cierre_v2.motivo_vigencia) y libro final acreditado (motivo_acreditacion_libro)
+CUMPLE   · [recalcula] correspondencia de huellas: libro evaluado = ficha = comprobante; cierre_vigente con la ficha, el informe y la auditoría actuales
+CUMPLE   · [recalcula] resultados y escalera regenerados del libro actual: valores del libro = resultados.json = ficha; precio 90,10 y zona caro
+CUMPLE   · [constata] resumen y registro de publicaciones aislados en el ensayo: una fila concluido · APROBADO y una publicación viva en su propio resumen_v2.csv
+CUMPLE   · [constata] conclusión del recorrido: concluido, cubo Vigilar, acción esperar, precio objetivo 66,52 y fundamento «no procede»
+CUMPLE   · [constata] P3, N4 y la provisión de personal no se declaran resueltos: fase1_decisiones.json es el de la referencia (ningún cero confirmado por la IA)
+5. COMPARACIÓN CON C1 Y PRECISIÓN DE C46/C47 (recálculo con LibreOffice en un temporal)
+CUMPLE   · [reejecuta] comparar_con_C1.py vuelve a dar los mismos valores de las cuatro variantes y sus dos controles (C1 reproducido; el ensayo reproduce resultados.json)
+CUMPLE   · [recalcula] atribución: entrada y convención 0 €; juicio = total (+1,198 € de ponderado, +0,856 € de precio de Sí, solo en el NORMAL); precisión de C46/C47 0 €
+6. DOCUMENTACIÓN Y PROPUESTAS
+CUMPLE   · [constata] propuestas humanas agrupadas y sin firmar (8 nuevas, campos humanos vacíos; las 10 de la 4.10 siguen pendientes)
+NO CUMPLE · [constata] VERSION, CONTINUIDAD.md y PROMPT_NUEVA_VENTANA.md describen la 4.10.1 (versión, ZIP, batería de 78, LEEME y este control)
+CUMPLE   · [constata] existe INFORME_RECORRIDO_4_10_1.md
+CUMPLE   · [constata] existe t1/INFORME_T1_4_10_1.md
+CUMPLE   · [constata] existe propuestas/PROPUESTAS_HUMANAS_4_10_1.md
+CUMPLE   · [constata] existe REGISTRO_PRUEBAS_4_10_1.md
+CUMPLE   · [constata] existe revision_interna/REVISION_INTERNA_4_10_1.md
+CUMPLE   · [constata] existe REGISTRO_ENTREGA_4.10.1.md
+CUMPLE   · [constata] existe resultados/LEEME_BATERIAS_HISTORICAS.md
+Tipos de control: 5 reejecutan, 14 recalculan y 24 solo constatan.
+RESULTADO: 38 de 43 comprobaciones cumplen.

@@ -28,7 +28,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | T-CAND | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 957af65 |
 | T-EXP | Claude runtime + extractores/revisores reales | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | T-CAMBIOS | Claude runtime + Mistral D | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
-| T-TRASPASO | Claude + receptor sin historial | PARCIAL | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | 788f25c |
+| T-TRASPASO | Claude + receptor sin historial | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 788f25c |
 | H-DEC | Usuario | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | F1-IMPL | Claude | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | CIERRE | Claude + usuario | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
@@ -63,7 +63,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Dependencias: T-CAND, A-CTX.
 - **T-CAMBIOS · Vigencia, invalidación, recuperación y H9**: Ensayar cambio anterior y punto real de reanudación; no reintroducir límites I19/I20 ya corregidos.
   Dependencias: T-CAND, D-HARNESS.
-- **T-TRASPASO · Traspaso sin historial y revisión de manual**: Ensayo en curso con un receptor sin historial: un agente nuevo que solo recibe PROMPT_RECEPTOR.md y trabaja desde clones y descargas propias, siguiendo el manual §10. Límite declarado: el receptor es de la misma familia de modelo que el autor del manual y no puede lanzar los agentes del personaje (pasos con agentes reales: no ejecutables por el receptor). Mistral A no vale como receptor.
+- **T-TRASPASO · Traspaso sin historial y revisión de manual**: Revisión del informe por un agente distinto del receptor. Las deficiencias del manual (disco, comandos no documentados, pasos 12–13, H9, referencias desfasadas) pasan a mejoras del manual. Los pasos con agentes reales quedan para el runtime del coordinador.
   Dependencias: T-CAND, G-MANUAL.
 - **H-DEC · Decisiones económicas pendientes con fundamento**: Decisiones económicas F1 (1a)–(5b), E8.1 y umbral de V-F1a presentadas una por una (03e7851) a la persona responsable. Nada adoptado. F1-IMPL espera esas decisiones.
   Dependencias: F1-W.

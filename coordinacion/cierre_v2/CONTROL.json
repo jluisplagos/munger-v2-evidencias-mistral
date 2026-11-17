@@ -590,7 +590,7 @@
       ],
       "bloqueo": null,
       "siguiente_accion": "Corregir los textos operativos desfasados (G-1…G-9 y C-07/C-08/C-09/C-12 de CONTINUIDAD) en una rama aislada de la candidata y publicarlo para revisión por un contexto distinto. C-01…C-04 (README/CLAUDE.md raíz) son instrucciones del usuario: se proponen, no se cambian. Después, T-TRASPASO con un receptor realmente nuevo.",
-      "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
+      "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones. T-TRASPASO (17-nov) encontró 14 ambigüedades o errores del manual; mejoras pendientes.",
       "commit_revisado": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "alcance_aceptado": [
         "borrador del manual operativo de 957af65 y tabla de contradicciones, como documento de coordinación (no integrado en el producto)"
@@ -802,23 +802,26 @@
       "tarea": "Traspaso sin historial y revisión de manual",
       "autor": "Claude + receptor sin historial",
       "revisor_propuesto": "Auditor distinto si corresponde",
-      "entrega": "PARCIAL",
+      "entrega": "ENTREGADO",
       "revision": "PENDIENTE",
       "integracion": "NO",
       "commit_origen": "788f25c73af698709d9b550b132780c86f7e203d",
       "commit_destino": null,
       "evidencia": [
-        "coordinacion/cierre_v2/traspaso/PROMPT_RECEPTOR.md"
+        "coordinacion/cierre_v2/traspaso/PROMPT_RECEPTOR.md",
+        "coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md",
+        "coordinacion/cierre_v2/traspaso/resultado_20261117/LEEME.md",
+        "coordinacion/cierre_v2/traspaso/resultado_20261117/registro/"
       ],
-      "pruebas_autor": "NO_EJECUTADAS",
+      "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [
         "T-CAND",
         "G-MANUAL"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Ensayo en curso con un receptor sin historial: un agente nuevo que solo recibe PROMPT_RECEPTOR.md y trabaja desde clones y descargas propias, siguiendo el manual §10. Límite declarado: el receptor es de la misma familia de modelo que el autor del manual y no puede lanzar los agentes del personaje (pasos con agentes reales: no ejecutables por el receptor). Mistral A no vale como receptor.",
-      "observacion": "Prueba de un receptor nuevo de la candidata 957af65 (manual aceptado con límites en 78ba1ca); reproducción independiente expresamente registrada.",
+      "siguiente_accion": "Revisión del informe por un agente distinto del receptor. Las deficiencias del manual (disco, comandos no documentados, pasos 12–13, H9, referencias desfasadas) pasan a mejoras del manual. Los pasos con agentes reales quedan para el runtime del coordinador.",
+      "observacion": "Receptor sin historial sobre 957af65: reconstrucción desde clones y descarga propia de la Release (6798/6798; 1008 binarios copiados; manifiesto 7762/7762), verificar_paquete.sh completa PASA con registro idéntico byte a byte al del coordinador (23fd7aa1…), control 4.14 29/35 como espera el manual, relevo caducado (I19) observado con LibreOffice sin --desde, H9 observado (vuelta al paso 12 con fase_c.md cambiado) y pendiente. Pasos con agentes: no ejecutables por el receptor. Controles históricos 4.10 39/44 y 4.11 33/38 (difieren de los del árbol 4.14; sin investigar; esperado sobre 4.15 no documentado).",
       "commit_revisado": null,
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -1152,6 +1155,11 @@
       "tipo": "CONSULTA",
       "fecha": "2026-11-17",
       "hecho": "D bloque 3 (d032691) y A3 parcial (93a02e0, d11ee44) registrados como entregados; revisión de D bloque 3 frente a D3 en curso (prioridad)."
+    },
+    {
+      "tipo": "PRUEBA",
+      "fecha": "2026-11-17",
+      "hecho": "T-TRASPASO terminado por un receptor sin historial: verificación completa idéntica byte a byte a la del coordinador; 29/35; I19 y H9 observados; pasos con agentes no ejecutables por el receptor; 14 deficiencias del manual. Revisión del informe pendiente."
     }
   ],
   "consulta_remotos_arranque": {

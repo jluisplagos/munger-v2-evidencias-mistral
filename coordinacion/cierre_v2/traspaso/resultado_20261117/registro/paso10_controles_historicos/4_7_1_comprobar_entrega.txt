@@ -1,0 +1,59 @@
+ENTREGA 4.7.1 · W-1, auditoría interna y subsanación del N3 · controles (solo escriben en temporales)
+====================================================================================================
+
+1. REFERENCIAS INTACTAS FRENTE A LA 4.7
+  [CUMPLE] [recalcula] El manifiesto 4.7 conservado es el del paquete 4.7 (SHA-256 2c1c1842…cd75; 1.412 archivos)
+  [NO CUMPLE] [recalcula] Los 1400 archivos de la 4.7 que no son el código declarado ni documentación conservan su huella (originales, expedientes 4.4–4.7, libros, fases, fuentes, informe.py) · personaje_v2/esquema/fase_c.esquema.json, personaje_v2/esquema/ficha.esquema.json, personaje_v2/prompts/fase_a.md, personaje_v2/prompts/fase_b.md, personaje_v2/prompts/fase_c_turno1.md
+  [CUMPLE] [recalcula] Entre ellos, los 489 originales y la carpeta completa de la 4.7
+  [CUMPLE] [recalcula] Registro humano de P1 sin cambios (b4e47afc…c445a4)
+  [CUMPLE] [recalcula] Copias del código para reproducir: `reproduccion/codigo_4_7/` = código del manifiesto 4.7 (4 archivos); `codigo_auditado_4_7_1/` = huellas del primer cierre (3 archivos)
+
+2. W-1 Y HALLAZGOS W DE LA AUDITORÍA INTERNA · CÓDIGO Y PRUEBAS
+  [NO CUMPLE] [recalcula] El código conserva las huellas de la última tabla del cierre técnico (§6, 7 archivos) · personaje_v2/scripts/cierre_v2.py, personaje_v2/scripts/ficha.py, personaje_v2/scripts/informe.py, personaje_v2/scripts/pipeline.py, personaje_v2/scripts/resumen.py, verificar_paquete.sh, personaje_v2/pruebas/test_resumen_v2.py
+  [CUMPLE] [constata] Reproducción de W-1 con el código 4.7 (conservada): REPRODUCIDO
+  [CUMPLE] [reejecuta] Reproducción de W-1 con el código actual: NO SE REPRODUCE, sin ninguna llamada posterior
+  [NO CUMPLE] [reejecuta] Batería del resumen reejecutada en copias con el código actual, el de la 4.7 y el que vio la auditoría: las tres coinciden con sus salidas conservadas (huellas, estado de cada prueba y línea final) · resultados/test_resumen_v2_salida.txt: test_resumen_v2.py · código 0 · 45/45 pruebas de aceptación del resumen PASAN · 0 en FALLA |   NO COINCIDE con la conservada | reproduccion/pruebas_resumen_con_codigo_4_7.txt: test_resumen_v2.py · código 1 · 35/45 pruebas de aceptación del resumen PASAN · 10 en
+  [CUMPLE] [constata] …con el código actual: 45/45, con las huellas del cierre revisado
+  [CUMPLE] [constata] …con el código 4.7: 35/45; fallan las 3 de W-1 y 7 de las 8 añadidas tras la auditoría (W-a, W-b, W-e, W-f)
+  [CUMPLE] [constata] …con el código que vio la auditoría: 36/45; la regresión W-a hace fallar sus 4 pruebas
+  [CUMPLE] [constata] resultados/test_cierre_v2_salida.txt: 55/55 con el código actual (huellas en su cabecera; se reejecuta en verificar_paquete.sh completa)
+  [CUMPLE] [constata] resultados/test_pipeline_sintetico_salida.txt: 30/30 con el código actual (huellas en su cabecera; se reejecuta en verificar_paquete.sh completa)
+  [CUMPLE] [reejecuta] Integración de la batería del resumen en verificar_paquete.sh completa (mínimo 45): 13 de 13, salida idéntica a la conservada
+  [CUMPLE] [reejecuta] Integración de la batería de cierre (4.6.1, mínimo 55): 13 de 13
+  [NO CUMPLE] [reejecuta] Batería de la 4.7 sobre el árbol 4.7.1: 46 de 49, y solo fallan sus 3 controles ligados al código y a la documentación de la 4.7 (salida idéntica a la conservada)
+  [CUMPLE] [recalcula] El expediente de referencia 4.6.1 sigue vigente con el código 4.7.1, sin registro de publicaciones
+  [CUMPLE] [reejecuta] Conservación ejecutada: con la ficha vigente y su fila del predeterminado reescrita por una hoja de cálculo, resumen.py hacia otro destino publica (código 0) y no toca el predeterminado · código 0
+  [CUMPLE] [reejecuta] Variante de W-a ejecutada: la misma fila reescrita, con el material invalidado, se retira en la misma llamada (código 3) · código 3
+  [CUMPLE] [constata] El Anexo D declara el criterio corregido (detección por fecha, exclusión por contenido con tolerancia), el código 0 con aviso de ficha.py, el código 4 del pipeline y el límite residual
+
+3. N3 · DESCOMPOSICIÓN, MANTENIMIENTO Y CAPACIDAD
+  [CUMPLE] [reejecuta] analisis_n1_n3.py (4.7.1) termina con código 0 («evidencia y control correctos»)
+  [CUMPLE] [reejecuta] financiero/salida.txt conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/evidencia.json conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/evidencia.md conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/matriz.csv conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/matriz.json conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/matriz.md conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/n3_anio_a_anio.csv conservado = regenerado byte a byte
+  [CUMPLE] [reejecuta] financiero/sensibilidades_n3.csv conservado = regenerado byte a byte
+  [CUMPLE] [recalcula] Evidencia: 123 datos (los 109 de la 4.7 y 14 de inversión, amortización, vida útil, PERTE y mantenimiento), todos reproducidos con su signo
+  [CUMPLE] [recalcula] Control: la matriz de 27 combinaciones tiene los valores de la 4.7 y la regla «circulante_sin_capacidad» reproduce la formulación inicial del R1
+  [CUMPLE] [recalcula] matriz.csv: mismos valores, ponderados y precios de Sí que la 4.7 en las 27 filas
+  [CUMPLE] [recalcula] Inversión bruta implícita corregida (D&A + inversión fija neta): T1·M1·R1 año 1 = 132,948 con circulante −2,15434 y fija 0; R0 = 118,82278
+  [CUMPLE] [recalcula] n3_anio_a_anio.csv: en cada fila, reinversión = circulante + fija neta e inversión bruta = 132,948 + fija neta
+  [CUMPLE] [recalcula] sensibilidades_n3.csv: 20 filas; sin mantenimiento adicional, T1·M1·R1 coincide con la matriz
+  [CUMPLE] [recalcula] Niveles de mantenimiento desde la evidencia citada (no desde constantes): (178,746 + 9,757 − 132,948) ÷ 132,948 = 41,8 %, igual que matriz.json, el estado de flujos y la Historia
+  [CUMPLE] [recalcula] decisiones_propuestas_N1_N3.json (4.7.1): D-N1, D-N2, D-N3 y D-N3b, sin decision, fecha ni confirmado_por; D-N1 y D-N2 iguales a la 4.7; D-N3b dice que «=D&A» es la opción de mayor valor
+  [CUMPLE] [constata] El informe declara con exactitud qué sustituye (N-c), que no es comparable con el precio ni una recomendación, que las sensibilidades no son cotas, y los límites en los dos sentidos (N-a, N-b)
+
+4. AUDITORÍA INTERNA DE CLAUDE Y CONTROL DE VIGENCIA
+  [CUMPLE] [constata] AUDITORIA_INTERNA_4_7_1.md: nombra MATERIAL_AUDITORIA_4_7_1.txt (72ad6679…) y su veredicto empieza por **Con hallazgos bloqueantes**
+  [CUMPLE] [constata] AUDITORIA_INTERNA_4_7_1_vigencia.md: nombra MATERIAL_VIGENCIA_4_7_1.txt (7863eb91…) y su veredicto empieza por **Sin hallazgos bloqueantes**
+  [NO CUMPLE] [recalcula] El material del control de vigencia (MATERIAL_VIGENCIA_4_7_1.txt, 47 archivos, con el código y los documentos corregidos) no ha cambiado desde ese control · personaje_v2/scripts/cierre_v2.py, personaje_v2/scripts/ficha.py, personaje_v2/scripts/resumen.py, personaje_v2/scripts/informe.py, personaje_v2/scripts/pipeline.py
+
+5. DOCUMENTACIÓN DE LA ENTREGA
+  [NO CUMPLE] [constata] VERSION, CONTINUIDAD.md y PROMPT_NUEVA_VENTANA.md describen la 4.7.1: versión, ZIP, batería del resumen de 45 y este control
+  [CUMPLE] [constata] Registro de la entrega presente (REGISTRO_ENTREGA_4.7.1.md)
+
+Tipos de control: 16 reejecutan, 16 recalculan y 12 solo constatan lo conservado.
+RESULTADO: 38 de 44 comprobaciones cumplen.

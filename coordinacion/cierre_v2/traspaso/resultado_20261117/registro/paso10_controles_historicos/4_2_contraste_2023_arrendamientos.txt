@@ -1,0 +1,95 @@
+CONTRASTE · DATOS DE 2023 Y ARRENDAMIENTOS 2023–2025 DE VIDRALA · salida reproducible (miles de euros salvo mm)
+========================================================================================================
+
+0 · CORRESPONDENCIA ENTRE AR_2023/AR_2024.json Y LOS TEXTOS NUEVOS (espacios normalizados)
+  AR_2023.json → CF_2023_EXTRACCION_NUEVA.txt: 56 de 56 líneas en su página; fuera de su página: []
+  AR_2023.json: líneas idénticas carácter a carácter (sin normalizar espacios): 0 de 56
+  AR_2024.json → CF_2024_EXTRACCION_NUEVA.txt: 49 de 51 líneas en su página; fuera de su página: [('da', 'actual', 4, [7]), ('da', 'anterior', 4, [7])]
+  AR_2024.json: líneas idénticas carácter a carácter (sin normalizar espacios): 0 de 51
+  [CUMPLE] AR_2023: todas las líneas citadas están en su página del texto nuevo
+  [CUMPLE] AR_2024: las dos líneas de D&A se citan en la p.4 pero están en la p.7 (cifra correcta, página mal atribuida)
+
+1 · CFO Y CIRCULANTE DE 2023
+  · informe 2023 (EN, doc.1831, PDF p.7), columna 2023
+  [CUMPLE]     suma de los 10 ajustes = subtotal impreso · 169.475 frente a 169.475
+  [CUMPLE]     suma de las 5 líneas de circulante = subtotal impreso · -89.866 = -89.866
+  [CUMPLE]     beneficio + ajustes + circulante + intereses + impuestos = CFO impreso · 233.395 + 169.475 + (-89.866) + (-12.320) + 7.774 + (-45.021) = 263.437
+  · informe 2024 (EN, doc.2145, PDF p.7), columna 2023 reexpresada
+  [CUMPLE]     HALLAZGO EN EL DOCUMENTO: la suma de los 10 ajustes NO coincide con el subtotal impreso · 130.444 frente a 158.414
+  [CUMPLE]     suma de las 5 líneas de circulante = subtotal impreso · -78.805 = -78.805
+  [CUMPLE]     beneficio + ajustes + circulante + intereses + impuestos = CFO impreso · 233.395 + 158.414 + (-78.805) + (-12.320) + 7.774 + (-45.021) = 263.437
+  · informe 2024 (ES, doc.2118, PDF p.14), columna 2023 reexpresada
+  [CUMPLE]     suma de los 10 ajustes = subtotal impreso · 158.414 frente a 158.414
+  [CUMPLE]     suma de las 5 líneas de circulante = subtotal impreso · -78.805 = -78.805
+  [CUMPLE]     beneficio + ajustes + circulante + intereses + impuestos = CFO impreso · 233.395 + 158.414 + (-78.805) + (-12.320) + 7.774 + (-45.021) = 263.437
+  líneas de ajustes 2023 reexpresadas que difieren entre EN y ES (EN, ES): {'Changes in provisions': (-6553, 10647), 'Government grants recognised in the income statement': (-5372, -4116), 'Finance costs': (3435, 12949)}
+  [CUMPLE] las tres líneas EN que difieren repiten la columna 2022 del informe 2023 · {'Changes in provisions': -6553, 'Government grants recognised in the income statement': -5372, 'Finance costs': 3435}
+  reexpresado (ES) − informe 2023, por línea de ajustes: {'Amortisation and depreciation': -10655, 'Impairment of non-current assets': -333, '(Reversal of) impairment losses on trade receivables': -690, 'Government grants recognised in the income statement': 3388, 'Finance costs': -3486, 'Income tax ': 715} · total -11.061
+  [CUMPLE] la caída de los ajustes (−11.061) se compensa exactamente en «Otros activos y pasivos…» (+11.061); el resto del circulante no cambia · Δ ajustes -11.061 · Δ «Otros…» 11.061 · circulante -89.866 → -78.805
+  nota de operaciones discontinuadas (EN 2024, PDF p.35), Italia 2023: {'Amortisation cost': -10655, 'Impairment of non-current assets': -333, 'Finance cost': -3486, 'Income Tax': 715, 'Other incomes': 3387}
+  [CUMPLE] las diferencias de amortización, deterioro, gasto financiero e impuesto coinciden con la cuenta de Italia 2023 de la p.35 · amortización -10655 / -10655 · deterioro -333 / -333 · gasto fin. -3486 / -3486 · impuesto 715 / 715
+  subvenciones: Δ 3388 frente a «Other incomes» de Italia 3387 (diferencia de 1, sin explicación en el documento); deudores: Δ -690 sin línea propia en la p.35
+  flujos de operaciones discontinuadas (p.35): explotación 2024 11,558 · 2023 26,732; inversión 2024 230,000 · 2023 (28,371)
+  [CUMPLE] historia_revision.md registra 89,866 (informe 2023) frente a 78,805 (comparativo 2024) y aplica el más reciente
+  [CUMPLE] no hay decisiones registradas para cfo, capex, circulante ni arrendamientos de 2023
+
+2 · CAPEX DE 2023
+  [CUMPLE] informe 2023 (EN) y comparativo 2024 (ES, «Pagos por la adquisición…») coinciden: 143.848 + 7.852 · [-143848, -7852] · [-143848, -7852]
+  [CUMPLE] capex 2023 del sistema = 151,700 mm y Historia J12 = 151,7
+  [CUMPLE] CFO 2023: 263.437 en los tres textos y en Historia J11
+
+3 · ARRENDAMIENTOS · nota 8 de los informes 2023 (p.52), 2024 (EN p.56, ES p.64) y 2025 (p.52)
+  [CUMPLE] 2022 (inf.2023): inicial + altas + devengo + pagos + otros + conversión = final · pagos -613 · devengado 50 · final 2.346
+  [CUMPLE] 2022 (inf.2023): «gastos de arrendamientos a corto plazo y de poco valor» = −pagos · 613
+  [CUMPLE] 2023 (inf.2023): inicial + altas + devengo + pagos + otros + conversión = final · pagos -5.861 · devengado 2.131 · final 45.382
+  [CUMPLE] 2023 (inf.2023): «gastos de arrendamientos a corto plazo y de poco valor» = −pagos · 5861
+  [CUMPLE] 2023 (inf.2024): inicial + altas + devengo + pagos + otros + conversión = final · pagos -5.861 · devengado 2.131 · final 45.382
+  [CUMPLE] 2023 (inf.2024): «gastos de arrendamientos a corto plazo y de poco valor» = −pagos · 5861
+  [CUMPLE] 2024 (inf.2024): inicial + altas + devengo + pagos + otros + conversión = final · pagos -6.117 · devengado 2.179 · final 44.904
+  [CUMPLE] 2024 (inf.2024): «gastos de arrendamientos a corto plazo y de poco valor» = −pagos · 6117
+  [CUMPLE] 2024 (inf.2024 ES): inicial + altas + devengo + pagos + otros + conversión = final · pagos -6.117 · devengado 2.179 · final 44.904
+  [CUMPLE] 2024 (inf.2024 ES): «gastos de arrendamientos a corto plazo y de poco valor» = −pagos · 6117
+  [CUMPLE] 2023 (inf.2024 ES): inicial + altas + devengo + pagos + otros + conversión = final · pagos -5.861 · devengado 2.131 · final 45.382
+  [CUMPLE] 2023 (inf.2024 ES): «gastos de arrendamientos a corto plazo y de poco valor» = −pagos · 5861
+  [CUMPLE] 2025 (inf.2025): inicial + altas + devengo + pagos + otros + conversión = final · pagos -8.314 · devengado 2.452 · final 49.300
+  [CUMPLE] 2025 (inf.2025): «gastos de arrendamientos a corto plazo y de poco valor» = −pagos · 8314
+  [CUMPLE] pago 2023 = −5.861 y devengo 2023 = 2.131 en los informes 2023 y 2024 (EN y ES)
+  [CUMPLE] 2023: el bloque de financiación no tiene línea de arrendamientos ni de intereses
+  [CUMPLE] 2024: el bloque de financiación no tiene línea de arrendamientos ni de intereses
+  [CUMPLE] 2025: el bloque de financiación no tiene línea de arrendamientos ni de intereses
+  línea 2022 del informe 2023 impresa como «112,5000» (errata del documento; no afecta a 2023)
+  2024: flujos de deuda del estado de flujos -205.736 · variación del saldo de préstamos (incl. arrendamientos) -205.736 · «cash flows» de la tabla NIC 7 -195.696
+  2025: flujos de deuda del estado de flujos -130.399 · variación del saldo de préstamos (incl. arrendamientos) -130.399 · «cash flows» de la tabla NIC 7 -129.454
+  2023: flujos de deuda del estado de flujos 107.377 · variación del saldo de préstamos (incl. arrendamientos) 275.495 · «cash flows» de la tabla NIC 7 53.722
+  [CUMPLE] 2024 y 2025: los flujos de deuda del estado de flujos igualan la variación total del saldo (incluidos movimientos no monetarios)
+  [CUMPLE] 2023: los flujos de deuda del estado de flujos (107.377) no igualan ni la variación del saldo ni los «cash flows» NIC 7
+  [CUMPLE] ESEF 2025: ninguna etiqueta numérica de arrendamientos (todo el texto de notas va en bloques) · 112 conceptos, 378 hechos
+  [CUMPLE] ESEF 2025: «Pagos de intereses» etiquetado como InterestPaidClassifiedAsOperatingActivities (20.800 / 32.100)
+  ESEF 2025, financiación 2025: [('ifrs-full:ProceedsFromBorrowingsClassifiedAsFinancingActivities', '219.500'), ('ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities', '125.259'), ('vidrala:CobrosProcedentesDeLasDeudasConEntidadesDeCredito', '2.626'), ('vidrala:PagosProcedentesDeOtrasDeudas', '227.266')]
+  pagos totales de arrendamientos (nota 8) 2023–2025: {2023: -5861, 2024: -6117, 2025: -8314} · gasto devengado: {2023: 2131, 2024: 2179, 2025: 2452}
+  [CUMPLE] arrendamiento de Bristol (5 %, cuotas mensuales hasta feb-2034): informe 2024 p.75 = 466 miles € (387 miles £) al mes · ('466', '387')
+  [CUMPLE] HALLAZGO EN EL DOCUMENTO: el informe 2025 (p.69) atribuye a 2024 una cuota de 354 miles £, no 387 · ('554', '483', '354')
+  orden de magnitud (aritmética, no evidencia de principal): 466 × 12 = 5.592 frente a pagos 2024 6.117; 554 × 12 = 6.648 frente a pagos 2025 8.314
+
+4 · RECORRIDO HASTA EL LIBRO Y RÉPLICAS ARITMÉTICAS (sin recalcular el libro)
+  cfo: fase1_v63 2023 = 263.437 · Historia J11 = 263.437 · fuente: 2023 CF_2024.txt p.7 (comparativo del informe siguiente)
+  capex: fase1_v63 2023 = 151.7 · Historia J12 = 151.7 · fuente: 2023 CF_2024.txt p.7 (comparativo del informe siguiente)
+  circulante: fase1_v63 2023 = 78.805 · Historia J14 = 78.805 · fuente: 2023 CF_2024.txt p.7 (comparativo del informe siguiente)
+  arrendamientos_principal: fase1_v63 2023 = 5.861 · Historia J17 = 5.861 · fuente: 2023 CF_2024.txt p.56 (comparativo del informe siguiente)
+  da: fase1_v63 2023 = 87.21 · Historia J8 = 87.21 · fuente: 2023 CF_2024.txt p.4 (comparativo del informe siguiente)
+  Análisis C46 335.4 · C47 169.7 · C48 0 · C49 4.5 · C50 0 · C52 161.2
+  [CUMPLE] la réplica reproduce la f del libro · 0.019890
+  Entradas constantes en todas las réplicas: ventas, EBIT, tipo y D&A 2023–2025 (Historia J–L 6, 7, 8, 10), capex (fila 12),
+  ventana C57 = 3. Solo cambia lo que indica cada línea.
+  réplica · libro (2023 = 78,805 · 2024 = −127,840): C76 40.4303 · C79 29.7087 · f 0.019890
+  réplica · 2024 corregido a 84,994; 2023 = 78,805: C76 111.3750 · C79 -41.2359 · f -0.027608
+  réplica · 2024 corregido a 84,994; 2023 = 89,866 (presentación del informe 2023): C76 115.0620 · C79 -44.9229 · f -0.030076
+  réplica · 2024 sin corregir; 2023 = 89,866: C76 44.1173 · C79 26.0217 · f 0.017422
+  [CUMPLE] C46 y C47 son las medias 2023–2025 de CFO y capex (redondeadas a un decimal) · 335.4133 · 169.6677
+  arrendamientos (sensibilidad condicionada, no límites): media de pagos totales 6.7640 · media de pagos − devengado 4.5100 (C49 = 4.5)
+    C49 = 4.5: FCF base 161.2 · f (circulante del libro) 0.019890
+    C49 = 6.8: FCF base 158.9 · f (circulante del libro) 0.021430
+    C49 = 0.0: FCF base 165.7 · f (circulante del libro) 0.016877
+
+========================================================================================================
+RESULTADO: todas las comprobaciones esperadas se cumplen
