@@ -323,7 +323,7 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "d032691ef2b926e387de3965460469d0994948df",
+      "commit_origen": "c734ca151d415501d564bf426df7d98ecef694f8",
       "commit_destino": null,
       "evidencia": [
         "resultados_qwen/ejecucion_d/RESUMEN_PARA_INTEGRADOR.md",
@@ -338,13 +338,14 @@
         "resultados_qwen/ejecucion_d/ @ d032691 (bloque 3: regeneración con el arnés v3)",
         "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/REVISION_D_d032691.md",
         "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/ESTADO_D3_TRAS_d032691.md",
-        "contraste documental (no del personaje): automation/claude_review/results/munger-d-relevos-001 (ae8edcb, truncado) y munger-d-relevos-002 (a882874, postprocessed_report) en automatizacion/claude-api-piloto-registro, sobre D @ d032691, Q1-028/Q1-032"
+        "contraste documental (no del personaje): automation/claude_review/results/munger-d-relevos-001 (ae8edcb, truncado) y munger-d-relevos-002 (a882874, postprocessed_report) en automatizacion/claude-api-piloto-registro, sobre D @ d032691, Q1-028/Q1-032",
+        "mistral/d-qwen-aceptacion @ 328fa31 (D3 bloque A: R1/R2/R7) y c734ca1 (bloque B: R3/R5)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "PARCIALES",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "D3 sigue vigente (d032691 es anterior a CORRECCION_D3). Tras d032691: R6 cerrado, la regeneración cerrada y el MAPA publicado; R1–R5 y R8 abiertos, con 7 variantes nuevas (ESTADO_D3_TRAS_d032691.md). Mistral D responde a D3 sobre d032691.",
+      "siguiente_accion": "Respuesta a D3 entregada en dos bloques (328fa31, c734ca1). Revisión crítica por un contexto distinto en curso. Faltan, según el autor, R4/R8 si no vienen en estos bloques; el revisor lo comprobará.",
       "observacion": "Bloque 3 (d032691) posterior a la revisión de 5f4b2a2: regenera artefactos y cambia ejecutar_todo.sh y especificaciones; no modifica lib_arnes.py, ejecutar_caso.py ni generar_matriz.py (contraste externo 35d0fb9). Revisión del coordinador frente a D3 en curso. Contraste del piloto Claude API (relevos-002) sobre d032691: los relevos Q1-028 y Q1-032 no tienen estado inicial, fases ni un artefacto por criterio, y comando_relevo es null. Coincide con D3-R4 y lo refuerza. No es ejecución del personaje ni sustituye D3.",
       "commit_revisado": "d032691ef2b926e387de3965460469d0994948df",
       "alcance_aceptado": [],
@@ -371,7 +372,8 @@
         "resultados_qwen/ejecucion_d/ @ d032691 (bloque 3: regeneración con el arnés v3)",
         "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/REVISION_D_d032691.md",
         "coordinacion/cierre_v2/revisiones_coordinador/D_d032691/ESTADO_D3_TRAS_d032691.md",
-        "contraste documental (no del personaje): automation/claude_review/results/munger-d-relevos-001 (ae8edcb, truncado) y munger-d-relevos-002 (a882874, postprocessed_report) en automatizacion/claude-api-piloto-registro, sobre D @ d032691, Q1-028/Q1-032"
+        "contraste documental (no del personaje): automation/claude_review/results/munger-d-relevos-001 (ae8edcb, truncado) y munger-d-relevos-002 (a882874, postprocessed_report) en automatizacion/claude-api-piloto-registro, sobre D @ d032691, Q1-028/Q1-032",
+        "mistral/d-qwen-aceptacion @ 328fa31 (D3 bloque A: R1/R2/R7) y c734ca1 (bloque B: R3/R5)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "PARCIALES",
@@ -394,7 +396,7 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
+      "commit_origen": "ea641e77523c7833f67b56f8fd7f1f90577e7add",
       "commit_destino": null,
       "evidencia": [
         "resultados_cierre/elis_fuentes/ @ 93a9780 (mistral/e-fuentes-elis): ENTREGA.json, LECTURA_FUENTES.jsonl, PREGUNTAS_Y_RESULTADOS.csv, HALLAZGOS_ELIS.md",
@@ -404,13 +406,14 @@
         "Release fuentes-elis-e-20261117 (11 PDF + INDICE_11_PDF.csv + SHA256SUMS), creada por el flujo preservar-fuentes-elis, ejecución 44054890531 (éxito) sobre coordinacion/release-fuentes-elis @ a99d9f1",
         "resultados_cierre/elis_fuentes/ @ 23718fb (respuesta a E1) y f00c5dd (checkpoint de relevo)",
         "coordinacion/cierre_v2/revisiones_coordinador/E1_23718fb/REVISION_E1_23718fb.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/E1_23718fb/CORRECCION_E2.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/E1_23718fb/CORRECCION_E2.md",
+        "mistral/e-fuentes-elis @ ea641e7 (bloque 6: respuesta a CORRECCION_E2, D1…D9)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Mistral E corrige E2-D1…D9 (CORRECCION_E2.md) y actualiza el estado de preservación a la Release. M1/M2/M6/N2 ABIERTOS; Elis pendiente_de_datos.",
+      "siguiente_accion": "Respuesta E2 (ea641e7) entregada; revisión de lo afectado por un contexto distinto en curso.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
       "alcance_aceptado": [],
@@ -496,18 +499,19 @@
       "entrega": "ENTREGADO",
       "revision": "CONFORME_CON_LIMITES",
       "integracion": "NO",
-      "commit_origen": "c7716a0871b62a668734ce627130b198a6cb36b8",
+      "commit_origen": "c504830d78b4d568944298d0ae34cc6bc0bb6edb",
       "commit_destino": null,
       "evidencia": [
         "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_F1_W1_W3_d519eb0.md @ 90329a1",
         "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_C20_bf0d5c2.md @ e94ee7c",
-        "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_CSV_77ff89f8.md @ c7716a0"
+        "resultados_cierre/alcance_real/revisiones_claude/CONTRASTE_CSV_77ff89f8.md @ c7716a0",
+        "mistral/f-alcance-real @ 27c5931, c4d918f, 52eca91 y c504830 (respuesta a CORRECCION_F3, R3–R15)"
       ],
       "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Siguiente contraste de Mistral C/F sobre entregas de Claude: G-MANUAL (solicitud LISTA), además de responder a CORRECCION_F2.",
+      "siguiente_accion": "Respuesta F3 (c504830) entregada; revisión de lo afectado por un contexto distinto en curso.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": "c7716a0871b62a668734ce627130b198a6cb36b8",
       "alcance_aceptado": [
@@ -537,7 +541,8 @@
         "resultados_cierre/alcance_real/ @ 195766f (F2-D1/D2/D7), e9f76a9 (F2-D3), 9873234 (F2-D6), c761cc8 (F2-D4/D5/D7)",
         "resultados_cierre/alcance_real/ @ 98bdf8f (respuesta completa a F2 con ENTREGA)",
         "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/REVISION_F2_195766f_98bdf8f.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/CORRECCION_F3.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/CORRECCION_F3.md",
+        "mistral/f-alcance-real @ 27c5931, c4d918f, 52eca91 y c504830 (respuesta a CORRECCION_F3, R3–R15)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
@@ -570,7 +575,8 @@
         "resultados_cierre/alcance_real/ @ 195766f (F2-D1/D2/D7), e9f76a9 (F2-D3), 9873234 (F2-D6), c761cc8 (F2-D4/D5/D7)",
         "resultados_cierre/alcance_real/ @ 98bdf8f (respuesta completa a F2 con ENTREGA)",
         "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/REVISION_F2_195766f_98bdf8f.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/CORRECCION_F3.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/CORRECCION_F3.md",
+        "mistral/f-alcance-real @ 27c5931, c4d918f, 52eca91 y c504830 (respuesta a CORRECCION_F3, R3–R15)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
@@ -588,7 +594,7 @@
       "autor": "Claude coordinador (borrador por un subagente de redacción)",
       "revisor_propuesto": "Claude + receptor distinto",
       "entrega": "ENTREGADO",
-      "revision": "CONFORME_CON_LIMITES",
+      "revision": "CORRECCIONES",
       "integracion": "NO",
       "commit_origen": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "commit_destino": null,
@@ -713,7 +719,8 @@
       "evidencia": [
         "jluisplagos/munger-v2 · integracion/hechos-raiz-957af65 @ 3d66437 (base 957af65): CLAUDE.md, README.md, docs/MIGRATION_STATUS.json",
         "coordinacion/cierre_v2/revisiones_coordinador/G-RAIZ_3d66437/REVISION_G-RAIZ_3d66437.md",
-        "integracion/hechos-raiz-957af65 @ e813fe6 (corrección G1–G5; merge-tree sobre 3149128 limpio; JSON válido)"
+        "integracion/hechos-raiz-957af65 @ e813fe6 (corrección G1–G5; merge-tree sobre 3149128 limpio; JSON válido)",
+        "mistral/g-manual-traspaso @ e61d66d: revisión de 3d66437 por Mistral A, CONFORME CON LÍMITES. Discrepa de la revisión Claude, que dio CORRECCIONES (G1 material). Se conservan las dos; la corrección e813fe6 ya atiende G1–G5"
       ],
       "pruebas_autor": "EJECUTADAS",
       "pruebas_externas": "NO_EJECUTADAS",
@@ -1464,6 +1471,16 @@
       "tipo": "ASIGNACION",
       "fecha": "2026-11-17",
       "hecho": "Se encargan revisiones de contextos distintos del autor: G-RAIZ e813fe6, manual v3 y AUTO1 422a6f3."
+    },
+    {
+      "tipo": "CONSULTA",
+      "fecha": "2026-11-17",
+      "hecho": "Entregas de Mistral: D3, bloques A (328fa31) y B (c734ca1); E2 (ea641e7); F3 (27c5931…c504830); revisión de G-RAIZ hecha por Mistral A (e61d66d, CONFORME CON LÍMITES); contraste de Mistral R (378a7cb)."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "Contraste externo de Mistral R (378a7cb) sobre siete revisiones del coordinador, con corte en 30c314c (AUTO, manual v2, D3, d032691, A4, E2 y F3): todas CONFORMES y sus hallazgos se reproducen. Discrepancia D-MANUAL-1: el campo revision de G-MANUAL seguía en CONFORME_CON_LIMITES; corregido a CORRECCIONES. Nota: las revisiones de D no tenían solicitud_revision formal."
     }
   ],
   "consulta_remotos_arranque": {

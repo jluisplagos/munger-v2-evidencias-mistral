@@ -14,15 +14,15 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | C20 | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | bf0d5c2 |
 | CSV | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | 77ff89f |
 | A-CTX | Mistral A | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 0946971 |
-| D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / PARCIALES | d032691 |
+| D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / PARCIALES | c734ca1 |
 | D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / PARCIALES | d032691 |
-| E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | f00c5dd |
+| E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | ea641e7 |
 | B-PM1 | Mistral B (autor previo) | PARCIAL | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | daa7478 |
 | C-C2 | Mistral C (autor previo) | ENTREGADO | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | 1ec4f18 |
-| F-REV | Antigua Mistral C, nueva F | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / NO_EJECUTADAS | c7716a0 |
+| F-REV | Antigua Mistral C, nueva F | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / NO_EJECUTADAS | c504830 |
 | F-B3 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 98bdf8f |
 | F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 98bdf8f |
-| G-MANUAL | Claude coordinador (borrador por un subagente de redacción) | ENTREGADO | CONFORME_CON_LIMITES | NO | NO_EJECUTADAS / PARCIALES | 341831f |
+| G-MANUAL | Claude coordinador (borrador por un subagente de redacción) | ENTREGADO | CORRECCIONES | NO | NO_EJECUTADAS / PARCIALES | 341831f |
 | G-DOCS | Claude coordinador | ENTREGADO | CONFORME_CON_LIMITES | SI | EJECUTADAS / REPRODUCIDAS | c0542b8 |
 | G-RAIZ | Claude coordinador | ENTREGADO | CORRECCIONES | NO | EJECUTADAS / NO_EJECUTADAS | e813fe6 |
 | T-CAND | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 957af65 |
@@ -42,15 +42,15 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - **CSV · Cifras [LECTURA] al CSV verificado (bloque CSV de ENCARGO_C20_CSV.md, f5775dc)**: Nada en esta tarea. No es software del producto: no se integra en la candidata; queda en la rama F1.
   Dependencias: C20.
 - **A-CTX · Evidencia contextual A v3**: Mistral A: primero la revisión de G-RAIZ (3d66437); después A4-R1…R6 (CORRECCION_A4.md) en la rama A. T-EXP sigue bloqueado por A-CTX.
-- **D-HARNESS · Arnés D v2 y paquetes íntegros**: D3 sigue vigente (d032691 es anterior a CORRECCION_D3). Tras d032691: R6 cerrado, la regeneración cerrada y el MAPA publicado; R1–R5 y R8 abiertos, con 7 variantes nuevas (ESTADO_D3_TRAS_d032691.md). Mistral D responde a D3 sobre d032691.
+- **D-HARNESS · Arnés D v2 y paquetes íntegros**: Respuesta a D3 entregada en dos bloques (328fa31, c734ca1). Revisión crítica por un contexto distinto en curso. Faltan, según el autor, R4/R8 si no vienen en estos bloques; el revisor lo comprobará.
 - **D-36 · Aceptación completa de 36 casos Qwen**: 0/36 casos del personaje (correcto). No se ejecutan con un arnés sin aceptar; el runtime del coordinador los ejecutará cuando D3-R1…R4 estén cerrados.
   Dependencias: D-HARNESS, T-CAND.
   Bloqueo/límite: No falta capacidad: el personaje se ejecuta con código 10 y subagentes de la sesión orquestadora (modelo y esfuerzo de config_v2.json, fase C con el mismo agente, auditoría con agente nuevo; sin API). Comprobado en 957af65: réplica hasta el código 10, paso 5. Bloqueo real: la adaptación de los 36 casos sintéticos a vías soportadas y la correspondencia criterio→observable (D2-R4/R5, Mistral D), que exige el propio PLAN_DE_EJECUCION del banco.
-- **E-ELIS · Fuentes M1/M2/M6/N2 de Elis**: Mistral E corrige E2-D1…D9 (CORRECCION_E2.md) y actualiza el estado de preservación a la Release. M1/M2/M6/N2 ABIERTOS; Elis pendiente_de_datos.
+- **E-ELIS · Fuentes M1/M2/M6/N2 de Elis**: Respuesta E2 (ea641e7) entregada; revisión de lo afectado por un contexto distinto en curso.
 - **B-PM1 · Dossier P-M1 corregido; contraste documental pendiente**: Dato de las nueve altas aceptado con límites (revisión del coordinador sobre daa7478 y contraste 223f16d). P-M1 sigue bloqueado: no se identifica θ/λ ni se adopta política. Nada que integrar en el producto sin decisión.
   Bloqueo/límite: P-M1 no delimitada con evidencia disponible; 4 PDF nuevos con preservación pendiente.
 - **C-C2 · Guarda de perímetros C2**: Decisión del integrador: no se incorpora a la candidata. Es herramienta de contraste del auxiliar, no software del producto, y conserva C1 y D1/D7/D11 pendientes. Se conserva el enlace (1ec4f18, SEGUIMIENTO.md @ b049777); se usa como oráculo de contraste solo dentro de su alcance.
-- **F-REV · Contraste independiente de cambios Claude**: Siguiente contraste de Mistral C/F sobre entregas de Claude: G-MANUAL (solicitud LISTA), además de responder a CORRECCION_F2.
+- **F-REV · Contraste independiente de cambios Claude**: Respuesta F3 (c504830) entregada; revisión de lo afectado por un contexto distinto en curso.
 - **F-B3 · Tercer B real fuera de muestra**: Inventario reproducible aceptado con límites (F2-D1 cerrado; 71 PDF con huella). Mistral C/F corrige F3-R3 (.bat de Ahold), R4 y textos. La ejecución depende de U2 (etapa 1 de Ahold).
   Bloqueo/límite: Historia irrecuperable de la persona responsable: Ahold_evaluada.xlsx (V5.3) y Ahold_respuesta.md de la etapa 1 (sin ellos el pipeline se detiene en el paso 1 y la r heredada C56 no puede reconstruirse sin elegirla); huellas de sus PDF 2019–2025 (HUELLAS.txt del .bat); y si el resultado de la etapa 1 influyó en elegir a Ahold como reserva.
 - **F-C1 · Primer recorrido C real y contrato específico**: Contrato C de F con un defecto medio (F3-R5: el motor se elige en Análisis!C62, comprobado en build_v6.py). Se alinea con el de u3_motor_c o se retira (F3-R12). La elección de candidato es de la persona responsable sobre U3.
