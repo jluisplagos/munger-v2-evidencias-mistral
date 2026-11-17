@@ -367,47 +367,38 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "93a97801f8c4f6a4dc5cabd4540248390cf113d0",
+      "commit_origen": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
       "commit_destino": null,
       "evidencia": [
         "resultados_cierre/elis_fuentes/ @ 93a9780 (mistral/e-fuentes-elis): ENTREGA.json, LECTURA_FUENTES.jsonl, PREGUNTAS_Y_RESULTADOS.csv, HALLAZGOS_ELIS.md",
         "coordinacion/cierre_v2/revisiones_coordinador/E_93a9780/REVISION_E_93a9780.md",
         "coordinacion/cierre_v2/revisiones_coordinador/E_93a9780/CORRECCION_E1.md",
         "coordinacion/cierre_v2/revisiones_coordinador/E_93a9780/adenda_20261117/ADENDA.md",
-        "Release fuentes-elis-e-20261117 (11 PDF + INDICE_11_PDF.csv + SHA256SUMS), creada por el flujo preservar-fuentes-elis, ejecución 44054890531 (éxito) sobre coordinacion/release-fuentes-elis @ a99d9f1"
+        "Release fuentes-elis-e-20261117 (11 PDF + INDICE_11_PDF.csv + SHA256SUMS), creada por el flujo preservar-fuentes-elis, ejecución 44054890531 (éxito) sobre coordinacion/release-fuentes-elis @ a99d9f1",
+        "resultados_cierre/elis_fuentes/ @ 23718fb (respuesta a E1) y f00c5dd (checkpoint de relevo)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Mistral E corrige E-R1…E-R9 (CORRECCION_E1.md). Preservación duradera resuelta (U1): Release fuentes-elis-e-20261117, 11/11 con digest del servidor igual a SHA256SUMS. Los 11 PDF dejan de ser PROVISIONALES. M1/M2/M6/N2 siguen ABIERTOS; Elis pendiente_de_datos.",
+      "siguiente_accion": "El coordinador revisa la respuesta a E1 (23718fb/f00c5dd), solo E-R1…E-R9. Preservación duradera ya resuelta (Release fuentes-elis-e-20261117).",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": "93a97801f8c4f6a4dc5cabd4540248390cf113d0",
       "alcance_aceptado": [],
       "solicitud_revision": {
-        "estado": "RESPONDIDA",
-        "sha_autor": "93a97801f8c4f6a4dc5cabd4540248390cf113d0",
-        "base_revisada": "ec707a5ba2bd684381a63ce0f6f6c143aa59f4c0",
+        "estado": "EN_CURSO",
+        "sha_autor": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
+        "base_revisada": "93a97801f8c4f6a4dc5cabd4540248390cf113d0",
         "diff_rutas": [
           "resultados_cierre/elis_fuentes/"
         ],
         "criterios": [
-          "ENTREGA.json completo y honesto",
-          "preservación de los 11 PDF provisionales",
-          "28 citas en su página (las observables con la base 4.14)",
-          "M1/M2/M6/N2 sin ir más allá de la evidencia",
-          "Elis pendiente_de_datos y decisiones vigentes conservadas",
-          "higiene y manifiesto"
+          "E-R1…E-R9 según CORRECCION_E1.md",
+          "52 citas en su página",
+          "extractos acotados con huella"
         ],
         "revisor_asignado": "Claude coordinador (subagente de revisión)",
-        "informe_revision": {
-          "ruta": "coordinacion/cierre_v2/revisiones_coordinador/E_93a9780/REVISION_E_93a9780.md",
-          "veredicto": "Correcciones materiales en N2 (+25,7 no es monetario ni flujo operativo) y M6 (Bodensee es adquisición importante; 117,6 frente a 37,3); conforme con límites en lo demás",
-          "limites": [
-            "sin red: 21 de 28 citas no observables; 7 del URD 2025 verificadas en su página",
-            "las 3 pruebas del autor dependen de .trabajo/ y no son reproducibles aquí"
-          ]
-        }
+        "informe_revision": null
       }
     },
     {
@@ -1029,6 +1020,11 @@
       "tipo": "ENTREGA",
       "fecha": "2026-11-17",
       "hecho": "Decisiones económicas F1 presentadas una por una a la persona responsable (03e7851); ninguna adoptada."
+    },
+    {
+      "tipo": "ENTREGA",
+      "fecha": "2026-11-17",
+      "hecho": "Mistral E responde a E1 en 23718fb (+ checkpoint f00c5dd); revisión del coordinador en curso."
     }
   ],
   "consulta_remotos_arranque": {
