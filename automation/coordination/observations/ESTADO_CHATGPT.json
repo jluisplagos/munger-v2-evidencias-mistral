@@ -17,7 +17,14 @@
     "jluisplagos/munger-v2:main": "d69d4837f0e99ce30f38d3461f15cceee9a58730"
   },
   "last_seen_critical_review": null,
-  "automation_status": "PENDIENTE_CONFIGURACION",
+  "automation_status": "ACTIVA_CONFIGURADA_PRIMERA_EJECUCION_PENDIENTE",
   "notification_policy": "Solo cambios sustantivos o bloqueos reales; sin novedad, no notificar",
-  "author": "ChatGPT"
+  "author": "ChatGPT",
+  "automation": {
+    "id": "Automation_d48324fd72a0819188c561f68b6fd354",
+    "is_enabled": true,
+    "timezone": "Europe/Amsterdam",
+    "schedule": "RRULE:FREQ=HOURLY",
+    "purpose": "Consulta novedades; no lanza inferencias de pago"
+  }
 }
