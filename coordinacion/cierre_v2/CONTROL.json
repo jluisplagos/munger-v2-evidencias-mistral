@@ -927,10 +927,10 @@
       "autor": "Usuario (ramas automatizacion/*, preparadas con ChatGPT)",
       "revisor_propuesto": "Contexto de Claude distinto del autor (código) y coordinador (registro)",
       "entrega": "ENTREGADO",
-      "revision": "CORRECCIONES",
-      "integracion": "NO",
-      "commit_origen": "a508d6b38168933d9e6ef480e0d23627b8d748fb",
-      "commit_destino": null,
+      "revision": "CONFORME_CON_LIMITES",
+      "integracion": "SI",
+      "commit_origen": "422a6f3d273cf6f0e731f4cb6affa255cedb43d1",
+      "commit_destino": "422a6f3d273cf6f0e731f4cb6affa255cedb43d1",
       "evidencia": [
         "automatizacion/coordinacion-api-v1 @ a508d6b: automation/coordination/{LEER_PARA_CLAUDE.md, PROGRAMA.md, QWEN_CONTRASTE.md, VIBE_CLI.md, critical_review.py, qwen_*_review.py, run_vibe_auth.py, vibe_connection.py, test_*.py}",
         "corrección del transporte SSE: 0956bc595d70916f2301f805cb533e2b28012ca5 (critical_review.py, test_critical_review.py)",
@@ -949,10 +949,13 @@
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "Infraestructura, no producto. Ni se adopta ni se fusiona main; PR #1 queda en borrador. No hay agente API que aplique correcciones ni una cola continua autorizada. audit-pilot-code-001 no se repite. No se cambia la facturación ni se activa pay-as-you-go. Sus informes son contrastes documentales: no ejecutan el personaje, no aceptan entregas y no sustituyen correcciones (D3) ni revisiones del coordinador.",
-      "siguiente_accion": "AUTO1 (422a6f3) revisada por un contexto distinto: conforme con observaciones, sin hallazgos materiales. 95+49 pruebas, sonda SSE 25/25, 0 jobs no conformes; 41 de 44 pruebas nuevas fallan sobre a508d6b y 10 de 10 mutantes detectados. Siguen abiertos M7 (hashes), m6 (ruleset) y las observaciones N1–N6. N2: Vibe CLI puede leer el GH_TOKEN con escritura del proceso padre; hay que separarlo. Pendiente del usuario: crear el environment inferencia-aprobada con revisores, mover allí los secretos, fijar el tope y decidir si los workflows pasan a main. El autor de 422a6f3 es un contexto Claude de esta sesión. No integrado ni adoptado: la rama del usuario no cambia.",
+      "siguiente_accion": "AUTO1 fusionada en main del repositorio auxiliar (fast-forward a 422a6f3) con autorización expresa de la persona responsable, para usar el crédito de API mediante workflow_dispatch. Pendiente de ella: environment inferencia-aprobada con revisor obligatorio, ANTHROPIC_API_KEY dentro, tope MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD. Después, el lanzador de análisis directo.",
       "observacion": "Costes estimados: relevos-001 USD 0,070368 (reserva 0,115726; truncado a 4096) y relevos-002 USD 0,094358, conjunto 0,164726; crédito pendiente de confirmar en Console. audit-pilot-code-001 (Fable 5.2/max): ANTHROPIC_ERROR_RED_TIMEOUT tras 180 s, sin veredicto ni uso recibido; reserva 1,912936, coste incierto; no se repite. qwen-peer-group-01: estimado 0,102272 (reserva 0,25281). vibe-auth-001: conexión comprobada (7269/50 tokens) con coste 0. qwen-bank-review-001 (Mistral): fallo por longitud de salida (42992/16384). qwen-bank-group-01 (Mistral, Q1-001…006): entregado. Comprobado por el coordinador: el report.json de relevos-002 en 953af02 tiene sha256 1bd8a638…, igual a la source_response_sha256 fijada en 5b12950. El postprocessed_report.review es igual al JSON de raw_model_output una vez quitado un único envoltorio ```json…```; no se añadió ni se quitó contenido. La cabecera 267ad18 solo cambia observations/; la revisión de a508d6b sigue valiendo para el código. ChatGPT tiene una comprobación horaria activa, de solo lectura, que no lanza inferencias, según ESTADO_CHATGPT.json @ 267ad18.",
-      "commit_revisado": "a508d6b38168933d9e6ef480e0d23627b8d748fb",
-      "alcance_aceptado": [],
+      "commit_revisado": "422a6f3d273cf6f0e731f4cb6affa255cedb43d1",
+      "alcance_aceptado": [
+        "automation/",
+        ".github/workflows/"
+      ],
       "solicitud_revision": {
         "estado": "RESPONDIDA",
         "sha_autor": "a508d6b38168933d9e6ef480e0d23627b8d748fb",
@@ -1581,6 +1584,11 @@
       "tipo": "PREPARACION",
       "fecha": "2026-11-17",
       "hecho": "Orden previo al arranque. MAPA.md clasifica cada rama (en uso, conservar, aparcado, cerrado o borrable); las ramas solo se borran con confirmación. PROMPT_CONTINUIDAD_20261117.md sirve para abrir una ventana nueva. universo/ guarda el informe crítico y su lectura. Se archivaron 6 sesiones Claude terminadas; el clasificador de permisos denegó archivar otras 2."
+    },
+    {
+      "tipo": "INTEGRACION",
+      "fecha": "2026-11-17",
+      "hecho": "Con autorización expresa de la persona responsable («te autorizo»), AUTO1 (422a6f3) se fusiona en main del repositorio auxiliar por fast-forward, para poder usar el crédito de API con workflow_dispatch. Las inferencias solo se lanzan a mano con el environment protegido; un push no gasta nada."
     }
   ],
   "consulta_remotos_arranque": {
