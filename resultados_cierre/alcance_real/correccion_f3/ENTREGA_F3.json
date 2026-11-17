@@ -1,0 +1,103 @@
+{
+  "es_plantilla": false,
+  "frente": "F · respuesta a CORRECCION_F3 (revisiones_coordinador/F2_195766f_98bdf8f) @ coordinacion/cierre-v2 b257dfd",
+  "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+  "rama": "mistral/f-alcance-real",
+  "base_revisada_sha": "98bdf8f7a48ee01c764834c5305b268fdde2b989",
+  "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+  "directorio_entrega": "resultados_cierre/alcance_real/correccion_f3/ (y ediciones en preparacion_b3_c1/, revisiones_b_pm1/ENTREGA_B_PM1.json, correccion_f2/ENTREGA_F2.json, correccion_f2/RESPUESTA_F2.md, COMANDOS.md, PUNTO_DE_RECUPERACION.md, MANIFIESTO_SHA256.txt)",
+  "tareas_control": ["F-B3", "F-C1", "B-PM1"],
+  "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+  "banco_sha": null,
+  "naturaleza": "respuesta a correccion F3, solo lo abierto (R3-R15): .bat de Ahold con SHA-256 y alcance negativo en el inventario; contrato C alineado con U3 (motor en Análisis!C62, citas reales, quiebra BJ, descenso lineal de g_t, excedente limpio, ROE cierre/apertura); sin dos contratos ni candidatas propias; comandos de ENTREGA ejecutables tal cual; textos y afirmaciones pre-F2 corregidos. Nada ejecutado con el producto; nada adoptado.",
+  "autor_contexto_modelo_herramientas": "Relevo de Mistral F, modelo mistral-large-4-0 (Vibe Code). Herramientas: gh/git, clon solo-lectura de jluisplagos/munger-v2 @957af65, ZIP base-4.14 (sha256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e), python3 -I stdlib, unzip, sha256sum. Sin LibreOffice ni pipeline. Horas reales de sesion 2026-11-17 ~13:05-13:16 UTC (date -u); horas de commits via git log --format=%ad. Esfuerzo/consumo no visibles; no declarados.",
+  "fuentes_y_preservacion": [
+    "ZIP base-4.14 (release base-4.14 de jluisplagos/munger-v2): 1.130.912.246 bytes, SHA-256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e; 6799 archivos; 71/71 PDF con huella completa; 4 .bat con SHA-256 (Ahold 04feebd409754a91e509dfde1e8dd63a1e8534695d05cb75fffca6a97bd53d88 comprobado con unzip -p | sha256sum)",
+    "Producto solo lectura @957af65: build_v6.py, test_fill.py, relacion_entradas_materiales.py, patch_v62_base.py; citas verificadas linea a linea en correccion_f3/evidencias/r6_citas_reales_957af65.txt",
+    "u3_motor_c/ y u2_tercer_b/ de origin/coordinacion/cierre-v2 @b257dfd (CONTRATO_C_DESDE_EL_MOTOR.md, PROTOCOLO_SELECCION_C.md, CANDIDATOS_C.md, RECURSOS_EXISTENTES.md), leidos con git show",
+    "FUENTES_CONSERVADAS.csv @ daa7478: 29/29 PDF verificados contra el ZIP (verificar_huellas.py, exit 0)"
+  ],
+  "cambios_respecto_entrega_anterior": [
+    "27c5931 (R3/R4): inventario emite fila por .bat con SHA-256 y declara el alcance negativo (6476 dentro / 323 fuera de 6799); README.md y SELECCION.csv corregidos (.bat SI conservado, NO ejecutado); sigue byte a byte reproducible",
+    "c4d918f (R5-R8/R12/R13): contrato C alineado con U3 (motor en Análisis!C62, no Palancas C6); citas reales (flujo B6:929-930, terminal 932-934, BJ 936, BK 937, g_t 926, tau/f/adj 960-962, r 963, S2C 971; test_fill 79,84,86-88,93-95,99-104); quiebra BJ anadida (p=10%, rec=20 -> 105,55); descenso lineal g_t anos 6-10; dividendo=BN-dB solo con excedente limpio (variante OCI: E1=1025, 75 vs 50); ROE cierre 9,434% vs apertura 10%; protocolo sin candidatas (eleccion de la persona sobre U3); texto suelto y acentos corregidos; verificar_contrato_c.py ampliado (exit 0)",
+    "52eca91 (R9/R11/R14/R15): ENTREGA_B_PM1 pruebas 1-2 y ENTREGA_B3_C1 prueba 1 con comandos ejecutables tal cual (reruns capturados, exit 0 y byte-identicos); fuentes con SHA completo y 6799 archivos; ENTREGA_F2 resultado simple, rango fijo 868f448..98bdf8f, tareas_control con B-PM1; RESPUESTA_F2 citas/afirmaciones corregidas + nota F3; PUNTO 6799 y bloque F3; COMANDOS hora final F2 (09:47:33Z), variables definidas, bloque F3 con horas reales",
+    "F2-D1 y F2-D4 ya cerrados por el coordinador: no se repiten; se conservan 71 PDF con huella, puente 1060, X14/X15/X16/X18/B68, ROE de cierre y el manifiesto de 98bdf8f"
+  ],
+  "pruebas": [
+    {
+      "tipo": "dato (.bat de Ahold con huella + alcance negativo)",
+      "comando": "unzip -p \"$ZIP_414\" 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/descargas_bat/descargar_fuentes_ahold.bat' | sha256sum && python3 -I resultados_cierre/alcance_real/preparacion_b3_c1/scripts/inventario_desde_zip.py \"$ZIP_414\" /tmp/inv3.csv /tmp/huellas3.csv && cmp /tmp/inv3.csv resultados_cierre/alcance_real/preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["F3-R3: .bat registrado con SHA-256 04feebd4...d53d88 (igual al manifiesto 4.14), marcado NO ejecutado", "F3-R4: alcance negativo declarado (6476/6799 dentro, 323 fuera con desglose; 71/71 PDF dentro)", "sigue byte a byte reproducible (cmp OK)"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "correccion_f3/evidencias/r3_r4_bat_y_alcance_negativo.txt",
+      "sha_material": "ZIP base-4.14 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (contrato C verificado contra el codigo, con quiebra y variante OCI)",
+      "comando": "python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_contrato_c.py",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["F3-R5: motor en Análisis!C62 (C6 solo REVISAR/V11)", "F3-R6: citas reales verificadas (r6_citas_reales_957af65.txt)", "F3-R7: BJ=(1-p)·BI+p·rec en C (105,55 con p=10%, rec=20); descenso lineal de g_t", "F3-R8: dividendo=BN-ΔB solo con excedente limpio (OCI=-25 -> 1025/75/50); ROE cierre 9,434% vs apertura 10%", "puente 1060/1170 y x2,42 se conservan"],
+      "criterios_sin_cubrir": ["recalculo de los xlsx fixture con LibreOffice (prohibido en este frente); la verificacion es replica Python de build_v6.py/test_fill.py @957af65"],
+      "evidencia": "correccion_f3/evidencias/r5_r8_verificar_contrato_c.txt; r6_citas_reales_957af65.txt; CONTRATO_C_PROPUESTA.md; MAPA_ENTRADAS.jsonl",
+      "sha_material": "producto 957af652cdc3bef3d67e8623c9572138bac685e9",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (rerun del script del autor @ daa7478, comando ejecutable tal cual)",
+      "comando": "rm -rf /tmp/pm1_rerun && mkdir -p /tmp/pm1_rerun/.trabajo/insumos_m2 && git archive origin/mistral/m2-fundamento-pm1 resultados_m2 | tar -x -C /tmp/pm1_rerun && unzip -oq \"$ZIP_414\" 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto/*' -d /tmp/pm1_rerun/.trabajo/insumos_m2 && mv /tmp/pm1_rerun/.trabajo/insumos_m2/munger_v2_r1/personaje_v2 /tmp/pm1_rerun/.trabajo/insumos_m2/personaje_v2 && git show origin/mistral/m2-fundamento-pm1:resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv > /tmp/vidrala_daa7478.csv && cd /tmp/pm1_rerun && python3 -I resultados_m2/pm1/scripts/tablas_vidrala.py && cmp resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv /tmp/vidrala_daa7478.csv",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["F3-R9: ENTREGA_B_PM1 prueba 1 ejecutable tal cual; CSV byte-identico al de daa7478"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "correccion_f3/evidencias/r9_rerun_tablas_vidrala.txt",
+      "sha_material": "daa74783d2708fcd46ca7c24ae1ffbb327c35784; ZIP bb51942c...7b93e",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (extractor B-PM1 con ruta por argumento, comando ejecutable tal cual)",
+      "comando": "unzip -oq \"$ZIP_414\" 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto/*' -d /tmp/insumos_m2 && python3 -I resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py /tmp/insumos_m2/munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto | cmp - resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_out.txt",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["F3-R9: ENTREGA_B_PM1 prueba 2 / ENTREGA_F2 prueba 3 ejecutables tal cual; salida byte-identica"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "correccion_f3/evidencias/r9_extractor_byte_identico.txt",
+      "sha_material": "textos CF_20YY del ZIP bb51942c...7b93e",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "dato (huellas de FUENTES_CONSERVADAS @ daa7478 contra el ZIP)",
+      "comando": "git show origin/mistral/m2-fundamento-pm1:resultados_m2/pm1/FUENTES_CONSERVADAS.csv > /tmp/fuentes_daa7478.csv && python3 -I resultados_cierre/alcance_real/correccion_f2/scripts/verificar_huellas.py \"$ZIP_414\" /tmp/fuentes_daa7478.csv",
+      "exit_esperado": 0, "exit_observado": 0,
+      "criterios_cubiertos": ["29/29 PDF coinciden (control negativo previo del revisor: 28/29 con SHA mutado, exit 1)"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "correccion_f2/evidencias/d7_verificar_huellas_daa7478.txt",
+      "sha_material": "daa7478 FUENTES_CONSERVADAS.csv; ZIP bb51942c...7b93e",
+      "resultado": "EJECUTADO"
+    },
+    {
+      "tipo": "componente (recorrido real de F-B3 o F-C1)",
+      "comando": "NO EJECUTADO: Cola 3 bloqueada por insumos de la persona responsable (etapa 1 de Ahold: Ahold_evaluada.xlsx + respuesta + PDF con huellas; candidatos de C de U3 con descargas denegadas por permisos/403) y prohibido LibreOffice/pipeline en este frente",
+      "exit_esperado": null, "exit_observado": null,
+      "criterios_cubiertos": [],
+      "criterios_sin_cubrir": ["ejecucion del tercer B real y del primer C real: dependen de datos de la persona responsable y de la candidata que ella elija sobre U3"],
+      "evidencia": "SELECCION.csv; PROTOCOLO_CONGELADO.md §2.1; u3_motor_c/CANDIDATOS_C.md; PUNTO_DE_RECUPERACION.md",
+      "sha_material": null,
+      "resultado": "NO_EJECUTADO"
+    }
+  ],
+  "precondiciones_simuladas": [],
+  "revision_por_otro_contexto": "Pendiente: el coordinador registra esta respuesta a CORRECCION_F3 en CONTROL.json y asigna contraste. No me autoaprobo.",
+  "limites_y_bloqueos": [
+    "Bloqueos de la persona responsable (no de F): etapa 1 de Ahold (U2) y documentos de los candidatos de C (U3, descargas denegadas)",
+    "Contrato de F alineado con U3; no se mantienen dos versiones; F no nombra candidatas de C (F3-R12)",
+    "La verificacion del contrato C es replica Python de las formulas del producto @957af65; el recalculo de fixtures xlsx requiere LibreOffice (prohibido aqui) y queda NO_EJECUTADO",
+    "Solo se escribio resultados_cierre/alcance_real/ en mistral/f-alcance-real; producto, main, CONTROL y ESTADO intactos",
+    "Misma familia de modelo que sesiones Mistral anteriores; independencia de sesion/metodo, no de familia; declarado"
+  ],
+  "siguiente_accion_exacta": "El coordinador registra en CONTROL.json las respuestas F2 (correccion_f2/ENTREGA_F2.json) y F3 (correccion_f3/ENTREGA_F3.json; commits 27c5931/c4d918f/52eca91 y el de este bloque desde 98bdf8f) y asigna sus contrastes. Bloqueos materiales sin resolver: insumos de Ahold (U2) y documentos de candidatos de C (U3).",
+  "integrado_en_producto": false,
+  "apto_dinero_real": "No se declara por este formulario",
+  "criterios_cubiertos": ["F3-R3 .bat de Ahold con SHA-256 registrado", "F3-R4 alcance negativo declarado (323/6799 fuera, 0 PDF fuera)", "F3-R5 motor en Análisis!C62 (C6 = aviso/bloqueo)", "F3-R6 citas línea a línea verificadas", "F3-R7 quiebra BJ y descenso lineal de g_t añadidos y comprobados", "F3-R8 excedente limpio (variante OCI) y ROE cierre vs apertura", "F3-R9 comandos de ENTREGA ejecutables tal cual (reruns byte-identicos)", "F3-R11 textos pre-F2 corregidos en ENTREGA/PUNTO", "F3-R12 un solo contrato (alineado con U3), sin candidatas propias", "F3-R13 texto suelto y acentos", "F3-R14/R15 afirmaciones exactas en RESPUESTA_F2/ENTREGA_F2/COMANDOS"],
+  "criterios_pendientes": ["revision externa de F2 y F3 por el coordinador", "recalculo de fixtures xlsx del motor C con LibreOffice (prohibido en este frente)", "ejecucion real F-B3/F-C1 (bloqueada por insumos externos)"],
+  "salida_siguiente": "correccion_f3/: RESPUESTA_F3.md, ENTREGA_F3.json, evidencias/ (r3_r4, r5_r8, r6_citas, r9 x2); ediciones en preparacion_b3_c1/ (script, INVENTARIO, huellas, contrato, mapa, protocolo, README, SELECCION, ENTREGA_B3_C1), revisiones_b_pm1/ENTREGA_B_PM1.json, correccion_f2/ (ENTREGA_F2.json, RESPUESTA_F2.md, verificar_contrato_c.py), COMANDOS.md, PUNTO_DE_RECUPERACION.md, MANIFIESTO_SHA256.txt"
+}
