@@ -10,8 +10,8 @@
     "producto_tecnico": "957af652cdc3bef3d67e8623c9572138bac685e9",
     "candidata": "957af652cdc3bef3d67e8623c9572138bac685e9",
     "f1": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
-    "A": "8b88fab28261506c60bc7631fd24894e225099d2",
-    "D": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
+    "A": "74d94f825a2cdd9da003b02de67d0e04149fa7f2",
+    "D": "d032691ef2b926e387de3965460469d0994948df",
     "E": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
     "F": "98bdf8f7a48ee01c764834c5305b268fdde2b989",
     "B": "daa74783d2708fcd46ca7c24ae1ffbb327c35784",
@@ -20,7 +20,8 @@
     "revision_F1": "f5775dc07a61b829df2b0e7a4a97c556869ae0f4",
     "revision_AD": "d375d80a5df19a661f80bab9cbdd42b39a28742b",
     "reanudacion": "c241a599fc76249429a1a49ee5e7bbc50bdd6f0b",
-    "G": "a0524d9f2e0fbcd3b6352453bba1c1e0475eac0a"
+    "G": "a0524d9f2e0fbcd3b6352453bba1c1e0475eac0a",
+    "revision_externa_1005": "35d0fb9f070b43298141854ef6deb4b896216185"
   },
   "candidata_integrada": {
     "repositorio": "jluisplagos/munger-v2",
@@ -262,7 +263,7 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "8b88fab28261506c60bc7631fd24894e225099d2",
+      "commit_origen": "74d94f825a2cdd9da003b02de67d0e04149fa7f2",
       "commit_destino": null,
       "evidencia": [
         "resultados_m2/cobertura_vm/PUNTO_DE_RECUPERACION.md @ d2419e5",
@@ -272,14 +273,15 @@
         "resultados_m2/cobertura_vm/RESPUESTA_A2_CIERRE_V2.md @ 8b88fab",
         "resultados_m2/cobertura_vm/ENTREGA.json @ 8b88fab",
         "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/REVISION_A2_8b88fab.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/CORRECCION_A3.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/CORRECCION_A3.md",
+        "resultados_m2/cobertura_vm/ @ 93a02e0 (A3-R1) y d11ee44 (A3-R2), entregas parciales de A3"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
       "siguiente_accion": "Mistral A: primero la revisión de G-MANUAL (rama mistral/g-manual-traspaso); después CORRECCION_A3.md (A3-R1…R8) en la rama A, en un bloque separado. T-EXP sigue bloqueado por A-CTX.",
-      "observacion": "Respuesta A2 (8b88fab) revisada: correcciones A3-R1…R8. Reproducción 59/62 byte a byte; control PASS; propagación conforme.",
+      "observacion": "A3 en curso por bloques (93a02e0 R1, d11ee44 R2); revisión cuando el bloque esté completo. G-RAIZ, asignada a Mistral A, sigue sin revisar.",
       "commit_revisado": "8b88fab28261506c60bc7631fd24894e225099d2",
       "alcance_aceptado": [],
       "solicitud_revision": {
@@ -312,7 +314,7 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
+      "commit_origen": "d032691ef2b926e387de3965460469d0994948df",
       "commit_destino": null,
       "evidencia": [
         "resultados_qwen/ejecucion_d/RESUMEN_PARA_INTEGRADOR.md",
@@ -323,14 +325,15 @@
         "mistral/d-qwen-aceptacion @ 3934bc9",
         "resultados_qwen/ejecucion_d/ @ 3934bc9 (D2-R1/R7, bloque 1) y 5f4b2a2 (D2-R2…R5, bloque 2)",
         "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/REVISION_D2_3934bc9_a_5f4b2a2.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/CORRECCION_D3.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/CORRECCION_D3.md",
+        "resultados_qwen/ejecucion_d/ @ d032691 (bloque 3: regeneración con el arnés v3)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "PARCIALES",
       "dependencias": [],
       "bloqueo": null,
       "siguiente_accion": "Mistral D corrige D3-R1…R8 (CORRECCION_D3.md): rutas de salida y de copia fuera del caso, reevaluación en la matriz, controles negativos contra el estado previo, regeneración de todo lo publicado, relevos completos, manifiesto. D2-R7, cerrado con límites.",
-      "observacion": "Respuesta a D2 entregada en dos bloques (3934bc9, 5f4b2a2); revisión del coordinador en curso (contexto distinto). 0/36 casos del personaje ejecutados.",
+      "observacion": "Bloque 3 (d032691) posterior a la revisión de 5f4b2a2: regenera artefactos y cambia ejecutar_todo.sh y especificaciones; no modifica lib_arnes.py, ejecutar_caso.py ni generar_matriz.py (contraste externo 35d0fb9). Revisión del coordinador frente a D3 en curso.",
       "commit_revisado": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
       "alcance_aceptado": [],
       "solicitud_revision": null
@@ -343,7 +346,7 @@
       "entrega": "PARCIAL",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
+      "commit_origen": "d032691ef2b926e387de3965460469d0994948df",
       "commit_destino": null,
       "evidencia": [
         "resultados_qwen/ejecucion_d/ @ 1ac661b (mistral/d-qwen-aceptacion)",
@@ -352,7 +355,8 @@
         "coordinacion/cierre_v2/pruebas_candidata/957af65/MECANISMO_PERSONAJE.md",
         "resultados_qwen/ejecucion_d/ @ 3934bc9 (D2-R1/R7, bloque 1) y 5f4b2a2 (D2-R2…R5, bloque 2)",
         "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/REVISION_D2_3934bc9_a_5f4b2a2.md",
-        "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/CORRECCION_D3.md"
+        "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/CORRECCION_D3.md",
+        "resultados_qwen/ejecucion_d/ @ d032691 (bloque 3: regeneración con el arnés v3)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "PARCIALES",
@@ -1138,6 +1142,16 @@
       "tipo": "INTEGRACION",
       "fecha": "2026-11-17",
       "hecho": "Nada de D2 ni de F2 se integra en la candidata: son herramientas, inventarios y contratos del auxiliar, con correcciones pendientes."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "Contraste externo REVISION_1005 (35d0fb9): ChatGPT reprodujo test_herramientas.sh, 30/30, y cierra el hallazgo REVISION_0955 (cierre del registro). Confirma F3-R5 en build_v6.py. No se exige otra ronda."
+    },
+    {
+      "tipo": "CONSULTA",
+      "fecha": "2026-11-17",
+      "hecho": "D bloque 3 (d032691) y A3 parcial (93a02e0, d11ee44) registrados como entregados; revisión de D bloque 3 frente a D3 en curso (prioridad)."
     }
   ],
   "consulta_remotos_arranque": {
