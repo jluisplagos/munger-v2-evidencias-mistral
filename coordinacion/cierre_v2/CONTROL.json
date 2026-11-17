@@ -10,7 +10,7 @@
     "producto_tecnico": "957af652cdc3bef3d67e8623c9572138bac685e9",
     "candidata": "957af652cdc3bef3d67e8623c9572138bac685e9",
     "f1": "77ff89f8fe99a1b5f013243ea1ccd4b84512ac51",
-    "A": "74d94f825a2cdd9da003b02de67d0e04149fa7f2",
+    "A": "0946971e1e4cf10cb85ed4c757968a4bd060d6a7",
     "D": "d032691ef2b926e387de3965460469d0994948df",
     "E": "f00c5dd64cb956b93ebb199389ce748e9d218f6c",
     "F": "98bdf8f7a48ee01c764834c5305b268fdde2b989",
@@ -21,7 +21,8 @@
     "revision_AD": "d375d80a5df19a661f80bab9cbdd42b39a28742b",
     "reanudacion": "c241a599fc76249429a1a49ee5e7bbc50bdd6f0b",
     "G": "a0524d9f2e0fbcd3b6352453bba1c1e0475eac0a",
-    "revision_externa_1005": "35d0fb9f070b43298141854ef6deb4b896216185"
+    "revision_externa_1005": "35d0fb9f070b43298141854ef6deb4b896216185",
+    "piloto_claude_api": "53c8797d48bab6280484d627da2c8358a3a64b1b"
   },
   "candidata_integrada": {
     "repositorio": "jluisplagos/munger-v2",
@@ -263,7 +264,7 @@
       "entrega": "ENTREGADO",
       "revision": "CORRECCIONES",
       "integracion": "NO",
-      "commit_origen": "74d94f825a2cdd9da003b02de67d0e04149fa7f2",
+      "commit_origen": "0946971e1e4cf10cb85ed4c757968a4bd060d6a7",
       "commit_destino": null,
       "evidencia": [
         "resultados_m2/cobertura_vm/PUNTO_DE_RECUPERACION.md @ d2419e5",
@@ -274,36 +275,31 @@
         "resultados_m2/cobertura_vm/ENTREGA.json @ 8b88fab",
         "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/REVISION_A2_8b88fab.md",
         "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/CORRECCION_A3.md",
-        "resultados_m2/cobertura_vm/ @ 93a02e0 (A3-R1) y d11ee44 (A3-R2), entregas parciales de A3"
+        "resultados_m2/cobertura_vm/ @ 93a02e0 (A3-R1) y d11ee44 (A3-R2), entregas parciales de A3",
+        "resultados_m2/cobertura_vm/ @ 93a02e0…0946971 (A3-R1…R8, un commit por punto)"
       ],
       "pruebas_autor": "DECLARADAS",
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": null,
       "siguiente_accion": "Mistral A: primero la revisión de G-MANUAL (rama mistral/g-manual-traspaso); después CORRECCION_A3.md (A3-R1…R8) en la rama A, en un bloque separado. T-EXP sigue bloqueado por A-CTX.",
-      "observacion": "A3 en curso por bloques (93a02e0 R1, d11ee44 R2); revisión cuando el bloque esté completo. G-RAIZ, asignada a Mistral A, sigue sin revisar.",
+      "observacion": "Respuesta a A3 completa (8 commits hasta 0946971); revisión del coordinador en curso (contexto distinto). G-RAIZ, asignada a Mistral A, sigue sin revisar.",
       "commit_revisado": "8b88fab28261506c60bc7631fd24894e225099d2",
       "alcance_aceptado": [],
       "solicitud_revision": {
-        "estado": "RESPONDIDA",
-        "sha_autor": "8b88fab28261506c60bc7631fd24894e225099d2",
-        "base_revisada": "2c41d689fde13dbb9e6affbdb470181291ec2519",
+        "estado": "EN_CURSO",
+        "sha_autor": "0946971e1e4cf10cb85ed4c757968a4bd060d6a7",
+        "base_revisada": "8b88fab28261506c60bc7631fd24894e225099d2",
         "diff_rutas": [
           "resultados_m2/cobertura_vm/"
         ],
         "criterios": [
-          "A2-R1…R5 según CORRECCION_A2.md",
-          "sondas del revisor reproducidas",
-          "propagación de CONFLICTO a derivados"
+          "A3-R1…R8 según CORRECCION_A3.md",
+          "contraejemplos de la revisión anterior y variantes nuevas",
+          "cambio de estados en los datos reales sin acreditación nueva sin evidencia"
         ],
         "revisor_asignado": "Claude coordinador (subagente de revisión)",
-        "informe_revision": {
-          "ruta": "coordinacion/cierre_v2/revisiones_coordinador/A2_8b88fab/REVISION_A2_8b88fab.md",
-          "veredicto": "A2-R3 cerrado con límites; A2-R1, R2, R4 y R5 abiertos. 104 de los 133 CONFLICTO dependen de un artefacto de signo; propagación conforme en los 101 nodos",
-          "limites": [
-            "sin red ni LibreOffice; pypdf 6.17.0 frente a la 7.1.0 del autor (asociacion_pdf.py no reproducido)"
-          ]
-        }
+        "informe_revision": null
       }
     },
     {
@@ -1178,6 +1174,16 @@
       "tipo": "REVISION",
       "fecha": "2026-11-17",
       "hecho": "Informe de T-TRASPASO revisado por un agente distinto del receptor: CONFORME CON LÍMITES. 4.10 39/44 por un cambio documental de la 4.15 (.PARTES.txt; comprobado por el coordinador) y 4.11 33/38 atribuible al entorno (compresión; v6 sin cambios, comprobado). Mejoras del manual priorizadas."
+    },
+    {
+      "tipo": "ENTREGA",
+      "fecha": "2026-11-17",
+      "hecho": "Mistral A completa A3 (A3-R1…R8) en 0946971; revisión del coordinador en curso. D, E y F sin commits nuevos (D3, E2 y F3 sin respuesta)."
+    },
+    {
+      "tipo": "CONSULTA",
+      "fecha": "2026-11-17",
+      "hecho": "Rama nueva automatizacion/piloto-claude-api (53c8797), de la persona responsable: piloto aislado de revisión por la API de Claude en modo de prueba sin consumo. Fuera de las tareas del coordinador; no se toca."
     }
   ],
   "consulta_remotos_arranque": {
