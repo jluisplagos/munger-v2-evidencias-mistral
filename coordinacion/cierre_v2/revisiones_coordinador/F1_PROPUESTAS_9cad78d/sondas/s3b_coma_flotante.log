@@ -1,0 +1,12 @@
+Python 3.13.18
+caso                                                           exacto | '+' ÷ | sum() ÷ | fsum ÷ | '+' sin ÷ | sum() sin ÷
+F07                                                            AVISO  | AVISO  | AVISO   | AVISO  | AVISO     | AVISO  
+F10                                                            AVISO  | BLOQUEA| AVISO   | AVISO  | BLOQUEA   | AVISO  
+F21                                                            AVISO  | AVISO  | AVISO   | AVISO  | AVISO     | AVISO  
+F14 (1 %)                                                      AVISO  | AVISO  | AVISO   | AVISO  | AVISO     | AVISO  
+F29                                                            AVISO  | AVISO  | AVISO   | AVISO  | AVISO     | AVISO  
+R7 igualdad con decimales no binarios: 0,7 + 0,1 + 0,1 y FCF 300 AVISO  | AVISO  | AVISO   | AVISO  | AVISO     | AVISO  
+R8 igualdad: 0,1 × 3 y FCF 100                                 AVISO  | BLOQUEA| BLOQUEA | BLOQUEA| BLOQUEA   | BLOQUEA
+
+Lectura: una implementación en coma flotante coincide o no con la exacta según cómo sume y si divide;
+F10 solo detecta la suma secuencial con «+» y división. La hoja de cálculo del motor trabaja en coma flotante.

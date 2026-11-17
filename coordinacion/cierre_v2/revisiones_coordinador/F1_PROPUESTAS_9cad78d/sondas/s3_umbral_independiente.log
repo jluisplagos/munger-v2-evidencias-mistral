@@ -1,0 +1,50 @@
+== 1. Los 30 casos del autor con la regla escrita por el revisor
+ casos: 30; coinciden con el estado esperado del autor: 30; discrepancias: []
+
+== 2. Mutantes de implementación: ¿los detecta algún caso de los 30? (opción UP01, la propuesta)
+ detectado    · división sin guarda (e = X/FCF ≤ u): F19, F20
+ NO DETECTADO · coma flotante: —
+ detectado    · suma sin dividir por n: F07, F09, F10, F21, F25, F29
+ detectado    · último año en lugar de la media: F10
+ detectado    · máximo en lugar de la media: F10
+ detectado    · C49 en lugar de la D&A ROU: F08
+ detectado    · frontera estricta (<): F07, F10, F21
+ NO DETECTADO · denominador FCF base + X (flujo sin el doble cómputo): —
+ detectado    · ρ sobre ventas con el umbral del flujo: F08, F11, F12, F13, F14, F19, F22, F23, F24, F28
+ NO DETECTADO · valor absoluto del FCF base: —
+
+== 3. Casos de frontera que los 30 no cubren (estado con la regla del documento)
+ R1 igualdad con el FCF base REGISTRADO (300,000) cuando el exacto sería 299,9996: la regla usa el registrado
+    → V-F1a AVISO (esperado por el revisor: V-F1a AVISO) OK; con el valor exacto → V-F1a BLOQUEA (esperado V-F1a BLOQUEA) OK
+ R2 definición del denominador: X = 0,3001 con FCF base 300 (e = 0,10003 %; sobre FCF base + X sería 0,09993 %)
+    → V-F1a BLOQUEA (esperado por el revisor: V-F1a BLOQUEA) OK
+ R3 fila de D&A ROU vacía con C49 = 0 (el documento lo anota como caso que E5 no nombra)
+    → fuera de E5 (esperado por el revisor: fuera de E5) OK
+ R4 C49 negativo
+    → V-F1e BLOQUEA (esperado por el revisor: V-F1e BLOQUEA) OK
+ R5 fila vacía y otra negativa a la vez: ¿V-F1e o V-F1b? (orden de E5: invariantes antes que fila vacía)
+    → V-F1e BLOQUEA (esperado por el revisor: V-F1e BLOQUEA) OK
+ R6 FCF base negativo, arrendamiento ínfimo: |FCF| daría AVISO; la regla bloquea
+    → V-F1a BLOQUEA (esperado por el revisor: V-F1a BLOQUEA) OK
+ mutantes frente a R2 y R6:
+   denominador FCF base + X (flujo sin el doble cómputo): da V-F1a AVISO · la regla da V-F1a BLOQUEA
+   valor absoluto del FCF base: da V-F1a AVISO · la regla da V-F1a BLOQUEA
+
+== 4. Qué exime de verdad cada umbral: D&A ROU máxima tolerada (en % de las ventas) según el margen de FCF base
+ FCF base/ventas |  0,1 %   1 %    5 %   | 0,5 % ventas (v1), en % del FCF base
+        2 %      | 0.002  0.020  0.100 | 25.0
+        5 %      | 0.005  0.050  0.250 | 10.0
+       10 %      | 0.010  0.100  0.500 | 5.0
+       20 %      | 0.020  0.200  1.000 | 2.5
+       30 %      | 0.030  0.300  1.500 | 1.7
+
+== 5. Elis (solo información): qué mide e y qué no
+ X = 132.500; FCF base = 307.933; e = X/FCF base = 43.03 %; ρ = 2.9057 %
+ exceso en la base 2025 = ρ·V0 = 139.382
+ flujo sin crecimiento: A0 = 248.496; A1 = 387.878; infravaloración relativa = ρ·V0/F0_A1 = 35.93 % (e = 43.03 %)
+ año 11 MALO: A0 = 128.329; exceso ρ·V10·(1+g∞) = 166.613; infravaloración relativa sobre A1 = 56.49 %
+ año 11 NORMAL: A0 = 208.482; exceso ρ·V10·(1+g∞) = 205.363; infravaloración relativa sobre A1 = 49.62 %
+ año 11 BUENO: A0 = 264.983; exceso ρ·V10·(1+g∞) = 223.879; infravaloración relativa sobre A1 = 45.80 %
+ → e no es la infravaloración relativa de los flujos que se valoran: es X sobre el FCF base registrado (medida de tamaño).
+
+RESULTADO: los 30 casos coinciden
