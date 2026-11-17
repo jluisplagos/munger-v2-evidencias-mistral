@@ -23,8 +23,13 @@ Lee PROGRAMA.md de esta carpeta y consulta los HEAD actuales antes de actuar.
    conformes. No te quedes esperando una revisión si existe trabajo independiente.
 5. D3, E2 y F3 siguen pendientes de respuesta en el control d844357. Si los autores
    publicaron más, consulta y revisa esos cambios; no relances rondas ya cerradas.
-6. La conexión de Mistral por Vibe CLI está pendiente. No afirmar que ya se ha
-   lanzado ni cambiar la facturación o activar pay-as-you-go para conseguirlo.
+6. La conexión de Mistral por Vibe CLI está comprobada en vibe-auth-001, sin
+   trabajo del producto. No cambiar la facturación ni activar pay-as-you-go.
+
+Lee además QWEN_CONTRASTE.md: el usuario solicita contraste de los
+36 casos Qwen. qwen-bank-review-001 será revisión documental, no ejecución del
+personaje ni conformidad con un contrato primario que no lleva en el paquete.
+Recoge su resultado solo cuando esté publicado y conserva el banco anterior.
 
 Único integrador/escritor de CONTROL: tú. La tarea programada de ChatGPT mantiene
 sus observaciones aparte; los trabajadores API solo escriben sus informes. Las

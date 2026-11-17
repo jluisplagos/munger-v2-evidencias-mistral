@@ -100,9 +100,21 @@ Preparación concreta y pasos de la clave en VIBE_CLI.md. El workflow de prepara
 no utiliza --execute: no infiere aun si se añade el secreto. El ejecutor de tareas
 Mistral y su reserva durable siguen pendientes.
 
-Tras confirmar el usuario que guardó la clave, se prepara una prueba operativa
+Tras confirmar el usuario que guardó la clave, se preparó una prueba operativa
 separada, vibe-auth-001, con reserva durable y una sola invocación. No hay aún
 un trabajador del proyecto Munger ni una cola de inferencias Mistral desatendida.
+
+Actualización: vibe-auth-001 terminó CONEXION_COMPROBADA en e33a0b4, Actions
+44076998499: Vibe 3.1.2, una generación, respuesta de autenticación correcta.
+Uso informado 7269 entrada / 50 salida (3328 entrada en caché), coste CLI 0;
+imputación al plan no verificada en la cuenta. Sin pruebas del producto.
+
+El usuario pidió contrastar la fiabilidad del banco Qwen con Mistral. Se prepara
+qwen-bank-review-001 (QWEN_CONTRASTE.md): coherencia interna de los 36 casos,
+sin repetir revisiones de D3, sin ejecutar el producto ni convertir sugerencias
+en requisitos. El trabajo y su resultado son distintos de la prueba de conexión.
+La comprobación horaria debe consultar también su informe y el de vibe-auth-001;
+no activar trabajos nuevos por encontrar estos documentos.
 
 ## Aceleración: medición, no promesa
 
