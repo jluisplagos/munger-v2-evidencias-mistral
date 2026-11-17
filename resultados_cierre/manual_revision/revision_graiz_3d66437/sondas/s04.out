@@ -1,0 +1,56 @@
+== s04 G-RAIZ 2026-11-17T13:10:37Z workdir=/tmp/graiz_s04.Vtxizv ==
+-- [H1] VERSION @ 957af652cdc3bef3d67e8623c9572138bac685e9 (debe decir 'entrega 4.15 · hito 2'):
+munger_v2 · r1 · entrega 4.15 · hito 2 (corrección técnica tras la revisión externa del hito 1: R415-SIGNO —la cifra publicada se contrasta con su signo, leída en la línea de la página; la transformación justificada sigue valiendo—, límites U1–U7 de la cuarta revisión, aptitud por entradas y modo de la entrada efectiva en las salidas de todas las plantillas (I20), relevo caducado
+
+-- [H2] rama candidata: 957af65 es ancestro de integracion/candidata-cierre-v2 (status ahead, behind_by 0):
+{"ahead_by":1,"behind_by":0,"status":"ahead"}
+
+-- [H3] VERSION @ main (criterio 3: main sigue con la 4.14):
+munger_v2 · r1 · entrega 4.14 (cierre con verificación completa de las entradas financieras: reparación 4.13.1 de la vigencia (H5); contrato del juicio sobre el objetivo; verificación de las entr
+-- main HEAD:
+d69d4837f0e99ce30f38d3461f15cceee9a58730
+
+-- [H4] rutas citadas existen en el árbol de 957af652cdc3bef3d67e8623c9572138bac685e9:
+docs/revision_externa_4_15_hito1/REVISION.md
+munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/HITO_1_4_15.md
+munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/hito2/HITO_2_4_15.md
+munger_v2_r1/personaje_v2/pruebas/test_verificacion_entradas_415.py
+
+-- [H5] HITO_1_4_15.md @ 957af652cdc3bef3d67e8623c9572138bac685e9: secciones de corrección R1/R2/R3 y hallazgos 4 y 5:
+16:### R1 · página inexistente o no examinable (`verificacion_entradas.py`)
+24:### R2 · fuente local ausente
+30:### R3 · redondeo aceptado como cifra exacta
+38:- **También por la revisión independiente (hallazgo 5):** la tolerancia de importes (0,0011) ya no se aplica a todo.
+74:### Contrato reforzado por la revisión independiente (hallazgos 1, 2 y observación 21)
+182:- **Hecho nuevo (revisión independiente, hallazgo 4):** el C50 = 0 de Vidrala lo sostiene solo la etapa 1. No mueve su precio de Sí (motor B), pero el expediente regenerado tendrá que declararlo.
+216:- `test_verificacion_entradas_415.py`: **105/105**. Grupos P, R1, R2, R3, V, RI (un contraejemplo por hallazgo de la primera pasada), S (N1–N4 y N8 de la segunda), T (T1–T4 de la tercera), J, E y N. El PDF del control positivo es ahora un PDF de verdad, generado sin dependencias.
+270:  - entradas 4.15 105/105 y entrada efectiva 40/40;
+
+-- [H6] HITO_2_4_15.md @ 957af652cdc3bef3d67e8623c9572138bac685e9: 190/190, límite H9, F1 abierto, no cerrado:
+18:  `tools/base_414.py materialize` y verificado con `verify`: **6798/6798**, 0 ausentes, 0 alterados. `main` y el ZIP no se han modificado.
+80:## 3. I19, I20 y H-P1/X2
+82:- **I20 · aptitud por entradas y modo de la entrada efectiva en las salidas.** `ficha.py` escribe `verificacion_entradas` en todas las
+89:- **I19 · relevo caducado.** Mientras el paso 13 espera, compara el material fijado con el vigente: si difieren, lo registra en
+92:  cierra nada. **Límite (H9):** vuelve siempre al paso 12; si cambian salidas de fases anteriores habría que volver al paso que las consume
+99:- `test_verificacion_entradas_415.py`: **190/190** (105 del hito 1 + grupos U, SG, RV y RW, y los dos bloques de aptitud del informe por
+112:  (corregido: I20 cambiaba la huella de fichas históricas); `92b2362`, `f3d15e8`, `7a6583b`, `876bfc2`, `8196522`, `45ff57c` y `0a0020b`:
+114:  no la veía (X2). `0a0020b` es la candidata final del código (X1, X2 y X5 corregidos): quince baterías obligatorias en PASA, con 190/190,
+147:  U6 (a) y H9/I19 (el relevo vuelve siempre al paso 12).
+192:- **F1 (bloqueo económico, otra tarea):** el ancla f del motor A cuenta dos veces los arrendamientos NIIF 16 y los intangibles adquiridos;
+197:- **I19 (H9):** vuelta al paso que consume lo cambiado (propuesta).
+219:- **No cerrado:** F1; regeneración y auditoría de los expedientes con extractor y revisor reales; I19/H9; U1; U6 (a); los límites del §5;
+
+-- [H7] test_verificacion_entradas_415.py @ 957af652cdc3bef3d67e8623c9572138bac685e9 (existe, tamaño, pasos):
+  1214 113051 /tmp/graiz_s04.Vtxizv/test415.py
+llamadas paso( (estático, sin ejecutar): 183 (incluye la definición en línea 51)
+el recuento 190/190 es el declarado por HITO_2_4_15.md línea 99; el test NO se ejecuta aquí (sin pipeline/LibreOffice)
+
+-- [H8] docs/revision_externa_4_15_hito1/ existe @ 957af652cdc3bef3d67e8623c9572138bac685e9:
+PROMPT_PARA_CLAUDE.md
+RESUMEN.json
+REVISION.md
+efectiva415.json
+efectiva415.log
+
+-- [H9] referencia al control del programa de cierre (README head línea 7): rama coordinacion/cierre-v2 del auxiliar:
+30c314c3210c7f8eda5c3b632d98ce55fafef9db

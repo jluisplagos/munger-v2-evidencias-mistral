@@ -1,0 +1,20 @@
+== s01 G-RAIZ 2026-11-17T13:10:30Z ==
+-- branch integracion/hechos-raiz-957af65 HEAD:
+3d66437e797b6b0bf137b42fa62b561f39121722
+-- commit 3d66437e797b6b0bf137b42fa62b561f39121722 parents:
+{"parents":["957af652cdc3bef3d67e8623c9572138bac685e9"],"sha":"3d66437e797b6b0bf137b42fa62b561f39121722"}
+-- compare 957af652cdc3bef3d67e8623c9572138bac685e9...3d66437e797b6b0bf137b42fa62b561f39121722:
+{"ahead_by":1,"files":[{"additions":5,"deletions":5,"filename":"CLAUDE.md","status":"modified"},{"additions":4,"deletions":4,"filename":"README.md","status":"modified"},{"additions":6,"deletions":4,"filename":"docs/MIGRATION_STATUS.json","status":"modified"}],"status":"ahead","total_commits":1}
+-- diff_rutas esperados por la solicitud: CLAUDE.md, README.md, docs/MIGRATION_STATUS.json
+-- commit message:
+U4: update outdated facts in root README, CLAUDE.md and MIGRATION_STATUS (hito 2 already in the candidate), keeping every substantive instruction
+
+Facts only: branch identity and contents (4.15 hito 2 at 957af65), status of
+the 4.14 external findings (1-6 corrected, H9 open, F1 open), the 4.15 test
+covering the three gaps, and that the hito 2 delivery is already imported.
+Rules on originals, sources, LibreOffice, approvals, economic policy,
+models, reviewer separation and recovery are unchanged. For independent
+review before acceptance.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01W2RVAnAbM8rydCEdcDNjDs

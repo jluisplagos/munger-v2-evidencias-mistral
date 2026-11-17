@@ -1,0 +1,23 @@
+== s06 G-RAIZ 2026-11-17T13:10:46Z workdir=/tmp/graiz_s02.stVK4d ==
+-- menciones de aptitud en head (todas deben ser negativas):
+/tmp/graiz_s02.stVK4d/head_CLAUDE.md:10:La base histórica de referencia es la 4.14 (main); esta candidata es la 4.15 · hito 2. Las dos son experimentales supervisadas; no aptas para dinero real.
+/tmp/graiz_s02.stVK4d/head_CLAUDE.md:17:6. relevo caducado y aptitud por entradas omitida en salidas V6.3;
+/tmp/graiz_s02.stVK4d/head_CLAUDE.md:26:No inventar firmas, política económica ni aptitud por superar controles de software.
+/tmp/graiz_s02.stVK4d/head_README.md:17:Las correcciones de los hitos 1 y 2 de la 4.15 están en la candidata; main conserva la 4.14 sin cambios. El trabajo en otras sesiones debe continuar sin interrupción. La 4.14 mantiene su condición experimental supervisada y las incidencias documentadas en la revisión externa. Esta migración comprueba conservación de bytes, no aptitud financiera.
+
+-- nada adoptado / no fusionar main:
+/tmp/graiz_s02.stVK4d/head_README.md:3:Rama `integracion/candidata-cierre-v2`, creada desde 957af65 (entrega 4.15 · hito 2, corrección técnica tras la revisión externa del hito 1; `munger_v2_r1/VERSION`). No fusionada con main. No contiene el cierre económico F1 ni los expedientes regenerados. La revisión externa del hito 1 está en docs/revision_externa_4_15_hito1/ y el registro del hito 2 en `munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/hito2/HITO_2_4_15.md`.
+/tmp/graiz_s02.stVK4d/head_README.md:17:Las correcciones de los hitos 1 y 2 de la 4.15 están en la candidata; main conserva la 4.14 sin cambios. El trabajo en otras sesiones debe continuar sin interrupción. La 4.14 mantiene su condición experimental supervisada y las incidencias documentadas en la revisión externa. Esta migración comprueba conservación de bytes, no aptitud financiera.
+/tmp/graiz_s02.stVK4d/head_docs_MIGRATION_STATUS.json:9:  "note": "Base histórica completa, comprobada y recuperable desde el ZIP original. La entrega 4.15 · hito 2 de Claude está importada en la candidata integracion/candidata-cierre-v2 (957af65), con manifiesto propio; main conserva la 4.14.",
+/tmp/graiz_s02.stVK4d/head_docs_MIGRATION_STATUS.json:12:  "next_action": "Integrar en la candidata solo archivos revisados por un contexto distinto, con origen, revisión y destino registrados en el control del programa de cierre; no fusionar main.",
+
+-- main sigue con la 4.14 (VERSION @ main empieza por 'entrega 4.14'):
+munger_v2 · r1 · entrega 4.14 (cierre con verificación completa de las entradas financieras: reparación 4.13.1 de la
+
+-- diff estructural de docs/MIGRATION_STATUS.json (solo note/next_action/ongoing_claude_work + 2 claves nuevas):
+NUEVO /candidate_base_commit = 957af652cdc3bef3d67e8623c9572138bac685e9
+NUEVO /candidate_branch = integracion/candidata-cierre-v2
+CAMBIADO /next_action
+CAMBIADO /note
+CAMBIADO /ongoing_claude_work
+JSON head válido; claves head: 25  claves base: 23

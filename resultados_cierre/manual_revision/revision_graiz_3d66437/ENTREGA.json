@@ -1,0 +1,59 @@
+{
+    "es_plantilla": false,
+    "frente": "A/G (carpeta G)",
+    "bloque": "G-RAIZ · revisión independiente de 3d66437e797b6b0bf137b42fa62b561f39121722 (rama integracion/hechos-raiz-957af65, base 957af65) según la solicitud LISTA de CONTROL @ origin/coordinacion/cierre-v2 30c314c",
+    "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+    "rama": "mistral/g-manual-traspaso",
+    "base_revisada_sha": "producto jluisplagos/munger-v2 @ 957af652cdc3bef3d67e8623c9572138bac685e9; sha_autor revisado 3d66437e797b6b0bf137b42fa62b561f39121722 (rama integracion/hechos-raiz-957af65); control vigente 30c314c3210c7f8eda5c3b632d98ce55fafef9db",
+    "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+    "directorio_entrega": "resultados_cierre/manual_revision/revision_graiz_3d66437/",
+    "tareas_control": ["G-RAIZ"],
+    "candidata_producto_sha": "3149128 (según CONTROL; la rama revisada cuelga de 957af65)",
+    "banco_sha": null,
+    "naturaleza": "revisión independiente (contexto distinto del autor Claude coordinador) de la entrega U4 G-RAIZ en el repositorio producto; no integra nada en el producto",
+    "autor_contexto_modelo_herramientas": "Sesión Vibe Code de Mistral AI, modelo mistral-large-4-0 (único expuesto; consumo/facturación no visible). Herramientas realmente usadas: gh api (solo lectura sobre jluisplagos/munger-v2 y el auxiliar), sh, diff, sha256sum, grep, python3 (JSON). Sin LibreOffice, sin pipeline, sin agentes del producto, sin ejecutar nada del producto.",
+    "fuentes_y_preservacion": [
+        "Producto jluisplagos/munger-v2 @ 957af65 y @ 3d66437 leído solo con gh api (contents raw, compare, commits, branches, git/trees); no clonado ni modificado",
+        "CONTROL.json @ origin/coordinacion/cierre-v2 30c314c (solicitud G-RAIZ LISTA, sha_autor 3d66437, base 957af65)",
+        "Entrega anterior de esta rama (revision_gdocs_c0542b8/ @ a0524d9, aceptada por el coordinador en 289c796) conservada intacta; revision G-MANUAL @ 78ba1ca conservada intacta",
+        "Diffs y hashes de los 3 diff_rutas fijados en sondas/ (s02 hashes, s03 diffs, diff_*.md/diff_MIGRATION_STATUS.json)"
+    ],
+    "cambios_respecto_entrega_anterior": [
+        "Nueva subcarpeta revision_graiz_3d66437/; revision_gdocs_c0542b8/ y los informes G-MANUAL anteriores no se tocan",
+        "Rama A (mistral/m2-cobertura-vm @ 0946971) intacta en worktree separado; A4 se atiende después en esa rama",
+        "No se toca CONTROL/ESTADO ni el producto"
+    ],
+    "pruebas": [
+        {
+            "tipo": "componente (revisión documental con sondas deterministas vía API)",
+            "comando": "cd resultados_cierre/manual_revision/revision_graiz_3d66437/sondas && sh s01_identidad_rama_y_commit.sh && sh s02_descarga_y_sha256.sh && sh s03_diffs_exactos.sh && sh s04_hechos_verificables_en_957af65.sh && sh s05_preservacion_instrucciones_sustantivas.sh && sh s06_criterio3_json_y_aptitud.sh",
+            "exit_esperado": 0,
+            "exit_observado": 0,
+            "criterios_cubiertos": [
+                "C1: compare 957af65...3d66437 ahead_by=1 y solo los 3 diff_rutas; cada hecho nuevo contrastado en 957af65 (VERSION@957af65='4.15 · hito 2'; 957af65 ancestro de integracion/candidata-cierre-v2; HITO_1/HITO_2 en el árbol; hallazgos 1-6 corregidos con H9 abierto y F1 abierto según HITO_1/HITO_2; test_verificacion_entradas_415.py existe y 190/190 según HITO_2:99; MIGRATION_STATUS solo 3 textos + 2 claves nuevas)",
+                "C2: solo 5+4 líneas de hechos cambian; originales/fuentes/huellas, LibreOffice en secuencia, aprobaciones, política económica, modelos, revisor distinto del autor y recuperación 4.14 idénticos en head (s05)",
+                "C3: aptitud solo en negativo, nada adoptado ('no fusionar main'), VERSION@main = entrega 4.14 (main @ d69d4837)"
+            ],
+            "criterios_sin_cubrir": [
+                "ejecución de la batería 190/190 de test_verificacion_entradas_415.py (sin pipeline/LibreOffice; no se ejecuta nada del producto): el recuento se toma del registro HITO_2_4_15.md:99",
+                "diff histórico completo de main (se comprueba VERSION@main en el momento de la revisión)"
+            ],
+            "evidencia": "sondas/s01..s06 (*.sh + *.out, rc=0) + sondas/diff_CLAUDE.md, diff_README.md, diff_MIGRATION_STATUS.json; INFORME_REVISION_GRAIZ.md; verificacion_criterios.json",
+            "sha_material": "producto @957af65 (base) y @3d66437 (head), solo lectura vía API; hashes sha256 en sondas/s02.out",
+            "resultado": "CONFORME_CON_LIMITES"
+        }
+    ],
+    "precondiciones_simuladas": [],
+    "revision_por_otro_contexto": "Hecha: esta revisión es de un contexto distinto del autor del cambio (Claude coordinador). Pendiente la aceptación del coordinador en CONTROL.json (G-RAIZ solicitud_revision.informe_revision + commit_revisado = SHA remoto de esta rama).",
+    "limites_y_bloqueos": [
+        "Nada del producto ejecutado: sin pipeline, LibreOffice, tests ni agentes; solo API GitHub de lectura + diffs/hashes locales",
+        "Revisión documental; no acredita aptitud económica ni integra nada en el producto",
+        "El recuento 190/190 no se ejecutó aquí (límite declarado); 'main 4.14' comprobado por VERSION@main puntual"
+    ],
+    "siguiente_accion_exacta": "El coordinador registra este informe en CONTROL.json (G-RAIZ informe_revision: resultados_cierre/manual_revision/revision_graiz_3d66437/INFORME_REVISION_GRAIZ.md, veredicto CONFORME_CON_LIMITES, commit = SHA remoto de mistral/g-manual-traspaso) y, si acepta, incorpora los 3 archivos a la candidata con origen/revisión/destino. Después, Mistral A atiende CORRECCION_A4.md (A4-R1..R6) en mistral/m2-cobertura-vm desde 0946971.",
+    "integrado_en_producto": false,
+    "apto_dinero_real": "No se declara por este formulario",
+    "criterios_cubiertos": ["los tres criterios de la solicitud G-RAIZ, CONFORME_CON_LIMITES"],
+    "criterios_pendientes": ["aceptación del coordinador en CONTROL.json", "incorporación controlada de los 3 archivos por el coordinador (no por el revisor)"],
+    "salida_siguiente": "commit+push de mistral/g-manual-traspaso con revision_graiz_3d66437/; luego bloque A4 en la rama A"
+}

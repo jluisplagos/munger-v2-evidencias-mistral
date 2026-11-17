@@ -1,0 +1,26 @@
+--- /tmp/graiz_s02.stVK4d/base_docs_MIGRATION_STATUS.json	2026-11-17 13:10:37.197697077 +0000
++++ /tmp/graiz_s02.stVK4d/head_docs_MIGRATION_STATUS.json	2026-11-17 13:10:37.844696979 +0000
+@@ -6,11 +6,11 @@
+   "tracked_baseline_bytes_copied": 352638783,
+   "missing_git_files": [],
+   "release_asset_files": 1008,
+-  "note": "Base histórica completa, comprobada y recuperable desde el ZIP original. Correcciones actuales de Claude todavía no importadas.",
++  "note": "Base histórica completa, comprobada y recuperable desde el ZIP original. La entrega 4.15 · hito 2 de Claude está importada en la candidata integracion/candidata-cierre-v2 (957af65), con manifiesto propio; main conserva la 4.14.",
+   "github_connected": true,
+   "remote_creation_blocker": null,
+-  "next_action": "Esperar a que Claude termine y conservar su nueva entrega; incorporarla en otra rama con su propio manifiesto.",
+-  "ongoing_claude_work": "Continuar sin interrupción. Importar su entrega final como una versión posterior con manifiesto propio.",
++  "next_action": "Integrar en la candidata solo archivos revisados por un contexto distinto, con origen, revisión y destino registrados en el control del programa de cierre; no fusionar main.",
++  "ongoing_claude_work": "Continuar sin interrupción. Cada entrega posterior se importa como versión nueva con manifiesto propio.",
+   "remote_url": "https://github.com/jluisplagos/munger-v2",
+   "visibility": "public",
+   "visibility_authorized_by_user": true,
+@@ -21,5 +21,7 @@
+   "binary_upload_blocker": null,
+   "original_base_release_draft": false,
+   "original_base_release_url": "https://github.com/jluisplagos/munger-v2/releases/tag/base-4.14",
+-  "release_published": true
++  "release_published": true,
++  "candidate_branch": "integracion/candidata-cierre-v2",
++  "candidate_base_commit": "957af652cdc3bef3d67e8623c9572138bac685e9"
+ }
