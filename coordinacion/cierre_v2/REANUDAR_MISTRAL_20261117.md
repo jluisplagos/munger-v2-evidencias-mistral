@@ -40,7 +40,8 @@ Desde hoy no hay contraste ChatGPT. Para conservar una mirada de otra familia de
 ## 2 · Mistral A
 
 > Rama `mistral/g-manual-traspaso` y después `mistral/m2-cobertura-vm`.
-> - Primero revisa G-RAIZ: `jluisplagos/munger-v2`, rama `integracion/hechos-raiz-957af65` @ 3d66437, sobre 957af65. Los criterios están en la `solicitud_revision` de G-RAIZ en `coordinacion/cierre_v2/CONTROL.json`. Es una revisión, no una corrección; publica el informe con sondas.
+> - **Actualización de las 14:30:** G-RAIZ ya lo revisa un contexto Claude distinto del autor. Si aún no has empezado esa revisión, ve directamente a A4. Si ya la empezaste, termínala y publícala: un segundo informe sirve como contraste.
+> - Antes (no lo repitas si ya va a A4): revisa G-RAIZ: `jluisplagos/munger-v2`, rama `integracion/hechos-raiz-957af65` @ 3d66437, sobre 957af65. Los criterios están en la `solicitud_revision` de G-RAIZ en `coordinacion/cierre_v2/CONTROL.json`. Es una revisión, no una corrección; publica el informe con sondas.
 > - Después responde a `coordinacion/cierre_v2/revisiones_coordinador/A3_0946971/CORRECCION_A4.md` (A4-R1…R6) sobre 0946971. Ninguna entrada pasa a REVISADO sin todas sus dimensiones.
 
 ## 3 · Mistral E

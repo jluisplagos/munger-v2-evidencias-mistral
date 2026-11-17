@@ -716,7 +716,7 @@
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Revisión independiente (solicitud LISTA). Si es conforme, se incorpora a la candidata con origen, revisión y destino.",
+      "siguiente_accion": "Revisión independiente en curso, a cargo de un contexto Claude distinto del autor, para que Mistral A pueda pasar directamente a A4. Si es conforme, se incorpora a la candidata con su origen, revisión y destino.",
       "observacion": "Fuera del manifiesto de munger_v2_r1: no requiere regenerarlo. Diff de 15 líneas: identidad de la rama, contenido (4.15 · hito 2), estado de los hallazgos 1–7, prueba 4.15 que cubre los tres huecos e importación ya hecha.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -734,7 +734,7 @@
           "Se conservan todas las instrucciones sustantivas y decisiones: originales, fuentes y huellas, LibreOffice en secuencia, aprobaciones, política económica, modelos, separación de revisor, recuperación con la 4.14",
           "No se declara aptitud ni se adopta nada; main sigue con la 4.14"
         ],
-        "revisor_asignado": "Mistral A, en mistral/g-manual-traspaso (siguiente tras G-DOCS), u otro contexto distinto",
+        "revisor_asignado": "Subagente Claude, contexto distinto del autor; Mistral A solo si ya la había empezado (contraste)",
         "informe_revision": null
       }
     },
@@ -922,7 +922,7 @@
       "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "Infraestructura, no producto. Ni se adopta ni se fusiona main; PR #1 queda en borrador. No hay agente API que aplique correcciones ni una cola continua autorizada. audit-pilot-code-001 no se repite. No se cambia la facturación ni se activa pay-as-you-go. Sus informes son contrastes documentales: no ejecutan el personaje, no aceptan entregas y no sustituyen correcciones (D3) ni revisiones del coordinador.",
-      "siguiente_accion": "CORRECCION_AUTO1 (M1–M7, m1–m9), a cargo de quien mantiene la rama (el usuario con ChatGPT). Prioridad: M6, porque los workflows lanzan inferencias de pago con un push. Mientras siga abierta, no se hace push que toque los scripts o workflows de inferencia sin una decisión expresa. El coordinador revisa solo lo afectado.",
+      "siguiente_accion": "CORRECCION_AUTO1 (M1–M7, m1–m9), a cargo de quien mantiene la rama (el usuario con ChatGPT). Prioridad: M6, porque los workflows lanzan inferencias de pago con un push. Mientras siga abierta, no se hace push que toque los scripts o workflows de inferencia sin una decisión expresa. El coordinador revisa solo lo afectado. Como no queda saldo de ChatGPT y el usuario ha pedido avanzar en todo, un contexto Claude escribe la corrección en una rama aparte, automatizacion/correccion-auto1. No toca la rama del usuario ni lanza inferencias. Adoptarla o fusionarla le corresponde al usuario.",
       "observacion": "Costes estimados: relevos-001 USD 0,070368 (reserva 0,115726; truncado a 4096) y relevos-002 USD 0,094358, conjunto 0,164726; crédito pendiente de confirmar en Console. audit-pilot-code-001 (Fable 5.2/max): ANTHROPIC_ERROR_RED_TIMEOUT tras 180 s, sin veredicto ni uso recibido; reserva 1,912936, coste incierto; no se repite. qwen-peer-group-01: estimado 0,102272 (reserva 0,25281). vibe-auth-001: conexión comprobada (7269/50 tokens) con coste 0. qwen-bank-review-001 (Mistral): fallo por longitud de salida (42992/16384). qwen-bank-group-01 (Mistral, Q1-001…006): entregado. Comprobado por el coordinador: el report.json de relevos-002 en 953af02 tiene sha256 1bd8a638…, igual a la source_response_sha256 fijada en 5b12950. El postprocessed_report.review es igual al JSON de raw_model_output una vez quitado un único envoltorio ```json…```; no se añadió ni se quitó contenido. La cabecera 267ad18 solo cambia observations/; la revisión de a508d6b sigue valiendo para el código. ChatGPT tiene una comprobación horaria activa, de solo lectura, que no lanza inferencias, según ESTADO_CHATGPT.json @ 267ad18.",
       "commit_revisado": "a508d6b38168933d9e6ef480e0d23627b8d748fb",
       "alcance_aceptado": [],
@@ -968,7 +968,7 @@
         "T-AUTO"
       ],
       "bloqueo": "Revisión documental del banco. No ejecuta casos del personaje (siguen 0/36) y no sustituye el banco anterior, que se conserva, ni la aceptación D-36.",
-      "siguiente_accion": "Cotejar la tanda 01 con su contraste: el fixture de Q1-004 sin alternativas ni límites (media); exageración en «dinero real»; corrección v2 inexistente citada; Q1-002 sobredimensionado. Las tandas 02–06 se recogen solo cuando se publiquen. Nada se acepta automáticamente.",
+      "siguiente_accion": "Cotejo de la tanda 01 en curso, a cargo de un contexto distinto: observaciones de Mistral y objeciones de Claude API frente al banco 4745f38. Cotejar la tanda 01 con su contraste: el fixture de Q1-004 sin alternativas ni límites (media); exageración en «dinero real»; corrección v2 inexistente citada; Q1-002 sobredimensionado. Las tandas 02–06 se recogen solo cuando se publiquen. Nada se acepta automáticamente.",
       "observacion": "El contraste Claude API de la tanda 01 discrepa en parte de Mistral; ninguno de los dos queda aceptado.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -1348,6 +1348,11 @@
       "tipo": "REVISION",
       "fecha": "2026-11-17",
       "hecho": "Manual v2 (ef36ab1) revisado por un contexto distinto del autor: CORRECCIONES, con 4 medios (el 4.8 también copia _v64; hecho falso sobre los binarios; faltan marcas de autodeclarado; comandos sin marca) y 12 menores. No hay hallazgos materiales. El coordinador comprobó M2: hay 71 PDF ignorados en la candidata."
+    },
+    {
+      "tipo": "ASIGNACION",
+      "fecha": "2026-11-17",
+      "hecho": "El usuario pide avanzar en todo. Quedan en curso con contextos distintos: la v3 del manual (autor), la corrección AUTO1 en una rama aparte (autor, sin inferencias ni push a la rama del usuario), el cotejo Qwen de la tanda 01 y la revisión de G-RAIZ. Mistral A pasa directamente a A4. Mistral R contrasta AUTO_a508d6b."
     }
   ],
   "consulta_remotos_arranque": {
