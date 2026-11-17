@@ -1,0 +1,61 @@
+{
+    "es_plantilla": false,
+    "frente": "A (carpeta G)",
+    "bloque": "G-DOCS · revisión independiente del commit c0542b83 (rama integracion/docs-operativos-957af65, base 957af65) según la solicitud LISTA de CONTROL @57b34a60",
+    "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
+    "rama": "mistral/g-manual-traspaso",
+    "base_revisada_sha": "producto jluisplagos/munger-v2 @ 957af652cdc3bef3d67e8623c9572138bac685e9; sha_autor revisado c0542b83b9923f98124d3c72e48b7fc7245284d2; control vigente 57b34a60101d696dc8eca79181fd03c8ab2152eb",
+    "commit_entrega": "El coordinador toma el SHA remoto; no inventar autorreferencia",
+    "directorio_entrega": "resultados_cierre/manual_revision/revision_gdocs_c0542b8/",
+    "tareas_control": ["G-DOCS"],
+    "candidata_producto_sha": "957af652cdc3bef3d67e8623c9572138bac685e9",
+    "banco_sha": null,
+    "naturaleza": "revisión independiente (contexto distinto del autor Claude) de una corrección documental entregada en el repositorio producto; no integra nada en el producto",
+    "autor_contexto_modelo_herramientas": "Sesión Vibe Code de Mistral AI, modelo mistral-large-4-0 (único expuesto; consumo/facturación no visible). Herramientas realmente usadas: gh api (solo lectura sobre jluisplagos/munger-v2), sh, diff, sha256sum, grep/sed, python3 para leer CONTROL.json. Sin LibreOffice, sin pipeline, sin agentes del producto.",
+    "fuentes_y_preservacion": [
+        "Producto jluisplagos/munger-v2 @ 957af65 y @ c0542b83 leído solo con gh api (contents raw); no clonado ni modificado",
+        "CONTROL.json @ 57b34a60 en rama coordinacion/cierre-v2 (HEAD remoto; sin cambios posteriores sobre coordinacion/cierre_v2)",
+        "CONTRADICCIONES_GUIA.md @ 341831f (revisión G-MANUAL aceptada en 78ba1ca, no repetida)",
+        "Diffs y hashes de los 4 archivos fijados en sondas/ (material descargado reproducible con s02/s04, no versionado)"
+    ],
+    "cambios_respecto_entrega_anterior": [
+        "Entrega anterior de esta rama (78ba1ca, revisión G-MANUAL) conservada intacta en resultados_cierre/manual_revision/; este bloque va en subcarpeta revision_gdocs_c0542b8/",
+        "Rama A (mistral/m2-cobertura-vm @ 8b88fab) intacta en worktree separado; A3 se atiende después en esa rama",
+        "No se toca CONTROL/ESTADO ni el producto; T-TRASPASO ya lanzado por Claude con otro receptor: no se duplica"
+    ],
+    "pruebas": [
+        {
+            "tipo": "componente (revisión documental con sondas deterministas)",
+            "comando": "cd resultados_cierre/manual_revision/revision_gdocs_c0542b8/sondas && sh s01_lista_cambios_commit.sh && sh s02_descargar_4_archivos.sh && sh s03_diff_4_archivos.sh && sh s04_sondas_codigo_957af65.sh && sh s05_hashes_y_manifiesto.sh && sh s06_busqueda_economica.sh",
+            "exit_esperado": 0,
+            "exit_observado": 0,
+            "criterios_cubiertos": [
+                "C1: commit c0542b83 toca solo los 4 diff_rutas (compare API ahead_by=1); cada corrección mapea a G-1..G-9/O-1..O-11/O-14 y se verificó cierta en 957af65 (pipeline.py:660-672,1060-1084; verificacion_entradas.py:35,84,390; ficha.py:383-391; cambiar_base.py:60-88; rellenar_fase1_v63.py:22-25; fase1_historia.py:308-340; verificar_paquete.sh:14-25; PROMPT_NUEVA_VENTANA.md:3,15-26; README.md:5; HITO_1/HITO_2; test_relevo_i19_415.py 5 pasos)",
+                "C2: I19/I20 presentados como corregidos; H9 explícitamente abierto en 3 sitios, sin procedimiento inventado",
+                "C3: 102 líneas cambiadas sin ninguna magnitud económica ni parámetro; 0 archivos de código/config; regla 11.4 solo gana el hecho de la entrega por rama + enumeración O-6",
+                "C4: CAMBIOS cita el generador del producto (2026-11-17); MANIFIESTO head 7762 entradas = cabecera (7762/7762); sha256 de los archivos head coinciden byte a byte con el manifiesto; solo 3 entradas cambian vs base; diff de CAMBIOS limitado"
+            ],
+            "criterios_sin_cubrir": [
+                "ejecución de baterías sobre c0542b83 (no ejecutable aquí: sin LibreOffice/pipeline; las baterías no leen estos documentos salvo controles históricos)",
+                "verificación de los 7762 hashes contra árbol materializado (base 4.14 no descargada)",
+                "estimación '60 min' de GUIA §1 no contrastada con marcas de tiempo"
+            ],
+            "evidencia": "sondas/s01..s06 (*.sh + *.out) y sondas/diff_*.txt; INFORME_REVISION_GDOCS.md; verificacion_criterios.json",
+            "sha_material": "producto @957af65 (base) y @c0542b83 (head), solo lectura vía API; hashes en s02/s05",
+            "resultado": "CONFORME_CON_LIMITES"
+        }
+    ],
+    "precondiciones_simuladas": [],
+    "revision_por_otro_contexto": "Hecha: esta revisión es de un contexto distinto del autor del cambio (Claude coordinador). Queda pendiente la aceptación del coordinador en CONTROL.json (informe_revision de G-DOCS, commit_revisado = SHA remoto de esta rama).",
+    "limites_y_bloqueos": [
+        "Nada del producto ejecutado: sin verificar_paquete.sh, LibreOffice, pipeline, agentes ni red propia (solo API GitHub de lectura)",
+        "Revisión documental; no acredita aptitud económica ni integra nada",
+        "Detalle menor no contrastado: '60 min' en GUIA §1 (prosa)"
+    ],
+    "siguiente_accion_exacta": "El coordinador registra este informe en CONTROL.json (G-DOCS solicitud_revision.informe_revision: ruta resultados_cierre/manual_revision/revision_gdocs_c0542b8/INFORME_REVISION_GDOCS.md, veredicto CONFORME_CON_LIMITES, commit = SHA remoto de mistral/g-manual-traspaso) y, si acepta, incorpora los 4 archivos a integracion/candidata-cierre-v2 con origen/revisión/destino. Después, Mistral A atiende CORRECCION_A3.md (A3-R1..R8) en mistral/m2-cobertura-vm desde 8b88fab.",
+    "integrado_en_producto": false,
+    "apto_dinero_real": "No se declara por este formulario",
+    "criterios_cubiertos": ["los cuatro criterios de la solicitud G-DOCS, CONFORME_CON_LIMITES"],
+    "criterios_pendientes": ["aceptación del coordinador en CONTROL.json", "incorporación controlada de los 4 archivos por el coordinador (no por el revisor)"],
+    "salida_siguiente": "commit+push de mistral/g-manual-traspaso con revision_gdocs_c0542b8/; luego bloque A3 en la rama A"
+}

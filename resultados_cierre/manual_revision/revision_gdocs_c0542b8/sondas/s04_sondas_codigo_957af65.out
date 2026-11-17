@@ -1,0 +1,153 @@
+== pipeline.py paso 2: modo entrada_efectiva ilegible (no_entregable) y codigo 7 estricta (pendiente_de_datos) ==
+                # que cambiar_base.py escribe en todo expediente nuevo, por defecto «estricta»); un archivo ilegible detiene el paso
+                try:
+                    _modo, _origen_modo = modo_entrada_efectiva(self.c)
+                except ValueError as ex:
+                    return self.terminar("no_entregable", "fallo_de_implementacion", f"entrada_efectiva.json: {ex}", 2)
+                _estricta = _modo == "estricta"
+                self.st["entrada_efectiva"] = {"modo": _modo, "declarado_en": _origen_modo}  # (T5) queda en estado_pipeline.json
+                rc, out = self.run([PY, self.script("rellenar_fase1_v63.py"), libro_base, self.p("fase1_v63.json"), libro_datos] + (["--estricta"] if _estricta else []))
+                if rc != 0:
+                    return self.terminar("no_entregable" if rc == 1 else "pendiente_de_datos", "fallo_de_implementacion" if rc == 1 else "falta_de_datos", "rellenar_fase1: " + out[-300:], 2)
+                if self.v64:
+                    # (4.11) la configuración económica explícita del expediente entra en el libro de datos, antes del primer recálculo
+                    # y de las fases (que no pueden cambiarla: no está en su lista blanca); el verificador de la V6.4 la reconoce
+== pipeline.py paso 13: I19 relevo caducado, relevos_caducados, repite paso 12, solicitud sustituida ==
+                n = st["intentos"]["auditoria"]
+                if st.get("esperando") == "13:auditoria.md" and CIE.material_fijado(self.c):
+                    # (4.15, hito 2, I19) relevo caducado: mientras se espera la auditoría, el material vigente tiene que seguir siendo el
+                    # fijado. Si cambió (p. ej. verificacion_entradas.json escrito después de fijarlo), ninguna respuesta a la solicitud
+                    # antigua podría cerrar nada: se registra, se repite la verificación (paso 12) y el paso 13 fija el material vigente con una
+                    # solicitud nueva (la antigua queda «sustituida»). No se aprueba nada con un material distinto
+                    fijado = (CIE.material_fijado(self.c) or {}).get("id")
+                    vigente, huellas_v = CIE.material(self.c, self.E)
+                    if fijado != vigente:
+                        antes = (CIE.material_fijado(self.c) or {}).get("archivos") or {}
+                        cambiados = sorted(n_ for n_ in set(antes) | set(huellas_v) if antes.get(n_) != huellas_v.get(n_))
+                        if not isinstance(st.get("relevos_caducados"), list):  # (hito 2, N10) un registro mal formado se conserva aparte
+                            if st.get("relevos_caducados") is not None:
+                                st["relevos_caducados_mal_formado"] = st.get("relevos_caducados")
+                            st["relevos_caducados"] = []
+                        st["relevos_caducados"].append({"material_fijado": fijado, "material_vigente": vigente, "archivos_cambiados": cambiados,
+                                                                       "detectado": dt.datetime.now().astimezone().isoformat(timespec="seconds")})
+                        st["relevo_por_refijar"] = True  # (hito 2, T9) la próxima fijación del material es la de este relevo
+                        self.log(f"relevo caducado: el material fijado {fijado} ya no es el vigente {vigente} (cambian: {', '.join(cambiados)[:300]}); "
+                                 "se repite la verificación (paso 12) y se pide una auditoría nueva del material vigente")
+                        st["paso"] = 12
+                        st["esperando"] = None
+                        self.guardar()
+                        continue
+                if st.get("esperando") != "13:auditoria.md" or not CIE.material_fijado(self.c):
+== verificacion_entradas.py: R1 pagina PDF entero + folio (35,390); sellar --revisor --fecha (84) ==
+       página del PDF (marcas «[PDF PAGE n]» del texto extraído); el folio impreso va aparte, en «folio». Página inexistente →
+     | sellar <expediente> --revisor NOMBRE --fecha AAAA-MM-DD(hoy) CELDA [CELDA …]
+        return "pendiente", f"la página declarada {pagina!r} no identifica una página del PDF (un entero; el folio impreso va en «folio»)"
+== ficha.py: I20 bloque verificacion_entradas en todas las plantillas tambien V6.3 (383-391) ==
+    # (4.15, hito 2, I20) en todas las plantillas (también V6.3): la verificación de las entradas y el modo de la entrada efectiva con su
+    # procedencia, en los expedientes que tienen registro de entradas (desde la 4.14) o declaración del modo (desde la 4.15). Las salidas
+    # históricas sin ninguno de los dos no cambian (como aptitud_de_uso en la 4.12): su ficha aprobada está ligada a su huella en
+    # cierre_vigente.json, y añadirles el bloque archivaría un cierre sin que cambie nada del expediente
+    # (hito 2, N1) también si el expediente declara el modo en alcance_v2.json o en fase1_metadatos.json, o el paso 2 lo aplicó y registró
+    # (estado_pipeline.json, desde la 4.15): borrar el registro o la declaración no quita el bloque de un expediente de la 4.15
+    if (any(os.path.isfile(os.path.join(c, n)) for n in ("verificacion_entradas.json", "entrada_efectiva.json"))
+            or isinstance((pipe or {}).get("entrada_efectiva"), dict) or _declara_modo(c)):
+        ficha["verificacion_entradas"] = verificacion_y_entrada_efectiva(c, pipe)
+== cambiar_base.py: analisis_que_se_conservan/_que_se_descartan y entrada_efectiva estricta por defecto (60-62,72-88) ==
+    "analisis_que_se_conservan": {"C49": "(4.15) motivo por el que se conserva una entrada `analisis` de los metadatos del origen"},
+    "analisis_que_se_descartan": {"C42": "(4.15) motivo por el que se descarta"},
+    "entrada_efectiva": {"modo": "estricta (por defecto) | registrada", "motivo": "obligatorio con «registrada»"},
+    ee = conf.get("entrada_efectiva")
+    if ee is not None:
+        if not isinstance(ee, dict) or ee.get("modo") not in ("estricta", "registrada"):
+            faltas.append("entrada_efectiva tiene que ser {\"modo\": \"estricta\" | \"registrada\", \"motivo\": …}")
+        elif ee.get("modo") == "registrada" and not str(ee.get("motivo") or "").strip():
+            faltas.append("entrada_efectiva «registrada» sin motivo (el modo por defecto de un expediente nuevo es «estricta»)")
+== rellenar_fase1_v63.py: --estricta detiene con codigo 7 (22-25) ==
+registra una entrada del FCF base que el libro tiene de la etapa 1 y fase1_v63.json no declara. Con --estricta (el pipeline lo pasa si
+entrada_efectiva.json declara el modo «estricta», que cambiar_base.py escribe por defecto en todo expediente nuevo de la 4.15;
+pipeline.modo_entrada_efectiva), cualquiera de las dos detiene el relleno
+con el código 7 sin escribir nada; sin él (la línea de base v2.2) solo queda registrada y marcada.
+== fase1_historia.py: R415-SIGNO valor_fuente cifra publicada con signo (308-310,327-338) ==
+    """(4.15, hito 2, R415-SIGNO) (cifra publicada, transformación) de un componente de un cálculo declarado. Sin «valor_fuente», la cifra
+    publicada es «valor» y no hay transformación (None). Con «valor_fuente», exige «signo» ±1 y «tratamiento», y valor = signo ×
+    valor_fuente exactamente (en su representación decimal: ni redondeo ni escala; un cambio de escala no es una conversión de signo)."""
+def calcular_entrada(celda, d, H, anios, carpeta=None):
+    """(4.15) Valor de una entrada de Análisis desde su `calculo` declarado:
+    {"operacion": "media"|"suma", "anios": [AAAA, …], "terminos": [{"partida": <fila de la Historia>, "signo": ±1} | {"componente": <nombre>, "signo": ±1}],
+    (4.15, hito 2, R415-SIGNO) La cita se contrasta con la cifra PUBLICADA y su signo. Si el componente usa otra cifra que la publicada (p.
+    ej. la magnitud positiva de un pago publicado «(130,8)»), lo declara: «valor_fuente» (la cifra publicada, con su signo), «signo» (±1)
+    y «tratamiento» (por qué), con valor = signo × valor_fuente exactamente; la transformación declarada sigue siendo válida. Sin esa
+== test_relevo_i19_415.py: 5 comprobaciones paso(...) del relevo sin --desde ==
+56:        paso("19 relevo: el pipeline espera la auditoría del material fijado con una solicitud pendiente", rc == 10 and len(sol0) == 1 and sol0[0]["material"] == m0, f"código {rc}")
+64:        paso("19 relevo caducado sin «--desde»: se registra, se repite la verificación y se pide la auditoría del material vigente (la antigua, «sustituida»)",
+70:        paso("19 (hito 2, H9) la solicitud nueva comunica al auditor el relevo caducado y los archivos que cambiaron, y el relevo registra la solicitud",
+76:        paso("19 una aprobación de la solicitud antigua (material antiguo) no cierra nada", st.get("estado_analisis") is None and not os.path.exists(os.path.join(c, "cierre_vigente.json"))
+80:        paso("19 con la auditoría del material vigente, el análisis termina con su estado (relevo resuelto sin «--desde»)",
+35:    después de fijar el material. Al relanzar el pipeline SIN «--desde», lo detecta, lo registra, repite la verificación (paso 12) y pide
+== verificar_paquete.sh: baterias obligatorias y recuentos 190/62/5/199 ==
+#                                        menos 78 pruebas) y, la primera de las obligatorias, la batería de la integración V6.4 experimental
+#                                        test_integracion_v64.py (4.11: plantilla, 117 casos con la réplica independiente, pipeline y cambio
+#                                        de base; 4.12: grupos E vigencia y selección, F materialidad y protocolos del objetivo, G coherencia,
+#                                        variantes y fórmulas alteradas; 4.13: guardas de estructura, salto del protocolo, cobertura y H
+#                                        V6.4.1 experimental; 4.14: cambio de base con correcciones de extracción; igual de obligatoria; al menos 199 pruebas) y, antes de ella, la batería de
+#                                        vigencia H5 test_vigencia_h5.py (4.13.1; al menos 59 pruebas) y la del juicio sobre el objetivo
+#                                        test_juicio_objetivo_414.py (4.14; al menos 27 pruebas) y la de la verificación de las entradas test_verificacion_entradas_414.py
+#                                        (4.14; al menos 33 pruebas), igual de obligatorias (≈ 30–45 min en total); (4.15) después, la de la
+#                                        corrección de la verificación de las entradas test_verificacion_entradas_415.py (al menos 190 pruebas;
+#                                        105 en el hito 1 de la 4.15) y la de la entrada efectiva del FCF base test_entrada_efectiva_415.py
+#                                        (al menos 62; 40 en el hito 1) y la del relevo caducado test_relevo_i19_415.py (4.15, hito 2; al
+#                                        menos 5; LibreOffice), igual de obligatorias
+== PROMPT_NUEVA_VENTANA.md: arranque desde el repositorio (3) y pasos 15-22, 23-26 ==
+Desde la 4.15 el proyecto se conserva en el repositorio `jluisplagos/munger-v2`, no en un ZIP adjunto. El mensaje de la 4.14 (con el ZIP) está
+2. Desde `main`, descargar el ZIP original de la Release `base-4.14` (si `gh release download` no funciona, por la API REST:
+   `gh api -H "Accept: application/octet-stream" repos/jluisplagos/munger-v2/releases/assets/750814858 > <zip>`), comprobar su SHA-256
+   (`bb51942c…7b93e`), materializarlo con `python3 -I tools/base_414.py materialize --source <zip>` y verificarlo con `verify`
+   (esperado 6798/6798, `complete: true`). No modificar `main` ni el ZIP.
+3. Cambiar a la rama de la entrega que se quiera comprobar (la del hito 2 es `claude/hopeful-bardeen-qap6y0`), comprobar
+   `munger_v2_r1/MANIFIESTO_SHA256.txt` y leer `munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/hito2/HITO_2_4_15.md`
+   y `PUNTO_DE_RECUPERACION.md`.
+4. Sobre una copia limpia de `munger_v2_r1/` (sin `personaje_v2/.lo_perfil/` ni `__pycache__`), ejecutar `bash verificar_paquete.sh completa`.
+   LibreOffice y las pruebas que lo usan van en secuencia, nunca dos a la vez. Esperado (hito 2): manifiesto, entorno y piloto (35 CUMPLEN);
+   comprobadores 114/114; sintética 30/30 con los nombres de la línea de base; H5 59/59; juicio 27/27; entradas 4.14 33/33; entradas 4.15
+   190/190; entrada efectiva 62/62; relevo caducado 5/5; integración V6.4 199/199; trazabilidad 78/78; integridad 103/103; auditorías 55/55;
+   estados 28/28; resumen 45/45; cierre 55/55; RESULTADO GLOBAL: PASA.
+== VERSION @957af65 ==
+munger_v2 · r1 · entrega 4.15 · hito 2 (corrección técnica tras la revisión externa del hito 1: R415-SIGNO —la cifra publicada se contrasta con su signo, leída en la línea de la página; la transformación justificada sigue valiendo—, límites U1–U7 de la cuarta revisión, aptitud por entradas y modo de la entrada efectiva en las salidas de todas las plantillas (I20), relevo caducado (I19), prueba de H-P1/X2 y empaquetado sin doble clasificación del manifiesto; C48 de Elis sigue en 108,0 con la conversión de los pagos declarada; seis revisiones independientes y dos comprobaciones dirigidas (séptima, con sus correcciones X1, X2 y X5, y octava, conforme en el código); sin regenerar expedientes ni F1, que se concilia en otra tarea; aptitud: uso supervisado experimental, no apto para decisiones con dinero real; sobre la 4.15 · hito 1, rama revision/4.15-hito1, y la entrega 4.14, ZIP SHA-256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e) · 2026-11-16 · base SHA-256 61c70800d0faa7c4a98888b7413820ec8041153e53484c32b0c549b26b6af87d
+== README.md raiz: base_414.py solo sobre main/base 4.14 (5) ==
+La base 4.14 completa sigue conservada en main y en su Release. Para ejecutar este hito: clonar main, recuperar y verificar sus binarios con tools/base_414.py y después cambiar a esta rama. La verificación de la 4.14 no debe aplicarse al código modificado de la 4.15; usar el MANIFIESTO_SHA256.txt de esta rama para contrastar su árbol.
+== HITO_1_4_15.md: R1 (19), R2 (27), R3 (30-40), I13 (42), C48 (134-153) ==
+  - `pagina` es la página del PDF (un entero, «12» o «PDF 12»). El folio impreso va aparte, en `folio`.
+  - Una fuente **local** tiene que existir dentro del expediente o del paquete (ni rutas absolutas ni rutas que salgan de ellos) y tener su sha256 vigente; si no, la entrada queda pendiente. Las declaraciones del extractor o del revisor no lo sustituyen.
+### R3 · redondeo aceptado como cifra exacta
+### I13 · vigencia del fundamento
+### C48 de Elis · entrada efectiva reproducible
+- `fase1_historia.calcular_entrada`: una entrada de Análisis se declara con su **cálculo**, sobre partidas de la Historia y componentes con valor, fuente, página y cita. `construir` la calcula:
+  - contrasta cada componente con su página;
+  - exige años enteros distintos y un redondeo ≥ 3, que se declara en la fuente junto con el valor sin redondear;
+== HITO_2_4_15.md: U6 (74-76), I20 (82-88), I19 (89-92), H9 limite abierto (92-93), guias no reescritas (199-200) ==
+- **U6 · modo de la entrada efectiva.** `alcance_v2.json` ilegible, que no es un objeto o con una errata de la clave, y «registrada» frente a
+  «estricta», detienen el paso 2. **Límite (a):** sin ningún rastro (archivo, metadatos, alcance ni registro del paso 2), el modo es
+  «registrada»; se ve en ficha e informe y el archivo forma parte del material auditado.
+- **I20 · aptitud por entradas y modo de la entrada efectiva en las salidas.** `ficha.py` escribe `verificacion_entradas` en todas las
+  plantillas (también V6.3): apto o no por entradas, el recuento, `apto_para_dinero_real: false`, el modo aplicado en el paso 2 y el
+  declarado con su procedencia, y el motivo. Un modo aplicado distinto del declarado, o una declaración con error, impide «apto por
+- **I19 · relevo caducado.** Mientras el paso 13 espera, compara el material fijado con el vigente: si difieren, lo registra en
+  `estado_pipeline.json → relevos_caducados`, repite la verificación (paso 12) y pide la auditoría del material vigente (la antigua queda
+  «sustituida»); la solicitud nueva comunica al auditor el relevo y los archivos cambiados. Una aprobación de la solicitud antigua no
+  cierra nada. **Límite (H9):** vuelve siempre al paso 12; si cambian salidas de fases anteriores habría que volver al paso que las consume
+  (*propuesta* sin aplicar: cambia el recorrido del pipeline y necesita su propia prueba).
+- **Documentación general:** `PROMPT_NUEVA_VENTANA.md` describe ahora el arranque desde el repositorio; las guías del pipeline de la 4.14
+  no se han reescrito.
+== hito2 PUNTO_DE_RECUPERACION.md: H9 parte abierta (33) ==
+- **H9 (parte abierta):** un relevo caducado vuelve siempre al paso 12; si cambian salidas de fases anteriores (fase_a/b/c, entrada
+  efectiva) haría falta volver al paso que las consume. Propuesta sin aplicar (cambia el recorrido del pipeline).
+== generador del producto que firma la cabecera de CAMBIOS/MANIFIESTO (1-9) ==
+#!/usr/bin/env python3
+"""Genera CAMBIOS_ARCHIVOS.txt y MANIFIESTO_SHA256.txt de un árbol munger_v2_r1 (entrega 4.15; adaptado del de la 4.14).
+
+Uso: python3 -I generar_cambios_y_manifiesto.py RAIZ_munger_v2_r1 CAMBIOS_ANTERIOR MANIFIESTO_ANTERIOR ETIQUETA [FECHA]
+  CAMBIOS_ANTERIOR y MANIFIESTO_ANTERIOR: los de la 4.14 (copias en …_4_15/reproduccion/codigo_4_14/), de los que se reconstruyen las huellas de la
+  base original (los modificados con su huella base y los que no cambiaron con la del manifiesto de la 4.14).
+CAMBIOS_ARCHIVOS.txt lista, frente a la base original, los modificados (base → nuevo), los nuevos y los eliminados; y además, frente a la
+4.14, los cambiados (antes → después), los nuevos y los desaparecidos. MANIFIESTO_SHA256.txt cubre todos los archivos salvo él mismo
+(sin __pycache__ ni .lo_perfil/). Se niega a generar si el árbol tiene salidas de pruebas que no van en el paquete (personaje_v2/pruebas/_v64/).

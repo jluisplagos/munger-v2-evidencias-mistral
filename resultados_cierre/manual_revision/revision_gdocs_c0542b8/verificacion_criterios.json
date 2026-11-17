@@ -1,0 +1,94 @@
+{
+  "tarea": "G-DOCS",
+  "solicitud": {
+    "control_sha": "57b34a60101d696dc8eca79181fd03c8ab2152eb",
+    "rama_control": "coordinacion/cierre-v2",
+    "sha_autor": "c0542b83b9923f98124d3c72e48b7fc7245284d2",
+    "base_revisada": "957af652cdc3bef3d67e8623c9572138bac685e9",
+    "repositorio_producto": "jluisplagos/munger-v2",
+    "rama_producto": "integracion/docs-operativos-957af65",
+    "diff_rutas": [
+      "munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md",
+      "munger_v2_r1/CONTINUIDAD.md",
+      "munger_v2_r1/CAMBIOS_ARCHIVOS.txt",
+      "munger_v2_r1/MANIFIESTO_SHA256.txt"
+    ],
+    "criterios": [
+      "Cada correccion corresponde a G-1..G-9 / O-1..O-11 / O-14 de CONTRADICCIONES_GUIA.md y es cierta en 957af65 (codigo y registro del hito 2)",
+      "No reintroduce I19/I20; H9 queda abierto y sin procedimiento inventado",
+      "No cambia reglas economicas, configuraciones ni la regla 11.4 (solo anade el hecho de la entrega por rama)",
+      "CAMBIOS_ARCHIVOS.txt y MANIFIESTO_SHA256.txt regenerados con el generador del producto; manifiesto 7762/7762; diff limitado"
+    ]
+  },
+  "verificaciones": {
+    "commit": {
+      "rama_head_igual_sha_autor": true,
+      "padre_unico_es_base": true,
+      "archivos_tocados": 4,
+      "coinciden_con_diff_rutas": true,
+      "evidencia": "sondas/s01_lista_cambios_commit.out (compare 957af65...c0542b83: ahead_by=1, total_commits=1, 4 modified)"
+    },
+    "hashes": {
+      "sha256_head_coinciden_con_manifiesto": {
+        "munger_v2_r1/CAMBIOS_ARCHIVOS.txt": "c8ce2f59d841c29078e8ad58ee7cfb35353bd2b7992507ba3e91e88c70157f75",
+        "munger_v2_r1/CONTINUIDAD.md": "56e37708c24cf6bc06d721277aff1912cacbf3a730e64d18a72324153c40a27a",
+        "munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md": "2861e7f1ed1ac0f9b4328ecb9cf2dae3052db16f5680e0e2c7149e39ee23298d"
+      },
+      "manifiesto_entradas": 7762,
+      "manifiesto_cabecera_declara": 7762,
+      "entradas_cambiadas_vs_base": ["CAMBIOS_ARCHIVOS.txt", "CONTINUIDAD.md", "personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md"],
+      "evidencia": "sondas/s05_hashes_y_manifiesto.out"
+    },
+    "correspondencia_con_codigo_957af65": [
+      {"id": "G-1/I19", "veredicto": "CONFORME", "fuente": "pipeline.py:1060-1084 (relevos_caducados, paso=12, solicitud sustituida); HITO_2_4_15.md:89-92; test_relevo_i19_415.py: 5 paso(\"19...\") sin --desde"},
+      {"id": "G-2/G-6/I20", "veredicto": "CONFORME", "fuente": "ficha.py:383-391 (bloque verificacion_entradas en todas las plantillas, tambien V6.3, apto_para_dinero_real:false, modo); HITO_2_4_15.md:82-88"},
+      {"id": "G-3/I13", "veredicto": "CONFORME", "fuente": "verificacion_entradas.py:84 (sellar <exp> --revisor NOMBRE --fecha AAAA-MM-DD CELDA...); HITO_1_4_15.md:42"},
+      {"id": "G-4/R1-R3/R415-SIGNO/I8-I9", "veredicto": "CONFORME", "fuente": "verificacion_entradas.py:35,390 (pagina PDF entero, folio aparte); HITO_1_4_15.md:19,27,30; fase1_historia.py:308-310,338-340 (valor_fuente con signo publicado)"},
+      {"id": "G-5/G-9/C48/U6", "veredicto": "CONFORME", "fuente": "cambiar_base.py:60-62,83-88 (analisis_que_se_conservan/_que_se_descartan, entrada_efectiva estricta por defecto); rellenar_fase1_v63.py:22-25 (codigo 7); pipeline.py:660-672 (paso 2: no_entregable / pendiente_de_datos); HITO_1_4_15.md:134-153; HITO_2_4_15.md:74-76"},
+      {"id": "G-7", "veredicto": "CONFORME", "fuente": "HITO_2_4_15.md:199-200 (guias de la 4.14 no reescritas); VERSION @957af65 = 4.15 hito 2"},
+      {"id": "G-8/O-8/O-9/O-10/O-14", "veredicto": "CONFORME", "fuente": "README.md:5; PROMPT_NUEVA_VENTANA.md:3,15-22 (arranque desde el repositorio, base_414.py solo sobre main/base 4.14)"},
+      {"id": "O-5/O-6/O-7 (baterias)", "veredicto": "CONFORME", "fuente": "verificar_paquete.sh:14-25 (15 obligatorias en completa: 59/27/33/190/62/5/199/78/103/55/28/45/55 + comprobadores/sintetica); PROMPT_NUEVA_VENTANA.md:23-26"},
+      {"id": "H9 abierto", "veredicto": "CONFORME", "fuente": "HITO_2_4_15.md:92-93 (limite H9, propuesta sin aplicar); hito2/PUNTO_DE_RECUPERACION.md:33-34; el diff mantiene H9 abierto en 3 sitios y no inventa procedimiento (s06)"}
+    ],
+    "ausencia_cambios_economicos": {
+      "lineas_cambiadas_total": 102,
+      "hallazgos_economicos": 0,
+      "solo_recuentos_de_pruebas_fechas_hashes_rama": true,
+      "archivos_de_codigo_o_config_tocados": 0,
+      "evidencia": "sondas/s06_busqueda_economica.out; compare API (4 archivos, todos .md/.txt documentales)"
+    },
+    "regla_11_4": {
+      "cambio_permitido_hecho_entrega_por_rama": true,
+      "cambio_adicional": "enumeracion de baterias corregida per O-6 (diez->trece, 198->199, anade 190/62/5), dentro del conjunto declarado O-1..O-11; la regla misma no cambia",
+      "veredicto": "CONFORME"
+    },
+    "generador": {
+      "script_existe_en_957af65": "personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/generar_cambios_y_manifiesto_4_15.py",
+      "cabecera_cambios_cita_generador_fecha_2026-11-17": true,
+      "cambios_diff_limitado": "cabecera + 2 hashes de documentos + seccion RESPECTO A LA 4.14 (16->17, fila GUIA)"
+    }
+  },
+  "resultado_por_criterio": [
+    {"criterio": 1, "veredicto": "CONFORME"},
+    {"criterio": 2, "veredicto": "CONFORME"},
+    {"criterio": 3, "veredicto": "CONFORME"},
+    {"criterio": 4, "veredicto": "CONFORME"}
+  ],
+  "clasificacion_global": "CONFORME_CON_LIMITES",
+  "limites": [
+    "revision documental por lectura (API GitHub solo lectura); nada del producto ejecutado (sin verificar_paquete.sh, LibreOffice, pipeline ni agentes)",
+    "no se verificaron los 7762 hashes contra un arbol materializado (base 4.14 no descargada, ~1,13 GB); se verifico consistencia byte a byte de las entradas cambiadas y diff del resto del manifiesto vs 957af65",
+    "estimacion '60 min' de la verificacion de la candidata en GUIA seccion 1 no contrastada con marcas de tiempo en los logs publicados (prosa; no afecta a los criterios)",
+    "README/CLAUDE.md raiz y MIGRATION_STATUS.json (C-01..C-04, O-12/O-13) intactos a proposito: instrucciones del usuario, se proponen en DECISIONES, no se cambian"
+  ],
+  "revisor": {
+    "contexto": "relevo de Mistral A/G en sesion Vibe Code de Mistral AI",
+    "modelo": "mistral-large-4-0",
+    "herramientas": ["gh api (solo lectura)", "sh", "diff", "sha256sum", "grep/sed", "python3 (lectura JSON)"],
+    "consumo_visible": false,
+    "rama": "mistral/g-manual-traspaso",
+    "carpeta": "resultados_cierre/manual_revision/revision_gdocs_c0542b8/"
+  },
+  "integracion_en_producto": false,
+  "apto_dinero_real": "No se declara por este informe"
+}

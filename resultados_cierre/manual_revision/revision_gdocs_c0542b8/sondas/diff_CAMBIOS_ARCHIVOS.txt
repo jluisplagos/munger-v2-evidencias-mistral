@@ -1,0 +1,45 @@
+--- material/base/munger_v2_r1_CAMBIOS_ARCHIVOS.txt	2026-11-17 09:21:41.875714783 +0000
++++ material/head/munger_v2_r1_CAMBIOS_ARCHIVOS.txt	2026-11-17 09:21:43.015714616 +0000
+@@ -1,4 +1,4 @@
+-# Archivos cambiados respecto a la base (munger_v2_paquete.zip, SHA-256 61c70800…6af87d). 4.15 · hito 2 (cierre del bloque técnico: código de 0a0020b, octava comprobación), generado el 2026-11-16 por personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/generar_cambios_y_manifiesto_4_15.py.
++# Archivos cambiados respecto a la base (munger_v2_paquete.zip, SHA-256 61c70800…6af87d). 4.15 · hito 2 + corrección documental de la guía del recorrido y de CONTINUIDAD (programa de cierre v2; sin cambios de código), generado el 2026-11-17 por personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/generar_cambios_y_manifiesto_4_15.py.
+ # No figuran este archivo ni MANIFIESTO_SHA256.txt (se generan al final; el manifiesto cubre todos los archivos, este incluido).
+ # Base original reconstruida de los CAMBIOS y el MANIFIESTO de la 4.14: 676 archivos.
+ # modificados 36 · nuevos 7085 · eliminados 0 · sin cambios 640
+@@ -78,7 +78,7 @@
+   98cb6f0bd034e66814039c90bd439be1df136feee0ec357968f16dfaa69a7ce3 → eaf4b82fa0c91b8d0ffedb55b3145d78a9cb68b3241c3e67a72a1d1ec38a3964
+ 
+ ## NUEVOS (SHA-256)
+-a0a1f0c52b1dff24784d9cc99c34895b8a170894746dfb9a4a3716e24ab1d082  CONTINUIDAD.md
++56e37708c24cf6bc06d721277aff1912cacbf3a730e64d18a72324153c40a27a  CONTINUIDAD.md
+ c65f44d21ef05309d5f443b267ed50d20ebd7d6bfe6a89dad486513dd4cf2b6c  LEEME_REPARACION_H1-H3.md
+ ed804aab69a5526b911f264cb7e053ce1499a2b9db1941291764638ce427e700  PROMPT_NUEVA_VENTANA.md
+ c7f59630376bf2675e609b793cccad7836d95ba541711cc94c3f672446980533  REGISTRO_IMPLEMENTACION_H1-H3.md
+@@ -177,7 +177,7 @@
+ b161baed7a388f3c6a6e71608ab5c5d63d43b73a51f6c72f18014a7fa6969974  documentacion_reparacion/diagnostico/resultados/manifiesto_zip_reextraido.sha256
+ 0b49e93028650ed18d2700579d934a2f0222dc9b5d49ad3823b16ca46ecafa79  documentacion_reparacion/diagnostico/resultados/sha256_adjuntos_final.txt
+ 0b49e93028650ed18d2700579d934a2f0222dc9b5d49ad3823b16ca46ecafa79  documentacion_reparacion/diagnostico/resultados/sha256_adjuntos_inicial.txt
+-108dbea1522997035e946ba6b55c18deafedc3cfa1d15134003246cb0f3f46e2  personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md
++2861e7f1ed1ac0f9b4328ecb9cf2dae3052db16f5680e0e2c7149e39ee23298d  personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md
+ 4b707e5c6c0f32e83c936f13adbd3ced9961b43718586cb0ad990aee19fe2906  personaje_v2/config_v2_v641_experimental.json
+ fbc12b8ffb9b048f0408ce2bb46b69c6199ebf3ef60d2c6a3502d4087307a23b  personaje_v2/config_v2_v64_experimental.json
+ df93c8aa20618195690c3770d2490065b459c93b6cb7b1a51e12c60796ee0665  personaje_v2/empresas_v2_correcciones/2026-11_H3/Aarsleff/Aarsleff_v63_base.xlsx
+@@ -7166,14 +7166,16 @@
+ 
+ ## ELIMINADOS
+ 
+-## RESPECTO A LA 4.14 (MANIFIESTO de munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip, SHA-256 bb51942c…7b93e): cambiados 16 · nuevos 964 · desaparecidos 0
++## RESPECTO A LA 4.14 (MANIFIESTO de munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip, SHA-256 bb51942c…7b93e): cambiados 17 · nuevos 964 · desaparecidos 0
+ ### CAMBIADOS (SHA-256 4.14 → 4.15; CAMBIOS_ARCHIVOS.txt y MANIFIESTO_SHA256.txt se regeneran siempre)
+ CONTINUIDAD.md
+-  dc8edfc18dc985ec5bc62056a9b9bbb4aa63e44a837e5d4e2547c932423ceb62 → a0a1f0c52b1dff24784d9cc99c34895b8a170894746dfb9a4a3716e24ab1d082
++  dc8edfc18dc985ec5bc62056a9b9bbb4aa63e44a837e5d4e2547c932423ceb62 → 56e37708c24cf6bc06d721277aff1912cacbf3a730e64d18a72324153c40a27a
+ PROMPT_NUEVA_VENTANA.md
+   3fd9c275c4bd177eb9e4a065f009a23f7ab668d4e7d922e9de01c76dc9e6f9c6 → ed804aab69a5526b911f264cb7e053ce1499a2b9db1941291764638ce427e700
+ VERSION
+   9d36ce8986c1ed101da4ec7d812eef49a5b1f155cb58b5fbe2df51c0bffaae3a → f92618d605ccdff808f444b7a5625e4d588c6662c1b76d816c5504d7e599e06c
++personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md
++  108dbea1522997035e946ba6b55c18deafedc3cfa1d15134003246cb0f3f46e2 → 2861e7f1ed1ac0f9b4328ecb9cf2dae3052db16f5680e0e2c7149e39ee23298d
+ personaje_v2/esquema/ficha.esquema.json
+   93db1119c9e63dcd6f9146b12a1b581a2e9aa46faa0e7d48f7c621717ec93f89 → eefed485b06b265afd5cb4fa811a476cbbeea17a3f22ba2951525170b81cc165
+ personaje_v2/pruebas/test_cierre_v2.py
