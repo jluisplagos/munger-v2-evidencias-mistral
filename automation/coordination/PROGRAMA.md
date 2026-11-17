@@ -164,3 +164,73 @@ aptitud para dinero real. Mantener entregado/revisado/integrado/probado separado
 - https://docs.mistral.ai/vibe/code/choose-cli-vscode-web-sessions
 - https://platform.claude.com/docs/en/models/overview
 - https://platform.claude.com/docs/en/build-with-claude/structured-outputs
+
+## Correcciones AUTO1 (revisión de a508d6b)
+
+Estado: corregido por su autor y pendiente de revisión por un agente distinto.
+No se ha lanzado ninguna inferencia ni ningún workflow para probarlo. La
+corrección no autoriza otra llamada de `audit-pilot-code-001`, que sigue bloqueada
+por su reserva, ni abre por sí sola una tarea de pago nueva.
+
+**Puerta humana (M6). Paso pendiente de la persona responsable:**
+
+1. En el auxiliar, Settings → Environments → New environment, crear
+   `inferencia-aprobada`. Marcar **Required reviewers** con al menos una persona
+   responsable y, si se quiere, «Prevent self-review». Limitar
+   «Deployment branches» a las ramas de automatización.
+2. Mover `ANTHROPIC_API_KEY` y `MISTRAL_VIBE_CLI_KEY` a *Environment secrets* de
+   `inferencia-aprobada` y borrarlos de los secretos del repositorio. Así solo un job
+   aprobado en ese environment puede leerlos.
+3. En el mismo environment, crear la variable `MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD`
+   con el tope acumulado en USD que decida la persona responsable (decimal, p. ej.
+   `4.5`). Ni el código ni el revisor fijan esta cifra. Sin ella, toda tarea nueva
+   de Anthropic se detiene con `TOPE_ACUMULADO_NO_FIJADO_POR_RESPONSABLE` antes de
+   cualquier llamada.
+
+Desde AUTO1, los workflows con secretos de inferencia solo se lanzan con
+`workflow_dispatch`, y cada job con secreto declara `environment: inferencia-aprobada`.
+Los `push` solo lanzan `automation-tests.yml`, que no tiene secretos, y la preparación
+de Vibe, que tampoco. GitHub solo ofrece `workflow_dispatch` para workflows que estén
+en la rama por defecto. Copiarlos a `main` es una decisión de la persona responsable
+y no la toma esta corrección. Mientras no estén ahí, no pueden lanzarse.
+
+**Tope acumulado (M5).** Antes de contar tokens, `critical_review.Receipt.admit` lee
+todas las `reservation.json` de la rama de registro (`automation/coordination/reviews/*`
+y `automation/claude_review/results/*`). Así, cambiar `TASK` no las oculta. Cada reserva
+cuenta su coste estimado si es conocido. Si es reservada, incierta o anterior a AUTO1,
+cuenta su reserva completa. Las de Vibe CLI no tienen reserva en USD y se omiten.
+Una reserva ilegible, o con coste sin cota, bloquea hasta reconciliarla a mano. Se
+comprueba `comprometido + MAX_USD ≤ tope` y, dentro de `reserve`, otra vez con la
+reserva exacta. Con el registro actual, la exposición conservadora es USD 2,438158.
+Es una cota, no un coste: incluye los USD 1,912936 inciertos de `audit-pilot-code-001`.
+Límite: dos ejecuciones simultáneas podrían leer el mismo registro. La aprobación
+humana de cada job mitiga ese riesgo, pero no lo elimina.
+
+**Estados de coste (M1–M4).** Toda excepción posterior a la reserva queda publicada
+en `report.json`, `report.md` y `reservation.json`.
+- Si el uso final no es verificable, el estado es
+  `INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO`, con `cost_status=INCIERTO`,
+  `cost_upper_bound_usd` igual a la reserva y `usage_partial` (cota inferior).
+- Si el uso o la facturación no son los reservados, `cost_status=INCIERTO_SIN_COTA`.
+- Un rechazo con coste conocido, como `max_tokens` o una cita inventada, conserva
+  `RESULTADO_NO_ACEPTADO_NO_REINTENTAR` con `cost_status=CONOCIDO_ESTIMADO`.
+
+**Plazo total (m5).** El stream se corta a los 720 s y el fallo se publica. El job de
+revisión tiene 20 minutos. Con `EFFORT=max` y `MAX_OUTPUT=32768`, un corte por plazo
+o por `max_tokens` es pago sin veredicto. Ajustarlo es una decisión económica, no técnica.
+
+**Pendientes que no se cierran desde el código:**
+- M7: falta `--require-hashes`. Vibe se instala sin secretos en el paso, en un entorno
+  virtual aparte y solo con ruedas (`--only-binary=:all:`), en jobs distintos de los
+  que tienen `ANTHROPIC_API_KEY`. El Python que orquesta no carga ese entorno virtual.
+  Para fijar hashes, generar en una máquina con red un `requirements-vibe.txt` con
+  `pip-compile --generate-hashes`, o con `pip download` y `pip hash`, revisarlo y
+  sustituir la instalación por `pip install --require-hashes -r`. No se han inventado
+  hashes.
+- m6: un ruleset que impida a `github-actions[bot]` escribir en `main` y en
+  `coordinacion/cierre-v2`. Lo configura y lo verifica la persona responsable.
+- Paquete de auditoría: con AUTO1, las seis fuentes de `critical_review.PATHS` suman
+  unos 94 kB. Superan el límite de 74000 bytes, así que `snapshot()` se detiene con
+  `PAQUETE_EXCESIVO_NO_SE_TRUNCA` antes de cualquier llamada. No se trunca ni se sube
+  el límite: una auditoría de pago del código corregido requiere que la persona
+  responsable decida el alcance, el límite y la reserva.

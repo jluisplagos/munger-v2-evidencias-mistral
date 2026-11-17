@@ -1,20 +1,26 @@
 name: Prueba unica de autenticacion Vibe CLI
+# AUTO1-M6: solo a mano y tras aprobar el environment protegido; nunca con push.
 on:
-  push:
-    branches: [automatizacion/coordinacion-api-v1]
-    paths:
-      - automation/coordination/run_vibe_auth.py
-      - automation/coordination/test_vibe_auth.py
-      - .github/workflows/vibe-auth.yml
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
   group: munger-vibe-auth-001
   cancel-in-progress: false
 jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: python3 -I -m unittest discover -s automation/coordination -p 'test_*.py' -v
   connection:
+    needs: tests
     runs-on: ubuntu-latest
     timeout-minutes: 8
+    environment: inferencia-aprobada
     permissions:
       contents: write
     steps:
@@ -24,15 +30,19 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.12'
-      - run: python -m unittest discover -s automation/coordination -p test_vibe_auth.py -v
-      - run: python -m pip install --disable-pip-version-check mistral-vibe==3.1.2
+      # Pendiente (AUTO1-M7): --require-hashes con un archivo de hashes verificado.
+      - name: Instalar Vibe CLI aislado, sin secretos
+        run: |
+          python -m venv "$RUNNER_TEMP/vibe-venv"
+          "$RUNNER_TEMP/vibe-venv/bin/python" -m pip install --disable-pip-version-check --only-binary=:all: mistral-vibe==3.1.2
       - name: Una prueba despues de reserva durable
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MISTRAL_VIBE_CLI_KEY: ${{ secrets.MISTRAL_VIBE_CLI_KEY }}
-        run: >-
-          python automation/coordination/run_vibe_auth.py
-          --code-sha "$GITHUB_SHA" --output "$RUNNER_TEMP/munger-vibe-auth"
+        run: |
+          PY="$(command -v python)"
+          PATH="$RUNNER_TEMP/vibe-venv/bin:$PATH" "$PY" automation/coordination/run_vibe_auth.py \
+            --code-sha "$GITHUB_SHA" --output "$RUNNER_TEMP/munger-vibe-auth"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

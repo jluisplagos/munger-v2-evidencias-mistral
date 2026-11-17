@@ -181,8 +181,12 @@ def validate(raw, sources, expected_ids=None, quote_corrections=None):
     return d
 
 
-def invoke(bundle, report, output):
-    """Preflight de cero tokens; después una sola generación sin herramientas."""
+def invoke(bundle, report, output, runner=subprocess.run):
+    """Preflight de cero tokens; después una sola generación sin herramientas.
+
+    AUTO1-m7: ambas invocaciones arrancan en el directorio vacío (cwd=work) y la
+    preparatoria se cuenta aparte de las generaciones.
+    """
     with tempfile.TemporaryDirectory(prefix='munger-qwen-review-') as temp:
         root = Path(temp); home = root / 'vibe'; work = root / 'work'
         home.mkdir(); work.mkdir()
@@ -192,9 +196,10 @@ def invoke(bundle, report, output):
         env.update(MISTRAL_API_KEY=os.environ['MISTRAL_VIBE_CLI_KEY'], VIBE_HOME=str(home))
         base = ['vibe', '--workdir', str(work), '--disabled-tools', '*', '--max-turns', '1', '--output', 'text']
         pre = root / 'preflight'
-        subprocess.run(base + ['--prompt', 'Preparación sin inferencia.', '--max-tokens', '0',
-                              '--time-limit', '90', '--output-dir', str(pre)],
-                       env=env, capture_output=True, text=True, timeout=110, check=False)
+        report['preflight_invocations_started'] = 1
+        runner(base + ['--prompt', 'Preparación sin inferencia.', '--max-tokens', '0',
+                       '--time-limit', '90', '--output-dir', str(pre)],
+               env=env, cwd=work, capture_output=True, text=True, timeout=110, check=False)
         pd = json.loads((pre / 'export.json').read_text())
         pu = pd.get('usage')
         zero_usage = pu is None or (isinstance(pu, dict) and all(type(v) is int and v == 0 for v in pu.values()))
@@ -211,10 +216,10 @@ def invoke(bundle, report, output):
         system = root / 'system.txt'; system.write_text(SYSTEM)
         export = root / 'export'
         report.update(generation_invocations_started=1, state='GENERACION_INICIADA_NO_REINTENTAR')
-        result = subprocess.run(base + ['--model', alias, '--prompt-file', str(prompt),
+        result = runner(base + ['--model', alias, '--prompt-file', str(prompt),
                                 '--system-prompt-file', str(system), '--max-tokens', '120000',
                                 '--max-price', '1', '--time-limit', '300', '--output-dir', str(export)],
-                                env=env, capture_output=True, text=True, timeout=330, check=False)
+                        env=env, cwd=work, capture_output=True, text=True, timeout=330, check=False)
         d = json.loads((export / 'export.json').read_text())
         report.update(cli_exit=result.returncode, cli_outcome=d.get('outcome'), usage=d.get('usage'),
                       cost_reported_usd=d.get('cost_usd'), cli_steps=d.get('steps'),

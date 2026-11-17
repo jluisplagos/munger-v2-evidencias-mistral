@@ -1,0 +1,327 @@
+{
+  "entrega": "AUTO1",
+  "base": "267ad18d0460c0db84db422a9c06821824bf3b54",
+  "rama": "automatizacion/correccion-auto1",
+  "encargo": "coordinacion/cierre_v2/revisiones_coordinador/AUTO_a508d6b/CORRECCION_AUTO1.md (rama coordinacion/cierre-v2)",
+  "estado": "CORREGIDO_POR_EL_AUTOR_PENDIENTE_DE_REVISION_POR_AGENTE_DISTINTO",
+  "sin_red": "Sin llamadas a Anthropic, Mistral, Qwen ni GitHub Actions; sin workflows lanzados; sin push; sin secretos leidos.",
+  "no_cambia": [
+    "Una sola llamada de pago por tarea, sin reintentos ni redirecciones.",
+    "audit-pilot-code-001 sigue bloqueada por su reserva: prior() se consulta antes del tope, de /v1/models y de count_tokens."
+  ],
+  "verificacion": [
+    {
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p 'test_*.py'",
+      "cwd": "raiz del worktree",
+      "codigo_salida": 0,
+      "resultado": "95 OK (51 previas + 44 nuevas AUTO1)"
+    },
+    {
+      "comando": "python3 -I -m unittest discover -s automation/claude_review -p 'test_*.py'",
+      "cwd": "raiz del worktree",
+      "codigo_salida": 0,
+      "resultado": "49 OK"
+    },
+    {
+      "comando": "python3 -I <copia_temporal>/sonda_sse.py <raiz_del_worktree>",
+      "origen": "AUTO_a508d6b/sondas/sonda_sse.py sin modificar",
+      "codigo_salida": 0,
+      "resultado": "25/25 CONFORME (base 267ad18: 16/25)"
+    },
+    {
+      "comando": "sh <copia_temporal>/sonda_workflows.sh <raiz_del_worktree>",
+      "codigo_salida": 0,
+      "resultado": "Los cinco workflows con secretos de inferencia solo tienen workflow_dispatch; push solo en automation-tests.yml y vibe-readiness.yml, sin secretos"
+    },
+    {
+      "comando": "python3 -I <copia_temporal>/sonda_workflows_por_job.py <raiz_del_worktree>",
+      "origen": "variante por job de sonda_workflows.sh (inventario de disparadores, secretos de inferencia, environment y pip install por job); no se versiona: la misma comprobacion esta en test_auto1_workflows.py",
+      "codigo_salida": 0,
+      "resultado": "jobs_no_conformes=0 (base 267ad18: 7)"
+    }
+  ],
+  "hallazgos": {
+    "M1": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/coordination/critical_review.py:236",
+        "automation/coordination/critical_review.py:550",
+        "automation/claude_review/pilot.py:118"
+      ],
+      "que": "HTTPException/IncompleteRead/LineTooLong y cualquier otra excepcion tras la reserva se convierten en estado publicado; las cuatro publicaciones se intentan aunque falle una (critical_review.py:485).",
+      "pruebas": [
+        "automation/coordination/test_auto1_transporte.py::M1CutTests.test_m1_incomplete_read_inside_chunk_is_pilot_error_one_open",
+        "automation/coordination/test_auto1_transporte.py::M1CutTests.test_m1_line_too_long_is_pilot_error",
+        "automation/coordination/test_auto1_transporte.py::M1CutTests.test_m1_run_with_cut_publishes_report_and_reservation",
+        "automation/coordination/test_auto1_transporte.py::M1CutTests.test_m1_any_exception_after_reserve_is_published",
+        "automation/coordination/test_auto1_transporte.py::MinorTests.test_m1_non_streaming_transport_catches_http_exception"
+      ],
+      "sondas": [
+        "S08",
+        "S17"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_transporte.py",
+      "codigo_salida": 0
+    },
+    "M2": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/coordination/critical_review.py:92",
+        "automation/coordination/critical_review.py:147"
+      ],
+      "que": "Comprobacion de tipo de event, message, usage, content_block, delta, index y text; RecursionError -> ANTHROPIC_STREAM_INVALIDO_NO_REINTENTAR.",
+      "pruebas": [
+        "automation/coordination/test_auto1_transporte.py::M2InvalidJSONTests.test_m2_each_wrong_type_is_rejected",
+        "automation/coordination/test_auto1_transporte.py::M2InvalidJSONTests.test_m2_deep_nesting_is_rejected",
+        "automation/coordination/test_auto1_transporte.py::M2InvalidJSONTests.test_m2_transport_turns_deep_nesting_into_pilot_error"
+      ],
+      "sondas": [
+        "S11",
+        "S11b",
+        "S12"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_transporte.py",
+      "codigo_salida": 0
+    },
+    "M3": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/coordination/critical_review.py:208"
+      ],
+      "que": "message_stop exige un message_delta con usage.output_tokens entero e input_tokens entero; si no, STREAM_SIN_USO_FINAL_NO_REINTENTAR con coste incierto.",
+      "pruebas": [
+        "automation/coordination/test_auto1_transporte.py::M3FinalUsageTests.test_m3_missing_final_usage_is_rejected",
+        "automation/coordination/test_auto1_transporte.py::M3FinalUsageTests.test_m3_two_cumulative_deltas_with_input_tokens",
+        "automation/coordination/test_auto1_transporte.py::M3FinalUsageTests.test_m3_missing_input_tokens_is_rejected",
+        "automation/coordination/test_auto1_transporte.py::M3FinalUsageTests.test_m3_run_without_final_usage_is_uncertain_with_partial_usage"
+      ],
+      "sondas": [
+        "S10"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_transporte.py",
+      "codigo_salida": 0
+    },
+    "M4": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/coordination/critical_review.py:35",
+        "automation/coordination/critical_review.py:448",
+        "automation/coordination/critical_review.py:472",
+        "automation/coordination/critical_review.py:485"
+      ],
+      "que": "Estado INFERENCIA_SIN_VEREDICTO_COSTE_INCIERTO con cost_status INCIERTO, cost_upper_bound_usd = reserva y usage_partial (cota inferior) en report.json y reservation.json; INCIERTO_SIN_COTA si uso/facturacion fuera de lo reservado; el rechazo con coste conocido conserva RESULTADO_NO_ACEPTADO_NO_REINTENTAR con CONOCIDO_ESTIMADO.",
+      "prueba_previa_modificada": "automation/coordination/test_critical_review.py::CriticalTests.test_timeout_not_retried ahora espera el estado de coste incierto (lo exige M4); sigue comprobando 1 sola inferencia.",
+      "pruebas": [
+        "automation/coordination/test_auto1_transporte.py::M4CostStateTests.test_m4_timeout_and_max_tokens_have_distinct_states",
+        "automation/coordination/test_auto1_transporte.py::M4CostStateTests.test_m4_real_transport_timeout_keeps_partial_usage_in_report_and_reservation",
+        "automation/coordination/test_auto1_transporte.py::M4CostStateTests.test_m4_unverifiable_usage_is_uncertain_with_bound",
+        "automation/coordination/test_auto1_transporte.py::M4CostStateTests.test_m4_wrong_model_is_uncertain_without_bound",
+        "automation/coordination/test_auto1_transporte.py::M4CostStateTests.test_m4_usage_beyond_reserve_has_no_bound"
+      ],
+      "sondas": [
+        "S18",
+        "S19"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_transporte.py",
+      "codigo_salida": 0
+    },
+    "M5": {
+      "estado": "CERRADO_EN_CODIGO_PENDIENTE_CIFRA_HUMANA",
+      "donde": [
+        "automation/coordination/critical_review.py:320",
+        "automation/coordination/critical_review.py:339",
+        "automation/coordination/critical_review.py:363",
+        "automation/coordination/critical_review.py:418",
+        "automation/coordination/critical_review.py:427",
+        "automation/coordination/critical_review.py:525"
+      ],
+      "que": "Register lee todas las reservation.json de la rama de registro (reviews/* y results/*); comprometido + MAX_USD <= tope antes de /v1/models y count_tokens, y otra vez con la reserva exacta dentro de reserve(). Tope en la variable MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD del environment; sin ella, TOPE_ACUMULADO_NO_FIJADO_POR_RESPONSABLE. Exposicion conservadora del registro actual: USD 2,438158 (cota, no coste).",
+      "pendiente": "La cifra del tope la fija la persona responsable. Dos ejecuciones simultaneas podrian leer el mismo registro (mitigado por la aprobacion humana por job).",
+      "pruebas": [
+        "automation/coordination/test_auto1_tope.py::CapTests.test_m5_two_tasks_over_cap_second_stops_before_count_and_reserve",
+        "automation/coordination/test_auto1_tope.py::CapTests.test_m5_uncertain_attempt_counts_its_full_reserve",
+        "automation/coordination/test_auto1_tope.py::CapTests.test_m5_missing_or_invalid_cap_blocks_before_anthropic",
+        "automation/coordination/test_auto1_tope.py::CapTests.test_m5_exact_reserve_rechecked_inside_reserve",
+        "automation/coordination/test_auto1_tope.py::CapTests.test_m5_unbounded_or_unreadable_record_blocks",
+        "automation/coordination/test_auto1_tope.py::CapTests.test_m5_current_ledger_exposure_counts_bounds_and_skips_vibe",
+        "automation/coordination/test_auto1_tope.py::CapTests.test_m5_final_reservation_records_cumulative_and_cost",
+        "automation/coordination/test_auto1_tope.py::CapTests.test_audit_pilot_code_001_still_blocked_by_its_reservation"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_tope.py",
+      "codigo_salida": 0
+    },
+    "M6": {
+      "estado": "CERRADO_EN_REPOSITORIO_PENDIENTE_CONFIGURACION_REMOTA",
+      "donde": [
+        ".github/workflows/claude-critical-review.yml:4",
+        ".github/workflows/claude-critical-review.yml:25",
+        ".github/workflows/piloto-claude-api.yml:6",
+        ".github/workflows/piloto-claude-api.yml:31",
+        ".github/workflows/qwen-bank-mistral-groups.yml:9",
+        ".github/workflows/qwen-bank-mistral-groups.yml:28",
+        ".github/workflows/qwen-bank-mistral-groups.yml:73",
+        ".github/workflows/qwen-bank-mistral-review.yml:4",
+        ".github/workflows/qwen-bank-mistral-review.yml:23",
+        ".github/workflows/vibe-auth.yml:4",
+        ".github/workflows/vibe-auth.yml:23",
+        ".github/workflows/automation-tests.yml:4",
+        "automation/coordination/PROGRAMA.md (Correcciones AUTO1)",
+        "automation/coordination/VIBE_CLI.md (Puerta humana)"
+      ],
+      "que": "Los 6 jobs con ANTHROPIC_API_KEY o MISTRAL_VIBE_CLI_KEY solo con workflow_dispatch y environment inferencia-aprobada; push solo para automation-tests.yml (sin secretos) y vibe-readiness.yml (sin secretos).",
+      "pendiente": "La persona responsable crea el environment inferencia-aprobada con revisores obligatorios, mueve las dos claves a secretos del environment y fija el tope. workflow_dispatch exige que el workflow este en la rama por defecto; copiarlo a main no se ha decidido aqui.",
+      "pruebas": [
+        "automation/coordination/test_auto1_workflows.py::WorkflowTests.test_m6_inference_jobs_never_on_push_and_always_gated",
+        "automation/coordination/test_auto1_workflows.py::WorkflowTests.test_m6_push_only_for_jobs_without_secrets",
+        "automation/coordination/test_auto1_workflows.py::WorkflowTests.test_m6_actions_pinned_and_credentials_not_persisted"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_workflows.py",
+      "codigo_salida": 0
+    },
+    "M7": {
+      "estado": "PARCIAL",
+      "donde": [
+        ".github/workflows/qwen-bank-mistral-groups.yml:49",
+        ".github/workflows/qwen-bank-mistral-groups.yml:73",
+        ".github/workflows/qwen-bank-mistral-review.yml:37",
+        ".github/workflows/vibe-auth.yml:37",
+        ".github/workflows/vibe-readiness.yml:25"
+      ],
+      "que": "Mistral y Claude en jobs distintos; el job con ANTHROPIC_API_KEY no instala nada. Vibe se instala en un paso sin secretos, en un venv aparte, solo ruedas (--only-binary=:all:); el Python orquestador no es el del venv. Entre jobs pasan datos: artefacto del job Mistral y rama de registro fijada por SHA.",
+      "pendiente": "Falta --require-hashes: no se han podido obtener hashes sin red y no se inventan; procedimiento en PROGRAMA.md. No se anade download-artifact porque su SHA fijado no se pudo verificar sin red.",
+      "pruebas": [
+        "automation/coordination/test_auto1_workflows.py::WorkflowTests.test_m7_anthropic_jobs_install_nothing_and_never_share_with_mistral",
+        "automation/coordination/test_auto1_workflows.py::WorkflowTests.test_m7_third_party_install_isolated_wheels_only_without_secrets"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_workflows.py",
+      "codigo_salida": 0
+    },
+    "m1": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/coordination/critical_review.py:156"
+      ],
+      "pruebas": [
+        "automation/coordination/test_auto1_transporte.py::MinorTests.test_m1_event_line_error_or_mismatch_is_rejected"
+      ],
+      "sondas": [
+        "S13"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_transporte.py",
+      "codigo_salida": 0
+    },
+    "m2": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/coordination/critical_review.py:98"
+      ],
+      "que": "Lectura por read1 con cota acumulada (<= 2 000 001 bytes); un objeto sin read1 se rechaza sin iterarlo.",
+      "pruebas": [
+        "automation/coordination/test_auto1_transporte.py::MinorTests.test_m2_long_line_bounded_in_memory",
+        "automation/coordination/test_auto1_transporte.py::MinorTests.test_m2_unbounded_iterator_is_not_read"
+      ],
+      "sondas": [
+        "S16"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_transporte.py",
+      "codigo_salida": 0
+    },
+    "m3": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/claude_review/pilot.py:66",
+        "automation/claude_review/pilot.py:101",
+        "automation/coordination/critical_review.py:219"
+      ],
+      "que": "model del cuerpo == modelo autorizado, sin tools/tool_choice/mcp_servers/container y service_tier forzado a standard_only, antes de abrir conexion.",
+      "pruebas": [
+        "automation/coordination/test_auto1_transporte.py::MinorTests.test_m3_body_model_bound_before_connection",
+        "automation/coordination/test_auto1_transporte.py::MinorTests.test_m3_non_streaming_transport_also_binds_model"
+      ],
+      "sondas": [
+        "S20"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_transporte.py",
+      "codigo_salida": 0
+    },
+    "m4": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/coordination/critical_review.py:33",
+        "automation/coordination/critical_review.py:448"
+      ],
+      "pruebas": [
+        "automation/coordination/test_auto1_transporte.py::MinorTests.test_m4_billing_fields_checked"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_transporte.py",
+      "codigo_salida": 0
+    },
+    "m5": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/coordination/critical_review.py:31",
+        "automation/coordination/critical_review.py:98",
+        ".github/workflows/claude-critical-review.yml:24"
+      ],
+      "que": "Plazo total de 720 s comprobado en cada lectura; el job de revision pasa a 20 min.",
+      "observacion_economica": "Con EFFORT=max y MAX_OUTPUT=32768, un corte por plazo o max_tokens es pago sin veredicto; decision de la persona responsable.",
+      "pruebas": [
+        "automation/coordination/test_auto1_transporte.py::MinorTests.test_m5_total_deadline_with_slow_reader",
+        "automation/coordination/test_auto1_transporte.py::MinorTests.test_m5_deadline_failure_is_published_as_uncertain",
+        "automation/coordination/test_auto1_transporte.py::MinorTests.test_m5_deadline_fits_inside_job_timeout",
+        "automation/coordination/test_auto1_workflows.py::WorkflowTests.test_m5_review_job_timeout_leaves_room_for_publication"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p 'test_auto1_*.py'",
+      "codigo_salida": 0
+    },
+    "m6": {
+      "estado": "NO_CERRADO",
+      "motivo": "Requiere un ruleset remoto en GitHub; sin red no se puede crear ni verificar. Documentado en PROGRAMA.md."
+    },
+    "m7": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/coordination/qwen_bank_review.py:184",
+        "automation/coordination/qwen_bank_review.py:199",
+        "automation/coordination/qwen_bank_review.py:202",
+        "automation/coordination/qwen_bank_review.py:222"
+      ],
+      "pruebas": [
+        "automation/coordination/test_auto1_qwen.py::VibeInvocationTests.test_m7_both_invocations_start_in_empty_workdir_and_are_counted"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_qwen.py",
+      "codigo_salida": 0
+    },
+    "m8": {
+      "estado": "CERRADO",
+      "donde": [
+        "automation/coordination/qwen_group_review.py:19",
+        "automation/coordination/qwen_group_review.py:26",
+        "automation/coordination/qwen_group_review.py:80"
+      ],
+      "que": "Cada sustitucion debe aplicarse exactamente una vez y se comprueba antes de reservar.",
+      "pruebas": [
+        "automation/coordination/test_auto1_qwen.py::GroupTemplateTests.test_m8_template_applies_32768_and_scope",
+        "automation/coordination/test_auto1_qwen.py::GroupTemplateTests.test_m8_changed_template_fails_before_reserving"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_qwen.py",
+      "codigo_salida": 0
+    },
+    "m9": {
+      "estado": "CERRADO",
+      "donde": [
+        ".github/workflows/vibe-readiness.yml:27"
+      ],
+      "pruebas": [
+        "automation/coordination/test_auto1_workflows.py::WorkflowTests.test_m9_readiness_has_no_secret"
+      ],
+      "comando": "python3 -I -m unittest discover -s automation/coordination -p test_auto1_workflows.py",
+      "codigo_salida": 0
+    }
+  },
+  "observaciones": [
+    "El paquete de audit-pilot-code-* (critical_review.PATHS) pasa de unos 72,7 kB a unos 94 kB y supera el limite de 74000: snapshot() se detiene con PAQUETE_EXCESIVO_NO_SE_TRUNCA antes de cualquier llamada. No se ha cambiado el limite (afecta a la reserva).",
+    "piloto-claude-api.yml pierde su push; sus pruebas pasan a automation-tests.yml. pilot.py conserva su propio techo de 0,25 USD; sus reservas cuentan en el registro acumulado.",
+    "test_auto1_workflows.py se omite si PyYAML no esta instalado (en local si lo esta: 7 pruebas ejecutadas)."
+  ]
+}

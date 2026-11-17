@@ -86,7 +86,7 @@ if __name__ == '__main__':
         b = load_sources(http, original, a.group, a.code_sha)
         r = cr.run(http, b, a.output, execute=True)
         print(json.dumps({k: r.get(k) for k in ('task_id', 'state', 'api_messages_sent', 'estimated_cost_usd', 'error')}))
-        sys.exit(1 if r['state'] == 'RESULTADO_NO_ACEPTADO_NO_REINTENTAR' else 0)
+        sys.exit(1 if r['state'] in cr.FAILED_STATES else 0)
     except (g.q.pilot.PilotError, OSError, ValueError, KeyError, subprocess.CalledProcessError) as err:
         print(str(err) if isinstance(err, g.q.pilot.PilotError) else 'FUENTE_O_CODIGO_NO_VERIFICABLE', file=sys.stderr)
         sys.exit(2)

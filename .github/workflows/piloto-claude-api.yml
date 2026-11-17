@@ -1,11 +1,8 @@
 name: Piloto Claude API
 
+# AUTO1-M6: solo a mano y tras aprobar el environment protegido; las pruebas sin
+# secretos con push estan en automation-tests.yml.
 on:
-  push:
-    branches: [automatizacion/piloto-claude-api]
-    paths:
-      - automation/claude_review/**
-      - .github/workflows/piloto-claude-api.yml
   workflow_dispatch:
 
 # Nunca se usan pull_request_target ni entradas de forks con secretos.
@@ -25,12 +22,13 @@ jobs:
         with:
           persist-credentials: false
       - name: Pruebas sin API
-        run: python3 -m unittest discover -s automation/claude_review -p test_pilot.py -v
+        run: python3 -I -m unittest discover -s automation/claude_review -p 'test_*.py' -v
 
   pilot:
     needs: checks
     runs-on: ubuntu-latest
     timeout-minutes: 8
+    environment: inferencia-aprobada
     permissions:
       contents: write
     steps:

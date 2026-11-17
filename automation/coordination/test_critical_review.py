@@ -127,7 +127,9 @@ class CriticalTests(unittest.TestCase):
     def test_timeout_not_retried(self):
         self.http.timeout = True
         r = self.run_review(); self.run_review()
-        self.assertEqual(r['state'], 'RESULTADO_NO_ACEPTADO_NO_REINTENTAR')
+        # AUTO1-M4: un timeout es coste incierto con cota, no un rechazo de coste conocido.
+        self.assertEqual(r['state'], cr.UNCERTAIN)
+        self.assertEqual(r['cost_status'], 'INCIERTO')
         self.assertIsNone(r['estimated_cost_usd'])
         self.assertEqual(self.http.messages, 1)
     def test_budget_blocks_before_reserving(self):

@@ -3,6 +3,7 @@
 import argparse
 import base64
 import hashlib
+import http.client
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -62,6 +63,21 @@ class NoRedirect(HTTPRedirectHandler):
         raise PilotError('HTTP_REDIRECT_RECHAZADO')
 
 
+def check_anthropic_body(model, path, body):
+    """AUTO1-m3: el cuerpo de cada llamada cobrable usa el modelo autorizado, sin herramientas."""
+    if path == '/v1/models/' + model:
+        return body
+    if not isinstance(body, dict) or body.get('model') != model:
+        raise PilotError('MODELO_DEL_CUERPO_NO_AUTORIZADO')
+    if any(k in body for k in ('tools', 'tool_choice', 'mcp_servers', 'container')):
+        raise PilotError('HERRAMIENTAS_NO_AUTORIZADAS')
+    if path == '/v1/messages':
+        if body.get('service_tier', 'standard_only') != 'standard_only':
+            raise PilotError('NIVEL_DE_SERVICIO_NO_AUTORIZADO')
+        body = {**body, 'service_tier': 'standard_only'}
+    return body
+
+
 class HTTP:
     """Destinos fijos, límites de lectura, sin reintentos ni redirecciones."""
     def __init__(self, github_token='', api_key='', model=MODEL):
@@ -82,6 +98,7 @@ class HTTP:
         elif service == 'anthropic':
             if path not in ('/v1/models/' + self.model, '/v1/messages/count_tokens', '/v1/messages'):
                 raise PilotError('ENDPOINT_NO_AUTORIZADO')
+            body = check_anthropic_body(self.model, path, body)
             url = 'https://api.anthropic.com' + path
             headers = {'x-api-key': self.api_key, 'anthropic-version': API_VERSION}
         else:
@@ -98,9 +115,9 @@ class HTTP:
         except HTTPError as err:
             # No imprimir cabeceras, cuerpo del proveedor ni credenciales.
             raise PilotError(f'{service.upper()}_HTTP_{err.code}') from None
-        except (URLError, TimeoutError, OSError):
+        except (URLError, TimeoutError, OSError, http.client.HTTPException):
             raise PilotError(service.upper() + '_ERROR_RED_TIMEOUT') from None
-        except (ValueError, UnicodeError):
+        except (ValueError, UnicodeError, RecursionError):
             raise PilotError(service.upper() + '_JSON_INVALIDO') from None
 
 

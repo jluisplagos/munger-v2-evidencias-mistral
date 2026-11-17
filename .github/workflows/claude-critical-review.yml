@@ -1,11 +1,7 @@
 name: Auditoria critica Claude API
+# AUTO1-M6: solo a mano y tras aprobar el environment protegido; nunca con push.
 on:
-  push:
-    branches: [automatizacion/coordinacion-api-v1]
-    paths:
-      - automation/coordination/critical_review.py
-      - automation/coordination/test_critical_review.py
-      - .github/workflows/claude-critical-review.yml
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
@@ -19,12 +15,14 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
-      - run: python3 -m unittest discover -s automation/claude_review -p test_pilot.py -v
-      - run: python3 -m unittest discover -s automation/coordination -p test_critical_review.py -v
+      - run: python3 -I -m unittest discover -s automation/claude_review -p 'test_*.py' -v
+      - run: python3 -I -m unittest discover -s automation/coordination -p 'test_*.py' -v
   review:
     needs: tests
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Plazo del stream (720 s) + timeout de socket (60 s) + publicacion < 20 min.
+    timeout-minutes: 20
+    environment: inferencia-aprobada
     permissions:
       contents: write
     steps:
@@ -35,6 +33,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD: ${{ vars.MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD }}
         run: >-
           python3 automation/coordination/critical_review.py
           --code-sha "$GITHUB_SHA"

@@ -9,6 +9,32 @@ import sys
 
 import qwen_bank_review as q
 
+# Plantillas originales, para derivar la de cada tanda sin depender de llamadas previas.
+BASE_SYSTEM, BASE_CONFIG = q.SYSTEM, q.BASE_CONFIG
+REPLACEMENTS = (('los 36 casos de Qwen', 'los 6 casos asignados de Qwen'),
+                ('cases (36 objetos, uno por Q1-001..036)', 'cases (6 objetos, uno por cada id de scope_ids)'))
+CONFIG_REPLACEMENT = ('agent_max_output_tokens = 16384', 'agent_max_output_tokens = 32768')
+
+
+def _replace_once(text, old, new):
+    """AUTO1-m8: una sustitución que no se aplica bloquea antes de reservar."""
+    if text.count(old) != 1:
+        raise q.pilot.PilotError('PLANTILLA_DE_TANDA_NO_COINCIDE')
+    return text.replace(old, new)
+
+
+def configure(scope_ids, system=None, config=None):
+    system = BASE_SYSTEM if system is None else system
+    config = BASE_CONFIG if config is None else config
+    for old, new in REPLACEMENTS:
+        system = _replace_once(system, old, new)
+    system += '\nEsta tanda comprende exactamente estos ids: ' + ', '.join(scope_ids) + '. No revises los demás.\n'
+    system += 'Cita fragmentos continuos exactos; no unas líneas ni uses elipsis para formar una cita.\n'
+    config = _replace_once(config, *CONFIG_REPLACEMENT)
+    if 'agent_max_output_tokens = 32768\n' not in config:
+        raise q.pilot.PilotError('PLANTILLA_DE_TANDA_NO_COINCIDE')
+    return system, config
+
 
 def project(original, group):
     q.verify(original)
@@ -51,17 +77,14 @@ def run(receipt, original, group, output, invoker=q.invoke):
     else:
         if not os.getenv('MISTRAL_VIBE_CLI_KEY'):
             raise q.pilot.PilotError('FALTA_CLAVE_VIBE_CLI')
+        system, config = configure(bundle['scope_ids'])
         reservation = {'task_id': bundle['task_id'], 'state': 'RESERVADO_NO_REINTENTAR',
                        'code_sha': receipt.code_sha, 'bundle_sha256': q.pilot.digest(q.pilot.canonical(bundle)),
                        'scope_ids': bundle['scope_ids'], 'maximum_generation_invocations': 1,
                        'max_output_tokens': 32768, 'time_limit_seconds': 300,
                        'billing_limit': 'USD 1 acumulado CLI; no es techo previo de factura'}
         receipt.reserve(reservation)
-        q.SYSTEM = q.SYSTEM.replace('los 36 casos de Qwen', 'los 6 casos asignados de Qwen').replace(
-            'cases (36 objetos, uno por Q1-001..036)', 'cases (6 objetos, uno por cada id de scope_ids)')
-        q.SYSTEM += '\nEsta tanda comprende exactamente estos ids: ' + ', '.join(bundle['scope_ids']) + '. No revises los demás.\n'
-        q.SYSTEM += 'Cita fragmentos continuos exactos; no unas líneas ni uses elipsis para formar una cita.\n'
-        q.BASE_CONFIG = q.BASE_CONFIG.replace('agent_max_output_tokens = 16384', 'agent_max_output_tokens = 32768')
+        q.SYSTEM, q.BASE_CONFIG = system, config
         try:
             raw = invoker(bundle, r, output)
             r['citation_layout_adjustments'] = []
