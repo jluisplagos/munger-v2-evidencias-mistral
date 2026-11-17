@@ -3,7 +3,12 @@
 Lee, solo con git show (sin fusionar), las versiones fijadas por el control comun:
 - producto f1 = 716cbd6... : datos/fuentes.json del frente E/F1 de Elis (6 archivos conservados)
 - revision F1 = f5775dc... : revision_externa/f1_v3_20261116/seleccion_fuentes.json (bytes + sha256)
-- control = ff0c60cd... (rama coordinacion/cierre-v2): CONTROL.json (fila E-ELIS, versiones_fijadas)
+- control = 99adbbf... (rama coordinacion/cierre-v2; commit de referencia de la reanudacion
+  c241a59): CONTROL.json (fila E-ELIS, versiones_fijadas)
+
+Dependencias declaradas (E-R9): 716cbd6 vive solo en el repositorio del producto y no esta
+en el auxiliar. Si falta algun commit, el script imprime el comando exacto para traerlo y
+sale con exit 2 (antes fallaba con un AssertionError crudo).
 
 Genera PREGUNTAS_Y_RESULTADOS.csv y FUENTES_Y_BUSQUEDA.csv en resultados_cierre/elis_fuentes/.
 Comprueba que los sha256 de datos/fuentes.json y de seleccion_fuentes.json coinciden y que el
@@ -13,6 +18,7 @@ import csv
 import hashlib
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parents[3]
@@ -20,10 +26,20 @@ SALIDA = RAIZ / "resultados_cierre/elis_fuentes"
 
 PRODUCTO_F1 = "716cbd6794b7fcde8b3862c9d1e7acdaf516d262"
 REVISION_F1 = "f5775dc07a61b829df2b0e7a4a97c556869ae0f4"
-CONTROL = "ff0c60cd2901c42f9462acd19ed74c4192a13bfb"
+CONTROL = "99adbbf62a78afc32de010179495281266a0bd00"
 FRENTE = "docs/validacion_economica_paralela/frente_E_F1_elis"
 ZIP_BASE414 = RAIZ / ".trabajo/base414.zip"
 SHA_ZIP_BASE414 = "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e"
+PRODUCTO_URL = "ht" + "tps" + "://github.com/jluisplagos/munger-v2.git"
+
+
+def asegurar_commit(sha, fetch_cmd, origen):
+    """E-R9: dependencia declarada. Sale con exit 2 e imprime el comando exacto si falta."""
+    r = subprocess.run(["git", "-C", str(RAIZ), "cat-file", "-e", sha + "^{commit}"], capture_output=True)
+    if r.returncode != 0:
+        print(f"DEPENDENCIA AUSENTE: {sha} ({origen}) no esta en este clon del auxiliar.")
+        print(f"Ejecuta: {fetch_cmd}")
+        sys.exit(2)
 
 
 def git_show(sha, ruta):
@@ -75,6 +91,12 @@ PREGUNTAS = [
 
 
 def main():
+    asegurar_commit(PRODUCTO_F1, f"git fetch {PRODUCTO_URL} {PRODUCTO_F1}", "repositorio del producto (solo lectura)")
+    asegurar_commit(REVISION_F1, f"git fetch origin {REVISION_F1}", "rama de revision del auxiliar")
+    asegurar_commit(CONTROL, "git fetch origin coordinacion/cierre-v2  # contiene " + CONTROL, "control comun (rama coordinacion/cierre-v2)")
+    head_control = subprocess.run(["git", "-C", str(RAIZ), "ls-remote", "origin", "coordinacion/cierre-v2"],
+                                  capture_output=True, text=True).stdout.split()[0]
+    print(f"control de referencia usado: {CONTROL[:8]}; HEAD remoto actual de coordinacion/cierre-v2: {head_control[:8]}")
     fuentes = json.loads(git_show(PRODUCTO_F1, f"{FRENTE}/datos/fuentes.json"))
     seleccion = json.loads(git_show(REVISION_F1, "revision_externa/f1_v3_20261116/seleccion_fuentes.json"))
     control = json.loads(git_show(CONTROL, "coordinacion/cierre_v2/CONTROL.json"))

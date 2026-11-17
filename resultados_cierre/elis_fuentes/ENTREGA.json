@@ -3,40 +3,52 @@
   "frente": "E (antigua sesion B, nueva etapa E)",
   "repositorio": "jluisplagos/munger-v2-evidencias-mistral",
   "rama": "mistral/e-fuentes-elis",
-  "base_revisada_sha": "ec707a5ba2bd684381a63ce0f6f6c143aa59f4c0 (paquete de coordinacion; rama creada desde aqui)",
+  "base_revisada_sha": "93a97801f8c4f6a4dc5cabd4540248390cf113d0 (revisada externamente; este commit responde E-R1..E-R9)",
   "commit_entrega": "El coordinador toma el SHA remoto tras el push; este bloque no se autorreferencia",
   "directorio_entrega": "resultados_cierre/elis_fuentes/",
-  "tareas_control": [
-    "E-ELIS"
-  ],
+  "tareas_control": ["E-ELIS"],
   "candidata_producto_sha": null,
   "banco_sha": null,
-  "naturaleza": "evidencia / busqueda acotada FINITA (bloques 1-2 ejecutados; bloque 3 = entrega final de la etapa E)",
-  "autor_contexto_modelo_herramientas": "Vibe Code de Mistral AI, modelo mistral-large-4-0; Python 3.12.15 + PyMuPDF; urllib con TLS verificado en fr.elis.com; consumo no visible desde la sesion; git show de solo lectura sobre producto 716cbd6, revision f5775dc y control ff0c60cd; sin escribir en el repo producto",
+  "naturaleza": "evidencia / busqueda acotada FINITA (bloques 1-3) + correccion de la revision externa E1 (bloque 4, E-R1..E-R9)",
+  "autor_contexto_modelo_herramientas": "Vibe Code de Mistral AI, modelo mistral-large-4-0; Python 3.12 + PyMuPDF (extractor primario) y pypdf 7.1.0 (segundo extractor); urllib con TLS verificado en fr.elis.com; git show de solo lectura sobre producto 716cbd6, revision f5775dc y control 99adbbf (HEAD remoto de coordinacion/cierre-v2 durante la ejecucion: 57b34a6); sin escribir en el repo producto, control ni main",
   "fuentes_y_preservacion": [
     "Base ya examinada (no se re-pide ni se re-busca): 5 URD/DEU 2021-2025 + libro Elis_v63_evaluada.xlsx en Release base-4.14 (tag base-4.14, repo producto); comunicado FY2025 FR, informe+presentacion S1-2026, HTML Euronext/OCEANE en base 4.14",
-    "12 documentos oficiales nuevos de fr.elis.com descargados (HTTP 200, TLS verificado) el 2026-11-16: presentacion/comunicado FY2025 EN, URD 2025, brochure CGM 21-may-2026, factsheet 2026, presentacion/comunicado/revenue FY2024, revenue Q1-2025, comunicado H1-2025 FR, revenue Q3-2026, comunicado H1-2026 EN; URL final + bytes + SHA256 + paginas en FUENTES_Y_BUSQUEDA.csv y .trabajo/elis_fuentes/INDICE_DESCARGAS.csv",
-    "URD 2025 descargado = sha256 04bfd08724e768804e7110093d3ec2cf017a7e7fe2983bacd75656d3a95cd62e, identico al de base-4.14: verificacion de conservacion, no fuente nueva",
-    "Estado de preservacion de los PDF nuevos: PROVISIONAL (fuera del Git del auxiliar; upload a Release bloqueado con HTTP 401 en uploads.github.com, ya documentado; no se reintenta ni se piden tokens). URL+SHA no equivalen a documento preservado duraderamente",
-    "cmd2025.elis.com no verifica TLS ni permite lectura automatizada desde el sandbox: materiales del CMD 2025 no descargados (la politica bolt-on 50-150 M EUR/ano queda cubierta por comunicados oficiales)"
+    "12 documentos oficiales nuevos de fr.elis.com descargados (HTTP 200, TLS verificado, magic %PDF validado) el 2026-11-16 y re-descargados el 2026-11-17 con los 12 sha256 IDENTICOS a 93a9780; URL pedida y final + http + content-type + bytes + sha256 + fecha_descarga + version (HEAD del auxiliar) por archivo en fuentes_descargadas/INDICE_DESCARGAS.csv (publicado en Git) y .trabajo/elis_fuentes/INDICE_DESCARGAS.csv",
+    "URD 2025 descargado = sha256 04bfd08724e768804e7110093d3ec2cf017a7e7fe2983bacd75656d3a95cd62e, identico al de base-4.14: verificacion de conservacion, no fuente nueva; sus citas llevan tipo_evidencia=corroboracion_base",
+    "Estado de preservacion de los PDF nuevos: PROVISIONAL (fuera del Git del auxiliar; upload a Release bloqueado con HTTP 401 en uploads.github.com, ya documentado; no se reintenta ni se piden tokens; almacen duradero: decision del usuario). Cobertura provisional publicada: indice de descarga + 32 extractos acotados de las paginas citadas con sha256 del PDF en cabecera (extractos/)",
+    "cmd2025.elis.com no verifica TLS desde el sandbox: materiales del CMD 2025 no descargados (la politica bolt-on 50-150 M EUR/ano queda cubierta por comunicados oficiales)"
   ],
   "cambios_respecto_entrega_anterior": [
-    "Bloque 1 (commit anterior en esta rama): inventario PREGUNTAS_Y_RESULTADOS.csv + FUENTES_Y_BUSQUEDA.csv + script reproducible",
-    "Bloque 2 (este commit): descarga reproducible (scripts/descargar_fuentes_elis.py), lectura verificada (LECTURA_FUENTES.jsonl, 28 citas con pagina PDF), PREGUNTAS_Y_RESULTADOS.csv actualizado por pregunta, FUENTES_Y_BUSQUEDA.csv ampliado, HALLAZGOS_ELIS.md, RESUMEN_PARA_INTEGRADOR.md",
+    "Bloque 1 (commit anterior): inventario PREGUNTAS_Y_RESULTADOS.csv + FUENTES_Y_BUSQUEDA.csv + scripts/inventario_bloque1.py",
+    "Bloque 2: descarga reproducible + lectura verificada (LECTURA_FUENTES.jsonl, 28 citas entonces)",
+    "Bloque 3: entrega final de la etapa E (ENTREGA.json, HALLAZGOS, RESUMEN, manifiesto, recuperacion) -> commit 93a9780, revisado externamente (CORRECCION_E1.md)",
+    "Bloque 4 (este commit): respuesta E-R1..E-R9 - N2 corregido (E-R1: +25,7 en linea propia de la nota 4.6 p.350, separada de 'monetary items' (28,2); EFE p.327 resta (23,1) en operativo y lleva cobros 15,3 a inversion; 16,9 a cobrar p.349; dos medidas separadas +23,1 vs +25,7; N2 ABIERTO); M6 corregido (E-R2: Bodensee adquisicion importante p.306/p.312/p.341; 117,6 M&A total 2025 separado de 37,3 'Other acquisitions' p.341; E-R3: perimetro p.313 = corroboracion de F1 V1, informe 716cbd6 l550); M1 declarado corroboracion de base con perimetro de la taxonomia p.217 (E-R4); citas 20/21 y todas las demas reescritas sin .* ni alternativas (E-R5); indice de descarga + extractos acotados con huella PDF publicados en Git (E-R6); frases absolutas sustituidas por 'no localizado en esta busqueda' + alcance (E-R7); textos y refs de control actualizados (E-R8); idempotencia, carpetas, exit!=0, dependencias declaradas y segundo extractor pypdf 7.1.0 ejecutado 52/52 (E-R9)",
     "B/P-M1 conservada intacta en mistral/m2-fundamento-pm1 @ daa7478"
   ],
+  "respuesta_revision": {
+    "documento": "RESPUESTA_REVISION_E1.md",
+    "puntos": {
+      "E-R1": "CERRADO - afirmacion falsa retirada en ENTREGA.json/RESUMEN/HALLAZGOS/PREGUNTAS/LECTURA; N2 ABIERTO con p.327/p.349/p.350 citadas y las dos medidas separadas; prueba: lectura_bloque2.py exit 0 (52 citas) + pypdf 52/52",
+      "E-R2": "CERRADO - clasificacion por sociedad con pagina (Bodensee importante, p.306/p.312/p.341 columna propia); 117,6 (total M&A 2025) separado de 37,3 (Other acquisitions 2025, p.341); tabla p.341 comprobada ademas en imagen renderizada",
+      "E-R3": "CERRADO - perimetro p.313 declarado corroboracion de F1 V1 (git show 716cbd6 informe l550 ejecutado); el umbral no confirma el 31,5 M EUR/ano (sale de p.341-342/DEU2024 p.288); M6 ABIERTO",
+      "E-R4": "CERRADO - capex p.311-312 y taxonomia p.215-217 declarados corroboracion_base; perimetro p.217 anadido (26,2+183,9+887,1+62,7=1.159,9~1.160,0); no presentado como importe del plan climatico (alineado 842,0 = 72,6% sobre todo economia circular 70,7 pp, clima 1,9 pp)",
+      "E-R5": "CERRADO - citas 20/21 split en citas atomicas sin .* ni alternativas (Q1-2025 p.1 x2; Q3-2026 p.1/p.2/p.3: +1,5 pp total, Muller +0,5 pp, RS10 +1,3 pp); guarda en el script falla si un patron tiene .* o |; negativo ejecutado (cita desplazada -> exit 1)",
+      "E-R6": "CERRADO (cobertura provisional declarada) - fuentes_descargadas/INDICE_DESCARGAS.csv (url_solicitada/url_final/http/content_type/bytes/sha256/fecha_descarga/version por archivo) + extractos/ (32 extractos acotados, sha256 del PDF en cabecera); PDF siguen PROVISIONAL (401), almacen duradero = decision del usuario; re-descarga 12/12 sha256 iguales a 93a9780",
+      "E-R7": "CERRADO - sin frases absolutas 'no publicado'; siempre 'no localizado en esta busqueda' + alcance; grep de control ejecutado (0 resultados)",
+      "E-R8": "CERRADO - README sin 'pendiente'; titulos actualizados a bloque 2 + correccion E1; control citado 99adbbf (ref. reanudacion c241a59) con HEAD remoto anotado en ejecucion (57b34a6); 'Bloque 2 (este commit)' eliminado",
+      "E-R9": "CERRADO - idempotencia probada (lectura ejecutada 2 veces, sha256 de las 3 salidas identicos); descargar crea carpetas y sale exit 1 si falla una descarga (negativo: respuesta no-PDF -> exit 1, magic %PDF validado); inventario declara dependencias (producto 716cbd6, revision f5775dc, control 99adbbf) y sale exit 2 con el git fetch exacto si falta (negativo ejecutado); segundo extractor pypdf 7.1.0 ejecutado: 52/52 citas (VERIFICACION_SEGUNDO_EXTRACTOR.json, exit 0)"
+    }
+  },
   "pruebas": [
     {
       "tipo": "dato",
       "comando": "python3 resultados_cierre/elis_fuentes/scripts/inventario_bloque1.py",
       "exit_esperado": 0,
       "exit_observado": 0,
-      "criterios_cubiertos": [
-        "inventario reproducible desde SHAs fijados; sha256 cruzados; ZIP base-4.14 verificado"
-      ],
+      "criterios_cubiertos": ["inventario reproducible desde SHAs fijados; sha256 cruzados; ZIP base-4.14 verificado; dependencias declaradas (exit 2 + comando si faltan)"],
       "criterios_sin_cubrir": [],
-      "evidencia": "salida exit 0; sha256 de los 6 archivos base coinciden entre fuentes.json (716cbd6) y seleccion_fuentes.json (f5775dc)",
-      "sha_material": "716cbd6 / f5775dc / ff0c60cd",
+      "evidencia": "salida: control ref 99adbbf6, HEAD remoto 57b34a6; versiones fijadas OK; zip base-4.14 sha256 OK. NEGATIVO ejecutado aparte: commit ausente -> exit 2 + 'git fetch ...' impreso",
+      "sha_material": "716cbd6 / f5775dc / 99adbbf",
       "resultado": "EJECUTADO_OK"
     },
     {
@@ -44,53 +56,80 @@
       "comando": "python3 resultados_cierre/elis_fuentes/scripts/descargar_fuentes_elis.py",
       "exit_esperado": 0,
       "exit_observado": 0,
-      "criterios_cubiertos": [
-        "12/12 documentos oficiales descargados HTTP 200 con TLS verificado; hashes y texto extraido"
-      ],
-      "criterios_sin_cubrir": [
-        "preservacion duradera como asset (bloqueada por 401)"
-      ],
-      "evidencia": ".trabajo/elis_fuentes/INDICE_DESCARGAS.csv; URD2025 hash == base-4.14",
-      "sha_material": "ver INDICE_DESCARGAS.csv",
+      "criterios_cubiertos": ["12/12 HTTP 200 con TLS verificado y magic %PDF; hashes identicos a 93a9780 (12/12 comparados); indice publicado en Git con url_solicitada/url_final/http/content_type/fecha/version"],
+      "criterios_sin_cubrir": ["preservacion duradera de los bytes (bloqueada por 401 en uploads.github.com; cobertura provisional: indice + extractos)"],
+      "evidencia": "fuentes_descargadas/INDICE_DESCARGAS.csv; comparacion sha256 12/12 IGUALES vs git show 93a9780:FUENTES_Y_BUSQUEDA.csv. NEGATIVO ejecutado: URL inexistente -> FALLO 200 text/html -> exit 1",
+      "sha_material": "ver INDICE_DESCARGAS.csv (urd2025 = 04bfd087... = base-4.14)",
       "resultado": "EJECUTADO_OK"
     },
     {
       "tipo": "dato",
-      "comando": "python3 resultados_cierre/elis_fuentes/scripts/lectura_bloque2.py",
+      "comando": "python3 resultados_cierre/elis_fuentes/scripts/lectura_bloque2.py (ejecutado 2 veces seguidas)",
       "exit_esperado": 0,
       "exit_observado": 0,
-      "criterios_cubiertos": [
-        "28 citas verificadas en documento+pagina PDF; LECTURA_FUENTES.jsonl; CSV actualizados"
-      ],
-      "criterios_sin_cubrir": [
-        "confirmacion de ambiguedades con segundo extractor o representacion visual (pendiente si procede)"
-      ],
-      "evidencia": "LECTURA_FUENTES.jsonl (40 registros)",
+      "criterios_cubiertos": ["52 citas verificadas en documento+pagina (PyMuPDF); sin .* codicioso ni alternativas (guarda interna); tipo_evidencia nueva/corroboracion_base; idempotente: segunda ejecucion con sha256 identicos de LECTURA_FUENTES.jsonl, PREGUNTAS_Y_RESULTADOS.csv y FUENTES_Y_BUSQUEDA.csv"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "LECTURA_FUENTES.jsonl (64 registros = 12 docs + 52 citas); diff de hashes run1 vs run2 vacio. NEGATIVO durante desarrollo: patron desplazado -> AssertionError 'cita no verificada' -> exit 1",
       "sha_material": "sha256 de cada documento citado en el propio JSONL",
+      "resultado": "EJECUTADO_OK"
+    },
+    {
+      "tipo": "dato",
+      "comando": "python3 resultados_cierre/elis_fuentes/scripts/publicar_extractos.py",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": ["32 extractos acotados (ventana 400 chars) de las paginas citadas publicados en Git con sha256/bytes/url del PDF en la cabecera"],
+      "criterios_sin_cubrir": ["los bytes del PDF no van a Git (401)"],
+      "evidencia": "extractos/*.txt (32 archivos)",
+      "sha_material": "sha256_pdf en la cabecera de cada extracto",
+      "resultado": "EJECUTADO_OK"
+    },
+    {
+      "tipo": "dato",
+      "comando": "python3 resultados_cierre/elis_fuentes/scripts/verificar_segundo_extractor.py",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": ["segundo extractor ejecutado (pypdf 7.1.0, distinto del primario PyMuPDF): 52/52 citas re-verificadas en su pagina con normalizacion de ligaduras/espacios"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "VERIFICACION_SEGUNDO_EXTRACTOR.json (citas_ok=52, citas_fallo=0)",
+      "sha_material": "sha256_doc por cita en el informe",
+      "resultado": "EJECUTADO_OK"
+    },
+    {
+      "tipo": "dato",
+      "comando": "git show 716cbd6794b7fcde8b3862c9d1e7acdaf516d262:docs/validacion_economica_paralela/frente_E_F1_elis/INFORME_CONCILIACION_F1.md (linea 550)",
+      "exit_esperado": 0,
+      "exit_observado": 0,
+      "criterios_cubiertos": ["E-R3: el perimetro del organico (URD 2025 p.313; DEU 2024 p.259; URD 2023 p.267) y los flujos 35,3/22,0/37,3 (media 31,5) ya estaban en F1 V1 -> corroboracion, no evidencia nueva"],
+      "criterios_sin_cubrir": [],
+      "evidencia": "l550 del informe: 'Correcci\u00f3n V1 ... [P: URD 2025 p. 313; DEU 2024 p. 259; URD 2023 p. 267] ... 35,3 / 22,0 / 37,3 en 2023\u201325, 31,5 de media [P][LECTURA: DEU 2024 p. 288; URD 2025 p. 342 y p. 341]'",
+      "sha_material": "716cbd6",
       "resultado": "EJECUTADO_OK"
     }
   ],
   "precondiciones_simuladas": [],
-  "revision_por_otro_contexto": null,
+  "revision_por_otro_contexto": "E1 externo sobre 93a9780 (CORRECCION_E1.md, control ref 99adbbf; adenda del coordinador: 11/11 PDF y 28/28 citas verificadas desde URL oficiales en d3d9282); respuesta en RESPUESTA_REVISION_E1.md",
   "limites_y_bloqueos": [
-    "M1 ABIERTO: no hay reparto mantenimiento/crecimiento en importes ni importe/horizonte del plan climatico; nuevos ancla de nivel: capex bruto 823,9/887,4/890,2 M EUR (2023-25), neto 874,7 M EUR (18,2%), H1-2026 19,5% -> ~18%, taxonomia 842,0 M EUR alineados",
-    "M2 ABIERTO: sin tasa de bajas ni desembolso inicial por cliente nuevo cuantificados (solo cualitativos)",
-    "M6: perimetro aclarado (umbral major acquisition >5,0 M EUR Francia / >3,0 M EUR otros paises, URD 2025 p.313; bolt-on 50-150 M EUR/ano; M&A 2025 caja 117,6 M EUR); finalidad reposicion/crecimiento no publicada",
-    "N2 PARCIAL: +25,7 M EUR ganancia neta por bajas de inmovilizado en OOIE 2025 (nota 4.6, concepto monetario) + narrativa de seguros 2025; NO se afirma que sean la misma partida; fiscalidad y reposicion no identificadas",
-    "Los 11 PDF nuevos quedan PROVISIONAL (uploads.github.com 401); cmd2025.elis.com inaccesible desde el sandbox",
+    "M1 ABIERTO: sin reparto mantenimiento/crecimiento en importes ni importe/horizonte del plan climatico; nivel corroborado: capex bruto 823,9/887,4/890,2 M EUR (2023-25), neto 874,7 M EUR (18,2%), H1-2026 19,5% -> ~18%; taxonomia 1.160,0 M EUR (perimetro p.217: incluye ROU 183,9 y combinaciones 62,7), 842,0 alineados (72,6%; economia circular 70,7 pp, clima 1,9 pp); no localizado en esta busqueda (alcance: 12 docs oficiales nuevos + base ya examinada)",
+    "M2 ABIERTO: sin tasa de bajas ni desembolso inicial por cliente nuevo cuantificados (solo cualitativos); no localizado en esta busqueda",
+    "M6 ABIERTO: perimetro corroborado (F1 V1: umbral >5,0 M EUR Francia / >3,0 M EUR otros paises, URD 2025 p.313); clasificacion 2025 por pagina: seis adquisiciones importantes con columna propia incl. Bodensee (p.306/p.312/p.341) y 'Other acquisitions' 37,3 M EUR (p.341); M&A total 2025 en caja 117,6 M EUR (p.341/p.327/presentacion p.29) separado de 37,3; bolt-on 50-150 M EUR/ano; finalidad reposicion/crecimiento no localizado en esta busqueda",
+    "N2 ABIERTO: dos medidas separadas (+23,1 M EUR EFE p.327, resta en seccion operativa con cobros 15,3 en inversion; +25,7 M EUR nota 4.6 p.350 en linea propia, separada de 'monetary items' (28,2)); 16,9 M EUR a cobrar por bajas a cierre (p.349); narrativa de seguros sin importe NO igualada con el +25,7; cobro/fiscalidad/reposicion no localizados en esta busqueda",
+    "Los 11 PDF nuevos quedan PROVISIONAL (uploads.github.com 401; no reintentar ni pedir tokens); cobertura provisional publicada: indice de descarga + extractos acotados con huella PDF; almacen duradero = decision del usuario",
+    "cmd2025.elis.com inaccesible desde el sandbox (TLS)",
     "No se elige R (ni en 736,0-867,2), theta, lambda, k ni probabilidad; Elis sigue pendiente_de_datos; C48=108, C49=128,1, FCF base=307,933 y decisiones vigentes conservadas"
   ],
-  "siguiente_accion_exacta": "E finito: entrega completa en esta rama (LECTURA_FUENTES.jsonl, PREGUNTAS_Y_RESULTADOS.csv, FUENTES_Y_BUSQUEDA.csv, HALLAZGOS_ELIS.md, RESUMEN_PARA_INTEGRADOR.md, ENTREGA.json, MANIFIESTO_SHA256.txt, PUNTO_DE_RECUPERACION.md, 3 scripts). Esperar revision del coordinador Claude (control en coordinacion/cierre-v2); no se abren ciclos recursivos ni se autoaprueba. Si el control asigna una fuente concreta pendiente, bloque separado con pregunta y limite",
+  "siguiente_accion_exacta": "Revision del coordinador Claude sobre RESPUESTA_REVISION_E1.md y este commit, registrada en el control (coordinacion/cierre-v2, tarea E-ELIS; control de referencia 99adbbf). Sin ciclos recursivos ni autoaprobacion. Si el control asigna una fuente concreta pendiente, bloque separado con pregunta y limite. La preservacion duradera de los 11 PDF queda pendiente de la decision del usuario",
   "integrado_en_producto": false,
   "apto_dinero_real": "No se declara por este formulario",
   "criterios_cubiertos": [
     "E-ELIS bloque 1 (inventario)",
     "E-ELIS bloque 2 (busqueda finita + lectura verificada de 12 docs oficiales nuevos)",
-    "E-ELIS bloque 3 (entrega final; E finito como busqueda acotada)"
+    "E-ELIS bloque 3 (entrega final; E finito como busqueda acotada)",
+    "E-R1..E-R9 de CORRECCION_E1.md respondidos con pruebas ejecutadas (bloque 4)"
   ],
   "criterios_pendientes": [
-    "revision por Claude (revisor propuesto) de los commits de esta rama",
-    "preservacion duradera de los 11 PDF nuevos (bloqueada por 401 en uploads.github.com)"
+    "revision por el coordinador (Claude) de la respuesta E-R1..E-R9 y de este commit",
+    "preservacion duradera de los 11 PDF nuevos (PROVISIONAL; decision del usuario sobre el almacen)"
   ],
-  "salida_siguiente": "resultados_cierre/elis_fuentes/: PREGUNTAS_Y_RESULTADOS.csv, FUENTES_Y_BUSQUEDA.csv, LECTURA_FUENTES.jsonl, HALLAZGOS_ELIS.md, RESUMEN_PARA_INTEGRADOR.md, ENTREGA.json, PUNTO_DE_RECUPERACION.md, MANIFIESTO_SHA256.txt, scripts/ (3)"
+  "salida_siguiente": "resultados_cierre/elis_fuentes/: RESPUESTA_REVISION_E1.md, ENTREGA.json, LECTURA_FUENTES.jsonl, PREGUNTAS_Y_RESULTADOS.csv, FUENTES_Y_BUSQUEDA.csv, HALLAZGOS_ELIS.md, RESUMEN_PARA_INTEGRADOR.md, PUNTO_DE_RECUPERACION.md, MANIFIESTO_SHA256.txt, VERIFICACION_SEGUNDO_EXTRACTOR.json, fuentes_descargadas/INDICE_DESCARGAS.csv, extractos/ (32), scripts/ (5)"
 }
