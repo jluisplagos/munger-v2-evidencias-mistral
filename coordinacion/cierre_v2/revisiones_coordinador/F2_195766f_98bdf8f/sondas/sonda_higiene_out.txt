@@ -1,0 +1,34 @@
+$ git diff --name-only 868f448 195766f
+resultados_cierre/alcance_real/MANIFIESTO_SHA256.txt
+resultados_cierre/alcance_real/correccion_f2/evidencias/d1_d2_inventario_y_huellas.txt
+resultados_cierre/alcance_real/correccion_f2/evidencias/d2_diff_inventario_52fb120_vs_f2.txt
+resultados_cierre/alcance_real/correccion_f2/evidencias/d7_verificar_huellas_daa7478.txt
+resultados_cierre/alcance_real/correccion_f2/scripts/verificar_huellas.py
+resultados_cierre/alcance_real/preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv
+resultados_cierre/alcance_real/preparacion_b3_c1/README.md
+resultados_cierre/alcance_real/preparacion_b3_c1/fuentes/huellas_fuentes_conservadas.csv
+resultados_cierre/alcance_real/preparacion_b3_c1/fuentes/huellas_todas_las_fuentes.csv
+resultados_cierre/alcance_real/preparacion_b3_c1/scripts/inventario_desde_zip.py
+
+rutas fuera de resultados_cierre/alcance_real/:
+0
+binarios/caches (pdf|xlsx|xls|zip|pyc|__pycache__|.trabajo|.DS_Store|.env):
+0
+git diff --numstat (binarios aparecen con -):
+0
+patrones de secreto en lineas añadidas (token|password|secret|api[_-]?key|ghp_|github_pat_|sk-|AKIA|BEGIN .*PRIVATE):
+0
+rutas absolutas de entorno en lineas añadidas:
+      2 /tmp/fuentes_daa7478.csv:
+      1 /tmp/huellas_check.csv
+      1 /tmp/huellas_check.csv:
+      1 /tmp/inv_check.csv
+      1 /tmp/inv_check.csv:
+      1 /workspace
+      1 /workspace/.trabajo/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+
+== ENTREGA_B3_C1.json @195766f frente a PLANTILLA_ENTREGA.json ==
+faltan: [] sobran: []
+pruebas con claves distintas: []
+ENTREGA_B3_C1.json modificado en 195766f: 0
+otro ENTREGA*.json nuevo en 195766f: 0

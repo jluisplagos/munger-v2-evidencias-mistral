@@ -1,0 +1,42 @@
+== sonda .bat de Ahold ==
+ruta en <zip>: personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/descargas_bat/descargar_fuentes_ahold.bat
+SHA-256 (unzip -p): 04feebd409754a91e509dfde1e8dd63a1e8534695d05cb75fffca6a97bd53d88
+manifiesto 4.14: 04feebd409754a91e509dfde1e8dd63a1e8534695d05cb75fffca6a97bd53d88  personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/descargas_bat/descargar_fuentes_ahold.bat
+linea clave: REM  La carpeta tiene los informes 2019-2025; para la Historia de 10 anos faltan 2016, 2017 y 2018.
+
+archivos 'otros' en documentacion_cierre_4_14 (no xlsx/json/md/txt/pdf):
+documentacion_cierre_4_14/descargas_bat/descargar_acciones_elis_oct2026.bat
+documentacion_cierre_4_14/descargas_bat/descargar_fuentes_ahold.bat
+documentacion_cierre_4_14/descargas_bat/descargar_fuentes_elis.bat
+documentacion_cierre_4_14/descargas_bat/descargar_precio_viscofan.bat
+documentacion_cierre_4_14/hito1/cambios_i4_frente_a_base.diff
+documentacion_cierre_4_14/hito1/evidencias/cambios_i3_frente_a_base.diff
+documentacion_cierre_4_14/hito1/evidencias/sondas/sonda_h5.py
+documentacion_cierre_4_14/hito1/evidencias/sondas/sonda_h5_dudosos.py
+documentacion_cierre_4_14/revisiones/replica_414/diffinputs.py
+documentacion_cierre_4_14/revisiones/replica_414/difform.py
+documentacion_cierre_4_14/revisiones/replica_414/dump.py
+documentacion_cierre_4_14/revisiones/replica_414/ejecutar.py
+documentacion_cierre_4_14/revisiones/replica_414/generar_informe.py
+documentacion_cierre_4_14/revisiones/replica_414/pruebas_anexo_C.py
+documentacion_cierre_4_14/revisiones/replica_414/replica.py
+documentacion_cierre_4_14/revisiones/replica_414/replica_sobre_recalc.py
+documentacion_cierre_4_14/traspaso/salidas_copia_relevo/resumen_v2.csv
+
+menciones de 'bat' o 'ahold' en INVENTARIO_Y_HUECOS.csv:
+133:Ahold Delhaize (reserva nombrada en MATRIZ_ALCANCE_4_14 §3),sin conservar,,,,,,,SIN Excel de etapa 1 ni .bat ejecutado (insumo no entregado); no se fuerza el caso
+menciones de 'bat' o 'ahold' en fuentes/huellas_todas_las_fuentes.csv:
+menciones de 'bat' o 'ahold' en fuentes/huellas_fuentes_conservadas.csv:
+menciones de 'bat' o 'ahold' en README.md:
+28:  Ahold Delhaize (reserva nombrada en la matriz) carece de Excel de etapa 1 y .bat → **bloqueada,
+menciones de 'bat' o 'ahold' en ENTREGA_B3_C1.json:
+16:    "MATRIZ_ALCANCE_4_14.md y HITO_2_4_15.md (producto @ 957af65) leidos via gh api: estado de motores, I19/I20, tercera empresa Elis, Ahold sin insumos",
+32:      "criterios_cubiertos": ["inventario de Excel/etapa1/extraccion/PDF por empresa conservada; huecos declarados (Ahold sin insumos; ninguna financiera para C)"],
+52:      "criterios_cubiertos": ["motor B verificado en 2 recorridos reales (Viscofan V6.4.1, Vidrala V6.4); motor C solo fixtures; Elis third case motor A no_entregable; Ahold reserva sin etapa1; I19/I20 no restaurados; doble PPA: F1 vigente"],
+60:      "comando": "NO EJECUTADO: prohibido en este frente (sin LibreOffice/pipeline) y bloqueado por insumos (Ahold sin etapa1; ninguna financiera conservada para C)",
+63:      "criterios_sin_cubrir": ["recorrido real del tercer B y del primer C: dependen de insumos externos (Excel etapa1 de Ahold; fuente oficial de banco/aseguradora) y de la Cola 3 (ejecucion con agentes/pipeline)"],
+72:    "F-B3 bloqueado por insumo: Ahold Delhaize (reserva) sin Excel de etapa 1 ni .bat ejecutado; no se fuerza. Ninguna otra empresa fuera de muestra conservada",
+79:  "siguiente_accion_exacta": "Esperar a que el coordinador registre este paquete y a que lleguen insumos (etapa 1 de Ahold o fuente oficial de banco/aseguradora); entonces Cola 3: ejecutar en copia aislada por paquetes Git. Mientras tanto, re-consultar CONT
+83:  "criterios_pendientes": ["recorrido real F-B3 (bloqueado por insumo Ahold)", "recorrido real F-C1 (bloqueado por fuente oficial de entidad financiera)", "inventario de las 116 empresas del usuario (no disponible en este repo)"],
+menciones de 'bat' o 'ahold' en SELECCION.csv:
+2:B (tercer B real),Ahold Delhaize (reserva nombrada en MATRIZ_ALCANCE_4_14 §3),si,PENDIENTE: sin Excel de etapa 1 ni .bat ejecutado; sin PDF/fuentes conservados,posible (distribucion, filial cambiante),posible (V6.4 motor B existe y esta verificada en Viscof

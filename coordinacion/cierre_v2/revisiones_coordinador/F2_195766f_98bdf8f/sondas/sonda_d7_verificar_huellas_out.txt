@@ -1,0 +1,9 @@
+$ python3 -I verificar_huellas.py <zip> FUENTES_CONSERVADAS_daa7478.csv
+FUENTES_CONSERVADAS_daa7478.csv: 29/29 PDF coinciden en bytes y SHA-256 con munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+RESULTADO: TODO COINCIDE
+exit=0
+$ python3 -I verificar_huellas.py <zip> mutante_un_sha.csv   # control negativo: un SHA alterado
+mutante_un_sha.csv: 28/29 PDF coinciden en bytes y SHA-256 con munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+  FALLO contrastes/piloto_Vidrala_2025/fuentes/en_2355_descarga_2026-11-08/2355_en-2025_consolidated_financial_information.pdf: bytes 1318881 vs 1318881, sha c548c2fac041 vs 0548c2fac041
+RESULTADO: 1 FALLOS
+exit=1

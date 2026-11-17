@@ -321,15 +321,17 @@
         "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/REVISION_D_1ac661b.md",
         "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/CORRECCION_D2.md",
         "mistral/d-qwen-aceptacion @ 3934bc9",
-        "resultados_qwen/ejecucion_d/ @ 3934bc9 (D2-R1/R7, bloque 1) y 5f4b2a2 (D2-R2…R5, bloque 2)"
+        "resultados_qwen/ejecucion_d/ @ 3934bc9 (D2-R1/R7, bloque 1) y 5f4b2a2 (D2-R2…R5, bloque 2)",
+        "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/REVISION_D2_3934bc9_a_5f4b2a2.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/CORRECCION_D3.md"
       ],
       "pruebas_autor": "DECLARADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "PARCIALES",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Mistral D corrige D2-R1…R7 (CORRECCION_D2.md): aserciones que aceptan resultados vacíos o forjados, Q1-026 incoherente con el banco, relevos vacíos de Q1-028/032, correspondencia de criterios, manifiesto. Se conserva D-R2 y la detección de las sondas de d375d80.",
+      "siguiente_accion": "Mistral D corrige D3-R1…R8 (CORRECCION_D3.md): rutas de salida y de copia fuera del caso, reevaluación en la matriz, controles negativos contra el estado previo, regeneración de todo lo publicado, relevos completos, manifiesto. D2-R7, cerrado con límites.",
       "observacion": "Respuesta a D2 entregada en dos bloques (3934bc9, 5f4b2a2); revisión del coordinador en curso (contexto distinto). 0/36 casos del personaje ejecutados.",
-      "commit_revisado": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
+      "commit_revisado": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -348,18 +350,20 @@
         "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/REVISION_D_1ac661b.md",
         "coordinacion/cierre_v2/revisiones_coordinador/D_1ac661b/CORRECCION_D2.md",
         "coordinacion/cierre_v2/pruebas_candidata/957af65/MECANISMO_PERSONAJE.md",
-        "resultados_qwen/ejecucion_d/ @ 3934bc9 (D2-R1/R7, bloque 1) y 5f4b2a2 (D2-R2…R5, bloque 2)"
+        "resultados_qwen/ejecucion_d/ @ 3934bc9 (D2-R1/R7, bloque 1) y 5f4b2a2 (D2-R2…R5, bloque 2)",
+        "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/REVISION_D2_3934bc9_a_5f4b2a2.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/D2_3934bc9_5f4b2a2/CORRECCION_D3.md"
       ],
       "pruebas_autor": "DECLARADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "PARCIALES",
       "dependencias": [
         "D-HARNESS",
         "T-CAND"
       ],
       "bloqueo": "No falta capacidad: el personaje se ejecuta con código 10 y subagentes de la sesión orquestadora (modelo y esfuerzo de config_v2.json, fase C con el mismo agente, auditoría con agente nuevo; sin API). Comprobado en 957af65: réplica hasta el código 10, paso 5. Bloqueo real: la adaptación de los 36 casos sintéticos a vías soportadas y la correspondencia criterio→observable (D2-R4/R5, Mistral D), que exige el propio PLAN_DE_EJECUCION del banco.",
-      "siguiente_accion": "Cuando D2 entregue relevos íntegros por caso, el coordinador ejecuta cada caso con agentes reales y LibreOffice en secuencia, y registra el veredicto por criterio.",
+      "siguiente_accion": "0/36 casos del personaje ejecutados (correcto). El runtime del coordinador los ejecuta cuando D3-R4 dé relevos completos por caso.",
       "observacion": "Respuesta a D2 entregada en dos bloques (3934bc9, 5f4b2a2); revisión del coordinador en curso (contexto distinto). 0/36 casos del personaje ejecutados.",
-      "commit_revisado": "1ac661b8efd954a5c79f91a493f9b082a9455e82",
+      "commit_revisado": "5f4b2a22442f60e570cc19297dbaec7843598ce9",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -512,15 +516,17 @@
         "coordinacion/cierre_v2/u2_tercer_b/LEEME.md",
         "mistral/f-alcance-real @ 9873234",
         "resultados_cierre/alcance_real/ @ 195766f (F2-D1/D2/D7), e9f76a9 (F2-D3), 9873234 (F2-D6), c761cc8 (F2-D4/D5/D7)",
-        "resultados_cierre/alcance_real/ @ 98bdf8f (respuesta completa a F2 con ENTREGA)"
+        "resultados_cierre/alcance_real/ @ 98bdf8f (respuesta completa a F2 con ENTREGA)",
+        "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/REVISION_F2_195766f_98bdf8f.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/CORRECCION_F3.md"
       ],
       "pruebas_autor": "DECLARADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "Historia irrecuperable de la persona responsable: Ahold_evaluada.xlsx (V5.3) y Ahold_respuesta.md de la etapa 1 (sin ellos el pipeline se detiene en el paso 1 y la r heredada C56 no puede reconstruirse sin elegirla); huellas de sus PDF 2019–2025 (HUELLAS.txt del .bat); y si el resultado de la etapa 1 influyó en elegir a Ahold como reserva.",
-      "siguiente_accion": "U2 (decisión del 17-nov): recursos recuperados (solo el .bat), 10 informes anuales oficiales 2016–2025 descargados y verificados (sin preservación duradera), propuesta Ahold Delhaize. Pendiente: la etapa 1 de la persona responsable, revisión independiente y dónde preservar los 10 PDF. F2 de Mistral C/F sigue vigente para el inventario.",
+      "siguiente_accion": "Inventario reproducible aceptado con límites (F2-D1 cerrado; 71 PDF con huella). Mistral C/F corrige F3-R3 (.bat de Ahold), R4 y textos. La ejecución depende de U2 (etapa 1 de Ahold).",
       "observacion": "Respuesta a F2 entregada en cuatro commits (195766f…c761cc8); revisión del coordinador en curso (contexto distinto), solo F2-D1…D7.",
-      "commit_revisado": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
+      "commit_revisado": "98bdf8f7a48ee01c764834c5305b268fdde2b989",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -543,15 +549,17 @@
         "coordinacion/cierre_v2/u3_motor_c/CANDIDATOS_C.md",
         "coordinacion/cierre_v2/u3_motor_c/LEEME.md",
         "resultados_cierre/alcance_real/ @ 195766f (F2-D1/D2/D7), e9f76a9 (F2-D3), 9873234 (F2-D6), c761cc8 (F2-D4/D5/D7)",
-        "resultados_cierre/alcance_real/ @ 98bdf8f (respuesta completa a F2 con ENTREGA)"
+        "resultados_cierre/alcance_real/ @ 98bdf8f (respuesta completa a F2 con ENTREGA)",
+        "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/REVISION_F2_195766f_98bdf8f.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/F2_195766f_98bdf8f/CORRECCION_F3.md"
       ],
       "pruebas_autor": "DECLARADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [],
       "bloqueo": "Documentos oficiales de los candidatos sin verificar: descarga de FinecoBank denegada por el control de permisos de la sesión; Hannover Re responde 403 a curl. Hace falta que la persona responsable autorice esas descargas o deje ella los documentos (informe anual 2025 y Pilar 3 o SFCR 2025 de cada candidato).",
-      "siguiente_accion": "U3 (decisión del 17-nov): contrato C reescrito desde el motor real (corrige F2-D3), protocolo de selección fijado antes de nombrar candidatos, y dos candidatos propuestos sin verificar (FinecoBank, Hannover Rück). Pendiente: documentos oficiales, revisión independiente y elección de la persona responsable. F2 de Mistral C/F sigue vigente para el resto (D1, D2, D4–D7).",
+      "siguiente_accion": "Contrato C de F con un defecto medio (F3-R5: el motor se elige en Análisis!C62, comprobado en build_v6.py). Se alinea con el de u3_motor_c o se retira (F3-R12). La elección de candidato es de la persona responsable sobre U3.",
       "observacion": "Respuesta a F2 entregada en cuatro commits (195766f…c761cc8); revisión del coordinador en curso (contexto distinto), solo F2-D1…D7. F2-D3 se contrasta también con el contrato de u3_motor_c/.",
-      "commit_revisado": "52fb1206cace5cc56112e5fd1c54773e5185e8e6",
+      "commit_revisado": "98bdf8f7a48ee01c764834c5305b268fdde2b989",
       "alcance_aceptado": [],
       "solicitud_revision": null
     },
@@ -1115,6 +1123,21 @@
       "tipo": "CONSULTA",
       "fecha": "2026-11-17",
       "hecho": "F hasta 98bdf8f (respuesta completa a F2) registrado; la revisión en curso se amplía hasta ese commit."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "D2 de Mistral D (3934bc9 y 5f4b2a2) revisado: no cierra D2 (R1–R6 abiertos, R7 con límites); CORRECCION_D3. Manifiesto con 11 fallos, comprobado por el coordinador. 0/36 casos del personaje, declarado correctamente."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "F2 de Mistral C/F (195766f…98bdf8f) revisado: D1 y D4 cerrados, el resto con límites; CORRECCION_F3 (R5 medio, comprobado por el coordinador en build_v6.py: el motor se elige en Análisis!C62; contrato de F alineado con U3 o retirado)."
+    },
+    {
+      "tipo": "INTEGRACION",
+      "fecha": "2026-11-17",
+      "hecho": "Nada de D2 ni de F2 se integra en la candidata: son herramientas, inventarios y contratos del auxiliar, con correcciones pendientes."
     }
   ],
   "consulta_remotos_arranque": {

@@ -14,14 +14,14 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | C20 | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | bf0d5c2 |
 | CSV | Claude | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | 77ff89f |
 | A-CTX | Mistral A | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 8b88fab |
-| D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 5f4b2a2 |
-| D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 5f4b2a2 |
+| D-HARNESS | Mistral D | ENTREGADO | CORRECCIONES | NO | DECLARADAS / PARCIALES | 5f4b2a2 |
+| D-36 | Mistral D + Claude runtime | PARCIAL | CORRECCIONES | NO | DECLARADAS / PARCIALES | 5f4b2a2 |
 | E-ELIS | Antigua Mistral B, nueva E | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | f00c5dd |
 | B-PM1 | Mistral B (autor previo) | PARCIAL | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | daa7478 |
 | C-C2 | Mistral C (autor previo) | ENTREGADO | CONFORME_CON_LIMITES | NO | DECLARADAS / REPRODUCIDAS | 1ec4f18 |
 | F-REV | Antigua Mistral C, nueva F | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / NO_EJECUTADAS | c7716a0 |
-| F-B3 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 98bdf8f |
-| F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 98bdf8f |
+| F-B3 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 98bdf8f |
+| F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | 98bdf8f |
 | G-MANUAL | Claude coordinador (borrador por un subagente de redacción) | PARCIAL | CONFORME_CON_LIMITES | NO | NO_EJECUTADAS / PARCIALES | 341831f |
 | G-DOCS | Claude coordinador | ENTREGADO | CONFORME_CON_LIMITES | SI | EJECUTADAS / REPRODUCIDAS | c0542b8 |
 | G-RAIZ | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 3d66437 |
@@ -40,8 +40,8 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - **CSV · Cifras [LECTURA] al CSV verificado (bloque CSV de ENCARGO_C20_CSV.md, f5775dc)**: Nada en esta tarea. No es software del producto: no se integra en la candidata; queda en la rama F1.
   Dependencias: C20.
 - **A-CTX · Evidencia contextual A v3**: Mistral A: primero la revisión de G-MANUAL (rama mistral/g-manual-traspaso); después CORRECCION_A3.md (A3-R1…R8) en la rama A, en un bloque separado. T-EXP sigue bloqueado por A-CTX.
-- **D-HARNESS · Arnés D v2 y paquetes íntegros**: Mistral D corrige D2-R1…R7 (CORRECCION_D2.md): aserciones que aceptan resultados vacíos o forjados, Q1-026 incoherente con el banco, relevos vacíos de Q1-028/032, correspondencia de criterios, manifiesto. Se conserva D-R2 y la detección de las sondas de d375d80.
-- **D-36 · Aceptación completa de 36 casos Qwen**: Cuando D2 entregue relevos íntegros por caso, el coordinador ejecuta cada caso con agentes reales y LibreOffice en secuencia, y registra el veredicto por criterio.
+- **D-HARNESS · Arnés D v2 y paquetes íntegros**: Mistral D corrige D3-R1…R8 (CORRECCION_D3.md): rutas de salida y de copia fuera del caso, reevaluación en la matriz, controles negativos contra el estado previo, regeneración de todo lo publicado, relevos completos, manifiesto. D2-R7, cerrado con límites.
+- **D-36 · Aceptación completa de 36 casos Qwen**: 0/36 casos del personaje ejecutados (correcto). El runtime del coordinador los ejecuta cuando D3-R4 dé relevos completos por caso.
   Dependencias: D-HARNESS, T-CAND.
   Bloqueo/límite: No falta capacidad: el personaje se ejecuta con código 10 y subagentes de la sesión orquestadora (modelo y esfuerzo de config_v2.json, fase C con el mismo agente, auditoría con agente nuevo; sin API). Comprobado en 957af65: réplica hasta el código 10, paso 5. Bloqueo real: la adaptación de los 36 casos sintéticos a vías soportadas y la correspondencia criterio→observable (D2-R4/R5, Mistral D), que exige el propio PLAN_DE_EJECUCION del banco.
 - **E-ELIS · Fuentes M1/M2/M6/N2 de Elis**: Mistral E corrige E2-D1…D9 (CORRECCION_E2.md) y actualiza el estado de preservación a la Release. M1/M2/M6/N2 ABIERTOS; Elis pendiente_de_datos.
@@ -49,9 +49,9 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Bloqueo/límite: P-M1 no delimitada con evidencia disponible; 4 PDF nuevos con preservación pendiente.
 - **C-C2 · Guarda de perímetros C2**: Decisión del integrador: no se incorpora a la candidata. Es herramienta de contraste del auxiliar, no software del producto, y conserva C1 y D1/D7/D11 pendientes. Se conserva el enlace (1ec4f18, SEGUIMIENTO.md @ b049777); se usa como oráculo de contraste solo dentro de su alcance.
 - **F-REV · Contraste independiente de cambios Claude**: Siguiente contraste de Mistral C/F sobre entregas de Claude: G-MANUAL (solicitud LISTA), además de responder a CORRECCION_F2.
-- **F-B3 · Tercer B real fuera de muestra**: U2 (decisión del 17-nov): recursos recuperados (solo el .bat), 10 informes anuales oficiales 2016–2025 descargados y verificados (sin preservación duradera), propuesta Ahold Delhaize. Pendiente: la etapa 1 de la persona responsable, revisión independiente y dónde preservar los 10 PDF. F2 de Mistral C/F sigue vigente para el inventario.
+- **F-B3 · Tercer B real fuera de muestra**: Inventario reproducible aceptado con límites (F2-D1 cerrado; 71 PDF con huella). Mistral C/F corrige F3-R3 (.bat de Ahold), R4 y textos. La ejecución depende de U2 (etapa 1 de Ahold).
   Bloqueo/límite: Historia irrecuperable de la persona responsable: Ahold_evaluada.xlsx (V5.3) y Ahold_respuesta.md de la etapa 1 (sin ellos el pipeline se detiene en el paso 1 y la r heredada C56 no puede reconstruirse sin elegirla); huellas de sus PDF 2019–2025 (HUELLAS.txt del .bat); y si el resultado de la etapa 1 influyó en elegir a Ahold como reserva.
-- **F-C1 · Primer recorrido C real y contrato específico**: U3 (decisión del 17-nov): contrato C reescrito desde el motor real (corrige F2-D3), protocolo de selección fijado antes de nombrar candidatos, y dos candidatos propuestos sin verificar (FinecoBank, Hannover Rück). Pendiente: documentos oficiales, revisión independiente y elección de la persona responsable. F2 de Mistral C/F sigue vigente para el resto (D1, D2, D4–D7).
+- **F-C1 · Primer recorrido C real y contrato específico**: Contrato C de F con un defecto medio (F3-R5: el motor se elige en Análisis!C62, comprobado en build_v6.py). Se alinea con el de u3_motor_c o se retira (F3-R12). La elección de candidato es de la persona responsable sobre U3.
   Bloqueo/límite: Documentos oficiales de los candidatos sin verificar: descarga de FinecoBank denegada por el control de permisos de la sesión; Hannover Re responde 403 a curl. Hace falta que la persona responsable autorice esas descargas o deje ella los documentos (informe anual 2025 y Pilar 3 o SFCR 2025 de cada candidato).
 - **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: Corregir los textos operativos desfasados (G-1…G-9 y C-07/C-08/C-09/C-12 de CONTINUIDAD) en una rama aislada de la candidata y publicarlo para revisión por un contexto distinto. C-01…C-04 (README/CLAUDE.md raíz) son instrucciones del usuario: se proponen, no se cambian. Después, T-TRASPASO con un receptor realmente nuevo.
   Dependencias: T-CAND.

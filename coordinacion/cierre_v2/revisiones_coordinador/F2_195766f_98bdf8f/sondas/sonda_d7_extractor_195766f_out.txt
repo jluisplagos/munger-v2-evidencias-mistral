@@ -1,0 +1,5 @@
+$ python3 -I revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py   # @195766f, tal cual
+    return open(os.path.join(TXT, f'CF_{y}.txt'), encoding='utf-8').read().splitlines()
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/github__jluisplagos__munger-v2-evidencias-mistral/.trabajo/insumos_m2/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto/CF_2017.txt'
+exit=1

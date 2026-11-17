@@ -1,0 +1,764 @@
+{
+ "alcance": "sondas con candidata falsa (stubs); no son resultados del producto Munger",
+ "bloque1_3934bc9": {
+  "arnes": {
+   "P1_spec_vacia": {
+    "exit": 2,
+    "estado": "ERROR_ESPECIFICACION",
+    "veredicto": "DETECTA"
+   },
+   "P1v_P2v_asercion_sobre_log_del_arnes": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "veredicto": "FALSO POSITIVO (no examina ninguna salida del producto)"
+   },
+   "P2_criterio_sin_aserciones": {
+    "exit": 2,
+    "estado": "ERROR_ESPECIFICACION",
+    "veredicto": "DETECTA"
+   },
+   "P3_lectura_otro_caso": {
+    "exit": 1,
+    "estado": "ERROR",
+    "errores": [
+     "ruta fuera del RUN_DIR/evidencias del caso: '../Q1-036/07_informe_provisional.md'"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P3va_copiar_artefacto_de_otro_caso": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "artefactos": [
+     {
+      "archivo": "informe_provisional.md",
+      "guardado_en": "informe_propio.md",
+      "sha256": "ea1467337f86f7a4e0f0d47f99ae718c3050415f9132df0c2dac38dc313646a6",
+      "productor": "plantilla del registro de entradas (comando documentado del producto)",
+      "nuevo": true
+     }
+    ],
+    "veredicto": "FALSO POSITIVO (la contención solo cubre la lectura de aserciones)"
+   },
+   "P3vb_guardar_escribe_en_otro_caso": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "contenido_Q1-036_tras_la_ejecucion": "{}",
+    "veredicto": "DEFECTO (sobrescribe evidencia ajena)"
+   },
+   "P5_Q1-034_sin_universo": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "01_comprobar_rango_acotado.json: salida sin universo positivo (vacía); el negativo no acredita",
+     "01_comprobar_rango_acotado.json: salida sin universo positivo (vacía); el negativo no acredita"
+    ],
+    "veredicto": "C1 FALLA"
+   },
+   "P5v_Q1-034_universo_sin_rango": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "01_comprobar_rango_acotado.json:comprobadas sin prefijo 'aux:litigio' (universo=321) -> OK",
+     "01_comprobar_rango_acotado.json:datos_como_hipotesis sin prefijo 'aux:litigio' (universo=321) -> OK"
+    ],
+    "veredicto": "FALSO POSITIVO en C1"
+   },
+   "P5w_Q1-034_eco_de_la_nota_del_arnes": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "01_comprobar_rango_acotado.json:comprobadas sin prefijo 'aux:litigio' (universo=321) -> OK",
+     "01_comprobar_rango_acotado.json:datos_como_hipotesis sin prefijo 'aux:litigio' (universo=321) -> OK"
+    ],
+    "veredicto": "FALSO POSITIVO en C1"
+   },
+   "P7a_residuo_en_candidata": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "errores": [
+     "la candidata contiene residuo pruebas_d/ del arnés: ['?? munger_v2_r1/pruebas_d/']"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P7b_fallo_ajeno_subcadena": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "ERROR ajeno a pdftotext: CAMBIO inválido; «archivo» ausente o inexistente en texto/: 'X.txt'"
+     ],
+     "otros_errores": [],
+     "nota": "el bloqueo no se atribuye solo a pdftotext: también hay errores de ipal/AR_2019/AR_2020"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P7c_replay_stderr_real": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "AR_2021: AR_2021: «archivo» ausente o inexistente en texto/: 'AR_2021.txt'",
+      "AR_2022: AR_2022: «archivo» ausente o inexistente en texto/: 'AR_2022.txt'",
+      "AR_2023: AR_2023: «archivo» ausente o inexistente en texto/: 'AR_2023.txt'",
+      "AR_2024: AR_2024: «archivo» ausente o inexistente en texto/: 'AR_2024.txt'"
+     ],
+     "otros_errores": [
+      "fase1_historia.py construir falló: ipal: «cero» sin «cita» literal de la página 12",
+      "AR_2019: sbc: «cero» sin «cita» literal de la página 13",
+      "AR_2019: arrendamientos: «cero» sin «cita» literal de la página 62",
+      "AR_2019: minoritarios: «cero» sin «cita» literal de la página 11",
+      "AR_2020: minoritarios: «cero» sin «cita» literal de la página 4"
+     ],
+     "nota": "el bloqueo no se atribuye solo a pdftotext: también hay errores de ipal/AR_2019/AR_2020"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P7v_fallo_ajeno_con_lineas_esperadas": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "AR_2021: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2022: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2023: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2024: (diagnóstico previo) «archivo» ausente o inexistente en texto/"
+     ],
+     "otros_errores": [
+      "ERROR: CAMBIO mal formado: clave 'version_formato' no admitida",
+      "ipal: aviso: la cita no se ha podido revisar"
+     ],
+     "nota": "el bloqueo no se atribuye solo a pdftotext: también hay errores de ipal/AR_2019/AR_2020"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P8_rastreado_modificado": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "errores": [
+     "árbol de la candidata con cambios sin commit: [' M munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py']"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P8va_skip_worktree": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "candidata_sha": true,
+    "git_status": "",
+    "script_alterado_ejecutado": true,
+    "veredicto": "NO DETECTA"
+   },
+   "P8vb_no_rastreado_en_scripts": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "candidata_no_rastreadas": 1,
+    "salida_alterada": true,
+    "veredicto": "NO DETECTA"
+   },
+   "P9_un_log_por_ejecucion": {
+    "cabeceras_en_log": 1,
+    "veredicto": "OK"
+   },
+   "P9v_opcion_ARNES_EVIDENCIAS_LIMPIAS_0": {
+    "cabeceras_en_log": 2,
+    "resultado_registra_la_opcion": false,
+    "veredicto": "ACUMULA sin registrarlo"
+   },
+   "P9w_id_punto_borra_evidencias": {
+    "exit": 1,
+    "Q1-001_sobrevive": false,
+    "stderr_ultima": "OSError: [Errno 22] Invalid argument: '<tmp><tmp>e_l1o6qs/bloque1_3934bc9/ev_p9w/.'",
+    "veredicto": "DEFECTO (borra la evidencia de los demás casos)"
+   },
+   "R7a_marcas": {
+    "revisor_en_comando_sellar": "revisora independiente (nombre de persona)",
+    "aux_comprobacion_escrita_por_el_arnes": {
+     "extractor": null,
+     "revisor": null,
+     "fecha": null,
+     "resultado": "pendiente",
+     "fuente_examinada": null,
+     "nota": null,
+     "vinculo": null
+    },
+    "veredicto": "LÍMITE: registros del arnés sin marca"
+   },
+   "R7c_sha_observado": {
+    "candidata_sha": "f81c46957c594a6a92018f38b994edd2f36eae30",
+    "esperado": "f81c46957c594a6a92018f38b994edd2f36eae30",
+    "spec_sha256": true,
+    "banco_casos_sha256": true,
+    "harness_version": "3.0"
+   }
+  },
+  "matriz": {
+   "exit": 0,
+   "M1_P4_dos_campos_Q1-031": {
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE"
+   },
+   "M2_P4v_forjado_5_campos_Q1-001_sin_evidencia": {
+    "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+    "veredicto_componente": ""
+   },
+   "M3_Q1-026_ERROR_ENTORNO": {
+    "estado_ejecucion": "NO_EJECUTADO (bloqueo de entorno)",
+    "veredicto_componente": ""
+   },
+   "M4_Q1-002_resultado_v3_legitimo": {
+    "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+    "veredicto_componente": ""
+   },
+   "Q1-003_publicado_v2_sin_tocar": {
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE"
+   },
+   "recuentos_estado": {
+    "ERROR (COMPONENTE_OK)": 2,
+    "PARCIAL_COMPONENTE": 28,
+    "NO_EJECUTADO (bloqueo de entorno)": 1,
+    "NO_EJECUTADO": 5
+   },
+   "recuentos_veredicto_componente": {
+    "sin veredicto de componente": 8,
+    "CUMPLE": 28
+   }
+  }
+ },
+ "bloque2_5f4b2a2": {
+  "arnes": {
+   "P1_spec_vacia": {
+    "exit": 2,
+    "estado": "ERROR_ESPECIFICACION",
+    "veredicto": "DETECTA"
+   },
+   "P1v_P2v_asercion_sobre_log_del_arnes": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "veredicto": "FALSO POSITIVO (no examina ninguna salida del producto)"
+   },
+   "P2_criterio_sin_aserciones": {
+    "exit": 2,
+    "estado": "ERROR_ESPECIFICACION",
+    "veredicto": "DETECTA"
+   },
+   "P3_lectura_otro_caso": {
+    "exit": 1,
+    "estado": "ERROR",
+    "errores": [
+     "ruta fuera del RUN_DIR/evidencias del caso: '../Q1-036/07_informe_provisional.md'"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P3va_copiar_artefacto_de_otro_caso": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "artefactos": [
+     {
+      "archivo": "informe_provisional.md",
+      "guardado_en": "informe_propio.md",
+      "sha256": "ea1467337f86f7a4e0f0d47f99ae718c3050415f9132df0c2dac38dc313646a6",
+      "productor": "plantilla del registro de entradas (comando documentado del producto)",
+      "nuevo": true
+     }
+    ],
+    "veredicto": "FALSO POSITIVO (la contención solo cubre la lectura de aserciones)"
+   },
+   "P3vb_guardar_escribe_en_otro_caso": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "contenido_Q1-036_tras_la_ejecucion": "{}",
+    "veredicto": "DEFECTO (sobrescribe evidencia ajena)"
+   },
+   "P5_Q1-034_sin_universo": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "FALLA_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "run:Viscofan/verificacion_entradas.json:hipotesis.limites = 'rango acotado 0-200 millones EUR; sin punto justificado ni tratamiento documentado todavía' (op contiene '0-200') -> OK",
+     "run:Viscofan/verificacion_entradas.json:clase = 'dato_publicado' (op eq 'hipotesis') -> FALLA",
+     "01_comprobar_rango_acotado.json: salida sin universo positivo (vacía); el negativo no acredita",
+     "01_comprobar_rango_acotado.json:pendientes con prefijo 'aux:litigio' contiene 'rango acotado' -> FALLA"
+    ],
+    "veredicto": "C1 FALLA"
+   },
+   "P5v_Q1-034_universo_sin_rango": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "run:Viscofan/verificacion_entradas.json:hipotesis.limites = 'rango acotado 0-200 millones EUR; sin punto justificado ni tratamiento documentado todavía' (op contiene '0-200') -> OK",
+     "run:Viscofan/verificacion_entradas.json:clase = 'dato_publicado' (op eq 'hipotesis') -> FALLA",
+     "01_comprobar_rango_acotado.json:comprobadas sin prefijo 'aux:litigio' (universo=321) -> OK",
+     "01_comprobar_rango_acotado.json:pendientes con prefijo 'aux:litigio' contiene 'rango acotado' -> FALLA"
+    ],
+    "veredicto": "C1 FALLA"
+   },
+   "P5w_Q1-034_eco_de_la_nota_del_arnes": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_C1": [
+     "run:Viscofan/verificacion_entradas.json:hipotesis.limites = 'rango acotado 0-200 millones EUR; sin punto justificado ni tratamiento documentado todavía' (op contiene '0-200') -> OK",
+     "run:Viscofan/verificacion_entradas.json:clase = 'dato_publicado' (op eq 'hipotesis') -> FALLA",
+     "01_comprobar_rango_acotado.json:comprobadas sin prefijo 'aux:litigio' (universo=321) -> OK",
+     "01_comprobar_rango_acotado.json:pendientes con prefijo 'aux:litigio' contiene 'rango acotado' -> OK"
+    ],
+    "veredicto": "C1 FALLA"
+   },
+   "P7a_residuo_en_candidata": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "errores": [
+     "la candidata contiene residuo pruebas_d/ del arnés: ['?? munger_v2_r1/pruebas_d/']"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P7b_fallo_ajeno_subcadena": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C3",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [
+     "[C1] errores_bloqueo.json:texto_pdf_faltante_pdftotext con prefijo 'AR_2021' contiene 'ausente o inexistente en texto/' -> FALLA",
+     "[C1] errores_bloqueo.json:texto_pdf_faltante_pdftotext con prefijo 'AR_2022' contiene 'ausente o inexistente en texto/' -> FALLA",
+     "[C1] errores_bloqueo.json:texto_pdf_faltante_pdftotext con prefijo 'AR_2023' contiene 'ausente o inexistente en texto/' -> FALLA"
+    ],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "ERROR ajeno a pdftotext: CAMBIO inválido; «archivo» ausente o inexistente en texto/: 'X.txt'"
+     ],
+     "otros_errores": [],
+     "nota": "el bloqueo no se atribuye solo a pdftotext: también hay errores de ipal/AR_2019/AR_2020"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P7c_replay_stderr_real": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA",
+    "criterios": [
+     [
+      "C1",
+      "FALLA_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C3",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [
+     "[C1] errores_bloqueo.json:otros_errores con prefijo 'ipal' contiene 'cita' -> FALLA"
+    ],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "AR_2021: AR_2021: «archivo» ausente o inexistente en texto/: 'AR_2021.txt'",
+      "AR_2022: AR_2022: «archivo» ausente o inexistente en texto/: 'AR_2022.txt'",
+      "AR_2023: AR_2023: «archivo» ausente o inexistente en texto/: 'AR_2023.txt'",
+      "AR_2024: AR_2024: «archivo» ausente o inexistente en texto/: 'AR_2024.txt'"
+     ],
+     "otros_errores": [
+      "fase1_historia.py construir falló: ipal: «cero» sin «cita» literal de la página 12",
+      "AR_2019: sbc: «cero» sin «cita» literal de la página 13",
+      "AR_2019: arrendamientos: «cero» sin «cita» literal de la página 62",
+      "AR_2019: minoritarios: «cero» sin «cita» literal de la página 11",
+      "AR_2020: minoritarios: «cero» sin «cita» literal de la página 4"
+     ],
+     "nota": "el bloqueo no se atribuye solo a pdftotext: también hay errores de ipal/AR_2019/AR_2020"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P7v_fallo_ajeno_con_lineas_esperadas": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "criterios": [
+     [
+      "C1",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C2",
+      "CUMPLE_COMPONENTE"
+     ],
+     [
+      "C3",
+      "CUMPLE_COMPONENTE"
+     ]
+    ],
+    "detalle_fallos": [],
+    "errores_bloqueo": {
+     "exit": 1,
+     "texto_pdf_faltante_pdftotext": [
+      "AR_2021: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2022: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2023: (diagnóstico previo) «archivo» ausente o inexistente en texto/",
+      "AR_2024: (diagnóstico previo) «archivo» ausente o inexistente en texto/"
+     ],
+     "otros_errores": [
+      "ERROR: CAMBIO mal formado: clave 'version_formato' no admitida",
+      "ipal: aviso: la cita no se ha podido revisar"
+     ],
+     "nota": "el bloqueo no se atribuye solo a pdftotext: también hay errores de ipal/AR_2019/AR_2020"
+    },
+    "origen_tras_ejecucion": "{\"origen\": \"plantilla\"}",
+    "git_status_candidata": []
+   },
+   "P8_rastreado_modificado": {
+    "exit": 2,
+    "estado": "ERROR_ENTORNO",
+    "errores": [
+     "árbol de la candidata con cambios sin commit: [' M munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py']"
+    ],
+    "veredicto": "DETECTA"
+   },
+   "P8va_skip_worktree": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "candidata_sha": true,
+    "git_status": "",
+    "script_alterado_ejecutado": true,
+    "veredicto": "NO DETECTA"
+   },
+   "P8vb_no_rastreado_en_scripts": {
+    "exit": 0,
+    "estado": "COMPONENTE_OK",
+    "candidata_no_rastreadas": 1,
+    "salida_alterada": true,
+    "veredicto": "NO DETECTA"
+   },
+   "P9_un_log_por_ejecucion": {
+    "cabeceras_en_log": 1,
+    "veredicto": "OK"
+   },
+   "P9v_opcion_ARNES_EVIDENCIAS_LIMPIAS_0": {
+    "cabeceras_en_log": 2,
+    "resultado_registra_la_opcion": false,
+    "veredicto": "ACUMULA sin registrarlo"
+   },
+   "P9w_id_punto_borra_evidencias": {
+    "exit": 1,
+    "Q1-001_sobrevive": false,
+    "stderr_ultima": "OSError: [Errno 22] Invalid argument: '<tmp><tmp>e_l1o6qs/bloque2_5f4b2a2/ev_p9w/.'",
+    "veredicto": "DEFECTO (borra la evidencia de los demás casos)"
+   },
+   "R7a_marcas": {
+    "revisor_en_comando_sellar": "revisora independiente (nombre de persona)",
+    "aux_comprobacion_escrita_por_el_arnes": {
+     "extractor": null,
+     "revisor": null,
+     "fecha": null,
+     "resultado": "pendiente",
+     "fuente_examinada": null,
+     "nota": null,
+     "vinculo": null
+    },
+    "veredicto": "LÍMITE: registros del arnés sin marca"
+   },
+   "R7c_sha_observado": {
+    "candidata_sha": "beb78890924ef13da5c791f2162a8112402f71b3",
+    "esperado": "beb78890924ef13da5c791f2162a8112402f71b3",
+    "spec_sha256": true,
+    "banco_casos_sha256": true,
+    "harness_version": "3.0"
+   }
+  },
+  "matriz": {
+   "exit": 0,
+   "M1_P4_dos_campos_Q1-031": {
+    "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+    "veredicto_componente": ""
+   },
+   "M2_P4v_forjado_5_campos_Q1-001_sin_evidencia": {
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE"
+   },
+   "M3_Q1-026_ERROR_ENTORNO": {
+    "estado_ejecucion": "BLOQUEO_ENTORNO",
+    "veredicto_componente": ""
+   },
+   "M4_Q1-002_resultado_v3_legitimo": {
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE"
+   },
+   "Q1-003_publicado_v2_sin_tocar": {
+    "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+    "veredicto_componente": ""
+   },
+   "recuentos_estado": {
+    "PARCIAL_COMPONENTE": 2,
+    "ERROR (COMPONENTE_OK)": 28,
+    "BLOQUEO_ENTORNO": 1,
+    "NO_EJECUTADO": 5
+   },
+   "recuentos_veredicto_componente": {
+    "CUMPLE": 2,
+    "sin veredicto de componente": 34
+   }
+  },
+  "R2_Q1-027": {
+   "tabla": {
+    "C1.0": {
+     "vacio": false,
+     "estado_previo": true,
+     "evidencia_publicada": true
+    },
+    "C2.0": {
+     "vacio": false,
+     "estado_previo": false,
+     "evidencia_publicada": true
+    },
+    "C2.1": {
+     "vacio": false,
+     "estado_previo": false,
+     "evidencia_publicada": true
+    },
+    "C3.0": {
+     "vacio": false,
+     "estado_previo": false,
+     "evidencia_publicada": true
+    },
+    "C4.0": {
+     "vacio": false,
+     "estado_previo": true,
+     "evidencia_publicada": true
+    },
+    "C4.1": {
+     "vacio": false,
+     "estado_previo": true,
+     "evidencia_publicada": true
+    }
+   },
+   "no_discriminan_frente_al_estado_previo": [
+    "C1.0",
+    "C4.0",
+    "C4.1"
+   ],
+   "pasan_en_vacio_(lo_que_mide_la_prueba_15)": []
+  },
+  "regeneracion_con_evidencia_publicada": {
+   "exits": {
+    "generar_matriz.py": 0,
+    "generar_correspondencia.py": 0,
+    "generar_relevo.py": 0
+   },
+   "matriz_regenerada_estados": {
+    "ERROR (COMPONENTE_OK)": 29,
+    "BLOQUEO_ENTORNO": 1,
+    "NO_EJECUTADO": 6
+   },
+   "matriz_regenerada_CUMPLE": 0,
+   "matriz_publicada_CUMPLE": 30,
+   "matriz_publicada_igual_a_regenerada": false,
+   "mapa_filas": 109,
+   "mapa_con_asercion": 59,
+   "mapa_publicado_existe": false,
+   "relevos_sin_ningun_paso_de_agente": [
+    "Q1-001",
+    "Q1-002",
+    "Q1-003",
+    "Q1-004",
+    "Q1-005",
+    "Q1-006",
+    "Q1-007",
+    "Q1-008",
+    "Q1-009",
+    "Q1-010",
+    "Q1-011",
+    "Q1-012",
+    "Q1-013",
+    "Q1-014",
+    "Q1-015",
+    "Q1-016",
+    "Q1-017",
+    "Q1-018",
+    "Q1-019",
+    "Q1-020",
+    "Q1-021",
+    "Q1-022",
+    "Q1-023",
+    "Q1-024",
+    "Q1-025",
+    "Q1-027",
+    "Q1-029",
+    "Q1-032",
+    "Q1-034",
+    "Q1-036"
+   ],
+   "relevos_Q1-028_Q1-032": {
+    "Q1-028": {
+     "comando_relevo": null,
+     "falta": [
+      {
+       "qué": "reaprobación NUEVA con auditor real (la observación compartida con Q1-036 solo muestra la retirada) y deuda neta vigente 300+40-95=245 documentada como transformación pendiente de verificar",
+       "quién": "agente auditor nuevo (runtime del coordinador)",
+       "necesita": "expediente con la transformación vigente (arrendamientos 40, deuda 300, caja 95 del fixture f5_028_aprobacion.json)"
+      }
+     ]
+    },
+    "Q1-032": {
+     "comando_relevo": null,
+     "falta": [
+      {
+       "qué": "recuento 4 verificadas / 1 pendiente / 5 total del fixture f6_032_matriz.json sin doble conteo (el universo real es 321: 1/321 no lo prueba)",
+       "quién": "runtime del coordinador",
+       "necesita": "expediente de prueba con universo de 5 soportado o registrar NO_OBSERVABLE; ficha provisional que distinga estado de entradas vs estado de la conclusión"
+      }
+     ]
+    }
+   },
+   "relevo_Q1-001_falta": [
+    {
+     "qué": "revisión externa por otro contexto",
+     "quién": "coordinador (Claude)",
+     "necesita": "diff + reproducción de lo afectado"
+    }
+   ]
+  }
+ }
+}
