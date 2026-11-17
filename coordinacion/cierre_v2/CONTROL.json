@@ -541,26 +541,30 @@
       "autor": "Claude coordinador (borrador por un subagente de redacción)",
       "revisor_propuesto": "Claude + receptor distinto",
       "entrega": "PARCIAL",
-      "revision": "PENDIENTE",
+      "revision": "CONFORME_CON_LIMITES",
       "integracion": "NO",
       "commit_origen": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "commit_destino": null,
       "evidencia": [
         "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_957af65.md",
-        "coordinacion/cierre_v2/manual/CONTRADICCIONES_GUIA.md"
+        "coordinacion/cierre_v2/manual/CONTRADICCIONES_GUIA.md",
+        "resultados_cierre/manual_revision/INFORME_REVISION_GMANUAL.md @ 78ba1ca (mistral/g-manual-traspaso)",
+        "resultados_cierre/manual_revision/verificacion_criterios.json @ 78ba1ca"
       ],
       "pruebas_autor": "NO_EJECUTADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "PARCIALES",
       "dependencias": [
         "T-CAND"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Mistral A revisa el borrador de 341831f contra 957af65 (cinco criterios de la solicitud). No es el ensayo T-TRASPASO: Mistral A conoce el proyecto. Tras el contraste, el coordinador corrige los textos desfasados en una copia aislada de la candidata y lo publica para revisión.",
+      "siguiente_accion": "Corregir los textos operativos desfasados (G-1…G-9 y C-07/C-08/C-09/C-12 de CONTINUIDAD) en una rama aislada de la candidata y publicarlo para revisión por un contexto distinto. C-01…C-04 (README/CLAUDE.md raíz) son instrucciones del usuario: se proponen, no se cambian. Después, T-TRASPASO con un receptor realmente nuevo.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
-      "commit_revisado": null,
-      "alcance_aceptado": [],
+      "commit_revisado": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
+      "alcance_aceptado": [
+        "borrador del manual operativo de 957af65 y tabla de contradicciones, como documento de coordinación (no integrado en el producto)"
+      ],
       "solicitud_revision": {
-        "estado": "LISTA",
+        "estado": "RESPONDIDA",
         "sha_autor": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
         "base_revisada": "957af652cdc3bef3d67e8623c9572138bac685e9",
         "diff_rutas": [
@@ -574,7 +578,19 @@
           "La lista T-TRASPASO es ejecutable por un receptor sin historial y separa lo que exige LibreOffice o agentes reales"
         ],
         "revisor_asignado": "Mistral A, en rama propia mistral/g-manual-traspaso, carpeta resultados_cierre/manual_revision/ (reanudación c241a59)",
-        "informe_revision": null
+        "informe_revision": {
+          "commit": "78ba1ca",
+          "rama": "mistral/g-manual-traspaso",
+          "ruta": "resultados_cierre/manual_revision/INFORME_REVISION_GMANUAL.md",
+          "veredicto": "CONFORME CON LÍMITES en los cinco criterios; ninguna corrección material; una sugerencia menor (ruta completa de sellar)",
+          "limites": [
+            "revisión documental por muestreo; T-TRASPASO no ejecutado",
+            "reproducción del coordinador: el script publicado (con sus tres rutas /workspace sustituidas) da código 0 y todos sus hallazgos CONFORME, pero no genera tres comprobaciones adicionales del JSON publicado (C1 comandos completos, C5 números frente a los registros, C-01/C-03)",
+            "MANIFIESTO_SHA256.txt se incluye a sí mismo (falla su propia línea); los demás 5 archivos, OK",
+            "Mistral A conoce el proyecto: no vale como receptor sin historial de T-TRASPASO"
+          ],
+          "aceptacion_del_coordinador": "Aceptado con esos límites; el coordinador no es autor del informe ni lo modifica"
+        }
       }
     },
     {
@@ -888,6 +904,11 @@
       "tipo": "REVISION",
       "fecha": "2026-11-17",
       "hecho": "Respuesta A2 @ 8b88fab revisada por un contexto distinto del autor: A2-R3 cerrado con límites, R1/R2/R4/R5 abiertos; CORRECCION_A3 (A3-R1…R8). Artefacto de signo comprobado por el coordinador."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "G-MANUAL revisado por Mistral A (78ba1ca): CONFORME CON LÍMITES; reproducido por el coordinador con límites menores (tres comprobaciones del JSON no generadas por el script publicado; manifiesto autoincluido)."
     }
   ],
   "consulta_remotos_arranque": {
