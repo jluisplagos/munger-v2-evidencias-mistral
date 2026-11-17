@@ -6,9 +6,11 @@ Lee, solo con git show (sin fusionar), las versiones fijadas por el control comu
 - control = 99adbbf... (rama coordinacion/cierre-v2; commit de referencia de la reanudacion
   c241a59): CONTROL.json (fila E-ELIS, versiones_fijadas)
 
-Dependencias declaradas (E-R9): 716cbd6 vive solo en el repositorio del producto y no esta
-en el auxiliar. Si falta algun commit, el script imprime el comando exacto para traerlo y
-sale con exit 2 (antes fallaba con un AssertionError crudo).
+Dependencias declaradas (E-R9, E2-D5): 716cbd6 vive solo en el repositorio del producto y no
+esta en el auxiliar; se necesita red para 'git ls-remote origin' y el ZIP base-4.14 local
+(.trabajo/base414.zip, sha256 registrada). Si falta algo, el script imprime el comando
+exacto y sale con exit 2 (antes fallaba con IndexError/FileNotFoundError crudos).
+Dependencias Python: scripts/requirements.txt (pymupdf==2.1, pypdf==7.1.0).
 
 Genera PREGUNTAS_Y_RESULTADOS.csv y FUENTES_Y_BUSQUEDA.csv en resultados_cierre/elis_fuentes/.
 Comprueba que los sha256 de datos/fuentes.json y de seleccion_fuentes.json coinciden y que el
@@ -65,7 +67,7 @@ PREGUNTAS = [
         "pregunta": "Tasa de bajas de clientes (en particular de los adquiridos) y desembolso inicial por cliente nuevo; distinguir gasto comercial corriente de inversion propia y de compras de cartera.",
         "definicion_fuente": "INFORME_CONCILIACION_F1.md §6.4 l562 (producto 716cbd6); ESPECIFICACION_F1_PROPUESTA.md l31 (R_propia incluye la dotacion a clientes que sustituyen a los perdidos)",
         "estado_inicial": "ABIERTO - solo cualitativo publicado",
-        "evidencia_ya_examinada": "contratos de cuatro años publicados; 'attrition rates are monitored' (URD 2019-2025); mejoras de retencion en URD 2019; 'new client wins outpacing churn' y 'lower churn' en la presentacion S1-2026 (§6.1 l491); ninguna tasa ni importe publicado",
+        "evidencia_ya_examinada": "contratos de cuatro años publicados; 'attrition rates are monitored' (URD 2019-2025); mejoras de retencion en URD 2019; 'new client wins outpacing churn' y 'lower churn' en la presentacion S1-2026 (§6.1 l491); ninguna tasa ni importe localizado en la busqueda previa",
         "salida_afecta": "politica PPA 85,7 al año (28% del FCF base); diferencia A1/A2 en el flujo de partida 89,9",
         "limite": "no inferir tasa de bajas a partir de textos cualitativos ni de la duracion de contratos",
     },
@@ -94,8 +96,13 @@ def main():
     asegurar_commit(PRODUCTO_F1, f"git fetch {PRODUCTO_URL} {PRODUCTO_F1}", "repositorio del producto (solo lectura)")
     asegurar_commit(REVISION_F1, f"git fetch origin {REVISION_F1}", "rama de revision del auxiliar")
     asegurar_commit(CONTROL, "git fetch origin coordinacion/cierre-v2  # contiene " + CONTROL, "control comun (rama coordinacion/cierre-v2)")
-    head_control = subprocess.run(["git", "-C", str(RAIZ), "ls-remote", "origin", "coordinacion/cierre-v2"],
-                                  capture_output=True, text=True).stdout.split()[0]
+    try:
+        head_control = subprocess.run(["git", "-C", str(RAIZ), "ls-remote", "origin", "coordinacion/cierre-v2"],
+                                      capture_output=True, text=True).stdout.split()[0]
+    except IndexError:
+        print("DEPENDENCIA RED AUSENTE (E2-D5): 'git ls-remote origin' fallo (sin red o sin remoto). "
+              "Ejecuta con red, o declara el HEAD remoto a mano; no se continua sin consultar el control remoto.")
+        sys.exit(2)
     print(f"control de referencia usado: {CONTROL[:8]}; HEAD remoto actual de coordinacion/cierre-v2: {head_control[:8]}")
     fuentes = json.loads(git_show(PRODUCTO_F1, f"{FRENTE}/datos/fuentes.json"))
     seleccion = json.loads(git_show(REVISION_F1, "revision_externa/f1_v3_20261116/seleccion_fuentes.json"))
@@ -107,7 +114,12 @@ def main():
         a = sel_by_ruta[info["archivo"]]
         if a["sha256"] != info["sha256"]:
             raise AssertionError(f"sha256 discrepante en {tag}: fuentes.json vs seleccion_fuentes.json")
-    h = hashlib.sha256(ZIP_BASE414.read_bytes()).hexdigest()
+    try:
+        h = hashlib.sha256(ZIP_BASE414.read_bytes()).hexdigest()
+    except FileNotFoundError:
+        print(f"DEPENDENCIA AUSENTE (E2-D5): {ZIP_BASE414} no esta. Descargalo de la Release base-4.14 del repo producto, p. ej.: "
+              "gh release download base-4.14 --repo jluisplagos/munger-v2 --dir .trabajo && mv .trabajo/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip .trabajo/base414.zip")
+        sys.exit(2)
     if h != SHA_ZIP_BASE414:
         raise AssertionError(f"ZIP base-4.14 local: sha256 {h} != registrado {SHA_ZIP_BASE414}")
     elis = next(t for t in control["tareas"] if t["id"] == "E-ELIS")

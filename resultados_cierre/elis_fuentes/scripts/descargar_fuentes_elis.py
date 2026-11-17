@@ -1,29 +1,37 @@
-"""Bloque 2 de E-ELIS (corregido E-R9): descarga reproducible de hasta 12 documentos oficiales NUEVOS de Elis.
+"""Bloque 2 de E-ELIS + correcciones E1 (E-R9) y E2 (E2-D4/D5/D8): descarga reproducible de los 12 documentos oficiales de Elis.
 
 Solo dominios oficiales (fr.elis.com, TLS verificado con certificado del sistema).
-Documentos NO presentes en la base 4.14 ya examinada (esa base ya cubre: 5 URD/DEU
-2021-2025, comunicado FY2025 FR, informe y presentacion S1-2026, HTML Euronext/OCEANE).
+Documentos NO presentes en la base 4.14 ya examinada como fuente nueva (esa base ya cubre:
+5 URD/DEU 2021-2025, comunicado FY2025 FR, informe y presentacion S1-2026, HTML Euronext/OCEANE;
+el URD 2025 se re-descarga solo para verificar conservacion: su sha256 debe ser 04bfd087...).
 
-Correcciones E-R9 aplicadas respecto a la version de 93a9780:
-- crea sus carpetas (.trabajo/elis_fuentes/pdf, .../texto, fuentes_descargadas/);
-- registra por archivo url_solicitada, url_final, http, content_type, fecha_descarga y
-  version (HEAD del auxiliar en la ejecucion);
-- publica el indice de descarga como texto en Git (fuentes_descargadas/INDICE_DESCARGAS.csv);
-- sale con exit 1 si alguna descarga no es HTTP 200 (antes salia con 0);
-- idempotente: reescribe indices y textos en cada ejecucion.
+Correcciones E2 aplicadas respecto a f00c5dd:
+- E2-D4: el indice publicado en Git (fuentes_descargadas/INDICE_DESCARGAS.csv) SOLO se
+  reescribe si no hay ningun fallo; con fallos escribe solo .trabajo/ y sale exit 1.
+  El indice de .trabajo se reescribe siempre (trabajo local).
+- E2-D5: comprueba PyMuPDF (fitz) al arrancar y sale exit 3 si falta (antes escribia
+  ERROR_EXTRACCION y seguia con exit 0). Versiones fijadas en scripts/requirements.txt.
+- E2-D8: la columna 'version' (HEAD del auxiliar) se retira; la fecha/edicion del
+  documento ya esta en la columna 'fecha'.
+- Preservacion: los 11 PDF nuevos estan PRESERVADOS en la Release 'fuentes-elis-e-20261117'
+  del repositorio auxiliar (decision U1 del usuario, 17-nov-2026); el PDF sigue fuera del
+  Git del auxiliar por norma del repo. Estado por fila en la columna 'estado'.
 
-Los PDF NO van al Git del auxiliar: uploads.github.com devuelve 401 en este sandbox
-(bloqueo ya documentado; no se reintenta ni se piden tokens) -> estado PROVISIONAL.
+Modo sin red (reproduccion, igual que las sondas del revisor): si la variable de entorno
+ELIS_PDF_DIR apunta a un directorio con <id>.pdf (p. ej. los assets descargados de la
+Release fuentes-elis-e-20261117 + el URD 2025 de base-4.14), se leen de ahi en lugar de
+la red; un archivo ausente provoca FALLO_DESCARGA y exit 1.
+
 Extrae el texto pagina a pagina con PyMuPDF con marcadores [PDF PAGE n] en
 .trabajo/elis_fuentes/texto/ para la lectura acotada.
 
-No se contacta a nadie, no se compra acceso, no se piden tokens.
+No se contacta a nadie, no se compra acceso, no se piden tokens, no se reintentan uploads.
 """
 import csv
 import hashlib
 import json
+import os
 import ssl
-import subprocess
 import sys
 import urllib.request
 from datetime import datetime, timezone
@@ -65,17 +73,14 @@ FUENTES = [
 ]
 
 CAMPOS = ["id", "titulo", "url_solicitada", "url_final", "http", "content_type", "bytes", "sha256",
-          "fecha_descarga", "version", "estado", "fecha", "ejercicio", "idioma", "preguntas", "paginas_pdf", "error"]
+          "fecha_descarga", "estado", "fecha", "ejercicio", "idioma", "preguntas", "paginas_pdf", "error"]
 
-ESTADO_PROV = ("DESCARGADO_PROVISIONAL (PDF fuera de Git; upload a Release bloqueado con HTTP 401 "
-               "en uploads.github.com, ya documentado; no se reintenta ni se piden tokens; "
-               "bytes en .trabajo/elis_fuentes/pdf/)")
+ESTADO_RELEASE = ("DESCARGADO_Y_PRESERVADO_EN_RELEASE 'fuentes-elis-e-20261117' (repo auxiliar; sha256 verificada 11/11 "
+                  "contra SHA256SUMS de la Release; PDF fuera del Git del auxiliar por norma del repo; decision U1 del usuario 2026-11-17)")
+ESTADO_BASE = ("PRESERVADO_EN_BASE_4.14 (tag base-4.14, repo producto; sha256 04bfd087... igual al de la base; "
+               "corroboracion_base, no fuente nueva)")
 
-
-def version_git():
-    head = subprocess.run(["git", "-C", str(RAIZ), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
-    branch = subprocess.run(["git", "-C", str(RAIZ), "branch", "--show-current"], capture_output=True, text=True).stdout.strip()
-    return f"auxiliar {head} rama {branch}"
+RELEASE_TAG = "fuentes-elis-e-20261117"
 
 
 def descargar(url):
@@ -84,12 +89,29 @@ def descargar(url):
         return r.status, r.geturl(), r.headers.get("Content-Type", ""), r.read()
 
 
+def descargar_local(fid, url):
+    d = os.environ.get("ELIS_PDF_DIR")
+    if not d:
+        return None
+    ruta = Path(d) / f"{fid}.pdf"
+    if not ruta.exists():
+        raise FileNotFoundError(f"ELIS_PDF_DIR={d} no contiene {fid}.pdf")
+    return 200, url, "application/pdf", ruta.read_bytes()
+
+
 def main():
+    try:
+        import fitz  # noqa: F401
+        fitz_version = getattr(fitz, "VersionBind", "?")
+    except ImportError:
+        print("DEPENDENCIA AUSENTE: PyMuPDF (fitz) no instalado (E2-D5). Instala: pip install -r scripts/requirements.txt (pymupdf==2.1, pypdf==7.1.0)")
+        sys.exit(3)
+    print(f"extractor primario: PyMuPDF {fitz_version}")
     (TRABAJO / "pdf").mkdir(parents=True, exist_ok=True)
     (TRABAJO / "texto").mkdir(parents=True, exist_ok=True)
     (SALIDA / "fuentes_descargadas").mkdir(parents=True, exist_ok=True)
-    version = version_git()
     fecha_descarga = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    modo = f"local ELIS_PDF_DIR={os.environ['ELIS_PDF_DIR']}" if os.environ.get("ELIS_PDF_DIR") else "red fr.elis.com (TLS verificado)"
     filas = []
     fallos = []
     for fid, path, titulo, fecha, ejercicio, idioma, preguntas in FUENTES:
@@ -97,9 +119,13 @@ def main():
         fila = {c: "" for c in CAMPOS}
         fila.update({"id": fid, "titulo": titulo, "url_solicitada": url_solicitada, "fecha": fecha,
                      "ejercicio": ejercicio, "idioma": idioma, "preguntas": preguntas,
-                     "fecha_descarga": fecha_descarga, "version": version})
+                     "fecha_descarga": fecha_descarga})
         try:
-            status, final, ctype, data = descargar(url_solicitada)
+            local = descargar_local(fid, url_solicitada)
+            if local is not None:
+                status, final, ctype, data = local
+            else:
+                status, final, ctype, data = descargar(url_solicitada)
         except Exception as e:
             fila.update({"http": "ERROR", "url_final": "", "error": f"{type(e).__name__}: {str(e)[:160]}",
                          "estado": "FALLO_DESCARGA"})
@@ -117,19 +143,17 @@ def main():
             continue
         sha = hashlib.sha256(data).hexdigest()
         (TRABAJO / "pdf" / f"{fid}.pdf").write_bytes(data)
-        texto, npag = [], ""
-        try:
-            import fitz
-            doc = fitz.open(stream=data, filetype="pdf")
-            for i, page in enumerate(doc, 1):
-                texto.append(f"[PDF PAGE {i}]\n" + page.get_text())
-            npag = doc.page_count
-            doc.close()
-        except Exception as e:
-            texto = [f"ERROR_EXTRACCION: {type(e).__name__} {str(e)[:100]}"]
+        import fitz as _fitz
+        doc = _fitz.open(stream=data, filetype="pdf")
+        texto = []
+        for i, page in enumerate(doc, 1):
+            texto.append(f"[PDF PAGE {i}]\n" + page.get_text())
+        npag = doc.page_count
+        doc.close()
         (TRABAJO / "texto" / f"{fid}.txt").write_text("\n".join(texto), encoding="utf-8")
         fila.update({"url_final": final, "http": status, "content_type": ctype, "bytes": len(data),
-                     "sha256": sha, "paginas_pdf": npag, "estado": ESTADO_PROV})
+                     "sha256": sha, "paginas_pdf": npag,
+                     "estado": ESTADO_BASE if fid == "urd2025" else ESTADO_RELEASE})
         filas.append(fila)
         print(fid, status, len(data), sha[:16], "pags", npag)
     with (TRABAJO / "INDICE_DESCARGAS.csv").open("w", newline="", encoding="utf-8") as fh:
@@ -138,15 +162,17 @@ def main():
         w.writerows(filas)
     (TRABAJO / "INDICE_DESCARGAS.json").write_text(json.dumps(filas, ensure_ascii=False, indent=1), encoding="utf-8")
     ruta_git = SALIDA / "fuentes_descargadas" / "INDICE_DESCARGAS.csv"
+    if fallos:
+        # E2-D4: con fallos NO se toca el indice publicado en Git
+        print("FALLOS:", ", ".join(fallos), "-> indice Git NO reescrito (E2-D4); solo .trabajo/elis_fuentes/INDICE_DESCARGAS.csv")
+        sys.exit(1)
     with ruta_git.open("w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=CAMPOS)
         w.writeheader()
         w.writerows(filas)
     ok = sum(1 for f in filas if str(f["http"]) == "200")
-    print(f"descargados OK: {ok}/{len(FUENTES)}; indice Git: {ruta_git.relative_to(RAIZ)}; trabajo: .trabajo/elis_fuentes/INDICE_DESCARGAS.csv")
-    if fallos:
-        print("FALLOS:", ", ".join(fallos))
-        sys.exit(1)
+    print(f"descargados OK: {ok}/{len(FUENTES)} ({modo}); indice Git: {ruta_git.relative_to(RAIZ)}; trabajo: .trabajo/elis_fuentes/INDICE_DESCARGAS.csv")
+    print(f"preservacion: 11 PDF nuevos en Release '{RELEASE_TAG}' (verificar_preservacion_release.py); urd2025 = base-4.14")
 
 
 if __name__ == "__main__":

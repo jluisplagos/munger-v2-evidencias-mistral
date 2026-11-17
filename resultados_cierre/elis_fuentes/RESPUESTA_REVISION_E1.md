@@ -16,7 +16,7 @@ Cada punto E-R1…E-R9 con su prueba de cierre **realmente ejecutada** (comandos
 
 ## E-R2 (material, M6) — CERRADO
 
-- **Clasificación por sociedad con página:** URD 2025 p.306 (§4.1.2 «Major acquisitions») y p.312 cuentan **seis adquisiciones importantes** en 2025, incl. **Wärtscherei Bodensee** (Suiza), Bugaderia Neutral (España), Larosé y Adrett (Alemania). En Note 2.4 (p.341) cada importante tiene **columna propia** (Bodensee, Bugaderia Neutral, Larosé, JP Muller, Adrett, Lavartex) y `Other acquisitions` es columna aparte. Bodensee deja de presentarse como compra pequeña.
+- **Clasificación por sociedad con página:** URD 2025 p.306 (§4.1.2 «Major acquisitions») y p.312 cuentan **seis adquisiciones importantes** en 2025, incl. **Wäscherei Bodensee** (Suiza), Bugaderia Neutral (España), Larosé y Adrett (Alemania). En Note 2.4 (p.341) cada importante tiene **columna propia** (Bodensee, Bugaderia Neutral, Larosé, JP Muller, Adrett, Lavartex) y `Other acquisitions` es columna aparte. Bodensee deja de presentarse como compra pequeña.
 - **117,6 ≠ 37,3:** fila `NET CASH FLOW` de p.341: total 2025 **(117,6)** = suma de las columnas de las importantes + `Other acquisitions` **(37,3)** (última columna). 117,6 es el M&A total 2025 en caja (igual en EFE p.327 y presentación FY2025 p.29; en la p.29 impresa hay un marcador de nota «5» entre rótulo y cifra, precisión ya registrada en la adenda). 37,3 son las compras pequeñas 2025. F1 V1 ya citaba 35,3/22,0/37,3 en 2023–25 (media 31,5) [informe `716cbd6` l550; URD 2025 p.341–342; DEU 2024 p.288].
 - **Prueba:** citas `urd2025 p306/p312/p341/p327` verificadas (PyMuPDF + pypdf); la tabla p.341 además comprobada visualmente (imagen de página renderizada) para fijar la columna de (37,3); extracto publicado en `extractos/urd2025_p341.txt`.
 
@@ -89,3 +89,9 @@ comparación sha256 12/12 vs git show 93a9780:FUENTES_Y_BUSQUEDA.csv -> TODOS IG
 - M1, M2, M6 y N2 quedan **ABIERTOS** (ver `PREGUNTAS_Y_RESULTADOS.csv`, columna `estado_tras_revision_e1`); donde la evidencia no identifica un parámetro se demuestra el límite y queda pendiente.
 - Los 11 PDF nuevos siguen **PROVISIONAL**: el almacén duradero lo decide el usuario (§2 de CORRECCION_E1); no bloquea las correcciones de esta entrega.
 - Sin ciclos recursivos de revisión ni autoaprobación: la revisión corresponde al coordinador (Claude) sobre el control.
+
+---
+
+## Adenda E2 (2026-11-17, bloque 6)
+
+Esta respuesta queda corregida por `CORRECCION_E2.md` en dos puntos: E2-D1 (la lista de importantes de 2025 es Bodensee, Bugadería Neutral, Larosé, **Acquaflash**, JP Muller y Adrett; **Lavartex no es de 2025**, solo earnout (19,7); Carsan y Ernst son importantes de 2024) y el estado de preservación (los 11 PDF ya están en la Release `fuentes-elis-e-20261117`, decisión U1). Ver `RESPUESTA_REVISION_E2.md`. La errata ortográfica (Wärtscherei → Wäscherei, E2-D9) también queda corregida aquí.

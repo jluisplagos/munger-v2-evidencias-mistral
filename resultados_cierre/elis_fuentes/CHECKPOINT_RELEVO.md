@@ -28,8 +28,14 @@ Conclusión: la respuesta E-R1…E-R9 está **entregada** (`23718fb`) y su **rev
 
 ## Límites conservados
 
-M1/M2/M6/N2 siguen **ABIERTOS**; Elis sigue `pendiente_de_datos`; los 11 PDF nuevos siguen **PROVISIONAL** (upload → HTTP 401; no se reintenta ni se piden tokens; almacen duradero = decisión del usuario; cobertura provisional publicada: índice de descargas + extractos con huella PDF). C48=108, C49=128,1, FCF base=307,933 y las decisiones E1/D3/E2/E6 se conservan; no se elige R, θ, λ, k, probabilidades ni umbrales. B/P-M1 intacta en `mistral/m2-fundamento-pm1` @ `daa7478`.
+M1/M2/M6/N2 siguen **ABIERTOS**; Elis sigue `pendiente_de_datos`; los 11 PDF nuevos eran **PROVISIONAL** en `f00c5dd` (upload → HTTP 401; no se reintenta ni se piden tokens); **desde el 2026-11-17 están preservados en la Release `fuentes-elis-e-20261117`** (decisión U1; ver adenda al final y RESPUESTA_REVISION_E2.md). C48=108, C49=128,1, FCF base=307,933 y las decisiones E1/D3/E2/E6 se conservan; no se elige R, θ, λ, k, probabilidades ni umbrales. B/P-M1 intacta en `mistral/m2-fundamento-pm1` @ `daa7478`.
 
 ## Modelo y herramientas
 
 Vibe Code de Mistral AI, modelo `mistral-large-4-0`; git, sha256sum, python3 (json). Consumo no visible desde la sesión.
+
+---
+
+## Actualización (bloque 6, respuesta E2 sobre `f00c5dd`)
+
+El estado de preservación de arriba era el de `f00c5dd`. Desde el 2026-11-17 (decisión U1 del usuario) los 11 PDF nuevos están **preservados en la Release `fuentes-elis-e-20261117`** del repositorio auxiliar: 11/11 sha256 verificados contra `SHA256SUMS` de la Release y contra `INDICE_DESCARGAS.csv` (`scripts/verificar_preservacion_release.py`, exit 0). Sigue sin haber PDF en el Git del auxiliar. Ver `RESPUESTA_REVISION_E2.md` (E2-D1…D9).

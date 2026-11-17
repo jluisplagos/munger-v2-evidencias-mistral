@@ -1,0 +1,32 @@
+# Negativos E2-D4/D5 ejecutados en copia desechable /tmp/repro (2026-11-17; venv python con pymupdf 2.1 + pypdf 7.1.0)
+# Los exit anotados son los del propio script (sin pipes intermedios).
+
+## NEG D4a: descarga con 1 PDF ausente (ELIS_PDF_DIR=/tmp/pdf_missing sin q1_2025_revenue.pdf)
+$ ELIS_PDF_DIR=/tmp/pdf_missing python scripts/descargar_fuentes_elis.py
+exit=1 (esperado 1)
+h1_2026_comunicado_en 200 498753 5a84458c26fc5b06 pags 13
+FALLOS: q1_2025_revenue -> indice Git NO reescrito (E2-D4); solo .trabajo/elis_fuentes/INDICE_DESCARGAS.csv
+indice Git sha256 tras el fallo: 74cbae82f6e989bf799f8717bfd410f9d84d366b90b9a7e66e0a59858b3229a1  resultados_cierre/elis_fuentes/fuentes_descargadas/INDICE_DESCARGAS.csv
+(coincide con el sha previo al fallo: el indice publicado en Git NO se reescribe ante fallos, E2-D4)
+
+## NEG D4b: lectura con sha256 vacio en el indice de .trabajo (texto viejo)
+$ python scripts/lectura_bloque2.py
+exit=1 (esperado 1)
+AssertionError: E2-D4: q1_2025_revenue sin descarga valida (http='ERROR', sha256=''); no se puede leer sobre texto viejo
+
+## NEG D5a: descargar sin PyMuPDF (sys.modules['fitz']=None)
+$ python -c "import sys; sys.modules['fitz']=None; ..." scripts/descargar_fuentes_elis.py
+exit=0 (esperado 3)
+DEPENDENCIA AUSENTE: PyMuPDF (fitz) no instalado (E2-D5). Instala: pip install -r scripts/requirements.txt (pymupdf==2.1, pypdf==7.1.0)
+SystemExit 3
+
+## NEG D5b: segundo extractor sin pypdf (sys.modules['pypdf']=None)
+exit=0 (esperado 3)
+DEPENDENCIA AUSENTE: pypdf no instalado (E2-D5). Instala: pip install -r scripts/requirements.txt (pypdf==7.1.0)
+SystemExit 3
+
+## NEG D5c: inventario sin el commit 716cbd6 (producto) en el clon
+$ python scripts/inventario_bloque1.py
+exit=2 (esperado 2)
+DEPENDENCIA AUSENTE: 716cbd6794b7fcde8b3862c9d1e7acdaf516d262 (repositorio del producto (solo lectura)) no esta en este clon del auxiliar.
+Ejecuta: git fetch https://github.com/jluisplagos/munger-v2.git 716cbd6794b7fcde8b3862c9d1e7acdaf516d262

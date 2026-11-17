@@ -1,11 +1,11 @@
 # extracto acotado de pagina citada - E-ELIS (corregido E-R6)
 # documento=urd2025 titulo=Elis - 2025 Universal Registration Document (EN)
 # pagina_pdf=306 sha256_pdf=04bfd08724e768804e7110093d3ec2cf017a7e7fe2983bacd75656d3a95cd62e bytes_pdf=18963024
-# url_final=https://fr.elis.com/sites/fr.elis.com/files/2026/04/30/Elis%20-%202025%20Universal%20Registration%20Document.pdf http=200 fecha_descarga=2026-11-17T08:43:57Z
-# tipo_evidencia=corroboracion_base estado_preservacion=PROVISIONAL (PDF fuera de Git; upload 401 documentado)
+# url_final=https://fr.elis.com/sites/fr.elis.com/files/2026/04/30/Elis%20-%202025%20Universal%20Registration%20Document.pdf http=200 fecha_descarga=2026-11-17T13:22:28Z
+# tipo_evidencia=corroboracion_base estado_preservacion=PRESERVADO_EN_BASE_4.14 (tag base-4.14, repo producto; sha256 04bfd087... igual al de la base; corroboracion_base, no fuente nueva)
 
 ## cita pregunta=M6 linea_txt=31426 patron=The major acquisitions the Group completed during the financial year were
-## hallazgo: URD 2025 p.306, seccion 4.1.2 'Major acquisitions' (corroboracion de base): lista de las adquisiciones IMPORTANTES completadas en 2025
+## hallazgo: URD 2025 p.306, seccion 4.1.2: la lista de adquisiciones IMPORTANTES de 2025 tiene SEIS sociedades: Wäscherei Bodensee (Suiza), Bugadería Neutral (España), Larosé (Alemania), Acquaflash (Brasil), JP Muller (Francia y Suiza) y Adrett (Alemania). Lavartex NO esta en esta lista (E2-D1)
 ---- ventana acotada (400 caracteres a cada lado) ----
 also notably the first year of implementation of a capital
 allocation policy that was significantly more favorable to
@@ -35,7 +35,7 @@ statements for the financial year ended December 31, 2025, which
 can be found in section  5.1 of ch
 
 ## cita pregunta=M6 linea_txt=31429 patron=W\S*scherei Bodensee in Switzerland;
-## hallazgo: URD 2025 p.306: Warts cherei Bodensee (Suiza) esta en la lista de adquisiciones IMPORTANTES de 2025; NO es una compra pequena
+## hallazgo: URD 2025 p.306: Wäscherei Bodensee (Suiza) esta en la lista de adquisiciones IMPORTANTES de 2025; NO es una compra pequeña (E2-D9: errata corregida, lo impreso es Wäscherei)
 ---- ventana acotada (400 caracteres a cada lado) ----
 that was significantly more favorable to
 shareholders, made possible by the gradual improvement in the
@@ -63,3 +63,35 @@ Detailed information on these transactions is given in Note  2.4,
 statements for the financial year ended December 31, 2025, which
 can be found in section  5.1 of chapter  5 of this Universal
 Registratio
+
+## cita pregunta=M6 linea_txt=31435 patron=Acqua\S+ash in Brazil;
+## hallazgo: URD 2025 p.306: Acquaflash (Brasil) es una de las SEIS adquisiciones importantes de 2025 (E2-D1: antes omitida en los hallazgos)
+---- ventana acotada (400 caracteres a cada lado) ----
+ovement in the
+Group’s balance sheet and the reduction in leverage in recent
+years. This policy resulted in the completion of a €150 million share
+buyback program, in addition to the regular dividend payment. 
+4.1.2
+Major acquisitions
+The major acquisitions the Group completed during the financial
+year were:
+›
+Wäscherei Bodensee in Switzerland;
+›
+Bugadería Neutral in Spain;
+›
+Larosé in Germany;
+›
+Acquaﬂash in Brazil;
+›
+JP Muller in France and Switzerland;
+›
+Adrett in Germany.
+Detailed information on these transactions is given in Note  2.4,
+“Acquisitions in 2025,” to the Group’s consolidated financial
+statements for the financial year ended December 31, 2025, which
+can be found in section  5.1 of chapter  5 of this Universal
+Registration Document.
+4.1.3
+EMTN financing
+On August 26, 2025, Elis placed new EMTN 

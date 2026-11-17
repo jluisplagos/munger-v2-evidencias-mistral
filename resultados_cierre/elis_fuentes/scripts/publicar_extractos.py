@@ -5,9 +5,10 @@ Para cada cita de LECTURA_FUENTES.jsonl escribe extractos/<doc>_p<pagina>.txt co
 - la ventana de texto que contiene la coincidencia (400 caracteres a cada lado, acotada).
 
 Idempotente: reescribe los extractos desde cero en cada ejecucion.
-Los PDF siguen fuera del Git (PROVISIONAL; upload a Release bloqueado con HTTP 401 en
-uploads.github.com, documentado; no se reintenta ni se piden tokens). El almacen duradero
-lo decide el usuario.
+Los PDF siguen fuera del Git del auxiliar por norma del repo. Los 11 PDF nuevos estan
+PRESERVADOS en la Release 'fuentes-elis-e-20261117' (decision U1 del usuario, 2026-11-17);
+el URD 2025 ya estaba en base-4.14. La cabecera de cada extracto lleva el estado real
+('estado_preservacion' del registro documento de LECTURA_FUENTES.jsonl).
 """
 import json
 import re
@@ -56,7 +57,7 @@ def main():
             f"# documento={fid} titulo={d['titulo']}",
             f"# pagina_pdf={page} sha256_pdf={d['sha256']} bytes_pdf={d['bytes']}",
             f"# url_final={d['url_final']} http={d['http']} fecha_descarga={d['fecha_descarga']}",
-            f"# tipo_evidencia={d['tipo_evidencia']} estado_preservacion=PROVISIONAL (PDF fuera de Git; upload 401 documentado)",
+            f"# tipo_evidencia={d['tipo_evidencia']} estado_preservacion={d['estado_preservacion']}",
             "",
         ]
         for c in cs:

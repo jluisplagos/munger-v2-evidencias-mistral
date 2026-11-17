@@ -1,11 +1,11 @@
 # extracto acotado de pagina citada - E-ELIS (corregido E-R6)
 # documento=urd2025 titulo=Elis - 2025 Universal Registration Document (EN)
 # pagina_pdf=341 sha256_pdf=04bfd08724e768804e7110093d3ec2cf017a7e7fe2983bacd75656d3a95cd62e bytes_pdf=18963024
-# url_final=https://fr.elis.com/sites/fr.elis.com/files/2026/04/30/Elis%20-%202025%20Universal%20Registration%20Document.pdf http=200 fecha_descarga=2026-11-17T08:43:57Z
-# tipo_evidencia=corroboracion_base estado_preservacion=PROVISIONAL (PDF fuera de Git; upload 401 documentado)
+# url_final=https://fr.elis.com/sites/fr.elis.com/files/2026/04/30/Elis%20-%202025%20Universal%20Registration%20Document.pdf http=200 fecha_descarga=2026-11-17T13:22:28Z
+# tipo_evidencia=corroboracion_base estado_preservacion=PRESERVADO_EN_BASE_4.14 (tag base-4.14, repo producto; sha256 04bfd087... igual al de la base; corroboracion_base, no fuente nueva)
 
 ## cita pregunta=M6 linea_txt=35808 patron=2025 W\S*scherei Bodensee Bugaderia Neutral Laros\S+ Acqua\S+ash JP Muller Adrett Lavartex Other acquisitions
-## hallazgo: URD 2025 p.341, Note 2.4 (corroboracion de base): cada adquisicion importante de 2025 tiene COLUMNA PROPIA (Bodensee, Bugaderia Neutral, Larose, JP Muller, Adrett, Lavartex) y 'Other acquisitions' es una columna aparte, fuera de las importantes
+## hallazgo: URD 2025 p.341, Note 2.4: columnas 2025 = las SEIS importantes (Wäscherei Bodensee, Bugaderia Neutral, Larosé, Acquaflash, JP Muller, Adrett) + Lavartex + 'Other acquisitions'. Lavartex NO es importante de 2025: su columna solo tiene earnout (filas de abajo, E2-D1)
 ---- ventana acotada (400 caracteres a cada lado) ----
 [PDF PAGE 341]
 Consolidated financial statements
@@ -70,7 +70,7 @@ Acquisitions during the previous financial year
 During the 2024 financial y
 
 ## cita pregunta=M6 linea_txt=35852 patron=NET CASH FLOW \(117\.6\) \(8\.9\) \(13\.2\) \(10\.2\) \(7\.0\) \(11\.8\) \(9\.7\) \(19\.7\) \(37\.3\)
-## hallazgo: URD 2025 p.341, fila NET CASH FLOW 2025 (corroboracion de base): total (117,6) = suma de las columnas propias de las adquisiciones importantes + 'Other acquisitions' (37,3, ultima columna). 117,6 = M&A TOTAL 2025; 37,3 = compras pequenas ('Other acquisitions') 2025. F1 V1 ya citaba 35,3 / 22,0 / 37,3 en 2023-25 (media 31,5) [informe 716cbd6 l550; URD2025 p.341-342; DEU2024 p.288]
+## hallazgo: URD 2025 p.341, fila NET CASH FLOW 2025 (corroboracion de base): (117,6) = 8,9+13,2+10,2+7,0+11,8+9,7 = 60,8 (las SEIS importantes 2025) + (19,7) earnout/aplazado de Lavartex (compra anterior) + (37,3) 'Other acquisitions' = 117,8; el total impreso es (117,6), diferencia de redondeo 0,2. 117,6 = M&A TOTAL 2025 en caja (igual en EFE p.327 y presentacion FY2025 p.29); 37,3 = compras pequeñas 2025. E2-D1: ya no se dice que 117,6 = importantes + Other sin Lavartex
 ---- ventana acotada (400 caracteres a cada lado) ----
 FLOWS FROM ACQUISITIONS
 (In millions of euros)
@@ -137,3 +137,291 @@ February 26, 2024: acquisition of 100% of Moderna Holding BV
 and its subsidiaries (“Moderna”)
 Moderna has an extremely modern laundry that will become one
 of Elis’s biggest. L
+
+## cita pregunta=M6 linea_txt=35830 patron=Cash out\S*ows for the acquisition \(112\.6\) \(9\.3\) \(16\.6\) \(13\.2\) \(7\.1\) \(15\.1\) \(12\.7\) - \(38\.5\)
+## hallazgo: URD 2025 p.341, fila 'Cash outflows for the acquisition' 2025: la columna Lavartex es '-' (sin desembolso de adquisicion en 2025); 'Other acquisitions' (38,5) (E2-D1)
+---- ventana acotada (400 caracteres a cada lado) ----
+[PDF PAGE 341]
+Consolidated financial statements
+Financial statements for the year ended December 31, 2025
+CASH FLOWS FROM ACQUISITIONS
+(In millions of euros)
+2025
+Wäscherei
+Bodensee
+Bugaderia
+Neutral
+Larosé Acquaﬂash
+JP Muller
+Adrett
+Lavartex
+Other
+acquisitions
+Net cash acquired 
+including subsidiaries
+18.2
+0.4
+3.4
+3.0
+0.1
+3.4
+3.0
+-
+4.9
+Cash outﬂows 
+for the acquisition
+(112.6)
+(9.3)
+(16.6)
+(13.2)
+(7.1)
+(15.1)
+(12.7)
+-
+(38.5)
+Earnouts and deferred 
+consideration
+(23.3)
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+(19.7)
+(3.6)
+NET CASH FLOW
+(117.6)
+(8.9)
+(13.2)
+(10.2)
+(7.0)
+(11.8)
+(9.7)
+(19.7)
+(37.3)
+Acquisitions during the previous financial year
+During the 2024 financial year, the Group acquired the following companies or assets, which the Group deemed to be business
+combinations:
+Major acquisitions
+In the Netherlands
+February 26, 2024: 
+
+## cita pregunta=M6 linea_txt=35841 patron=Earnouts and deferred consideration \(23\.3\) 0\.0 0\.0 0\.0 0\.0 0\.0 0\.0 \(19\.7\) \(3\.6\)
+## hallazgo: URD 2025 p.341, fila 'Earnouts and deferred consideration' 2025: Lavartex aporta solo (19,7) de earnout/aplazado de una adquisicion anterior; dentro de 'Other acquisitions' (37,3) hay (3,6) de earnouts/aplazados (E2-D1)
+---- ventana acotada (400 caracteres a cada lado) ----
+ancial statements
+Financial statements for the year ended December 31, 2025
+CASH FLOWS FROM ACQUISITIONS
+(In millions of euros)
+2025
+Wäscherei
+Bodensee
+Bugaderia
+Neutral
+Larosé Acquaﬂash
+JP Muller
+Adrett
+Lavartex
+Other
+acquisitions
+Net cash acquired 
+including subsidiaries
+18.2
+0.4
+3.4
+3.0
+0.1
+3.4
+3.0
+-
+4.9
+Cash outﬂows 
+for the acquisition
+(112.6)
+(9.3)
+(16.6)
+(13.2)
+(7.1)
+(15.1)
+(12.7)
+-
+(38.5)
+Earnouts and deferred 
+consideration
+(23.3)
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+(19.7)
+(3.6)
+NET CASH FLOW
+(117.6)
+(8.9)
+(13.2)
+(10.2)
+(7.0)
+(11.8)
+(9.7)
+(19.7)
+(37.3)
+Acquisitions during the previous financial year
+During the 2024 financial year, the Group acquired the following companies or assets, which the Group deemed to be business
+combinations:
+Major acquisitions
+In the Netherlands
+February 26, 2024: acquisition of 100% of Moderna Holding BV
+and its subsidiaries (“Moderna”)
+Modern
+
+## cita pregunta=M6 linea_txt=35862 patron=Acquisitions during the previous financial year
+## hallazgo: URD 2025 p.341: seccion 'Acquisitions during the previous financial year' (2024) con su propia lista de 'Major acquisitions' (E2-D1)
+---- ventana acotada (400 caracteres a cada lado) ----
+deria
+Neutral
+Larosé Acquaﬂash
+JP Muller
+Adrett
+Lavartex
+Other
+acquisitions
+Net cash acquired 
+including subsidiaries
+18.2
+0.4
+3.4
+3.0
+0.1
+3.4
+3.0
+-
+4.9
+Cash outﬂows 
+for the acquisition
+(112.6)
+(9.3)
+(16.6)
+(13.2)
+(7.1)
+(15.1)
+(12.7)
+-
+(38.5)
+Earnouts and deferred 
+consideration
+(23.3)
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+(19.7)
+(3.6)
+NET CASH FLOW
+(117.6)
+(8.9)
+(13.2)
+(10.2)
+(7.0)
+(11.8)
+(9.7)
+(19.7)
+(37.3)
+Acquisitions during the previous financial year
+During the 2024 financial year, the Group acquired the following companies or assets, which the Group deemed to be business
+combinations:
+Major acquisitions
+In the Netherlands
+February 26, 2024: acquisition of 100% of Moderna Holding BV
+and its subsidiaries (“Moderna”)
+Moderna has an extremely modern laundry that will become one
+of Elis’s biggest. Located in the north-east of the Netherlands, nea
+
+## cita pregunta=M6 linea_txt=35904 patron=acquisition of 100%\s*of Carsan Renting
+## hallazgo: URD 2025 p.341 (ejercicio anterior 2024, 'Major acquisitions'): 28-nov-2024 adquisicion del 100% de Carsan (Espana) (E2-D1)
+---- ventana acotada (400 caracteres a cada lado) ----
+e.
+Wonway’s revenue was €5.7 million in 2024. 
+Elis’s acquisition of Wonway enables it to pursue its growth strategy
+and expand its network to the Asian continent. This acquisition
+allows Elis to become familiar with the regional market. Wonway is
+highly profitable in the cleanroom business and benefits from the
+dynamism of one of the best economies in Southeast Asia.
+In Spain
+November  28, 2024: acquisition of 100%  of Carsan Renting &
+Laundry SL and Alquitex Renting Textil SL (“Carsan”)
+Carsan, which had €9.7 million in revenue in 2024, has a laundry in
+Getafe and mainly targets high-end Hospitality customers in the
+Madrid region. The group has around 120 employees.
+In Germany
+December 18, 2024: acquisition of 100%  of  Wäscherei Ernst
+GmbH (“Ernst”)
+With its two laundries located in Erbach, in Baden-Württemberg,
+Ernst serve
+
+## cita pregunta=M6 linea_txt=35906 patron=Carsan, which had \S*9\.7\S* million in revenue in 2024
+## hallazgo: URD 2025 p.341: Carsan tuvo 9,7 M EUR de ingresos en 2024
+---- ventana acotada (400 caracteres a cada lado) ----
+ue its growth strategy
+and expand its network to the Asian continent. This acquisition
+allows Elis to become familiar with the regional market. Wonway is
+highly profitable in the cleanroom business and benefits from the
+dynamism of one of the best economies in Southeast Asia.
+In Spain
+November  28, 2024: acquisition of 100%  of Carsan Renting &
+Laundry SL and Alquitex Renting Textil SL (“Carsan”)
+Carsan, which had €9.7 million in revenue in 2024, has a laundry in
+Getafe and mainly targets high-end Hospitality customers in the
+Madrid region. The group has around 120 employees.
+In Germany
+December 18, 2024: acquisition of 100%  of  Wäscherei Ernst
+GmbH (“Ernst”)
+With its two laundries located in Erbach, in Baden-Württemberg,
+Ernst serves all of southern Germany as well as northwest Austria.
+Ernst, which had €19.0 million in revenue in 2024
+
+## cita pregunta=M6 linea_txt=35910 patron=acquisition of 100%\s*of W\S*scherei Ernst GmbH
+## hallazgo: URD 2025 p.341 (ejercicio anterior 2024): 18-dic-2024 adquisicion del 100% de Wäscherei Ernst GmbH (Alemania) (E2-D1)
+---- ventana acotada (400 caracteres a cada lado) ----
+om the
+dynamism of one of the best economies in Southeast Asia.
+In Spain
+November  28, 2024: acquisition of 100%  of Carsan Renting &
+Laundry SL and Alquitex Renting Textil SL (“Carsan”)
+Carsan, which had €9.7 million in revenue in 2024, has a laundry in
+Getafe and mainly targets high-end Hospitality customers in the
+Madrid region. The group has around 120 employees.
+In Germany
+December 18, 2024: acquisition of 100%  of  Wäscherei Ernst
+GmbH (“Ernst”)
+With its two laundries located in Erbach, in Baden-Württemberg,
+Ernst serves all of southern Germany as well as northwest Austria.
+Ernst, which had €19.0 million in revenue in 2024, provides rental &
+maintenance services on the ﬂat linen market and mainly targets
+Hospitality and Healthcare customers. It has about 120 employees. 
+This new acquisition will strengthen Elis’s network in Ger
+
+## cita pregunta=M6 linea_txt=35914 patron=Ernst, which had \S*19\.0\S* million in revenue in 2024
+## hallazgo: URD 2025 p.341: Ernst tuvo 19,0 M EUR de ingresos en 2024
+---- ventana acotada (400 caracteres a cada lado) ----
+Carsan, which had €9.7 million in revenue in 2024, has a laundry in
+Getafe and mainly targets high-end Hospitality customers in the
+Madrid region. The group has around 120 employees.
+In Germany
+December 18, 2024: acquisition of 100%  of  Wäscherei Ernst
+GmbH (“Ernst”)
+With its two laundries located in Erbach, in Baden-Württemberg,
+Ernst serves all of southern Germany as well as northwest Austria.
+Ernst, which had €19.0 million in revenue in 2024, provides rental &
+maintenance services on the ﬂat linen market and mainly targets
+Hospitality and Healthcare customers. It has about 120 employees. 
+This new acquisition will strengthen Elis’s network in Germany,
+mainly in Hospitality, a particularly buoyant sector in the country.
+Other acquisitions
+›
+February  1, 2024:  100% of Les Tapis Boland  SRL in Belgium
+(revenue of €1.0 million in 2024; 
