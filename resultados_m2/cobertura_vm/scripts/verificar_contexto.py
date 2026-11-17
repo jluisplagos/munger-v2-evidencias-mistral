@@ -767,6 +767,41 @@ def nota_no_reexpresion_citada(declared, emp, archivos):
     return None
 
 
+def escala_tabla(text_pages, pg, ventana=8):
+    """A4-R4: escala de la TABLA: la nota de escala de la pagina de la fila o de las
+    anteriores del mismo estado (buscar_nota_escala_tabla), no solo la pagina suelta."""
+    t = buscar_nota_escala_tabla(text_pages, pg, ventana)
+    if not t:
+        return None
+    frase = t[1]
+    if MILLONES_RE.search(frase):
+        return 'millones'
+    if MILES_RE.search(frase):
+        return 'miles'
+    if EUROS_ONLY_RE.search(frase):
+        return 'euros'
+    return None
+
+
+TITULO_ESTADO_RE = re.compile(r'balance sheet|income statement|statement of|cash flow|estado de|patrimonio|resultados|situaci\u00f3n financiera', re.IGNORECASE)
+
+
+def perimetro_tabla(page_lines, row_idx):
+    """A4-R4: perimetro de la TABLA de la fila: el titulo de estado mas cercano por
+    encima de la fila dentro de la pagina (consolidado/individual); None si no hay."""
+    for i in range(min(row_idx, len(page_lines) - 1), -1, -1):
+        l = page_lines[i]
+        if TITULO_ESTADO_RE.search(l):
+            if re.search(r'consolid', l, re.IGNORECASE):
+                return 'consolidado'
+            if re.search(r'\bindividual\b|parent company|cuentas individuales', l, re.IGNORECASE):
+                return 'individual'
+    return None
+
+
+MOVIMIENTO_RE = re.compile(r'\b(additions?|disposals?|decreases?|increases?|impairments?|altas|bajas|traspasos|movimientos?)\b', re.IGNORECASE)
+
+
 def escala_pagina(text_pages, pg):
     """Escala declarada en una página de un texto: millones > miles > euros (None si no dice)."""
     t = text_pages.get(pg) or ''
@@ -851,6 +886,8 @@ def check_reexpresion(emp, r, f, col_years, years_in_block, esc_cita=None):
     if key not in TEXTO_CACHE:
         TEXTO_CACHE[key] = textos_empresa(emp)
     cita = f.get('cita') or ''
+    if MOVIMIENTO_RE.search(cita):
+        return 'NO_DECIDIBLE', f'tabla de movimiento (rótulo {cita!r}): las columnas no son años y no hay mapeo explícito de columnas; NO_DECIDIBLE (defecto 8 de A2: B46/B47, CF2024_p9)'
     variantes = {C.flat_text(v) for v in C.variantes_numero(valor)} - {''}
     candidatos = [name for name in TEXTO_CACHE[key] if YEAR_FILE_RE.search(name) and YEAR_FILE_RE.search(name).group(0) == yc and name != Path(archivo).name]
     # rotulo completo normalizado (sin numeros): la fila debe contener el rotulo completo
@@ -958,10 +995,10 @@ def check_reexpresion(emp, r, f, col_years, years_in_block, esc_cita=None):
             # A3-R4: escala y perímetro de la fila del original deben coincidir con los del
             # comparativo; si difieren, la igualdad de dígitos no acredita nada
             orig_pg = m.get('pg')
-            esc_orig = escala_pagina(orig_pages, orig_pg)
+            esc_orig = escala_tabla(orig_pages, orig_pg)  # A4-R4: escala de la tabla del original
             if esc_cita and esc_orig and esc_orig != esc_cita:
                 return 'NO_DECIDIBLE', f'escala distinta: el original {name} p.{orig_pg} está en {esc_orig} y el comparativo en {esc_cita}; la igualdad numérica no acredita reexpresión'
-            per_orig = perimetro_pagina(orig_pages.get(orig_pg) or '')
+            per_orig = perimetro_tabla(orig_lines, m['i']) or perimetro_pagina(orig_pages.get(orig_pg) or '')  # A4-R4: perimetro de la tabla de la fila
             if perimetro_decl and 'consolidado' in perimetro_decl.lower() and per_orig == 'individual':
                 return 'NO_DECIDIBLE', f'perímetro distinto: la fila del original ({name} p.{orig_pg}) es de cuentas individuales y el comparativo declara consolidado'
             if perimetro_decl and 'individual' in perimetro_decl.lower() and per_orig == 'consolidado':
@@ -1026,7 +1063,7 @@ def check_entrada(emp, r, pages, doc=None):
     checks['signo'] = check_signo(bloque_fila or row_line or '', f.get('valor_fuente'), f.get('signo'))
     checks['perimetro'] = check_perimetro(lines, f.get('perimetro'), doc)
     checks['version'] = check_version(f.get('archivo'), lines, years_in_block, doc)
-    esc_cita = escala_pagina(pages, pg) if pg is not None else None
+    esc_cita = escala_tabla(pages, pg) if pg is not None else None  # A4-R4: escala de la tabla, no solo de la pagina
     checks['reexpresion'] = check_reexpresion(emp, r, f, col_years, years_in_block, esc_cita=esc_cita)
     out['checks'] = checks
     titulo = ' | '.join(C.norm_text(l) for l in lines[:6] if l.strip())[:250]

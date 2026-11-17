@@ -85,3 +85,4 @@ git add resultados_m2/cobertura_vm && git commit -m "A4-Rn …" && git push orig
 - A4-R1: polaridad de la reexpresión por la declaración (sí/no), no por «sin» en la razón.
 - A4-R2: rótulo con fechas (solo años de fecha), cabecera no es fila, año de fecha no es importe, valor no numérico -> NO_APLICA, tablas de distinto ancho -> ND.
 - A4-R3: cabecera solo si es tabular e inequívoca (años + conectores/note); fusión de cabecera partida en líneas consecutivas en orden de documento; si no, NO_DECIDIBLE.
+- A4-R4: escala y perímetro por TABLA (nota de escala hacia atrás del mismo estado; título de estado más cercano por encima de la fila); tablas de movimiento -> NO_DECIDIBLE salvo mapeo explícito.

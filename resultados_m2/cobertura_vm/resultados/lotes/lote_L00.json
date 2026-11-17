@@ -1236,7 +1236,7 @@
       "evidencia": "derivado recalculado con Decimal: -(o[\"aux:AR2025_p27_var_existencias_2024\"] + o[\"aux:AR2025_p27_var_deudores_2024\"] + o[\"aux:AR2025_p27_var_acreedores_2024\"]) -> 8.862 (valor_modelo 8.862, diff 0.000)",
       "evidencia_contextual": "origenes con estado contextual REUTILIZADO_M1; coherencia de unidades: True; formula -(o[\"aux:AR2025_p27_var_existencias_2024\"] + o[\"aux:AR2025_p27_var_deudores_2024\"] + o[\"aux:AR2025_p27_var_acreedores_2024\"]) (recalculo aritmetico, no significado economico)",
       "limites": "la formula da el valor esperado; no acredita la politica economica que lo eligio. Aumento del circulante 2024 = −(existencias 35.919 + deudores −41.828 + acreedores −2.953) = 8.862 miles (AR_2025 p. 27, columna 2024, comparativo reexpresado: fuente que cita la fase 1 para 2024; el original CF_2024 p. 9 imprime acreedores −2.639, que daría 8.548). Sin la variación de provisiones (−6.590). Resultado de la fórmula con los orígenes registrados: 8.862000; valor del libro: 8.862.",
-      "limites_contextuales": "aux:AR2025_p27_var_existencias_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion ) | aux:AR2025_p27_var_deudores_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion ) | aux:AR2025_p27_var_acreedores_2024: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt']))",
+      "limites_contextuales": "aux:AR2025_p27_var_existencias_2024: dimension reexpresion no decidible (tabla de movimiento (rótulo 'Adjustment for reduction (increase) in inventories -709 35,919'): las columnas no son años ) | aux:AR2025_p27_var_deudores_2024: dimension reexpresion no decidible (tabla de movimiento (rótulo 'Adjustment for reduction (increase) in accounts receivable -24,319 -41,828'): las columnas ) | aux:AR2025_p27_var_acreedores_2024: dimension reexpresion no decidible (tabla de movimiento (rótulo 'Adjustment for (reduction) increases in accounts payable -24,905 -2,953'): las columnas no )",
       "checks_contextuales": {},
       "fila_leida": null,
       "encabezado": null,
@@ -1254,9 +1254,9 @@
         "reutilizado_piloto": true,
         "estado_contextual": "REUTILIZADO_M1",
         "limites_contextuales": [
-          "aux:AR2025_p27_var_existencias_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )",
-          "aux:AR2025_p27_var_deudores_2024: dimension reexpresion no decidible (el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion )",
-          "aux:AR2025_p27_var_acreedores_2024: dimension reexpresion no decidible (el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt']))"
+          "aux:AR2025_p27_var_existencias_2024: dimension reexpresion no decidible (tabla de movimiento (rótulo 'Adjustment for reduction (increase) in inventories -709 35,919'): las columnas no son años )",
+          "aux:AR2025_p27_var_deudores_2024: dimension reexpresion no decidible (tabla de movimiento (rótulo 'Adjustment for reduction (increase) in accounts receivable -24,319 -41,828'): las columnas )",
+          "aux:AR2025_p27_var_acreedores_2024: dimension reexpresion no decidible (tabla de movimiento (rótulo 'Adjustment for (reduction) increases in accounts payable -24,905 -2,953'): las columnas no )"
         ]
       }
     },
@@ -1482,7 +1482,7 @@
       "evidencia": "texto/AR_2025.txt [PDF PAGE 27] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
       "evidencia_contextual": "fila leida: 'Adjustment for reduction (increase) in inventories -709 35,919'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
+      "limites_contextuales": "reexpresion: tabla de movimiento (rótulo 'Adjustment for reduction (increase) in inventories -709 35,919'): las c",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1512,7 +1512,7 @@
       "evidencia": "texto/AR_2025.txt [PDF PAGE 27] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
       "evidencia_contextual": "fila leida: 'Adjustment for reduction (increase) in accounts receivable -24,319 -41,828'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la column",
+      "limites_contextuales": "reexpresion: tabla de movimiento (rótulo 'Adjustment for reduction (increase) in accounts receivable -24,319 -41,",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",
@@ -1542,7 +1542,7 @@
       "evidencia": "texto/AR_2025.txt [PDF PAGE 27] sha256 conforme=True; cita localizada=True; valor localizado=True; reutilizado del piloto M1 (resultados/lectura_fuentes.jsonl corregida, revision_externa/REVISION_CHATGPT_2.md)",
       "evidencia_contextual": "fila leida: 'Adjustment for (reduction) increases in accounts payable -24,905 -2,953'; encabezado: '(Thousands of euros) Notes 2025 2024'; titulo pagina: 'Financial Statements | VISCOFAN, S.A. AND SUBSIDIARIES Notes | Consolidated Financial Statements for'; checks: fila=OK, columna=OK, unidad=OK, signo=OK, perimetro=OK, version=OK, reexpresion=NO_DECIDIBLE | reutilizada del piloto M1 (alcance y huellas propios)",
       "limites": "tratamiento: con el signo del estado de flujos | reexpresado: sí: comparativo de 2024 en el informe de 2025 (el que usó el modelo), reexpresado por la asignación definitiva del precio de Brasfibra y Master Couros (AR_2025 pp. 33 y 37) | perimetro: consolidado | COINCIDE_PROPUESTO no acredita significado economico ni aptitud para invertir",
-      "limites_contextuales": "reexpresion: el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.tx",
+      "limites_contextuales": "reexpresion: tabla de movimiento (rótulo 'Adjustment for (reduction) increases in accounts payable -24,905 -2,953",
       "checks_contextuales": {
         "fila": "OK",
         "columna": "OK",

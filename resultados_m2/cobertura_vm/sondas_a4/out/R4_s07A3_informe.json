@@ -1,0 +1,311 @@
+{
+ "scripts": "scripts",
+ "sondas": [
+  {
+   "punto": "A3-R1",
+   "sonda": "N1a_signo_con_raya_U+2013",
+   "descripcion": "Negativo impreso con raya U+2013 (habitual en informes en español), en su columna 2024.",
+   "tipo_de_fallo_si_defecto": "CONFLICTO falso",
+   "esperado": [
+    "OK"
+   ],
+   "obtenido": "CONFLICTO",
+   "detalle": "el valor declarado -7660 no esta en la fila ['47.708', '7.660'] (cabecera ['2025', '2024']); declarado ['2024'] | cabecera elegida: '2025 2024' ['2025', '2024']",
+   "defecto": true
+  },
+  {
+   "punto": "A3-R1",
+   "sonda": "N1b_importe_menor_que_1_con_cero",
+   "descripcion": "Importe < 1 (dividendo por acción 0,21) en su columna 2024: la magnitud en «espacio de dígitos» pierde el cero inicial (Decimal(\"021\") = 21).",
+   "tipo_de_fallo_si_defecto": "CONFLICTO falso",
+   "esperado": [
+    "OK"
+   ],
+   "obtenido": "CONFLICTO",
+   "detalle": "el valor declarado 0.21 no esta en la fila ['0,25', '0,21'] (cabecera ['2025', '2024']); declarado ['2024'] | cabecera elegida: '2025 2024' ['2025', '2024']",
+   "defecto": true
+  },
+  {
+   "punto": "A3-R1",
+   "sonda": "N1c_control_negativo_entre_parentesis_otra_columna",
+   "descripcion": "Control: −9.000 está en la columna 2024 y se declara 2025.",
+   "tipo_de_fallo_si_defecto": "OK falso",
+   "esperado": [
+    "CONFLICTO"
+   ],
+   "obtenido": "CONFLICTO",
+   "detalle": "posicion 1 -> columna 2024, pero declarado ['2025'] (linea de columnas ['2025', '2024']) | cabecera elegida: '2025 2024' ['2025', '2024']",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R2",
+   "sonda": "N2a_nota_breve_con_anios_invertidos_entre_cabecera_y_fila",
+   "descripcion": "Una nota breve («2024 and 2025 figures restated»: 2 palabras, 2 años) entre la cabecera real y la fila; 10.000 es 2025 y se declara 2024.",
+   "tipo_de_fallo_si_defecto": "OK falso (acreditación indebida)",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "CONFLICTO",
+   "detalle": "posicion 0 -> columna 2025, pero declarado ['2024'] (linea de columnas ['2025', '2024']) | cabecera elegida: 'Notes 2025 2024' ['2025', '2024']",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R2",
+   "sonda": "N2b_cabecera_partida_lejos_de_la_fila",
+   "descripcion": "Cabecera partida «2025»/«2024» a más de 3 líneas de la fila; «Goodwill 1.500 -»: 1.500 es 2025 y se declara 2024. La fusión solo mira 3 líneas: queda la cabecera de una columna «2024».",
+   "tipo_de_fallo_si_defecto": "OK falso (acreditación indebida)",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "fila con 1 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional | cabecera elegida: '2024' ['2025', '2024']",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R2",
+   "sonda": "N2c_cabecera_tabular_real_con_rotulo_descartada",
+   "descripcion": "Cabecera tabular real de un balance («EQUITY AND LIABILITIES Note 2025 2024», 3 palabras > 2 años) descartada como frase: sin título de respaldo la columna queda ND (en los datos reales 61 OK se apoyan en el título «31 December 2025 and 2024»).",
+   "tipo_de_fallo_si_defecto": "regresión conservadora (ND en lugar de OK)",
+   "esperado": [
+    "OK"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "sin linea de columnas de encabezado identificable en la pagina | cabecera elegida: None []",
+   "defecto": true
+  },
+  {
+   "punto": "A3-R3",
+   "sonda": "N3a_fila_de_cabecera_con_valor_no_numerico",
+   "descripcion": "Metadato de moneda (valor «EUR») cuya cita es la propia línea de años: los años de la cabecera pasan a ser «importes» y el valor no numérico se compara por posición (patrón real Palancas!C48 y Control maestro!H4).",
+   "tipo_de_fallo_si_defecto": "CONFLICTO falso",
+   "esperado": [
+    "NO_APLICA",
+    "NO_DECIDIBLE",
+    "OK"
+   ],
+   "obtenido": "NO_APLICA",
+   "detalle": "valor no numerico ('EUR'): metadato (moneda/norma/texto), la columna no es aplicable | cabecera elegida: None []",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R3",
+   "sonda": "N3b_anio_en_el_rotulo_de_la_fila",
+   "descripcion": "Control conservador: un año en el rótulo («maturing 2030») añade un valor; debe quedar ND u OK, nunca CONFLICTO.",
+   "tipo_de_fallo_si_defecto": "CONFLICTO falso",
+   "esperado": [
+    "NO_DECIDIBLE",
+    "OK"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "fila con 3 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional | cabecera elegida: '2025 2024' ['2025', '2024']",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R4",
+   "sonda": "N4a_afirmacion_con_sin_en_la_razon",
+   "descripcion": "Reexpresión AFIRMADA con su razón («sin la filial vendida»): la palabra «sin» a menos de 15 caracteres invierte la polaridad (patrón real Vidrala Historia!J6/J7/J8, aux:bai_2023, aux:impuesto_2023).",
+   "tipo_de_fallo_si_defecto": "CONFLICTO falso «declara no reexpresado»",
+   "esperado": [
+    "NO_DECIDIBLE",
+    "OK"
+   ],
+   "obtenido": "OK",
+   "detalle": "reexpresion confirmada por columna: el original CF_2024.txt imprime 10.000 en la columna 2024 (fila 4) y el comparativo cita 9000; declarado: sí: 2024 reexpresado sin la filial vendida (el original daba 10.000)",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R4",
+   "sonda": "N4b_negacion_por_cuantificador_none",
+   "descripcion": "Negación sin «no/not» junto al verbo («None of … were restated») y diferencia 9.000 frente a 10.000.",
+   "tipo_de_fallo_si_defecto": "OK falso «reexpresión confirmada»",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "CONFLICTO",
+   "detalle": "declara no reexpresado (\"None of the comparative figures were restated\") pero el original CF_2024.txt imprime 10.000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R4",
+   "sonda": "N4c_negacion_ninguna_reexpresion",
+   "descripcion": "Negación por «ninguna» tras la mención y diferencia.",
+   "tipo_de_fallo_si_defecto": "OK falso «reexpresión confirmada»",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "CONFLICTO",
+   "detalle": "declara no reexpresado (\"reexpresión: ninguna\") pero el original CF_2024.txt imprime 10.000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R4",
+   "sonda": "N4d_rotulo_sin_digitos_iguala_fechas_distintas",
+   "descripcion": "El rótulo «sin números» iguala «At 31 December 2023» con «At 31 December 2024» y el año 2023 de la fila se lee como importe de la columna 2024 (patrón real Vidrala Historia!D25..H25, aux:ing_fin_2017).",
+   "tipo_de_fallo_si_defecto": "CONFLICTO falso",
+   "esperado": [
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R4",
+   "sonda": "N4e_mismo_rotulo_en_tabla_individual_de_la_misma_pagina",
+   "descripcion": "La página del original tiene la tabla consolidada (10.000) y la individual (9.000); la fila con el valor citado es la individual, pero el perímetro se decide por la página («consolid» aparece) y no por la tabla.",
+   "tipo_de_fallo_si_defecto": "NO_APLICA falso (acreditación indebida)",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "perímetro distinto: la fila del original (CF_2024.txt p.1) es de cuentas individuales y el comparativo declara consolidado",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R4",
+   "sonda": "N4f_escala_del_original_en_pagina_anterior",
+   "descripcion": "El original declara millones en la página anterior a la tabla; escala_pagina solo mira la página de la fila (check_unidad sí busca hacia atrás).",
+   "tipo_de_fallo_si_defecto": "NO_APLICA falso (escala)",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "escala distinta: el original CF_2024.txt p.2 está en millones y el comparativo en miles; la igualdad numérica no acredita reexpresión",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R5",
+   "sonda": "N5a_version_por_importe_sin_puntuar",
+   "descripcion": "Página de 2019 atribuida a CF_2025.txt; el único «2025» es un importe sin puntuar (2025 empleados), que A3-R3 trata como importe pero check_version cuenta como año del bloque.",
+   "tipo_de_fallo_si_defecto": "OK falso (versión)",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "OK",
+   "detalle": "el informe declarado (CF_2025.txt, año 2025) figura en la pagina/cabecera del documento",
+   "defecto": true
+  },
+  {
+   "punto": "A3-R5",
+   "sonda": "N5b_anio_con_coma_solo_en_titulo_del_documento",
+   "descripcion": "El año del informe aparece solo en el título del documento y seguido de coma; yb exige (?![\\d.,]) en la cabecera.",
+   "tipo_de_fallo_si_defecto": "CONFLICTO falso (versión)",
+   "esperado": [
+    "OK"
+   ],
+   "obtenido": "CONFLICTO",
+   "detalle": "el año del archivo 2025 no aparece en la pagina ni en la cabecera del documento",
+   "defecto": true
+  },
+  {
+   "punto": "A3-R6",
+   "sonda": "N6a_cifras_en_millones",
+   "descripcion": "Página «Cifras en millones» con cabecera del documento en miles.",
+   "tipo_de_fallo_si_defecto": "OK falso (escala)",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "OK",
+   "detalle": "unidad en miles acreditada en la cabecera del documento (alcance: tablas del documento en miles; la pagina no declara otra escala)",
+   "defecto": true
+  },
+  {
+   "punto": "A3-R6",
+   "sonda": "N6b_euro_m",
+   "descripcion": "Página «(€m)» con cabecera del documento en miles.",
+   "tipo_de_fallo_si_defecto": "OK falso (escala)",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "OK",
+   "detalle": "unidad en miles acreditada en la cabecera del documento (alcance: tablas del documento en miles; la pagina no declara otra escala)",
+   "defecto": true
+  },
+  {
+   "punto": "A3-R6",
+   "sonda": "N6c_MEUR",
+   "descripcion": "Página «Amounts in MEUR» con cabecera del documento en miles.",
+   "tipo_de_fallo_si_defecto": "OK falso (escala)",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "OK",
+   "detalle": "unidad en miles acreditada en la cabecera del documento (alcance: tablas del documento en miles; la pagina no declara otra escala)",
+   "defecto": true
+  },
+  {
+   "punto": "A3-R6",
+   "sonda": "N6d_M_euro",
+   "descripcion": "Página «(M€)» con cabecera del documento en miles.",
+   "tipo_de_fallo_si_defecto": "OK falso (escala)",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "OK",
+   "detalle": "unidad en miles acreditada en la cabecera del documento (alcance: tablas del documento en miles; la pagina no declara otra escala)",
+   "defecto": true
+  },
+  {
+   "punto": "A3-R7",
+   "sonda": "N7a_cadena_de_tres_niveles",
+   "descripcion": "D = f(E, H), E = f(G), G = f(F) con F PENDIENTE y H REVISADO: D debe quedar PENDIENTE.",
+   "tipo_de_fallo_si_defecto": "REVISADO falso",
+   "esperado": [
+    "PENDIENTE_CONTEXTUAL"
+   ],
+   "obtenido": "PENDIENTE_CONTEXTUAL",
+   "detalle": "",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R7",
+   "sonda": "N7b_control_positivo_cadena_revisada",
+   "descripcion": "Control: la misma cadena con todo REVISADO.",
+   "tipo_de_fallo_si_defecto": "bloqueo falso",
+   "esperado": [
+    "REVISADO_CONTEXTUAL"
+   ],
+   "obtenido": "REVISADO_CONTEXTUAL",
+   "detalle": "",
+   "defecto": false
+  },
+  {
+   "punto": "A3-R7",
+   "sonda": "N7c_ciclo_entre_derivados",
+   "descripcion": "D = f(E), E = f(D): el ciclo devuelve «CICLO» al operando, que estado_desde_origenes trata como revisado.",
+   "tipo_de_fallo_si_defecto": "REVISADO falso en la función (latente; mitigado: control_cobertura falla si DERIVADOS.json registra ciclos; hoy 0)",
+   "esperado": [
+    "CICLO",
+    "CONFLICTO_CONTEXTUAL",
+    "PENDIENTE_CONTEXTUAL"
+   ],
+   "obtenido": "REVISADO_CONTEXTUAL",
+   "detalle": "",
+   "defecto": true
+  },
+  {
+   "punto": "A3-R7",
+   "sonda": "N7d_operando_inexistente",
+   "descripcion": "D = f(Z) con Z ausente del registro y de verificacion_contexto: se lee NO_APLICA → REVISADO.",
+   "tipo_de_fallo_si_defecto": "REVISADO falso en la función (latente; mitigado: control_cobertura rechaza orígenes inexistentes; hoy 0 huecos)",
+   "esperado": [
+    "CONFLICTO_CONTEXTUAL",
+    "PENDIENTE_CONTEXTUAL"
+   ],
+   "obtenido": "REVISADO_CONTEXTUAL",
+   "detalle": "",
+   "defecto": true
+  }
+ ]
+}

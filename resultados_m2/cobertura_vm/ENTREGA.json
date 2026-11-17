@@ -45,7 +45,7 @@
       "criterios_sin_cubrir": [
         "revisión independiente por el coordinador (pendiente, solo lo afectado)"
       ],
-      "evidencia": "resultados/control_cobertura.json sha256 0291f71c67fead1d69e082bd0234fb5bfc802eecbd61b85956083823d5be4be3 (PASS=true, 0 violaciones)",
+      "evidencia": "resultados/control_cobertura.json sha256 53a199085c8cd130020b528bc3dfea92206a45de4865ace0cf219f5cc35dfda2 (PASS=true, 0 violaciones)",
       "sha_material": "insumos .trabajo/insumos_m2 (251/251, ZIP base-4.14 sha256 bb51942c…b7b93e)",
       "resultado": "PASS"
     },
@@ -61,7 +61,7 @@
         "sonda A3-R7 (operando derivado pendiente bloquea) detectada"
       ],
       "criterios_sin_cubrir": [],
-      "evidencia": "resultados/control_negativo.json sha256 1308f2e81240e80bf5b02c2a339bb89ab8504472d1a16dd2c1c97b7f5f030436",
+      "evidencia": "resultados/control_negativo.json sha256 c6c550689d3a5dc7bcda268bfcca7eeb71a3141f56e038d5dcb0f00a872e1ca7",
       "sha_material": "igual que arriba",
       "resultado": "PASS"
     },
@@ -133,33 +133,33 @@
   "salida_siguiente": "resultados_m2/cobertura_vm/ENTREGA.json + MANIFIESTO_SHA256.txt + PUNTO_DE_RECUPERACION.md en el próximo commit de mistral/m2-cobertura-vm",
   "recuentos_generados": {
     "csv": {
-      "PENDIENTE_CONTEXTUAL": 368,
+      "PENDIENTE_CONTEXTUAL": 370,
       "REUTILIZADO_M1": 60,
-      "REVISADO_CONTEXTUAL": 143,
+      "REVISADO_CONTEXTUAL": 141,
       "NO_APLICA": 106
     },
     "fuentes": {
-      "PENDIENTE_CONTEXTUAL": 304,
+      "PENDIENTE_CONTEXTUAL": 306,
       "NO_APLICA": 210,
       "REUTILIZADO_M1": 43,
-      "REVISADO_CONTEXTUAL": 120
+      "REVISADO_CONTEXTUAL": 118
     },
     "derivados": {
       "PENDIENTE_CONTEXTUAL": 64,
       "REUTILIZADO_M1": 14,
       "REVISADO_CONTEXTUAL": 23
     },
-    "fuentes_pendientes": 304,
+    "fuentes_pendientes": 306,
     "derivados_pendientes": 64,
     "sin_original": 36,
     "hashes": {
-      "COBERTURA_677.csv": "1d46063d3909158a8e02ffae6cebbac93360f15b308e590d7e61477ef79a0d58",
-      "resultados/verificacion_contexto.jsonl": "a201dae157bffe494ca059014f962272a2bfff1dfa6168ec015b4384b185bd25",
-      "resultados/cola_pendientes.json": "a6745d557b7148d34f0af6b5ecc7ebd78472e121a55b0fa619feb2855ec28f52",
-      "resultados/control_cobertura.json": "0291f71c67fead1d69e082bd0234fb5bfc802eecbd61b85956083823d5be4be3",
-      "resultados/control_negativo.json": "1308f2e81240e80bf5b02c2a339bb89ab8504472d1a16dd2c1c97b7f5f030436",
-      "DERIVADOS.json": "d3597a4cb9d6131a4bfc318a3f091d0cb5aad16543f27ebb1270f77316c78df6",
-      "resultados/resoluciones_bloque2.json": "41418912d1f478b7a570b89f6735ede0e20cd3edd27c5c865ce3b887bc08a889"
+      "COBERTURA_677.csv": "963590783734c6ac438a4314a931ec561a81f6fb2033231565f3226f5faf03ed",
+      "resultados/verificacion_contexto.jsonl": "a50bcba0685104d75cee7b8e5a4a47e40e27648593e570eefddc7266c8ae396a",
+      "resultados/cola_pendientes.json": "d5ab602ba9bb24ffe00da78c71ee30faec9e3e35ecfa5cce1162adf809568e97",
+      "resultados/control_cobertura.json": "53a199085c8cd130020b528bc3dfea92206a45de4865ace0cf219f5cc35dfda2",
+      "resultados/control_negativo.json": "c6c550689d3a5dc7bcda268bfcca7eeb71a3141f56e038d5dcb0f00a872e1ca7",
+      "DERIVADOS.json": "eaca10b3c0fdc048591783ae7a9662b248a894d986b9a6f57ebd7bf3d4229271",
+      "resultados/resoluciones_bloque2.json": "2d776d253ad676fe6f31cb7220549e2dacb20f9217c10245f50df67f7cfb71ef"
     },
     "nota": "generados por scripts/generar_entrega_json.py desde las salidas publicadas (A3-R8)"
   }

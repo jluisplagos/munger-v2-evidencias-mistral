@@ -1,0 +1,49 @@
+{
+ "scripts": "scripts",
+ "sondas": [
+  {
+   "sonda": "Y1_escala_tabla_dos_paginas_atras",
+   "descripcion": "El original declara millones 2 páginas antes de la tabla: la escala se decide por tabla, no por la página de la fila (antes NO_APLICA falso).",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "escala distinta: el original CF_2024.txt p.3 está en millones y el comparativo en miles; la igualdad numérica no acredita reexpresión",
+   "defecto": false
+  },
+  {
+   "sonda": "Y2_perimetro_tabla_individual_misma_pagina",
+   "descripcion": "La fila del original pertenece a la tabla individual de la misma página: perímetro por tabla -> ND (antes NO_APLICA falso por página).",
+   "esperado": [
+    "CONFLICTO",
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "perímetro distinto: la fila del original (CF_2024.txt p.1) es de cuentas individuales y el comparativo declara consolidado",
+   "defecto": false
+  },
+  {
+   "sonda": "Y3_tabla_movimiento_disposals",
+   "descripcion": "Tabla de movimiento («Disposals …»): columnas sin años, sin mapeo explícito -> NO_DECIDIBLE (defecto 8 de A2: B46/B47, CF2024_p9).",
+   "esperado": [
+    "NO_DECIDIBLE"
+   ],
+   "obtenido": "NO_DECIDIBLE",
+   "detalle": "tabla de movimiento (rótulo 'Disposals (10) - (20) - (30)'): las columnas no son años y no hay mapeo explícito de columnas; NO_DECIDIBLE (defecto 8 de A2: B46/B47, CF2024_p9)",
+   "defecto": false
+  },
+  {
+   "sonda": "Y4_control_igualdad_misma_escala",
+   "descripcion": "Control: mismo valor, misma escala de tabla y perímetro consolidado -> coherente (NO_APLICA).",
+   "esperado": [
+    "NO_APLICA",
+    "NO_DECIDIBLE",
+    "OK"
+   ],
+   "obtenido": "NO_APLICA",
+   "detalle": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (10.000) en la fila 4; coherente",
+   "defecto": false
+  }
+ ]
+}
