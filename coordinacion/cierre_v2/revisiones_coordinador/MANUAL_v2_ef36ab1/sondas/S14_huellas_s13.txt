@@ -1,0 +1,53 @@
+$ sed -n 662,699p <tmp>/m/MANUAL_OPERATIVO_3149128.md | sed -E 's/^\| `([^`]+)`( \*)? \| `([0-9a-f]+)` \|$/\1 \3/' | while read p h; do q="$p"; q=${q/#PV2\//munger_v2_r1/personaje_v2/}; q=${q/#E414\//munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/}; q=${q/#E415\//munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/}; q=${q/#…\//munger_v2_r1/personaje_v2/empresas_v2_correcciones/}; r=$(git -C <candidata> show 3149128:"$q" | sha256sum | cut -c1-16); [ "$r" = "$h" ] && echo "OK $p" || echo "DISTINTO $p $h $r"; done
+OK README.md
+OK CLAUDE.md
+OK .gitignore
+OK docs/RECEPCION_ENTREGA_CLAUDE.md
+OK docs/MIGRATION_STATUS.json
+OK tools/base_414.py
+OK munger_v2_r1/CONTINUIDAD.md
+OK munger_v2_r1/MANIFIESTO_SHA256.txt
+OK munger_v2_r1/CAMBIOS_ARCHIVOS.txt
+OK munger_v2_r1/verificar_paquete.sh
+OK munger_v2_r1/VERSION
+OK munger_v2_r1/PROMPT_NUEVA_VENTANA.md
+OK PV2/GUIA_RECORRIDO_SUPERVISADO.md
+OK PV2/README_v2.md
+OK PV2/PROMPT_CLAUDE_CODE.md
+OK PV2/scripts/comprobar_entorno.sh
+OK PV2/scripts/pipeline.py
+OK PV2/scripts/ficha.py
+OK PV2/scripts/cierre_v2.py
+OK PV2/scripts/verificar_todo.sh
+OK PV2/scripts/cambiar_base.py
+OK PV2/scripts/verificacion_entradas.py
+OK PV2/pruebas/test_relevo_i19_415.py
+OK E415/HITO_1_4_15.md
+OK E415/hito2/HITO_2_4_15.md
+OK E415/hito2/PUNTO_DE_RECUPERACION.md
+OK E414/documentacion_cierre_4_14/HITO_2.md
+OK E414/documentacion_cierre_4_14/INCIDENCIAS_4_14.md
+OK E414/documentacion_cierre_4_14/traspaso/INFORME_TRASPASO.md
+OK E414/documentacion_cierre_4_14/traspaso/LEEME_TRASPASO.md
+OK E414/resultados/LEEME_CONTROLES_HISTORICOS_4_14.md
+OK E414/elis_motor_A/LEEME_ELIS_MOTOR_A.md
+OK E414/scripts/comprobar_entrega_4_14.py
+OK …/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py
+OK …/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py
+OK …/2026-11_Vidrala_ensayo_4_10/scripts/comprobar_entrega_4_10.py
+OK …/2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py
+OK …/2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py
+[código 0]
+
+$ for f in coordinacion/cierre_v2/PROGRAMA.md coordinacion/cierre_v2/INTEGRACION.md coordinacion/cierre_v2/pruebas_candidata/957af65/README.md; do echo "$f $(git -C <aux> show ef36ab1:$f | sha256sum | cut -c1-16)"; done
+coordinacion/cierre_v2/PROGRAMA.md 03730269609b5aec
+coordinacion/cierre_v2/INTEGRACION.md 57ab214f5a9f0ba9
+coordinacion/cierre_v2/pruebas_candidata/957af65/README.md fd349e6d5ab43295
+[código 0]
+
+$ P=docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/preparacion; for f in scripts/copiar_binarios_a_b.py log_base414.txt preparacion.json; do echo "$f $(git -C <candidata> show 03e7851:$P/$f | sha256sum | cut -c1-16)"; done
+scripts/copiar_binarios_a_b.py 0107a4d76a81c727
+log_base414.txt 53c82e93cc2c0d74
+preparacion.json 7a31775e0ee9f032
+[código 0]
+

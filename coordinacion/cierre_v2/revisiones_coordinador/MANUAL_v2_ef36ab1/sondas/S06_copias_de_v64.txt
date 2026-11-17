@@ -1,0 +1,65 @@
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py 38-38
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:] 38	TMP = tempfile.mkdtemp(prefix="control481_")
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py 73-77
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:] 73	def arbol(nombre, codigo_4_8=False, fechas_renovadas=False):
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:] 74	    """Árbol temporal con personaje_v2 (sin los originales ni los expedientes salvo el de la 4.6.1) y enlaces a v6 y al kit."""
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:] 75	    raiz = os.path.join(TMP, nombre, "munger_v2_r1")
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:] 76	    shutil.copytree(PV2, os.path.join(raiz, "personaje_v2"), ignore=lambda d, fs: [f for f in fs if f in ("empresas_v2", ".lo_perfil", "__pycache__")
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:] 77	                                                                                     or (os.path.basename(d) == "empresas_v2_correcciones" and f != "2026-11_Vidrala_ensayo_4_6_1")])
+[código 0]
+
+$ git -C <candidata> show 3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py | grep -n -E 'arbol\(|rmtree'
+73:def arbol(nombre, codigo_4_8=False, fechas_renovadas=False):
+109:    a48 = arbol("codigo_4_8", codigo_4_8=True)
+125:        ar = arbol(f"estados_renovadas_{'48' if cod48 else '481'}", codigo_4_8=cod48, fechas_renovadas=True)
+130:    mut = arbol("mutaciones")
+184:    shutil.rmtree(TMP, ignore_errors=True)
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py 54-62 | cut -c1-260
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:] 54	def arbol_codigo_471(tmp):
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:] 55	    """Árbol de código de la 4.7.1: el de este paquete con pipeline.py y ficha.py sustituidos por las copias de la 4.7.1
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:] 56	    (reproduccion/codigo_4_7_1/*.py.txt), comprobadas contra el manifiesto de la 4.7.1. v6 y el kit se enlazan."""
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:] 57	    m471 = manifiesto(os.path.join(AQUI, "reproduccion", "MANIFIESTO_SHA256_4_7_1.txt"))
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:] 58	    raiz = os.path.join(tmp, "arbol471")
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:] 59	    os.makedirs(raiz)
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:] 60	    shutil.copytree(P2, os.path.join(raiz, "personaje_v2"), ignore=shutil.ignore_patterns("empresas_v2", "empresas_v2_correcciones", ".lo_perfi
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:] 61	    os.makedirs(os.path.join(raiz, "personaje_v2", "empresas_v2_correcciones"))
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:] 62	    os.symlink(os.path.join(CORR, "2026-11_Vidrala_ensayo_4_6_1"), os.path.join(raiz, "personaje_v2", "empresas_v2_correcciones", "2026-11_Vidr
+[código 0]
+
+$ git -C <candidata> show 3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py | grep -n -E 'mkdtemp|rmtree|arbol_codigo_471\('
+54:def arbol_codigo_471(tmp):
+75:tmp = tempfile.mkdtemp(prefix="c48_")
+82:    raiz471, iguales471 = arbol_codigo_471(tmp)
+195:    shutil.rmtree(tmp, ignore_errors=True)
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py 87-87
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py:] 87	        ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py 91-91
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py:] 91	        ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py 107-107
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py:] 107	        ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+[código 0]
+
+$ for f in $(git -C <candidata> ls-tree -r --name-only 3149128 munger_v2_r1/personaje_v2/empresas_v2_correcciones/ | grep -E '/scripts/(comprobar|comparar)_[^/]*\.py$'); do git -C <candidata> show 3149128:$f | grep -n copytree | sed "s|^|${f#munger_v2_r1/personaje_v2/empresas_v2_correcciones/}:|" | cut -c1-230; done; true
+2026-11_Vidrala_ensayo/scripts/comprobar_ensayo.py:157:        shutil.copytree(E, d)
+2026-11_Vidrala_ensayo_4_7/scripts/comprobar_entrega_4_7.py:111:    shutil.copytree(AQUI, copia, ignore=shutil.ignore_patterns("propuesta_excel", "__pycache__"))
+2026-11_Vidrala_ensayo_4_7_1/scripts/comprobar_entrega_4_7_1.py:142:    shutil.copytree(REF, d, ignore=shutil.ignore_patterns(".lo_perfil"))
+2026-11_Vidrala_ensayo_4_7_1/scripts/comprobar_entrega_4_7_1.py:188:    shutil.copytree(AQUI, copia, ignore=shutil.ignore_patterns("__pycache__"))
+2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py:60:    shutil.copytree(P2, os.path.join(raiz, "personaje_v2"), ignore=shutil.ignore_patterns("empresas_v2", "empresas_v2_correcciones", ".lo_perfil", "__pycache__", "sint
+2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:76:    shutil.copytree(PV2, os.path.join(raiz, "personaje_v2"), ignore=lambda d, fs: [f for f in fs if f in ("empresas_v2", ".lo_perfil", "__pycache__")
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py 84-84
+[munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py:] 84	    actuales = {os.path.relpath(os.path.join(r, f), RAIZ) for r, ds, fs in os.walk(RAIZ) for f in fs if "__pycache__" not in r}
+$ git -C <candidata> show 3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py | grep -n actuales
+84:    actuales = {os.path.relpath(os.path.join(r, f), RAIZ) for r, ds, fs in os.walk(RAIZ) for f in fs if "__pycache__" not in r}
+[código 0]

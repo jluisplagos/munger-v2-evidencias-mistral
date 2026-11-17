@@ -1,0 +1,17 @@
+$ cd <candidata> && for f in $(git ls-tree -r --name-only 3149128 | grep 'estado_pipeline.json$'); do e=$(git show 3149128:$f | python3 -I -c 'import json,sys; print(json.load(sys.stdin).get("esperando"))' 2>/dev/null); [ "$e" != None ] && echo "$e  ${f#munger_v2_r1/personaje_v2/empresas_v2_correcciones/}"; done | sort | tee /dev/stderr | wc -l
+10:fase_c.json  2026-11_Vidrala_ensayo_4_12/control_palancas_4_11/Vidrala/estado_pipeline.json
+10:fase_c.json  2026-11_Vidrala_ensayo_4_12/viscofan/reproduccion_v63/Viscofan/estado_pipeline.json
+10:fase_c.json  2026-11_Vidrala_ensayo_4_12/viscofan/reproduccion_v64_heredado/Viscofan/estado_pipeline.json
+13:auditoria.md  2026-11_Vidrala_ensayo_4_14/elis_decisiones/antecedentes/heredados/estado_pipeline.json
+13:auditoria.md  2026-11_Vidrala_ensayo_4_14/elis_motor_A/Elis/estado_pipeline.json
+13:auditoria.md  2026-11_Vidrala_ensayo_4_14/vidrala/Vidrala/estado_pipeline.json
+13:auditoria.md  2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/antecedentes/heredados/estado_pipeline.json
+13:auditoria.md  2026-11_Vidrala_ensayo_4_14/vidrala_decisiones_INVALIDO_perdio_analisis/antecedentes/heredados/estado_pipeline.json
+13:auditoria.md  2026-11_Vidrala_ensayo_4_14/viscofan/Viscofan/estado_pipeline.json
+13:auditoria.md  2026-11_Vidrala_ensayo_4_14/viscofan_decisiones/antecedentes/heredados/estado_pipeline.json
+5:extracto_v63.md  2026-11_Vidrala_ensayo_4_10/expediente_exploratorio/Vidrala/estado_pipeline.json
+6:fase_a.json  2026-11_Vidrala_ensayo_4_10_1/antecedentes/preparacion_1_datos_de_2026/estado_pipeline.json
+6:fase_a.json  2026-11_Vidrala_ensayo_4_14/vidrala_decisiones_INVALIDO_perdio_analisis/Vidrala/estado_pipeline.json
+13
+[código 0]
+

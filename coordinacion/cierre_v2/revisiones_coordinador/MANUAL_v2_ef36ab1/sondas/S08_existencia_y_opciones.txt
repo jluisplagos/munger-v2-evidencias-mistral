@@ -1,0 +1,104 @@
+$ for p in munger_v2_r1/personaje_v2/config_v2_v64_experimental.json munger_v2_r1/personaje_v2/config_v2_v641_experimental.json munger_v2_r1/personaje_v2/config_v2.json munger_v2_r1/personaje_v2/scripts/cambiar_base.py munger_v2_r1/personaje_v2/scripts/configuracion_economica.py munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py munger_v2_r1/personaje_v2/scripts/fase_a_celdas.py munger_v2_r1/personaje_v2/scripts/escribir_v63.py munger_v2_r1/personaje_v2/scripts/rellenar_fase1_v63.py munger_v2_r1/personaje_v2/scripts/verify_quotes_v2.py munger_v2_r1/personaje_v2/scripts/comparar_zip.py munger_v2_r1/v6/v64_experimental/scripts/construir_v64_experimental.py munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/empaquetar_cambios_4_15.py munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/generar_cambios_y_manifiesto_4_15.py munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/resultados/relevos_agentes_4_13.md munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/elis_motor_A/Elis/estado_pipeline.json baselines/4.14.json baselines/4.14_assets.json tools/restore_assets_414.py tools/base_414.py docs/RECEPCION_ENTREGA_CLAUDE.md; do git -C <candidata> ls-tree --name-only 3149128 "$p" | grep -q . && echo "existe   $p" || echo "NO EXISTE $p"; done
+existe   munger_v2_r1/personaje_v2/config_v2_v64_experimental.json
+existe   munger_v2_r1/personaje_v2/config_v2_v641_experimental.json
+existe   munger_v2_r1/personaje_v2/config_v2.json
+existe   munger_v2_r1/personaje_v2/scripts/cambiar_base.py
+existe   munger_v2_r1/personaje_v2/scripts/configuracion_economica.py
+existe   munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py
+existe   munger_v2_r1/personaje_v2/scripts/fase_a_celdas.py
+existe   munger_v2_r1/personaje_v2/scripts/escribir_v63.py
+existe   munger_v2_r1/personaje_v2/scripts/rellenar_fase1_v63.py
+existe   munger_v2_r1/personaje_v2/scripts/verify_quotes_v2.py
+existe   munger_v2_r1/personaje_v2/scripts/comparar_zip.py
+existe   munger_v2_r1/v6/v64_experimental/scripts/construir_v64_experimental.py
+existe   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/empaquetar_cambios_4_15.py
+existe   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/generar_cambios_y_manifiesto_4_15.py
+existe   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/resultados/relevos_agentes_4_13.md
+existe   munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/elis_motor_A/Elis/estado_pipeline.json
+existe   baselines/4.14.json
+existe   baselines/4.14_assets.json
+existe   tools/restore_assets_414.py
+existe   tools/base_414.py
+existe   docs/RECEPCION_ENTREGA_CLAUDE.md
+[código 0]
+
+$ git -C <candidata> show 3149128:munger_v2_r1/personaje_v2/scripts/pipeline.py | grep -n -E 'add_argument\("--' | head
+1823:    ap.add_argument("--config", default=None)  # (4.11) None → MUNGER_CONFIG o config_v2.json
+1824:    ap.add_argument("--agentes-simulados")
+1825:    ap.add_argument("--hasta", type=int, default=14)
+1826:    ap.add_argument("--reiniciar", action="store_true")
+1827:    ap.add_argument("--desde", type=int)
+[código 0]
+
+$ git -C <candidata> show 3149128:munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py | sed -n '83,84p;1627,1641p' | grep -n -E 'sellar|plantilla|comprobar|revisor|fecha'
+1:Uso: verificacion_entradas.py comprobar <expediente> [--json] | plantilla <expediente> (escribe verificacion_entradas.plantilla.json)
+2:     | sellar <expediente> --revisor NOMBRE --fecha AAAA-MM-DD(hoy) CELDA [CELDA …]
+3:    if len(sys.argv) >= 3 and sys.argv[1] == "sellar":
+7:        ap.add_argument("--revisor", required=True); ap.add_argument("--fecha", required=True)
+9:        ok, mal = sellar(a.carpeta, a.celdas, a.revisor, a.fecha)
+14:    if len(sys.argv) < 3 or sys.argv[1] not in ("comprobar", "plantilla"):
+17:    if sys.argv[1] == "plantilla":
+[código 0]
+
+$ git -C <candidata> show 3149128:munger_v2_r1/personaje_v2/scripts/configuracion_economica.py | sed -n 17p
+  configuracion_economica.py validar CONF.json            → código 0 si es válida; 1 con la lista de faltas
+[código 0]
+
+$ git -C <candidata> show 3149128:munger_v2_r1/personaje_v2/scripts/rellenar_fase1_v63.py | grep -n -E 'estricta.*store_true|return 7'
+89:    ap.add_argument("--estricta", action="store_true", help="(4.15) entrada efectiva estricta: código 7 si una entrada del FCF base la sostiene solo un valor migrado")
+570:        return 7
+[código 0]
+
+$ mkdir -p <tmp>/ayuda && git -C <candidata> show 3149128:tools/base_414.py > <tmp>/ayuda/base_414.py && cd <tmp>/ayuda && python3 -I -B base_414.py --help
+usage: base_414.py [-h] [--source SOURCE] [--git-only] [--report REPORT]
+                   {verify,materialize}
+
+Materializa o comprueba la base exacta 4.14. Solo biblioteca estándar. No
+acepta una base incompleta ni sobrescribe archivos modificados.
+
+positional arguments:
+  {verify,materialize}
+
+options:
+  -h, --help            show this help message and exit
+  --source SOURCE       ZIP completo o carpeta extraída de la base4.14
+  --git-only            Destino limitado a los archivos que se versionan en
+                        Git
+  --report REPORT
+[código 0]
+
+$ git -C <aux> show ef36ab1:coordinacion/cierre_v2/herramientas/comprobar_registro.py > <tmp>/ayuda/comprobar_registro.py && cd <tmp>/ayuda && python3 -I -B comprobar_registro.py --help | head -4
+usage: comprobar_registro.py [-h] [--esperados ESPERADOS] [--json] registro
+
+Comprueba el registro de un lanzador (formato «== nombre hora» / «   código N» / «fin …»). Solo biblioteca estándar.
+
+[código 0]
+
+$ git -C <aux> show ef36ab1:coordinacion/cierre_v2/herramientas/lanzador_comun.sh | sed -n '2,20p'
+# Biblioteca para lanzadores de comprobaciones en secuencia (programa de cierre v2). Uso: `source lanzador_comun.sh` y después:
+#   iniciar REGISTRO N_ESPERADOS        crea el registro (lo vacía) y fija cuántos pasos deben ejecutarse
+#   paso NOMBRE SALIDA comando args…    ejecuta el comando, guarda su salida en SALIDA y anota «código N» en el registro
+#   en_dir NOMBRE DIRECTORIO            cd; si falla, lo anota como paso fallido (código 125) y los pasos siguientes siguen anotándose
+#   copiar NOMBRE ORIGEN DESTINO        cp; un fallo se anota como paso fallido
+#   terminar                            escribe el resumen y SALE con 0 (todo bien), 1 (algún paso ≠ 0) o 3 (pasos ejecutados ≠ esperados)
+# El código de salida del lanzador es el resultado de las comprobaciones; no depende de la última orden ni de grep.
+set -u
+_REG=""; _ESPERADOS=0; _EJECUTADOS=0; _FALLIDOS=0
+iniciar() { _REG=$1; _ESPERADOS=$2; : > "$_REG" || { echo "no se puede escribir el registro $_REG" >&2; exit 2; }
+            echo "# lanzador · inicio $(date -u +%FT%TZ) · esperados $_ESPERADOS" >> "$_REG"; }
+_anotar() { _EJECUTADOS=$((_EJECUTADOS+1)); [ "$2" -ne 0 ] && _FALLIDOS=$((_FALLIDOS+1)); printf '== %s %s\n   código %s\n' "$1" "$(date -u +%H:%M:%S)" "$2" >> "$_REG"; }
+paso() { local n=$1 s=$2; shift 2; "$@" > "$s" 2>&1; _anotar "$n" $?; }
+en_dir() { cd "$2" 2>/dev/null; local c=$?; [ $c -ne 0 ] && c=125; _anotar "$1" $c; }
+copiar() { cp "$2" "$3"; _anotar "$1" $?; }
+terminar() {
+  local r=0; [ $_FALLIDOS -gt 0 ] && r=1; [ $r -eq 0 ] && [ $_EJECUTADOS -ne $_ESPERADOS ] && r=3
+  echo "fin $(date -u +%H:%M:%S) · ejecutados $_EJECUTADOS · esperados $_ESPERADOS · fallidos $_FALLIDOS · resultado $r" >> "$_REG"
+  exit $r; }
+[código 0]
+
+$ for f in lanzador_comun.sh comprobar_registro.py; do git -C <aux> show ef36ab1:coordinacion/cierre_v2/herramientas/$f | sha256sum; done; git -C <aux> show ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/scripts_receptor/copiar_binarios.py | sha256sum
+94f45a6e07f737d8b4d6d6fd8e1228051132633e8c62f0b58d5fb319fa825659  -
+1ec39613baa14761f8132f8504ef5af98676bf6d101ceb1acb12b8c002560d76  -
+8fb5b9bcfd242743c5d2c778215ba5961458bf781150d274332eed1d5af1735d  -
+[código 0]
+

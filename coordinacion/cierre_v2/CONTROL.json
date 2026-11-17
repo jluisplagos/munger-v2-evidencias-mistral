@@ -599,7 +599,9 @@
         "resultados_cierre/manual_revision/verificacion_criterios.json @ 78ba1ca",
         "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_3149128.md",
         "coordinacion/cierre_v2/manual/CAMBIOS_FRENTE_A_957af65.md",
-        "coordinacion/cierre_v2/manual/PROPUESTA_CONTINUIDAD_2_5.md"
+        "coordinacion/cierre_v2/manual/PROPUESTA_CONTINUIDAD_2_5.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/REVISION_MANUAL_v2_ef36ab1.md",
+        "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/CORRECCION_MANUAL_v3.md"
       ],
       "pruebas_autor": "NO_EJECUTADAS",
       "pruebas_externas": "PARCIALES",
@@ -607,14 +609,14 @@
         "T-CAND"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Revisión del borrador v2 (ef36ab1) en curso, en un contexto distinto del autor. Después, la propuesta de CONTINUIDAD §2.5 como corrección documental de la candidata, con su propia revisión.",
+      "siguiente_accion": "v2 (ef36ab1) revisado: CORRECCIONES (M1–M4 y 12 menores). El coordinador, como autor, prepara la v3; otro contexto la revisa solo en lo afectado. Después, la propuesta §2.5 corregida, que debe incluir el 4.8, como cambio documental de la candidata.",
       "observacion": "Manual revisado para la candidata 3149128 (borrador v2): las siete mejoras de MEJORAS_MANUAL.md con fuente; comandos nuevos marcados según dónde se probaron (traspaso del 17-nov o preparación F1 del 15-nov); lo no probado, [NO DOCUMENTADO]. Corrige dos atribuciones del encargo (copiar_binarios_a_b.py y sha256sum -c son de la preparación F1, no del traspaso). Propuesta de corrección de CONTINUIDAD §2.5 (_v64/), sin aplicar.",
       "commit_revisado": "341831fd8b4c9081c09f1ebe7b31799042402d0f",
       "alcance_aceptado": [
         "borrador del manual operativo de 957af65 y tabla de contradicciones, como documento de coordinación (no integrado en el producto)"
       ],
       "solicitud_revision": {
-        "estado": "LISTA",
+        "estado": "RESPONDIDA",
         "sha_autor": "ef36ab18ff485e40dbb727b1b95eb177e5346683",
         "base_revisada": "31491289a9a13a670dd563c1b2df85dad54eb74a",
         "diff_rutas": [
@@ -630,7 +632,13 @@
           "La propuesta de CONTINUIDAD §2.5 es exacta (frase actual, frase nueva, fuente) y no se aplica aquí"
         ],
         "revisor_asignado": "Subagente Claude, contexto distinto del autor (no hay sesión Mistral libre)",
-        "informe_revision": null
+        "informe_revision": {
+          "ruta": "coordinacion/cierre_v2/revisiones_coordinador/MANUAL_v2_ef36ab1/REVISION_MANUAL_v2_ef36ab1.md",
+          "veredicto": "CORRECCIONES: 4 medios y 12 menores, sin hallazgos materiales. Las 603 citas existen; los controles históricos, H9, I19/I20 y las frases de §2.5 son conformes.",
+          "limites": [
+            "solo lectura y sin red; revisor de la misma familia de modelo que el autor; marcas contrastadas solo con lo publicado"
+          ]
+        }
       }
     },
     {
@@ -1335,6 +1343,11 @@
       "tipo": "ASIGNACION",
       "fecha": "2026-11-17",
       "hecho": "Sin saldo ChatGPT. Se reanudan las sesiones Mistral con REANUDAR_MISTRAL_20261117.md: D (D3, prioridad), A (G-RAIZ y después A4), E (E2) y F (F3). Una sesión Mistral R contrastará desde fuera las revisiones del coordinador en lugar de ChatGPT. El coordinador sigue a cargo del runtime del personaje, las revisiones y la integración."
+    },
+    {
+      "tipo": "REVISION",
+      "fecha": "2026-11-17",
+      "hecho": "Manual v2 (ef36ab1) revisado por un contexto distinto del autor: CORRECCIONES, con 4 medios (el 4.8 también copia _v64; hecho falso sobre los binarios; faltan marcas de autodeclarado; comandos sin marca) y 12 menores. No hay hallazgos materiales. El coordinador comprobó M2: hay 71 PDF ignorados en la candidata."
     }
   ],
   "consulta_remotos_arranque": {
