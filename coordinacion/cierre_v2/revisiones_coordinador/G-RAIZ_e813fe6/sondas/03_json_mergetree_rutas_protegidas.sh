@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Sonda 03: JSON, merge-tree sobre 3149128, rutas locales e instrucciones protegidas (solo lectura)
 set -u
-R=${REPO:-/home/user/munger-v2}
+R=${REPO:?ruta al clon del producto}
 C=e813fe66b0210a698398d4f9a4d84788f9dda8e3
 B=957af652cdc3bef3d67e8623c9572138bac685e9
 P=3d66437e797b6b0bf137b42fa62b561f39121722

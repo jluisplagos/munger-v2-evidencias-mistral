@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Sonda 01: comprobaciones de cierre G1-G5 sobre e813fe6 (solo lectura)
 set -u
-R=${REPO:-/home/user/munger-v2}
+R=${REPO:?ruta al clon del producto}
 C=e813fe66b0210a698398d4f9a4d84788f9dda8e3
 cd "$R"
 echo "== G1: grep regeneración / no aptos / C48 en CLAUDE.md"

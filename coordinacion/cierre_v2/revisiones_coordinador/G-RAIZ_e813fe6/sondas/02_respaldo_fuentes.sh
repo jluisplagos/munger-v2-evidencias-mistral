@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Sonda 02: respaldo archivo:línea de cada afirmación nueva de e813fe6 (solo lectura)
 set -u
-R=${REPO:-/home/user/munger-v2}
-A=${AUX:-/home/user/munger-v2-evidencias-mistral}
+R=${REPO:?ruta al clon del producto}
+A=${AUX:?ruta al clon auxiliar}
 B=957af652cdc3bef3d67e8623c9572138bac685e9
 D=munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15
 cd "$R"
