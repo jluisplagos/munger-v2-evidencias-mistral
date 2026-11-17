@@ -234,6 +234,31 @@ def main():
         add_bilateral('metadato_anio_unidad_anio', 'año metadata', 'positivo',
             V.check_reexpresion('SINTETICA2', {}, f, ['2025', '2024'], ['2025', '2024']), 'NO_APLICA')
 
+    # 10. A3-R7 (control negativo nuevo): un operando DERIVADO en PENDIENTE/CONFLICTO debe
+    # propagarse al nodo dependiente; antes se leía NO_APLICA desde verificacion_contexto.jsonl
+    # y el derivado quedaba REVISADO con el control en PASS.
+    import derivaciones as D
+    est_pend = D.estado_desde_origenes(['PENDIENTE_CONTEXTUAL'], False)
+    est_conf = D.estado_desde_origenes(['REVISADO_CONTEXTUAL', 'CONFLICTO_CONTEXTUAL'], False)
+    est_ok = D.estado_desde_origenes(['REVISADO_CONTEXTUAL', 'NO_APLICA'], False)
+    # propagación transitiva de ejemplo: D = f(E), E derivado con origen F pendiente
+    mapa_ej = {('E', 'F'): {'clase': 'dato_publicado', 'celda': 'F'},
+               ('E', 'E'): {'clase': 'derivado', 'celda': 'E', 'derivacion': {'origenes': ['F'], 'formula': 'o["F"]'}},
+               ('E', 'D'): {'clase': 'derivado', 'celda': 'D', 'derivacion': {'origenes': ['E'], 'formula': 'o["E"]'}}}
+    ctx_ej = {('E', 'F'): {'estado_contextual': 'PENDIENTE_CONTEXTUAL'}}
+    nodo_ej = {}
+    est_D = D.estado_operando('E', 'D', mapa_ej, ctx_ej, nodo_ej)
+    ok_r7 = (est_pend == 'PENDIENTE_CONTEXTUAL' and est_conf == 'CONFLICTO_CONTEXTUAL'
+             and est_ok == 'REVISADO_CONTEXTUAL' and est_D == 'PENDIENTE_CONTEXTUAL')
+    resultados.append({
+        'empresa': 'SONDA', 'celda': 'A3-R7 operando derivado pendiente', 'mutacion': 'D=f(E) con E derivado y F pendiente (A3-R7)',
+        'detectado_por_contextual': ok_r7, 'detectado_por_mecanico': False,
+        'estado_contextual_mutado': f'regla: {est_pend}/{est_conf}/{est_ok}; transitivo D: {est_D}',
+        'estado_mecanico_mutado': 'n/a (sonda)',
+        'estado_contextual_base': 'regla vieja: NO_APLICA no bloqueaba (D quedaba REVISADO)', 'estado_mecanico_base': 'COINCIDE_PROPUESTO',
+    })
+    resumen[('sonda: A3-R7 operando derivado pendiente', ok_r7, False)] += 1
+
     n = len(resultados)
     ok_ctx = sum(1 for x in resultados if x['detectado_por_contextual'])
     ok_mec = sum(1 for x in resultados if x['detectado_por_mecanico'])

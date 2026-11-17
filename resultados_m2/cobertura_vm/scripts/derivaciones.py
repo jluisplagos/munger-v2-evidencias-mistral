@@ -18,6 +18,34 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import comun as C
 
 
+def estado_desde_origenes(estados, cubierta=False):
+    """Regla de propagación de estados contextuales desde los orígenes (A1/A3-R7)."""
+    if cubierta:
+        return 'REUTILIZADO_M1'
+    if any(s == 'CONFLICTO_CONTEXTUAL' for s in estados):
+        return 'CONFLICTO_CONTEXTUAL'
+    if any(s == 'PENDIENTE_CONTEXTUAL' for s in estados):
+        return 'PENDIENTE_CONTEXTUAL'
+    return 'REVISADO_CONTEXTUAL'
+
+
+def estado_operando(emp, o, mapa, ctx, nodo_estado, stack=()):
+    """A3-R7: el estado de un operando DERIVADO se lee de su nodo (transitivo), no de
+    verificacion_contexto.jsonl, donde los derivados figuran como NO_APLICA."""
+    key = (emp, o)
+    if key in nodo_estado:
+        return nodo_estado[key]
+    ro = mapa.get(key) or {}
+    if (ro or {}).get('clase') != 'derivado':
+        return (ctx.get(key) or {}).get('estado_contextual', 'NO_APLICA')
+    if key in stack:
+        return 'CICLO'
+    est = [estado_operando(emp, oo, mapa, ctx, nodo_estado, stack + (key,)) for oo in ro['derivacion']['origenes']]
+    e = estado_desde_origenes(est, ro.get('cubierta_en_piloto'))
+    nodo_estado[key] = e
+    return e
+
+
 def main():
     registro = C.load_registro()
     mapa = {(e, r['celda']): r for e, r in C.iter_entradas(registro)}
@@ -26,6 +54,7 @@ def main():
         for line in f:
             d = json.loads(line)
             ctx[(d['empresa'], d['celda'])] = d
+    nodo_estado = {}
     valores = {}
     estado_calc = {}
     ciclos = []
@@ -113,21 +142,23 @@ def main():
             fo = ro.get('fuente') or {}
             h.update(f"{o}|{ro.get('valor_modelo')}|{fo.get('sha256')}|{fo.get('pagina')}".encode())
         # propagacion de estados y limites contextuales de los origenes (A1)
+        # A3-R7: operando derivado -> estado de su nodo (transitivo), no NO_APLICA del jsonl
         estados_orig = []
         limites_orig = []
         for o in dv['origenes']:
-            oc = ctx.get((emp, o)) or {}
-            estados_orig.append(oc.get('estado_contextual', 'NO_APLICA'))
-            for p in oc.get('pendientes') or []:
-                limites_orig.append(f"{o}: dimension {p} no decidible ({(oc.get('detalle') or {}).get(p, '')[:120]})")
-        if r.get('cubierta_en_piloto'):
-            estado_ctx = 'REUTILIZADO_M1'
-        elif any(s == 'CONFLICTO_CONTEXTUAL' for s in estados_orig):
-            estado_ctx = 'CONFLICTO_CONTEXTUAL'
-        elif any(s == 'PENDIENTE_CONTEXTUAL' for s in estados_orig):
-            estado_ctx = 'PENDIENTE_CONTEXTUAL'
-        else:
-            estado_ctx = 'REVISADO_CONTEXTUAL'
+            ro = mapa.get((emp, o)) or {}
+            if (ro or {}).get('clase') == 'derivado':
+                est_o = estado_operando(emp, o, mapa, ctx, nodo_estado)
+                estados_orig.append(est_o)
+                if est_o in ('CONFLICTO_CONTEXTUAL', 'PENDIENTE_CONTEXTUAL'):
+                    limites_orig.append(f"{o}: derivado con estado {est_o} (nodo de DERIVADOS.json)")
+            else:
+                oc = ctx.get((emp, o)) or {}
+                estados_orig.append(oc.get('estado_contextual', 'NO_APLICA'))
+                for p in oc.get('pendientes') or []:
+                    limites_orig.append(f"{o}: dimension {p} no decidible ({(oc.get('detalle') or {}).get(p, '')[:120]})")
+        estado_ctx = estado_desde_origenes(estados_orig, r.get('cubierta_en_piloto'))
+        nodo_estado[(emp, celda)] = estado_ctx
         coherencia_unidades = len(escalas) <= 1
         if not coherencia_unidades:
             limites_orig.append('unidades/escalas de los orígenes no homogeneas')

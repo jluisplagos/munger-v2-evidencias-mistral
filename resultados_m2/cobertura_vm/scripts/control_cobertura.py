@@ -179,15 +179,18 @@ def main():
     # derivados: estado_contextual debe ser exactamente la propagacion de los orígenes
     # (A2-R2: una contradiccion acreditada en un origen se propaga como CONFLICTO_CONTEXTUAL,
     #  no es una violacion del derivado; solo se rechaza si no consta en ningun origen)
+    import derivaciones as D
+    nodo_estado = {(n2['empresa'], n2['celda']): n2['estado_contextual'] for n2 in nodos}
     for n in nodos:
-        estados_orig = [ctxmap.get((n['empresa'], o['celda']), {}).get('estado_contextual', 'NO_APLICA')
-                        for o in n['origenes']]
-        if any(s == 'CONFLICTO_CONTEXTUAL' for s in estados_orig):
-            esperado_ctx = 'CONFLICTO_CONTEXTUAL'
-        elif any(s == 'PENDIENTE_CONTEXTUAL' for s in estados_orig):
-            esperado_ctx = 'PENDIENTE_CONTEXTUAL'
-        else:
-            esperado_ctx = 'REVISADO_CONTEXTUAL'
+        estados_orig = []
+        for o in n['origenes']:
+            ro = mapa.get((n['empresa'], o['celda'])) or {}
+            if ro.get('clase') == 'derivado':
+                # A3-R7: operando derivado -> estado de su nodo, no NO_APLICA del jsonl
+                estados_orig.append(nodo_estado.get((n['empresa'], o['celda']), 'NO_APLICA'))
+            else:
+                estados_orig.append(ctxmap.get((n['empresa'], o['celda']), {}).get('estado_contextual', 'NO_APLICA'))
+        esperado_ctx = D.estado_desde_origenes(estados_orig, False)
         if n['estado_contextual'] != 'REUTILIZADO_M1' and n['estado_contextual'] != esperado_ctx:
             violaciones.append(f"derivado {n['empresa']} {n['celda']}: estado_contextual {n['estado_contextual']} != propagacion de orígenes {esperado_ctx}")
 
