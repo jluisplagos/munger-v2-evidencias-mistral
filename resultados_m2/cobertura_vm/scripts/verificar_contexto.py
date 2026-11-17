@@ -712,7 +712,43 @@ def nota_no_reexpresion_citada(declared, emp, archivos):
     return None
 
 
-def check_reexpresion(emp, r, f, col_years, years_in_block):
+def escala_pagina(text_pages, pg):
+    """Escala declarada en una página de un texto: millones > miles > euros (None si no dice)."""
+    t = text_pages.get(pg) or ''
+    if MILLONES_RE.search(t):
+        return 'millones'
+    if MILES_RE.search(t):
+        return 'miles'
+    if EUROS_ONLY_RE.search(t):
+        return 'euros'
+    return None
+
+
+def perimetro_pagina(page_text):
+    t = page_text or ''
+    if re.search(r'consolid', t, re.IGNORECASE):
+        return 'consolidado'
+    if re.search(r'\bindividual\b|parent company|cuentas individuales', t, re.IGNORECASE):
+        return 'individual'
+    return None
+
+
+def polaridad_reexpresion(dl):
+    """A3-R4: la negación se decide por polaridad (palabra negativa junto a la mención de
+    reexpresar/restate), no por redacciones literales. Devuelve 'neg'/'pos'/'mixto'/None."""
+    menciones = list(re.finditer(r'reexpres\w*|restat\w*', dl))
+    if not menciones:
+        return None
+    neg_pat = re.compile(r'\b(no|not|sin|never|without|ni|didn.?t|n.t)\b', re.IGNORECASE)
+    negadas = sum(1 for m in menciones if neg_pat.search(dl[max(0, m.start() - 30):m.end() + 15]))
+    if negadas == len(menciones):
+        return 'neg'
+    if negadas:
+        return 'mixto'
+    return 'pos'
+
+
+def check_reexpresion(emp, r, f, col_years, years_in_block, esc_cita=None):
     """v4.0 (A2-R2): comparacion del comparativo con el original del año de la columna:
     - SIN atajo de cita: solo cuenta una fila del original cuyo rotulo COMPLETO coincide
       (normalizado), mapeada por POSICION de columna 1:1, con la MISMA escala y el MISMO
@@ -761,11 +797,23 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
     # rotulo completo normalizado (sin numeros): la fila debe contener el rotulo completo
     full_label = C.flat_text(re.sub(r'\d[\d.,]*', ' ', cita))
     cita_toks = canon_tokens(cita)
-    no_claim_all = (('no aplica' in dl) or ('no reexpres' in dl) or ('igual al original' in dl)
-                    or ('igual que' in dl) or ('no:' in dl) or re.match(r'^no\b', dl) or ('sin reexpresar' in dl))
-    affirm = (not no_claim_all) and (('reexpresado' in dl) or ('reexpresion' in dl) or re.search(r'\bs[ií]\b', dl))
+    # A3-R4: negación por polaridad, no por frase literal; afirmativa solo si la mención
+    # de reexpresar no está negada
+    pol = polaridad_reexpresion(dl)
+    no_claim_all = (('no aplica' in dl) or ('igual al original' in dl) or ('igual que' in dl)
+                    or ('no:' in dl) or re.match(r'^no\b', dl) or ('sin reexpresar' in dl)
+                    or pol in ('neg', 'mixto'))
+    affirm = (not no_claim_all) and (pol == 'pos' or re.search(r'\bs[ií]\b', dl))
     # escala de la pagina citada (comparativo) para comparar con la del original
     perimetro_decl = str(f.get('perimetro') or '')
+    if esc_cita is None:
+        esc_decl = C.dec(str(f.get('escala'))) if f.get('escala') is not None else None
+        if esc_decl == C.dec('0.001'):
+            esc_cita = 'miles'
+        elif esc_decl == C.dec('1'):
+            esc_cita = 'euros'
+        elif UNIT_DECLARED_CANON.get(str(f.get('unidad') or '')) == 'miles_euros':
+            esc_cita = 'miles'
 
     def signed(tok):
         t = str(tok).strip()
@@ -783,35 +831,30 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
                     out.append((t, signed(t)))
         return out
 
-    def escala_pagina(text_pages, pg):
-        t = text_pages.get(pg) or ''
-        if MILLONES_RE.search(t):
-            return 'millones'
-        if MILES_RE.search(t):
-            return 'miles'
-        if EUROS_ONLY_RE.search(t):
-            return 'euros'
-        return None
-
-    hints = [signed(t) for t in NUM_RE.findall(cita or '') if value_like(t) and not YEAR_RE.fullmatch(t)]
+    hints = [signed(t) for t in NUM_RE.findall(cita or '') if value_like(t) and not YEAR_RE.fullmatch(t) and not PROSE_YEAR_TOKEN_RE.fullmatch(t.rstrip(')'))]
 
     for name in candidatos:
         text = TEXTO_CACHE[key][name].read_text(encoding='utf-8')
         tflat = C.flat_text(text)
         orig_pages = C.extract_pages(text)
         orig_lines = text.splitlines()
+        # A3-R4: página de cada línea del original (para escala/perímetro de la fila hallada)
+        page_of_line = []
+        cur_pg = 0
+        for ln in orig_lines:
+            mpg = C.PAGE_RE.match(ln)
+            if mpg:
+                cur_pg = int(mpg.group(1))
+            page_of_line.append(cur_pg)
         # perimetro documental del original
         orig_head = '\n'.join((orig_pages.get(i) or '') for i in range(1, 9))
         orig_consolidado = bool(re.search(r'consolid', orig_head, re.IGNORECASE))
         matched = []
         for i, line in enumerate(orig_lines):
-            fl = C.flat_text(line)
-            hit = bool(full_label) and full_label in fl
-            if not hit and cita_toks:
-                toks = canon_tokens(line)
-                inter = len(cita_toks & toks)
-                if cita_toks and inter == len(cita_toks) and inter >= 2:
-                    hit = True
+            # A3-R4: la fila del original se acepta SOLO por rótulo completo normalizado
+            # (sin números) igual al de la cita; no por subcadena ni por subconjunto de palabras
+            row_label = C.flat_text(re.sub(r'\d[\d.,]*', ' ', line))
+            hit = bool(full_label) and row_label == full_label
             if not hit:
                 continue
             yb2, cl2, cy2 = find_header_block(orig_lines, i, 'near')
@@ -830,12 +873,8 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
                 elif len(block) == len(cy2):
                     cand = block
             hint_hit = any(h is not None and any(h == s for _, s in (block or nums)) for h in hints)
-            # escala de la pagina del original donde aparece la fila
-            orig_pg = None
-            for pp in sorted(k for k in orig_pages if k is not None):
-                pass
-            matched.append({'i': i, 'cy2': cy2, 'cand': cand, 'nums': nums, 'block': block,
-                            'hint': hint_hit, 'line': line})
+            matched.append({'i': i, 'pg': page_of_line[i], 'cy2': cy2, 'cand': cand, 'nums': nums,
+                            'block': block, 'hint': hint_hit, 'line': line})
         matched.sort(key=lambda m: (not m['hint'], m['i']))
         # v4.0: escala y perimetro deben coincidir entre original y comparativo
         for m in matched:
@@ -843,6 +882,17 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
             if cand is None or yc not in m['cy2']:
                 continue
             orig_tok, orig_sv = cand[m['cy2'].index(yc)]
+            # A3-R4: escala y perímetro de la fila del original deben coincidir con los del
+            # comparativo; si difieren, la igualdad de dígitos no acredita nada
+            orig_pg = m.get('pg')
+            esc_orig = escala_pagina(orig_pages, orig_pg)
+            if esc_cita and esc_orig and esc_orig != esc_cita:
+                return 'NO_DECIDIBLE', f'escala distinta: el original {name} p.{orig_pg} está en {esc_orig} y el comparativo en {esc_cita}; la igualdad numérica no acredita reexpresión'
+            per_orig = perimetro_pagina(orig_pages.get(orig_pg) or '')
+            if perimetro_decl and 'consolidado' in perimetro_decl.lower() and per_orig == 'individual':
+                return 'NO_DECIDIBLE', f'perímetro distinto: la fila del original ({name} p.{orig_pg}) es de cuentas individuales y el comparativo declara consolidado'
+            if perimetro_decl and 'individual' in perimetro_decl.lower() and per_orig == 'consolidado':
+                return 'NO_DECIDIBLE', f'perímetro distinto: la fila del original ({name} p.{orig_pg}) es consolidada y el comparativo declara individual'
             equal = (vdec is not None and orig_sv is not None and orig_sv == vdec)
             mag_equal = (vdec is not None and orig_sv is not None and abs(orig_sv) == abs(vdec))
             if equal:
@@ -859,10 +909,8 @@ def check_reexpresion(emp, r, f, col_years, years_in_block):
         if matched:
             m = matched[0]
             return 'NO_DECIDIBLE', f'la fila con rotulo completo aparece en {name} (linea {m["i"]+1}) pero la columna {yc} no se puede mapear 1:1 (columnas {m["cy2"]}, valores {[t for t, _ in m["nums"]]})'
-        if no_claim_all and variantes and any(v and v in tflat for v in variantes):
-            nnr = nota_no_reexpresion_citada(declared, emp, [archivo] + candidatos)
-            if nnr:
-                return 'NO_APLICA', f'no reexpresado documentado: {nnr[0]} p.{nnr[1]} declara "{nnr[2]}" (no reexpresar comparativos); el valor {valor} figura en el original {name}'
+        # A3-R4: quitado el atajo «no reexpresado documentado + valor en cualquier parte
+        # del original»; el valor suelto no acredita fila/columna
         if variantes and any(v and v in tflat for v in variantes):
             return 'NO_DECIDIBLE', f'el valor aparece en {name} pero no en una fila con el rotulo completo mapeable 1:1 en la columna {yc}; reexpresion no decidible'
     if not candidatos:
@@ -905,7 +953,8 @@ def check_entrada(emp, r, pages, doc=None):
     checks['signo'] = check_signo(bloque_fila or row_line or '', f.get('valor_fuente'), f.get('signo'))
     checks['perimetro'] = check_perimetro(lines, f.get('perimetro'), doc)
     checks['version'] = check_version(f.get('archivo'), lines, years_in_block, doc)
-    checks['reexpresion'] = check_reexpresion(emp, r, f, col_years, years_in_block)
+    esc_cita = escala_pagina(pages, pg) if pg is not None else None
+    checks['reexpresion'] = check_reexpresion(emp, r, f, col_years, years_in_block, esc_cita=esc_cita)
     out['checks'] = checks
     titulo = ' | '.join(C.norm_text(l) for l in lines[:6] if l.strip())[:250]
     out['evidencia'] = {

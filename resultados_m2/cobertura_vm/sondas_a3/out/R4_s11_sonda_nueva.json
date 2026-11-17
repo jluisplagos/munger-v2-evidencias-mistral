@@ -1,0 +1,47 @@
+{
+  "modulo": "/workspace/wt-a/resultados_m2/cobertura_vm/scripts/verificar_contexto.py",
+  "sondas": [
+    {
+      "sonda": "R4g_sin_atajo_valor_suelto_con_nota",
+      "descripcion": "La nota «did not restate» + el 28 suelto ya no acreditan: NO_DECIDIBLE.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion no decidible",
+      "defecto": false
+    },
+    {
+      "sonda": "R4h_negacion_never_restated",
+      "descripcion": "Negación por polaridad («never restated») con diferencia 9000 vs 10000 -> CONFLICTO, no OK.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "declara no reexpresado (\"comparatives were never restated\") pero el original CF_2024.txt imprime 10000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita",
+      "defecto": false
+    },
+    {
+      "sonda": "R4i_fila_distinta_mismo_prefijo",
+      "descripcion": "La fila «Revenue» correcta imprime 10000 en 2024; la de discontinuadas no debe casar -> CONFLICTO.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "declara no reexpresado (\"no reexpresado\") pero el original CF_2024.txt imprime 10000 en la columna 2024 (fila 5) y el comparativo cita 9000: contradiccion explicita",
+      "defecto": false
+    },
+    {
+      "sonda": "R4j_control_igualdad_rotulo_completo",
+      "descripcion": "Control positivo: igualdad confirmada por rótulo completo en la columna 2024.",
+      "esperado": [
+        "NO_APLICA",
+        "OK"
+      ],
+      "obtenido": "NO_APLICA",
+      "detalle": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (9000) en la fila 4; coherente",
+      "defecto": false
+    }
+  ]
+}
