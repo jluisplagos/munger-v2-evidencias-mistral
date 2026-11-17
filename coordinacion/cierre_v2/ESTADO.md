@@ -31,7 +31,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | T-TRASPASO | Claude + receptor sin historial | ENTREGADO | CONFORME_CON_LIMITES | NO | EJECUTADAS / PARCIALES | 788f25c |
 | H-DEC | Usuario | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 | F1-IMPL | Claude | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
-| T-AUTO | Usuario (ramas automatizacion/*, preparadas con ChatGPT) | ENTREGADO | PENDIENTE | NO | DECLARADAS / NO_EJECUTADAS | a508d6b |
+| T-AUTO | Usuario (ramas automatizacion/*, preparadas con ChatGPT) | ENTREGADO | CORRECCIONES | NO | DECLARADAS / REPRODUCIDAS | a508d6b |
 | Q-CONTRASTE | Mistral (Vibe) + contraste Claude API | PARCIAL | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | 953af02 |
 | CIERRE | Claude + usuario | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
 
@@ -73,7 +73,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - **F1-IMPL · Implementación económica F1 autorizada**: Puede preparar parche propuesto separado; no activar cambios económicos antes de decisión explícita.
   Dependencias: F1-W, H-DEC, T-CAND.
   Bloqueo/límite: Datos/políticas económicos pendientes; Elis sigue pendiente_de_datos.
-- **T-AUTO · Automatización de coordinación (infraestructura: piloto Claude API, coordinación común, Vibe CLI, contrastes Qwen)**: Revisión independiente del código en curso: corrección SSE 0956bc5, presupuesto y reserva create-only, sin reintentos, secretos y permisos de los workflows. Después se reproducen las pruebas del autor en copia (49 del piloto según PR #1 y las de coordinación). Los informes de contraste se cotejan uno a uno y no se aceptan automáticamente.
+- **T-AUTO · Automatización de coordinación (infraestructura: piloto Claude API, coordinación común, Vibe CLI, contrastes Qwen)**: CORRECCION_AUTO1 (M1–M7, m1–m9), a cargo de quien mantiene la rama (el usuario con ChatGPT). Prioridad: M6, porque los workflows lanzan inferencias de pago con un push. Mientras siga abierta, no se hace push que toque los scripts o workflows de inferencia sin una decisión expresa. El coordinador revisa solo lo afectado.
   Bloqueo/límite: Infraestructura, no producto. Ni se adopta ni se fusiona main; PR #1 queda en borrador. No hay agente API que aplique correcciones ni una cola continua autorizada. audit-pilot-code-001 no se repite. No se cambia la facturación ni se activa pay-as-you-go. Sus informes son contrastes documentales: no ejecutan el personaje, no aceptan entregas y no sustituyen correcciones (D3) ni revisiones del coordinador.
 - **Q-CONTRASTE · Contraste documental del banco Qwen (Q1, 36 casos) en tandas de seis**: Cotejar la tanda 01 con su contraste: el fixture de Q1-004 sin alternativas ni límites (media); exageración en «dinero real»; corrección v2 inexistente citada; Q1-002 sobredimensionado. Las tandas 02–06 se recogen solo cuando se publiquen. Nada se acepta automáticamente.
   Dependencias: T-AUTO.
@@ -91,7 +91,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - G-MANUAL: LISTA; revisor asignado: Subagente Claude, contexto distinto del autor (no hay sesión Mistral libre); SHA: ef36ab18ff485e40dbb727b1b95eb177e5346683.
 - G-DOCS: RESPONDIDA; revisor asignado: Mistral A, en mistral/g-manual-traspaso (antes de A3), u otro contexto distinto; SHA: c0542b83b9923f98124d3c72e48b7fc7245284d2.
 - G-RAIZ: LISTA; revisor asignado: Mistral A, en mistral/g-manual-traspaso (siguiente tras G-DOCS), u otro contexto distinto; SHA: 3d66437e797b6b0bf137b42fa62b561f39121722.
-- T-AUTO: LISTA; revisor asignado: Subagente Claude, contexto distinto del autor; SHA: a508d6b38168933d9e6ef480e0d23627b8d748fb.
+- T-AUTO: RESPONDIDA; revisor asignado: Subagente Claude, contexto distinto del autor; SHA: a508d6b38168933d9e6ef480e0d23627b8d748fb.
 
 ## Cómo se decide el cierre
 

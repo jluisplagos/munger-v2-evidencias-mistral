@@ -1,0 +1,65 @@
+== claude-critical-review.yml
+  disparadores:  push: 
+  ramas:  branches: [automatizacion/coordinacion-api-v1]
+  permisos:  contents: read  contents: write 
+  secretos: secrets.ANTHROPIC_API_KEY secrets.GITHUB_TOKEN 
+  pip_install_sin_hash: 0  setup-python: 0
+  execute_api/inferencia: 2
+  persist-credentials false: 2  acciones fijadas por SHA: 3/3
+== piloto-claude-api.yml
+  disparadores:  push:  workflow_dispatch: 
+  ramas:  branches: [automatizacion/piloto-claude-api]
+  permisos:  contents: read  contents: write 
+  secretos: secrets.ANTHROPIC_API_KEY secrets.GITHUB_TOKEN 
+  pip_install_sin_hash: 0  setup-python: 0
+  execute_api/inferencia: 2
+  persist-credentials false: 2  acciones fijadas por SHA: 3/3
+== qwen-bank-mistral-groups.yml
+  disparadores:  push: 
+  ramas:  branches: [automatizacion/coordinacion-api-v1]
+  permisos:  contents: read  contents: write 
+  secretos: secrets.ANTHROPIC_API_KEY secrets.GITHUB_TOKEN secrets.MISTRAL_VIBE_CLI_KEY 
+  pip_install_sin_hash: 1  setup-python: 1
+  execute_api/inferencia: 4
+  persist-credentials false: 1  acciones fijadas por SHA: 3/3
+== qwen-bank-mistral-review.yml
+  disparadores:  push: 
+  ramas:  branches: [automatizacion/coordinacion-api-v1]
+  permisos:  contents: read  contents: write 
+  secretos: secrets.GITHUB_TOKEN secrets.MISTRAL_VIBE_CLI_KEY 
+  pip_install_sin_hash: 1  setup-python: 1
+  execute_api/inferencia: 4
+  persist-credentials false: 1  acciones fijadas por SHA: 3/3
+== vibe-auth.yml
+  disparadores:  push: 
+  ramas:  branches: [automatizacion/coordinacion-api-v1]
+  permisos:  contents: read  contents: write 
+  secretos: secrets.GITHUB_TOKEN secrets.MISTRAL_VIBE_CLI_KEY 
+  pip_install_sin_hash: 1  setup-python: 1
+  execute_api/inferencia: 2
+  persist-credentials false: 1  acciones fijadas por SHA: 3/3
+== vibe-readiness.yml
+  disparadores:  push: 
+  ramas:  branches: [automatizacion/coordinacion-api-v1]
+  permisos:  contents: read 
+  secretos: secrets.MISTRAL_VIBE_CLI_KEY 
+  pip_install_sin_hash: 1  setup-python: 1
+  execute_api/inferencia: 0
+  persist-credentials false: 1  acciones fijadas por SHA: 2/2
+== escrituras GitHub en código (método, rama)
+<rev_auto>/automation/coordination/critical_review.py:104:        if (service, method, path) != ('anthropic', 'POST', '/v1/messages'):
+<rev_auto>/automation/coordination/critical_review.py:107:                      data=pilot.canonical({**body, 'stream': True}), method='POST',
+<rev_auto>/automation/coordination/critical_review.py:236:    count = http.call('anthropic', 'POST', '/v1/messages/count_tokens', payload(bundle))
+<rev_auto>/automation/coordination/critical_review.py:243:        response = http.call('anthropic', 'POST', '/v1/messages',
+<rev_auto>/automation/coordination/qwen_bank_review.py:56:        self.http.call('github', 'PUT', self.base + '/reservation.json', {
+<rev_auto>/automation/claude_review/pilot.py:248:                self.http.call('github', 'POST', f'/repos/{REPO}/git/refs',
+<rev_auto>/automation/claude_review/pilot.py:270:            self.http.call('github', 'PUT', self.base + '/' + name, body)
+<rev_auto>/automation/claude_review/pilot.py:334:    count = http.call('anthropic', 'POST', '/v1/messages/count_tokens',
+<rev_auto>/automation/claude_review/pilot.py:344:        response = http.call('anthropic', 'POST', '/v1/messages',
+<rev_auto>/automation/coordination/qwen_bank_review.py:58:            'branch': pilot.LEDGER_BRANCH, 'sha': previous['sha'],
+<rev_auto>/automation/claude_review/pilot.py:23:LEDGER_BRANCH = 'automatizacion/claude-api-piloto-registro'
+<rev_auto>/automation/claude_review/pilot.py:260:        body = {'message': 'Piloto Claude API: ' + name, 'branch': LEDGER_BRANCH,
+== referencias a main, coordinacion/cierre-v2, CONTROL.json, ESTADO.md en código Python
+== bucles while/reintentos en código
+<rev_auto>/automation/coordination/qwen_bank_review.py:21:               'api_retry_max_elapsed_time = 0\napi_stream_idle_timeout = 0\n'
+<rev_auto>/automation/coordination/vibe_connection.py:31:                'api_retry_max_elapsed_time = 0\n'
