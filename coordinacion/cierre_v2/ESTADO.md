@@ -65,7 +65,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Dependencias: T-CAND, D-HARNESS.
 - **T-TRASPASO · Traspaso sin historial y revisión de manual**: Ensayo en curso con un receptor sin historial: un agente nuevo que solo recibe PROMPT_RECEPTOR.md y trabaja desde clones y descargas propias, siguiendo el manual §10. Límite declarado: el receptor es de la misma familia de modelo que el autor del manual y no puede lanzar los agentes del personaje (pasos con agentes reales: no ejecutables por el receptor). Mistral A no vale como receptor.
   Dependencias: T-CAND, G-MANUAL.
-- **H-DEC · Decisiones económicas pendientes con fundamento**: Presentar solo opciones nuevas/reales; aprobación no suple M1/M2/M6/N2 ni P-M1.
+- **H-DEC · Decisiones económicas pendientes con fundamento**: Decisiones económicas F1 (1a)–(5b), E8.1 y umbral de V-F1a presentadas una por una (03e7851) a la persona responsable. Nada adoptado. F1-IMPL espera esas decisiones.
   Dependencias: F1-W.
   Bloqueo/límite: No hay adopción de políticas económicas nuevas en este programa.
 - **F1-IMPL · Implementación económica F1 autorizada**: Puede preparar parche propuesto separado; no activar cambios económicos antes de decisión explícita.
