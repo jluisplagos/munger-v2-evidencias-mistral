@@ -1,6 +1,9 @@
 # Comandos ejecutados · bloque F-REV (rama mistral/f-alcance-real)
 
-Fecha: 2026-11-16 ~21:05–21:15 UTC. Entorno: sandbox `/workspace`, repo auxiliar clonado en
+Horas reales obtenidas de los propios commits (`git log --format=%ad`, UTC); las horas que había
+antes aquí eran estimaciones posteriores a los commits y no coincidían con ellos (F2-D6).
+Bloque F-REV: commits 90329a1 2026-11-16T21:16:13Z (F1 W1–W3), e94ee7c 21:32:34Z (C20),
+c7716a0 21:42:17Z (CSV). Entorno: sandbox `/workspace`, repo auxiliar clonado en
 `/workspace/github__jluisplagos__munger-v2-evidencias-mistral`. El sandbox **bloquea `git remote add`**;
 todo el contenido del producto (`jluisplagos/munger-v2`, solo lectura) se obtuvo con `gh api`.
 Python 3.12, solo stdlib. No se ejecutó el producto, LibreOffice, el pipeline ni macros.
@@ -67,7 +70,7 @@ git add resultados_cierre/alcance_real && git commit -m "..." && git push -u ori
 git fetch origin coordinacion/cierre-v2   # re-consulta de CONTROL.json tras el bloque
 ```
 
-## Bloque C20 (mismo bloque F-REV, segunda entrega de Claude) · 2026-11-16 ~21:17–21:40 UTC
+## Bloque C20 (mismo bloque F-REV, segunda entrega de Claude) · commit e94ee7c 2026-11-16T21:32:34Z
 
 ```bash
 # control actualizado: C20 ENTREGADO @ bf0d5c2, solicitud LISTA (11 rutas, 5 criterios)
@@ -91,7 +94,7 @@ python3 -I .trabajo/c20/probes_c20.py   # todo COINCIDE con lo que propone la re
 # diffs de codigo y de test, y parches de texto (T14, informe) guardados en evidencias/c20/
 ```
 
-## Bloque CSV (F-REV, tercera entrega de Claude) · 2026-11-16 ~21:33–21:55 UTC
+## Bloque CSV (F-REV, tercera entrega de Claude) · commit c7716a0 2026-11-16T21:42:17Z
 
 ```bash
 git fetch origin coordinacion/cierre-v2   # CSV ENTREGADO @ 77ff89f8, solicitud LISTA (4 criterios)
@@ -108,7 +111,7 @@ PYTHONPATH=.trabajo/csv/shimlib PATH=.trabajo/c20/shim:$PATH python3 .trabajo/cs
 python3 .trabajo/csv/mutantes_csv.py   # Lavartex/otras adquisiciones como grupo -> PENDIENTE (no OK); anio/edicion equivocados -> FALLO
 ```
 
-## Bloque B-PM1 (contraste documental del dossier de Mistral B) · 2026-11-16 ~22:00–22:20 UTC
+## Bloque B-PM1 (contraste documental del dossier de Mistral B) · commit 223f16d 2026-11-16T21:50:14Z (evidencia 21:48:58Z)
 
 ```bash
 git fetch origin mistral/m2-fundamento-pm1                       # daa7478 = HEAD del frente B
@@ -121,7 +124,7 @@ gh release view fuentes-mistral-m2-20261116 --repo jluisplagos/munger-v2-evidenc
 git show daa7478:resultados_m2/pm1/CALCULOS_PM1.json   # conclusion: P-M1 no delimitada, bloqueo; theta/lambda no identificados
 ```
 
-## Bloque Cola 2 (F-B3/F-C1, paquete de preparacion) · 2026-11-16 ~22:30 UTC
+## Bloque Cola 2 (F-B3/F-C1, paquete de preparacion) · commit 52fb120 2026-11-16T22:07:15Z; checkpoint 868f448 22:07:42Z
 
 ```bash
 # estado: matriz de alcance + hito 2 + resumen empresas + fixtures motor C + E62 (via gh api / ZIP base-4.14)

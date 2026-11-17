@@ -21,6 +21,22 @@ valoración ni resultados para seleccionar.
 - Es una selección de **ensayo**, no una elección de motor por conveniencia.
 - Huecos como huecos, nunca ceros.
 
+## 2.1 Criterios operativos de selección del recorrido C (F2-D6)
+
+Fijados el **2026-11-17, antes de nombrar ninguna candidata concreta de C** (en `SELECCION.csv`
+no hay ninguna entidad financiera nombrada; la de B es Ahold, condicionada y bloqueada por
+insumo). **Sin precios de mercado** en ningún paso de la selección:
+
+1. **Tipo de entidad**: banco o aseguradora (caso especial «Financiera» → motor C,
+   `Palancas C6` @ 957af65), fuera de la muestra ya usada.
+2. **Fuente mínima**: informe oficial (cuentas anuales / Pilar 3 / SFCR) con bytes y SHA-256
+   conservados, o Excel de etapa 1 ya verificado; procedencia y vigencia comprobadas.
+3. **Método posible**: el contrato C corregido según el motor real (CONTRATO_C_PROPUESTA.md,
+   F2-D3) aplicable sin forzar; la fase A real valida el método.
+4. **Desempate entre candidatas**: primero la mejor fuente documental con huella; después el
+   encaje de negocio declarado. Nunca por la valoración/precio resultante.
+5. Las probabilidades de escenarios y r son juicio/convención declarada, sin valor fijado aquí.
+
 ## 3. Protocolo de ejecución (cuando exista candidata con insumos)
 
 1. Materializar copia aislada desde el ZIP base-4.14 (SHA-256 `bb51942c…`, 6798/6798 verificados);
@@ -30,7 +46,7 @@ valoración ni resultados para seleccionar.
 3. Configuración propia **congelada antes de evaluar** (precedente: `hito1/SELECCION_TERCERA_EMPRESA.md`
    se justificó antes de conocer el resultado).
 4. Fases A/B/C con agentes reales y regla de rama; auditoría independiente (paso 13) por un contexto
-   distinto del extractor (límite I18/I20 de la matriz vieja: no restaurar como vigentes los límites
+   distinto del extractor (límite I19/I20 de la matriz vieja: no restaurar como vigentes los límites
    superados; la frase de doble PPA más fuerte que F1 no se restaura — F1 es la vigente).
 5. Relevo documentado (CONTINUIDAD.md / PROMPT_NUEVA_VENTANA.md) y paquete de relevo.
 6. Entrega por paquetes Git al coordinador; nada integrado por mí.

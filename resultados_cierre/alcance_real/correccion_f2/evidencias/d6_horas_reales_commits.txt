@@ -1,0 +1,12 @@
+== F2-D6 · horas reales vs horas declaradas antes ==
+$ git log --format='%h %ad %s' --date=format:'%Y-%m-%dT%H:%M:%SZ' -7 (rama mistral/f-alcance-real)
+e9f76a9 2026-11-17T09:39:34Z F · F2-D3: contrato C y mapa fieles al motor real @957af65, con ejemplo numerico comprobado
+195766f 2026-11-17T09:35:37Z F · F2-D1/D2/D7: inventario desde ZIP reproducible byte a byte, 71 PDF con SHA-256 completo, rutas por argumento
+868f448 2026-11-16T22:07:42Z F · checkpoint final de cola: CONTROL registra F1-W/C20/CSV como CONFORME_CON_LIMITES/RESPONDIDA tras mis contrastes; cola C_F completa (F-REV, B-PM1, F-B3, F-C1); Cola 3 bloqueada por insumos externos (Ahold etapa 1, fuente financiera para C)
+52fb120 2026-11-16T22:07:15Z F · Cola 2 (F-B3/F-C1): paquete de preparacion — seleccion de ensayo, protocolo congelado, inventario con huellas, mapa de entradas, contrato C propuesto
+223f16d 2026-11-16T21:50:14Z F · B-PM1: contraste documental del dossier @ daa7478 — CONFIRMADO, sin defecto material, bloqueo P-M1 conservado
+c7716a0 2026-11-16T21:42:17Z F-REV bloque 3: contraste independiente del bloque CSV @ 77ff89f8 (base bf0d5c2) — CUMPLE los 4 criterios, sin defecto material
+e94ee7c 2026-11-16T21:32:34Z F-REV bloque 2: contraste independiente de C20 (U1-U6) @ bf0d5c2 (base d519eb0) — CUMPLE los 5 criterios, sin defecto material
+
+COMANDOS.md decia antes: F-REV ~21:05-21:15, C20 ~21:17-21:40, CSV ~21:33-21:55, B-PM1 ~22:00-22:20, Cola 2 ~22:30
+=> corregido a las horas de commit de arriba. Protocolo de C con criterios fijados en PROTOCOLO_CONGELADO.md §2.1 (2026-11-17, antes de nombrar candidata, sin precios).
