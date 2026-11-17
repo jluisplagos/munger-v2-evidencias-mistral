@@ -1,0 +1,126 @@
+name: Analisis directo Claude API
+# Personaje frente a analisis directo (REORIENTACION_UNIVERSO §10). AUTO1-M6: solo a
+# mano y tras aprobar el environment protegido; nunca con push. Una ejecucion = una
+# llamada como maximo, sin reintentos (critical_review.run de AUTO1). Un "Re-run" de la
+# misma ejecucion reutiliza su tarea y queda bloqueado por la reserva ya publicada.
+on:
+  workflow_dispatch:
+    inputs:
+      empresa:
+        description: 'Empresa en minusculas, igual que en el manifiesto (p. ej. zoetis)'
+        required: true
+        type: string
+      paquete:
+        description: 'Manifiesto del paquete: automation/direct_analysis/paquetes/<nombre>.json'
+        required: true
+        type: string
+      modelo:
+        description: 'Modelo (el mismo que el agente principal del personaje)'
+        required: true
+        type: choice
+        default: claude-opus-5-5
+        options: [claude-opus-5-5, claude-fable-5-2, claude-sonnet-5-5]
+      esfuerzo:
+        description: 'Esfuerzo de razonamiento (no hay presupuesto de pensamiento en tokens)'
+        required: true
+        type: choice
+        default: high
+        options: [low, medium, high, xhigh, max]
+      coste_maximo_usd:
+        description: 'Coste maximo de esta ejecucion en USD (techo del codigo: 5)'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: python3 -I -m unittest discover -s automation/claude_review -p 'test_*.py' -v
+      - run: python3 -I -m unittest discover -s automation/coordination -p 'test_*.py' -v
+      - run: python3 -I -m unittest discover -s automation/direct_analysis -p 'test_*.py' -v
+  # Sin secretos: arma el paquete, comprueba huellas y tamano y muestra la reserva
+  # estimada en el resumen ANTES de que la persona apruebe el job de pago.
+  preparar:
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Preparar sin llamar a la API
+        env:
+          EMPRESA: ${{ inputs.empresa }}
+          PAQUETE: ${{ inputs.paquete }}
+          MODELO: ${{ inputs.modelo }}
+          ESFUERZO: ${{ inputs.esfuerzo }}
+          COSTE_MAXIMO: ${{ inputs.coste_maximo_usd }}
+        run: >-
+          python3 automation/direct_analysis/direct_analysis.py
+          --empresa "$EMPRESA" --package "$PAQUETE" --model "$MODELO" --effort "$ESFUERZO"
+          --max-usd "$COSTE_MAXIMO" --run-id "$GITHUB_RUN_ID" --code-sha "$GITHUB_SHA"
+          --output "$RUNNER_TEMP/munger-analisis-directo"
+      - name: Resumen
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/munger-analisis-directo/report.md" ]; then
+            cat "$RUNNER_TEMP/munger-analisis-directo/report.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: munger-analisis-directo-preparacion-${{ github.run_id }}
+          path: ${{ runner.temp }}/munger-analisis-directo/
+          if-no-files-found: warn
+          retention-days: 30
+  analisis:
+    needs: preparar
+    concurrency:
+      group: munger-analisis-directo
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    # Plazo del stream (720 s) + timeout de socket (60 s) + publicacion < 20 min.
+    timeout-minutes: 20
+    environment: inferencia-aprobada
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Una llamada como maximo, sin reintentos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD: ${{ vars.MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD }}
+          EMPRESA: ${{ inputs.empresa }}
+          PAQUETE: ${{ inputs.paquete }}
+          MODELO: ${{ inputs.modelo }}
+          ESFUERZO: ${{ inputs.esfuerzo }}
+          COSTE_MAXIMO: ${{ inputs.coste_maximo_usd }}
+        run: >-
+          python3 automation/direct_analysis/direct_analysis.py
+          --empresa "$EMPRESA" --package "$PAQUETE" --model "$MODELO" --effort "$ESFUERZO"
+          --max-usd "$COSTE_MAXIMO" --run-id "$GITHUB_RUN_ID" --code-sha "$GITHUB_SHA"
+          --output "$RUNNER_TEMP/munger-analisis-directo"
+          --execute-api
+      - name: Resumen
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/munger-analisis-directo/report.md" ]; then
+            cat "$RUNNER_TEMP/munger-analisis-directo/report.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: munger-analisis-directo-${{ github.run_id }}
+          path: ${{ runner.temp }}/munger-analisis-directo/
+          if-no-files-found: warn
+          retention-days: 30

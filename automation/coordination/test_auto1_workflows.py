@@ -46,7 +46,8 @@ class WorkflowTests(unittest.TestCase):
                         self.assertEqual(triggers, ['workflow_dispatch'])
                         env = job.get('environment')
                         self.assertEqual(env['name'] if isinstance(env, dict) else env, GATE)
-        self.assertEqual(gated, 6)
+        # 7: + job «analisis» de analisis-directo.yml (inventario; cada alta se revisa).
+        self.assertEqual(gated, 7)
 
     def test_m6_push_only_for_jobs_without_secrets(self):
         for name, (doc, triggers) in self.workflows.items():
