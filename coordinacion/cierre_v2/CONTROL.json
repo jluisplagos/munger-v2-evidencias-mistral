@@ -25,8 +25,8 @@
     "repositorio": "jluisplagos/munger-v2",
     "rama": "integracion/candidata-cierre-v2",
     "base": "957af652cdc3bef3d67e8623c9572138bac685e9",
-    "head": "957af652cdc3bef3d67e8623c9572138bac685e9",
-    "estado": "Sin cambios sobre 957af65: binarios materializados, manifiesto 7762/7762, verificación completa PASA y control 4.14 29/35 (esperado); nada integrado porque nada aceptado es software del producto"
+    "head": "31491289a9a13a670dd563c1b2df85dad54eb74a",
+    "estado": "957af65 + G-DOCS (3149128; 4 archivos documentales revisados). Código sin cambios; manifiesto 7762/7762"
   },
   "estado_global": "Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud económica global acreditada.",
   "colas_propias": {
@@ -612,26 +612,30 @@
       "autor": "Claude coordinador",
       "revisor_propuesto": "Mistral A (revisor del manual) u otro contexto distinto",
       "entrega": "ENTREGADO",
-      "revision": "PENDIENTE",
-      "integracion": "NO",
+      "revision": "CONFORME_CON_LIMITES",
+      "integracion": "SI",
       "commit_origen": "c0542b83b9923f98124d3c72e48b7fc7245284d2",
-      "commit_destino": null,
+      "commit_destino": "31491289a9a13a670dd563c1b2df85dad54eb74a",
       "evidencia": [
         "jluisplagos/munger-v2 · integracion/docs-operativos-957af65 @ c0542b8 (base 957af65): munger_v2_r1/personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md, munger_v2_r1/CONTINUIDAD.md, CAMBIOS_ARCHIVOS.txt y MANIFIESTO_SHA256.txt regenerados con generar_cambios_y_manifiesto_4_15.py",
-        "mistral/g-manual-traspaso @ a0524d9"
+        "mistral/g-manual-traspaso @ a0524d9",
+        "resultados_cierre/manual_revision/revision_gdocs_c0542b8/INFORME_REVISION_GDOCS.md @ a0524d9 (mistral/g-manual-traspaso)",
+        "jluisplagos/munger-v2 · integracion/candidata-cierre-v2 @ 3149128"
       ],
       "pruebas_autor": "EJECUTADAS",
-      "pruebas_externas": "NO_EJECUTADAS",
+      "pruebas_externas": "REPRODUCIDAS",
       "dependencias": [
         "G-MANUAL"
       ],
       "bloqueo": null,
-      "siguiente_accion": "Revisión por un contexto distinto (solicitud LISTA). Si es conforme, el coordinador incorpora los cuatro archivos a la candidata con origen, revisión y destino. C-01…C-04 y O-12/O-13 (README y CLAUDE.md de la raíz, MIGRATION_STATUS.json) son instrucciones del usuario: se proponen en DECISIONES, no se cambian.",
-      "observacion": "Revisión de Mistral A entregada en a0524d9 (declara CONFORME CON LÍMITES); el coordinador la reproduce antes de aceptarla.",
-      "commit_revisado": null,
-      "alcance_aceptado": [],
+      "siguiente_accion": "Integrado en la candidata (3149128). Nada más en esta tarea.",
+      "observacion": "Integración por archivo: 4 archivos de c0542b8, origen, revisión (a0524d9) y destino (3149128) registrados; manifiesto 7762/7762 en la candidata materializada.",
+      "commit_revisado": "c0542b83b9923f98124d3c72e48b7fc7245284d2",
+      "alcance_aceptado": [
+        "GUIA_RECORRIDO_SUPERVISADO.md, CONTINUIDAD.md, CAMBIOS_ARCHIVOS.txt y MANIFIESTO_SHA256.txt de c0542b8, idénticos byte a byte, en la candidata"
+      ],
       "solicitud_revision": {
-        "estado": "LISTA",
+        "estado": "RESPONDIDA",
         "sha_autor": "c0542b83b9923f98124d3c72e48b7fc7245284d2",
         "base_revisada": "957af652cdc3bef3d67e8623c9572138bac685e9",
         "diff_rutas": [
@@ -647,7 +651,17 @@
           "CAMBIOS_ARCHIVOS.txt y MANIFIESTO_SHA256.txt regenerados con el generador del producto; manifiesto 7762/7762; diff limitado"
         ],
         "revisor_asignado": "Mistral A, en mistral/g-manual-traspaso (antes de A3), u otro contexto distinto",
-        "informe_revision": null
+        "informe_revision": {
+          "commit": "a0524d9",
+          "rama": "mistral/g-manual-traspaso",
+          "ruta": "resultados_cierre/manual_revision/revision_gdocs_c0542b8/INFORME_REVISION_GDOCS.md",
+          "veredicto": "CONFORME CON LÍMITES en los cuatro criterios; sin correcciones materiales",
+          "limites": [
+            "revisión documental por API; no verificó los 7762 hashes sobre un árbol materializado (lo hizo el coordinador: 7762/7762)",
+            "reproducción del coordinador: sonda s04 idéntica desde git local; sus cuatro diffs, idénticos a los del commit"
+          ],
+          "aceptacion_del_coordinador": "Aceptado con esos límites; el coordinador no es autor del informe ni lo modifica"
+        }
       }
     },
     {
@@ -685,7 +699,7 @@
           "Se conservan todas las instrucciones sustantivas y decisiones: originales, fuentes y huellas, LibreOffice en secuencia, aprobaciones, política económica, modelos, separación de revisor, recuperación con la 4.14",
           "No se declara aptitud ni se adopta nada; main sigue con la 4.14"
         ],
-        "revisor_asignado": "Mistral A (tras G-DOCS) u otro contexto distinto",
+        "revisor_asignado": "Mistral A, en mistral/g-manual-traspaso (siguiente tras G-DOCS), u otro contexto distinto",
         "informe_revision": null
       }
     },
@@ -710,7 +724,7 @@
       "pruebas_externas": "NO_EJECUTADAS",
       "dependencias": [],
       "bloqueo": null,
-      "siguiente_accion": "Candidata 957af65 materializada (manifiesto 7762/7762) y verificada: verificar_paquete.sh completa, código 0, RESULTADO GLOBAL PASA (15 baterías); control 4.14 29/35, lo esperado sobre clon Git. Nada aceptado es software del producto: no hay integración pendiente. Reproducción por otro contexto: pendiente (requiere LibreOffice; el entorno Mistral no lo declara). Al aceptar software de A/D, integrar por archivo con origen, destino y pruebas.",
+      "siguiente_accion": "Candidata con su primera integración (G-DOCS, 3149128): solo documentos; manifiesto 7762/7762. La verificación completa de 957af65 sigue valiendo para el código, que no ha cambiado; ninguna batería lee esos documentos. Integrar lo siguiente aceptado por archivo, con origen, revisión, destino y pruebas afectadas.",
       "observacion": "Estado contrastado de artefactos publicados; no observa actividad privada de sesiones.",
       "commit_revisado": null,
       "alcance_aceptado": [],
@@ -1069,6 +1083,11 @@
       "tipo": "CONSULTA",
       "fecha": "2026-11-17",
       "hecho": "Recogidas sin revisar: D2 bloque 1 (3934bc9), F2 bloque 1 (195766f) y la revisión de G-DOCS por Mistral A (a0524d9)."
+    },
+    {
+      "tipo": "INTEGRACION",
+      "fecha": "2026-11-17",
+      "hecho": "G-DOCS integrado en la candidata (3149128): 4 archivos de c0542b8, revisión de Mistral A a0524d9 reproducida por el coordinador; manifiesto 7762/7762."
     }
   ],
   "consulta_remotos_arranque": {

@@ -6,7 +6,7 @@ Cierre en preparación: entregas parciales y revisiones pendientes; sin aptitud 
 
 **Fuente:** CONTROL.json. Este panel resume evidencia registrada; no observa sesiones privadas, no ejecuta agentes y no acredita por sí solo aptitud económica.
 
-Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integracion/candidata-cierre-v2', 'base': '957af652cdc3bef3d67e8623c9572138bac685e9', 'head': '957af652cdc3bef3d67e8623c9572138bac685e9', 'estado': 'Sin cambios sobre 957af65: binarios materializados, manifiesto 7762/7762, verificación completa PASA y control 4.14 29/35 (esperado); nada integrado porque nada aceptado es software del producto'}. Mantenedor: Claude coordinador, único escritor.
+Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integracion/candidata-cierre-v2', 'base': '957af652cdc3bef3d67e8623c9572138bac685e9', 'head': '31491289a9a13a670dd563c1b2df85dad54eb74a', 'estado': '957af65 + G-DOCS (3149128; 4 archivos documentales revisados). Código sin cambios; manifiesto 7762/7762'}. Mantenedor: Claude coordinador, único escritor.
 
 | ID | Dueño | Entregado | Revisado | Integrado | Pruebas autor / externas | Origen |
 |---|---|---|---|---|---|---|
@@ -23,7 +23,7 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 | F-B3 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
 | F-C1 | Mistral C/F prepara; Claude orquesta | PARCIAL | CORRECCIONES | NO | DECLARADAS / NO_EJECUTADAS | 52fb120 |
 | G-MANUAL | Claude coordinador (borrador por un subagente de redacción) | PARCIAL | CONFORME_CON_LIMITES | NO | NO_EJECUTADAS / PARCIALES | 341831f |
-| G-DOCS | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | c0542b8 |
+| G-DOCS | Claude coordinador | ENTREGADO | CONFORME_CON_LIMITES | SI | EJECUTADAS / REPRODUCIDAS | c0542b8 |
 | G-RAIZ | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 3d66437 |
 | T-CAND | Claude coordinador | ENTREGADO | PENDIENTE | NO | EJECUTADAS / NO_EJECUTADAS | 957af65 |
 | T-EXP | Claude runtime + extractores/revisores reales | PENDIENTE | PENDIENTE | NO | NO_EJECUTADAS / NO_EJECUTADAS | — |
@@ -55,10 +55,10 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
   Bloqueo/límite: Documentos oficiales de los candidatos sin verificar: descarga de FinecoBank denegada por el control de permisos de la sesión; Hannover Re responde 403 a curl. Hace falta que la persona responsable autorice esas descargas o deje ella los documentos (informe anual 2025 y Pilar 3 o SFCR 2025 de cada candidato).
 - **G-MANUAL · Manual, instalación y recuperación desde contexto limpio**: Corregir los textos operativos desfasados (G-1…G-9 y C-07/C-08/C-09/C-12 de CONTINUIDAD) en una rama aislada de la candidata y publicarlo para revisión por un contexto distinto. C-01…C-04 (README/CLAUDE.md raíz) son instrucciones del usuario: se proponen, no se cambian. Después, T-TRASPASO con un receptor realmente nuevo.
   Dependencias: T-CAND.
-- **G-DOCS · Corrección documental de la guía del recorrido y de CONTINUIDAD en una rama aislada de la candidata (sin cambios de código)**: Revisión por un contexto distinto (solicitud LISTA). Si es conforme, el coordinador incorpora los cuatro archivos a la candidata con origen, revisión y destino. C-01…C-04 y O-12/O-13 (README y CLAUDE.md de la raíz, MIGRATION_STATUS.json) son instrucciones del usuario: se proponen en DECISIONES, no se cambian.
+- **G-DOCS · Corrección documental de la guía del recorrido y de CONTINUIDAD en una rama aislada de la candidata (sin cambios de código)**: Integrado en la candidata (3149128). Nada más en esta tarea.
   Dependencias: G-MANUAL.
 - **G-RAIZ · U4: hechos desfasados de README, CLAUDE.md y docs/MIGRATION_STATUS.json de la raíz, en una rama aislada (instrucciones sustantivas conservadas)**: Revisión independiente (solicitud LISTA). Si es conforme, se incorpora a la candidata con origen, revisión y destino.
-- **T-CAND · Candidata única de integración técnica**: Candidata 957af65 materializada (manifiesto 7762/7762) y verificada: verificar_paquete.sh completa, código 0, RESULTADO GLOBAL PASA (15 baterías); control 4.14 29/35, lo esperado sobre clon Git. Nada aceptado es software del producto: no hay integración pendiente. Reproducción por otro contexto: pendiente (requiere LibreOffice; el entorno Mistral no lo declara). Al aceptar software de A/D, integrar por archivo con origen, destino y pruebas.
+- **T-CAND · Candidata única de integración técnica**: Candidata con su primera integración (G-DOCS, 3149128): solo documentos; manifiesto 7762/7762. La verificación completa de 957af65 sigue valiendo para el código, que no ha cambiado; ninguna batería lee esos documentos. Integrar lo siguiente aceptado por archivo, con origen, revisión, destino y pruebas afectadas.
 - **T-EXP · Expedientes nuevos regenerados y auditados**: Regenerar entradas/fuentes/derivados, sin sustituir hipótesis o ausencias; auditoría del material nuevo.
   Dependencias: T-CAND, A-CTX.
 - **T-CAMBIOS · Vigencia, invalidación, recuperación y H9**: Ensayar cambio anterior y punto real de reanudación; no reintroducir límites I19/I20 ya corregidos.
@@ -82,8 +82,8 @@ Candidata integrada: {'repositorio': 'jluisplagos/munger-v2', 'rama': 'integraci
 - A-CTX: RESPONDIDA; revisor asignado: Claude coordinador (subagente de revisión); SHA: 8b88fab28261506c60bc7631fd24894e225099d2.
 - E-ELIS: RESPONDIDA; revisor asignado: Claude coordinador (subagente de revisión); SHA: f00c5dd64cb956b93ebb199389ce748e9d218f6c.
 - G-MANUAL: RESPONDIDA; revisor asignado: Mistral A, en rama propia mistral/g-manual-traspaso, carpeta resultados_cierre/manual_revision/ (reanudación c241a59); SHA: 341831fd8b4c9081c09f1ebe7b31799042402d0f.
-- G-DOCS: LISTA; revisor asignado: Mistral A, en mistral/g-manual-traspaso (antes de A3), u otro contexto distinto; SHA: c0542b83b9923f98124d3c72e48b7fc7245284d2.
-- G-RAIZ: LISTA; revisor asignado: Mistral A (tras G-DOCS) u otro contexto distinto; SHA: 3d66437e797b6b0bf137b42fa62b561f39121722.
+- G-DOCS: RESPONDIDA; revisor asignado: Mistral A, en mistral/g-manual-traspaso (antes de A3), u otro contexto distinto; SHA: c0542b83b9923f98124d3c72e48b7fc7245284d2.
+- G-RAIZ: LISTA; revisor asignado: Mistral A, en mistral/g-manual-traspaso (siguiente tras G-DOCS), u otro contexto distinto; SHA: 3d66437e797b6b0bf137b42fa62b561f39121722.
 
 ## Cómo se decide el cierre
 
