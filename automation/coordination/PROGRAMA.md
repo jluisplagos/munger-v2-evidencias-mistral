@@ -38,14 +38,26 @@ carpeta automation/coordination/reviews/audit-pilot-code-001/. Una reserva previ
 bloquea otra inferencia. Las observaciones quedan pendientes de revisión humana.
 Ningún resultado se convierte en «aceptado» o «integrado» por terminar el workflow.
 
+Resultado real del intento 001 (Actions 44074072099, código 501fd8b): las 49
+pruebas del piloto y las 15 iniciales de coordinación pasaron. La petición Fable
+se envió, pero el transporte no streaming agotó sus 180 segundos de espera.
+No se recibió auditoría ni uso facturado; el coste efectivo es desconocido.
+La reserva conservadora fue USD 1,912936. Se publicó el fallo y quedó bloqueada
+otra petición de esta tarea. No hay hallazgos Fable que aceptar.
+
+La corrección posterior usa streaming SSE, exige cierre completo y conserva la
+prohibición de reintentar. Sus pruebas locales pasan, pero no se ha probado con
+otra inferencia. No se abre una tarea de pago nueva para eludir el bloqueo.
+
 ## Cola por prioridad y sin duplicación
 
 1. El coordinador recoge la PR #1 y el informe parcial Q1-028/Q1-032 del piloto.
    Registra su naturaleza documental, el SHA d032691 y sus límites. Ese contraste
    apoya D3-R4 y no repite ni reemplaza la revisión D3 completa ya registrada.
-2. El coordinador lee la auditoría audit-pilot-code-001, verifica sus hallazgos y
-   devuelve al autor únicamente lo afectado. La automatización continua con gasto
-   no se considera desplegada hasta tener un resultado revisado.
+2. El coordinador registra el fallo de audit-pilot-code-001 y revisa la corrección
+   de transporte sin confundirla con una auditoría Fable recibida. No hay dictamen.
+   La automatización continua con gasto no se considera desplegada hasta tener
+   un resultado revisado y reconciliar el intento de consumo incierto.
 3. Mistral A termina G-RAIZ si sigue sin respuesta y responde solo lo que deje
    abierto la revisión de A3. El inventario de A3 ya entregado no se reinicia.
 4. Mistral D responde D3 sobre su HEAD vigente con invariantes generales, no solo
@@ -62,9 +74,11 @@ pruebas realmente hechas y recuperación. Ninguno espera globalmente a todos.
 
 ## Comprobación de ChatGPT
 
-Se prepara una tarea de comprobación horaria, independiente del proceso API.
-Su estado real solo es ACTIVA si la herramienta de tareas lo confirma. La
-programación no implica que ya haya corrido con éxito. Compara los HEAD del
+La herramienta confirmó una tarea de comprobación horaria activa, independiente
+del proceso API. Aún no hay una ejecución programada satisfactoria verificada.
+El intento de lanzarla inmediatamente devolvió NOT_FOUND; la consulta posterior
+sí confirmó su existencia y estado activo. No se da por probado el seguimiento.
+Compara los HEAD del
 producto/auxiliar y el control común. Actualiza exclusivamente su fichero propio
 automation/coordination/observations/ESTADO_CHATGPT.json en esta rama; no CONTROL.
 Notifica cambios sustantivos o un bloqueo real, no cada hora sin novedades.
@@ -78,6 +92,10 @@ en esta cuenta y probar identidad/plan/límites antes de declarar un enlace acti
 No se comparten claves en chats. No se presupone que una clave de plan equivalga
 a la de Studio. No se programa un agente escritor ni se ejecutan D3/E2/F3 por API
 sin probar esta conexión y el aislamiento de cada tarea.
+
+Preparación concreta y pasos de la clave en VIBE_CLI.md. El workflow de preparación
+no utiliza --execute: no infiere aun si se añade el secreto. El ejecutor de tareas
+Mistral y su reserva durable siguen pendientes.
 
 ## Aceleración: medición, no promesa
 

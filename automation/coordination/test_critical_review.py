@@ -1,4 +1,5 @@
 import copy
+import io
 import json
 from pathlib import Path
 import tempfile
@@ -54,6 +55,50 @@ class Receipt:
         if self.fail_publish:
             raise cr.pilot.PilotError('GITHUB_HTTP_403')
         self.files[name] = raw
+
+
+def stream(events):
+    return io.BytesIO(b''.join(('data: ' + json.dumps(e) + '\n\n').encode() for e in events))
+
+
+class StreamingTests(unittest.TestCase):
+    def events(self):
+        return [
+            {'type': 'message_start', 'message': {'id': 'msg_fake', 'model': cr.MODEL,
+              'usage': {'input_tokens': 200, 'output_tokens': 0}}},
+            {'type': 'ping'},
+            {'type': 'content_block_start', 'index': 0, 'content_block': {'type': 'thinking', 'thinking': ''}},
+            {'type': 'content_block_delta', 'index': 0, 'delta': {'type': 'thinking_delta', 'thinking': 'private'}},
+            {'type': 'content_block_start', 'index': 1, 'content_block': {'type': 'text', 'text': ''}},
+            {'type': 'content_block_delta', 'index': 1, 'delta': {'type': 'text_delta', 'text': 'resultado'}},
+            {'type': 'message_delta', 'delta': {'stop_reason': 'end_turn'}, 'usage': {'output_tokens': 500}},
+            {'type': 'message_stop'}]
+    def test_complete_stream_keeps_usage_and_visible_output(self):
+        r = cr.read_stream(stream(self.events()))
+        self.assertEqual(r['usage'], {'input_tokens': 200, 'output_tokens': 500})
+        self.assertEqual(r['content'], [{'type': 'text', 'text': 'resultado'}])
+        self.assertNotIn('private', json.dumps(r))
+    def test_dropped_stream_does_not_manufacture_success(self):
+        with self.assertRaisesRegex(cr.pilot.PilotError, 'STREAM_INCOMPLETO'):
+            cr.read_stream(stream(self.events()[:-1]))
+    def test_provider_error_does_not_become_text(self):
+        with self.assertRaisesRegex(cr.pilot.PilotError, 'ANTHROPIC_ERROR_STREAM'):
+            cr.read_stream(stream([{'type': 'error', 'error': {'message': 'sensitive'}}]))
+    def test_tool_block_is_rejected(self):
+        e = self.events(); e[4]['content_block']['type'] = 'tool_use'
+        with self.assertRaisesRegex(cr.pilot.PilotError, 'STREAM_BLOQUE_INESPERADO'):
+            cr.read_stream(stream(e))
+    def test_stream_size_is_bounded(self):
+        with self.assertRaisesRegex(cr.pilot.PilotError, 'STREAM_DEMASIADO_GRANDE'):
+            cr.read_stream(io.BytesIO(b':' + b'x' * 2_000_000 + b'\n'))
+    def test_duplicate_start_is_rejected(self):
+        e = self.events()
+        with self.assertRaisesRegex(cr.pilot.PilotError, 'STREAM_INICIO_DUPLICADO'):
+            cr.read_stream(stream([e[0], e[0]]))
+    def test_stop_requires_message_delta(self):
+        e = self.events()
+        with self.assertRaisesRegex(cr.pilot.PilotError, 'STREAM_SIN_CIERRE_VALIDO'):
+            cr.read_stream(stream(e[:2] + [e[-1]]))
 
 
 class CriticalTests(unittest.TestCase):

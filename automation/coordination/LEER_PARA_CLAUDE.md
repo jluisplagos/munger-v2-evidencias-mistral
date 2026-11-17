@@ -11,10 +11,12 @@ Lee PROGRAMA.md de esta carpeta y consulta los HEAD actuales antes de actuar.
    postprocessed_report de munger-d-relevos-002). Es un contraste sobre D @d032691,
    Q1-028/Q1-032, con citas verificadas; no es una ejecución del personaje y no
    sustituye tu revisión D3. Conserva ambos intentos y su coste estimado conjunto.
-3. Recoge audit-pilot-code-001 cuando esté publicado. Lo produce Claude Fable 5.2
-   en esfuerzo max, en contexto distinto del autor ChatGPT. Es documental. Verifica
-   hallazgos, solicita correcciones concretas y no confundas el sello JSON con una
-   aceptación. Aún no hay un agente que ejecute correcciones por API.
+3. Registra audit-pilot-code-001: petición enviada a Fable 5.2/max, fallo de red
+   tras 180 segundos, sin dictamen ni uso recibido. Reserva USD 1,912936 y coste
+   incierto: no repetir. Revisa la corrección SSE de ChatGPT en contexto distinto;
+   las pruebas mecánicas no equivalen a una auditoría recibida. Aún no hay un
+   agente que ejecute correcciones por API ni una cola continua autorizada por
+   una revisión técnica conforme.
 4. Mantén tu cola técnica desbloqueada: aceptar/devolver A3, G-RAIZ y mejoras del
    manual según corresponda; preparar pruebas reales cuando sus dependencias estén
    conformes. No te quedes esperando una revisión si existe trabajo independiente.

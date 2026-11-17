@@ -9,6 +9,8 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, build_opener
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'automation/claude_review'))
@@ -51,6 +53,70 @@ SCHEMA = {'type': 'object', 'additionalProperties': False,
                          'findings': {'type': 'array', 'items': FINDING_SCHEMA},
                          'limits': {'type': 'array', 'items': {'type': 'string'}}},
           'required': ['summary', 'findings', 'limits']}
+
+
+def read_stream(response):
+    """Reúne SSE sin guardar razonamiento privado; exige cierre completo."""
+    message, blocks, used, pending = None, {}, 0, []
+    for line in response:
+        used += len(line)
+        if used > 2_000_000:
+            raise pilot.PilotError('STREAM_DEMASIADO_GRANDE')
+        line = line.decode('utf-8').rstrip('\r\n')
+        if line.startswith('data:'):
+            pending.append(line[5:].lstrip())
+            continue
+        if line or not pending:
+            continue
+        event = json.loads('\n'.join(pending)); pending = []
+        kind = event.get('type')
+        if kind == 'error':
+            raise pilot.PilotError('ANTHROPIC_ERROR_STREAM')
+        if kind == 'message_start':
+            if message is not None:
+                raise pilot.PilotError('STREAM_INICIO_DUPLICADO')
+            message = event['message']
+        elif kind == 'content_block_start':
+            block = event['content_block']
+            if block.get('type') == 'text':
+                blocks[event['index']] = {'type': 'text', 'text': block.get('text', '')}
+            elif block.get('type') not in ('thinking', 'redacted_thinking'):
+                raise pilot.PilotError('STREAM_BLOQUE_INESPERADO')
+        elif kind == 'content_block_delta':
+            delta = event['delta']
+            if delta.get('type') == 'text_delta':
+                blocks[event['index']]['text'] += delta['text']
+        elif kind == 'message_delta':
+            if message is None:
+                raise pilot.PilotError('STREAM_SIN_INICIO')
+            message.update(event.get('delta', {}))
+            message.setdefault('usage', {}).update(event.get('usage', {}))
+        elif kind == 'message_stop':
+            if message is None or not message.get('stop_reason'):
+                raise pilot.PilotError('STREAM_SIN_CIERRE_VALIDO')
+            message['content'] = [blocks[k] for k in sorted(blocks)]
+            return message
+    raise pilot.PilotError('STREAM_INCOMPLETO_NO_REINTENTAR')
+
+
+class StreamingHTTP(pilot.HTTP):
+    def call(self, service, method, path, body=None):
+        if (service, method, path) != ('anthropic', 'POST', '/v1/messages'):
+            return super().call(service, method, path, body)
+        req = Request('https://api.anthropic.com/v1/messages',
+                      data=pilot.canonical({**body, 'stream': True}), method='POST',
+                      headers={'x-api-key': self.api_key, 'anthropic-version': pilot.API_VERSION,
+                               'Content-Type': 'application/json', 'Accept': 'text/event-stream'})
+        try:
+            # El timeout se aplica entre paquetes; los pings mantienen viva la conexión.
+            with build_opener(pilot.NoRedirect).open(req, timeout=60) as response:
+                return read_stream(response)
+        except HTTPError as err:
+            raise pilot.PilotError(f'ANTHROPIC_HTTP_{err.code}') from None
+        except (URLError, TimeoutError, OSError):
+            raise pilot.PilotError('ANTHROPIC_ERROR_RED_TIMEOUT_NO_REINTENTAR') from None
+        except (ValueError, UnicodeError, KeyError, TypeError):
+            raise pilot.PilotError('ANTHROPIC_STREAM_INVALIDO_NO_REINTENTAR') from None
 
 
 def snapshot(sha):
@@ -205,7 +271,7 @@ def main():
     a = p.parse_args()
     try:
         b = snapshot(a.code_sha)
-        http = pilot.HTTP(os.getenv('GH_TOKEN', ''), os.getenv('ANTHROPIC_API_KEY', ''), model=MODEL)
+        http = StreamingHTTP(os.getenv('GH_TOKEN', ''), os.getenv('ANTHROPIC_API_KEY', ''), model=MODEL)
         report = run(http, b, a.output, execute=a.execute_api)
         print(json.dumps({k: report[k] for k in ('state', 'api_messages_sent', 'estimated_cost_usd')}))
         return 1 if report['state'] == 'RESULTADO_NO_ACEPTADO_NO_REINTENTAR' else 0
