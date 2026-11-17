@@ -49,7 +49,7 @@ El control (`control_cobertura.py`) sigue en PASS con 0 violaciones y valida la 
 
 <!-- RECUENTOS_VIGENTES:INICIO -->
 
-## Estados vigentes para regeneración (GENERADO por `scripts/generar_recuentos_doc.py` · 2026-11-16T22:37:16Z; fuente: `resultados/RECUENTOS_VIGENTES.md`)
+## Estados vigentes para regeneración (GENERADO por `scripts/generar_recuentos_doc.py` · 2026-11-17T09:44:03Z; fuente: `resultados/RECUENTOS_VIGENTES.md`)
 
 | Grupo | n | Estado contextual | ¿Qué puede reutilizar el integrador? |
 |---|---|---|---|

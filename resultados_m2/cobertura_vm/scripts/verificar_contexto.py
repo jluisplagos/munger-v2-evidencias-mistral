@@ -131,6 +131,16 @@ def normalize_num(tok):
     return re.sub(r'[.,\s]', '', tok)
 
 
+def signed_num(tok):
+    """A3-R1: valor CON SIGNO de un token impreso: los parentesis contables '(9.000)',
+    U+2212 '−9.000' y '-' son negativos; antes solo se quitaba el '-' ASCII."""
+    t = str(tok).strip()
+    neg = (t.startswith('(') and t.endswith(')')) or t.startswith('-') or t.startswith('−')
+    mag = normalize_num(t.strip('()').lstrip('-').lstrip('−'))
+    d = C.dec(mag) if mag else None
+    return (-d if (neg and d is not None) else d)
+
+
 def value_like(tok):
     t = str(tok).strip().strip('()').replace('−', '-').lstrip('-')
     if re.search(r'[.,]\d{3}\b', t) or re.search(r'\d,\d{3}', t):
@@ -434,8 +444,10 @@ def check_columna(row_idx, page_lines, years_in_block, col_line, col_years, colu
         return 'NO_DECIDIBLE', 'valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)'
     if len(nums) != len(col_years):
         return 'NO_DECIDIBLE', f'fila con {len(nums)} valores no alineable 1:1 con {len(col_years)} columnas {col_years}: sin mapeo posicional'
-    norm_target = normalize_num(str(valor).replace('.', '').replace(',', ''))
-    positions = [k for k, t in enumerate(nums) if normalize_num(t).lstrip('-') == norm_target.lstrip('-')]
+    # A3-R1: la comparacion posicional compara CON SIGNO (parentesis/U+2212/'-'); sin
+    # normalizar el signo impreso, 79 CONFLICTO reales eran artificiales
+    vdec = C.dec(str(valor))
+    positions = [k for k, t in enumerate(nums) if vdec is not None and signed_num(t) == vdec]
     if not positions:
         return 'CONFLICTO', f'el valor declarado {valor} no esta en la fila {nums!r} (cabecera {col_years}); declarado {sorted(declared_years)}'
     if len(positions) > 1:

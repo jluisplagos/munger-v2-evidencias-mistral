@@ -1,0 +1,251 @@
+{
+  "modulo": "verificar_contexto.py",
+  "sondas": [
+    {
+      "punto": "A2-R1",
+      "sonda": "R1a_negativo_entre_parentesis_en_su_columna",
+      "descripcion": "Valor -9.000 impreso \"(9.000)\" en la columna 2024 (correcto). La comparación posicional no normaliza el paréntesis.",
+      "tipo_de_fallo_si_defecto": "CONFLICTO falso",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024'] | cabecera elegida: '2025 2024'",
+      "defecto": false
+    },
+    {
+      "punto": "A2-R1",
+      "sonda": "R1b_negativo_con_signo_menos_unicode",
+      "descripcion": "Valor -7.660 impreso con U+2212 (caso real Viscofan CF_2022 p.25) en la columna 2024.",
+      "tipo_de_fallo_si_defecto": "CONFLICTO falso",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024'] | cabecera elegida: '2025 2024'",
+      "defecto": false
+    },
+    {
+      "punto": "A2-R1",
+      "sonda": "R1c_cabecera_tomada_de_una_frase",
+      "descripcion": "Una frase con \"2024 and 2025\" precede a la cabecera real \"2025 2024\". 10.000 es la columna 2025 y se declara 2024.",
+      "tipo_de_fallo_si_defecto": "OK falso (acreditación indebida)",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 0 de 2 valores -> columna 2024 (linea de columnas ['2024', '2025']); declarado ['2024'] | cabecera elegida: 'During 2024 and 2025 the Group restructured its plants.'",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R1",
+      "sonda": "R1d_cabecera_en_dos_lineas_y_celda_vacia",
+      "descripcion": "Cabecera en dos líneas (\"2025\" / \"2024\", habitual en pdftotext); 2025 sin importe (\"-\"), 2024 = 1.500. Se declara 2025 = 1.500.",
+      "tipo_de_fallo_si_defecto": "OK falso (acreditación indebida)",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 0 de 1 valores -> columna 2025 (linea de columnas ['2025']); declarado ['2025'] | cabecera elegida: '2025'",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R1",
+      "sonda": "R1e_importe_con_forma_de_anio_desplaza_posiciones",
+      "descripcion": "Importe 2030 (miles) sin separador en la columna 2024; la columna de variación 1.070. Al quitar el \"año\" 2030 la fila queda con 2 valores y la variación cae en la posición de 2024.",
+      "tipo_de_fallo_si_defecto": "OK falso (acreditación indebida)",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024'] | cabecera elegida: '2025 2024 Variation'",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R2",
+      "sonda": "R2a_negacion_no_ha_sido_reexpresado",
+      "descripcion": "Declaración negativa con otra redacción (\"no ha sido reexpresado\") y diferencia 9000 frente a 10000.",
+      "tipo_de_fallo_si_defecto": "OK falso: \"reexpresión confirmada\"",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "OK",
+      "detalle": "reexpresion confirmada por columna: el original CF_2024.txt imprime 10000 en la columna 2024 (fila 4) y el comparativo cita 9000; declarado: el comparativo no ha sido reexpresado",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R2",
+      "sonda": "R2b_negacion_reexpresado_dos_puntos_no",
+      "descripcion": "Declaración \"reexpresado: no\" con diferencia.",
+      "tipo_de_fallo_si_defecto": "OK falso: \"reexpresión confirmada\"",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "OK",
+      "detalle": "reexpresion confirmada por columna: el original CF_2024.txt imprime 10000 en la columna 2024 (fila 4) y el comparativo cita 9000; declarado: reexpresado: no",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R2",
+      "sonda": "R2c_fila_por_subcadena_total_equity",
+      "descripcion": "Variante de 3g con el patrón real Viscofan Historia!G21: \"Total equity\" casa como subcadena de \"Total equity attributable to owners of the parent\"; la fila Total equity 2024 es 10000.",
+      "tipo_de_fallo_si_defecto": "NO_APLICA falso (acreditación indebida)",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "NO_APLICA",
+      "detalle": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (9000) en la fila 4; coherente",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R2",
+      "sonda": "R2d_original_en_euros_comparativo_en_miles",
+      "descripcion": "Variante de 3f: el original está en euros (no millones) y el comparativo en miles; mismos dígitos, cifra 1000 veces distinta. escala_pagina() existe pero no se llama.",
+      "tipo_de_fallo_si_defecto": "NO_APLICA falso (acreditación indebida)",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_APLICA",
+      "detalle": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (9.000) en la fila 5; coherente",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R2",
+      "sonda": "R2e_atajo_nota_no_reexpresar_y_valor_en_cualquier_parte",
+      "descripcion": "Ninguna fila \"Right-of-use assets\" en el original; el valor 28 solo aparece como número de nota. La nota \"not to restate comparative\" y el 28 en cualquier parte del texto bastan (patrón real: 18 entradas con IA_2018_es p.37, valores 13/28/35).",
+      "tipo_de_fallo_si_defecto": "NO_APLICA falso (atajo)",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_APLICA",
+      "detalle": "no reexpresado documentado: CF_2024.txt p.1 declara \"did not restate\" (no reexpresar comparativos); el valor 28 figura en el original CF_2024.txt",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R2",
+      "sonda": "R2f_anio_con_coma_tomado_por_importe",
+      "descripcion": "Patrón real Vidrala Historia!G25: la frase narrativa casa por rótulo \"At December\" y el año \"2024,\" se lee como importe; resultado CONFLICTO \"imprime 2024,\".",
+      "tipo_de_fallo_si_defecto": "CONFLICTO falso",
+      "esperado": [
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "la fila con rotulo completo aparece en CF_2024.txt (linea 3) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024'], valores ['2024,', '2025.'])",
+      "defecto": false
+    },
+    {
+      "punto": "A2-R3",
+      "sonda": "R3a_pagina_EUR_million",
+      "descripcion": "Página \"Figures in EUR million\" (forma inglesa habitual) con cabecera del documento en miles.",
+      "tipo_de_fallo_si_defecto": "OK falso (acreditación indebida)",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "OK",
+      "detalle": "unidad en miles acreditada en la cabecera del documento (alcance: tablas del documento en miles; la pagina no declara otra escala)",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R3",
+      "sonda": "R3b_pagina_millones_simbolo",
+      "descripcion": "Página \"(Millones €)\" con cabecera del documento en miles.",
+      "tipo_de_fallo_si_defecto": "OK falso (acreditación indebida)",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "OK",
+      "detalle": "unidad en miles acreditada en la cabecera del documento (alcance: tablas del documento en miles; la pagina no declara otra escala)",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R3",
+      "sonda": "R3c_control_positivo_miles_pagina",
+      "descripcion": "Control positivo.",
+      "tipo_de_fallo_si_defecto": "falso negativo",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "unidad en miles confirmada en la pagina: 'Miles de euros'",
+      "defecto": false
+    },
+    {
+      "punto": "A2-R4",
+      "sonda": "R4a_version_por_importe_sin_separador",
+      "descripcion": "Variante de 1d: página del informe 2019 atribuida a CF_2025.txt; el único \"2025\" está dentro del importe 12025. check_version busca el año sin límites de palabra.",
+      "tipo_de_fallo_si_defecto": "OK falso (versión acreditada por un importe)",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "OK",
+      "detalle": "el informe declarado (CF_2025.txt, año 2025) figura en la pagina/cabecera del documento",
+      "defecto": true
+    },
+    {
+      "punto": "A2-R4",
+      "sonda": "R4b_precios_0,2050_no_son_anios",
+      "descripcion": "Control positivo del caso Análisis!C37.",
+      "tipo_de_fallo_si_defecto": "regresión",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "años detectados []",
+      "defecto": false
+    },
+    {
+      "punto": "A2-R4",
+      "sonda": "R4c_anio_seguido_de_coma_no_cuenta_como_anio",
+      "descripcion": "Inverso de A2-R4: \"December 31, 2024,\" es un año; el lookahead (?![\\d.,]) lo excluye de los años y lo deja como número.",
+      "tipo_de_fallo_si_defecto": "año ignorado / tomado por importe",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "NO_CUENTA",
+      "detalle": "años detectados ['2024', '2023']",
+      "defecto": true
+    }
+  ],
+  "resumen": {
+    "A2-R1": {
+      "sondas": 5,
+      "defectos": [
+        "R1c_cabecera_tomada_de_una_frase",
+        "R1d_cabecera_en_dos_lineas_y_celda_vacia",
+        "R1e_importe_con_forma_de_anio_desplaza_posiciones"
+      ]
+    },
+    "A2-R2": {
+      "sondas": 6,
+      "defectos": [
+        "R2a_negacion_no_ha_sido_reexpresado",
+        "R2b_negacion_reexpresado_dos_puntos_no",
+        "R2c_fila_por_subcadena_total_equity",
+        "R2d_original_en_euros_comparativo_en_miles",
+        "R2e_atajo_nota_no_reexpresar_y_valor_en_cualquier_parte"
+      ]
+    },
+    "A2-R3": {
+      "sondas": 3,
+      "defectos": [
+        "R3a_pagina_EUR_million",
+        "R3b_pagina_millones_simbolo"
+      ]
+    },
+    "A2-R4": {
+      "sondas": 3,
+      "defectos": [
+        "R4a_version_por_importe_sin_separador",
+        "R4c_anio_seguido_de_coma_no_cuenta_como_anio"
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-# Recuentos vigentes · Frente A M2 · cobertura VM (GENERADO por scripts/generar_recuentos_doc.py · 2026-11-16T22:37:16Z)
+# Recuentos vigentes · Frente A M2 · cobertura VM (GENERADO por scripts/generar_recuentos_doc.py · 2026-11-17T09:44:03Z)
 
 **No editar a mano**: este documento lo regenera `generar_recuentos_doc.py` a partir de las salidas del pipeline.
 

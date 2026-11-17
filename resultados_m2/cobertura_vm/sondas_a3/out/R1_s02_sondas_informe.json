@@ -1,0 +1,413 @@
+{
+  "modulo": "/workspace/wt-a/resultados_m2/cobertura_vm/scripts/verificar_contexto.py",
+  "sondas": [
+    {
+      "criterio": 1,
+      "sonda": "1a_importe_2001_cabecera_en_una_linea",
+      "descripcion": "Cabecera \"2025 2024\" en una línea; fila con importes 2045 y 2001 (miles). Comparativo 2024=2001 igual al original. Control positivo: no debe tratar el importe como año.",
+      "esperado": [
+        "REVISADO_CONTEXTUAL"
+      ],
+      "obtenido": "PENDIENTE_CONTEXTUAL",
+      "detalle": "{\"fila\": \"fila/tabla leida con solapamiento ['pagos']\", \"columna\": \"fila sin valores numericos que mapear\", \"unidad\": \"unidad en miles confirmada en la pagina: 'thousands of euros'\", \"signo\": \"signo impreso en fila: positivo\", \"perimetro\": \"estados consolidado",
+      "defecto": true
+    },
+    {
+      "criterio": 1,
+      "sonda": "1a_detalle_reexpresion",
+      "descripcion": "reexpresión por camino normal (no por metadato de año)",
+      "esperado": [
+        "NO_APLICA",
+        "OK"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "la fila con rotulo completo aparece en CF_2024.txt (linea 4) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2023'], valores ['1990'])",
+      "defecto": true
+    },
+    {
+      "criterio": 1,
+      "sonda": "1b_importe_2045,3_con_cabecera_en_dos_lineas",
+      "descripcion": "Cabecera de años en dos líneas (\"2025\" / \"2024\", habitual en pdftotext). Fila \"Share-based payments 2045,3 2001,7\": los importes se convierten en la línea de columnas [2045, 2001].",
+      "esperado": [
+        "OK",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "fila con 2 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional",
+      "defecto": false,
+      "encabezado_detectado": "2025",
+      "anios_bloque": [
+        "2024",
+        "2025"
+      ]
+    },
+    {
+      "criterio": 1,
+      "sonda": "1c_importe_20xx_contamina_filas_siguientes",
+      "descripcion": "Misma página: la fila correcta \"Revenue 10.000 9.000\" (2024=9.000) queda mapeada a columnas [2045, 2001] porque una fila anterior tiene importes 20xx.",
+      "esperado": [
+        "OK",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "fila con 2 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional",
+      "defecto": false
+    },
+    {
+      "criterio": 1,
+      "sonda": "1d_version_acreditada_por_importe_2025,4",
+      "descripcion": "Página del informe 2019 atribuida a CF_2025.txt; el único \"2025\" es el importe 2025,4 de una fila. check_version da OK.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "OK",
+      "detalle": "el informe declarado (CF_2025.txt, año 2025) figura en la pagina/cabecera del documento",
+      "defecto": true
+    },
+    {
+      "criterio": 1,
+      "sonda": "1e_es_metadato_anio_importe_monetario",
+      "descripcion": "es_metadato_anio con unidad monetaria y valor 2045 → no es metadato (control positivo de v3.1).",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "",
+      "defecto": false
+    },
+    {
+      "criterio": 1,
+      "sonda": "1f_check_reexpresion_importe_2045_sin_texto_original",
+      "descripcion": "Importe 2045 (miles) sin texto original: debe quedar NO_DECIDIBLE, no NO_APLICA por año.",
+      "esperado": [
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "no hay texto conservado del año 2024 entre los insumos seleccionados (faltaria el documento original del ejercicio 2024) para contrastar la reexpresion del comparativo",
+      "defecto": false
+    },
+    {
+      "criterio": "obs",
+      "sonda": "obs_guion_en_etiqueta_reexpresion",
+      "descripcion": "Etiqueta con guion: la búsqueda de etiqueta elimina el guion de la cita pero no del texto original; queda NO_DECIDIBLE (conservador, no acredita en falso).",
+      "esperado": [
+        "NO_APLICA",
+        "OK"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "la fila con rotulo completo aparece en CF_2024.txt (linea 4) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2023'], valores ['1990'])",
+      "defecto": true
+    },
+    {
+      "criterio": 2,
+      "sonda": "2a_mismo_literal_de_anio_en_dos_bloques",
+      "descripcion": "Cabecera con el mismo literal \"2024\" en dos columnas (consolidado e individual). El valor 6.000 es la columna 2024 individual; se declara consolidado. Debe quedar ambiguo/conflicto.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "años repetidos en la cabecera ['2025', '2024', '2025', '2024']: hay varios bloques (consolidado/individual u otros) y la columna no es inequivoca sin identificar el bloque",
+      "defecto": false
+    },
+    {
+      "criterio": 2,
+      "sonda": "2b_mismo_valor_en_dos_columnas",
+      "descripcion": "Mismo literal 9.000 en las dos columnas; declarado 2024 (correcto). La primera coincidencia textual (posición 0 → 2025) produce CONFLICTO falso.",
+      "esperado": [
+        "OK",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "valor 9000 repetido en las posiciones [0, 1] de la fila: columna ambigua (cabecera ['2025', '2024'])",
+      "defecto": false
+    },
+    {
+      "criterio": 2,
+      "sonda": "2c_valor_ausente_de_la_fila",
+      "descripcion": "El valor declarado 8.000 no está en la fila: devuelve OK porque el año figura en el encabezado.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "el valor declarado 8000 no esta en la fila ['10.000', '9.000'] (cabecera ['2025', '2024']); declarado ['2024']",
+      "defecto": false
+    },
+    {
+      "criterio": 2,
+      "sonda": "2d_valor_menor_de_1000_columna_equivocada",
+      "descripcion": "Fila con valores < 1000 sin separador (value_like los descarta): 950 es la columna 2025 y se declara 2024 → OK.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "posicion 0 -> columna 2025, pero declarado ['2024'] (linea de columnas ['2025', '2024'])",
+      "defecto": false
+    },
+    {
+      "criterio": 2,
+      "sonda": "2e_fila_no_alineable_columna_equivocada",
+      "descripcion": "Fila con columna de variación (3 valores, 2 años): 10.000 es 2025 y se declara 2024 → OK \"decidido por año\".",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "fila con 3 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
+      "defecto": false
+    },
+    {
+      "criterio": 2,
+      "sonda": "2f_control_positivo_posicion",
+      "descripcion": "Control positivo: 9.000 en posición 1 → 2024.",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024']",
+      "defecto": false
+    },
+    {
+      "criterio": 2,
+      "sonda": "2g_sonda_revisor_d375d80_columna",
+      "descripcion": "Sonda 3 de d375d80 repetida.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "posicion 0 -> columna 2025, pero declarado ['2024'] (linea de columnas ['2025', '2024'])",
+      "defecto": false
+    },
+    {
+      "criterio": 3,
+      "sonda": "3a_revisor_toma_otra_columna",
+      "descripcion": "Sonda 1 d375d80 repetida.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "declara no reexpresado (\"no reexpresado; igual al original\") pero el original CF_2024.txt imprime 10000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita",
+      "defecto": false
+    },
+    {
+      "criterio": 3,
+      "sonda": "3b_revisor_contradiccion",
+      "descripcion": "Sonda 2 d375d80 repetida.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "declara no reexpresado (\"no reexpresado; igual al original\") pero el original CF_2024.txt imprime 10000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita",
+      "defecto": false
+    },
+    {
+      "criterio": 3,
+      "sonda": "3c_atajo_cita_columnas_ascendentes",
+      "descripcion": "Como la sonda 1 del revisor, pero el original ordena columnas 2023 2024: el 2024 original es 10000. El atajo \"cita idéntica en el original\" encuentra \"Revenue9000\" (columna 2023) y acepta.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "declara no reexpresado (\"no reexpresado; igual al original\") pero el original CF_2024.txt imprime 10000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita",
+      "defecto": false
+    },
+    {
+      "criterio": 3,
+      "sonda": "3d_atajo_cita_prefijo_numerico",
+      "descripcion": "El original 2024 imprime 90000; \"Revenue9000\" es subcadena de \"Revenue9000080000\": se acepta como misma cifra.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "declara no reexpresado (\"no reexpresado; igual al original\") pero el original CF_2024.txt imprime 90000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita",
+      "defecto": false
+    },
+    {
+      "criterio": 3,
+      "sonda": "3e_otro_perimetro_en_el_original",
+      "descripcion": "El original contiene la tabla individual (2024=9000) y la consolidada (2024=10000). Comparativo consolidado declara 9000 sin reexpresión: se acepta por la tabla individual; perímetro no comparado.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_APLICA",
+      "detalle": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (9000) en la fila 4; coherente",
+      "defecto": true
+    },
+    {
+      "criterio": 3,
+      "sonda": "3f_otra_escala_en_el_original",
+      "descripcion": "Original en millones, comparativo en miles: mismos dígitos, cifra 1000 veces distinta. Escala no comparada.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_APLICA",
+      "detalle": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (9.000) en la fila 5; coherente",
+      "defecto": true
+    },
+    {
+      "criterio": 3,
+      "sonda": "3g_otra_fila_con_mismo_prefijo",
+      "descripcion": "La etiqueta \"Revenue\" casa primero con otra fila (\"Revenue from discontinued operations\"); la fila Revenue original 2024 es 10000.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "NO_APLICA",
+      "detalle": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (9000) en la fila 4; coherente",
+      "defecto": true
+    },
+    {
+      "criterio": 3,
+      "sonda": "3h_diferencia_sin_razon_documental",
+      "descripcion": "Valores distintos (10000 original frente a 9000) y campo reexpresado vacío: se devuelve OK \"reexpresión confirmada\" sin razón documental.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "el original CF_2024.txt imprime 10000 en la columna 2024 y el comparativo cita 9000 sin declaracion de reexpresion: falta puente de significado (un cambio de clasificacion/perimetro no acredita reexpresion de la cifra)",
+      "defecto": false
+    },
+    {
+      "criterio": 3,
+      "sonda": "3j_contradiccion_con_redaccion_no_igual_que",
+      "descripcion": "Igual que la sonda 2 de d375d80, pero el registro declara \"no (igual que el informe original)\" (redacción usada en 19 registros reales). La contradicción no se reconoce y se devuelve OK \"reexpresión confirmada\".",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "declara no reexpresado (\"no (igual que el informe original)\") pero el original CF_2024.txt imprime 10000 en la columna 2024 (fila 4) y el comparativo cita 9000: contradiccion explicita",
+      "defecto": false
+    },
+    {
+      "criterio": 3,
+      "sonda": "3i_control_positivo_igualdad",
+      "descripcion": "Control positivo.",
+      "esperado": [
+        "NO_APLICA",
+        "OK"
+      ],
+      "obtenido": "NO_APLICA",
+      "detalle": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (9000) en la fila 4; coherente",
+      "defecto": false
+    },
+    {
+      "criterio": 4,
+      "sonda": "4a_pagina_millones_cabecera_miles",
+      "descripcion": "La página declara millones; la cabecera del documento, miles. Se acepta miles por la cabecera.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "la pagina declara escala 'Amounts in millions' (millones, escala contraria); la pagina manda sobre la cabecera del documento; no acredita miles de euros ni escala 0,001",
+      "defecto": false
+    },
+    {
+      "criterio": 4,
+      "sonda": "4b_pagina_millones_es",
+      "descripcion": "Ídem en español.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "la pagina declara escala 'Millones de euros' (millones, escala contraria); la pagina manda sobre la cabecera del documento; no acredita miles de euros ni escala 0,001",
+      "defecto": false
+    },
+    {
+      "criterio": 4,
+      "sonda": "4c_miles_de_acciones_como_miles_de_euros",
+      "descripcion": "\"in thousands\" de acciones acredita miles de euros.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "NO_DECIDIBLE",
+      "detalle": "sin frase de escala en la pagina ni en la cabecera del documento",
+      "defecto": false
+    },
+    {
+      "criterio": 4,
+      "sonda": "4d_pagina_millones_sin_cabecera",
+      "descripcion": "Sin cabecera en miles: debe no acreditar.",
+      "esperado": [
+        "CONFLICTO",
+        "NO_DECIDIBLE"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "la pagina declara escala 'Amounts in millions' (millones, escala contraria); la pagina manda sobre la cabecera del documento; no acredita miles de euros ni escala 0,001",
+      "defecto": false
+    },
+    {
+      "criterio": 4,
+      "sonda": "4e_revisor_cabecera_escala_1",
+      "descripcion": "Sonda A-R3 d375d80 repetida.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "cabecera del documento en miles pero escala declarada 1 != 0.001",
+      "defecto": false
+    },
+    {
+      "criterio": 4,
+      "sonda": "4f_revisor_euros_no_miles",
+      "descripcion": "Sonda euros/miles d375d80 repetida.",
+      "esperado": [
+        "CONFLICTO"
+      ],
+      "obtenido": "CONFLICTO",
+      "detalle": "la pagina declara escala 'Amounts in euros' (euros, no miles); no acredita miles de euros ni escala 0,001",
+      "defecto": false
+    },
+    {
+      "criterio": 4,
+      "sonda": "4g_control_positivo_cabecera",
+      "descripcion": "Control positivo.",
+      "esperado": [
+        "OK"
+      ],
+      "obtenido": "OK",
+      "detalle": "unidad en miles acreditada en la cabecera del documento (alcance: tablas del documento en miles; la pagina no declara otra escala)",
+      "defecto": false
+    }
+  ],
+  "resumen": {
+    "1": {
+      "sondas": 7,
+      "defectos": [
+        "1a_importe_2001_cabecera_en_una_linea",
+        "1a_detalle_reexpresion",
+        "1d_version_acreditada_por_importe_2025,4"
+      ]
+    },
+    "2": {
+      "sondas": 7,
+      "defectos": []
+    },
+    "3": {
+      "sondas": 10,
+      "defectos": [
+        "3e_otro_perimetro_en_el_original",
+        "3f_otra_escala_en_el_original",
+        "3g_otra_fila_con_mismo_prefijo"
+      ]
+    },
+    "4": {
+      "sondas": 7,
+      "defectos": []
+    },
+    "obs": {
+      "sondas": 1,
+      "defectos": [
+        "obs_guion_en_etiqueta_reexpresion"
+      ]
+    }
+  }
+}

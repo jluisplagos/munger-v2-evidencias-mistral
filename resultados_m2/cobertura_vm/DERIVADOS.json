@@ -7,10 +7,10 @@
     "COINCIDE_PROPUESTO": 101
   },
   "estados_contextuales": {
-    "PENDIENTE_CONTEXTUAL": 26,
+    "PENDIENTE_CONTEXTUAL": 38,
     "REUTILIZADO_M1": 14,
-    "CONFLICTO_CONTEXTUAL": 40,
-    "REVISADO_CONTEXTUAL": 21
+    "REVISADO_CONTEXTUAL": 42,
+    "CONFLICTO_CONTEXTUAL": 7
   },
   "ciclos": [],
   "huecos": [],
@@ -207,11 +207,10 @@
       "empresa": "Vidrala",
       "celda": "Historia!C7",
       "id": "h_ebit",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
         "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
         "aux:ing_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
-        "aux:gto_fin_2016: dimension columna no decidible (el valor declarado -9776 no esta en la fila ['(9,384)', '(9,776)'] (cabecera ['2017', '2016']); declarado ['2016'])",
         "aux:gto_fin_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
@@ -262,10 +261,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!D7",
       "id": "h_ebit",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:ing_fin_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 153) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)",
-        "aux:gto_fin_2017: dimension columna no decidible (el valor declarado -9384 no esta en la fila ['(10,149)', '(9,384)'] (cabecera ['2018', '2017']); declarado ['2017'])"
+        "aux:ing_fin_2017: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2017.txt (linea 153) pero la columna 2017 no se puede mapear 1:1 (columnas ['2)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
@@ -315,10 +313,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!E7",
       "id": "h_ebit",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:gto_fin_2018: dimension columna no decidible (el valor declarado -10149 no esta en la fila ['(6,595)', '(10,149)'] (cabecera ['2019', '2018']); declarado ['2018'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores AB: A y B (cadena_trazabilidad, D-h_ebit). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -367,9 +363,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!C10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:impuesto_2016: dimension columna no decidible (el valor declarado -16571 no esta en la fila ['(20,616)', '(16,571)'] (cabecera ['2017', '2016']); declarado ['2016'])",
         "aux:impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
         "aux:bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
@@ -412,10 +407,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!D10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2017: dimension columna no decidible (el valor declarado -20616 no esta en la fila ['(24,466)', '(20,616)'] (cabecera ['2018', '2017']); declarado ['2017'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -455,10 +448,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!E10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2018: dimension columna no decidible (el valor declarado -24466 no esta en la fila ['(22,705)', '(24,466)'] (cabecera ['2019', '2018']); declarado ['2018'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -498,10 +489,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!F10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2019: dimension columna no decidible (el valor declarado -22705 no esta en la fila ['(29,703)', '(22,705)'] (cabecera ['2020', '2019']); declarado ['2019'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -541,10 +530,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!G10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2020: dimension columna no decidible (el valor declarado -29703 no esta en la fila ['(27,357)', '(29,703)'] (cabecera ['2021', '2020']); declarado ['2020'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -584,10 +571,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!H10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2021: dimension columna no decidible (el valor declarado -27357 no esta en la fila ['(34,062)', '(27,357)'] (cabecera ['2022', '2021']); declarado ['2021'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -627,10 +612,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!I10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2022: dimension columna no decidible (el valor declarado -34062 no esta en la fila ['(54,098)', '(34,062)'] (cabecera ['2023', '2022']); declarado ['2022'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -670,10 +653,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!J10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2023: dimension columna no decidible (el valor declarado -54813 no esta en la fila ['(64,968)', '(54,813)'] (cabecera ['2024', '2023']); declarado ['2023'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -713,10 +694,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!K10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2024: dimension columna no decidible (el valor declarado -64968 no esta en la fila ['(67,320)', '(64,968)'] (cabecera ['2025', '2024']); declarado ['2024'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -756,10 +735,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!L10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2025: dimension columna no decidible (el valor declarado -67320 no esta en la fila ['(67,320)', '(64,968)'] (cabecera ['2025', '2024']); declarado ['2025'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "tasa del ejercicio; motores AB: A y B (cadena_trazabilidad, C-h_tipo). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -799,11 +776,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!C12",
       "id": "h_capex",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:capex_mat_2016: dimension columna no decidible (el valor declarado -51364 no esta en la fila ['(86,479)', '(51,364)'] (cabecera ['2017', '2016']); declarado ['2016'])",
         "aux:capex_mat_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
-        "aux:capex_int_2016: dimension columna no decidible (el valor declarado -3540 no esta en la fila ['(2,541)', '(3,540)'] (cabecera ['2017', '2016']); declarado ['2016'])",
         "aux:capex_int_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
       "coherencia_unidades_origenes": true,
@@ -845,11 +820,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!D12",
       "id": "h_capex",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:capex_mat_2017: dimension columna no decidible (el valor declarado -86479 no esta en la fila ['(2,245)', '(86,479)'] (cabecera ['2018', '2017']); declarado ['2017'])",
-        "aux:capex_int_2017: dimension columna no decidible (el valor declarado -2541 no esta en la fila ['13', '(2,541)'] (cabecera ['2018', '2017']); declarado ['2017'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -889,11 +861,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!E12",
       "id": "h_capex",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:capex_mat_2018: dimension columna no decidible (el valor declarado -99541 no esta en la fila ['(103,622)', '(99,541)'] (cabecera ['2019', '2018']); declarado ['2018'])",
-        "aux:capex_mat_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 305) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)",
-        "aux:capex_int_2018: dimension columna no decidible (el valor declarado -2245 no esta en la fila ['(3,547)', '(2,245)'] (cabecera ['2019', '2018']); declarado ['2018'])"
+        "aux:capex_mat_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 305) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)"
       ],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
@@ -934,11 +904,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!F12",
       "id": "h_capex",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:capex_mat_2019: dimension columna no decidible (el valor declarado -103622 no esta en la fila ['(132,117)', '(103,622)'] (cabecera ['2020', '2019']); declarado ['2019'])",
-        "aux:capex_int_2019: dimension columna no decidible (el valor declarado -3547 no esta en la fila ['(2,131)', '(3,547)'] (cabecera ['2020', '2019']); declarado ['2019'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -978,11 +945,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!G12",
       "id": "h_capex",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:capex_mat_2020: dimension columna no decidible (el valor declarado -132117 no esta en la fila ['(107.604)', '(132,117)'] (cabecera ['2021', '2020']); declarado ['2020'])",
-        "aux:capex_int_2020: dimension columna no decidible (el valor declarado -2131 no esta en la fila ['(2,196)', '(2,131)'] (cabecera ['2021', '2020']); declarado ['2020'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1022,11 +986,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!H12",
       "id": "h_capex",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:capex_mat_2021: dimension columna no decidible (el valor declarado -107604 no esta en la fila ['(117,296)', '(107.604)'] (cabecera ['2022', '2021']); declarado ['2021'])",
         "aux:capex_mat_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion )",
-        "aux:capex_int_2021: dimension columna no decidible (el valor declarado -2196 no esta en la fila ['(2,904)', '(2,196)'] (cabecera ['2022', '2021']); declarado ['2021'])",
         "aux:capex_int_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion )"
       ],
       "coherencia_unidades_origenes": true,
@@ -1068,11 +1030,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!I12",
       "id": "h_capex",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:capex_mat_2022: dimension columna no decidible (el valor declarado -117296 no esta en la fila ['(143,848)', '(117,296)'] (cabecera ['2023', '2022']); declarado ['2022'])",
-        "aux:capex_int_2022: dimension columna no decidible (el valor declarado -2904 no esta en la fila ['(7,852)', '(2,904)'] (cabecera ['2023', '2022']); declarado ['2022'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1113,10 +1072,7 @@
       "celda": "Historia!J12",
       "id": "h_capex",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [
-        "aux:capex_mat_2023: dimension columna no decidible (el valor declarado -143848 no esta en la fila ['(160,063)', '(143,848)'] (cabecera ['2024', '2023']); declarado ['2023'])",
-        "aux:capex_int_2023: dimension columna no decidible (el valor declarado -7852 no esta en la fila ['(8,737)', '(7,852)'] (cabecera ['2024', '2023']); declarado ['2023'])"
-      ],
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1157,10 +1113,7 @@
       "celda": "Historia!K12",
       "id": "h_capex",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [
-        "aux:capex_mat_2024: dimension columna no decidible (el valor declarado -160063 no esta en la fila ['(178,746)', '(160,063)'] (cabecera ['2025', '2024']); declarado ['2024'])",
-        "aux:capex_int_2024: dimension columna no decidible (el valor declarado -8737 no esta en la fila ['(9,757)', '(8,737)'] (cabecera ['2025', '2024']); declarado ['2024'])"
-      ],
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1201,10 +1154,7 @@
       "celda": "Historia!L12",
       "id": "h_capex",
       "estado_contextual": "REUTILIZADO_M1",
-      "limites_contextuales": [
-        "aux:capex_mat_2025: dimension columna no decidible (el valor declarado -178746 no esta en la fila ['(178,746)', '(160,063)'] (cabecera ['2025', '2024']); declarado ['2025'])",
-        "aux:capex_int_2025: dimension columna no decidible (el valor declarado -9757 no esta en la fila ['(9,757)', '(8,737)'] (cabecera ['2025', '2024']); declarado ['2025'])"
-      ],
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores A: A (cadena_trazabilidad, D-h_capex). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -1244,11 +1194,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!I14",
       "id": "h_circulante",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:circ_2022_l1: dimension columna no decidible (el valor declarado -85880 no esta en la fila ['(83,925)', '(85,880)'] (cabecera ['2023', '2022']); declarado ['2022'])",
-        "aux:circ_2022_l2: dimension columna no decidible (el valor declarado -82341 no esta en la fila ['(34,457)', '(82,341)'] (cabecera ['2023', '2022']); declarado ['2022'])",
-        "aux:circ_2022_l4: dimension columna no decidible (el valor declarado -84515 no esta en la fila ['36,138', '(84,515)'] (cabecera ['2023', '2022']); declarado ['2022'])",
         "aux:circ_2022_l5: dimension reexpresion no decidible (el valor aparece en CF_2022.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; reexpresion )"
       ],
       "coherencia_unidades_origenes": true,
@@ -2305,10 +2252,7 @@
       "id": "h_adquisiciones",
       "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:inversion_total_2018: dimension columna no decidible (el valor declarado -101773 no esta en la fila ['(107,169)', '(101,773)'] (cabecera ['2019', '2018']); declarado ['2018'])",
-        "aux:capex_mat_2018: dimension columna no decidible (el valor declarado -99541 no esta en la fila ['(103,622)', '(99,541)'] (cabecera ['2019', '2018']); declarado ['2018'])",
         "aux:capex_mat_2018: dimension reexpresion no decidible (la fila con rotulo completo aparece en CF_2018.txt (linea 305) pero la columna 2018 no se puede mapear 1:1 (columnas ['2)",
-        "aux:capex_int_2018: dimension columna no decidible (el valor declarado -2245 no esta en la fila ['(3,547)', '(2,245)'] (cabecera ['2019', '2018']); declarado ['2018'])",
         "aux:otros_inv_2018: dimension columna no decidible (fila con 1 valores no alineable 1:1 con 2 columnas ['2019', '2018']: sin mapeo posicional)",
         "aux:otros_inv_2018: dimension reexpresion no decidible (declara no reexpresado (\"no (CF_2018 p.13: 13)\") pero el original CF_2018.txt imprime (2,541) en la columna 2018 (fila 3)"
       ],
@@ -2369,12 +2313,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!F13",
       "id": "h_adquisiciones",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:inversion_total_2019: dimension columna no decidible (el valor declarado -107169 no esta en la fila ['(134,248)', '(107,169)'] (cabecera ['2020', '2019']); declarado ['2019'])",
-        "aux:capex_mat_2019: dimension columna no decidible (el valor declarado -103622 no esta en la fila ['(132,117)', '(103,622)'] (cabecera ['2020', '2019']); declarado ['2019'])",
-        "aux:capex_int_2019: dimension columna no decidible (el valor declarado -3547 no esta en la fila ['(2,131)', '(3,547)'] (cabecera ['2020', '2019']); declarado ['2019'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2423,12 +2363,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!G13",
       "id": "h_adquisiciones",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:inversion_total_2020: dimension columna no decidible (el valor declarado -134248 no esta en la fila ['(109,800)', '(134,248)'] (cabecera ['2021', '2020']); declarado ['2020'])",
-        "aux:capex_mat_2020: dimension columna no decidible (el valor declarado -132117 no esta en la fila ['(107.604)', '(132,117)'] (cabecera ['2021', '2020']); declarado ['2020'])",
-        "aux:capex_int_2020: dimension columna no decidible (el valor declarado -2131 no esta en la fila ['(2,196)', '(2,131)'] (cabecera ['2021', '2020']); declarado ['2020'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2477,12 +2413,9 @@
       "empresa": "Vidrala",
       "celda": "Historia!H13",
       "id": "h_adquisiciones",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:inversion_total_2021: dimension columna no decidible (el valor declarado -109800 no esta en la fila ['(120,200)', '(109,800)'] (cabecera ['2022', '2021']); declarado ['2021'])",
-        "aux:capex_mat_2021: dimension columna no decidible (el valor declarado -107604 no esta en la fila ['(117,296)', '(107.604)'] (cabecera ['2022', '2021']); declarado ['2021'])",
         "aux:capex_mat_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion )",
-        "aux:capex_int_2021: dimension columna no decidible (el valor declarado -2196 no esta en la fila ['(2,904)', '(2,196)'] (cabecera ['2022', '2021']); declarado ['2021'])",
         "aux:capex_int_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion )"
       ],
       "coherencia_unidades_origenes": true,
@@ -2578,12 +2511,8 @@
       "empresa": "Vidrala",
       "celda": "Historia!L13",
       "id": "h_adquisiciones",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:inversion_total_2025: dimension columna no decidible (el valor declarado -188503 no esta en la fila ['(188,503)', '66,868'] (cabecera ['2025', '2024']); declarado ['2025'])",
-        "aux:capex_mat_2025: dimension columna no decidible (el valor declarado -178746 no esta en la fila ['(178,746)', '(160,063)'] (cabecera ['2025', '2024']); declarado ['2025'])",
-        "aux:capex_int_2025: dimension columna no decidible (el valor declarado -9757 no esta en la fila ['(9,757)', '(8,737)'] (cabecera ['2025', '2024']); declarado ['2025'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "flujo del ejercicio; motores B (V6.4 experimental: D_hist y F_hist de P-M1): modo experimental de la V6.4 (bases de «Configuración V6.4») (cadena_trazabilidad, D-h_adquisiciones). Motor activo del libro: B (Análisis!C62).",
       "origenes": [
@@ -2632,12 +2561,8 @@
       "empresa": "Vidrala",
       "celda": "Configuración V6.4!B11",
       "id": "N1.tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:impuesto_2023: dimension columna no decidible (el valor declarado -54813 no esta en la fila ['(64,968)', '(54,813)'] (cabecera ['2024', '2023']); declarado ['2023'])",
-        "aux:impuesto_2024: dimension columna no decidible (el valor declarado -64968 no esta en la fila ['(67,320)', '(64,968)'] (cabecera ['2025', '2024']); declarado ['2024'])",
-        "aux:impuesto_2025: dimension columna no decidible (el valor declarado -67320 no esta en la fila ['(67,320)', '(64,968)'] (cabecera ['2025', '2024']); declarado ['2025'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "Configuración V6.4 (N1.tipo): entra en el motor B experimental (bases de «Configuración V6.4»); materialidad en configuracion_v64_variantes.json",
       "origenes": [
@@ -3433,9 +3358,8 @@
       "empresa": "Viscofan",
       "celda": "Historia!C10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:AR2017_p8_impuesto_2016: dimension columna no decidible (el valor declarado -30244 no esta en la fila ['(23,338)', '(30,244)'] (cabecera ['2017', '2016']); declarado ['2016'])",
         "aux:AR2017_p8_impuesto_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))",
         "aux:AR2017_p8_bai_2016: dimension reexpresion no decidible (no hay texto conservado del año 2016 entre los insumos seleccionados (faltaria el documento original del ejercicio 2016))"
       ],
@@ -3478,9 +3402,8 @@
       "empresa": "Viscofan",
       "celda": "Historia!D10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:IA2018_p24_impuesto_2017: dimension columna no decidible (el valor declarado -23338 no esta en la fila ['(23.588)', '(23.338)'] (cabecera ['2018', '2017']); declarado ['2017'])",
         "aux:IA2018_p24_impuesto_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )",
         "aux:IA2018_p24_bai_2017: dimension reexpresion no decidible (el valor aparece en AR_2017.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2017; reexpresion )"
       ],
@@ -3523,10 +3446,8 @@
       "empresa": "Viscofan",
       "celda": "Historia!E10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:AR2019_p8_impuesto_2018: dimension columna no decidible (el valor declarado -23588 no esta en la fila ['(24,487)', '(23,588)'] (cabecera ['2019', '2018']); declarado ['2018'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
@@ -3609,10 +3530,8 @@
       "empresa": "Viscofan",
       "celda": "Historia!G10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:CF2021_p4_impuesto_2020: dimension columna no decidible (el valor declarado -37143 no esta en la fila ['−43,423', '−37,143'] (cabecera ['2021', '2020']); declarado ['2020'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "C-h_tipo · tasa del ejercicio · motores AB: A y B",
       "origenes": [
@@ -3652,9 +3571,8 @@
       "empresa": "Viscofan",
       "celda": "Historia!H10",
       "id": "h_tipo",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2022_p21_impuesto_2021: dimension columna no decidible (el valor declarado -43423 no esta en la fila ['−44.359', '−43.423'] (cabecera ['2022', '2021']); declarado ['2021'])",
         "aux:CF2022_p21_bai_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion )"
       ],
       "coherencia_unidades_origenes": true,
@@ -3920,11 +3838,8 @@
       "empresa": "Viscofan",
       "celda": "Historia!G14",
       "id": "h_circulante",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
-      "limites_contextuales": [
-        "aux:CF2021_p8_var_existencias_2020: dimension columna no decidible (el valor declarado -20965 no esta en la fila ['−17,593', '−20,965'] (cabecera ['2021', '2020']); declarado ['2020'])",
-        "aux:CF2021_p8_var_deudores_2020: dimension columna no decidible (el valor declarado -15602 no esta en la fila ['−7,660', '−15,602'] (cabecera ['2021', '2020']); declarado ['2020'])"
-      ],
+      "estado_contextual": "REVISADO_CONTEXTUAL",
+      "limites_contextuales": [],
       "coherencia_unidades_origenes": true,
       "significado": "D-h_circulante · flujo del ejercicio (aumento del circulante) · motores A: A",
       "origenes": [
@@ -3973,11 +3888,9 @@
       "empresa": "Viscofan",
       "celda": "Historia!H14",
       "id": "h_circulante",
-      "estado_contextual": "CONFLICTO_CONTEXTUAL",
+      "estado_contextual": "PENDIENTE_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2022_p25_var_existencias_2021: dimension columna no decidible (el valor declarado -17593 no esta en la fila ['−69.069', '−17.593'] (cabecera ['2022', '2021']); declarado ['2021'])",
         "aux:CF2022_p25_var_existencias_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion )",
-        "aux:CF2022_p25_var_deudores_2021: dimension columna no decidible (el valor declarado -7660 no esta en la fila ['−47.708', '−7.660'] (cabecera ['2022', '2021']); declarado ['2021'])",
         "aux:CF2022_p25_var_deudores_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion )",
         "aux:CF2022_p25_var_acreedores_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion )"
       ],
@@ -5016,7 +4929,6 @@
       "id": "N1.tipo",
       "estado_contextual": "CONFLICTO_CONTEXTUAL",
       "limites_contextuales": [
-        "aux:CF2022_p21_impuesto_2021: dimension columna no decidible (el valor declarado -43423 no esta en la fila ['−44.359', '−43.423'] (cabecera ['2022', '2021']); declarado ['2021'])",
         "aux:CF2022_p21_bai_2021: dimension reexpresion no decidible (el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion )",
         "aux:CA2023_p4_impuesto_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )",
         "aux:CA2023_p4_bai_2022: dimension reexpresion no decidible (el valor aparece en CF_2022_compilacion.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2022; )",
