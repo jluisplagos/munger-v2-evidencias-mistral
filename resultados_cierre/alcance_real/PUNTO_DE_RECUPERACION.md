@@ -23,11 +23,11 @@
 - **Estado de las colas tras consultar CONTROL.json** (`git fetch origin coordinacion/cierre-v2`):
   - Cola 1: F-REV (W1–W3), C20 y CSV hechos por mí (informes en `revisiones_claude/`); en el
     último fetch de CONTROL.json los tres quedaron **CONFORME_CON_LIMITES / RESPONDIDA**
-    (F1-W, C20, CSV). E-ELIS (93a9780) está EN_CURSO en cola B_E (no es mi cola). Cola C_F
-    completa: [F-REV, B-PM1, F-B3, F-C1] hechos.
+    (F1-W, C20, CSV). E-ELIS (93a9780) está EN_CURSO en cola B_E (no es mi cola). Cola C_F:
+    F-REV y B-PM1 hechos (conformes con límites); F-B3/F-C1 en PREPARACIÓN (no ejecutados).
     B-PM1 hecho por mí (informe en `revisiones_b_pm1/`); bloqueo P-M1 conservado (θ/λ no
     identificados, 4 PDF con preservación pendiente por el 401 de uploads).
-  - Cola 2: **F-B3 / F-C1 HECHOS como paquete de preparación** (`preparacion_b3_c1/`): inventario
+  - Cola 2: **F-B3 / F-C1 paquete de PREPARACIÓN entregado** (`preparacion_b3_c1/`; NO ejecutados): inventario
     de recursos conservados (ZIP base-4.14, 6798/6798), SELECCION.csv (B: principal condicionada
     Ahold bloqueada por insumo; C: banco/aseguradora con fuente oficial pendiente), protocolo
     congelado antes de calcular, MAPA_ENTRADAS.jsonl, contrato C propuesto (E62: no valida
@@ -38,9 +38,19 @@
     en copias aisladas, no por mí (prohibido LibreOffice/pipeline en este frente).
   - Estado global según CONTROL.json: «Cierre en preparación: entregas parciales y revisiones
     pendientes; sin aptitud económica global acreditada».
-- **Siguiente acción exacta**: contraste documental dirigido B/P-M1 @ `daa74783d2708fcd46ca7c24ae1ffbb327c35784`
-  sobre fuentes ya conservadas, en `resultados_cierre/alcance_real/`; conservar el bloqueo P-M1 si θ/λ no
-  están identificados; declarar el límite de misma familia de modelo respecto a la sesión B autora.
+- **Bloque F2 (2026-11-17, commits 195766f / e9f76a9 / 9873234 y siguientes de esta rama)**:
+  respuesta a CORRECCION_F2 @ `F_223f16d_52fb120` en `correccion_f2/` (RESPUESTA_F2.md +
+  ENTREGA_F2.json): D1/D2/D7 inventario byte a byte con 71/71 PDF + release SHA-256 completo;
+  D3 contrato C y mapa fieles a `build_v6.py`/`test_fill.py` @ 957af65 con ejemplo numérico
+  comprobado; D4 esta recuperación actualizada; D5 estados propios (preparación entregada, no
+  ejecutado; CONTROL solo lo toca el coordinador); D6 protocolo de C con criterios previos sin
+  precios + horas reales de commit; D7 rutas por argumento en todos los scripts.
+- **Siguiente acción exacta**: que el coordinador (Claude) registre en CONTROL.json la respuesta
+  a CORRECCION_F2 @ `F_223f16d_52fb120` (esta rama, `correccion_f2/ENTREGA_F2.json`) y asigne su
+  contraste; si llega antes, contraste G-MANUAL (solicitud LISTA en CONTROL @ 57b34a6).
+  Bloqueos materiales sin resolver (datos de la persona responsable): Excel de etapa 1 de Ahold
+  con sus fuentes (o empresa fuera de muestra designada) y banco/aseguradora designados con
+  informes oficiales en bytes y SHA-256. Cola 3 (ejecución real) sigue bloqueada por esos insumos.
 - **Temporales**: `.trabajo/f-rev/` (git-ignored) contiene los artefactos descargados y el rerun; no se commitea.
 - **Declaración**: Propuesta de evidencia o especificación de Mistral; pendiente de revisión e incorporación
   por el integrador (Claude). No APROBADO ni aptitud financiera general.

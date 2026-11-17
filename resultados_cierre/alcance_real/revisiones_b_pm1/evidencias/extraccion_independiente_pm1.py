@@ -5,9 +5,11 @@ del autor. Metodo: nota por titulo; slot de 'Additions' en la linea de cabecera 
 (sin etiqueta: slot = hdr_idx - 1). Intangibles: fila 'Additions', total = ultimo token,
 goodwill = penultimo, emission = tercer token ('-' = 0).
 """
-import re, os
+import re, os, sys
 
-TXT = '/workspace/github__jluisplagos__munger-v2-evidencias-mistral/.trabajo/insumos_m2/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto'
+# F2-D7: la ruta de los textos conservados se pasa por argumento (antes fija en /workspace)
+# Uso: python3 -I extraccion_independiente_pm1.py <ruta_al_directorio_texto_CF_20YY>
+TXT = sys.argv[1]
 
 PPE_ESPERADO = {2017: 101154, 2018: 93148, 2019: 108645, 2020: 134263, 2021: 105877,
                 2022: 158234, 2023: 134472, 2024: 171185, 2025: 177848}
