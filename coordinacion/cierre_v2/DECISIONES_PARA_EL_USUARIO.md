@@ -26,7 +26,7 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
 - P-M1, k y las probabilidades;
 - E1/D3/E2/E6, que ya están registradas.
 
-### U1 · Dónde se conservan los 11 PDF nuevos de Elis (E-ELIS) · operativa, no económica
+### U1 · Dónde se conservan los 11 PDF nuevos de Elis (E-ELIS) · **DECIDIDA el 17-nov y HECHA**: Release `fuentes-elis-e-20261117` (11 PDF, índice y SHA256SUMS; digest del servidor igual a las huellas)
 
 - **Situación (actualizada el 17-nov).** Con la aclaración de la reanudación (`c241a59`), el coordinador descargó los 11 PDF de sus URL públicas oficiales:
   - 11/11 tienen bytes y SHA-256 idénticos a los declarados;
@@ -37,7 +37,7 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
 - **Alternativa:** (b) aceptar como preservación el índice de descarga (URL, fecha, SHA-256 y bytes) y los extractos acotados en Git, con el riesgo de que el emisor cambie o retire los documentos.
 - **Qué no se valida aunque se resuelva:** M1, M2, M6 y N2 siguen ABIERTOS según la revisión (E-R1…E-R9). Elis sigue `pendiente_de_datos`.
 
-### U2 · Tercer caso B fuera de muestra (F-B3) · dato de la persona responsable
+### U2 · Tercer caso B fuera de muestra (F-B3) · **en preparación** (17-nov: recuperar recursos, fuentes públicas y propuesta concreta)
 
 - **Situación.** En el ZIP no está el Excel evaluado de la etapa 1 de Ahold; solo hay un `.bat` de descarga sin ejecutar. La lista de las 116 empresas no está conservada. Hermès y Aarsleff no sirven: ya están en la muestra.
 - **Recomendada:** aportar el Excel de la etapa 1 de Ahold, su respuesta y sus fuentes (informes 2016–2025 y el folleto NIIF 16 de 2018), en bytes y con SHA-256.
@@ -46,14 +46,14 @@ Solo se incluyen decisiones nuevas que bloquean trabajo. Siguen pendientes, y **
   - (c) reducir el alcance a dos casos B. Esto exige una decisión explícita de reducir el alcance.
 - **Qué no se valida aunque se resuelva:** el recorrido con agentes reales y la auditoría de otro contexto siguen pendientes.
 
-### U3 · Primer caso C real (F-C1) · dato y alcance
+### U3 · Primer caso C real (F-C1) · **en preparación** (17-nov: contrato C corregido y uno o dos candidatos)
 
 - **Situación.** No se conserva ninguna financiera. El contrato C propuesto describe mal el motor C (F2-D3) y hay que corregirlo antes de usarlo.
 - **Recomendada:** designar un banco o una aseguradora concretos y aportar sus informes oficiales (cuentas, Pilar 3 o SFCR) con SHA-256, y su Excel de la etapa 1 si existe.
 - **Alternativa:** (b) sacar el motor C real del alcance de este cierre. Es una reducción de alcance y exige decisión.
 - **Qué no se valida aunque se resuelva:** la solvencia y el capital regulatorio, que el contrato C declara no validar.
 
-### U4 · Textos de la raíz del producto que describen el hito 1 (README, CLAUDE.md, MIGRATION_STATUS.json) · documental
+### U4 · Textos de la raíz del producto que describen el hito 1 (README, CLAUDE.md, MIGRATION_STATUS.json) · **DECIDIDA el 17-nov**: cambio entregado en `integracion/hechos-raiz-957af65` @ `3d66437`, pendiente de revisión independiente
 
 - **Situación.** `README.md:1-17`, `CLAUDE.md:1` y `:35`, y `docs/MIGRATION_STATUS.json` dicen:
   - «rama de revisión intermedia 4.15 hito 1»;
