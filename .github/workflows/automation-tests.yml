@@ -2,7 +2,7 @@ name: Pruebas de automatizacion sin secretos
 # AUTO1-M6: lo unico que se dispara con push. Sin secretos, sin instalaciones y solo lectura.
 on:
   push:
-    branches: [automatizacion/coordinacion-api-v1, automatizacion/piloto-claude-api]
+    branches: [automatizacion/coordinacion-api-v1, automatizacion/piloto-claude-api, automatizacion/cribado-tandas]
     paths:
       - automation/**
       - .github/workflows/**
@@ -19,3 +19,5 @@ jobs:
           persist-credentials: false
       - run: python3 -I -m unittest discover -s automation/claude_review -p 'test_*.py' -v
       - run: python3 -I -m unittest discover -s automation/coordination -p 'test_*.py' -v
+      - run: python3 -I -m unittest discover -s automation/direct_analysis -p 'test_*.py' -v
+      - run: python3 -I -m unittest discover -s automation/screening -p 'test_*.py' -v

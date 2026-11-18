@@ -1,0 +1,154 @@
+name: Cribado del universo Claude API
+# Tareas A5/A6: cribado por tandas del universo de etapa 1 (REORIENTACION_UNIVERSO §4).
+# AUTO1-M6: solo a mano y tras aprobar el environment protegido; nunca con push. Una sola
+# aprobacion cubre la tanda. Dentro, una llamada por empresa como maximo, en secuencia y
+# sin reintentos (critical_review.run de AUTO1 por empresa). Un "Re-run" de la misma
+# ejecucion reutiliza las tareas: las empresas ya reservadas no se vuelven a llamar.
+on:
+  workflow_dispatch:
+    inputs:
+      empresas:
+        description: 'De 1 a 20 carpetas de la Release, separadas por comas (p. ej. Ahold, Pandora, FW_Thorpe)'
+        required: true
+        type: string
+      modelo:
+        description: 'Modelo'
+        required: true
+        type: choice
+        default: claude-opus-5-5
+        options: [claude-opus-5-5, claude-fable-5-2, claude-sonnet-5-5]
+      esfuerzo:
+        description: 'Esfuerzo de razonamiento'
+        required: true
+        type: choice
+        default: high
+        options: [low, medium, high, xhigh, max]
+      coste_maximo_por_empresa_usd:
+        description: 'Coste maximo por empresa en USD (techo del codigo: 2). Debe cubrir la reserva de cada una'
+        required: true
+        type: string
+      coste_maximo_tanda_usd:
+        description: 'Coste maximo de la tanda en USD (techo del codigo: 30)'
+        required: true
+        type: string
+      gramatica:
+        description: 'Salidas estructuradas del servidor (si) o esquema en el encargo (no: via probada)'
+        required: true
+        type: choice
+        default: 'no'
+        options: ['no', 'si']
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: python3 -I -m unittest discover -s automation/claude_review -p 'test_*.py' -v
+      - run: python3 -I -m unittest discover -s automation/coordination -p 'test_*.py' -v
+      - run: python3 -I -m unittest discover -s automation/direct_analysis -p 'test_*.py' -v
+      - run: python3 -I -m unittest discover -s automation/screening -p 'test_*.py' -v
+  # Sin secretos de inferencia: descarga la Release, comprueba su huella, arma los paquetes
+  # y muestra las reservas en el resumen ANTES de que la persona apruebe el job de pago.
+  preparar:
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Descargar la Release del universo (la huella la comprueba el codigo)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release download universo-etapa1-20261118 --repo "$GITHUB_REPOSITORY"
+          --pattern universo_etapa1.zip.zip --dir "$RUNNER_TEMP/release"
+      - name: Preparar sin llamar a la API
+        env:
+          EMPRESAS: ${{ inputs.empresas }}
+          MODELO: ${{ inputs.modelo }}
+          ESFUERZO: ${{ inputs.esfuerzo }}
+          COSTE_EMPRESA: ${{ inputs.coste_maximo_por_empresa_usd }}
+          COSTE_TANDA: ${{ inputs.coste_maximo_tanda_usd }}
+          GRAMATICA: ${{ inputs.gramatica }}
+        run: >-
+          python3 automation/screening/screening.py tanda
+          --release "$RUNNER_TEMP/release/universo_etapa1.zip.zip" --empresas "$EMPRESAS"
+          --model "$MODELO" --effort "$ESFUERZO" --max-usd-empresa "$COSTE_EMPRESA"
+          --max-usd-tanda "$COSTE_TANDA" --gramatica "$GRAMATICA" --run-id "$GITHUB_RUN_ID"
+          --run-attempt "$GITHUB_RUN_ATTEMPT" --code-sha "$GITHUB_SHA"
+          --output "$RUNNER_TEMP/munger-cribado"
+      - name: Resumen
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/munger-cribado/tanda.md" ]; then
+            cat "$RUNNER_TEMP/munger-cribado/tanda.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: munger-cribado-preparacion-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/munger-cribado/
+          if-no-files-found: warn
+          retention-days: 30
+  cribado:
+    needs: preparar
+    # Exclusion mutua con el analisis directo: comparten el tope acumulado.
+    concurrency:
+      group: munger-analisis-directo
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    # 20 empresas x (stream 720 s + socket 60 s + publicacion) caben; el codigo deja de
+    # empezar empresas 15 min antes (--deadline-seconds) para publicar siempre la tanda.
+    timeout-minutes: 330
+    environment: inferencia-aprobada
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Descargar la Release del universo (la huella la comprueba el codigo)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release download universo-etapa1-20261118 --repo "$GITHUB_REPOSITORY"
+          --pattern universo_etapa1.zip.zip --dir "$RUNNER_TEMP/release"
+      - name: Una llamada por empresa como maximo, sin reintentos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD: ${{ vars.MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD }}
+          EMPRESAS: ${{ inputs.empresas }}
+          MODELO: ${{ inputs.modelo }}
+          ESFUERZO: ${{ inputs.esfuerzo }}
+          COSTE_EMPRESA: ${{ inputs.coste_maximo_por_empresa_usd }}
+          COSTE_TANDA: ${{ inputs.coste_maximo_tanda_usd }}
+          GRAMATICA: ${{ inputs.gramatica }}
+        run: >-
+          python3 automation/screening/screening.py tanda
+          --release "$RUNNER_TEMP/release/universo_etapa1.zip.zip" --empresas "$EMPRESAS"
+          --model "$MODELO" --effort "$ESFUERZO" --max-usd-empresa "$COSTE_EMPRESA"
+          --max-usd-tanda "$COSTE_TANDA" --gramatica "$GRAMATICA" --run-id "$GITHUB_RUN_ID"
+          --run-attempt "$GITHUB_RUN_ATTEMPT" --code-sha "$GITHUB_SHA"
+          --output "$RUNNER_TEMP/munger-cribado" --deadline-seconds 18900
+          --execute-api
+      - name: Resumen
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/munger-cribado/tanda.md" ]; then
+            cat "$RUNNER_TEMP/munger-cribado/tanda.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: munger-cribado-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/munger-cribado/
+          if-no-files-found: warn
+          retention-days: 30

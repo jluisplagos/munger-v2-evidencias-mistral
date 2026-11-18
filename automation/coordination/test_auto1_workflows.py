@@ -49,6 +49,7 @@ class WorkflowTests(unittest.TestCase):
         # Inventario por nombre: cada alta de un job con secretos se revisa.
         self.assertEqual(gated, {
             ('analisis-directo.yml', 'analisis'), ('claude-critical-review.yml', 'review'),
+            ('cribado-universo.yml', 'cribado'),
             ('piloto-claude-api.yml', 'pilot'), ('qwen-bank-mistral-groups.yml', 'mistral'),
             ('qwen-bank-mistral-groups.yml', 'claude'), ('qwen-bank-mistral-review.yml', 'review'),
             ('vibe-auth.yml', 'connection')})
@@ -103,7 +104,8 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(secrets(doc['jobs']['readiness']), set())
 
     def test_m5_review_job_timeout_leaves_room_for_publication(self):
-        for name in ('claude-critical-review.yml', 'qwen-bank-mistral-groups.yml', 'analisis-directo.yml'):
+        for name in ('claude-critical-review.yml', 'qwen-bank-mistral-groups.yml', 'analisis-directo.yml',
+                     'cribado-universo.yml'):
             doc, _ = self.workflows[name]
             for job in doc['jobs'].values():
                 if 'ANTHROPIC_API_KEY' in secrets(job):
