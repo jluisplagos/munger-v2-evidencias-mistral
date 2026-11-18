@@ -6,6 +6,7 @@
 | 2 | 2026-11-18, tarde | C4: autor de F1 con US GAAP (decisión de la persona, PLAN §5) | `munger-v2`, rama `f1/usgaap` | máximo | en curso |
 | 3 | 2026-11-18, tarde | C5: revisión crítica de la hoja resumen (agente distinto del autor) | `munger-v2`, rama `examen/hoja-resumen` @ ef93699 | máximo | CORRECCIONES: 4 altas (precio de Sí sin conclusión oficial, vigencia, aptitud, escribe aunque falle), 5 medias, 5 bajas. `revisiones/hoja_ef93699/` |
 | 4 | 2026-11-18, tarde | C1: contradictor de Ahold (CONTRADICTOR.md §3, contexto limpio) sobre la fase C turno 2 (descartar, cubo No, precio de Sí 27,74) | `munger-v2`, rama `examen/ahold-f1` @ a7b9357, carpeta `ahold_f1/Ahold` | máximo | 4 objeciones, todas al alza (flujo del accionista sin cobros financieros +3,00 €; acciones 865 M +1,0–1,2 €; listón del ROIC con arrendamientos No→Vigilar; margen NORMAL +0,4–0,7 €). `contradictor/ahold/` |
+| 5 | 2026-11-18, tarde | Dictamen técnico-económico de O1 (flujo del accionista sin cobros financieros) y O2 (acciones) de Ahold: ¿defecto o método?; preguntas a la persona si es política económica | `munger-v2` `examen/ahold-f1` @ 11c31be | máximo | en curso → `revisiones/dictamen_O1_O2_ahold/` |
 
 Reparto acordado (D7): Fable solo para F1-IMPL y para el contradictor del veredicto final; el contradictor de cada empresa usa Opus con esfuerzo alto.
 
