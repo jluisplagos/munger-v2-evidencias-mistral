@@ -55,6 +55,8 @@ proporcionó ninguno, así que solo se usaron las webs de inversores de cada emi
 `resultados_examen/fuentes/<empresa>/INDICE.tsv` (una fila por documento) y `SHA256SUMS` por
 empresa. **Los PDF/HTML no están en Git**: copias locales en `munger_fuentes_examen/<empresa>/`
 (fuera del repositorio). Release `fuentes-examen-20261118` con los binarios como assets:
-pendiente de aprobación explícita de la persona responsable antes de publicar en el repo público.
+**no creada desde esta sesión** — la herramienta no lo permite (`gh release create` devuelve
+"Creating GitHub releases is not allowed" y la API mutante está bloqueada); la persona responsable
+los subirá desde `munger_fuentes_examen/` con los mismos nombres de archivo.
 
 Evidencia propuesta por Mistral; pendiente de revisión e incorporación por el integrador.
