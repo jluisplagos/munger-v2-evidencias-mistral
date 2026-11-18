@@ -1,0 +1,253 @@
+PASA  · N · NIIF con el libro «IFRS (adoptadas por la Unión Europea)» (variante histórica registrada): F1-NORMA no salta
+PASA  · N · NIIF declarada y libro con H13: «US GAAP (no IFRS)» ya no pasa como NIIF: F1-NORMA bloquea · el libro dice 'US GAAP (no IFRS)' en Control maestro L4, que no es un valor reconocido de 
+PASA  · N · NIIF declarada y libro con «Otro»: F1-NORMA bloquea · el libro dice 'Otro' en Control maestro L4, que no es un valor reconocido de la norma (lis
+PASA  · N · NIIF declarada y libro con un texto con las dos normas: F1-NORMA bloquea · el libro dice 'IFRS y US GAAP' en Control maestro L4, que no es un valor reconocido de la 
+PASA  · N · NIIF declarada y libro con L4 vacío: F1-NORMA bloquea · el libro no declara la norma contable (Control maestro L4)
+PASA  · N · mezcla: NIIF declarada y libro «US GAAP» → F1-NORMA (DATOS INVÁLIDOS, «mezcla de normas»)
+PASA  · N · mezcla: US_GAAP declarada y libro «IFRS» → F1-NORMA (DATOS INVÁLIDOS)
+PASA  · N · la declaración solo admite los identificadores NIIF y US_GAAP: «US GAAP» (con espacio) bloquea
+PASA  · N · libro «us gaap» (sin distinguir mayúsculas ni espacios de más) y «US GAAP» son el mismo valor de la lista
+PASA  · N · F1-US-MEZCLA: declaración NIIF con «arrendamientos_us_gaap» o con series de US GAAP → DATOS INVÁLIDOS
+PASA  · N · F1-US-MEZCLA: US GAAP con intereses pagados «en financiación» (C48 = 3) → DATOS INVÁLIDOS (se restarían dos veces)
+PASA  · N · con NIIF no aparece ninguna guarda F1-US-*, ni el bloque us_gaap, ni la huella de fase1_partes, aunque el expediente las tenga
+PASA  · U1 · solo operativos, tramos fuera de las filas: A0 da 68 = FCF base (el alquiler ya está una vez en el EBIT y en el CFO)
+PASA  · U1 · las dos ubicaciones contrastadas con su línea (del estado de flujos y no sumada por la fase 1): ninguna guarda bloquea; utilizable sin hipótesis ni condición · [] · la amortización del derecho de uso: fuera de las filas 8 y 14 · contrastada; la variación del pasivo: fuera de las filas 8 y 14 · contrastad
+PASA  · U1 · K3b: alquiler contado una vez (operativos), contrastado con las líneas del expediente; K3 conforme
+PASA  · U1 · F1-SERIES examina las series de US GAAP y las cuatro citas de clasificación en su página · US GAAP · 4 clasificaciones con su cita en la página citada y 0 páginas examinadas sin línea propia (D-US1) · D&A de der
+PASA  · U1 · con A2 declarado en un libro V6.3 solo bloquea F1-LIBRO (el libro calcula A0): límite declarado, como en NIIF
+PASA  · U1 · US GAAP sin arrendamientos de ninguna clase (declarado con su evidencia; ninguna línea sumada nombra un arrendamiento): A0 utilizable; K3b «ninguna vez (sin arrendamientos)» · []
+PASA  · U2 · operativos + financieros: A2 da 62 = FCF base; A0 da 57 (la amortización del derecho de uso financiero contada dos veces)
+PASA  · U2 · con A2 solo bloquea F1-LIBRO; K3b una vez en las dos clases; F1-US-C49 no salta (C49 = principal financiero publicado) · ['F1-LIBRO']
+PASA  · U2 · con A0 bloquea V-F1a (financieros) y K3b dice «financieros: dos veces» · operativos: una vez; financieros: dos veces
+PASA  · U9 · simétrica de los financieros: A2 con derecho de uso financiero y C49 = 0 → F1-M-SIM y F1-US-C49 (principal publicado omitido); K3b «financieros: ninguna vez»
+PASA  · U2 · financieros sin su principal publicado declarado → F1-US-C49 INCOMPLETO (no se puede descartar que C49 lleve pagos operativos; la salida si no se publica: D-WM)
+PASA  · U2 · «financieros.existen = false» con importes en da_rou → F1-US-DESGLOSE DATOS INVÁLIDOS (incoherencia)
+PASA  · U3 · derecho de uso operativo dentro de la D&A con A0: F1-US-DA bloquea (MODELO NO APLICABLE); A0 daría 58 frente a la caja 68
+PASA  · U3 · K3b «operativos: dos veces» (F1-K3b bloquea) y K3c también (reinversión media −10 con ventas estables)
+PASA  · U3 · el puente K3 de A0 señala 10 de doble cómputo (clase doble_computo)
+PASA  · U3 · con A2 la excluye de D_X ((1a) b): 68; alquiler una vez; contrastada (la línea de la D&A sumada nombra el derecho de uso); solo bloquea F1-LIBRO en un libro V6.3 · ['F1-LIBRO']
+PASA  · U3 · ubicación «fila_8» sin su serie da_rou_operativo: F1-US-DESGLOSE INCOMPLETO y el perímetro no es calculable (vacío ≠ 0)
+PASA  · U3 · importes en da_rou_operativo con la amortización declarada fuera de la fila 8 → incoherencia (DATOS INVÁLIDOS)
+PASA  · U9 · simétrica de los operativos: amortización excluida de D_X sin pagos dentro del CFO (pagos declarados a cero) → F1-US-SIM (FUERA DEL DOMINIO); K3b «ninguna vez»
+PASA  · U4 · C49 = 12 sin arrendamientos financieros: F1-US-C49 bloquea (DATOS INVÁLIDOS: los pagos operativos se restarían dos veces); FCF base 56 frente a 68
+PASA  · U4 · K3a no lo ve (C49 y la fila 17 llevan el mismo error) pero K3b sí: «operativos: dos veces»
+PASA  · U4 · con financieros: C49 = 17 frente a 5 de principal financiero publicado → exceso de 12 (pagos operativos): bloquea; operativos dos veces, financieros una
+PASA  · U4 · tolerancia de redondeo: C49 = 5,004 frente a 5 de principal (≤ 0,005) no salta
+PASA  · U5 · US GAAP sin «arrendamientos_us_gaap»: F1-US-DESGLOSE (INCOMPLETO) → pendiente_de_datos; ya no es un límite del modelo por F1-NORMA
+PASA  · U5 · sin el desglose K3b no afirma nada («no evaluable») y K3 no es conforme
+PASA  · U5 · sin decir si hay financieros: F1-US-DESGLOSE bloquea (INCOMPLETO) · arrendamientos_us_gaap.financieros.existen sin declarar (true o false): sin el desglose entre operativos y fin
+PASA  · U5 · sin decir si hay operativos: F1-US-DESGLOSE bloquea (INCOMPLETO) · arrendamientos_us_gaap.operativos.existen sin declarar (true o false): sin el desglose entre operativos y fina
+PASA  · U5 · sin la ubicación de la variación del pasivo: F1-US-DESGLOSE bloquea (INCOMPLETO) · arrendamientos_us_gaap.operativos.variacion_pasivo.ubicacion sin declarar (fila_14 | fuera_de_las_filas_8_y_14
+PASA  · U5 · sin la ubicación de la amortización: F1-US-DESGLOSE bloquea (INCOMPLETO) · arrendamientos_us_gaap.operativos.amortizacion_rou.ubicacion sin declarar (fila_8 | fila_14 | fuera_de_las_fil
+PASA  · U5 · sin los pagos operativos: F1-US-DESGLOSE bloquea (INCOMPLETO) · series.pagos_arr_operativo sin declarar en [2023, 2024, 2025] (caja pagada por arrendamientos operativos dentr
+PASA  · U5 · sin el coste lineal (D-US2: la diferencia tiene que quedar a la vista): F1-US-DESGLOSE bloquea (INCOMPLETO) · series.coste_arr_operativo sin declarar en [2023, 2024, 2025] (coste lineal de los contratos capitalizados, el
+PASA  · U5 · motor A sin el pasivo operativo del último ejercicio: no bloquea (el motor A no resta deuda); F1-US-PUENTE avisa de que el puente no se puede comprobar · sin series.pasivo_arr_operativo de 2025 no se puede comprobar si la fila 23 lleva pasivo por arrendamiento ope
+PASA  · U5 · el importe que se retira del circulante hace falta en la ventana de f y en los años H–L del ancla: declarado solo en la ventana → INCOMPLETO
+PASA  · U5 · «arrendamientos_us_gaap» sin registro (fecha, persona, motivo) → bloquea: lo declara la persona, no el agente
+PASA  · U5 · ubicación no admitida (la variación del pasivo no puede estar en la fila 8) → DATOS INVÁLIDOS
+PASA  · U5 · «financieros.existen = false» sin su evidencia (documento, página y cita) → INCOMPLETO: la ausencia también se documenta
+PASA  · U5 · clasificación sin su cita literal → INCOMPLETO
+PASA  · U6 · variación del pasivo sola en la fila 14: el libro tal cual daría 78 (omite el alquiler); la capa la retira del circulante y da 68
+PASA  · U6 · ningún libro la retira: F1-LIBRO bloquea (límite declarado, con su salida) y es lo único que bloquea; la réplica del libro sigue conforme · ['F1-LIBRO']
+PASA  · U6 · K3b con el ajuste: una vez; el puente K3 muestra la partida retirada (−10) y cuadra; la línea del pasivo está entre las sumadas en la fila 14 (contrastada)
+PASA  · U6 · sin el importe declarado: F1-US-SIM (FUERA DEL DOMINIO: el alquiler se omitiría) y F1-US-DESGLOSE; K3b «operativos: ninguna vez»; no calculable
+PASA  · U6 · también en el paso 7 (sin palancas ni flujos en el libro) F1-LIBRO bloquea por el ajuste declarado
+PASA  · U6 · importes en circulante_arr_operativo sin ningún tramo declarado dentro de la fila 14 → incoherencia (DATOS INVÁLIDOS)
+PASA  · U6 · la amortización (baja del activo) sola en la fila 14 (−10): tal cual se contaría dos veces (58); retirada con su signo, 68 · ['F1-LIBRO']
+PASA  · U6 · …y sin su importe: F1-US-DA (dos veces) y K3b «operativos: dos veces»
+PASA  · B · los dos tramos dentro de la fila 14 con coste lineal = pagos: el expediente muestra las dos líneas (activo y pasivo); 68; utilizable sin condición; nada se retira · []
+PASA  · B · D-US2 bis con pagos 13 ≠ coste 12: NO bloquea; se publica el valor de la hoja (68, cuenta el coste contable) y la capa no retira nada (F1-LIBRO no salta) · []
+PASA  · B · …y al lado cuánto cambiaría contando los pagos: −1 mm (−1,47 % del flujo sin crecimiento: 67 = FCF base), con el registro de la decisión (18-nov-2026) · D-US2 bis: el alquiler operativo va mezclado en las líneas del circulante; se publica el valor de la hoja, que cuenta el coste contable; contando los pagos, el flujo sin crecimiento cambiaría en -1.00
+PASA  · B · …también en valor presente de los flujos por escenario (NORMAL: −0,001 × Σ ventas descontadas; réplica independiente más abajo, en H)
+PASA  · B · queda a la vista en el rótulo y en F1-US-BASE (AVISO, no bloquea), con «D-US2 bis», «coste contable» y la cifra; no es una hipótesis (no se rotula condicionada) · motor A utilizable para una conclusión según F1 · D-US2 bis: el alquiler operativo va mezclado en las líneas del circulante; se publica el valor de la hoja, que cuenta el coste contable; contando los pagos, el flujo sin 
+PASA  · B · una milésima de diferencia (pagos 12,001 y coste 12) tampoco bloquea (antes: límite del modelo): 68; contando los pagos, −0,001
+PASA  · B · pagos y coste hacen falta solo en la ventana (no en los años del ancla): con los tres años de la ventana, utilizable · []
+PASA  · B · con la línea neta publicada declarada («(1)»: +1 en la fila 14) manda el dato: misma cifra (−1 contando los pagos) sin derivar nada; el valor publicado sigue siendo el de la hoja · []
+PASA  · B · antes, el programa comprueba que el expediente muestra las dos líneas: sin fase1_partes no se puede comprobar → F1-US-FILAS INCOMPLETO (pendiente_de_datos), nunca el valor de la hoja · D-US2 bis: con los dos tramos dentro de la fila 14 se publica el valor de la hoja solo si el expediente muestra las dos líneas (la del activo y la del pasivo) entre las sumadas en la fila 14; no se ha
+PASA  · B · con pagos 11 < coste 12 y capex = D&A la reinversión media de la hoja es −1: K3c bloquea sin justificación (regla general, no de D-US2 bis) y con ella avisa: utilizable, valor de la hoja 68 y +1 contando los pagos · ['F1-K3c'] · []
+PASA  · B · caso Nike (líneas mezcladas y partidas en dos renglones; el renglón de las cifras del pasivo no nombra el arrendamiento): las dos líneas se reconocen por su etiqueta entera en la página → contrastadas; valor de la hoja 68 y −1 contando los pagos · [] · la amortización del derecho de uso: dentro de la fila 14 · contrastada; la variación del pasivo: dentro de la fila 14 · contrastada · lo declarado no contradice las líneas que la fase 1 sumó en las fi
+PASA  · B · caso Nike sin texto/ de la fase 1: la línea del pasivo se reconoce porque la cita, en la página citada, es la etiqueta entera de un renglón sumado (y la misma etiqueta está en los demás años) · [] · la amortización del derecho de uso: dentro de la fila 14 · contrastada; la variación del pasivo: dentro de la fila 14 · contrastada · lo declarado no contradice las líneas que la fase 1 sumó en las fi
+PASA  · R3 (iii) · «los dos en la fila 14» falsa, citando para la amortización la línea del pasivo → F1-US-FILAS INCOMPLETO: cada tramo se prueba con su línea; no utilizable · arrendamientos_us_gaap.operativos.amortizacion_rou: la cita 'Operating lease liabilities' nombra el pasivo del arrendamiento, no la amortización del derecho de uso: cada tramo se prueba con su línea (
+PASA  · R3 (iii) · …o citando la línea del activo del balance (real, pero no está entre las sumadas en la fila 14) → no se puede comprobar la línea del activo: INCOMPLETO · D-US2 bis: con los dos tramos dentro de la fila 14 se publica el valor de la hoja solo si el expediente muestra las dos líneas (la del activo y la del pasivo) entre las sumadas en la fila 14; no se ha podido comprobar: l
+PASA  · R3 (iii) · …o citando la línea propia de la amortización, que está en el estado de flujos y la fase 1 no sumó → DATOS INVÁLIDOS (la declaración contradice al expediente) · la declaración contradice al expediente: la amortización del derecho de uso está declarada dentro de la fila 14, pero la línea citada, que está en la página del estado de flujos, no es ninguna de las que la fase 1 sumó e
+PASA  · D · tramos fuera de las filas con pagos 11 ≠ coste 12: se cuentan los pagos sin ajuste (69 = FCF base); utilizable; la diferencia (+1) a la vista, sin bloquear · arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); coste lineal medio 12.000, pagos medios 11.000: coste − pagos = +1.000 de media en la ventana
+PASA  · H · D-US1: los dos tramos «no_publicada» → se suponen fuera de las filas 8 y 14; no bloquea: utilizable para una conclusión CONDICIONADA · motor A utilizable para una conclusión CONDICIONADA según F1 · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del fluj
+PASA  · H · la regla lleva su registro (18-nov-2026, persona responsable, DECISIONES_PARA_EL_USUARIO.md) y es una hipótesis, no un dato
+PASA  · H · F1-US-HIPOTESIS avisa (no bloquea) con la cota: si la variación del pasivo estuviera sola en la fila 14, el flujo bajaría como máximo en los pagos (−12; −17,6 %); si la amortización estuviera en la fila 8, subiría como máximo en el coste lineal (+12) · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del fluj
+PASA  · H · la cota también en valor presente de los flujos, por escenario (NORMAL: −0,012 × Σ ventas descontadas; réplica independiente) · {'variacion_maxima_del_valor_presente_de_los_flujos_mm': -184.974, 'variacion_maxima_%': -23.18} · réplica -184.974
+PASA  · H · (R1-8) la cota resumida en dos cifras para el informe: % del flujo sin crecimiento (−17,6 % y +17,6 %) y % del valor presente en el escenario NORMAL; va en el rótulo · cota: el flujo sin crecimiento podría cambiar entre -12.000 y +12.000 mm (-17.6 % y +17.6 %); el valor presente de los flujos en el escenario NORMAL, entre -23.2 % y +23.2 %
+PASA  · H · el resumen suma las variaciones del mismo signo (dos ubicaciones falsas a la vez se acumulan: −10 y −12 → −22) y no compensa las de signo contrario
+PASA  · H · F1-SERIES comprueba que la página citada es la del estado de flujos y no muestra una línea propia del arrendamiento operativo (2 páginas examinadas)
+PASA  · H · donde la empresa publica la línea manda el dato: «no_publicada» y la página del estado de flujos muestra «Non-cash lease expense» → F1-SERIES DATOS INVÁLIDOS · arrendamientos_us_gaap.operativos.amortizacion_rou: «no_publicada», pero la página 2 de '10-K sintético' muestra una línea del arrendamiento operativo ('Non-cas
+PASA  · H · «no_publicada» citando una página que no existe → F1-SERIES DATOS INVÁLIDOS
+PASA  · H · «no_publicada» citando una página que no es la del estado de flujos (las notas, sin líneas de arrendamiento) → F1-SERIES INCOMPLETO: se examina el estado de flujos · arrendamientos_us_gaap.operativos.amortizacion_rou: «no_publicada», pero la página 1 de '10-K sintético' no es la del estado de flujos que usó la fase 1 (no lleva sus líneas de explotación): se examin
+PASA  · H · «no_publicada» sin la página del estado de flujos examinada → F1-US-DESGLOSE INCOMPLETO
+PASA  · H · un tramo publicado y otro no: el publicado se trata con su dato (pasivo en la fila 14: se retira; 68) y la hipótesis vale solo para el otro (cota solo al alza) · ['F1-LIBRO']
+PASA  · H · sin hipótesis (tramos contrastados con su línea) F1-US-HIPOTESIS no salta y el rótulo no dice «condicionada»
+PASA  · H · (R1-15) con la hipótesis, K3b dice «una vez» «según la hipótesis D-US1» y K3 no se presenta como conforme (no es una comprobación independiente) · K3b no es una comprobación independiente: según la hipótesis D-US1 (no es un dato ni una comprobación independiente)
+PASA  · P · motor A con 50 de pasivo operativo en la fila 23: F1-US-PUENTE informa (el motor A no resta deuda) y no bloquea; deuda coherente de un puente = 100 · la fila 23 lleva 50.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en 
+PASA  · P · motor B con US GAAP: F1 evalúa solo el puente; el pasivo operativo dentro de la fila 23 se restaría además del EBIT → F1-US-PUENTE BLOQUEA (límite declarado) · DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-US-PUENTE
+PASA  · P · motor B con la fila 23 sin pasivo operativo (0 declarado): utilizable; alquiler una vez · []
+PASA  · P · motor B con 30 de pasivo por arrendamientos FINANCIEROS en la fila 23 y 0 operativo: no bloquea (los financieros sí son deuda del puente: 130)
+PASA  · P · motor B con US GAAP y sin declaración de arrendamientos → F1-US-DESGLOSE (pendiente_de_datos): nunca un puente silencioso
+PASA  · P · motor B: no exige las ubicaciones de los tramos en el flujo (son del motor A); con el pasivo declarado, lo que bloquea es el puente · ['F1-US-PUENTE']
+PASA  · P · pasivo operativo declarado (60) mayor que la fila 23 (50) → DATOS INVÁLIDOS
+PASA  · P · motor B con NIIF: F1 sigue sin aplicar (T11 no cambia)
+PASA  · P · motor B, libro US GAAP y declaración NIIF → se evalúa (por el libro) y F1-NORMA bloquea por mezcla de normas
+PASA  · P · motor B, «operativos.existen = false» (falso) y la fase 1 sumó en la fila 23 una línea de pasivo por arrendamiento operativo → F1-US-PUENTE DATOS INVÁLIDOS · la declaración contradice al expediente: se declara que la fila 23 no lleva pasivo por arrendamiento operativo en 2025 y la fase 1 sumó en ella una línea que lo nombra (AR_2025.json, lado «actual»: «c
+PASA  · P · motor B, sin arrendamientos de ninguna clase declarados y 50 de pasivo por arrendamientos en la fila 23 → DATOS INVÁLIDOS (también sin fase1_partes) · la fila 23 del libro lleva 50.0 de pasivo por arrendamientos en 2025 y se declara que no hay arrendamientos de ninguna clase
+PASA  · P · motor A, pasivo operativo declarado 0 y una línea de la fila 23 que lo nombra: avisa (el motor A no resta deuda) y no bloquea
+PASA  · R9 · motor B con arrendamientos operativos: F1-US-ANCLA AVISA de lo que F1 no mira (el ancla de S2C, Historia C53, y el ROIC pueden arrastrar partidas del arrendamiento operativo); no bloquea · con el motor B, F1 solo evalúa el puente de deuda: no examina en qué líneas del estado de flujos están la amortización del derecho de uso y la variación del pasivo del arrendamiento operativo. Si la D
+PASA  · R9 · con la amortización operativa (2,5 % de las ventas) dentro de la D&A el ancla de S2C del libro queda vacía: el aviso lo dice y nombra la línea sumada en la fila 8 · 3), que son la referencia de la fase B, las arrastran. Líneas sumadas que nombran el arrendamiento en los cinco años del ancla: fila 8: «depreciation and amortization, including amortization of operating lease right-of-use assets»
+PASA  · R9 · sin arrendamientos operativos declarados (y sin líneas que los nombren) no hay aviso del ancla
+PASA  · S · serie de US GAAP con «valor_fuente» distinto de la cifra publicada con su signo → F1-SERIES DATOS INVÁLIDOS (R415-SIGNO)
+PASA  · S · cita de una clasificación que no está en la página citada → F1-SERIES DATOS INVÁLIDOS
+PASA  · S · cita de menos de diez caracteres → F1-SERIES INCOMPLETO (no identifica una línea)
+PASA  · S · sin la carpeta del expediente (fuentes no examinadas) → F1-SERIES bloquea (INCOMPLETO): un «utilizable» exige las fuentes
+PASA  · S · la partida del circulante lleva el signo de la fila 14: «(10)» publicado con signo −1 es +10 (consume caja) y admite importes negativos
+PASA  · S · si la fuente cambia después de declarar su huella, las citas de las ubicaciones no se dan por examinadas → F1-SERIES DATOS INVÁLIDOS
+PASA  · F · sin fase1_partes las ubicaciones declaradas no se pueden contrastar con una línea: F1-US-FILAS AVISA y la conclusión queda CONDICIONADA (antes: utilizable a secas) · motor A utilizable para una conclusión CONDICIONADA según F1 · ubicación declarada sin contrastar con una línea (no es un dato comprobado): la amortización del derecho de uso, fuera de las filas 8 y 1
+PASA  · F · …con la misma cota que la hipótesis D-US1: −12 si la variación del pasivo estuviera en la fila 14 y +12 si la amortización estuviera en la fila 8; no es una decisión de la persona (sin registro) y K3 no se presenta como conforme · {'si la amortización del derecho de uso, declarada fuera de las filas 8 y 14 y sin contrastar con una línea, estuviera dentro de la fila 8, o sola dentro de la fila 14 (se contaría dos veces): como máximo, el coste lineal': 12.0, 'si la variación del pasivo, declarada fuera de las filas 8 y 14 y sin contrastar con una línea, estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos': -12.0}
+PASA  · F · «no_publicada» cuando la fase 1 sumó «Operating lease liabilities» en la fila 14: F1-US-FILAS bloquea (DATOS INVÁLIDOS: manda el dato); no utilizable · la declaración contradice al expediente: la fila 14 del expediente suma una línea que nombra el arrendamiento (AR_2022.json, lado «anterior»: «operating lease liabilities
+PASA  · F · tramos declarados «fuera de las filas» con su línea, pero la fila 14 suma «Prepaid expenses, ROU assets and other assets» → F1-US-FILAS bloquea (la amortización)
+PASA  · F · la fila 8 suma una línea que nombra el derecho de uso y la amortización no está declarada dentro de la fila 8 → F1-US-FILAS bloquea
+PASA  · F · con la línea declarada dentro de la fila 14 (y su importe) no hay contradicción: F1-US-FILAS no salta
+PASA  · F · con NIIF no existe (nada cambia)
+PASA  · F · (revisión B4) la línea solo en el lado «anterior» del informe siguiente, que es el que da el valor de la Historia: se ve → DATOS INVÁLIDOS · la declaración contradice al expediente: la variación del pasivo está declarada fuera de las filas 8 y 14, pero la línea citada está entre las que la fase 1 sumó en la fila 14 (AR_2025.json, lado «ant
+PASA  · F · las líneas de cada año se toman como las toma la fase 1 (fase1_historia): el lado «anterior» del informe siguiente y, en el último año, el lado «actual»; la línea que solo está en el «anterior» de AR_2025 es la de 2024 · {2024: 'AR_2025.json, lado «anterior»', 2025: 'AR_2025.json, lado «actual»'}
+PASA  · F · (revisión B5) el «anio» de fase1_partes escrito como texto («2025») se lee igual → DATOS INVÁLIDOS
+PASA  · F · (revisión, punto 5) si faltan informes de años que usa el modelo (2021 y 2022), no dice «no contradicen»: quedan sin examinar → sin contrastar → CONDICIONADA · {'amortizacion_rou': 'la línea citada no está entre las sumadas en el informe citado, pero no se han podido examinar enteras las líneas sumadas en 2021 (fila 8), 2021 (fila 14), 2022 (fila 8), 2022 (f
+PASA  · F · un año con la fila 14 fijada a mano (fase1_decisiones.json) no es la suma de las líneas: queda sin examinar → sin contrastar → CONDICIONADA
+PASA  · F · sin texto/ de la fase 1 las etiquetas partidas no se pueden reconstruir en los informes de los demás años: «fuera» no queda contrastada → CONDICIONADA · motor A utilizable para una conclusión CONDICIONADA según F1 · ubicación declarada sin contrastar con una línea (no es un dato comprobado): la amortización del 
+PASA  · F · si la página citada es la del estado de flujos de un informe que no es de los años que usa el modelo, «fuera» no queda contrastada → CONDICIONADA
+PASA  · F · etiqueta partida con mayúsculas de título: la línea citada como «fuera» es una de las sumadas en la fila 14 → DATOS INVÁLIDOS (también sin texto/ de la fase 1) · la declaración contradice al expediente: la variación del pasivo está declarada fuera de las filas 8 y 14, pero la línea citada está entre las que la fase 1 sumó en la fila 14 (AR_2021.json, lado «act
+PASA  · F · etiqueta partida con renglones en blanco en medio: la línea citada como «fuera» es una de las sumadas en la fila 14 → DATOS INVÁLIDOS · la declaración contradice al expediente: la variación del pasivo está declarada fuera de las filas 8 y 14, pero la línea citada está entre las que la fase 1 sumó en la fila 14 (AR_2021.json, lado «act
+PASA  · F · una carpeta fase1_partes sin ninguna línea de explotación no permite contrastar nada: como si no la hubiera → sin contrastar → CONDICIONADA (no «sin contradicción»)
+PASA  · F · el resultado deja la huella de las líneas de la fase 1 con que se contrastó (fase1_partes) y, sin ellas, None
+PASA  · R3 (i) · «fuera» falsa sin fase1_partes (revisión B1): ya no es utilizable a secas: CONDICIONADA, con la cota a la vista (−12) que cubre el error (+10: 78 frente a 68) · motor A utilizable para una conclusión CONDICIONADA según F1 · ubicación declarada sin contrastar con una línea (no es un dato comprobado): la amortización del derecho de uso, fuera de las filas 8 y 14; la variación del pasivo, fuera de las filas 8 y 14 · cota
+PASA  · R3 (i) · lo mismo en un libro V6.3.1 con A2 (revisión B1v): CONDICIONADA con su cota
+PASA  · R3 (i) · con fase1_partes (revisión B6): la línea citada está entre las que la fase 1 sumó en la fila 14 → F1-US-FILAS DATOS INVÁLIDOS; no utilizable · la declaración contradice al expediente: la variación del pasivo está declarada fuera de las filas 8 y 14, pero la línea citada está entre las que la fase 1 sumó en la fila 14 (AR_2021.json, lado «act
+PASA  · R3 (i) · (B2) sin línea propia en el estado de flujos, «fuera» no tiene qué citar: «Operating lease liabilities» solo está dentro de la línea de información complementaria (altas de derechos de uso) → F1-US-FILAS INCOMPLETO; no utilizable · arrendamientos_us_gaap.operativos.variacion_pasivo: la cita 'Operating lease liabilities' solo está, en la página 2, dentro de líneas de información complementaria o de arrendamientos financieros, o después del total del flujo de 
+PASA  · R3 (i) · (B2) citando la línea del balance (real): no es una línea del estado de flujos → F1-US-FILAS INCOMPLETO («fuera» se prueba con una línea del estado de flujos; si no la hay, «no_publicada») · arrendamientos_us_gaap.operativos.variacion_pasivo: «fuera de las filas» se prueba con una línea del estado de flujos que nombre el arrendamiento y que la fase 1 no sumó en las filas 8 y 14; la página citada (3 de '10-K 
+PASA  · R3 (i) · (B2) citando la línea de información complementaria del propio estado de flujos (altas de derechos de uso): no es una línea de la conciliación → INCOMPLETO
+PASA  · R3 (i) · (B7) la declaración veraz de ese caso es «no_publicada»: hipótesis D-US1, CONDICIONADA, y la cota (−12) cubre el error (+10)
+PASA  · R3 (i) · (B3) con la etiqueta de Nike 2025 la línea sumada se reconoce por su etiqueta entera (el arrendamiento está en el primer renglón) → DATOS INVÁLIDOS · la declaración contradice al expediente: la variación del pasivo está declarada fuera de las filas 8 y 14, pero la línea citada está entre las que la fase 1 sumó en la fila 14 (AR_2021.json, lado «actual»: «increase (decrease) in accounts payable, accrued liab
+PASA  · R3 (i) · (B3) …y «no_publicada» tampoco pasa: la línea sumada nombra el pasivo por arrendamiento → manda el dato (F1-US-FILAS y F1-SERIES)
+PASA  · R3 (ii) · «fila_8» falsa con la cita genérica «Depreciation and amortization» (revisión C1): la cita no nombra el arrendamiento → F1-US-FILAS INCOMPLETO; no utilizable · arrendamientos_us_gaap.operativos.amortizacion_rou: la cita 'Depreciation and amortization' no nombra el arrendamiento ni el derecho de uso (o es información complementaria del estado de flujos): quie
+PASA  · R3 (ii) · …con una cita real de una nota: el programa no puede contrastarla con una línea de la fila 8 → no bloquea, pero la conclusión queda CONDICIONADA, con su cota exacta (−10: el importe declarado) a la vista; cubre el error (78 frente a 68) · motor A utilizable para una conclusión CONDICIONADA según F1 · ubicación declarada sin contrastar con una línea (no es un dato comprobado): la amortización del derecho de uso, dentro de la fila 8 · cota: el flujo sin crecimiento podría cambiar entre -10.000 y +0.000 mm (-12.8 % y +0.0 %) (condición 
+PASA  · R3 (ii) · …o citando la línea propia de la amortización del estado de flujos (no sumada en la fila 8) → DATOS INVÁLIDOS
+PASA  · R3 (i)+(ii) · las dos a la vez sin fase1_partes (88 frente a 68: +29,4 %): CONDICIONADA y el resumen de la cota suma las dos (−22 ≤ −20) · cota: el flujo sin crecimiento podría cambiar entre -22.000 y +0.000 mm (-25.0 % y +0.0 %)
+PASA  · R3 · matriz verdad × declaración (sin fase1_partes, cita de «linea»; 72 pares): ningún utilizable con error en el flujo sin condición, y en todo condicionado con error la cota lo cubre · utilizables 10 · con error 5 · sin condición 0 [] · fuera de la cota 0 []
+PASA  · R3 · matriz verdad × declaración (sin fase1_partes, cita de «nota»; 72 pares): ningún utilizable con error en el flujo sin condición, y en todo condicionado con error la cota lo cubre · utilizables 10 · con error 5 · sin condición 0 [] · fuera de la cota 0 []
+PASA  · R3 · matriz verdad × declaración (con fase1_partes, cita de «linea»; 72 pares): ningún utilizable con error en el flujo sin condición, y en todo condicionado con error la cota lo cubre · utilizables 3 · con error 0 · sin condición 0 [] · fuera de la cota 0 []
+PASA  · R3 · matriz verdad × declaración (con fase1_partes, cita de «nota»; 72 pares): ningún utilizable con error en el flujo sin condición, y en todo condicionado con error la cota lo cubre · utilizables 1 · con error 0 · sin condición 0 [] · fuera de la cota 0 []
+PASA  · R3 · matriz con fase1_partes y cita de la línea: ninguna declaración FALSA es utilizable (se contradice con las líneas sumadas o con las no sumadas) · []
+PASA  · R3 · matriz con fase1_partes: una declaración VERAZ nunca termina en DATOS INVÁLIDOS por F1-US-FILAS ni por F1-SERIES (o es utilizable, o es el límite declarado F1-LIBRO de un tramo solo en la fila 14) · veraces 6 · utilizables 3 · []
+PASA  · R3 · error a la baja: con la verdad declarada («fila_8»), la caja sostenible (116,4); declarada «fuera» con la D&A que la nombra, bloquea (la cita no existe y la línea sumada la nombra) · 116.350 frente a 116.350 · ['F1-LIBRO', 'F1-US-FILAS']
+PASA  · R3 · error a la baja: si la empresa no lo dice en ninguna línea («no_publicada»), el flujo sale un 33 % por debajo, pero CONDICIONADO y con una cota al alza que lo cubre · flujo 77.566 · error -38.783 · cotas [46.54]
+PASA  · R3 · matriz sin fase1_partes: nada se puede contrastar con una línea, así que ningún resultado utilizable lo es sin condición
+PASA  · W · antes de D-WM (revisión F1): financieros sin amortización ni principal publicados por separado → F1-US-DESGLOSE y F1-US-C49 (pendiente_de_datos), y el mensaje da la salida
+PASA  · W · D-WM: con «financieros.desglose»: «no_publicado» no se piden la amortización ni el principal; su amortización queda dentro de la propia (D_X no excluye nada) y C49 = 0: A0 da 68; utilizable · []
+PASA  · W · es una hipótesis declarada: la conclusión es CONDICIONADA (D-US1 + D-WM), con el registro de la decisión (18-nov-2026, DECISIONES…:112–114) · motor A utilizable para una conclusión CONDICIONADA según F1 · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del
+PASA  · W · la diferencia estimada queda junto al resultado: caja pagada − gasto total = +0,8 mm al año (1,18 % de CFO − capex medio); tratados como arrendamientos el flujo sería 0,8 menor · 0.8 · [-0.8]
+PASA  · W · K3b: los financieros «como deuda (D-WM)» y los operativos una vez; F1-US-C49 confirma que sus pagos no se restan de la caja base
+PASA  · W · con D-WM y C49 = 5 (principal restado además de la amortización dentro de D_X: dos veces) → F1-US-C49 DATOS INVÁLIDOS y K3b lo dice
+PASA  · W · sin el gasto total publicado no se puede enseñar la diferencia estimada → F1-US-DESGLOSE INCOMPLETO
+PASA  · W · «no_publicado» con importes en series.da_rou → DATOS INVÁLIDOS: si la empresa publica el desglose manda el dato
+PASA  · W · con los operativos contrastados con su línea, la única condición es D-WM · cota: el flujo sin crecimiento podría cambiar entre -0.800 y +0.000 mm (-1.2 % y +0.0 %); el valor presente de los flujos en el escenario NORMAL, entre -1.6 % y +0.0 %
+PASA  · W · «desglose» es un valor cerrado (publicado | no_publicado)
+PASA  · W · las series de D-WM con el desglose «publicado» no se ignoran en silencio → DATOS INVÁLIDOS
+PASA  · W · en el libro V6.3.1 la fila 86 no lleva nada de los financieros tratados como deuda (solo la amortización operativa que esté dentro de la fila 8)
+PASA  · W · motor B con D-WM: los financieros son deuda del puente (130); no bloquea · []
+PASA  · R6 · (N1, control) página con «Operating lease liabilities (…)» y los dos tramos «no_publicada» → F1-SERIES DATOS INVÁLIDOS («manda el dato»)
+PASA  · R6 · (N2) la «fila» de una serie (la etiqueta del balance) ya no anula el contraste: sigue DATOS INVÁLIDOS (antes: utilizable, 78 frente a 68)
+PASA  · R6 · (N3) la cita de «operativos.existen» tampoco lo anula: sigue DATOS INVÁLIDOS
+PASA  · R6 · (N4) los 14 rótulos habituales de un estado de flujos se ven en la página con el patrón amplio (antes, 10 no se veían), también la línea que mezcla operativos y financieros · []
+PASA  · R6 · solo se excluye la línea del OTRO tramo cuando está declarada con su ubicación: «Operating leases, net» citada para el pasivo («fuera») no invalida la amortización «no_publicada» · []
+PASA  · R6 · las líneas solo de financieros («Principal payments on finance lease obligations») y la información complementaria («…obtained in exchange for…») no son tramos del arrendamiento operativo: no invalidan «no_publicada»
+PASA  · R6 · una línea que nombra el pasivo por arrendamiento DESPUÉS del total del flujo de explotación (financiación: principal de los financieros) no es un tramo del operativo: no invalida «no_publicada» · US GAAP · 2 clasificaciones con su cita en la página citada y 2 páginas examinadas sin línea propia (D-US1) · D&A de derechos de uso y PPA: cifra publicada con 
+PASA  · R6 · …y tampoco sirve para probar «fuera»: citar esa línea de financiación (real, del estado de flujos y no sumada) → F1-US-FILAS INCOMPLETO · arrendamientos_us_gaap.operativos.variacion_pasivo: la cita 'Payments on lease liabilities' solo está, en la página 2, dentro de líneas de información complementaria o de arrendamientos financieros, o después del total del flujo de explotación (inversión o fin
+PASA  · R7 · sin declarar nada, la diferencia se enseña y el resultado lleva la relación coste ÷ pagos (2,23) para que se vea si es de perímetro y no de calendario
+PASA  · R7 · declarado «no comparable» (con su motivo): la diferencia coste − pagos NO se calcula ni se presenta como diferencia de calendario; no bloquea · arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); el coste publicado (29.333 de media) no tiene el mismo perímetro que los pagos (13.133): la diferencia no se calcula (el gasto public
+PASA  · R7 · …y la cota de D-US1 que usa el coste se rotula «cota holgada»
+PASA  · R7 · «no comparable» sin su motivo → F1-US-DESGLOSE INCOMPLETO
+PASA  · R7 · con D-US2 bis y el coste no comparable, cuánto cambiaría contando los pagos no se puede calcular: se dice así (no se inventa) y no bloquea
+PASA  · R13 · (revisión E6) principal 5/6/6 (media 5,667) y C49 = 5,7 (un decimal, como lo registra la etapa 1): es redondeo → F1-US-C49 no salta (antes: DATOS INVÁLIDOS) · C49 = 5.7 es el principal publicado de los arrendamientos financieros (5.666666666666667 de media en la ventana; redondeo de C49 ±0.05)
+PASA  · R13 · con C49 sin decimales (6) la tolerancia es media unidad
+PASA  · R13 · C49 = 5,8 (0,133 más que el principal: más que el redondeo) → bloquea, y el mensaje no afirma que sean pagos operativos («si son…») · C49 = 5.8 supera en 0.13333333333333333 el principal publicado de los arrendamientos financieros (5.666666666666667 de media en la ventana), más que el redondeo de C49 (±0.05): la diferencia no está explicada. Si son pagos de arre
+PASA  · R13 · la misma diferencia explicada por una partida declarada con su fuente en conciliacion_fcf_base (componente C49, como K3a) → no bloquea: AVISA y pide comprobar que no son pagos operativos; K3b no cuenta un exceso · C49 = 5.8 difiere en +0.13333333333333333 del principal publicado de los arrendamientos financieros (5.666666666666667 de media en la ventana); la diferencia está explicada por una partida declarada e
+PASA  · R13 · un cero en C49 no dice con cuántos decimales se escribió: principal 0/0/1 (media 0,333) y C49 = 0 → sigue bloqueando (se omitiría)
+PASA  · R16 · (control) da_rou = 0 con principal en la fila 17 y sin decir dónde está esa amortización: F1-ROU-HISTORIA sigue bloqueando, y el mensaje dice cómo se declara la verdad con US GAAP («fuera_de_la_fila_8» o D-WM)
+PASA  · R16 · declarar la verdad no bloquea: amortización del derecho de uso financiero «fuera_de_la_fila_8» (con su evidencia y su cifra publicada) → F1-ROU-HISTORIA no salta; A2 da 67 = FCF base; K3b una vez en las dos clases · ['F1-LIBRO']
+PASA  · R16 · como la cita es de una nota y ninguna línea lo contrasta, queda CONDICIONADA con su cota exacta (+1: si estuviera dentro de la D&A se contaría dos veces) · {'si la amortización del derecho de uso de los arrendamientos financieros, declarada fuera de la fila 8 y sin contrastar con una línea, estuviera dentro de la D&A (se contaría dos veces): el importe publicado': 1.0}
+PASA  · R16 · con su línea propia en el estado de flujos, no sumada en la fila 8 → contrastada: sin condición · ['F1-LIBRO']
+PASA  · R16 · si la fase 1 sumó en la fila 8 una línea de arrendamiento financiero, declararla fuera contradice al expediente → DATOS INVÁLIDOS
+PASA  · R16 · con A0 tampoco bloquea V-F1m (C49 positivo y amortización a cero dentro de la fila 8 no es un conflicto si está declarada fuera): utilizable · []
+PASA  · R16 · «fuera_de_la_fila_8» sin la cifra publicada de esa amortización → F1-US-DESGLOSE INCOMPLETO (sin ella no hay cota)
+PASA  · R14 · una serie de US GAAP que es un texto: no hace fallar el programa; DATOS INVÁLIDOS (pendiente_de_datos) · ['F1-DECLARACION', 'F1-K3b', 'F1-US-DESGLOSE']
+PASA  · R14 · una serie que es una lista: no hace fallar el programa; DATOS INVÁLIDOS (pendiente_de_datos) · ['F1-DECLARACION']
+PASA  · R14 · «series» que es una lista: no hace fallar el programa; DATOS INVÁLIDOS (pendiente_de_datos) · ['F1-2i', 'F1-DECLARACION', 'F1-K3b', 'F1-US-DESGLOSE']
+PASA  · R14 · «clasificacion_compras» que es un texto: no hace fallar el programa; DATOS INVÁLIDOS (pendiente_de_datos) · ['F1-DECLARACION', 'V-F1j']
+PASA  · R14 · «transicion» que es un número: no hace fallar el programa; DATOS INVÁLIDOS (pendiente_de_datos) · ['F1-DECLARACION', 'V-F1i']
+PASA  · R14 · «normalizacion.ajustes» que es un número: no hace fallar el programa; DATOS INVÁLIDOS (pendiente_de_datos) · ['F1-DECLARACION']
+PASA  · R14 · una ubicación que es una lista: no hace fallar el programa; DATOS INVÁLIDOS (pendiente_de_datos) · ['F1-US-DESGLOSE']
+PASA  · R14 · 600 declaraciones mal formadas al azar (semilla fija): ninguna excepción sin controlar (antes, AttributeError en una de cada nueve) y ningún «utilizable» con el desglose de arrendamientos incompleto · utilizables 8 · excepciones {} · utilizables incompletos []
+PASA  · R1 · exigido_puente: con el libro «US GAAP» se exige; con un libro NIIF reconocido, no (T11 no cambia), tampoco en un expediente de la 4.15
+PASA  · R1 · (revisión G1) L4 fuera de la lista («U.S. GAAP», «Otro») o vacío en un expediente de la 4.15: no se puede descartar US GAAP → F1 se exige (antes: no se evaluaba nada)
+PASA  · R1 · (revisión G2) expediente de la 4.15 sin libro evaluado legible: se exige (falla en cerrado); en un expediente histórico (no 4.15) no cambia nada
+PASA  · R1 · motor B, libro «U.S. GAAP» y sin declaración en un expediente de la 4.15: F1 aplica y F1-NORMA bloquea (pendiente_de_datos); nunca un puente silencioso · DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA
+PASA  · R1 · el mismo libro en un expediente histórico (no de la 4.15): F1 sigue sin aplicar (los cierres anteriores no cambian)
+PASA  · R1 · motor B, declaración NIIF y libro sin norma (L4 vacío) en la 4.15 → F1-NORMA INCOMPLETO, sin pedir el desglose de US GAAP
+PASA  · R1 · (revisión XB3, en la capa) motor B, libro US GAAP y sin declaración F1: F1-NORMA y F1-US-DESGLOSE bloquean (pendiente_de_datos)
+PASA  · R11 · norma_fase1_no_admitida: «IFRS», «US GAAP», las dos variantes históricas, «Otro» y el vacío se admiten
+PASA  · R11 · …y las variantes verosímiles que antes llegaban al paso 7 se rechazan en origen, con el motivo («IFRS (EU)», «IFRS as adopted by the EU», «U.S. GAAP», «IAS/IFRS»)
+PASA  · R11 · la instrucción de los metadatos de la fase 1 cierra el vocabulario («IFRS» o «US GAAP», exactamente)
+PASA  · V631 · celdas: la fila 86 del libro lleva la suma (5 financieros + 10 operativos dentro de la fila 8 = 15) y su procedencia nombra las dos series
+PASA  · V631 · celdas: sin operativos dentro de la fila 8 la fila 86 es la de los financieros (5); con una ubicación sin declarar queda VACÍA (vacío ≠ 0)
+PASA  · V631 · celdas con NIIF: la fila 86 sigue siendo series.da_rou (sin cambio)
+PASA  · V631 · celdas con la amortización financiera declarada fuera de la fila 8 (R16): la fila 86 no la lleva (0), y D_X del libro no excluye nada
+PASA  · V631 · el libro V6.3.1 tal cual calcula el caso «operativos dentro de la fila 8 + financieros» con A2 (62 = FCF base): F1-LIBRO no salta y nada bloquea (utilizable) · [] · {'perimetro_efectivo': 'A2_propio', 'motivos': [], 'flujos_contrastados': 0}
+PASA  · V631 · si la fila 86 del libro no es la suma declarada (solo los financieros en 2025) → F1-LIBRO bloquea (el oráculo compara la serie)
+PASA  · V631 · caso habitual con D-US1 (tramos no publicados) y A2 en el libro V6.3.1 tal cual: calculable, utilizable y CONDICIONADO · []
+PASA  · V631 · variación del pasivo en la fila 14: el libro V6.3.1 no retira nada del circulante → F1-LIBRO bloquea (f del libro ≠ capa) y es lo único que bloquea · ['F1-LIBRO']
+PASA  · V631 · D-US2 bis en el libro V6.3.1 tal cual (caso Nike): el libro calcula lo declarado (F1-LIBRO no salta); 68 con el coste contable y −1 contando los pagos · []
+PASA  · G13 · crecimiento 5 % y τ 25 %, tramos fuera: A2 da la caja sostenible a crecimiento cero (7,5 % de las ventas del año base); ancla S2C = 2,0 · 116.349616 frente a 116.349616
+PASA  · G13 · con la amortización operativa (2,5 % de las ventas) dentro de la fila 8: A2 da la misma caja; A0 la infravalora en esa amortización a la escala del año base
+PASA  · G13 · con la variación del pasivo (2,5 % de las ventas) sola en la fila 14: retirada, A2 da la caja sostenible y el ancla 2,0; el libro tal cual la sobrevaloraría en ese importe
+PASA  · G13 · estable con τ 25 %: EBIT 68, impuesto 17, FCF base 51 → A0 da 51; utilizable
+PASA  · NIIF · sin arrendamientos ni PPA: A0 = la V6.3; utilizable; mismas guardas que antes (ninguna F1-US-*)
+PASA  · NIIF · caso T5 (derecho de uso 10, principal en C49): A1 = 68 y A0 = 58; solo bloquea F1-LIBRO; K3b «una vez»; la versión de la capa nombra US GAAP · ['F1-LIBRO']
+PASA  · NIIF · rou_fila8 con NIIF es series.da_rou; un resultado NIIF no lleva bloque us_gaap, condición ni hipótesis
+PASA  · NIIF · el rótulo de un resultado utilizable es, letra por letra, el de antes
+PASA  · EX · con el motor A, un libro US GAAP exige F1 aunque no muestre arrendamientos (C49 = 0, filas 17 y 23 a cero); uno NIIF sin arrendamientos, no
+PASA  · EX · con el motor B, F1 se exige solo con US GAAP (por el libro o por la declaración): exigido_puente
+PASA  · R1 · (revisión R1-1) L4 de un libro con textos compartidos: LibroV63.leer devuelve el índice del texto («1», no «US GAAP»: así se perdía la norma); la norma del expediente se lee resolviendo el texto → US_GAAP, y F1 se exige con el motor B · LibroV63.leer → '1'
+PASA  · R1 · …y con «IFRS» como texto compartido el motor B sigue sin exigir F1
+PASA  · R1 · un libro que no se puede leer no dice su norma: en un expediente de la 4.15 con el motor B, F1 se exige
+PASA  · EX · vigencia con el motor B y libro US GAAP: F1 exigido; sin evaluación, un cierre «concluido» se rechaza · sin evaluación F1 (motor_a_f1_resultado.json)
+PASA  · EX · CLI con el motor B y el pasivo operativo en la fila 23: código 4 (límite del modelo); vigente y no utilizable; el cierre «concluido» se rechaza · código 4 · DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-US-PUENTE
+PASA  · EX · con la fila 23 sin pasivo operativo: código 0; vigente y utilizable; el cierre no tiene objeción F1; sin el motor en el estado se toma del resultado (B) · código 0 · ilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+PASA  · EX · vigencia con el motor B y libro NIIF: no exigido («el motor no es el A»), como antes
+PASA  · EX · …también si ese expediente NIIF es de la 4.15 (el libro dice una norma reconocida)
+PASA  · R1 · vigencia y cierre con el motor B y un libro «U.S. GAAP» en la 4.15: F1 exigido; sin evaluación no se confirma un cierre «concluido» (antes: «el motor no es el A») · motor B · F1: sin evaluación F1 (motor_a_f1_resultado.json); sin una evaluación F1 vigente y utilizable no se confirma un cierre «concluido» (ver motor_a_f1_res
+[paso 7] motor B · F1: motor B utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+PASA  · EX · gancho del pipeline con el motor B y US GAAP: evalúa el puente y deja seguir cuando es utilizable
+[paso 7] motor B · F1: DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-US-PUENTE
+PASA  · EX · gancho con el motor B y pasivo operativo en la fila 23: termina en no_entregable · limite_del_modelo y el detalle nombra el motor B · [('no_entregable', 'limite_del_modelo', 7, 'motor B · F1 (motor_a_f1_resultado.md): el resultado del motor B no se usa para una conclusión · F1-US-PUENTE MODELO NO APLICABLE: LÍMITE DECLARADO · el pue
+[paso 7] motor B · F1: DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA, F1-US-DESGLOSE
+PASA  · R1 · (revisión XB3) gancho con el motor B, libro US GAAP (textos compartidos) y SIN declaración F1: se ejecuta y termina en pendiente_de_datos (antes: no se evaluaba) · [('pendiente_de_datos', 'falta_de_datos', 7, 'motor B · F1 (motor_a_f1_resultado.md): el resultado del motor B no se usa para una conclusión · F1-NORMA INCOMPLETO: norma contable sin declarar en la declaración F1 (entrad
+[paso 7] motor B · F1: DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA, F1-US-DESGLOSE
+PASA  · R1 · (revisión XB4) gancho con el motor B, libro US GAAP y una declaración que dice NIIF: se ejecuta y F1-NORMA bloquea por mezcla de normas · [('pendiente_de_datos', 'falta_de_datos', 7, "motor B · F1 (motor_a_f1_resultado.md): el resultado del motor B no se usa para una conclusión · F1-NORMA DATOS INVÁLIDOS: mezcla de normas: la declaración F1 dice NIIF y el 
+[paso 7] motor B · F1: DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA
+PASA  · R1 · (revisión G1) gancho con el motor B y un libro «U.S. GAAP» en la 4.15: se ejecuta y F1-NORMA bloquea (pendiente_de_datos) · [('pendiente_de_datos', 'falta_de_datos', 7, 'motor B · F1 (motor_a_f1_resultado.md): el resultado del motor B no se usa para una conclusión · F1-NORMA INCOMPLETO: norma contable sin declarar en la de
+PASA  · EX · gancho con el motor B y NIIF: no actúa (como antes)
+PASA  · CLI · motor A · U1 utilizable: código 0; el informe .md lleva la sección de US GAAP · código 0 · motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+PASA  · CLI · motor A · desglose ausente: código 3; el informe .md lleva la sección de US GAAP · código 3 · DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-US-DESGLOSE, V-F1b
+PASA  · CLI · motor A · ajuste del circulante que ningún libro calcula: código 4; el informe .md lleva la sección de US GAAP · código 4 · DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-LIBRO
+PASA  · CLI · motor A · ubicación contradicha por las líneas de la fase 1: código 3; el informe .md lleva la sección de US GAAP · código 3 · DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-US-FILAS
+PASA  · CLI · motor A · D-US2 bis (valor de la hoja): código 0; el informe .md lleva la sección de US GAAP · código 0 · de los flujos en el escenario NORMAL en -1.93 % (condición necesaria, no suficiente; no apto para dinero real)
+PASA  · CLI · con D-US2 bis la salida dice que el valor es el de la hoja (coste contable) y cuánto cambiaría contando los pagos ·  los pagos, el flujo sin crecimiento cambiaría en -1.000 mm (-1.47 %) y el valor presente de los flujos en el escenario NORMAL en -1.93 % (condición necesaria, no suficiente; no apto para dinero real)
+PASA  · CLI · motor A · hipótesis D-US1: código 0; el informe .md lleva la sección de US GAAP · código 0 · en el escenario NORMAL, entre -23.2 % y +23.2 % (condición necesaria, no suficiente; no apto para dinero real)
+PASA  · CLI · con la hipótesis D-US1 la salida dice CONDICIONADA y da la cota; el informe .md lleva la sección «Conclusión condicionada» · 7.6 % y +17.6 %); el valor presente de los flujos en el escenario NORMAL, entre -23.2 % y +23.2 % (condición necesaria, no suficiente; no apto para dinero real)
+
+246/246 pruebas del motor A F1 con US GAAP PASAN
