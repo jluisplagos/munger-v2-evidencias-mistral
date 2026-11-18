@@ -10,6 +10,11 @@ negocio. No es una recomendación de compra, ni un análisis completo, ni aptitu
 dinero real. Tasa del 9 %, provisional (decisión de la persona responsable). Sin tamaños
 de posición.
 
+**Empresas del examen fuera (decisión C-EX).** Ahold, Jumbo, Zoetis, Elis, Vinci y Waste
+Management no se criban hasta después del 23-nov-2026: lista cerrada en el código
+(`EXCLUIDAS`), que quedan como `NO_PREPARADA:EMPRESA_DEL_EXAMEN_EXCLUIDA_HASTA_DESPUES_DEL_23_NOV`.
+Quedan 111. Volver a incluirlas es un cambio de código que se revisa.
+
 Cada ejecución del workflow es una **tanda** de 1 a 20 empresas. **Una sola aprobación**
 del environment `inferencia-aprobada` cubre la tanda. Dentro, **una llamada por
 empresa**, en secuencia y **sin reintentos**.
@@ -18,6 +23,8 @@ empresa**, en secuencia y **sin reintentos**.
 
 - **El encargo fijo** (`ENCARGO_CRIBADO.md`), con el esquema de la respuesta al final. Su
   huella (`encargo_sha256`) y la del sistema enviado (`system_sha256`) quedan registradas.
+- **La convención de arrendamientos** (`convencion_arrendamientos`, C-ARR) y la **fecha de
+  la hoja** (`fecha_hoja`, la «Fecha de análisis» tal como figura en ella).
 - **El paquete de la empresa**, que sale solo de la Release `universo-etapa1-20261118`,
   asset `universo_etapa1.zip.zip` (9.222.746 bytes, SHA-256 `4d30f735…58b0a9`, fijados en
   el código). El workflow la descarga con el token de GitHub y el código comprueba la
@@ -31,7 +38,8 @@ empresa**, en secuencia y **sin reintentos**.
     biblioteca estándar (sin LibreOffice ni macros; un libro con `vbaProject` o binarios se
     rechaza). Se copian los valores que guardó la hoja, **sin redondear**; solo las celdas
     con formato de fecha pasan a fecha ISO. Una fórmula sin valor guardado queda como
-    `#SIN_VALOR_CALCULADO`. La primera columna es el número de fila.
+    `#SIN_VALOR_CALCULADO`. La primera columna es el número de fila. Los porcentajes llegan
+    como fracción (0.109 = 10,9 %) y algunas fechas como texto; el encargo lo avisa.
   - No se mandan «Guía Simply Wall St» (instrucciones genéricas de la plantilla) ni
     «Opciones» (listas desplegables): constan en `hojas_omitidas`.
   - Cada archivo lleva su huella; las hojas, también la del libro (`origen_sha256`).
@@ -44,21 +52,18 @@ informe crítico ni ninguna conclusión del coordinador, ni el nombre del reposi
 **Ceguera.** Se aplican a cada texto preparado las capas del análisis directo: copia
 exacta de un archivo de `examen/`, `universo/`, `traspaso/` o `pruebas_candidata/` en
 cualquier rama, menciones de la rúbrica o del informe crítico, y solape de 400 caracteres
-con ese material. En el universo real saltan cuatro falsos positivos, que
-`excepciones_ceguera.json` admite **solo para ese archivo, con esa huella y ese código**:
-
-- Andina y Petsathome: la hoja usa «rúbrica» en sentido contable (partidas del
-  patrimonio y del estado de flujos);
-- Elis (respuesta y hoja «Análisis»): la ficha provisional del traspaso cita como «antes»
-  la celda B101 de la hoja de la persona; la copia va de la etapa 1 al traspaso.
-
-Son **propuestas del autor, pendientes de revisión**. Borrar una entrada devuelve esa
+con ese material. El código de un fallo lleva la marca que saltó o **todas** las rutas
+ciegas con las que solapa el texto (no solo la primera). En el universo real, fuera de las
+empresas del examen, saltan dos falsos positivos, que `excepciones_ceguera.json` admite
+**solo para ese archivo, con esa huella y ese código exacto**: Andina y Petsathome usan
+«rúbrica» en sentido contable (partidas del patrimonio y del estado de flujos). Las dos
+excepciones de Elis se retiraron al quedar Elis fuera. Borrar una entrada devuelve esa
 empresa a `NO_PREPARADA`, sin coste. Las excepciones no se mandan al modelo; constan en el
 informe de la tanda.
 
 ## Qué devuelve
 
-Un JSON pequeño por empresa (8 claves; esquema de unos 2.200 caracteres, sin uniones):
+Un JSON pequeño por empresa (9 claves; esquema de unos 2.200 caracteres, sin uniones):
 
 - `empresa`, `tipo_negocio`, `dcf_plantilla_aplica` (`si`/`no`/`dudoso`) y
   `motor_adecuado`;
@@ -67,16 +72,24 @@ Un JSON pequeño por empresa (8 claves; esquema de unos 2.200 caracteres, sin un
   `dato_clave` (p. ej. `Análisis!C46 = 1250.5`);
 - `veredicto_cribado`: `estudiar_a_fondo`, `vigilar`, `descartar`, `demasiado_dificil` o
   `faltan_datos`;
+- `pasivo_arrendamientos`: el pasivo por arrendamientos como dato aparte, con su celda;
 - `que_lo_cambiaria` y `que_falta` (como mucho tres elementos cada uno).
 
 Reglas del encargo que conviene conocer:
 
 - «El negocio no se entiende» (`demasiado_dificil`) no es lo mismo que «el DCF de la
   plantilla no aplica» (cambia el motor y el filtro de precio, no la calidad).
-- El límite de deuda se ajusta a la estabilidad del negocio. **Los arrendamientos se
-  cuentan siempre**, de forma coherente en deuda, EBITDA y caja libre. Es la convención que
-  propone el autor para cumplir «siempre o nunca»; si la persona responsable prefiere
-  «nunca», hay que cambiar el encargo (y su huella).
+- El límite de deuda se ajusta a la estabilidad del negocio.
+- **Arrendamientos (decisión C-ARR de la persona responsable): una sola vez, en el
+  flujo.** El alquiler se resta de la caja libre (como ya hace la plantilla); la deuda,
+  deuda/EBITDA y deuda/caja libre se miden sin arrendamientos, con el EBITDA que ya resta
+  el alquiler; el pasivo por arrendamientos va aparte. Un cociente de la hoja según la
+  NIIF 16 no sirve tal cual. Cada `report.md` y cada `tanda.md` lo declaran en una línea
+  fija que escribe el código, junto con la fecha de la hoja y una línea de condiciones:
+  cifras de la etapa 1, sin las decisiones posteriores (P-O1, P-O2, F1-A/F1-B, D-US1/2,
+  D-WM) ni verificación contra la fuente oficial.
+- El veredicto, los semáforos, el precio de Sí y el tamaño de posición de la hoja son de
+  la etapa 1, con otro embudo: el encargo pide no heredarlos y no repetir tamaños.
 - El encaje en la cartera **nunca elimina**: el paquete no trae la cartera de la persona.
 - Un negocio excelente y caro es `vigilar`, no `descartar`.
 
@@ -91,7 +104,7 @@ sola empresa.
 
 Las **comprobaciones mecánicas** (empresa distinta de la carpeta, filtro decidido sin
 cifra, celda citada vacía o inexistente, veredicto incoherente con los filtros, encaje que
-elimina…) son avisos para la revisión; no aceptan ni rechazan.
+elimina, pasivo por arrendamientos vacío, un texto que menciona un tamaño de posición…) son avisos para la revisión; no aceptan ni rechazan.
 
 ## Paso a paso
 
@@ -99,24 +112,27 @@ elimina…) son avisos para la revisión; no aceptan ni rechazan.
    código.
 2. Rellena:
    - **empresas**: de 1 a 20 nombres de carpeta de la Release, separados por comas
-     (`Ahold, Pandora, FW_Thorpe`). Las propuestas de tandas están en el dry-run;
+     (`Pandora, FW_Thorpe`). Las propuestas de tandas están en el dry-run;
    - **modelo** y **esfuerzo** (por defecto Opus 5.5, `high`);
    - **coste_maximo_por_empresa_usd** (techo del código: 2). Tiene que cubrir la reserva
-     de cada empresa: con Opus 5.5 la mayor es 1,51 USD, así que **1,6** basta para todas;
+     de cada empresa: con Opus 5.5 la mayor es 1,52 USD, así que `1.6` basta para todas
+     (se escribe **con punto**: `1,6` se rechaza en `preparar`, sin coste);
    - **coste_maximo_tanda_usd** (techo del código: 30);
    - **gramatica**: `no` (vía probada) o `si`.
 3. El job `preparar` (sin secretos de inferencia) pasa las pruebas, descarga la Release,
    comprueba su huella, arma los paquetes y deja en el resumen la tabla de empresas con su
-   reserva y la suma de reservas. Una empresa que no se puede preparar queda como
-   `NO_PREPARADA:<motivo>` y la tanda sigue con las demás.
+   reserva, la fecha de la hoja y la suma de reservas. Una empresa que no se puede
+   preparar queda como `NO_PREPARADA:<motivo>` y la tanda sigue con las demás. Con una
+   sola lectura de la rama de registro avisa de las empresas **ya cribadas** en otra
+   ejecución: un run nuevo con ellas las volvería a pagar.
 4. El job `cribado` espera tu aprobación (environment `inferencia-aprobada`). **Una sola
    aprobación** cubre todas las empresas.
 5. Dentro, por cada empresa y en orden:
    1. si ya no queda tiempo para su peor caso antes del timeout del job, se para;
    2. **máximo de la tanda**: lo comprometido por esta ejecución (coste conocido o cota de
-      cada empresa ya llamada, y lo que haya en la rama de registro de intentos
-      anteriores) más el máximo por empresa no puede pasar del máximo de la tanda; si
-      pasa, se para;
+      cada empresa ya llamada, más lo que había en la rama de registro de intentos
+      anteriores, leído una vez al empezar) más el máximo por empresa no puede pasar del
+      máximo de la tanda; si pasa, se para;
    3. `critical_review.run` de AUTO1: **tope acumulado**
       `MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD` con todo lo comprometido en la rama de
       registro (de todas las tareas, incluidas las empresas anteriores de esta tanda),
@@ -124,11 +140,19 @@ elimina…) son avisos para la revisión; no aceptan ni rechazan.
       sin reintentos, estado de coste y publicación de `reservation.json`, `report.json`,
       `report.md` y `sources.json` en
       `automation/coordination/reviews/cribado-<ejecución>-<empresa>/`.
+
+   **Llamadas a GitHub.** Durante la tanda, el recorrido del registro de AUTO1 se sustituye
+   por uno con caché: una carpeta se vuelve a leer solo si cambia el SHA de árbol que trae
+   su listado (depende del contenido; sin SHA se lee siempre). Una tanda de 20 hace unas
+   333, 381 y 441 llamadas con 12, 60 y 120 carpetas en el registro (antes, unas 1.630,
+   4.510 y 8.110), muy por debajo de las 1.000 por hora del `GITHUB_TOKEN`.
 6. Si una empresa falla, se registra y se sigue con la siguiente. La tanda **se para**:
    - al alcanzar el máximo de la tanda o el tope acumulado (o si falta el tope);
    - si la API responde un error 4xx (400 de gramática, 401, 429…): se repetiría en las
      demás;
    - tras dos fallos seguidos después de enviar (red, stream cortado);
+   - tras dos respuestas pagadas e inválidas seguidas (`RESULTADO_NO_ACEPTADO_NO_REINTENTAR`):
+     apuntan a un fallo sistemático de forma;
    - si un fallo ocurre después de reservar (p. ej. no se pudo publicar): cuenta el
      máximo por empresa;
    - si un coste queda sin cota (`INCIERTO_SIN_COTA`): hay que reconciliarlo en Console.
@@ -143,14 +167,37 @@ elimina…) son avisos para la revisión; no aceptan ni rechazan.
 Un **«Re-run»** de la misma ejecución reutiliza las tareas: las empresas ya reservadas
 quedan `YA_RESERVADO_SIN_NUEVA_LLAMADA` y no se vuelven a llamar; las que quedaron sin
 llamar sí se llaman (con una nueva aprobación), y cuentan para el mismo máximo de la tanda.
+El `tanda.md` de un intento solo suma ese intento: el total de la ejecución se suma desde
+las carpetas `cribado-<ejecución>-*` del registro.
 
-## Qué cuesta (dry-run del 18-nov-2026, sin API)
+**Lanzar las tandas de una en una.** Comparten grupo de concurrencia con el análisis
+directo, y GitHub cancela la ejecución que espera en cola si llega otra.
+
+**Reconciliar un `INCIERTO`** (p. ej. tras un 400 de gramática o un corte de red): buscar
+en Claude Console la petición por la hora de la ejecución; si no se cobró, o tras anotar el
+coste real, la persona responsable actualiza a mano `reservation.json` de esa carpeta en la
+rama de registro (`cost_status` = `CONOCIDO_ESTIMADO` y `estimated_cost_usd`). Hasta
+entonces cuenta la reserva entera.
+
+## Tanda 0 · prueba técnica de una empresa (primero)
+
+Antes de las tandas de 20, una tanda de una empresa que no sea del examen:
+`empresas` = `Pandora` (o Inditex: ambas arrendatarias, sirven para ver C-ARR),
+Opus 5.5 `high`, `coste_maximo_por_empresa_usd` = `1.6`, `coste_maximo_tanda_usd` = `2`,
+`gramatica` = `si`. Preparada sin API: reserva 1,183 USD con la gramática, hoja del
+2026-10-25. Comprobar el estado, `model_returned`, la facturación, los tokens reales frente
+a la cota y al orientativo, lo que tarda y que se publican el informe de la empresa y el de
+la tanda. Si da 400, reconciliar la reserva y repetir con `gramatica` = `no`; si funciona,
+`si` en todas (la validación local se mantiene). Después, una de 3–5 empresas para medir
+tiempos y llamadas a GitHub. Su veredicto no cuenta para A6 si después cambia el encargo.
+
+## Qué cuesta (dry-run del 18-nov-2026, ronda 2, sin API)
 
 ```
 python3 automation/screening/screening.py cotas --release <ZIP> --code-sha <HEAD> --output <dir>
 ```
 
-Prepara las 117 empresas sin llamar y da por empresa los bytes del envío, la cota de
+Prepara las 111 empresas (sin las seis del examen) sin llamar y da por empresa los bytes del envío, la cota de
 tokens y la cota en USD (la reserva de AUTO1: un token por byte + 4.096 y la salida
 máxima de 32.768 tokens), más un coste **orientativo** (3,5 bytes por token y 15.000
 tokens de salida; el análisis directo real gastó unos 17.000 con `high`). Con Opus 5.5,
@@ -158,9 +205,10 @@ tokens de salida; el análisis directo real gastó unos 17.000 con `high`). Con 
 
 | | Envío | Cota USD | Orientativo USD |
 |---|---|---|---|
-| Por empresa | 114–210 KB | 1,13–1,51 | 0,43–0,54 |
-| Por tanda de 20 | | ≈ 24 | ≈ 9 |
-| Las 117 (6 tandas: 5 de 20 y 1 de 17) | | 142,19 | 53,27 |
+| Por empresa | 114–210 KB | 1,13–1,52 | 0,43–0,54 |
+| Por tanda de 20 | | 23,9–24,9 | 9,0–9,3 |
+| Tanda 6 (11 empresas) | | 13,65 | 5,09 |
+| Las 111 (5 tandas de 20 y 1 de 11) | | 135,59 | 50,74 |
 
 La cota es lo que se reserva antes de cada llamada; al conocer el coste, la exposición
 baja al coste real. El tope acumulado tiene que cubrir lo ya comprometido más 1,6 USD
@@ -173,7 +221,18 @@ baja al coste real. El tope acumulado tiene que cubrir lo ya comprometido más 1
 - El cribado lee la hoja tal como la guardó la persona: si una cifra de la hoja está mal,
   el cribado hereda el error (no hay verificación contra la fuente oficial). La fecha de
   cada hoja es la de su análisis: un precio viejo puede dar un `pasa` desfasado.
-- La convención de arrendamientos («siempre») y la tasa del 9 % son provisionales.
+- La tasa del 9 % es provisional. C-ARR y C-EX son decisiones de la persona; C-EX vence
+  después del 23-nov y requiere un cambio de código.
+- La caché del registro confía en el SHA de árbol del listado; si GitHub sirviera un
+  `reservation.json` atrasado justo después de cambiarlo, quedaría la reserva (mayor que el
+  coste), salvo un `INCIERTO_SIN_COTA` recién escrito, que bloquea en la siguiente lectura
+  sin caché (la de la próxima ejecución).
+- El plazo de 15 minutos se cuenta desde que empieza la tanda, no el job (la descarga y el
+  checkout tardan menos de un minuto).
+- No hay revalidación fuera de línea con el validador del cribado (`revalidar.py` es del
+  análisis directo).
+- Cada empresa publica en la rama de registro, en un repositorio público, su `sources.json`
+  (el texto de la etapa 1) y la salida del modelo.
 - Las comprobaciones mecánicas no miden la calidad económica del cribado; hace falta
   revisión humana. Ningún veredicto se acepta ni se integra automáticamente.
 - La exclusión mutua es con el análisis directo (mismo grupo de concurrencia). Otro
