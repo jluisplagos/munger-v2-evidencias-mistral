@@ -1,0 +1,26 @@
+
+== ZB1 · motor B, libro real tal cual (fila 23 = 248) y pasivo operativo declarado 248 (nota, página 89)
+   utilizable: False · estado propuesto: no_entregable · limite_del_modelo · bloquean: [('F1-US-PUENTE', 'MODELO NO APLICABLE')]
+   rótulo: DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-US-PUENTE
+   puente: fila 22 = 9049.0 · fila 23 = 248.0 · pasivo operativo dentro = 248.0 · C64 del libro = 9297.0 · deuda coherente = 9049.0
+   líneas de arrendamiento operativo sumadas en la fila 23 (fase 1 real): ['AR_2025.json, lado «actual»: «operating lease liabilities current (in other current liabilities)»', 'AR_2025.json, lado «actual»: «operating lease liabilities noncurrent»']
+   F1-US-PUENTE · BLOQUEA · MODELO NO APLICABLE · LÍMITE DECLARADO · el puente del motor B (Historia C64 = fila 22 + fila 23 = 9297.0) resta 248.0 de pasivo por arrendamiento operativo, cuyo pago ya está entero en el EBIT que proyecta el motor B: el alquiler se contaría dos veces. Deuda coherente del puente: 9049.0. Ningún libro lo excluye: la salida es que la fila 23 lleve solo el pasivo por arrendamientos financieros (corrección registrada de las entradas en un ex
+   F1-US-ANCLA · AVISO · AVISO · con el motor B, F1 solo evalúa el puente de deuda: no examina en qué líneas del estado de flujos están la amortización del derecho de uso y la variación del pasivo del arrendamiento operativo. Si la D&A (fila 8) o el circulante (fila 14) las llevan, el ancla de S2C (Historia C53 = 0.967429) y el ROIC histórico del libro (filas 32–33), que son la referencia de la fase B, las arrastran. Ninguna línea sumada en las fila
+
+== ZB2 · motor B, mismo libro, declarando que la fila 23 no lleva pasivo operativo (0)
+   utilizable: False · estado propuesto: pendiente_de_datos · bloquean: [('F1-US-PUENTE', 'DATOS INVÁLIDOS')]
+   rótulo: DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-US-PUENTE
+   puente: fila 22 = 9049.0 · fila 23 = 248.0 · pasivo operativo dentro = 0.0 · C64 del libro = 9297.0 · deuda coherente = 9297.0
+   líneas de arrendamiento operativo sumadas en la fila 23 (fase 1 real): ['AR_2025.json, lado «actual»: «operating lease liabilities current (in other current liabilities)»', 'AR_2025.json, lado «actual»: «operating lease liabilities noncurrent»']
+   F1-US-PUENTE · BLOQUEA · DATOS INVÁLIDOS · la declaración contradice al expediente: se declara que la fila 23 no lleva pasivo por arrendamiento operativo en 2025 y la fase 1 sumó en ella una línea que lo nombra (AR_2025.json, lado «actual»: «operating lease liabilities current (in other current liabilities)»)
+   F1-US-ANCLA · AVISO · AVISO · con el motor B, F1 solo evalúa el puente de deuda: no examina en qué líneas del estado de flujos están la amortización del derecho de uso y la variación del pasivo del arrendamiento operativo. Si la D&A (fila 8) o el circulante (fila 14) las llevan, el ancla de S2C (Historia C53 = 0.967429) y el ROIC histórico del libro (filas 32–33), que son la referencia de la fase B, las arrastran. Ninguna línea sumada en las fila
+   F1-SERIES · AVISO · DATOS INVÁLIDOS · series.pasivo_arr_operativo.2025: la cifra '—' no está, como cifra completa, en la página 89 de 'Zoetis · Form 10-K FY2025' (además de las guardas que ya bloquean)
+
+== ZB3 · motor B y SIN declaración F1
+   utilizable: False · estado propuesto: pendiente_de_datos · bloquean: [('F1-NORMA', 'INCOMPLETO'), ('F1-US-DESGLOSE', 'INCOMPLETO')]
+   rótulo: DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA, F1-US-DESGLOSE
+   puente: fila 22 = 9049.0 · fila 23 = 248.0 · pasivo operativo dentro = None · C64 del libro = 9297.0 · deuda coherente = None
+   líneas de arrendamiento operativo sumadas en la fila 23 (fase 1 real): ['AR_2025.json, lado «actual»: «operating lease liabilities current (in other current liabilities)»', 'AR_2025.json, lado «actual»: «operating lease liabilities noncurrent»']
+   F1-US-ANCLA · AVISO · AVISO · con el motor B, F1 solo evalúa el puente de deuda: no examina en qué líneas del estado de flujos están la amortización del derecho de uso y la variación del pasivo del arrendamiento operativo. Si la D&A (fila 8) o el circulante (fila 14) las llevan, el ancla de S2C (Historia C53 = 0.967429) y el ROIC histórico del libro (filas 32–33), que son la referencia de la fase B, las arrastran. Ninguna línea sumada en las fila
+   F1-US-DESGLOSE · BLOQUEA · INCOMPLETO · falta «arrendamientos_us_gaap»: si hay arrendamientos operativos y financieros (cada clase con su evidencia) y su registro
+   F1-NORMA · BLOQUEA · INCOMPLETO · norma contable sin declarar en la declaración F1 (entrada obligatoria)

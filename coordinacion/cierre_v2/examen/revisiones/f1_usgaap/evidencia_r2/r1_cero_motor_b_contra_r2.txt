@@ -1,0 +1,9 @@
+motor B · fila 23 = 0 · pasivo operativo declarado 0 · fuente sintética del autor (la página 1 lleva un «0» suelto):
+   utilizable True · estado None · bloquean []
+   F1-SERIES: None · US GAAP · 2 clasificaciones con su cita en la página citada y 0 páginas examinadas sin línea propia (D-US1) · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una pá
+motor B · fila 23 = 0 · pasivo operativo declarado 0 · la misma fuente sin ese «0» suelto (como un 10-K real):
+   utilizable False · estado pendiente_de_datos · bloquean ['F1-SERIES']
+   F1-SERIES: DATOS INVÁLIDOS · series.pasivo_arr_operativo.2025: la cifra '0' no está, como cifra completa, en la página 1 de '10-K sintético'
+motor B · fila 23 = 0 · pasivo operativo declarado 0 · la misma, declarando el cero como «—»:
+   utilizable False · estado pendiente_de_datos · bloquean ['F1-SERIES']
+   F1-SERIES: DATOS INVÁLIDOS · series.pasivo_arr_operativo.2025: la cifra '—' no está, como cifra completa, en la página 1 de '10-K sintético'
