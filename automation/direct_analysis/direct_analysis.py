@@ -55,7 +55,9 @@ OK_STATES = ('PREPARADO_SIN_API', 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
 # Única raíz admitida para los datos del paquete: datos_analisis_directo/<empresa>/...
 DATA_ROOT = 'datos_analisis_directo'
 FIXED_DATA = {'datos_v63.md', 'datos_v63.json', 'fase1_v63.json', 'extracto_v63.md'}
-DATA_DIRS = ('fuentes', 'historia', 'registro_entradas')
+# etapa1/: la misma etapa 1 que recibe el personaje (Excel evaluado en texto y respuesta),
+# decisión L2 de la persona responsable, 18-nov-2026.
+DATA_DIRS = ('fuentes', 'historia', 'registro_entradas', 'etapa1')
 DATA_FILE = re.compile(r'(?:%s)/(?:[\w. -]+/)*[\w. -]+\.(?:txt|md|csv|json)' % '|'.join(DATA_DIRS))
 # Segundo filtro (sin tildes, en minúsculas) sobre la parte de la ruta bajo la raíz.
 FORBIDDEN_SEGMENTS = {'examen', 'universo', 'traspaso', 'pruebas_candidata', 'automation', '.github',
@@ -67,6 +69,10 @@ FORBIDDEN_SUBSTRINGS = ('rubrica', 'critic', 'lectura_informe', 'contradictor', 
 FORBIDDEN_STEMS = re.compile(r'^(informe|precio)(_v\d+)?$')
 # Fuera de registro_entradas/ tampoco se admite «verificacion» (p. ej. prompts de verificación).
 OUTSIDE_REGISTRY = ('verificacion',)
+# En etapa1/ el Excel evaluado y la respuesta llevan nombres de salida («respuesta», hojas
+# «Diagnóstico», «precio», «ficha»…): allí solo valen los nombres de material ciego.
+ETAPA1_SUBSTRINGS = ('rubrica', 'critic', 'lectura_informe', 'contradictor', 'mecanismo', 'prompt',
+                     'analisis_directo', 'analisis-directo', 'relevo', 'audit')
 # Carpetas cuyo contenido el análisis directo no puede ver, ni copiado ni retocado.
 BLIND_SEGMENTS = {'examen', 'universo', 'traspaso', 'pruebas_candidata'}
 # Únicas copias admitidas de una carpeta ciega: el registro de entradas (REORIENTACION §10),
@@ -107,6 +113,10 @@ def check_path(path, empresa):
     folded = fold(rel)
     parts = folded.split('/')
     stem = parts[-1].split('.')[0]
+    if parts[0] == 'etapa1':
+        if set(parts) & FORBIDDEN_SEGMENTS or any(s in folded for s in ETAPA1_SUBSTRINGS):
+            raise pilot.PilotError('RUTA_PROHIBIDA_EN_EL_PAQUETE')
+        return path
     if (set(parts) & FORBIDDEN_SEGMENTS or any(s in folded for s in FORBIDDEN_SUBSTRINGS)
             or FORBIDDEN_STEMS.search(stem)
             or (parts[0] != 'registro_entradas' and any(s in folded for s in OUTSIDE_REGISTRY))):
@@ -389,9 +399,18 @@ def escalera(values, probs, k=3):
         num = sum(p * v for v, p in high) + k * sum(p * v for v, p in low)
         den = sum(p for _, p in high) + k * sum(p for _, p in low)
         P = num / den
-        if s[j - 1][0] - 1e-12 <= P <= s[j][0] + 1e-12:
-            p_star = P
+        tol = 1e-9 * max(1.0, abs(s[j - 1][0]), abs(s[j][0]))  # relativa (revisión R2-1)
+        if s[j - 1][0] - tol <= P <= s[j][0] + tol:
+            p_star = min(max(P, s[0][0]), s[2][0])
             break
+    if p_star is None:  # redondeo: bisección de G − k·L, decreciente, en [V(1), V(3)]
+        lo, hi = s[0][0], s[2][0]
+        for _ in range(200):
+            mid = (lo + hi) / 2
+            gain = sum(p * max(v - mid, 0) for v, p in s)
+            loss = sum(p * max(mid - v, 0) for v, p in s)
+            lo, hi = (mid, hi) if gain >= k * loss else (lo, mid)
+        p_star = lo
     return {'p_estrella': p_star, 'precio_si': min(p_star, values[1]),
             'ponderado': sum(p * v for v, p in zip(values, probs)),
             'precio_escenario_malo': values[0] if values[0] > 0 else None}
@@ -467,7 +486,17 @@ def validate(response, bundle):
     notes = []
     doc = check_schema(normalize_enums(doc, SCHEMA, notes), SCHEMA)
     return {'analisis': doc, 'package_sha256': bundle['package_sha256'], 'normalizaciones_enum': notes,
-            'comprobaciones_mecanicas': mechanical_checks(doc, bundle)}
+            'comprobaciones_mecanicas': safe_checks(doc, bundle)}
+
+
+def safe_checks(doc, bundle):
+    """Un fallo de una comprobación informativa es un aviso, nunca deja sin aceptar lo pagado."""
+    try:
+        return mechanical_checks(doc, bundle)
+    except Exception as err:  # noqa: BLE001 - por diseño: ninguna excepción sale de aquí
+        return {'escalera_recalculada_anexo_c': None, 'citas_total': len(doc.get('citas', [])),
+                'citas_literales': None, 'avisos': ['Comprobación mecánica no completada: ' + type(err).__name__],
+                'nota': 'Comprobaciones mecánicas informativas: no acreditan la calidad económica.'}
 
 
 # --- Presentación ---------------------------------------------------------------------
@@ -553,7 +582,12 @@ def make_writer(bundle, preflight):
         output = Path(output)
         output.mkdir(parents=True, exist_ok=True)
         (output / 'report.json').write_bytes(pilot.canonical(report))
-        (output / 'report.md').write_text(render(report, bundle, preflight), encoding='utf-8')
+        try:
+            text = render(report, bundle, preflight)
+        except Exception as err:  # noqa: BLE001 - la presentación nunca impide publicar lo pagado
+            text = (f"# Análisis directo\n\nEstado de la ejecución: `{report.get('state')}`\n\n"
+                    f"Presentación no completada ({type(err).__name__}); ver report.json.\n")
+        (output / 'report.md').write_text(text, encoding='utf-8')
     return write
 
 

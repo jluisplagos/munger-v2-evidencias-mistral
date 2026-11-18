@@ -186,6 +186,22 @@ class RunTests(Base):
         self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
         self.assertEqual(len(r['review']['comprobaciones_mecanicas']['avisos']), 3)
 
+    def test_equal_large_scenarios_and_failing_check_never_reject(self):
+        # Revisión R2-1: tres valores iguales y grandes; y una comprobación que falla.
+        doc = analysis(escenarios={k: {'disponible': True, 'valor_por_accion': 86562.86, 'probabilidad': p,
+                                       'supuestos_y_cifras': 's'} for k, p in (('malo', 0.2), ('normal', 0.6), ('bueno', 0.2))})
+        doc['escalera'].update(precio_escenario_malo=86562.86, p_estrella=86562.86, precio_si=86562.86, ponderado=86562.86)
+        r = self.run_da(FakeHTTP(reply=reply(doc=doc)))
+        self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
+        self.assertAlmostEqual(r['review']['comprobaciones_mecanicas']['escalera_recalculada_anexo_c']['precio_si'], 86562.86, 4)
+        with patch.object(da, 'mechanical_checks', side_effect=TypeError('x')), patch.object(da, 'render', side_effect=KeyError('y')):
+            h = FakeHTTP(GitHubStore(), reply=reply())
+            r = self.run_da(h)
+        self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
+        self.assertEqual(r['review']['comprobaciones_mecanicas']['avisos'], ['Comprobación mecánica no completada: TypeError'])
+        self.assertIn('automation/coordination/reviews/analisis-directo-zoetis-1/report.json', h.store.files)
+        self.assertEqual(len(h.sent()), 1)
+
     def test_enum_capitalization_normalized_not_lost(self):
         doc = analysis(cubo='Demasiado Difícil', estado='Concluido', accion='Demasiado-Dificil')
         doc['escalera']['zona'] = 'Vigilar'
@@ -311,13 +327,19 @@ class PathTests(unittest.TestCase):
         D + 'fuentes/precio.json', D + 'fuentes/gramatica.md', D + 'fuentes/diagnostico.md',
         D + 'fuentes/estado_pipeline.json', D + 'fuentes/prompts_generados/01.md', D + 'fuentes/Nike_respuesta.md',
         D + 'fuentes/D_SALIDA_OBSOLETA.json', D + 'fuentes/fase1_partes/AR_2025.json',
+        D + 'fuentes/Zoetis_respuesta.md', D + 'etapa1/Zoetis_evaluada.xlsx', D + 'etapa1/examen/r.md',
+        D + 'etapa1/universo/notas.md', D + 'etapa1/Rúbrica.md', D + 'etapa1/LECTURA_INFORME.md',
+        D + 'etapa1/relevo_copia_base/13.md', D + 'etapa1/prompts_generados/01.md', D + 'etapa1/auditoria.md',
+        'datos_analisis_directo/zoetis/Etapa1/r.md',
         '../fuera.md', '/etc/passwd', D + 'fuentes//b.md', D + './a.md', D + 'fuentes/*.md', D + 'fuentes/a:b.md',
         D + 'fuentes/a|b.md', '',
     ]
     ALLOWED = [D + 'datos_v63.md', D + 'datos_v63.json', D + 'fase1_v63.json', D + 'extracto_v63.md',
                D + 'fuentes/informe_anual_2025.txt', D + 'fuentes/10-K/2025.md', D + 'fuentes/8-K 2026-08-05.txt',
                D + 'fuentes/precio_cotizacion_20261009.csv', D + 'historia/historia_revision.md',
-               D + 'registro_entradas/LISTA_ENTRADAS.csv', D + 'registro_entradas/verificacion_entradas.json']
+               D + 'registro_entradas/LISTA_ENTRADAS.csv', D + 'registro_entradas/verificacion_entradas.json',
+               D + 'etapa1/Zoetis_respuesta.md', D + 'etapa1/Zoetis_evaluada/Diagnóstico V6.csv',
+               D + 'etapa1/Zoetis_evaluada/Análisis.csv', D + 'etapa1/ficha_etapa1.json', D + 'etapa1/precio.json']
 
     def test_forbidden_paths_rejected(self):
         for path in self.FORBIDDEN:
@@ -405,6 +427,8 @@ class PackageTests(unittest.TestCase):
         cases = [
             ('COPIA_DE_MATERIAL_CIEGO', {D + 'fuentes/notas.md': RUBRICA.encode()}),
             ('COPIA_DE_MATERIAL_CIEGO', {D + 'historia/paso.md': prompt}),
+            ('COPIA_DE_MATERIAL_CIEGO', {D + 'etapa1/Zoetis_respuesta.md': RUBRICA.encode()}),
+            ('SOLAPE_CON_MATERIAL_CIEGO', {D + 'etapa1/Zoetis_respuesta.md': clean.encode()}),
             ('SOLAPE_CON_MATERIAL_CIEGO', {D + 'fuentes/notas.md': clean.encode()}),
             ('SOLAPE_CON_MATERIAL_CIEGO', {D + 'fuentes/notas.md': clean.replace(' ', '  ').encode()}),
             ('SOLAPE_CON_MATERIAL_CIEGO', {D + 'fuentes/notas.md': ('Prefacio. ' + clean[500:3000]).encode()}),
@@ -490,6 +514,13 @@ class EscaleraTests(unittest.TestCase):
                 G = sum(p * max(v - e['p_estrella'], 0) for v, p in zip(values, probs))
                 L = sum(p * max(e['p_estrella'] - v, 0) for v, p in zip(values, probs))
                 self.assertLess(abs(G - 3 * L), 1e-9)
+
+    def test_equal_values_any_magnitude(self):
+        for v in (0.01, 1, 25454.65, 86562.86, 1e9, 123456789.123):
+            with self.subTest(v=v):
+                e = da.escalera([v, v, v], [0.2, 0.6, 0.2])
+                self.assertAlmostEqual(e['precio_si'] / v, 1, 9)
+                self.assertAlmostEqual(e['p_estrella'] / v, 1, 9)
 
     def test_anexo_c_refusals_and_zone(self):
         self.assertEqual(da.escalera([100, 90, 160], [0.2, 0.6, 0.2]), {'error': 'valores_desordenados'})

@@ -21,7 +21,10 @@ y solo después de que una persona la apruebe en GitHub.
   o hechos que no estén en el paquete. Su texto no cambia entre ejecuciones; su huella
   queda registrada.
 - **Reglas de salida que comparte con el personaje** (decisión registrada aquí): una
-  sola tasa (9 %) y ningún tamaño de posición (D16). La etapa 1 no entra en el paquete.
+  sola tasa (9 %) y ningún tamaño de posición (D16).
+- **La misma etapa 1 que el personaje** (decisión L2 de la persona responsable,
+  18-nov-2026): el Excel evaluado, pasado a texto, y la respuesta de etapa 1, en
+  `etapa1/`.
   La revisión a ciegas no debería contar como error lo que el análisis directo no podía
   saber por no tener las demás reglas del personaje.
 - **El paquete de entrada**: los archivos de texto que declara un manifiesto, con su
@@ -33,10 +36,14 @@ auditoría del personaje. El lanzador lo comprueba en cuatro capas:
 
 1. **Lista blanca de rutas.** Solo se admite `datos_analisis_directo/<empresa>/` y,
    dentro, `datos_v63.md`, `datos_v63.json`, `fase1_v63.json`, `extracto_v63.md` y
-   archivos `.txt`, `.md`, `.csv` o `.json` bajo `fuentes/`, `historia/` o
-   `registro_entradas/`. Todo lo demás se rechaza.
+   archivos `.txt`, `.md`, `.csv` o `.json` bajo `fuentes/`, `historia/`,
+   `registro_entradas/` o `etapa1/`. Todo lo demás se rechaza.
 2. **Nombres prohibidos** dentro de esa raíz: fases, fichas, auditorías, prompts,
    relevos, verificaciones (salvo en `registro_entradas/`), rúbrica, informe crítico…
+   En `etapa1/` se admiten los nombres propios de la etapa 1 (`respuesta`, hojas como
+   «Diagnóstico V6», `precio`, `ficha`); siguen prohibidos los de material ciego
+   (examen, universo, traspaso, rúbrica, informe crítico, contradictor, prompts,
+   relevos, auditoría).
 3. **Huellas.** Se rechaza la copia exacta de cualquier archivo de `examen/`,
    `universo/`, `traspaso/` o `pruebas_candidata/` en cualquier rama o commit
    disponible. Única excepción: el registro de entradas (`LISTA_ENTRADAS.csv` y su
@@ -59,6 +66,9 @@ rúbrica, el personaje ni Munger. El nombre del repositorio no se envía al mode
    - `historia/`: la Historia;
    - `registro_entradas/`: el registro de entradas; por ejemplo, una copia de
      `coordinacion/cierre_v2/examen/ahold/LISTA_ENTRADAS.csv` con la misma huella;
+   - `etapa1/`: la misma etapa 1 que recibe el personaje: la respuesta (p. ej. una
+     copia de `fuentes_usuario/ahold_etapa1/Ahold_respuesta.md`) y el Excel evaluado
+     pasado a texto (por ejemplo, un CSV por hoja). El `.xlsx` no se admite;
    - en la raíz, si existen: `datos_v63.md` o `.json`, `fase1_v63.json`, `extracto_v63.md`.
 
    Excel y PDF no valen: hace falta su versión en texto. Los archivos pueden estar
@@ -125,7 +135,8 @@ rúbrica, el personaje ni Munger. El nombre del repositorio no se envía al mode
   - `YA_RESERVADO_SIN_NUEVA_LLAMADA`: un «Re-run» de la misma ejecución. No llama.
 - Las «comprobaciones mecánicas» (escalera recalculada con el Anexo C a partir de sus
   escenarios, orden de los valores, zona, citas literales, probabilidades) son avisos
-  para la revisión. No aceptan ni rechazan.
+  para la revisión. No aceptan ni rechazan: si una falla, queda como aviso
+  («Comprobación mecánica no completada») y el análisis pagado se conserva.
 - Si una enumeración vuelve con otras mayúsculas o tildes («Demasiado Difícil»), se
   guarda la forma canónica y el original queda en `normalizaciones_enum` y en la salida
   en bruto: la llamada no se pierde por eso.
