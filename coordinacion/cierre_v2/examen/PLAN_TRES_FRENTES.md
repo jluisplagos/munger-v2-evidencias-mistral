@@ -150,3 +150,12 @@ En orden de prioridad. Lo que no dependa de otra tarea va en paralelo.
 | **21–23-nov** (uso medido) | lo que quede, con tu visto bueno | M3 restantes | C13, C14, C15 |
 
 **Lo que me haría estar equivocado con este plan:** C4 (US GAAP) es la pieza técnica más arriesgada. Si no queda bien revisada a tiempo, Zoetis y Waste Management acabarán en «límite del modelo». La trampa del examen solo se comprobaría entonces en parte, y el veredicto tendría que ser «Todavía no».
+
+---
+
+## 5 · Decisiones de uso de la persona responsable (18-nov-2026)
+- **C4 (US GAAP):** autor Fable con esfuerzo máximo y revisor otro Fable, en un contexto distinto.
+- **C12 (variante con Fable dentro del personaje):** sí, al final y solo si sobra tiempo.
+- **Si Fable se agota sin que esté la persona:** se sigue con **Opus máximo** en los papeles de Fable, y queda registrado qué modelo hizo cada cosa en cada empresa. Con la persona presente, se le pregunta antes.
+- **Añadidos al plan:** precios al día antes de las fases B y C de cada empresa (K2; Zoetis primer tiempo usa a propósito el del 8-oct); **C17 · entrega final**: rama final del personaje, ZIP completo (la persona crea la Release), procedimiento corto probado, expedientes de ejemplo y declaración de alcance (K12).
+- **Fable de 6 sesiones:** tope en suspenso el 18 y el 19-nov, por decisión de la persona; vuelve a contar desde su restablecimiento del 20-nov.
