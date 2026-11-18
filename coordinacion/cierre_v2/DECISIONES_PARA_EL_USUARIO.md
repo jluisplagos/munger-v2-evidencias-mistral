@@ -116,3 +116,5 @@ Preguntas formuladas con el dictamen `examen/revisiones/dictamen_O1_O2_ahold/DIC
 
 ## 18-nov-2026 (noche) · uso de modelos al agotarse Fable
 - **F-AGOTADO → «Sí» a la propuesta del coordinador**: cuando se agote Fable, los contradictores y auditorías de cada empresa pasan a **Opus con esfuerzo máximo** (agente distinto, contexto limpio); lo que Fable deje a medias lo retoma un agente Opus nuevo desde lo guardado; si Fable vuelve tras el restablecimiento (viernes 20-nov), se reserva para el contradictor del veredicto final y la evaluación con la rúbrica (23-nov).
+- **J-T bis · Jumbo, 2019 → «Sí» al año natural 2019** (12 meses, columna comparativa publicada por Jumbo en el informe 2020), en lugar del periodo de transición de 6 meses; se anota el solape de 6 meses con el ejercicio 2018/19. Sustituye en ese punto a J-T.
+- **Zoetis, «guía orgánica 2026 negativa» de la etapa 1:** la persona no recuerda su origen ni su fecha. En el primer tiempo **no se usa como hecho** (sin fuente en el expediente y posible fuga temporal: la etapa 1 se guardó el 18-oct); las fases ya estaban instruidas así.
