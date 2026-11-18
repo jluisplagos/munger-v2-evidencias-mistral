@@ -38,3 +38,12 @@ Los 10 informes anuales oficiales se descargaron de `media.aholddelhaize.com` (U
 - `Palancas!B30`: residual `round(1 - B28 - B29, 4)` porque el libro fuerza que los pesos sumen 1,0000 (la razón publicada 19.371/92.352 redondearía a 0,2098).
 - `Análisis!C40` (FCF LTM 1.821): derivado exacto con 12 orígenes publicados (Q2-2026 p.15 y AR2025 p.216): 6.598 − 2.566 − 271 − 1.940.
 - `Análisis!C57`: serie UMU 9–10 y (3,34 %); la ZST 10,0 y da 3,42 % el mismo día y se conserva como complemento.
+
+## Ronda 1 (corrección del coordinador, 18-nov-2026)
+
+- `Historia!F7` (EBIT 2019 = 2.663): ahora **derivado** = BAI 2.134 − resultado financiero (−529, suma de las 5 líneas de AR2020 p.145 columna anterior) = 2.663 exacto; la conciliación explica la diferencia de 1 mm con el «Operating income» impreso 2.662 (redondeo del subtotal «Net financial expenses» (528)).
+- `Análisis!C24`: **derivado** exacto: `round(EBIT 2025 / (patrimonio+deuda+arrendamientos 2025), 3)` = round(3.542/32.598, 3) = 0,109.
+- `Análisis!C32`: **derivado** exacto: `round(goodwill 8.363 (AR2025 p.236) / total assets 49.089 (AR2025 p.214), 4)` = 0,1704.
+- `Palancas!C45/C46`: **convencion** con `hipotesis` (fundamento con documento y página: fila Euronext 13/11/2026 y AR2025 p.218 cierre 28-dic-2025; seriales 46339/46019) y `justificacion_clase` (el libro guarda la fecha como serial de Excel; ningún texto de fuente puede contenerlo).
+- Sin resolver, con nota de mejor fórmula y diferencia: `C26` (3,0877 vs 2,9229), `C33` (2,2152 vs 2,2153), `C42` (6,7135 vs 6,129), `C60` (−0,033 exacto pero requiere `**`, no admitido), `C88` (17,9146 vs 14,7), `C96` (0,0006 vs 0,0007).
+- No toqué las 247 entradas anteriores salvo el auxiliar `aux:...income_before_income_taxes_2019`, que ahora lo crea la derivación de F7 (misma celda, valor y cita; solo cambia su `id`/nota). Comprobaciones siguen en pendiente, `revisor: null`, sin `vinculo`.
