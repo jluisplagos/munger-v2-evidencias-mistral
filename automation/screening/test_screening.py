@@ -599,6 +599,12 @@ class DryRunTests(Base):
         self.assertEqual(len((out / 'cotas.tsv').read_text().splitlines()), 4)
         self.assertIn('Tanda 1: Acme, Beta_Co', (out / 'cotas.md').read_text())
 
+    def test_applied_exceptions_listed_in_batch_report(self):
+        rows = self.rows(names=('Acme',))
+        rows[0]['excepciones_ceguera'] = [{'archivo': 'respuesta', 'sha256': '0' * 64, 'codigo': 'CONTENIDO_X', 'motivo': 'm'}]
+        md = sc.render_batch(sc.batch_summary(rows, {'parada': None}, {'run_id': '1'}))
+        self.assertIn('- Acme · respuesta · `CONTENIDO_X`', md)
+
     def test_main_prepares_and_refuses_paid_mode_without_keys(self):
         out = Path(self.tmp.name) / 'main'
         args = ['tanda', '--release', str(self.path), '--empresas', 'Acme,Gamma', '--max-usd-empresa', '1.6',
@@ -611,6 +617,7 @@ class DryRunTests(Base):
             md = (out / 'tanda.md').read_text()
             self.assertIn('| Acme | — | PREPARADO_SIN_API |', md)
             self.assertIn('preparación sin API', md)
+            self.assertNotIn('Excepciones de ceguera', md)
             self.assertEqual(sc.main(args + ['--execute-api']), 2)
             self.assertEqual(sc.main([a if a != '1.6' else '2.5' for a in args]), 2)
             self.assertEqual(sc.main([a if a != '30' else '1' for a in args]), 2)  # máximo por empresa > tanda

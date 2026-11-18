@@ -774,6 +774,10 @@ def render_batch(summary):
     for i in summary['empresas']:
         out.append(f"| {i['empresa']} | {i['veredicto_cribado'] or '—'} | {i['estado']} | {i['estimated_cost_usd'] or '—'} |"
                    f" {i['cost_upper_bound_usd'] or '—'} | {i['reserva_estimada_usd'] or '—'} | {i['avisos']} |")
+    exc = [(i['empresa'], e) for i in summary['empresas'] for e in i['excepciones_ceguera']]
+    if exc:
+        out += ['', 'Excepciones de ceguera aplicadas (excepciones_ceguera.json, pendientes de revisión):', '']
+        out += [f"- {emp} · {e['archivo']} · `{e['codigo']}`" for emp, e in exc]
     return '\n'.join(out) + '\n'
 
 
