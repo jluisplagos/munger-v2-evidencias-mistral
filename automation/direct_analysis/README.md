@@ -200,3 +200,15 @@ python3 -I -m unittest discover -s automation/direct_analysis -p 'test_*.py' -v
 ```
 
 Las pruebas simulan la API y la rama de registro; no abren red.
+
+## Respuesta partida en bloques y revalidación fuera de línea
+
+- Desviación declarada frente a AUTO1 (que rechaza varios bloques): si la respuesta llega
+  como varios bloques ```json **sin texto entre ellos y sin claves repetidas**, se unen y se
+  anota `objeto_json_partido_en_N_bloques_unido`; la unión pasa `check_schema` completo
+  (ejecución 44290314915: un único objeto cortado en 12 + 3 claves).
+- `revalidar.py REPORT.json SOURCES.json DIR` revalida sin red una salida pagada y publicada.
+  Solo admite rechazos de **forma** (`JSON_INVALIDO`), exige que `SOURCES.json` sea el paquete
+  enviado (`bundle_sha256`) y marca el resultado `REVALIDADO_FUERA_DE_LINEA_PENDIENTE_DECISION_HUMANA`
+  con `accepted`/`integrated`/`product_executed` = false. No toca la reserva ni el tope.
+

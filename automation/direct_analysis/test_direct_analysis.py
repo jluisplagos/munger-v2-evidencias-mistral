@@ -328,6 +328,7 @@ class VariosBloquesTests(Base):
         b = bundle()
         report = {'task_id': 't', 'model_requested': da.DEFAULT_MODEL, 'effort_requested': 'high',
                   'stop_reason': 'end_turn', 'estimated_cost_usd': '1.9', 'error': 'JSON_INVALIDO',
+                  'bundle_sha256': cr.pilot.digest(cr.pilot.canonical(b)),
                   'raw_model_output': next(x['text'] for x in rep['content'] if x.get('type') == 'text')}
         d = Path(self.tmp.name)
         (d / 'r.json').write_text(json.dumps(report)); (d / 's.json').write_text(json.dumps(b))
@@ -335,6 +336,34 @@ class VariosBloquesTests(Base):
         out = json.loads((d / 'out' / 'revalidacion.json').read_text())
         self.assertEqual((out['estado'], out['resultado']), (revalidar.ESTADO, 'VALIDO_CON_EL_VALIDADOR_ACTUAL'))
         self.assertIn('objeto_json_partido_en_2_bloques_unido', out['review']['normalizaciones_enum'])
+        self.assertFalse(out['accepted'])
+
+    def _report(self, b, **kw):
+        rep = self._texto(reply(), self._partir)
+        r = {'task_id': 't', 'model_requested': da.DEFAULT_MODEL, 'effort_requested': 'high',
+             'stop_reason': 'end_turn', 'error': 'JSON_INVALIDO',
+             'bundle_sha256': cr.pilot.digest(cr.pilot.canonical(b)),
+             'raw_model_output': next(x['text'] for x in rep['content'] if x.get('type') == 'text')}
+        r.update(kw)
+        return r
+
+    def test_revalidation_refuses_content_rejections_other_package_and_incomplete(self):
+        import revalidar
+        b = bundle()
+        for kw, code in (({'error': 'ESQUEMA_INVALIDO:$.cubo'}, 'SOLO_SE_REVALIDAN_RECHAZOS_DE_FORMA'),
+                         ({'bundle_sha256': '0' * 64}, 'PAQUETE_DISTINTO_DEL_ENVIADO'),
+                         ({'stop_reason': 'max_tokens'}, 'SIN_SALIDA_COMPLETA_QUE_REVALIDAR')):
+            with self.subTest(code=code), self.assertRaisesRegex(cr.pilot.PilotError, code):
+                revalidar.revalidar(self._report(b, **kw), b)
+
+    def test_split_blocks_with_extra_or_missing_keys_or_non_object_rejected(self):
+        def extra(t):
+            return self._partir(t)[:-4] + ',\n"extra": 1}\n```'
+        for f in (extra, lambda t: self._partir(t).replace('"moneda"', '"moneda_x"', 1),
+                  lambda t: self._partir(t) + '\n```json\n[1, 2]\n```'):
+            rep = self._texto(reply(), f)
+            r = self.run_da(FakeHTTP(GitHubStore(), reply=rep))
+            self.assertTrue(r['error'].startswith(('JSON_INVALIDO', 'ESQUEMA_INVALIDO')), r['error'])
 
 
 class CapTests(Base):
