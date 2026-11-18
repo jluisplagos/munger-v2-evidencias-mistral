@@ -1,0 +1,36 @@
+a) columna PENDIENTE: la serie correcta, declarada sin «fila»
+   A' · serie correcta sin «fila»: media 13.0280% · utilizable True · comprobada True · columna comprobada 0 · pendiente 5 · inválidas 0 · referencia BUENO 0.12
+   titular  : - **Media 2021–2025 · ROIC del capital propio pagado todo el alquiler: 13.03 %** frente a r (Análisis!C56) 9.00 
+   fuente   : - Intereses de arrendamiento: comprobados en su fuente (cifra publicada en la página citada del documento con su huella; condición mínima de F1-SERIES, PENDIENTE en 5). No es la verificación de entradas: la serie no está en el libro ni en el universo de verificacion_entradas.py.
+
+b) sin «fila», otra cifra de la misma página: 2025 = (57), «Total rent expense» de AR2025 p. 272 (no son intereses)
+   B2 · (57) sin «fila»: media 13.4000% · utilizable True · comprobada True · columna comprobada 0 · pendiente 5 · inválidas 0 · referencia BUENO 0.12
+   titular  : - **Media 2021–2025 · ROIC del capital propio pagado todo el alquiler: 13.40 %** frente a r (Análisis!C56) 9.00 
+   fuente   : - Intereses de arrendamiento: comprobados en su fuente (cifra publicada en la página citada del documento con su huella; condición mínima de F1-SERIES, PENDIENTE en 5). No es la verificación de entradas: la serie no está en el libro ni en el universo de verificacion_entradas.py.
+   C2 · (57) con «fila»: media 13.4000% · utilizable False · comprobada False · columna comprobada 4 · pendiente 0 · inválidas 1 · referencia BUENO 0.09
+   titular  : - **Media 2021–2025 · ROIC del capital propio pagado todo el alquiler: 13.40 %** frente a r (Análisis!C56) 9.00 
+   fuente   : - Intereses de arrendamiento: **NO COMPROBADOS** (series.intereses_arrendamiento.2025: la fila 'Interest accretion to lease liability' no contiene la cifra '(57)' como cifra completa): la media de arriba es una cifra sin comprobar; para usarla, declarar series.intereses_arrendamiento en motor_a_f1.json (documento, página, fila y literal por año) en un expediente nuevo.
+
+c) Ahold con las referencias mecánicas nuevas (réplica del dictamen; S2C del fase_b.json vigente)
+   referencias anteriores 0,09/0,09/0,09    S2C (3.9, 5.4, 5.9) · V 28.41 / 39.71 / 47.55 · precio de Sí 35.99 · ponderado 39.02 · vigilar (precio 36.05)
+   referencias nuevas 0,09/0,09/0,12        S2C (3.9, 5.4, 5.9) · V 28.41 / 39.71 / 49.96 · precio de Sí 36.33 · ponderado 39.50 · cumple_regla_k (precio 36.05)
+   tope sin foso 0,09/0,12/0,12             S2C (3.9, 5.4, 5.9) · V 28.41 / 41.12 / 49.96 · precio de Sí 36.94 · ponderado 40.35 · cumple_regla_k (precio 36.05)
+
+d) fórmulas del libro (sin recalcular, solo lectura)
+   Historia!A55: 'ROIC medio · 5 años'
+   Historia!C55: '=IF($C$68="Sí",IF(AND($C$43>0,COUNT(H38:L38)=MIN(5,$C$43)),AVERAGE(H38:L38),""),IF(AND($C$43>0,COUNT(H33:L33)=MIN(5,$C$43)),AVERAGE(H33:L33),""))' => '0.0878145412805803'
+   Historia!A68: '¿I+D capitalizada en las anclas?'
+   Historia!C68: '=Palancas!$C9' => 'No'
+   Palancas!A9: '¿I+D capitalizada en las anclas?'
+   Palancas!C9: 'No'
+   Palancas!F18: '=IF(\'Diagnóstico V6\'!$C5="C",Historia!$C$56,Historia!$C$55)' => '0.0878145412805803'
+   Palancas!H18: '=IF(\'Diagnóstico V6\'!$C5="C",IFERROR(INDEX(Sector!$Q$5:$Q$98,MATCH(Palancas!$C7,Sector!$A$5:$A$98,0)),""),IFERROR(INDEX(Sector!$L$5:$L$98,MATCH(Palancas!$C7,Sector!$A$5:$A$98,0)),""))' => '0.100773969550848'
+   Diagnóstico V6!A42: 'ROIC marginal frente a su historia'
+   Diagnóstico V6!B42: '=IF(NOT(ISNUMBER(B35)),"—",IF(AND(ISNUMBER(Palancas!$F$18),N(Palancas!$F$18)>0,B35>2*N(Palancas!$F$18)),"⚠ REVISAR · cada euro nuevo rendiría "&FIXED(100*B35,0)&" %, más del doble de su historia","✓ PASA"))' => '✓ PASA'
+   Diagnóstico V6!C42: '=IF(NOT(ISNUMBER(C35)),"—",IF(AND(ISNUMBER(Palancas!$F$18),N(Palancas!$F$18)>0,C35>2*N(Palancas!$F$18)),"⚠ REVISAR · cada euro nuevo rendiría "&FIXED(100*C35,0)&" %, más del doble de su historia","✓ PASA"))' => '✓ PASA'
+   Diagnóstico V6!D42: '=IF(NOT(ISNUMBER(D35)),"—",IF(AND(ISNUMBER(Palancas!$F$18),N(Palancas!$F$18)>0,D35>2*N(Palancas!$F$18)),"⚠ REVISAR · cada euro nuevo rendiría "&FIXED(100*D35,0)&" %, más del doble de su historia","✓ PASA"))' => '✓ PASA'
+   Diagnóstico V6!E42: '«El crecimiento no es gratis y no siempre crea valor».'
+   Diagnóstico V6!A35: 'ROIC marginal implícito (lo nuevo)'
+   Diagnóstico V6!B35: '=IF(OR(Motor!$B$252,Motor!BQ6=""),"",Motor!BQ6)' => '0.058923'
+   Diagnóstico V6!C35: '=IF(OR(Motor!$B$252,Motor!BQ7=""),"",Motor!BQ7)' => '0.10056192'
+   Diagnóstico V6!D35: '=IF(OR(Motor!$B$252,Motor!BQ8=""),"",Motor!BQ8)' => '0.1237383'
