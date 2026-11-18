@@ -260,11 +260,36 @@ class SinGramaticaTests(Base):
         r = self.run_da(FakeHTTP(store, reply=rep))
         self.assertEqual(r['error'], 'JSON_INVALIDO')
 
-    def test_preflight_counts_schema_in_system(self):
+    def test_preflight_counts_schema_in_system_and_payload_restored(self):
         store = GitHubStore()
         h = FakeHTTP(store, reply=reply())
-        self.run_da(h)
-        self.assertNotIn('format', h.sent()[0][3]['output_config'])
+        before = cr.payload
+        r = self.run_da(h)
+        self.assertIs(cr.payload, before)
+        body = h.sent()[0][3]
+        self.assertNotIn('format', body['output_config'])
+        self.assertGreaterEqual(r['budget']['reserved_input_tokens'], len(json.dumps(body['system'])))
+        self.assertEqual(r['review']['package_sha256'], bundle()['package_sha256'])
+
+    def test_duplicate_keys_rejected(self):
+        rep = reply()
+        for b in rep['content']:
+            if b.get('type') == 'text':
+                b['text'] = b['text'][:-1] + ', "moneda": "EUR"}'
+        r = self.run_da(FakeHTTP(GitHubStore(), reply=rep))
+        self.assertEqual(r['error'], 'JSON_INVALIDO')
+
+    def test_null_only_when_not_available(self):
+        doc = analysis()
+        doc['crecimiento_implicito']['disponible'] = False
+        doc['crecimiento_implicito']['al_precio_actual_pct'] = None
+        notes = []
+        out = da.nulos_no_disponibles(doc, da.SCHEMA, notes)
+        da.check_schema(out, da.SCHEMA)
+        self.assertEqual(out['crecimiento_implicito']['al_precio_actual_pct'], 0)
+        doc['crecimiento_implicito']['disponible'] = True
+        with self.assertRaises(cr.pilot.PilotError):
+            da.check_schema(da.nulos_no_disponibles(doc, da.SCHEMA, []), da.SCHEMA)
 
 
 class CapTests(Base):

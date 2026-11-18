@@ -473,6 +473,36 @@ def mechanical_checks(doc, bundle):
             'nota': 'Comprobaciones mecánicas informativas: no acreditan la calidad económica.'}
 
 
+def _sin_duplicadas(pairs):
+    keys = [k for k, _ in pairs]
+    if len(keys) != len(set(keys)):
+        raise ValueError('clave duplicada')
+    return dict(pairs)
+
+
+def nulos_no_disponibles(value, schema, notes, where='$'):
+    """Un null en una cifra de un objeto con `disponible` = false se lee como 0 y se anota.
+
+    Solo ahí: un null en cualquier otro sitio sigue siendo ESQUEMA_INVALIDO.
+    """
+    if isinstance(value, dict) and schema.get('type') == 'object':
+        props = schema.get('properties', {})
+        libre = value.get('disponible') is False
+        out = {}
+        for k, v in value.items():
+            sub = props.get(k, {})
+            if v is None and libre and sub.get('type') == 'number':
+                notes.append({'campo': f'{where}.{k}', 'original': None, 'canonico': 0,
+                              'motivo': 'disponible=false'})
+                out[k] = 0
+            else:
+                out[k] = nulos_no_disponibles(v, sub, notes, f'{where}.{k}') if sub else v
+        return out
+    if isinstance(value, list) and schema.get('type') == 'array':
+        return [nulos_no_disponibles(v, schema['items'], notes, f'{where}[{i}]') for i, v in enumerate(value)]
+    return value
+
+
 def validate(response, bundle):
     if response.get('stop_reason') != 'end_turn':
         raise pilot.PilotError('RESPUESTA_INCOMPLETA')
@@ -481,7 +511,7 @@ def validate(response, bundle):
     fenced = re.fullmatch(r'```json\r?\n([\s\S]*)\r?\n```', raw)
     notes = []
     try:
-        doc = json.loads(fenced.group(1) if fenced else raw)
+        doc = json.loads(fenced.group(1) if fenced else raw, object_pairs_hook=_sin_duplicadas)
     except (ValueError, RecursionError):
         # Sin gramática del servidor: si hay texto alrededor de un único objeto, se toma el
         # objeto y se anota. El contenido pasa después por check_schema completo.
@@ -489,11 +519,11 @@ def validate(response, bundle):
         try:
             if i < 0 or j <= i:
                 raise ValueError
-            doc = json.loads(raw[i:j + 1])
+            doc = json.loads(raw[i:j + 1], object_pairs_hook=_sin_duplicadas)
         except (ValueError, RecursionError):
             raise pilot.PilotError('JSON_INVALIDO') from None
         notes.append('texto_fuera_del_objeto_json_descartado: %d caracteres' % (len(raw) - (j + 1 - i)))
-    doc = check_schema(normalize_enums(doc, SCHEMA, notes), SCHEMA)
+    doc = check_schema(normalize_enums(nulos_no_disponibles(doc, SCHEMA, notes), SCHEMA, notes), SCHEMA)
     return {'analisis': doc, 'package_sha256': bundle['package_sha256'], 'normalizaciones_enum': notes,
             'comprobaciones_mecanicas': safe_checks(doc, bundle)}
 
@@ -617,7 +647,12 @@ def parse_max_usd(raw):
 
 SCHEMA_EN_ENCARGO = ('\n\n## Esquema de la respuesta\n\nResponde solo con un objeto JSON que cumpla '
                      'exactamente este JSON Schema (todas las claves son obligatorias; sin texto antes ni '
-                     'después):\n\n')
+                     'después). Reglas de forma: no añadas claves que no estén en el esquema ni repitas '
+                     'ninguna; no uses null (si una cifra no está disponible, pon su indicador `disponible` '
+                     'en false y la cifra a 0); los números van como números, sin comillas, sin separador '
+                     'de miles y con punto decimal; dentro de los textos escapa las comillas dobles como '
+                     '\\" y los saltos de línea como \\n; las citas pueden acortarse con «…» para evitar '
+                     'caracteres problemáticos, sin cambiar su sentido.\n\n')
 
 
 def system_con_esquema(encargo):
@@ -652,6 +687,7 @@ def configured(task_id, model, effort, max_usd, bundle, encargo, preflight=None)
         return original_budget(b, count)
 
     holder = preflight if preflight is not None else {}
+    holder['system_sha256'] = pilot.digest(system_con_esquema(encargo).encode('utf-8'))
     values = dict(TASK=task_id, MODEL=model, EFFORT=effort, MAX_OUTPUT=MAX_OUTPUT, MAX_USD=max_usd,
                   INPUT_PRICE=info['input'], OUTPUT_PRICE=info['output'], SYSTEM=system_con_esquema(encargo), SCHEMA=SCHEMA,
                   payload=payload_sin_gramatica,

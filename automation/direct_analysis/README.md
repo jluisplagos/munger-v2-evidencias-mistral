@@ -182,10 +182,13 @@ Opus 5.5, 4 / 20; Fable 5.2, 8 / 40; Sonnet 5.5, 2 / 10.
 - La salida máxima es 32 768 tokens y el stream de AUTO1 se corta a los 720 s. Un
   esfuerzo `max` con un paquete grande puede agotar cualquiera de los dos: el
   resultado se paga y queda no aceptado.
-- No se ha probado contra la API real: ni el esquema de salida (sin uniones `anyOf`,
-  muy por debajo del límite de 16), ni los campos de uso de Opus 5.5. Un error de
-  compilación del esquema solo aparecería en la llamada de pago (el conteo de tokens
-  no lo compila) y quedaría como coste incierto hasta conciliarlo en Console. Si el uso trae una facturación no prevista, el estado de coste queda
+- Salidas estructuradas: con este esquema la API respondió 400 «The compiled grammar is
+  too large» (ejecución 44288081039; un 400 no se cobra). Desde 08fa48f no se envía
+  `output_config.format`: el esquema va al final del encargo y la respuesta se valida
+  aquí (`check_schema`, claves duplicadas rechazadas, `null` → 0 solo con
+  `disponible` = false y anotado). Un fallo de forma se paga y queda no aceptado; la
+  salida en bruto (`raw_model_output`) se conserva para revisarla fuera de línea con
+  decisión humana. La huella del sistema enviado es `system_sha256`. Si el uso trae una facturación no prevista, el estado de coste queda
   `INCIERTO_SIN_COTA` y bloquea nuevas reservas hasta reconciliarlo.
 - La exclusión mutua es entre ejecuciones de este workflow. Otro workflow de AUTO1
   que reserve a la vez podría pasar la misma comprobación del tope.
