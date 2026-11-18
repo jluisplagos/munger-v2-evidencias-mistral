@@ -713,7 +713,7 @@ def main(argv=None):
         bundle = build_bundle(load_package(ROOT, a.code_sha, a.package, a.empresa), encargo, task_id, a.code_sha)
         http = DirectHTTP(os.getenv('GH_TOKEN', ''), os.getenv('ANTHROPIC_API_KEY', ''), model=a.model)
         report = execute(http, bundle, encargo, a.model, a.effort, max_usd, a.output, live=a.execute_api)
-        print(json.dumps({k: report.get(k) for k in ('task_id', 'state', 'api_messages_sent', 'estimated_cost_usd', 'error')}))
+        print(json.dumps({k: report.get(k) for k in ('task_id', 'state', 'api_messages_sent', 'estimated_cost_usd', 'error', 'api_error')}))
         # YA_RESERVADO_SIN_NUEVA_LLAMADA (p. ej. «Re-run» de la misma ejecución) sale con 1:
         # no hay análisis nuevo y no debe parecer un éxito.
         return 0 if report['state'] in OK_STATES else 1

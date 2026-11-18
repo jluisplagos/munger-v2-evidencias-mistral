@@ -455,3 +455,46 @@ class MinorTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
+
+
+class ApiErrorVisibleTests(unittest.TestCase):
+    """Un rechazo HTTP de Anthropic deja visible su tipo y mensaje, sin cambiar el coste."""
+    def setUp(self):
+        pin_config(self)
+
+    def _http_error(self, status, body):
+        from urllib.error import HTTPError
+        class RaisingOpener:
+            def open(self, req, timeout=None):
+                raise HTTPError(req.full_url, status, 'err', {}, io.BytesIO(body))
+        p = patch.object(cr, 'build_opener', lambda *a, **k: RaisingOpener())
+        p.start(); self.addCleanup(p.stop)
+
+    def test_400_message_reported_and_cost_still_uncertain(self):
+        body = json.dumps({'type': 'error', 'error': {'type': 'invalid_request_error',
+                           'message': 'prompt is too long: 1100000 tokens > 1000000 maximum'},
+                           'request_id': 'req_abc123'}).encode()
+        self._http_error(400, body)
+        rec = MemoryReceipt()
+        with tempfile.TemporaryDirectory() as t:
+            r = cr.run(StreamH('g', 'k', model=cr.MODEL), bundle(), t, rec, execute=True)
+            md = (Path(t) / 'report.md').read_text()
+        self.assertEqual(r['error'], 'ANTHROPIC_HTTP_400')
+        self.assertEqual(r['api_error'], {'http_status': 400, 'type': 'invalid_request_error',
+                                          'message': 'prompt is too long: 1100000 tokens > 1000000 maximum',
+                                          'request_id': 'req_abc123'})
+        self.assertEqual((r['state'], r['cost_status']), (cr.UNCERTAIN, 'INCIERTO'))
+        self.assertEqual(r['cost_upper_bound_usd'], r['budget']['reserved_usd'])
+        self.assertIn('invalid_request_error', md)
+        self.assertEqual(json.loads(rec.files['report.json'])['api_error']['type'], 'invalid_request_error')
+
+    def test_unreadable_or_huge_body_is_bounded(self):
+        from urllib.error import HTTPError
+        for body in (b'no es json', b'{"error": {"message": "' + b'x' * 10000 + b'"}}'):
+            with self.subTest(body=body[:12]):
+                e = HTTPError('u', 400, 'err', {}, io.BytesIO(body))
+                out = cr.api_error_of(e)
+                self.assertEqual(out['http_status'], 400)
+                self.assertLessEqual(len(out.get('message', '')), cr.API_ERROR_MAX_CHARS)
+        bad_id = json.dumps({'error': {'type': 't', 'message': 'm'}, 'request_id': 'x' * 300}).encode()
+        self.assertNotIn('request_id', cr.api_error_of(HTTPError('u', 400, 'e', {}, io.BytesIO(bad_id))))

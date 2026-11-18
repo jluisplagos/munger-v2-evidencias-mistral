@@ -73,9 +73,37 @@ SCHEMA = {'type': 'object', 'additionalProperties': False,
 
 class TransportError(pilot.PilotError):
     """Fallo tras enviar la inferencia; conserva el uso parcial conocido (cota inferior)."""
-    def __init__(self, code, usage_partial=None):
+    def __init__(self, code, usage_partial=None, api_error=None):
         super().__init__(code)
         self.usage_partial = dict(usage_partial or {})
+        self.api_error = api_error
+
+
+API_ERROR_MAX_BYTES = 4096
+API_ERROR_MAX_CHARS = 600
+
+
+def api_error_of(err):
+    """Tipo y mensaje del error HTTP de Anthropic, acotados; nunca cabeceras ni la petición.
+
+    Solo informa: no cambia el estado de coste (sigue INCIERTO con la reserva como cota).
+    """
+    try:
+        raw = err.read(API_ERROR_MAX_BYTES)
+        doc = json.loads(raw.decode('utf-8', 'replace'))
+        e = doc.get('error', {}) if isinstance(doc, dict) else {}
+        kind, msg = e.get('type'), e.get('message')
+        out = {'http_status': int(err.code)}
+        if isinstance(kind, str):
+            out['type'] = kind[:80]
+        if isinstance(msg, str):
+            out['message'] = msg[:API_ERROR_MAX_CHARS]
+        rid = doc.get('request_id') if isinstance(doc, dict) else None
+        if isinstance(rid, str) and re.fullmatch(r'req_[A-Za-z0-9]{1,64}', rid):
+            out['request_id'] = rid
+        return out
+    except Exception:
+        return {'http_status': getattr(err, 'code', None), 'message': 'CUERPO_DEL_ERROR_ILEGIBLE'}
 
 
 def _invalid():
@@ -222,6 +250,7 @@ class StreamingHTTP(pilot.HTTP):
                       headers={'x-api-key': self.api_key, 'anthropic-version': pilot.API_VERSION,
                                'Content-Type': 'application/json', 'Accept': 'text/event-stream'})
         partial = {}
+        api_error = None
         deadline = time.monotonic() + STREAM_DEADLINE_SECONDS
         try:
             # El timeout de socket se aplica por lectura; el plazo total lo vigila read_stream.
@@ -231,6 +260,7 @@ class StreamingHTTP(pilot.HTTP):
             code = str(err)
         except HTTPError as err:
             code = f'ANTHROPIC_HTTP_{err.code}'
+            api_error = api_error_of(err)
         except (URLError, TimeoutError, OSError):
             code = 'ANTHROPIC_ERROR_RED_TIMEOUT_NO_REINTENTAR'
         except http.client.HTTPException:
@@ -240,7 +270,7 @@ class StreamingHTTP(pilot.HTTP):
             code = 'ANTHROPIC_STREAM_INVALIDO_NO_REINTENTAR'
         except Exception:
             code = 'ANTHROPIC_ERROR_TRANSPORTE_NO_REINTENTAR'
-        raise TransportError(code, partial)
+        raise TransportError(code, partial, api_error)
 
 
 def snapshot(sha):
@@ -439,6 +469,8 @@ def write(output, report):
         text += ['    ' + line for line in json.dumps(report['review'], ensure_ascii=False, indent=2).splitlines()]
     if 'error' in report:
         text += ['Error: ' + report['error']]
+    if 'api_error' in report:
+        text += ['Error de la API: ' + json.dumps(report['api_error'], ensure_ascii=False)]
     if 'cost_status' in report:
         text += ['Coste: ' + report['cost_status'] + '; estimado ' + str(report['estimated_cost_usd'])
                  + '; cota ' + str(report.get('cost_upper_bound_usd', report['estimated_cost_usd']))]
@@ -554,6 +586,8 @@ def run(http, bundle, output, receipt=None, execute=False):
         elif report['cost_status'] != 'CONOCIDO_ESTIMADO':
             _cost_fields(report, 'INCIERTO', getattr(err, 'usage_partial', None))
         report['error'] = str(err) if known else 'ERROR_INESPERADO_NO_REINTENTAR_' + type(err).__name__
+        if getattr(err, 'api_error', None):
+            report['api_error'] = err.api_error
         report['state'] = REJECTED if report['cost_status'] == 'CONOCIDO_ESTIMADO' else UNCERTAIN
     write(output, report)
     publish(receipt, output, bundle, report, reserved)
