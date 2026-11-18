@@ -1,0 +1,47 @@
+# Revisión independiente de los cambios de la orquestación · ahold_f3, jumbo_e, zoetis_t1c
+
+Revisor: agente Claude distinto del autor, solo lectura, 18-nov-2026. Material revisado: rama `examen/expedientes-f1` hasta `165dd0f` (`resultados/`, `antecedentes/` y `texto/`, cifra por cifra con las marcas `[PDF PAGE n]`). No se leyó `fase_a.json` y no se ejecutó el pipeline. **`d70635d`** (ahold_f3: recálculo de C40, C42 y C88) llegó durante la revisión y **no está revisado**. Esto no acredita aptitud para dinero real.
+
+Veredictos: **C** = conforme · **X** = corregir · **D** = duda (decide la persona responsable o un revisor económico).
+
+## Ahold (ahold_f3)
+
+| Punto | V. | Evidencia | Propuesta |
+|---|---|---|---|
+| `intereses_arrendamiento` 2021–2025 = 337/356/382/422/465 | C | Nota 33, cuadro «Amounts recognized in the income statement»: AR2022 p. 251 «(356) (337)»; AR2023 p. 262; AR2024 p. 321; AR2025 p. 272. La cuenta de resultados da lo mismo (AR2022 p. 190; AR2025 p. 212) y AR2021 p. 242 también da 337 para 2021. Huellas de `fuentes_series` = `texto/`. | — |
+| Rastro | C | `motor_a_f1` antes `a61a19…` (= ahold_f2) y después `5261d8…`. El diff solo añade la serie y una frase de la nota. | — |
+
+## Jumbo (jumbo_e)
+
+| Punto | V. | Evidencia | Propuesta |
+|---|---|---|---|
+| J3 extendido a 2019: F15 = 8,6134, F16 = 1,4887, F17 = 4,3128 | C | AR2020 p. 59 (columna 01/01–31/12/2019): «Lease repayments (1.488.677)», «Interest paid for leases (4.312.789)», «Interest paid (7.124.703)». Nota 5.5, AR2020 p. 86: «Interest expense on lease liabilities … 1.488.678». El informe de transición, p. 57, rotula bien. 7,124703 + 1,488677 = 8,6134. | — |
+| Intereses de arrendamientos (nota 5.5) 2021–2025, escala «unidades» | C | AR2021 p. 87: 3.056.657; AR2022 p. 92: 2.628.373; AR2023 p. 95: 2.664.523; AR2024 p. 178: 2.526.806; AR2025 p. 179: 2.390.655. Todas en columna GRUPO, «(amounts in €)». valor_fuente = literal ÷ 10⁶ (ESCALAS_SERIE del motor). Las huellas coinciden. | Observación: el flujo de caja del grupo de 2024–2025 (AR2025 p. 155: 3.001.882 y 2.325.789) no coincide con la nota. Solo 2019, 2020 y 2023 prueban el cruce cifra a cifra. Así lo dice el extracto §6, y es correcto. |
+| PPA = 0 en 2021–2025 | C (lectura confirmada) | El cuadro de la nota 5.8 (AR2022 p. 97, AR2023 p. 100, AR2024 p. 183, AR2025 p. 185) tiene un solo intangible, «Software». El balance une «PP&E and Intangible Assets» (AR2025 p. 150) y no tiene fondo de comercio. La asignación del precio de HERALD 2 (AR2025 p. 189) no reconoce intangibles: es una compra ventajosa de 665.550. | Añadir al motivo de 2023 la compra de NIVAMO (sociedad inmobiliaria, 12 mm, AR2023 p. 16 y p. 71), una combinación que la cita actual no menciona. El cero sigue igual. |
+| C42 = 7,2271x con 27,28 € | Fórmula C · fecha **D** | (27,28 × 134,365561 + 62,247015 − 546,140091) ÷ (435,659964 + 169,927311 − 165,352664) = 3.181,60 ÷ 440,23 = 7,2271. Fuentes: H1 2026 p. 25 (caja), p. 57 (arrendamientos), p. 23 (EBITDA de H1) y AR2025 p. 148. Con 24,72 € sale 6,4457, la cifra de la etapa 1. | El precio del 17-nov es *ex* el dividendo de 0,70 € (94,06 mm, pagado el 28-jul-2026, H1 2026 p. 20) y *ex* el reparto de 1,00 € (134,37 mm, ex 16-nov). La caja es la del 30-jun y todavía los incluye. Descontando ambos, sale 7,746x; descontando solo el de julio, 7,441x. Declarar la desalineación en la fuente de C42 o decidir el ajuste. C53 ya la anota. |
+| Ceros que cambiaron de cita: intereses en financiación 2016–2018 (línea «Interest payable» de explotación) | C | AR2016-17 p. 46, AR2017-18 p. 47, AR2018-19 p. 48: el bloque de financiación, en la misma página, no tiene línea de intereses. | — |
+| Principal de arrendamientos 2016 (p. 93 «Commitments **mostly** pertain to operating leases») y arrendamientos 2018 (p. 52 «will implement IFRS 16») | D | «mostly» no excluye arrendamientos financieros NIC 17, y la frase de la NIIF 16 no prueba que falte pasivo. La prueba real es el bloque de financiación sin línea de arrendamientos (p. 46 y p. 48). La revisión R2 (Mistral, punto 4) proponía `no_aplicable`. | Citar también el bloque de financiación o pasar a `no_aplicable`. Siguen pendientes de revisor: bien. |
+| Adquisiciones 2019 (AR2020 p. 59) y 2021 (AR2022 p. 68): «Share Capital Change of Subsidiaries … -» | **X** | Antes eran «cero pendiente»; ahora son cifra impresa «-» y **salen de `pendientes_verificacion`** (28 → 26). Esa línea recoge aportaciones a filiales, no compras de negocios. 2020 lleva la misma línea con el mismo «-» y sigue pendiente: el criterio es incoherente. | Dejar 2019 y 2021 como cero pendiente con la nueva cita (que sí es mejor que la anterior), o confirmarlos por decisión humana en `fase1_decisiones.json`. No reclasificarlos por el cambio de cita. |
+| Rastro | C (con observación) | Huellas antes/después de fase1_partes, extracto y etapa 1 comprobadas. El original de la etapa 1 sigue intacto (`53f3a2…`). `cambio_de_base.md` sigue diciendo «Correcciones… ninguna». | Añadir a `cambio_de_base.md` una línea que remita a `correccion_fase1_partes_r2.json` y `recalculo_C42.json`. |
+
+## Zoetis (zoetis_t1c)
+
+| Punto | V. | Evidencia | Propuesta |
+|---|---|---|---|
+| Signo del gasto por intereses en el EBIT derivado | C | «Interest expense, net of capitalized interest» va en positivo dentro de «Costs and expenses». BAI + intereses: 1.228 + 166 = 1.394 · 1.700 · 1.896 · 2.024 · 2.227 · 2.712 · 2.877 · 3.175 · 3.358 · 3.360 + 222 = **3.582** (10-K 2025 p. 66). La serie de la Historia coincide en los 10 años. | — |
+| D13 = 82 (2017) | C | 10-K 2018 p. 75 «Other acquisitions (114) (82) (88)»; el 10-K 2017 p. 73 tampoco resta «Net proceeds from sales of assets». Los 37 de 2017 son sobre todo la venta de la planta de Guarulhos, un activo (10-K 2018 p. 87). | — |
+| Mismo criterio en 2018 (E13 = 1.998) y 2016 (C13 = 88) | D | 10-K 2018 p. 87, «B. Divestitures»: de los 56 de 2018, unos 47 son la «divestiture of certain agribusiness products», una venta de una línea de productos. 2016 (90) incluye «certain manufacturing sites and products» (10-K 2017 p. 82). | Decidir si la venta de líneas de productos cuenta como venta de negocio (E13 sería ≈ 1.951). Si no cuenta, dejarlo dicho en la nota. |
+| J13 = 59 | C | 10-K 2024 p. 68 / 10-K 2025 p. 70: adquisiciones (155) y cobro por venta de negocios 96, con signo +1, coherente con 2025 (24 + 4 = 28). | — |
+| Fila 23 solo con arrendamientos financieros (0 en 2019–2022; 9/8/7 en 2023–2025) y fila 22 sin duplicar | C | 10-K 2023 p. 87 «1 —» y «8 —»; 10-K 2024 p. 86 «1 1», «7 8»; 10-K 2025 p. 89 «1 1», «6 7». Deuda 6.567 = 3 + 6.564; 6.570 = 1.350 + 5.220; 9.042. Antes se sumaba el financiero (6.576/6.578/9.049). «Only operating leases» en 10-K 2019 p. 77, 2020 p. 80, 2021 p. 78 y 2022 p. 70. Sin «capital lease» en los 10-K 2016–2018. | — |
+| L17 = 2 | C | 10-K 2025 p. 89 «Financing cash flows – finance leases 2 1 —». C49 = 1,0. | La nota de la serie dice que el pago va «dentro de Other financing activities», pero en 2024 esa línea es «—» y el pago es 1 (p. 70). Escribir «ubicación no publicada». |
+| PPA 175/160/153/140/128 | D (cifras C) | 10-K 2022 p. 52 y 10-K 2025 p. 54, «Purchase accounting adjustments: Amortization and depreciation». La línea incluye la depreciación de la revalorización de los activos fijos y las compras de activos netos. La definición está en **p. 52** del 10-K 2025, no en la p. 53 que se cita. Cuadra 325 + 34 + 128 = 487 = D&A (p. 54 y p. 70). | Corregir la página a la p. 52. **Efecto:** en A2, D_X = D&A − ROU − PPA. Si la PPA lleva amortización de derechos de producto comprados (reinversión recurrente) o depreciación de la revalorización, D_X y f bajan y el valor sube: sesgo optimista de hasta un 1,35 % de las ventas. Tratarla como cota superior y comparar con A1. La lectura sigue pendiente de revisor. |
+| D-US1 | C | 10-K 2025 p. 88 (operativos y un financiero) y p. 70 (el flujo no tiene líneas de arrendamiento). | Para reforzar: como 487 = 325 + 34 + 128, la amortización del derecho de uso de los operativos no está en la fila 8. |
+| da_rou 2021–2022 = 0 | C | 10-K 2021 p. 78 y 10-K 2022 p. 70, «only operating leases». | — |
+| Documentos del T2 2026 | C | Huellas = Release (88a61c…, 130a14…, 8ccb57…). Fechas: 6-ago-2026, tipos de cambio del 21-jul y guía previa del 7-may. No hay T3 ni fechas posteriores al 9-oct-2026. El HTML no trae cotización. FUENTES.tsv solo gana 3 filas (antes guardado). | — |
+| `extracto_v63.md` (cifras nuevas) | C (con observación) | Comprobadas en su página: cuotas 86 %/21 %/28 % (FR p. 6–7), TAM (p. 12), orgánicos (p. 15, 21), I+D 350 y capex 225 (p. 17), guía (PR p. 1, cada importe), margen 72,9 % (FR p. 16), franquicias (FR p. 20) y precio 0 a −1/−2 % (EC p. 16). | El ganado 731 (+11 %) está en FR p. 15 y EC p. 7, no en FR p. 20/10. Las frases entre «» son traducciones, no literales («fell short of our expectations», EC p. 3): marcarlas como paráfrasis. |
+
+## Fuentes y huellas (punto 4)
+
+**C.** Las carpetas `texto/` y `pdf/` y el archivo `fase1_fuentes.json` son idénticos a los de los expedientes de origen (ahold_f2, jumbo_d y zoetis_t1b). En Zoetis solo se añaden las tres fuentes del T2 2026, por decisión registrada. Las huellas de `fuentes_series` coinciden con `texto/`. Cada cambio tiene su antes conservado en `antecedentes/` con SHA-256, y la cadena r1 → r2 de Zoetis enlaza. No hay ninguna fuente ni huella cambiada para legitimar un resultado.
+
+**Pendiente:** revisar `d70635d` (C40, C42 y C88 de Ahold) con otro revisor.
