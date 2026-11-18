@@ -366,3 +366,92 @@ Las pruebas de workflow se omiten si el runner no tiene PyYAML.
 - **Etapa 1 del examen frente a la de la Release.**
   - Jumbo, Vinci y Zoetis no coinciden: v1 en el examen, v2 en la Release.
   - WasteManagement coincide.
+
+## Ronda 2 · 833cd50
+
+- **Qué se revisa.** La rama `automatizacion/cribado-tandas` en `833cd50a9bba34006519119c72a29c70a1656fb7`, rebasada sobre `main` `e96470e`.
+  - `ab955cd` y `ec81ece` son el rebase puro de `40dbfd9` y `86b2e24`: los archivos del cribado son idénticos.
+  - `5e8d4b9` trae el código y `833cd50` solo cambia el README.
+- **Decisiones de la persona aplicadas:** C-ARR y C-EX (`DECISIONES_PARA_EL_USUARIO.md`, en `2bc918e`).
+- **Cómo se revisó.** Worktree propio, desacoplado (`/home/user/e_work/wt_rev_cribado2`), borrado al terminar. Sin cambios en la rama, sin commit, sin llamadas a la API de Anthropic.
+
+### Veredicto ronda 2: CONFORME CON LÍMITES
+
+H1–H4 están cerrados, y H5–H8 también, salvo la revalidación fuera de línea, que queda como límite declarado en el README. No hay regresión de gasto ni de ceguera. La tanda 0 (Pandora) puede lanzarse.
+
+### H1–H4: cerrados
+
+**H1 · Llamadas a GitHub.** Una tanda de 20, simulada con listados que traen el SHA de cada carpeta según su contenido:
+
+| Carpetas en el registro | Ronda 1 | Ronda 2 |
+|---|---|---|
+| 12 | 1.630 | 333 |
+| 60 | 4.510 | 381 |
+| 120 | 8.110 | 441 |
+
+Coincide con el autor y queda muy por debajo de 1.000 por hora. Detalles:
+- El SHA del listado real es el SHA de árbol de Git. Lo comprobé en la rama de registro: el listado y `git ls-tree` dan el mismo valor. Por eso cualquier cambio de contenido obliga a releer.
+- Sin SHA, el código vuelve a leerlo todo: 1.174, 3.142 y 5.602 llamadas. La API real sí lo trae.
+- Lo comprometido por intentos anteriores se lee una vez y se le suma lo local. Las empresas ya reservadas aportan 0 en local, así que no se cuentan dos veces.
+
+**H2 · C-ARR aplicado.**
+- El encargo cuenta el alquiler una vez, en el flujo.
+- La deuda y sus cocientes se miden sin arrendamientos, contra un EBITDA que ya resta el alquiler.
+- Un cociente NIIF 16 de la hoja no se usa tal cual: o se recalcula, o queda `dudoso`.
+- El pasivo va aparte, en `pasivo_arrendamientos` (esquema de 2.252 caracteres, 9 claves).
+- La convención y las condiciones van en el paquete y, como líneas fijas del código, en cada `report.md` y en `tanda.md`.
+
+Con eso desaparece la doble cuenta del ejemplo de Ahold. En una muestra de hojas con US GAAP (Chewy, Nike, Quanta, CocaCola…), la plantilla ya resta los pagos del arrendamiento operativo (dentro del CFO) y, cuando lo hay, el principal del financiero (`C49`). La deuda sin arrendamientos es, por tanto, coherente.
+
+**H3 · C-EX aplicado.**
+- Hay una lista cerrada en el código, verificada por bytes contra el SHA: las seis empresas del examen quedan `NO_PREPARADA:EMPRESA_DEL_EXAMEN_EXCLUIDA_HASTA_DESPUES_DEL_23_NOV`, también si se escriben a mano.
+- Las excepciones de Elis se han retirado.
+- El dry-run se reproduce byte a byte: 111 empresas, 135,588848 USD en cotas y 50,7365 orientativos.
+
+**H4.** La tanda se para tras dos `RESULTADO_NO_ACEPTADO_NO_REINTENTAR` seguidos. Si entre dos rechazos hay una respuesta válida, sigue.
+
+### Gasto, sin regresión
+
+Repetí los escenarios de la ronda 1 con el código nuevo y listados con SHA:
+
+| Escenario | Resultado |
+|---|---|
+| Facturación no prevista | Para, con 1 llamada |
+| Registro con 403 | Para, sin ninguna llamada |
+| 403 al publicar tras la llamada pagada | `FALLO_TRAS_RESERVAR`; el «Re-run» no la repite |
+| Máximo de la tanda con un intento anterior, incluida una reserva create-only sin actualizar | No se supera |
+| Tope acumulado bajo | Para antes de llamar |
+| Dos respuestas pagadas inválidas | Para |
+| `INCIERTO_SIN_COTA` ya en el registro | Bloquea la tanda siguiente: la caché no lo oculta, porque no se guarda |
+
+### Ceguera, sin regresión
+
+- Con las 46 ramas del origen (498 blobs) salen 111 empresas preparadas y 6 excluidas.
+- Solo se aplican las excepciones de Andina y Petsathome, con su nuevo código, que nombra la marca: `…:hoja_control_maestro:rubrica`.
+- Ningún paquete lleva el nombre del repositorio, motivos de excepción ni rutas del traspaso.
+- Los 111 paquetes llevan su `fecha_hoja`, en ISO o como texto: «25.10.2026», «25-oct-2026».
+- El encargo nuevo no tiene marcas ni solapes. El tramo común más largo con la rúbrica es de 31 caracteres normalizados, y con el contradictor, de 22.
+
+### Tanda 0
+
+Reproducida sin API: Pandora `PREPARADO_SIN_API`, reserva de 1,183068 USD con gramática, hoja del 2026-10-25.
+
+### Pruebas como CI
+
+`python3 -I -m unittest discover -s automation/<dir> -p 'test_*.py'`:
+
+| Carpeta | Pruebas | Resultado |
+|---|---|---|
+| `claude_review` | 49 | OK |
+| `coordination` | 97 | OK |
+| `direct_analysis` | 48 | OK |
+| `screening` | 41 | OK |
+
+En total, 235 pruebas, ninguna omitida, y el árbol queda limpio.
+
+### Límites que quedan (no bloquean)
+
+- **Revalidación fuera de línea:** no la hay para el esquema del cribado (declarado). Con la gramática y la parada de H4, como mucho se pierden dos respuestas pagadas por tanda.
+- **«Re-run» con el máximo alcanzado:** una empresa ya reservada puede figurar como `NO_LLAMADA_TANDA_PARADA` en vez de `YA_RESERVADO_SIN_NUEVA_LLAMADA`. Es cosmético, sin gasto.
+- **Tope acumulado:** sigue la carrera con otros workflows de AUTO1 de otro grupo de concurrencia (declarada).
+- **C-EX:** vence después del 23-nov y exige un cambio de código revisado.
