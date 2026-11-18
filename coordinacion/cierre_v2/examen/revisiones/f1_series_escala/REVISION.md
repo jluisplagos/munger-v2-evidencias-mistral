@@ -4,7 +4,7 @@
 - **Revisor:** agente distinto del autor (Opus, esfuerzo alto), 18-nov-2026. No modifiqué la rama ni hice commit.
 - **Copia de trabajo:** worktree `/home/user/e_work/wt_rev_series` y copia limpia `git archive b3998a8` en `/home/user/e_work/rev_series_copia`
   con los 1008 binarios de la base 4.14 (`tools/base_414.py verify`: 6798 esperados, 0 ausentes, 0 cambiados) y los 51 binarios del
-  examen (Ahold, Jumbo) copiados de `wt_examen` solo si su huella coincide con el manifiesto. Las copias se borran al terminar.
+  examen (Ahold, Jumbo) copiados de `wt_examen` solo si su huella coincide con el manifiesto. Las copias se borraron al terminar (también el worktree `wt_rev_series`, sin cambios).
 - **Evidencia:** `evidencia/` (sondas, comparación de declaraciones, salidas de las baterías y del arreglo que propongo).
 
 ## Veredicto: **CORRECCIONES** (pequeñas y locales)
@@ -91,9 +91,9 @@ huecos S6 (importe entero) y S7 (subcadena que invierte el sentido) son menores 
 | `probar_v631_f1.py estructura` | 21/21 |
 | `prueba_pipeline_f1.py` (LibreOffice) | 7/7 |
 | `probar_v631_f1.py a0` (LibreOffice) | 22/22 |
-| `probar_v631_f1.py f1` (LibreOffice) | RESULTADO_F1 |
+| `probar_v631_f1.py f1` (LibreOffice) | 35/35 |
 | `prueba_pipeline_v631.py` (LibreOffice) | 9/9 |
-| `verificar_paquete.sh rapida` | RESULTADO_RAPIDA |
+| `verificar_paquete.sh rapida` | **RESULTADO GLOBAL: PASA**, código 0 (8723 en el manifiesto, 0 modificados, 0 ausentes, 0 de más; F1-SERIES 55/55), en una copia limpia nueva. En la primera copia, ya usada por las baterías, da FALLA solo por 36 archivos de más (perfil de LibreOffice): `verificar_rapida_copia_usada_FALLA_por_restos.txt` |
 
 LibreOffice, siempre con `flock /home/user/e_work/libreoffice.lock` y en secuencia.
 
