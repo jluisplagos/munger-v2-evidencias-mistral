@@ -1,0 +1,43 @@
+— serie correcta —
+A · serie con fila y columna: media 0.1302800349451796 · utilizable True · comprobada True · columna comprobada 5 · pendiente 0 · inválidas 0 · incompletas 0 · referencia BUENO 0.12
+     titular de la sección: - **Media 2021–2025 · ROIC del capital propio pagado todo el alquiler: 13.03 %** frente a r (Análisis!C56) 9.00 %: +4.03 puntos. Fórmula: (EBIT − inte | «NO COMPROBADOS» en la sección: False
+
+— columna sin comprobar: sin «fila», la cifra de 2025 se sustituye por la de la columna de 2024 de la misma página (422 en lugar de 465) —
+B · sin «fila» y cifra de otro ejercicio: media 0.13067206032857462 · utilizable True · comprobada True · columna comprobada 0 · pendiente 5 · inválidas 0 · incompletas 0 · referencia BUENO 0.12
+     titular de la sección: - **Media 2021–2025 · ROIC del capital propio pagado todo el alquiler: 13.07 %** frente a r (Análisis!C56) 9.00 %: +4.07 puntos. Fórmula: (EBIT − inte | «NO COMPROBADOS» en la sección: False
+
+— la misma cifra equivocada, pero con «fila» —
+C · con «fila» y cifra de otro ejercicio: media 0.13067206032857462 · utilizable False · comprobada False · columna comprobada 4 · pendiente 0 · inválidas 1 · incompletas 0 · referencia BUENO 0.09
+     titular de la sección: - **Media 2021–2025 · ROIC del capital propio pagado todo el alquiler: 13.07 %** frente a r (Análisis!C56) 9.00 %: +4.07 puntos. Fórmula: (EBIT − inte | «NO COMPROBADOS» en la sección: True
+
+— cifra que no está en la página —
+D · literal ausente de la página: media 0.13210340882143554 · utilizable False · comprobada False · columna comprobada 4 · pendiente 0 · inválidas 1 · incompletas 0 · referencia BUENO 0.09
+     titular de la sección: - **Media 2021–2025 · ROIC del capital propio pagado todo el alquiler: 13.21 %** frente a r (Análisis!C56) 9.00 %: +4.21 puntos. Fórmula: (EBIT − inte | «NO COMPROBADOS» en la sección: True
+
+— falta un año de la serie —
+E · sin 2022: media None · utilizable False · comprobada True · columna comprobada 4 · pendiente 0 · inválidas 0 · incompletas 0 · referencia BUENO 0.09
+     titular de la sección: - **Media 2021–2025 · ROIC del capital propio pagado todo el alquiler: —** frente a r (Análisis!C56) 9.00 %. Fórmula: (EBIT − intereses de arrendamien | «NO COMPROBADOS» en la sección: False
+
+— serie con los PAGOS en lugar de los intereses (fila «Repayment of lease liabilities» no está en esa página: se declara sin fila) —
+   coste implícito del arrendamiento = intereses ÷ pasivo medio (filas 23): lo que delataría una serie equivocada; el módulo no lo calcula
+   2021: intereses 337 ÷ pasivo medio 10424 = 3.23%
+   2022: intereses 356 ÷ pasivo medio 11613 = 3.07%
+   2023: intereses 382 ÷ pasivo medio 11895 = 3.21%
+   2024: intereses 422 ÷ pasivo medio 12040 = 3.51%
+   2025: intereses 465 ÷ pasivo medio 12114 = 3.84%
+
+— Historia con menos de diez años (el primero vacío) —
+F · año 1 vacío: perimetro_f1 = None (sin sección 1 bis; G7 y referencias con C55)
+
+— A0_total con etiquetas coincidentes: texto de V-F1g —
+   V-F1g · perímetro declarado de las palancas S2C = perímetro de la reinversión (A0_total): compara etiquetas de la declaración, no cifras; los valores, en «V-F1g (valores)» (P-FOSO, D3)
+   V-F1k · perímetro declarado del ROIC del terminal = el de las palancas S2C (A0_total): compara etiquetas de la declaración, no cifras; los valores, en «V-F1k (valores)» (P-FOSO, D3)
+   filas «(valores)» presentes: False · clave perimetro_f1_valores: None
+
+— I+D capitalizada en las anclas (Historia!C68 = Sí): C55 pasa a ser la media de la fila 38, no de la 33 —
+   línea de la sección: - Media 2021–2025 · ROIC de todo el capital: 8.78 % (Historia!C55 = 7.00 %): solo frente al sector.
+   ¿el bloque menciona la I+D capitalizada o avisa de la diferencia? False
+   ancla de G7 que se usaría: 0.1481806181413951 (sin el ajuste de la I+D que sí lleva C55)
+
+— norma US GAAP en la declaración (arrendamiento operativo: el EBIT ya lleva todo el alquiler) —
+   ¿se emite el bloque con US_GAAP? True · ¿resta intereses al EBIT? True · ¿el texto habla de «EBIT NIIF 16»? True · ¿menciona la norma? False
