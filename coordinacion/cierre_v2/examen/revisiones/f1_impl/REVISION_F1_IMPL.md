@@ -5,6 +5,7 @@
 - **Revisor:** agente distinto del autor (Fable, esfuerzo máximo). 17-nov-2026. Trabajo sobre una copia en `/tmp/claude-0/revision_f1impl/`. LibreOffice solo con `flock`, en secuencia.
 - **Evidencia reproducible:** `evidencia/scripts/` y `evidencia/salidas/`, junto a este informe.
 - Marcas: **hecho** (lo he ejecutado o leído), *interpretación*, ***propuesta***.
+- **Actualización del 18-nov-2026:** la segunda ronda, sobre `340d78c` y `24e9a30`, está al final y cambia el veredicto a **CONFORME CON LÍMITES**. Lo que sigue hasta allí es la primera ronda, sobre `2e9442f`.
 - **Ceguera del examen:** este informe y su carpeta de evidencia citan criterios del examen (K1, K3, K4, salidas aceptadas) y cifras de Ahold leídas por el revisor. No deben entrar en ningún expediente ni en el material de los agentes del personaje.
 
 ## Veredicto: CORRECCIONES
@@ -193,3 +194,92 @@ Con arrendamientos no encontré camino cuando F1 se exige, se evalúa y la decla
 **No verifiqué:** `verificar_paquete.sh completa`; las 18 mutaciones del autor; P3 (US GAAP de extremo a extremo); los 32 casos de T15; la cifra de PPA de Ahold. `sondas_pipeline.py` se interrumpió en PB-2: `--desde 8` no llega a la fase B porque el paso 7 no dejó `referencias_mecanicas.json`.
 
 **Aptitud:** uso supervisado experimental. No apto para decisiones con dinero real. Superar estas pruebas no la acredita.
+
+---
+
+# Segunda ronda (18-nov-2026) · solo lo afectado
+
+- **Material:** `2e9442f..340d78c` (código) y `24e9a30` (registros y manifiesto), en `/home/user/e_work/wt_f1impl` (no modificado).
+- Trabajo sobre copias en `/tmp/claude-0/revision_f1impl/r2/`. Evidencia en `evidencia/ronda2/` (scripts, salidas y el expediente de ataque cerrado con `2e9442f`). LibreOffice con `flock`, en secuencia.
+- Al terminar borré las copias del código para liberar disco (estaba al 93 %); se recrean con `cp -a /home/user/e_work/wt_f1impl/munger_v2_r1`.
+- Vale el aviso de ceguera de la cabecera.
+
+## Veredicto: CONFORME CON LÍMITES
+
+Los cinco hallazgos materiales de la primera ronda están corregidos y sus caminos, cerrados: los repetí todos. Queda **un camino estrecho a `concluido · Sí · comprar` sin F1** (R2-1), que recomiendo cerrar antes de integrar: son cuatro líneas en `vigencia()`, probadas en copia. Lo demás son límites que se pueden declarar.
+
+## Qué ataqué y qué pasó
+
+Expediente de ataque: empresa sintética NIIF, motor A, C49 = 3,71, pasivo por arrendamientos 50, **nombre sin la marca «(inventada)»** (no exenta), cerrada `concluido · Sí · comprar` con el código anterior y sin ningún archivo de F1.
+
+| Ataque con el código nuevo | Resultado |
+|---|---|
+| A1 · relanzar sin opciones | La aprobación anterior se retira; el paso 12 evalúa F1 → `pendiente_de_datos`. **Cerrado** |
+| A2 · `--desde 13` | El paso 13 ve que no hay evaluación vigente, repite el 12 → `pendiente_de_datos`. **Cerrado** |
+| A4 · `--desde 14` · A5 · `--reiniciar --desde 14` | Cierre rechazado (código 4). **Cerrado** |
+| A6 · `ficha.py --estado concluido` a mano | No escribe la ficha (código 3). **Cerrado** |
+| **A3 · `--reiniciar --desde 13`** | **Ficha oficial `concluido · Sí · comprar`, `cierre: APROBADO`, sin evaluación F1 ni bloque F1. ABIERTO (R2-1)** |
+| A7 · `--reiniciar --desde 12` | Termina `no_entregable` antes de llegar al gancho (`verificar_todo.sh` con FAIL). Por el código, el gancho tampoco actuaría: el estado no dice el motor |
+| PC2-2 · mi camino de la primera ronda: bloqueo en el paso 12 y `--desde 13` | `no_entregable` en el paso 13. **Cerrado** |
+| PC2-3 · lo mismo con `--reiniciar --desde 13` | Bloquea: el motor se deduce del resultado F1 que sigue en la carpeta. **Cerrado** |
+| **PC2-4 · lo mismo borrando antes `motor_a_f1_resultado.json`** | **`concluido · Sí · comprar` con una declaración que bloquea (`F1-LIBRO`) en la carpeta. ABIERTO (R2-1)** |
+| B1 · expediente nuevo con arrendamientos, sin archivos de la 4.15 ni declaración | F1 se exige por el libro: paso 7, `pendiente_de_datos`. **Cerrado** |
+| B2, B3 · copiar a un expediente nuevo el `cierre_vigente.json` registrado de Elis (antes de empezar, o mientras espera a la fase A) | La vigencia lo archiva en la siguiente llamada y F1 se exige: paso 7, `pendiente_de_datos`. **No es puerta trasera por el pipeline** |
+| E1 · `elis_motor_A` real (anterior a F1, esperando auditoría), reanudado con una auditoría APROBADO | Repite el paso 12 → `pendiente_de_datos` por F1. **Cerrado** |
+| E2 · `elis_motor_A` con `--reiniciar --desde 13` | F1 no se evalúa. Llega al paso 14 con estado previsto `concluido`; lo para **solo** el esquema de la ficha (`no_entregable`), no F1 |
+| Capa: S1, S2, S14 de la primera ronda | `F1-M-SIM`, `F1-C49`, `F1-ROU-HISTORIA`, `F1-LIBRO` saltan. **Cerrado** |
+| Cierres históricos del árbol | Todos son del motor B salvo los dos de Elis (`pendiente_de_datos`, exentos por huella). Ningún `concluido` del motor A queda exento |
+
+## Hallazgos de esta ronda
+
+**R2-1 · medio · Con el estado reiniciado y sin resultado F1 en la carpeta, F1 no se exige.**
+- *Evidencia:* A3, PC2-4 y E2 (`r2_ataques_pipeline.py`, `r2_pc_replay.py`, `r2_elis_motor_a.py`).
+- *Causa:* `motor_a_f1.vigencia()` toma el motor del estado del pipeline o del resultado F1; si no consta en ninguno, responde «el motor no es el A» y `exigido: false`. `--reiniciar` borra el estado; el gancho (`self.st.get("motor") != "A"`) tampoco actúa. Lo mismo pasa con un cierre sin `estado_pipeline.json`.
+- *Alcance:* expedientes cuyas fases se completaron antes de F1 (A3, E2), o si alguien borra el resultado (PC2-4). **Un expediente creado con el código nuevo deja resultado en el paso 7, así que queda protegido** (PC2-3).
+- ***Corrección*** (probada en copia, `r2_prueba_correccion_vigencia.py`): en `vigencia()`, si el estado no dice el motor, tomarlo de `fase_a.json` (C62). Con ese cambio, A3, PC2-4 y E2 terminan en `no_entregable` sin ficha oficial `concluido`; la línea de base sintética sigue cerrando y la batería F1 sigue en 142/142. No repetí `completa` con el cambio. Conviene además que `pipeline.py` reponga el motor desde `fase_a.json` al reanudar en el paso 7 o posterior, o que rechace `--reiniciar` junto con `--desde`: E2 muestra que esa combinación también pierde el estado propuesto por la fase C, y eso no es de F1.
+- *Si no se corrige:* declarar prohibido `--reiniciar` con `--desde`.
+
+**R2-2 · medio · K3 ya es falsable, con tres límites.**
+- *Lo que funciona:* con mi FCF base de doble cómputo, K3a bloquea si la resta doble está en las entradas de Análisis y no en las filas de la Historia (C49 = 12 frente a fila 17 = 10: componente −2). En el libro real de Ahold: A0 → «dos veces» y reinversión −1.295,3, bloquean; A1 → conforme (una vez; +61,0; caja base 1.999,334 frente a 1.999,333). En Elis, conforme con sus dos partidas declaradas.
+- *Límite 1 · se satisface declarando.* K3a pasa con cualquier partida cuyo importe iguale el residuo («cualquier texto», «cualquier fuente»; L6), y K3c con cualquier frase en `justificacion_reinversion_negativa` (L8). Ninguna exige registro. Obligan a declarar, no acreditan. *Propuesta:* registro (fecha, persona, motivo) y fuente con documento y página en las dos.
+- *Límite 2 · K3a no ve un error común a las dos vías.* El interés del arrendamiento restado dos veces de forma coherente (C48 y fila 16; C49 y fila 17) pasa K3a, K3b y K3c (L7). En modo estricto las dos vías son los mismos datos: no es una segunda fuente.
+- *Límite 3 · rechaza casos legítimos* (siempre del lado seguro: `pendiente_de_datos`):
+  - C48 vacío, que es lo que manda la plantilla cuando los intereses van en el CFO, o la fila 16 vacía → «faltan Análisis C46–C52…» (L5);
+  - entradas de la etapa 1 con dos decimales: la tolerancia es 0,0005, así que la empresa sintética necesita cuatro partidas de «redondeo» (B1; la prueba P2 del autor las genera con el propio residuo);
+  - K3c con un circulante que aporta caja: un distribuidor que crece con capex = D&A propia da −8,9 y bloquea (L8).
+  - *Propuesta:* tratar C48 y la fila 16 vacíos como cero cuando los dos lo están; tolerancia según los decimales de la entrada; K3c sobre capex − D_X, sin el circulante.
+- K3b es la misma cuenta que V-F1a y `F1-M-SIM`: correcta, pero depende de la ROU declarada. Con `A3_estimado`, C49 = 0, filas 17 y 23 positivas y ROU sin declarar dice «ninguna vez (sin arrendamientos)»; en ese caso bloquea K3a (L4).
+
+**R2-3 · menor · Exenciones.** No encontré forma de dejar exento un expediente nuevo a través del pipeline. Dos puntos débiles en la función:
+- la exención por huella no comprueba que el `cierre_vigente.json` sea de ese expediente y prevalece sobre `entrada_efectiva.json` (L9 c, d). Hoy lo neutraliza la vigencia, que archiva el archivo ajeno;
+- la exención de la línea de base no está en el registro: es la cadena «(inventada)» en `fase1_v63.json → empresa`, un campo que escribe el agente de la fase 1 (L9 b).
+- *Propuesta:* exención por huella solo sin marcas de la 4.15 y con el expediente nombrado en el registro; la sintética, por una marca registrada y no por el nombre.
+
+**R2-4 · menor · Registro de la verificación.** F1_IMPL §10 dice que el modo rápido da «el manifiesto conforme»; el archivo que cita (`verificacion_rapida_340d78c.txt`) dice `RESULTADO manifiesto: FALLA` por un archivo «de más». Mi ejecución en copia limpia lo resuelve: `verificar_paquete.sh completa` sobre una copia limpia de `24e9a30` da `RESULTADO GLOBAL: PASA` (código 0, 56 min): manifiesto 7787 · modificados 0 · ausentes 0 · de más 0, y las 18 baterías en PASA (sintética 30/30 con los nombres de la línea de base, motor A F1 142/142, gancho 7/7, V6.4 199/199, integridad 103/103, cierre 55/55). Aparte, en `verificar_paquete.sh`:291 el mensaje de fallo de la batería de integridad dice «menos de 142 pruebas» y su umbral sigue en 103 (errata del reemplazo).
+
+## H8–H13 sin corregir: ¿aceptables como límites declarados para el examen?
+
+| Hallazgo | ¿Aceptable? | Condición |
+|---|---|---|
+| H8 · cabecera con valores A0 sin rótulo | Sí | En un expediente nuevo F1 bloquea en el paso 7, antes de la fase B: no hay escalera que mostrar (B1). Solo aparece en expedientes anteriores a F1 (E1: Elis, «zona caro · precio de Sí 6,56») o si el bloqueo llega en el paso 12. No presentar esos expedientes como resultado |
+| H9 · N1 con cualquier partida y sin registro | Sí | Todo uso de N1 bloquea ya (`F1-PARAM` y `F1-LIBRO`) |
+| H10 · términos explícitos: ceros por defecto, año 11, ancla | Sí | Todo término explícito bloquea ya (`F1-LIBRO`). **Hay que corregirlo antes de que una plantilla los cobre** |
+| H12 · series sin verificación de entradas; T9 | Sí, hoy | Con A0 solo se usan los ceros declarados, y el libro los contrasta (C49, filas 17 y 23). La PPA declarada a cero no tiene contraste: admite A0 con PPA oculta, que infravalora. **Bloquea K1 en cuanto F1 dé valor** (V6.3.1) |
+| H13 · menos de diez años; tolerancia absoluta de `F1-REPLICA`; lectura de L4 | Sí | El universo del examen tiene diez años y cifras en millones de euros o dólares. Fallan del lado seguro |
+
+También siguen sin corregir, como menores: el mensaje con «M1, M2, M6» para cualquier empresa (visible en B1) y V-F1f sin `A3_estimado`.
+
+## Pruebas de esta ronda
+
+| Orden (sobre copias de `24e9a30`) | Resultado |
+|---|---|
+| `python3 -B pruebas/test_motor_a_f1.py` | `142/142 pruebas del motor A F1 (4.15) PASAN` |
+| `regresion_elis_f1.py <copia>` | `39/39 PASAN` |
+| `flock … bash verificar_paquete.sh completa`, copia limpia | `RESULTADO GLOBAL: PASA`, código 0; manifiesto 7787 · 0 · 0 · 0; 18 baterías en PASA |
+| `r2_sondas_capa.py` | L1–L10 |
+| `flock …` `r2_preparar_antiguo.py`, `r2_ataques_pipeline.py`, `r2_pc_replay.py`, `r2_elis_motor_a.py` | A0–A7, B1–B3, PC2-1…4, E1, E2 |
+| `flock … r2_prueba_correccion_vigencia.py` | batería F1 142/142; A3, PC2-4 y E2 → `no_entregable`; línea de base → `concluido`; archivo restaurado e idéntico a la rama |
+
+**No verifiqué:** la tabla de mutaciones del autor; P3 (US GAAP) por separado. Tampoco `completa` con la corrección propuesta de R2-1: solo la batería F1 y los tres ataques.
+
+**Aptitud:** sin cambios. Uso supervisado experimental; no apto para decisiones con dinero real.

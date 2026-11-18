@@ -1,0 +1,47 @@
+
+=== L1 · (S1) NIIF 16 con el principal fuera del FCF base y perímetro A1/A2
+  C49=0.0   · A0_total   : bloquean ['F1-K3a', 'F1-K3c', 'V-F1m'] · K3b «una vez»
+  C49=0.0   · A1_sin_ROU : bloquean ['F1-K3a', 'F1-K3b', 'F1-LIBRO', 'F1-M-SIM'] · K3b «ninguna vez»
+  C49=0.0   · A2_propio  : bloquean ['F1-K3a', 'F1-K3b', 'F1-LIBRO', 'F1-M-SIM'] · K3b «ninguna vez»
+  C49=None  · A0_total   : bloquean ['F1-C49', 'F1-K3a', 'F1-K3c', 'V-F1m'] · K3b «una vez»
+  C49=None  · A1_sin_ROU : bloquean ['F1-C49', 'F1-K3a', 'F1-K3b', 'F1-LIBRO', 'F1-M-SIM'] · K3b «ninguna vez»
+  C49=None  · A2_propio  : bloquean ['F1-C49', 'F1-K3a', 'F1-K3b', 'F1-LIBRO', 'F1-M-SIM'] · K3b «ninguna vez»
+
+=== L2 · (S2) A0 con ROU declarada a cero, C49 vacío y filas 17/23 con arrendamientos
+  utilizable: False · bloquean ['F1-C49', 'F1-K3a', 'F1-K3c', 'F1-ROU-HISTORIA']
+
+=== L3 · (S14) A0 sin arrendamientos con términos explícitos
+  transición término: utilizable False · bloquean ['F1-LIBRO']
+  compras término:    utilizable False · bloquean ['F1-LIBRO']
+
+=== L4 · A3_estimado (R = D&A propia 20), C49 = 0, principal (fila 17) 10 y pasivo (fila 23) 50 en la Historia, D&A ROU SIN declarar
+  flujo sin crecimiento A3: 78.0 (caja verdadera 68) · bloquean ['F1-K3a', 'F1-LIBRO'] · K3b «ninguna vez (sin arrendamientos)»
+
+=== L5 · K3a con casos legítimos de la plantilla V6.3
+  (a) base coherente: (True, False, 'caja base por dos vías: cada diferencia entre C70 y la fila 35 está explicada por una partida declarada')
+  (b) C48 VACÍO (intereses dentro del CFO; la plantilla dice «déjalo vacío»): (False, True, 'caja base por dos vías: faltan Análisis C46–C52 o las filas 11, 12, 16, 17 o 18 de la ventana: no se puede descomponer la diferencia')
+  (c) fila 16 vacía (sin intereses en financiación): (False, True, 'caja base por dos vías: faltan Análisis C46–C52 o las filas 11, 12, 16, 17 o 18 de la ventana: no se puede descomponer la diferencia')
+  (d) SBC 4 que el expediente decide NO restar (C51 = No): (False, True, 'caja base por dos vías: componente C50: +4.000000 en la caja base frente a la fila 35, explicado +0.000000; diferencia total sin explicar: +4.000000')
+      … con la partida declarada: (True, False, 'caja base por dos vías: cada diferencia entre C70 y la fila 35 está explicada por una partida declarada')
+
+=== L6 · K3a: alquiler restado dos veces en el FCF base (C49 = 12 con el interés; fila 17 = 10; C48 = 2) y una partida declarada que iguala el residuo
+  sin declarar el −2 de C49: F1-K3a salta True
+  declarando {C49: −2, «cualquier texto»}: F1-K3a salta False · K3 conforme: True · bloquean ['F1-LIBRO']
+
+=== L7 · el interés de arrendamientos restado dos veces de forma COHERENTE (C48 = 2 y fila 16 = 2; C49 = 12 y fila 17 = 12): FCF base 66 frente a 68
+  F1-K3a salta: False · K3b «una vez» · K3c salta: False · bloquean ['F1-LIBRO'] · flujo A1 66.0
+
+=== L8 · K3c: distribuidor que crece un 5 % con capex = D&A propia y circulante que APORTA caja (−0,6 % de las ventas): sin arrendamientos ni PPA, A0
+  utilizable: False · F1-K3c: BLOQUEA · reinversión media de la ventana -8.872 < 0 con ventas que no bajan: D_X devuelve más amortización de la que el capex repuso · sin justificación
+  con justificacion_reinversion_negativa = «x» (sin registro): utilizable: True · avisos ['F1-K3c']
+
+=== L9 · exenciones: ¿puede quedar exento un expediente nuevo?
+  (a) carpeta nueva con arrendamientos en el libro, sin archivos: exigido = True · exención: None
+  (b) fase1_v63.json con «(inventada)» en el nombre: exigido = False · exención: línea de base sintética v2.2 (empresa inventada; sin declaración F1 ni entrada efectiva de la 4.15)
+  (c) cierre_vigente.json de OTRO expediente (Elis, registrado) copiado a la carpeta: exigido = False · exención: cierre histórico registrado anterior a F1-IMPL (empresas_v2_correcciones/2026-11_Vidrala_e
+  (d) lo mismo con entrada_efectiva.json (expediente de la 4.15): exigido = False
+
+=== L10 · vigencia y cierre cuando el estado del pipeline no dice el motor (p. ej. tras --reiniciar) y no hay evaluación F1
+  estado {'motor': 'A', 'estado_pendiente': None, 'estado_analisis_fase_c': 'concluido'}: vigencia exigido=True motivo='sin evaluación F1 (motor_a_f1_resultado.json)' · motivo_f1 = 'motor A · F1: sin evaluación F1 (motor_a_f1_resultado.json); sin una evaluación '
+  estado {'motor': None, 'paso': 13}: vigencia exigido=False motivo='el motor no es el A' · motivo_f1 = 'None'
+  estado {}: vigencia exigido=False motivo='el motor no es el A' · motivo_f1 = 'None'
