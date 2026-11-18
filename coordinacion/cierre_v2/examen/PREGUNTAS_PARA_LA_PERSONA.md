@@ -24,6 +24,6 @@
 - **Opciones:** (A) lo mismo que en Elis: pendiente, y Ahold quedaría en «faltan datos»; (B) tratarlas como crecimiento, como hipótesis declarada y revisable.
 - **Mi recomendación:** lo que decidas en F1-A arrastra a este punto: con (b) en F1-A, aquí (B), con la misma regla escrita para todas las empresas del examen.
 
-## F1-C · Un hueco que quedó tras las dos rondas de F1-IMPL (R2-1)
+## F1-C · Un hueco que quedó tras las dos rondas de F1-IMPL (R2-1) · **ya no hace falta decidir**: la revisión de la V6.3.1 lo volvió a encontrar (V631-1) y se corrige dentro de la primera ronda de esa pieza
 - **Qué pasa.** Relanzar un expediente **antiguo** (cerrado antes de F1) con la combinación `--reiniciar --desde 13` puede dar todavía una ficha «Sí · comprar» sin pasar por F1. Los expedientes nuevos del examen quedan protegidos.
 - **Opciones:** (a) **recomendada:** una tercera ronda mínima (cuatro líneas que el revisor ya probó en una copia: el motor se lee de `fase_a.json`), con una comprobación del revisor; (b) solo una regla de trabajo: nunca usar `--reiniciar` junto con `--desde` (mientras tanto, el coordinador la aplica).
