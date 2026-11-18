@@ -1,0 +1,626 @@
+{
+ "empresa": "Koninklijke Ahold Delhaize N.V.",
+ "ticker": "AD",
+ "fecha_analisis": "2026-11-18",
+ "sector_texto": "Supermercados y comercio minorista de alimentación y omnicanal en EE. UU., Países Bajos, Bélgica, Europa central y oriental e Indonesia",
+ "moneda_modelo": "EUR",
+ "norma_contable": "IFRS",
+ "cierre_fiscal": "diciembre (ejercicio 2025 cerrado el 28 de diciembre de 2025)",
+ "mercado": "Euronext Amsterdam (cotiza también en Euronext Bruselas; ADR nivel I patrocinado ADRNY en OTC)",
+ "ratio_adr": null,
+ "sector_damodaran": "Retail (Grocery and Food)",
+ "precio": {
+  "valor": 36.05,
+  "moneda_cotizacion": "EUR",
+  "fecha": "2026-11-13",
+  "fx": null,
+  "fx_fecha": null,
+  "fuente": "Trivano (trivano.com, ficha Ahold Delhaize AD, Euronext Amsterdam), 36,05 EUR, +2,12 % el 2026-11-13, hora no indicada; es el dato más reciente hallado (no se obtuvo cotización del 2026-11-16/17). Rango visto: 31,60 (cierre 2026-09-24, Financer), 33,14 (cierre 2026-10-23, DeBelegger), 32,75 (cierre 2026-10-30 17:36, Investing.com) y 36,05 (2026-11-13)."
+ },
+ "acciones_diluidas": {
+  "valor": 905,
+  "fecha": "2025-12-28",
+  "fuente": "Ahold Delhaize Annual Report 2025, nota 29 Earnings per share: media ponderada de acciones ordinarias diluidas 2025 = 905 millones (básicas 901 + 4 acciones condicionales)",
+  "pagina": 260
+ },
+ "capitalizacion": {
+  "valor": 32625.25,
+  "fecha": "2026-11-13",
+  "fuente": "Cálculo: precio 36,05 EUR x 905 millones de acciones diluidas"
+ },
+ "tasa_sin_riesgo": {
+  "valor": 0.0334,
+  "fuente": "Bund alemán a 10 años, 3,34 % a cierre de octubre de 2026 (Trading Economics, 'Bund yields' noticias, resumen de octubre 2026); otra lectura de Trading Economics del 2026-10-12: aprox. 3,48 %. No se halló dato de noviembre de 2026. Bund = bono sin riesgo de impago en EUR (Alemania, rating AAA no verificado en la búsqueda)."
+ },
+ "geografia": [
+  {
+   "pais": "United States",
+   "pct": 0.5746,
+   "nota": "Ventas netas 2025 de EE. UU.: 53.063 millones EUR de 92.352 (por país de destino)."
+  },
+  {
+   "pais": "Netherlands",
+   "pct": 0.2157,
+   "nota": "Ventas netas 2025 de Países Bajos (país de domicilio): 19.918 millones EUR de 92.352."
+  },
+  {
+   "pais": "Región · Western Europe",
+   "pct": 0.2097,
+   "nota": "Resto del mundo: 19.371 millones EUR (Bélgica, Luxemburgo, Chequia, Rumanía, Grecia, Serbia, Indonesia, etc.; el informe no lo desglosa). Se asigna a Europa Occidental por ser Bélgica la mayor parte con diferencia en Europa; incluye Europa central/oriental e Indonesia (convención del ejercicio)."
+  }
+ ],
+ "geografia_fuente": {
+  "fuente": "Ahold Delhaize Annual Report 2025, nota 6 Segment reporting, 'Information about geographical areas' (ventas netas por país de destino)",
+  "pagina": 224
+ },
+ "unidad": "mm",
+ "anios_fcf_base": 3,
+ "historia": {
+  "anios": [
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ],
+  "partidas": {
+   "ventas": {
+    "valores": [
+     49695.0,
+     62890.0,
+     62791.0,
+     66260.0,
+     74736.0,
+     75601.0,
+     86984.0,
+     88734.0,
+     89356.0,
+     92352.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.58 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.89 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.121 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.145 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.180 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.190 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.200 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.259 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.212 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.212",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2024: 2023 reexpresado (nota 3); la linea impresa de Net sales aparece desplazada en el texto extraido | 2019: Net sales; las dos cifras van en líneas propias en el texto extraído. Anterior = 2018 restated. | 2017: Línea de resumen del informe; en la cuenta de resultados (p.123) las cifras van en líneas separadas."
+   },
+   "ebit": {
+    "valores": [
+     1584.0,
+     2225.0,
+     2623.0,
+     2663.0,
+     2191.0,
+     3320.0,
+     3768.0,
+     2846.0,
+     2784.0,
+     3542.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.123 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.89 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.121 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.145 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.180 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.190 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.200 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.259 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.212 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.212",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). EBIT = resultado antes de impuestos − resultado financiero, la misma definición los diez años (v2.2). Notas de los lectores: 2019: Subtotal impreso 'Operating income'. Anterior = 2018 restated (IFRS 16). | 2018: Subtotal impreso 'Operating income'."
+   },
+   "da": {
+    "valores": [
+     1464.0,
+     1857.0,
+     2660.0,
+     2848.0,
+     2892.0,
+     3068.0,
+     3668.0,
+     3844.0,
+     3706.0,
+     3733.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.127 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.93 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.125 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.149 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.184 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.194 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.204 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.216",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2019: Línea del estado de flujos (incluye deterioros). | 2016: 2015 reexpresado (1,043 publicado originalmente)."
+   },
+   "beneficio_neto": {
+    "valores": [
+     830.0,
+     1817.0,
+     1780.0,
+     1766.0,
+     1397.0,
+     2246.0,
+     2546.0,
+     1874.0,
+     1764.0,
+     2264.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.123 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.89 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.121 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.145 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.180 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.190 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.200 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.259 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.212 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.212",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe)."
+   },
+   "tipo_impositivo": {
+    "valores": [
+     0.2368,
+     0.0757,
+     0.1746,
+     0.1954,
+     0.194,
+     0.2108,
+     0.222,
+     0.1983,
+     0.2165,
+     0.2242
+    ],
+    "fuente": "impuestos ÷ resultado antes de impuestos; 2016 AD_annual-report-2017.txt p.123 (comparativo del informe siguiente) / AD_annual-report-2017.txt p.123 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.89 (comparativo del informe siguiente) / AD_annual-report-2018.txt p.89 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.121 (comparativo del informe siguiente) / AD_annual-report-2019.txt p.121 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.145 (comparativo del informe siguiente) / AD_annual-report-2020.txt p.145 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.180 (comparativo del informe siguiente) / AD_annual-report-2021.txt p.180 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.190 (comparativo del informe siguiente) / AD_annual-report-2022.txt p.190 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.200 (comparativo del informe siguiente) / AD_annual-report-2023.txt p.200 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.259 (comparativo del informe siguiente) / AD_annual-report-2024.txt p.259 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.212 (comparativo del informe siguiente) / AD_annual-report-2025.txt p.212 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.212 / AD_annual-report-2025.txt p.212",
+    "pagina": null,
+    "nota": "Vacío si el resultado antes de impuestos es ≤ 0."
+   },
+   "cfo": {
+    "valores": [
+     2893.0,
+     3695.0,
+     5358.0,
+     5449.0,
+     6343.0,
+     5468.0,
+     6110.0,
+     6466.0,
+     6224.0,
+     6989.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.127 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.93 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.125 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.149 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.184 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.194 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.204 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.216",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2019: Se usa el total que incluye operaciones discontinuadas (5,358 en 2018); las actividades continuadas son 5,449 y 5,360. | 2018: Total incluye operaciones discontinuadas (-5 en ambos anios); de operaciones continuadas: 4,328 y 3,700. | 2017: Incluye operaciones discontinuadas (-5; -5); de continuadas: 3,700; 2,898. | 2016: Incluye operaciones discontinuadas (-5 / -6); las continuadas son 2,898 / 2,139."
+   },
+   "capex": {
+    "valores": [
+     1302.0,
+     1698.0,
+     1780.0,
+     2218.0,
+     2659.0,
+     2371.0,
+     2490.0,
+     2434.0,
+     2299.0,
+     2564.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.127 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.93 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.125 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.149 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.184 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.194 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.204 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.216",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2022: Una sola linea para inmovilizado material, intangible e inversiones inmobiliarias. | 2020: Linea unica del informe. | 2019: Línea única de compra de activos no corrientes (PP&E, intangibles, inversión inmobiliaria). | 2018: Una sola linea impresa para inmovilizado material e intangible. | 2017: No se descuentan 'Divestments of assets / disposal groups held for sale' (142; 104). | 2016: El estado de flujos no separa inmovilizado material, intangible e inversiones inmobiliarias."
+   },
+   "adquisiciones": {
+    "valores": [
+     -2201.0,
+     53.0,
+     33.0,
+     54.0,
+     7.0,
+     534.0,
+     8.0,
+     164.0,
+     5.0,
+     1249.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.127 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.93 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.125 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.149 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.184 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.194 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.204 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.216",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Adquisiciones = −(pagos y cobros por negocios del estado de flujos). Notas de los lectores: 2025: Importes impresos con su signo de flujo de caja (salidas negativas): adquisiciones (1,197) y desinversion de negocios neta (52) en 2025; (26) y +21 en 2024. Excluidos 'Divestments of assets / disposal groups held for sale' (82/250), que no son negocios. | 2024: Adquisiciones netas de caja mas venta de negocios netos de caja | 2023: No se incluye 'Divestments of assets / disposal groups held for sale' (136/288): son activos, no negocios. | 2022: Importes con el signo impreso del estado de flujos (salidas negativas). No incluye 'Divestments of assets / disposal groups held for sale' (288/82). | 2021: No se incluyen «Divestments of assets / disposal groups held for"
+   },
+   "circulante": {
+    "valores": [
+     -85.0,
+     -73.0,
+     -325.0,
+     -299.0,
+     -1750.0,
+     -38.0,
+     789.0,
+     254.0,
+     10.0,
+     -164.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.127 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.93 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.125 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.149 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.184 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.194 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.204 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.216",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Aumento del circulante = −(suma de las líneas de variación del circulante del estado de flujos): convención del ejercicio. Notas de los lectores: 2024: Incluye la linea de otros activos/pasivos no corrientes y provisiones, que el informe agrupa en el bloque de capital circulante del flujo | 2023: Se incluye la linea de otros activos/pasivos no corrientes y provisiones por ir en el bloque de capital circulante; columna 2022 'restated' (IFRS 17). | 2022: Incluye la linea de otros activos/pasivos no corrientes y provisiones, dentro del bloque de variaciones operativas. No incluye impuestos pagados. | 2021: Incluye la línea de variación de otros activos y pasivos no corrientes y provisiones, que el informe imprime dentro del bloque de capital circulante. | 2020: Incluye la linea de otros activos/pasivos no corrient"
+   },
+   "intereses": {
+    "valores": [
+     293.0,
+     320.0,
+     227.0,
+     189.0,
+     149.0,
+     138.0,
+     174.0,
+     226.0,
+     230.0,
+     261.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.127 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.93 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.125 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.149 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.184 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.194 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.204 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.216",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Interest paid (financiacion). Los pagos por arrendamientos (Repayment of lease liabilities) incluyen principal e intereses de arrendamiento en una sola linea (nota 28, pag. 260); no se separan. | 2024: Intereses pagados de prestamos en financiacion; los intereses de arrendamientos van dentro de Repayment of lease liabilities (no se separan) | 2023: Los intereses de arrendamientos van dentro de 'Repayment of lease liabilities', no en Interest paid. | 2022: Intereses pagados sobre prestamos (financiacion). El interes de arrendamientos no se separa: va dentro de 'Repayment of lease liabilities'. | 2019: Intereses pagados, en financiación. No incluye los intereses d"
+   },
+   "intereses_financiacion": {
+    "valores": [
+     293.0,
+     320.0,
+     227.0,
+     189.0,
+     149.0,
+     138.0,
+     174.0,
+     226.0,
+     230.0,
+     261.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.127 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.93 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.125 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.149 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.184 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.194 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.204 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.216",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Figura en actividades de financiacion; los intereses recibidos van en inversion. | 2023: Interest paid figura en actividades de financiacion. | 2022: Politica contable: interest paid on loans is presented as a financing activity. | 2021: El estado de flujos imprime «Interest paid» dentro de las actividades de financiación. | 2020: Intereses pagados clasificados en financiacion segun el informe (nota de politica). | 2018: Los intereses pagados figuran en actividades de financiacion. | 2017: Todo el interés pagado figura en financiación. | 2016: Los intereses pagados figuran en actividades de financiacion."
+   },
+   "arrendamientos_principal": {
+    "valores": [
+     141.0,
+     190.0,
+     1392.0,
+     1530.0,
+     1584.0,
+     1569.0,
+     1755.0,
+     1815.0,
+     1743.0,
+     1944.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.127 (comparativo del informe siguiente); 2017 AD_annual-report-2017.txt p.127; 2018 AD_annual-report-2019.txt p.125 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.149 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.184 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.194 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.204 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.216",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: La linea impresa combina principal e intereses del arrendamiento (nota 28: 'Lease payments are not split between interest and principal portions'); incluye 4 millones de costes directos iniciales. | 2024: Incluye principal e intereses de arrendamiento (el informe no los separa, p. 309) | 2023: El informe no separa principal e intereses: la linea incluye ambos (pagina 252). | 2022: El informe no separa principal e intereses: la linea incluye ambos (nota 28). | 2020: La linea incluye principal e intereses del arrendamiento; el informe no los separa. | 2019: Línea impresa en financiación. La nota 34 (p.182-183) dice que el total de salidas por arrendamientos (1,600"
+   },
+   "sbc": {
+    "valores": [
+     61.0,
+     79.0,
+     60.0,
+     51.0,
+     59.0,
+     48.0,
+     65.0,
+     53.0,
+     42.0,
+     70.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.127 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.93 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.125 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.149 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.184 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.194 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.204 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.216",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2022: Tomado del estado de flujos; no contrastado con la nota 32. | 2019: Línea del estado de flujos (nota 33)."
+   },
+   "id": {
+    "valores": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "fuente": "2016 desconocido; 2017 desconocido; 2018 desconocido; 2019 desconocido; 2020 desconocido; 2021 desconocido; 2022 desconocido; 2023 desconocido; 2024 desconocido; 2025 desconocido",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: El informe no cifra el gasto de I+D del ejercicio; null (desconocido). | 2024: No se encontro gasto de I+D en el informe (solo menciones a incentivos de I+D en fiscalidad) | 2023: Sin gasto de I+D reconocido en resultados en el informe (solo se citan incentivos fiscales de I+D, sin cifra). | 2022: No se encontro gasto de I+D en el informe; null (desconocido). | 2021: No se encontró gasto de I+D en las cuentas ni en las notas (búsqueda de «research»); desconocido, no cero. | 2020: No hay gasto de I+D identificable en el texto (sin coincidencias de research and development). | 2019: El informe no desglosa gasto de I+D; no hay cifra en el texto (no se asume cero). "
+   },
+   "acciones_diluidas": {
+    "valores": [
+     1031.0,
+     1281.0,
+     1203.0,
+     1112.0,
+     1072.0,
+     1034.0,
+     1001.0,
+     966.0,
+     933.0,
+     905.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.194 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.160 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.168 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.192 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.230 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.241 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.252 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.309 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.260 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.260",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Millones de acciones (nota 29); el resto de partidas esta en millones de EUR. | 2024: Millones de acciones | 2023: En millones de acciones. | 2022: Impreso en millones de acciones (nota 29), distinto de la unidad de los estados (EUR millones). | 2021: Millones de acciones: media ponderada para BPA diluido (nota 29). | 2020: Impreso en millones de acciones. | 2019: Millones de acciones (nota 30). | 2018: Millones de acciones. | 2017: Millones de acciones (nota 29: «Number of shares (in millions)»). | 2016: Unidad: millones de acciones (la nota 29 las da 'in millions'); los estados en EUR millones."
+   },
+   "patrimonio": {
+    "valores": [
+     16276.0,
+     15170.0,
+     14205.0,
+     14083.0,
+     12432.0,
+     13721.0,
+     15405.0,
+     14755.0,
+     15454.0,
+     14195.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.125 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.91 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.123 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.147 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.182 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.192 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.202 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.261 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.214 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.214",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe)."
+   },
+   "deuda": {
+    "valores": [
+     7560.0,
+     7251.0,
+     5053.0,
+     5749.0,
+     4968.0,
+     5827.0,
+     5676.0,
+     5941.0,
+     8062.0,
+     6429.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.125,177,191 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.91,141,156 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.156,157,166 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.177,189 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.215,227 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.192,238 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.202,249 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.294,306 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.214,257 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.214,257",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Loans no corrientes (balance) + porcion corriente de loans + bank overdrafts + short-term borrowings (nota 26). Los descubiertos incluyen 590 (2024: 1,961) de cash pooling nocional compensado con un importe identico en caja (nota 20). Excluye pasivos por arrendamiento NIIF 16, reaseguro, derivados e intereses a pagar (92/83). Cuadra con nota 28: loans 5,503 y descubiertos/corto plazo 926. | 2024: Loans (corriente 630 + no corriente 5,175; incluye financing obligations 153) + descubiertos + prestamos a corto. Los descubiertos incluyen 1,961 (2023: 767) de un cash pooling teorico compensado por igual importe en caja. Financing obligations (153) pueden ser leasings"
+   },
+   "arrendamientos": {
+    "valores": [
+     0.0,
+     0.0,
+     9432.0,
+     9696.0,
+     9585.0,
+     11262.0,
+     11964.0,
+     11826.0,
+     12253.0,
+     11974.0
+    ],
+    "fuente": "2016 AD_annual-report-2016.txt p.133 (cero: IFRS 16 aun no aplicada en 2016 (futura norma); los arrendamientos financieros IAS 17 van en deuda) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2017 AD_annual-report-2017.txt p.144 (cero: IFRS 16 aún no en vigor en 2017 (efectiva desde 1 de enero de 2019); sin pasivos NIIF 16 en balance. Los arrendamientos financieros IAS 17 van en deuda.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2018 AD_annual-report-2019.txt p.182 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.207 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.216,227 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.227,238 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.238,249 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.320 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.248,257 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.248,257",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). CERO PENDIENTE DE VERIFICACIÓN en 2016, 2017: el informe no imprime cifra y la cita que lo respalda no se ha contrastado con la partida (reparación H1). El 0 se conserva; solo una decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona) lo confirma. Notas de los lectores: 2024: Corriente 1,444 + no corriente 10,809 (2023: 1,281 + 10,545) | 2020: Corriente 1,143 + no corriente 8,442 (notas 26 y 23). | 2019: Corriente 1,211/1,162 (nota 27) + no corriente 8,484/8,270 (nota 23); total impreso en nota 34. Anterior = 2018 restated. | 2018: Antes de 2019 no existian pasivos NIIF 16 en balance. | 2017: Cero con evidencia. | 2016: Sin NIIF 16 en 2016.",
+    "pendientes_verificacion": [
+     2016,
+     2017
+    ]
+   },
+   "caja": {
+    "valores": [
+     4032.0,
+     4581.0,
+     3122.0,
+     3717.0,
+     2933.0,
+     2993.0,
+     3082.0,
+     3484.0,
+     6169.0,
+     3605.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.125 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.91 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.123 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.147 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.182 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.192 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.202 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.261 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.214 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.214",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Solo efectivo y equivalentes (definición de la plantilla). Notas de los lectores: 2025: Incluye 590 (2024: 1,961) de cash pooling nocional compensado con descubiertos, y 58 (2024: 12) de caja restringida (nota 20). | 2023: Incluye 767 (2022: 712) de cash pooling compensado con descubiertos. | 2022: Balance; el estado de flujos termina en 3,054/2,968 (excluye caja restringida). | 2020: Caja del balance (p. 147), con el cash pooling nocional bruto dentro; compensado en la deuda con bank overdrafts. | 2019: Balance. El estado de flujos usa 3,701 / 3,110 excluyendo caja restringida. | 2017: Incluye efectivo restringido 39 (42). | 2016: 2016 incluye 1,184 de posicion de cash pooling compensada por descubierto en deuda."
+   },
+   "pensiones": {
+    "valores": [
+     659.0,
+     567.0,
+     532.0,
+     677.0,
+     1235.0,
+     1107.0,
+     696.0,
+     792.0,
+     553.0,
+     504.0
+    ],
+    "fuente": "2016 AD_annual-report-2017.txt p.125 (comparativo del informe siguiente); 2017 AD_annual-report-2018.txt p.91 (comparativo del informe siguiente); 2018 AD_annual-report-2019.txt p.123 (comparativo del informe siguiente); 2019 AD_annual-report-2020.txt p.147 (comparativo del informe siguiente); 2020 AD_annual-report-2021.txt p.182 (comparativo del informe siguiente); 2021 AD_annual-report-2022.txt p.192 (comparativo del informe siguiente); 2022 AD_annual-report-2023.txt p.202 (comparativo del informe siguiente); 2023 AD_annual-report-2024.txt p.261 (comparativo del informe siguiente); 2024 AD_annual-report-2025.txt p.214 (comparativo del informe siguiente); 2025 AD_annual-report-2025.txt p.214",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Total de balance no corriente (defined benefit liabilities 183/193 + otras obligaciones a largo plazo 321/361); la parte corriente (36/41) esta en otros pasivos corrientes, no incluida. | 2022: Pasivo del balance; no neteado con posibles activos por pensiones. | 2021: Total del balance: pasivos por prestaciones definidas 613 (763) + otras obligaciones de pensiones a largo plazo 493 (472), nota 24. | 2019: Pasivo no corriente del balance; no se resta el activo neto por pensiones (nota 16/24)."
+   },
+   "minoritarios": {
+    "valores": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "fuente": "2016 AD_annual-report-2016.txt p.114 (cero: Participaciones no dominantes: — en el balance a 1 de enero de 2017) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2017 AD_annual-report-2017.txt p.131 (cero: El Grupo no tiene filiales con participaciones no dominantes materiales; el balance no presenta línea de minoritarios.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2018 AD_annual-report-2018.txt p.96 (cero: Sin minoritarios materiales ni linea en balance) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2019 AD_annual-report-2019.txt p.128 (cero: El balance no tiene línea de participaciones no dominantes y el patrimonio se atribuye íntegramente a los accionistas comunes; la nota de políticas dice que no hay minoritarios materiales.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2020 AD_annual-report-2020.txt p.152 (cero: Balance sin linea de minoritarios; el informe dice que no hay minoritarios materiales) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2021 AD_annual-report-2021.txt p.182 (cero: El balance no presenta línea de participaciones no dominantes: todo el patrimonio es de los accionistas de la sociedad; resultado atribuible a minoritarios «—» en la cuenta de resultados (p. 180)) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2022 AD_annual-report-2022.txt p.190 (cero: Participaciones no dominantes impresas como nil en la cuenta de resultados y sin linea en el balance) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2023 AD_annual-report-2023.txt p.200 (cero: El balance solo muestra patrimonio atribuido a la dominante y el resultado atribuible a minoritarios es '—'.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2024 AD_annual-report-2024.txt p.261 (cero: El balance consolidado solo presenta el patrimonio atribuido a los accionistas comunes; el resultado atribuible a minoritarios es cero (-)) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2025 AD_annual-report-2025.txt p.212 (cero: La cuenta de resultados muestra Non-controlling interests en cero (guion) en ambos anos y el balance y el estado de cambios en el patrimonio no tienen linea de minoritarios: todo el patrimonio es de la dominante.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar)",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). CERO PENDIENTE DE VERIFICACIÓN en 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025: el informe no imprime cifra y la cita que lo respalda no se ha contrastado con la partida (reparación H1). El 0 se conserva; solo una decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona) lo confirma. Notas de los lectores: 2024: El balance no tiene linea de participaciones no dominantes | 2023: Balance sin participaciones no dominantes; resultado atribuible a NCI es cero. | 2022: El balance solo muestra 'Equity attributable to common shareholders'; la cuenta de resultados imprime nil para participaciones no dominantes. | 2021: Cero pendiente de verificación humana. | 2020: Sin minoritarios en balance; cero pendiente de verificacion humana. | 2019: Cero pendiente de verificación humana: la cita dice 'no materiales', no 'inexistentes'. | 2018: El balance no presenta linea de participaciones no dominantes. | 2017: Sin minoritarios en el balance consolidado. | 2016: 2016: línea con — (cero)",
+    "pendientes_verificacion": [
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025
+    ]
+   }
+  }
+ },
+ "analisis": {
+  "C46": {
+   "valor": 6559.667,
+   "fuente": "Cálculo declarado (media 2023–2025 de: cfo; redondeo a 3 decimales; sin redondear 6559.666666666667): 2023 cfo (Historia) 6466.0; 2024 cfo (Historia) 6224.0; 2025 cfo (Historia) 6989.0. Media 2023–2025 del flujo de efectivo de las actividades de explotación de la Historia (6.466, 6.224 y 6.989: informes anuales 2024 y 2025), valor exacto. Supuesto de la orquestación por el precedente E1; la etapa 1 traía el redondeo 6559.7.",
+   "pagina": "AR 2024 PDF 263; AR 2025 PDF 216",
+   "periodo": "2023–2025",
+   "unidad": "mm",
+   "calculo": {
+    "operacion": "media",
+    "anios": [
+     2023,
+     2024,
+     2025
+    ],
+    "terminos": [
+     {
+      "partida": "cfo",
+      "signo": 1
+     }
+    ],
+    "decision": "Media 2023–2025 del flujo de efectivo de las actividades de explotación de la Historia (6.466, 6.224 y 6.989: informes anuales 2024 y 2025), valor exacto. Supuesto de la orquestación por el precedente E1; la etapa 1 traía el redondeo 6559.7.",
+    "redondeo": 3
+   },
+   "valor_sin_redondear": 6559.666666666667
+  },
+  "C47": {
+   "valor": 2432.333,
+   "fuente": "Cálculo declarado (media 2023–2025 de: capex; redondeo a 3 decimales; sin redondear 2432.3333333333335): 2023 capex (Historia) 2434.0; 2024 capex (Historia) 2299.0; 2025 capex (Historia) 2564.0. Media 2023–2025 de la inversión en inmovilizado material e intangible de la Historia (2.434, 2.299 y 2.564: informes anuales 2024 y 2025), valor exacto. Supuesto de la orquestación por el precedente E1; la etapa 1 traía el redondeo 2432.3.",
+   "pagina": "AR 2024 PDF 263; AR 2025 PDF 216",
+   "periodo": "2023–2025",
+   "unidad": "mm",
+   "calculo": {
+    "operacion": "media",
+    "anios": [
+     2023,
+     2024,
+     2025
+    ],
+    "terminos": [
+     {
+      "partida": "capex",
+      "signo": 1
+     }
+    ],
+    "decision": "Media 2023–2025 de la inversión en inmovilizado material e intangible de la Historia (2.434, 2.299 y 2.564: informes anuales 2024 y 2025), valor exacto. Supuesto de la orquestación por el precedente E1; la etapa 1 traía el redondeo 2432.3.",
+    "redondeo": 3
+   },
+   "valor_sin_redondear": 2432.3333333333335
+  },
+  "C48": {
+   "valor": 239.0,
+   "fuente": "Historia de fase1_v63.json, media 2023–2025 de intereses_financiacion: AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); AD_annual-report-2025.txt p.216",
+   "pagina": null,
+   "periodo": "2023–2025",
+   "unidad": "mm"
+  },
+  "C49": {
+   "valor": 1834.0,
+   "fuente": "Historia de fase1_v63.json, media 2023–2025 de arrendamientos_principal: AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); AD_annual-report-2025.txt p.216",
+   "pagina": null,
+   "periodo": "2023–2025",
+   "unidad": "mm"
+  },
+  "C50": {
+   "valor": 55.0,
+   "fuente": "Historia de fase1_v63.json, media 2023–2025 de sbc: AD_annual-report-2024.txt p.263 (comparativo del informe siguiente); AD_annual-report-2025.txt p.216 (comparativo del informe siguiente); AD_annual-report-2025.txt p.216",
+   "pagina": null,
+   "periodo": "2023–2025",
+   "unidad": "mm"
+  }
+ },
+ "_notas": [
+  "Historia construida por scripts/fase1_historia.py (pieza 7); revisión completa en historia_revision.md.",
+  "Precio: no se obtuvo cotización del 2026-11-16 o 2026-11-17; se usa el último dato hallado (2026-11-13, Trivano, sin hora). Investing.com y Trading Economics no eran accesibles con WebFetch (dominio no permitido), solo resúmenes de búsqueda.",
+  "Tasa sin riesgo: último dato verificable del Bund a 10 años es de finales de octubre de 2026 (3,34 %); no hay cifra de noviembre. Rating de Alemania no comprobado en esta búsqueda.",
+  "Geografía: el informe solo separa EE. UU., Países Bajos y Resto del mundo; el resto se asigna a 'Región · Western Europe' como aproximación (incluye Indonesia y Europa central/oriental). Los pct se redondean a 4 decimales y suman 1,0000.",
+  "Acciones diluidas: es la media ponderada del ejercicio 2025 (905 m), no el recuento a fecha de cierre; no se buscó un dato posterior de la empresa (recompras en curso podrían reducirlo).",
+  "Capitalización calculada con la media ponderada diluida, probablemente algo superior a la real por las recompras.",
+  "12 ceros pendientes de verificación (cita sin contrastar, reparación H1): ver historia_revision.md.",
+  "(cambio de base, 2025-12-28) Entradas sustituidas por cambiar_base.py desde cambio_ahold_f1.json: "
+ ],
+ "pendientes_verificacion": [
+  {
+   "partida": "arrendamientos",
+   "anio": 2016,
+   "archivo": "AD_annual-report-2016.txt",
+   "pagina": 133,
+   "cita": "provide a reasonable estimate of the effect of IFRS 16 until a detailed review has been completed. IFRS 16 is effective for annual periods beginning",
+   "motivo": "IFRS 16 aun no aplicada en 2016 (futura norma); los arrendamientos financieros IAS 17 van en deuda"
+  },
+  {
+   "partida": "arrendamientos",
+   "anio": 2017,
+   "archivo": "AD_annual-report-2017.txt",
+   "pagina": 144,
+   "cita": "beginning on or after January 1, 2019.",
+   "motivo": "IFRS 16 aún no en vigor en 2017 (efectiva desde 1 de enero de 2019); sin pasivos NIIF 16 en balance. Los arrendamientos financieros IAS 17 van en deuda."
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2016,
+   "archivo": "AD_annual-report-2016.txt",
+   "pagina": 114,
+   "cita": "Non-controlling interests - (1)",
+   "motivo": "Participaciones no dominantes: — en el balance a 1 de enero de 2017"
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2017,
+   "archivo": "AD_annual-report-2017.txt",
+   "pagina": 131,
+   "cita": "Ahold Delhaize does not have subsidiaries with non-controlling interests that are material to the Group.",
+   "motivo": "El Grupo no tiene filiales con participaciones no dominantes materiales; el balance no presenta línea de minoritarios."
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2018,
+   "archivo": "AD_annual-report-2018.txt",
+   "pagina": 96,
+   "cita": "Ahold Delhaize does not have subsidiaries with non-controlling interests that are material to the Group.",
+   "motivo": "Sin minoritarios materiales ni linea en balance"
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2019,
+   "archivo": "AD_annual-report-2019.txt",
+   "pagina": 128,
+   "cita": "Ahold Delhaize does not have subsidiaries with non-controlling interests that are material to the Group.",
+   "motivo": "El balance no tiene línea de participaciones no dominantes y el patrimonio se atribuye íntegramente a los accionistas comunes; la nota de políticas dice que no hay minoritarios materiales."
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2020,
+   "archivo": "AD_annual-report-2020.txt",
+   "pagina": 152,
+   "cita": "Ahold Delhaize does not have subsidiaries with non-controlling interests that are material to the Group.",
+   "motivo": "Balance sin linea de minoritarios; el informe dice que no hay minoritarios materiales"
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2021,
+   "archivo": "AD_annual-report-2021.txt",
+   "pagina": 182,
+   "cita": "Equity attributable to common shareholders",
+   "motivo": "El balance no presenta línea de participaciones no dominantes: todo el patrimonio es de los accionistas de la sociedad; resultado atribuible a minoritarios «—» en la cuenta de resultados (p. 180)"
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2022,
+   "archivo": "AD_annual-report-2022.txt",
+   "pagina": 190,
+   "cita": "Non-controlling interests",
+   "motivo": "Participaciones no dominantes impresas como nil en la cuenta de resultados y sin linea en el balance"
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2023,
+   "archivo": "AD_annual-report-2023.txt",
+   "pagina": 200,
+   "cita": "Non-controlling interests - -",
+   "motivo": "El balance solo muestra patrimonio atribuido a la dominante y el resultado atribuible a minoritarios es '—'."
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2024,
+   "archivo": "AD_annual-report-2024.txt",
+   "pagina": 261,
+   "cita": "Equity attributable to common shareholders",
+   "motivo": "El balance consolidado solo presenta el patrimonio atribuido a los accionistas comunes; el resultado atribuible a minoritarios es cero (-)"
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2025,
+   "archivo": "AD_annual-report-2025.txt",
+   "pagina": 212,
+   "cita": "Non-controlling interests",
+   "motivo": "La cuenta de resultados muestra Non-controlling interests en cero (guion) en ambos anos y el balance y el estado de cambios en el patrimonio no tienen linea de minoritarios: todo el patrimonio es de la dominante."
+  }
+ ]
+}
