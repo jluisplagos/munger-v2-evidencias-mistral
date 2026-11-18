@@ -108,3 +108,7 @@ Preguntas formuladas con el dictamen `examen/revisiones/dictamen_O1_O2_ahold/DIC
 - **J1 · Jumbo, intereses cobrados → «Sí, esos cuentan»**: con la regla espejo y su salvaguarda, solo se excluyen los intereses de la caja que ya se suma aparte en `C76`; los del resto de la caja entran (≈ 8 mm/año; FCF base ≈ +3,5 %).
 - **J2 · Jumbo, dividendos de la cartera cotizada → «Igual que la caja»**: si la cartera está en `C76`, sus dividendos no cuentan; si no lo está, cuentan.
 - **J3 · Jumbo, Historia → «Sí, corregirlas»**: se corrigen en la Historia las filas de intereses y de principal de arrendamientos de 2020–2025 cruzadas por el emisor, con nota del motivo y las páginas que lo prueban.
+
+## 18-nov-2026 (tarde) · decisiones tras la revisión R1 de F1 con US GAAP (`examen/revisiones/f1_usgaap/REVISION_R1.md` §5)
+- **D-US2 bis · alquiler mezclado en otros activos/pasivos (caso Nike) → «No bloquear y enseñar»**: se publica el valor de la hoja (coste contable) y al lado cuánto cambiaría contando los pagos; antes, el programa comprueba que el expediente muestra las dos líneas (activo y pasivo) (cierra el camino iii de R1-3).
+- **D-WM · arrendamientos financieros no desglosados (caso Waste Management) → «Tratarlos como deuda»**: hipótesis declarada; su amortización queda dentro de la propia y sus pagos no se restan de la caja base; la diferencia estimada (≈ 8 mm/año, 0,35 % del CFO − capex medio) se enseña junto al resultado.
