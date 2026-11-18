@@ -16,3 +16,5 @@ Reparto acordado (D7): Fable solo para F1-IMPL y para el contradictor del veredi
 
 
 Cambio de reparto (18-nov-2026, PLAN_TRES_FRENTES.md §3 y §5, con uso de Fable sin tope el 18 y el 19-nov por decisión de la persona responsable): Fable también para C4, revisiones críticas, el contradictor y la auditoría de cada empresa del examen. El tope de 6 sesiones de D7 queda sustituido para esos dos días.
+
+**18-nov-2026, ≈21:00 UTC · Fable agotado** (límite hasta el 20-nov, 03:00 UTC). El autor de US GAAP se cortó cerrando la R2; su trabajo sin probar se guardó como WIP (`f1/usgaap` @ b234e20) y lo termina un agente **Opus con esfuerzo máximo** (decisión F-AGOTADO de la persona). Desde aquí, contradictores y auditorías de cada empresa con Opus esfuerzo máximo; Fable, si vuelve, se reserva para el contradictor del veredicto final y la evaluación con la rúbrica.
