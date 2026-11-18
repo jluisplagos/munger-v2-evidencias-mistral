@@ -479,11 +479,20 @@ def validate(response, bundle):
     raw = ''.join(x.get('text', '') for x in response.get('content', [])
                   if isinstance(x, dict) and x.get('type') == 'text').strip()
     fenced = re.fullmatch(r'```json\r?\n([\s\S]*)\r?\n```', raw)
+    notes = []
     try:
         doc = json.loads(fenced.group(1) if fenced else raw)
     except (ValueError, RecursionError):
-        raise pilot.PilotError('JSON_INVALIDO') from None
-    notes = []
+        # Sin gramática del servidor: si hay texto alrededor de un único objeto, se toma el
+        # objeto y se anota. El contenido pasa después por check_schema completo.
+        i, j = raw.find('{'), raw.rfind('}')
+        try:
+            if i < 0 or j <= i:
+                raise ValueError
+            doc = json.loads(raw[i:j + 1])
+        except (ValueError, RecursionError):
+            raise pilot.PilotError('JSON_INVALIDO') from None
+        notes.append('texto_fuera_del_objeto_json_descartado: %d caracteres' % (len(raw) - (j + 1 - i)))
     doc = check_schema(normalize_enums(doc, SCHEMA, notes), SCHEMA)
     return {'analisis': doc, 'package_sha256': bundle['package_sha256'], 'normalizaciones_enum': notes,
             'comprobaciones_mecanicas': safe_checks(doc, bundle)}
@@ -604,6 +613,29 @@ def parse_max_usd(raw):
     return value
 
 
+
+
+SCHEMA_EN_ENCARGO = ('\n\n## Esquema de la respuesta\n\nResponde solo con un objeto JSON que cumpla '
+                     'exactamente este JSON Schema (todas las claves son obligatorias; sin texto antes ni '
+                     'después):\n\n')
+
+
+def system_con_esquema(encargo):
+    return encargo + SCHEMA_EN_ENCARGO + json.dumps(SCHEMA, ensure_ascii=False, sort_keys=True)
+
+
+def payload_sin_gramatica(bundle):
+    """Como critical_review.payload, sin `output_config.format`.
+
+    Ejecución 44288081039: con este esquema la API respondió 400 «The compiled grammar is
+    too large». El esquema va en el encargo y la respuesta se valida aquí (check_schema).
+    """
+    return {'model': cr.MODEL, 'system': cr.SYSTEM,
+            'messages': [{'role': 'user', 'content': pilot.canonical(bundle).decode()}],
+            'thinking': {'type': 'adaptive'},
+            'output_config': {'effort': cr.EFFORT}}
+
+
 @contextlib.contextmanager
 def configured(task_id, model, effort, max_usd, bundle, encargo, preflight=None):
     """Configura critical_review como hace qwen_peer_review.configure y lo restaura al salir."""
@@ -621,7 +653,8 @@ def configured(task_id, model, effort, max_usd, bundle, encargo, preflight=None)
 
     holder = preflight if preflight is not None else {}
     values = dict(TASK=task_id, MODEL=model, EFFORT=effort, MAX_OUTPUT=MAX_OUTPUT, MAX_USD=max_usd,
-                  INPUT_PRICE=info['input'], OUTPUT_PRICE=info['output'], SYSTEM=encargo, SCHEMA=SCHEMA,
+                  INPUT_PRICE=info['input'], OUTPUT_PRICE=info['output'], SYSTEM=system_con_esquema(encargo), SCHEMA=SCHEMA,
+                  payload=payload_sin_gramatica,
                   validate=validate, write=make_writer(bundle, holder), budget=budget)
     saved = {k: getattr(cr, k) for k in values}
     try:

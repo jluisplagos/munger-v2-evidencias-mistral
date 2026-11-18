@@ -108,9 +108,10 @@ class RunTests(Base):
         self.assertEqual(len(h.sent()), 1)
         body = h.sent()[0][3]
         self.assertEqual(body['model'], 'claude-opus-5-5')
-        self.assertEqual(body['system'], ENCARGO)
+        self.assertTrue(body['system'].startswith(ENCARGO))
+        self.assertIn(json.dumps(da.SCHEMA, ensure_ascii=False, sort_keys=True), body['system'])
         self.assertEqual(body['output_config']['effort'], 'high')
-        self.assertEqual(body['output_config']['format']['schema'], da.SCHEMA)
+        self.assertEqual(body['output_config'], {'effort': 'high'})  # sin gramática (400 de 44288081039)
         self.assertEqual(body['max_tokens'], da.MAX_OUTPUT)
         self.assertNotIn('tools', body)
         self.assertNotIn('fallbacks', body)
@@ -237,6 +238,33 @@ class ApiErrorRenderTests(Base):
         md = (Path(self.tmp.name) / 'report.md').read_text()
         self.assertIn('invalid_request_error', md)
         self.assertNotIn('`long`', md)  # sin romper el bloque de código del resumen
+
+
+class SinGramaticaTests(Base):
+    def test_json_with_surrounding_text_is_extracted_and_noted(self):
+        store = GitHubStore()
+        rep = reply()
+        for b in rep['content']:
+            if b.get('type') == 'text':
+                b['text'] = 'Aquí está el análisis:\n' + b['text'] + '\nFin.'
+        r = self.run_da(FakeHTTP(store, reply=rep))
+        self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
+        self.assertTrue(any(n.startswith('texto_fuera_del_objeto_json') for n in r['review']['normalizaciones_enum']))
+
+    def test_garbage_is_still_json_invalido(self):
+        store = GitHubStore()
+        rep = reply()
+        for b in rep['content']:
+            if b.get('type') == 'text':
+                b['text'] = 'no hay objeto aquí'
+        r = self.run_da(FakeHTTP(store, reply=rep))
+        self.assertEqual(r['error'], 'JSON_INVALIDO')
+
+    def test_preflight_counts_schema_in_system(self):
+        store = GitHubStore()
+        h = FakeHTTP(store, reply=reply())
+        self.run_da(h)
+        self.assertNotIn('format', h.sent()[0][3]['output_config'])
 
 
 class CapTests(Base):
