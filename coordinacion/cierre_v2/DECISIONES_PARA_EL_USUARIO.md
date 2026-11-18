@@ -83,3 +83,12 @@ Ninguna de ellas fija R; Elis sigue `pendiente_de_datos`.
 - E8.1: se mantiene el τ de cinco años.
 
 **Umbral de V-F1a:** se pide una propuesta; nada adoptado.
+
+### Examen · F1-A, F1-B, Elis, L1 y L2 · **DECIDIDAS el 18-nov-2026** por la persona responsable (preguntas en `examen/PREGUNTAS_PARA_LA_PERSONA.md`, respondidas una por una en la sesión del coordinador)
+- **F1-A · Reinversión necesaria (regla general):** en las empresas del examen del motor A con arrendamientos, si la empresa no publica el reparto entre mantenimiento y crecimiento, la reinversión necesaria se iguala a su **amortización propia sin los derechos de uso** (perímetro A2, «A2_propio»), como **hipótesis declarada, no como dato**; el personaje la presenta como condicionada y con su sensibilidad. Escrita una vez, igual para todas; no se elige empresa a empresa. Motivo: permitir concluir con un supuesto común, declarado y auditable.
+- **F1-B · Compras de empresas (regla general):** se tratan como **crecimiento**, no como mantenimiento, como hipótesis declarada y revisable (equivale a la opción B de (4b)); si una compra parece necesaria para mantener las ventas, el personaje lo señala.
+- **Elis:** **mantiene sus decisiones del 17-nov** ((3a) con (3b) iv: R pendiente; (4b) opción A). La regla general no se le aplica; Elis sigue siendo la prueba de «faltan datos». Límite declarado: dos tratamientos distintos en el examen, a la vista.
+- **L1:** se autoriza una **tercera ronda mínima** del lanzador del análisis directo, solo para el fallo R2-1 (convertir el error en aviso, con su prueba) y una comprobación rápida del revisor.
+- **L2:** el análisis directo **recibe la misma etapa 1** que el personaje; se corrige el README del lanzador.
+
+Nada de lo anterior acredita aptitud para dinero real ni fija la tasa (9 % provisional).
