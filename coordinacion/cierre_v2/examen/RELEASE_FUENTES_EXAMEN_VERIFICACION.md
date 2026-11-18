@@ -21,3 +21,13 @@ Hay copias duplicadas con otro nombre (por ejemplo `51c9_jumboannualreport_31122
 ## Conclusión
 
 Las fuentes de las cuatro empresas están completas para montar sus expedientes. Las diferencias de huella (WM T1 y T2, comunicado HTML de Zoetis) son otra copia del mismo documento oficial, no otro documento; quedan registradas y se usa la huella de la Release.
+
+## Anexo · conversión a PDF de Jumbo 2022 y 2023 (18-nov-2026, autorizada por la persona responsable)
+
+- Herramienta: Chromium sin interfaz (Playwright), `page.pdf()` sobre el XHTML original sin modificar; tamaño carta.
+- Originales: `jumbo-annual-report-fy2022.xhtml` (872dd6a2…) y `jumbo-annual-report-fy2023.xhtml` (f84c2313…).
+- Conversiones: `jumbo-annual-report-fy2022.conversion.pdf` 132 pp. `94eba6aa2a52a9b50b2e4d97882148afb0882ec8515bdc458de0cb48f26c27d5`; `jumbo-annual-report-fy2023.conversion.pdf` 135 pp. `af3a7e063e083c336aed2f0973f5efa70f7939e5dddf61edd98f72decd1bd2de`.
+- Comprobación: todas las cifras etiquetadas ESEF (`ix:nonFraction`) aparecen en el texto de la conversión: 269/269 (2022) y 271/271 (2023).
+- Inspección visual del balance de 2023 (p. 66): tabla entera en una página; el número de página impreso por Jumbo (66) coincide con la página del PDF.
+- Las citas de esos dos años se refieren a la conversión. Contraste adicional: cada año aparece como comparativo en el informe siguiente (2023 en el PDF oficial de 2024).
+- Los PDF no van a Git; se conservan junto al resto de fuentes del coordinador.
