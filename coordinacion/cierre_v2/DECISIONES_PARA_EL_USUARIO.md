@@ -92,3 +92,7 @@ Ninguna de ellas fija R; Elis sigue `pendiente_de_datos`.
 - **L2:** el análisis directo **recibe la misma etapa 1** que el personaje; se corrige el README del lanzador.
 
 Nada de lo anterior acredita aptitud para dinero real ni fija la tasa (9 % provisional).
+
+### Examen · D-US1 y D-US2 (arrendamientos con US GAAP) · **DECIDIDAS el 18-nov-2026** por la persona responsable
+- **D-US1 · Hipótesis general declarada:** con US GAAP, si la empresa no publica en qué líneas del estado de flujos van los dos tramos del arrendamiento operativo (la amortización del derecho de uso y la variación del pasivo), se supone que **van netos dentro del flujo de explotación**, fuera de las filas 8 (D&A) y 14 (circulante) de la Historia, como **hipótesis declarada, no como dato**. La conclusión se presenta como condicionada, con la cota de sensibilidad (cuánto cambiaría el valor si no fuera así). Donde la empresa publica las líneas, manda el dato. Igual para todas las empresas; mismo principio que F1-A.
+- **D-US2:** cuando el coste lineal del arrendamiento operativo y los pagos del año difieren, se cuentan los **pagos** y la diferencia queda a la vista en la ficha, sin bloquear.
