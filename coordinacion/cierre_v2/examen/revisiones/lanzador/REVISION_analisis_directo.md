@@ -320,3 +320,65 @@ Total 179, todas OK.
 - **Otros límites:**
   - solo se miran las puntas de las ramas, no versiones antiguas del historial;
   - la marca `rubrica` (texto sin espacios) daría falsos positivos en fuentes en español («bajo la rúbrica…»), aunque no en Ahold ni en Zoetis.
+
+---
+
+## Tercera ronda · 74fe0cf (diff 50a5071..74fe0cf)
+
+- **Alcance:** comprobación rápida, solo de R2-1 y L2.
+- **Copia:** `/tmp/claude-0/revision_lanzador/repo2`, rama `r3`, con commits de prueba solo en la copia. Sin llamadas a la API.
+- **Scripts:** `scripts/r3_e2e.py` y `scripts/r3_probe.py`.
+- **Pruebas en la copia:** 49 + 95 + 37, todas OK, como declara el autor.
+
+### Veredicto: CONFORME CON LÍMITES
+
+R2-1 queda cerrado. Convertir errores en avisos no abre ningún camino nuevo. La raíz `etapa1/` frena la rúbrica, el informe crítico y todo material de este repositorio, pero **deja entrar por su nombre salidas del personaje que solo están en el repositorio del producto** (R3-1).
+
+### 1. R2-1 cerrado
+
+- **Mi caso de la segunda ronda** (V = 86 562,86 ×3), de punta a punta con la API simulada:
+  - estado `AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION`, con la escalera recalculada `{p_estrella: 86562.86, precio_si: 86562.86, …}`;
+  - una sola llamada a `/v1/messages`, y el `report.md` se publica;
+  - el «Re-run» acaba en `YA_RESERVADO_SIN_NUEVA_LLAMADA`, con 0 llamadas a Anthropic.
+- **Prueba aleatoria:** 200 000 casos, el 30 % con valores repetidos y magnitudes de hasta 10⁹. 0 excepciones. Error relativo máximo frente a una bisección independiente: 3·10⁻⁷, muy por debajo del umbral de aviso del 1 %.
+- **Anexo C:** los cinco casos de §C.5 siguen coincidiendo (88,3333 / 100 / 100 / 54,2857 / 70).
+
+### 2. Errores convertidos en avisos: sin camino nuevo
+
+- **Comprobaciones.** `safe_checks` envuelve solo `mechanical_checks`. `check_schema` sigue fuera de la protección y antes que ella.
+  - Con `mechanical_checks` forzado a lanzar, una salida válida queda aceptada con el aviso «Comprobación mecánica no completada: ZeroDivisionError».
+  - Un `enum` inválido, un campo ausente o un número escrito como texto siguen en `RESULTADO_NO_ACEPTADO_NO_REINTENTAR` (`ESQUEMA_INVALIDO:$.cubo`, `:$`, `:$.precio_actual.valor`).
+- **Presentación.** El nuevo `try` en `make_writer` solo sustituye el texto de `report.md`. `report.json` se escribe antes, y el estado y la validación no cambian.
+  - Con `render` forzado a lanzar, se conservan el estado, el registro y la publicación.
+- **Llamadas.** En todos los casos, una sola llamada a `/v1/messages`, y el «Re-run» no hace ninguna. El diff no toca el transporte, la reserva ni el registro.
+
+### 3. Raíz `etapa1/`
+
+**Se admite la etapa 1 legítima.** `etapa1/Ahold_respuesta.md` (copia exacta de `fuentes_usuario/ahold_etapa1/`) y las cuatro hojas de `Ahold_evaluada.xlsx` pasadas a CSV (Análisis, Control maestro, Guía Simply Wall St, Opciones) se aceptan una a una y juntas (155 449 bytes). El `.xlsx` se rechaza (`RUTA_FUERA_DE_LOS_DATOS_DECLARADOS`).
+
+**Se rechaza el material ciego por esta vía:**
+
+| Intento | Resultado |
+|---|---|
+| `etapa1/rubrica.md` | `RUTA_PROHIBIDA_EN_EL_PAQUETE` |
+| Rúbrica copiada como `etapa1/Opciones_copia.md` | `COPIA_DE_MATERIAL_CIEGO:…/RUBRICA_EXAMEN.md` |
+| Lectura del informe crítico retocada como `etapa1/control_maestro_notas.md` | `SOLAPE_CON_MATERIAL_CIEGO` |
+| Prompt del paso 13 como `etapa1/verificacion_paso13.md` | `COPIA_DE_MATERIAL_CIEGO:…/13_verificacion.md` |
+| `estado_pipeline.json` del relevo | `COPIA_DE_MATERIAL_CIEGO` |
+| `ficha.json` real de EmpresaX | `SOLAPE_CON_MATERIAL_CIEGO:…/ficha_provisional.json` |
+
+**R3-1 · Media-baja · Salidas del personaje del repositorio del producto entran por su nombre.**
+
+- **Qué cambió:** en `etapa1/`, `check_path` vuelve antes de aplicar `FORBIDDEN_STEMS` y la mayoría de `FORBIDDEN_SUBSTRINGS`.
+- **Qué entra, si el material no está en las carpetas ciegas de este repositorio:**
+  - archivos reales de una ejecución V6.3.1 (`/tmp/v631_pipe_…/EmpresaX_V631/`):
+    - `etapa1/fase_a.json` → ACEPTADO (14 799 bytes);
+    - `etapa1/informe.md` → ACEPTADO (21 338 bytes);
+    - `fase_c.md` renombrado → ACEPTADO;
+  - rutas que `check_path` admite en `etapa1/` y rechaza en `fuentes/`: `fase_a.json`, `ficha.json`, `informe.md`, `estado_pipeline.json`, `precio.json`, `escalera.json`, `salida_fase_b.md`, `material_entrada.json`, `diagnostico_v6.csv`.
+- **Por qué importa:** el README dice que esas salidas «se paran por la lista blanca y por el nombre». En `etapa1/` ya no es así.
+- **Lo que de verdad necesita la etapa 1 de Ahold y Zoetis:** la respuesta `*_respuesta.md` y cuatro hojas (Análisis, Guía Simply Wall St, Opciones, Control maestro). Ninguna se llama «ficha», «precio», «diagnóstico», «fase» ni «informe».
+- **Corrección propuesta:**
+  - en `etapa1/`, admitir solo `<Empresa>_respuesta.md`, con huella igual a un blob de `fuentes_usuario/*_etapa1/`, y `hojas/<nombre de hoja>.csv|txt`;
+  - mantener prohibidos `fase`, `informe`, `ficha`, `estado_pipeline`, `escalera`, `salida`, `material`, `solicitud`, `verificacion` y `celdas`.
+- **Si no se corrige:** declararlo como límite y corregir la frase del README.
