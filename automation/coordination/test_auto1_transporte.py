@@ -453,9 +453,6 @@ class MinorTests(unittest.TestCase):
         self.assertLess(cr.STREAM_DEADLINE_SECONDS + 60, 20 * 60 - 120)
 
 
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
-
 
 class ApiErrorVisibleTests(unittest.TestCase):
     """Un rechazo HTTP de Anthropic deja visible su tipo y mensaje, sin cambiar el coste."""
@@ -498,3 +495,6 @@ class ApiErrorVisibleTests(unittest.TestCase):
                 self.assertLessEqual(len(out.get('message', '')), cr.API_ERROR_MAX_CHARS)
         bad_id = json.dumps({'error': {'type': 't', 'message': 'm'}, 'request_id': 'x' * 300}).encode()
         self.assertNotIn('request_id', cr.api_error_of(HTTPError('u', 400, 'e', {}, io.BytesIO(bad_id))))
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

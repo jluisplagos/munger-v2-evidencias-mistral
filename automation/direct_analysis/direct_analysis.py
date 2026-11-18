@@ -539,6 +539,9 @@ def render(report, bundle, preflight):
     out += [f"| {s['id']} | {s['path']} | {s['commit'][:12]} | {s['sha256']} | {s['bytes']} |" for s in bundle['sources']]
     if 'error' in report:
         out += ['', 'Error: `' + report['error'] + '`']
+    if isinstance(report.get('api_error'), dict):
+        out += ['', 'Error de la API (tipo y mensaje de Anthropic): `'
+                + json.dumps(report['api_error'], ensure_ascii=False).replace('`', "'") + '`']
     review = report.get('review')
     if review:
         a, lad, g = review['analisis'], review['analisis']['escalera'], review['analisis']['crecimiento_implicito']

@@ -226,6 +226,19 @@ class RunTests(Base):
         self.assertIn('Reserva estimada antes de llamar', (Path(self.tmp.name) / 'report.md').read_text())
 
 
+class ApiErrorRenderTests(Base):
+    def test_api_error_shown_in_report_md_and_cost_uncertain(self):
+        store = GitHubStore()
+        err = cr.TransportError('ANTHROPIC_HTTP_400', {}, {'http_status': 400, 'type': 'invalid_request_error',
+                                                            'message': 'prompt is too `long`'})
+        r = self.run_da(FakeHTTP(store, error=err))
+        self.assertEqual((r['error'], r['cost_status']), ('ANTHROPIC_HTTP_400', 'INCIERTO'))
+        self.assertEqual(r['api_error']['type'], 'invalid_request_error')
+        md = (Path(self.tmp.name) / 'report.md').read_text()
+        self.assertIn('invalid_request_error', md)
+        self.assertNotIn('`long`', md)  # sin romper el bloque de código del resumen
+
+
 class CapTests(Base):
     def test_cumulative_cap_blocks_before_count_and_reserve(self):
         store = GitHubStore()
