@@ -119,3 +119,7 @@ Preguntas formuladas con el dictamen `examen/revisiones/dictamen_O1_O2_ahold/DIC
 - **J-T bis · Jumbo, 2019 → «Sí» al año natural 2019** (12 meses, columna comparativa publicada por Jumbo en el informe 2020), en lugar del periodo de transición de 6 meses; se anota el solape de 6 meses con el ejercicio 2018/19. Sustituye en ese punto a J-T.
 - **Zoetis, «guía orgánica 2026 negativa» de la etapa 1:** la persona no recuerda su origen ni su fecha. En el primer tiempo **no se usa como hecho** (sin fuente en el expediente y posible fuga temporal: la etapa 1 se guardó el 18-oct); las fases ya estaban instruidas así.
 - **Pregunta abierta (no urgente) · P-FOSO en A1_sin_ROU:** la vara «misma vara» se implantó solo para A2_propio, como dice la decisión. Con A1_sin_ROU (perímetro que también excluye los derechos de uso) las medidas quedan «no aplicables · pendiente de decisión». Ninguna empresa del examen usa A1. (`f1/perimetro-foso` @ 424a266.)
+
+## 18-nov-2026 (noche) · cribado del universo
+- **C-ARR · arrendamientos en el cribado → «Una vez, en el flujo»**: como en el examen (F1, P-O1): el alquiler se resta del flujo de caja y la deuda se mide sin arrendamientos; el pasivo por arrendamientos se muestra aparte como dato.
+- **C-EX · empresas del examen → «Sí, fuera hasta el 23»**: Ahold, Jumbo, Zoetis, Elis, Vinci y Waste Management quedan fuera del cribado hasta después del veredicto del 23-nov; se criban las otras 111.
