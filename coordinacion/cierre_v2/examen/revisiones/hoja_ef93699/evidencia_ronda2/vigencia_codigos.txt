@@ -1,0 +1,11 @@
+### Códigos de salida reales (los «(código 0)» de vigencia_S1_S2_S4_S6.txt son un defecto de mi guion de captura, no del programa)
+S1 (fase_c alterado; hoja ya apartada) --comprobar → código 4 · SIN HOJA: no hay hoja_resumen.md y hoja_resumen.json en /tmp/claude-0/revision_hoja_r2/rep/S1/Vidrala
+S2 (retirada oficial; archivos restaurados a mano) --comprobar → código 4 · SIN HOJA: no hay hoja_resumen.md y hoja_resumen.json en /tmp/claude-0/revision_hoja_r2/rep/S2/Vidrala
+S2 generar → código 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el pipeline no ha terminado (estado_pipeline.json sin «fin» o sin estado_analisis)
+S4 (precio.json alterado) --comprobar → código 4 · SIN HOJA: no hay hoja_resumen.md y hoja_resumen.json en /tmp/claude-0/revision_hoja_r2/rep/S4/Vidrala
+S6 (md editado) --comprobar → código 4 · HOJA EDITADA: hoja_resumen.md no es la página que se generó (su huella no es la de hoja_resumen.json). Retirar la hoja y regenerarla.
+S6 (md editado) --verificar-origen → código 4 · FRASES SIN ORIGEN: hoja_resumen.md se editó después de generarla (su huella no es la de hoja_resumen.json)
+S1b (fase_c alterado; hoja todavía presente) --comprobar → código 4 · HOJA NO VIGENTE: el análisis oficial no está vigente: el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la ve
+S1b generar → código 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el análisis oficial no está vigente: el material cambió después de la auditoría (fase_c.json): la
+Vidrala 4.14 sin tocar --comprobar → código 0 · HOJA VIGENTE: lee la ficha e1ce40400a1b24cd…, el análisis oficial es vigente y la página no se ha editado
+Hermès (no vigente) generar → código 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el análisis oficial no está vigente: no consta la respuesta de auditoría aprobada (ni estado_pipeli

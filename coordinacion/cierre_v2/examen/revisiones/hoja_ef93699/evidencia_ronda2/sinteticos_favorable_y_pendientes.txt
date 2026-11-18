@@ -1,0 +1,106 @@
+==============================================================================================================
+EmpresaX_sobrevive: pipeline 0 · estado concluido · cubo Sí · decisión {"accion": "comprar", "precio_objetivo": null, "condicion": null, "condiciones_revision": {"al_alza": "…", "a_la_baja": "…"}} · cierre {'auditoria': 'APROBADO', 'material_auditado': '5e9b08ccc2b4d67e'}
+   causa: null
+   hoja_resumen.py tal cual: código 4 · CONTENIDO MÍNIMO INCUMPLIDO (no se escribe hoja): la tesis (Análisis!B101) está vacía o no dice nada (menos de 6 palabras); la tesis inversa (Análisis!B102) está vacía o no dice nada (menos de 6 palab
+   con el contenido mínimo desactivado (solo para leer la página): código 0 · OK: /tmp/claude-0/revision_hoja_r2/sint/EmpresaX_sobrevive/hoja_resumen.md · VIGENTE · concluye · 7 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce precio.json a 9 %: sí
+## Qué concluye el análisis
+
+- **Qué concluye:** Compraría al precio del análisis. Es la conclusión del personaje, no una recomendación. (Categoría del personaje: «Sí».)
+- **A qué precio compraría:** **la ficha no da precio de compra.** La hoja de cálculo arroja un precio de Sí de 18,12 €, pero la ficha no la emite como objetivo.
+- **Precio usado en el análisis:** 8,00 € (20 de octubre de 2026): por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor). No es el precio de hoy.
+
+**¿Sirve para decidir con dinero real?** No. **Experimental: no vale para decidir con dinero real.**
+- Datos de entrada verificados contra sus fuentes: **no** (0 de 288 datos comprobados); no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada).
+
+**Salvedades de la ficha** (copiadas de la ficha oficial, recortadas):
+
+- Fundamento: comprobación conjunta superada
+- Datos: con datos de etapa 1 incompletos (5 causas; detalle en la ficha)
+| Si se le pide un… | Precio de Sí (compraría a este precio o menos) | Valor medio de sus tres escenarios | El precio del análisis (8,00 €) queda… | Crecimiento anual de ventas que ese precio da por hecho (años 1–5) | Aviso de la hoja de cálculo |
+|---|---|---|---|---|---|
+| 7 % | 26,08 € | 27,95 € | por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor) | no se puede calcular | la tasa queda por debajo de la mínima de la hoja (8,2 %) |
+| 8 % | 21,39 € | 22,72 € | por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor) | no se puede calcular | la tasa queda por debajo de la mínima de la hoja (8,2 %) |
+| 9 % (la del análisis) | 18,12 € | 19,11 € | por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor) | no se puede calcular | — |
+| 10 % | 15,69 € | 16,46 € | por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor) | no se puede calcular | — |
+| 11 % | 13,83 € | 14,44 € | por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor) | no se puede calcular | — |
+
+- **El 9 % es provisional.**
+- **La fila del 10 % es solo una prueba** para ver cuánto cambia el resultado. No es un requisito.
+- **Frente a la tasa, el resultado no cambia:** con el 8 %, 9 % y 10 % el precio del análisis queda en el mismo sitio (por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor)). Esto solo habla de la tasa; no dice que el análisis sea seguro.
+- «No se puede calcular»: la hoja de cálculo no da ese crecimiento para este caso (lo marca «no utilizable»).
+- Dónde queda el precio frente a esos valores **no es la conclusión**: no mide el riesgo ni el fundamento.
+- El escenario malo **no es un suelo** de valor ni la pérdida máxima posible.
+- El precio de Sí sale de una **regla experimental** (k = 3): la ganancia esperada debe ser al menos el triple de la pérdida esperada.
+==============================================================================================================
+EmpresaX_favorable: pipeline 0 · estado pendiente_de_investigacion · cubo Vigilar · decisión {"accion": null, "precio_objetivo": null, "condicion": null, "condiciones_revision": {"al_alza": "…", "a_la_baja": "…"}} · cierre {'auditoria': 'APROBADO', 'material_auditado': '6d28a00123c8c86a'}
+   causa: {"tipo": "incertidumbre_no_acotada", "detalle": "crecimiento_1_5·MALO", "comprobacion": null, "categoria": null}
+   hoja_resumen.py tal cual: código 4 · CONTENIDO MÍNIMO INCUMPLIDO (no se escribe hoja): la tesis (Análisis!B101) está vacía o no dice nada (menos de 6 palabras); la tesis inversa (Análisis!B102) está vacía o no dice nada (menos de 6 palab
+   con el contenido mínimo desactivado (solo para leer la página): código 0 · OK: /tmp/claude-0/revision_hoja_r2/sint/EmpresaX_favorable/hoja_resumen.md · VIGENTE · sin conclusión · 7 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce precio.json a 9 %: sí
+## Qué concluye el análisis
+
+- **Qué concluye:** **Sin conclusión de compra:** una hipótesis no se puede acotar con lo que hay. Mientras tanto la deja en la categoría «Vigilar».
+- **Motivo, según la ficha:** crecimiento_1_5·MALO
+- **Qué lo resolvería, según la ficha:** el ROIC por segmento de los informes (sintético)
+- **A qué precio compraría:** **la ficha no da precio de compra.** La hoja de cálculo arroja un precio de Sí de 18,12 €, pero sin conclusión, esa cifra no es un precio de compra.
+- **Precio usado en el análisis:** 16,00 € (20 de octubre de 2026): en el precio de Sí o por debajo (cumple la regla de precio; no basta para comprar: ver la conclusión) (comparación con la hoja de cálculo; no es una conclusión). No es el precio de hoy.
+
+**¿Sirve para decidir con dinero real?** No. **Experimental: no vale para decidir con dinero real.**
+- Datos de entrada verificados contra sus fuentes: **no** (0 de 288 datos comprobados); no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada).
+
+**Salvedades de la ficha** (copiadas de la ficha oficial, recortadas):
+
+- Fundamento: pendiente de investigación
+- Datos: con datos de etapa 1 incompletos (5 causas; detalle en la ficha)
+| Si se le pide un… | Precio de Sí de la hoja de cálculo (no es un precio de compra) | Valor medio de sus tres escenarios | El precio del análisis (16,00 €) queda… | Crecimiento anual de ventas que ese precio da por hecho (años 1–5) | Aviso de la hoja de cálculo |
+|---|---|---|---|---|---|
+| 7 % | 26,08 € | 27,95 € | por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor) | -5,8 % | la tasa queda por debajo de la mínima de la hoja (8,2 %) |
+| 8 % | 21,39 € | 22,72 € | por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor) | -1,4 % | la tasa queda por debajo de la mínima de la hoja (8,2 %) |
+| 9 % (la del análisis) | 18,12 € | 19,11 € | en el precio de Sí o por debajo (cumple la regla de precio; no basta para comprar: ver la conclusión) | 2,7 % | — |
+| 10 % | 15,69 € | 16,46 € | por encima del precio de Sí y por debajo del valor medio: aún no compraría | 6,8 % | — |
+| 11 % | 13,83 € | 14,44 € | más caro que el valor medio de los tres escenarios | 10,9 % | — |
+
+- **El 9 % es provisional.**
+- **La fila del 10 % es solo una prueba** para ver cuánto cambia el resultado. No es un requisito.
+- **Frente a la tasa, el resultado cambia:** con el 8 %, 9 % y 10 % el precio del análisis queda en sitios distintos (8 %: por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor); 9 %: en el precio de Sí o por debajo (cumple la regla de precio; no basta para comprar: ver la conclusión); 10 %: por encima del precio de Sí y por debajo del valor medio: aún no compraría). Esto solo habla de la tasa; no dice que el análisis sea seguro.
+- Dónde queda el precio frente a esos valores **no es la conclusión**: no mide el riesgo ni el fundamento.
+- El escenario malo **no es un suelo** de valor ni la pérdida máxima posible.
+- El precio de Sí sale de una **regla experimental** (k = 3): la ganancia esperada debe ser al menos el triple de la pérdida esperada.
+==============================================================================================================
+EmpresaX_sin_C34: pipeline 0 · estado pendiente_de_datos · cubo Vigilar · decisión {"accion": null, "precio_objetivo": null, "condicion": null, "condiciones_revision": {"al_alza": "…", "a_la_baja": "…"}} · cierre {'auditoria': 'APROBADO', 'material_auditado': '5507de3266210405'}
+   causa: {"tipo": "falta_de_datos", "detalle": "Análisis!C34: sin la liquidez no puedo descartar que la deuda apriete (sintético)", "comprobacion": null, "categoria": null}
+   hoja_resumen.py tal cual: código 4 · CONTENIDO MÍNIMO INCUMPLIDO (no se escribe hoja): la tesis (Análisis!B101) está vacía o no dice nada (menos de 6 palabras); la tesis inversa (Análisis!B102) está vacía o no dice nada (menos de 6 palab
+   con el contenido mínimo desactivado (solo para leer la página): código 0 · OK: /tmp/claude-0/revision_hoja_r2/sint/EmpresaX_sin_C34/hoja_resumen.md · VIGENTE · sin conclusión · 7 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce precio.json a 9 %: sí
+## Qué concluye el análisis
+
+- **Qué concluye:** **Sin conclusión: falta un dato.** Mientras tanto la deja en la categoría «Vigilar».
+- **Motivo, según la ficha:** Análisis!C34: sin la liquidez no puedo descartar que la deuda apriete (sintético)
+- **Qué lo resolvería, según la ficha:** el ROIC por segmento de los informes (sintético)
+- **A qué precio compraría:** **la ficha no da precio de compra.** La hoja de cálculo arroja un precio de Sí de 18,12 €, pero sin conclusión, esa cifra no es un precio de compra.
+- **Precio usado en el análisis:** 16,00 € (20 de octubre de 2026): en el precio de Sí o por debajo (cumple la regla de precio; no basta para comprar: ver la conclusión) (comparación con la hoja de cálculo; no es una conclusión). No es el precio de hoy.
+
+**¿Sirve para decidir con dinero real?** No. **Experimental: no vale para decidir con dinero real.**
+- Datos de entrada verificados contra sus fuentes: **no** (0 de 288 datos comprobados); no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada).
+
+**Salvedades de la ficha** (copiadas de la ficha oficial, recortadas):
+
+- Fundamento: pendiente de datos
+- Datos: con datos de etapa 1 incompletos (6 causas; detalle en la ficha)
+| Si se le pide un… | Precio de Sí de la hoja de cálculo (no es un precio de compra) | Valor medio de sus tres escenarios | El precio del análisis (16,00 €) queda… | Crecimiento anual de ventas que ese precio da por hecho (años 1–5) | Aviso de la hoja de cálculo |
+|---|---|---|---|---|---|
+| 7 % | 26,08 € | 27,95 € | por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor) | -5,8 % | la tasa queda por debajo de la mínima de la hoja (8,2 %) |
+| 8 % | 21,39 € | 22,72 € | por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor) | -1,4 % | la tasa queda por debajo de la mínima de la hoja (8,2 %) |
+| 9 % (la del análisis) | 18,12 € | 19,11 € | en el precio de Sí o por debajo (cumple la regla de precio; no basta para comprar: ver la conclusión) | 2,7 % | — |
+| 10 % | 15,69 € | 16,46 € | por encima del precio de Sí y por debajo del valor medio: aún no compraría | 6,8 % | — |
+| 11 % | 13,83 € | 14,44 € | más caro que el valor medio de los tres escenarios | 10,9 % | — |
+
+- **El 9 % es provisional.**
+- **La fila del 10 % es solo una prueba** para ver cuánto cambia el resultado. No es un requisito.
+- **Frente a la tasa, el resultado cambia:** con el 8 %, 9 % y 10 % el precio del análisis queda en sitios distintos (8 %: por debajo de lo que valdría en su escenario malo (que no es un suelo: puede ir peor); 9 %: en el precio de Sí o por debajo (cumple la regla de precio; no basta para comprar: ver la conclusión); 10 %: por encima del precio de Sí y por debajo del valor medio: aún no compraría). Esto solo habla de la tasa; no dice que el análisis sea seguro.
+- Dónde queda el precio frente a esos valores **no es la conclusión**: no mide el riesgo ni el fundamento.
+- El escenario malo **no es un suelo** de valor ni la pérdida máxima posible.
+- El precio de Sí sale de una **regla experimental** (k = 3): la ganancia esperada debe ser al menos el triple de la pérdida esperada.
+
+real	43m18.971s
+user	3m48.561s
+sys	0m54.801s
+rc=0

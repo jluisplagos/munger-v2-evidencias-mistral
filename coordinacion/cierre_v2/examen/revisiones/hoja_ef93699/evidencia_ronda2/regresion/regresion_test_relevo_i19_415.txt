@@ -1,0 +1,6 @@
+PASA  · 19 relevo: el pipeline espera la auditoría del material fijado con una solicitud pendiente · código 10
+PASA  · 19 relevo caducado sin «--desde»: se registra, se repite la verificación y se pide la auditoría del material vigente (la antigua, «sustituida») · código 10 · material 4ca2dcbd0f9a16ba → 51ff234a21a58bea · solicitudes [('SA-21b4ccf', 'sustituida'), ('SA-4f4a2b0', 'pendiente')] · relevo {'material_fijado': '4ca2dcbd0f9a16ba', 'material_vigente': '862a7f25b28da4df', 'archivos_cambiados': ['verificacion_entradas.json'], 'detectado': '2026-11-18T12:59:16+00:00', 'material_refijado': '51ff234a21a58bea', 'solicitud': 'SA-4f4a2b0694f1e48f'}
+PASA  · 19 (hito 2, H9) la solicitud nueva comunica al auditor el relevo caducado y los archivos que cambiaron, y el relevo registra la solicitud · relevo caducado: el material fijado 4ca2dcbd0f9a16ba ya no era el vigente (cambian: verificacion_entradas.json); se repitió la verificación (paso 12). auditoría del material fijado en el paso 13
+PASA  · 19 una aprobación de la solicitud antigua (material antiguo) no cierra nada · código 10 · estado None
+PASA  · 19 con la auditoría del material vigente, el análisis termina con su estado (relevo resuelto sin «--desde») · código 0 · estado concluido · auditoría APROBADO
+5/5 pruebas del relevo caducado (4.15) PASAN
