@@ -1,33 +1,19 @@
 {
-  "descripcion": "Excepciones a los controles de ceguera del cribado. Cada una vale solo para ese archivo con esa huella y ese código exacto; cualquier otro cambio vuelve a excluir la empresa. Propuestas por el autor del cribado (18-nov-2026), pendientes de revisión: borrar una entrada devuelve la empresa a NO_PREPARADA, sin coste.",
+  "descripcion": "Excepciones a los controles de ceguera del cribado. Cada una vale solo para ese archivo con esa huella y ese código exacto (que incluye la marca que saltó o todas las rutas solapadas); cualquier otro cambio vuelve a excluir la empresa. Propuestas por el autor del cribado (18-nov-2026) y revisadas en la ronda 1 (contenido seguro). Elis queda fuera del cribado (C-EX) y sus dos excepciones se retiraron en la ronda 2. Borrar una entrada devuelve la empresa a NO_PREPARADA, sin coste.",
   "excepciones": [
     {
       "empresa": "Andina",
       "archivo": "hoja_control_maestro",
       "sha256": "3d735f27e8164b894d54adf17b0dbdf836d9e4e9de14b6ea1d5d74d4a71deccf",
-      "codigo": "CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:hoja_control_maestro",
-      "motivo": "La hoja de la persona dice que el patrimonio «solo tiene tres rúbricas»: partidas contables, no la rúbrica de evaluación."
+      "codigo": "CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:hoja_control_maestro:rubrica",
+      "motivo": "La hoja de la persona dice que el patrimonio «solo tiene tres rúbricas»: partidas contables, no la rúbrica de evaluación (una aparición)."
     },
     {
       "empresa": "Petsathome",
       "archivo": "hoja_control_maestro",
       "sha256": "ad4b52551643877120668eda03b8638f31a99f99e6d26bf8d825feb065accb5d",
-      "codigo": "CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:hoja_control_maestro",
-      "motivo": "La hoja de la persona cita «rúbricas literales» del estado de flujos (partidas contables), no la rúbrica de evaluación."
-    },
-    {
-      "empresa": "Elis",
-      "archivo": "respuesta",
-      "sha256": "999c42d452ec42aa861bc15e9e8e893980bb5b247417697d3be0a2871599c9fe",
-      "codigo": "SOLAPE_CON_MATERIAL_CIEGO:respuesta:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/relevo_copia_base/ficha_provisional.json",
-      "motivo": "La ficha provisional del traspaso cita como «antes» de B101 el texto de la etapa 1 de la persona (unos 460 caracteres sobre ROCE/ROIC y 2020-2021), que también está en su respuesta: la copia va de la etapa 1 al traspaso, no al revés. El resto de la respuesta no solapa."
-    },
-    {
-      "empresa": "Elis",
-      "archivo": "hoja_analisis",
-      "sha256": "fe66d48c3f169b686f27ba5c96df6267e5ff7ec054cb5894656ba9b62fd173ca",
-      "codigo": "SOLAPE_CON_MATERIAL_CIEGO:hoja_analisis:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/relevo_copia_base/ficha_provisional.json",
-      "motivo": "El mismo párrafo: es la celda B101 de la hoja de la persona, que la ficha provisional del traspaso cita como «antes». La copia va de la hoja al traspaso."
+      "codigo": "CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:hoja_control_maestro:rubrica",
+      "motivo": "La hoja de la persona cita «rúbricas literales» del estado de flujos (partidas contables), no la rúbrica de evaluación (seis apariciones)."
     }
   ]
 }

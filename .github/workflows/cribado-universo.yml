@@ -70,6 +70,8 @@ jobs:
           --pattern universo_etapa1.zip.zip --dir "$RUNNER_TEMP/release"
       - name: Preparar sin llamar a la API
         env:
+          # Solo lectura: avisa de las empresas ya cribadas en la rama de registro.
+          GH_TOKEN: ${{ github.token }}
           EMPRESAS: ${{ inputs.empresas }}
           MODELO: ${{ inputs.modelo }}
           ESFUERZO: ${{ inputs.esfuerzo }}

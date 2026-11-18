@@ -111,6 +111,7 @@ def screening_doc(**over):
            'motor_adecuado': 'DCF de caja libre de la plantilla',
            'filtros': {'calidad': f('pasa'), 'caja': f('pasa'), 'balance': f('pasa'), 'precio': f('no_pasa'),
                        'encaje': f('no_aplica', 'Sin cartera en el paquete.', '—')},
+           'pasivo_arrendamientos': 'Control maestro!C37 = 41.2',
            'veredicto_cribado': 'vigilar', 'que_lo_cambiaria': ['Cotización por debajo de 30.'], 'que_falta': []}
     doc.update(over)
     return doc
@@ -245,9 +246,11 @@ class ReleaseTests(Base):
         self.assertTrue(hoja['text'].startswith('fila,A,B,C,D\n'))
         r = package['sources'][0]
         self.assertEqual(r['sha256'], hashlib.sha256(r['text'].encode()).hexdigest())
+        self.assertEqual(package['fecha_hoja'], '2026-10-25')
+        self.assertEqual(package['convencion_arrendamientos'], sc.CONVENCION_ARRENDAMIENTOS)
         # El paquete enviado no lleva el repositorio ni nombres de material ciego.
         sent = json.dumps(package, ensure_ascii=False).lower()
-        for word in ('munger', 'evidencias-mistral', 'rubrica', 'examen', 'excepcion'):
+        for word in ('munger', 'evidencias-mistral', 'rubrica', 'examen', 'excepcion', 'traspaso'):
             self.assertNotIn(word, sent)
 
     def test_cambios_v2_included_when_present(self):
@@ -275,15 +278,16 @@ class ReleaseTests(Base):
         files = {'Acme': {'Acme_evaluada.xlsx': make_xlsx(), 'Acme_respuesta.md': 'Partidas: tres rúbricas del patrimonio.'.encode()}}
         path, exp = make_release(self.tmp.name, companies=('Acme',), files=files)
         rel = sc.open_release(path, exp)
-        with self.assertRaisesRegex(pilot.PilotError, 'CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:respuesta'):
+        code = 'CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:respuesta:rubrica'  # la marca que saltó
+        with self.assertRaisesRegex(pilot.PilotError, code):
             sc.load_company(rel, 'Acme', NOBLIND)
         sha = hashlib.sha256('Partidas: tres rúbricas del patrimonio.'.encode()).hexdigest()
-        ok = {('Acme', 'respuesta', sha, 'CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:respuesta'): 'partida contable'}
+        ok = {('Acme', 'respuesta', sha, code): 'partida contable'}
         package, applied = sc.load_company(rel, 'Acme', NOBLIND, ok)
-        self.assertEqual([a['codigo'] for a in applied], ['CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:respuesta'])
+        self.assertEqual([a['codigo'] for a in applied], [code])
         self.assertNotIn('partida contable', json.dumps(package, ensure_ascii=False))  # no se envía al modelo
-        for wrong in ({('Acme', 'respuesta', '0' * 64, 'CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:respuesta'): 'x'},
-                      {('Otra', 'respuesta', sha, 'CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:respuesta'): 'x'}):
+        for wrong in ({('Acme', 'respuesta', '0' * 64, code): 'x'}, {('Otra', 'respuesta', sha, code): 'x'},
+                      {('Acme', 'respuesta', sha, 'CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:respuesta'): 'x'}):
             with self.subTest(wrong=wrong), self.assertRaisesRegex(pilot.PilotError, 'CONTENIDO_PROHIBIDO'):
                 sc.load_company(rel, 'Acme', NOBLIND, wrong)
         # Solape con material ciego y copia exacta (huella de blob de git).
@@ -293,8 +297,18 @@ class ReleaseTests(Base):
         path, exp = make_release(self.tmp.name, companies=('Acme',), files=files)
         s = da.squash(long_text)
         chunks = {s[i:i + da.OVERLAP_CHARS]: 'examen/x.md' for i in range(0, len(s) - da.OVERLAP_CHARS + 1, da.OVERLAP_CHARS)}
-        with self.assertRaisesRegex(pilot.PilotError, 'SOLAPE_CON_MATERIAL_CIEGO:respuesta:examen/x.md'):
+        with self.assertRaisesRegex(pilot.PilotError, 'SOLAPE_CON_MATERIAL_CIEGO:respuesta:examen/x.md$'):
             sc.load_company(sc.open_release(path, exp), 'Acme', ({}, chunks))
+        # H5: todas las rutas solapadas, no solo la primera; la excepción cubre ese conjunto exacto.
+        chunks[s[200:400]] = 'traspaso/y.json'
+        rel2 = sc.open_release(path, exp)
+        both = 'SOLAPE_CON_MATERIAL_CIEGO:respuesta:examen/x.md|traspaso/y.json'
+        with self.assertRaisesRegex(pilot.PilotError, both.replace('|', r'\|')):
+            sc.load_company(rel2, 'Acme', ({}, chunks))
+        sha2 = hashlib.sha256(long_text.encode()).hexdigest()
+        with self.assertRaisesRegex(pilot.PilotError, 'SOLAPE'):
+            sc.load_company(rel2, 'Acme', ({}, chunks), {('Acme', 'respuesta', sha2, 'SOLAPE_CON_MATERIAL_CIEGO:respuesta:examen/x.md'): 'x'})
+        self.assertEqual(len(sc.load_company(rel2, 'Acme', ({}, chunks), {('Acme', 'respuesta', sha2, both): 'x'})[1]), 1)
         raw = text.encode()
         blob = hashlib.sha1(b'blob %d\0' % len(raw) + raw).hexdigest()
         with self.assertRaisesRegex(pilot.PilotError, 'COPIA_DE_MATERIAL_CIEGO:examen/copia.md'):
@@ -302,13 +316,31 @@ class ReleaseTests(Base):
 
     def test_versioned_exceptions_file_is_narrow(self):
         exc = sc.load_exceptions((HERE / 'excepciones_ceguera.json').read_text(encoding='utf-8'))
-        self.assertEqual({k[0] for k in exc}, {'Andina', 'Petsathome', 'Elis'})
+        self.assertEqual({k[0] for k in exc}, {'Andina', 'Petsathome'})  # Elis retirada (C-EX)
+        self.assertFalse({k[0] for k in exc} & set(sc.EXCLUIDAS))
         for (emp, sid, sha, code), motivo in exc.items():
             self.assertRegex(sha, r'^[0-9a-f]{64}$')
-            self.assertTrue(code.endswith(sid) or (':' + sid + ':') in code)
+            self.assertEqual(code, f'CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:{sid}:rubrica')
         for bad in ('{}', '{"excepciones": [{"empresa": "A"}]}', 'x'):
             with self.subTest(bad=bad), self.assertRaisesRegex(pilot.PilotError, 'EXCEPCIONES_DE_CEGUERA_INVALIDAS'):
                 sc.load_exceptions(bad)
+
+    def test_exam_companies_closed_list_excluded(self):
+        self.assertEqual(sc.EXCLUIDAS, ('Ahold', 'Jumbo', 'Zoetis', 'Elis', 'Vinci', 'WasteManagement'))
+        names = ('Acme', 'Ahold', 'Elis')
+        path, exp = make_release(self.tmp.name, companies=names)
+        rel = sc.open_release(path, exp)
+        for emp in ('Ahold', 'Elis'):
+            with self.assertRaisesRegex(pilot.PilotError, sc.EXCLUIDA):
+                sc.load_company(rel, emp, NOBLIND)
+        rows = sc.prepare(rel, list(names), ENCARGO, '1', SHA, da.DEFAULT_MODEL, 'high', Decimal('2'), NOBLIND)
+        self.assertEqual([r['estado'] for r in rows], ['PREPARADA'] + ['NO_PREPARADA:' + sc.EXCLUIDA] * 2)
+        h = FakeHTTP()
+        self.batch(h, rows)
+        self.assertEqual(len(h.sent()), 1)
+        result = sc.cotas(rel, ENCARGO, SHA, da.DEFAULT_MODEL, 'high', NOBLIND)
+        self.assertEqual((result['preparadas'], result['excluidas']), (1, ['Ahold', 'Elis']))
+        self.assertEqual([t['empresa'] for t in result['empresas']], ['Acme'])
 
     def test_bundle_fingerprint_independent_of_task_and_code(self):
         a = self.rows(names=('Acme',), run_id='1')[0]['bundle']
@@ -374,8 +406,10 @@ class ValidationTests(Base):
     def test_mechanical_warnings_never_reject(self):
         doc = screening_doc(empresa='Otra', veredicto_cribado='estudiar_a_fondo')
         doc['filtros']['caja'] = {'resultado': 'no_pasa', 'motivo': 'sin cifra', 'dato_clave': 'Análisis!Z999 = x'}
+        doc['que_falta'] = ['Tamaño de posición pensado: 3 %']
+        doc['pasivo_arrendamientos'] = ''
         avisos = self.check(doc=doc)['comprobaciones_mecanicas']['avisos']
-        self.assertEqual(len(avisos), 4, avisos)
+        self.assertEqual(len(avisos), 6, avisos)
         doc = screening_doc(veredicto_cribado='descartar')
         doc['filtros']['precio']['resultado'] = 'pasa'
         doc['filtros']['encaje']['resultado'] = 'no_pasa'
@@ -389,7 +423,12 @@ class ValidationTests(Base):
         pos = [text.index(f'**{w}') for w in ('calidad del negocio', 'caja', 'balance', 'precio', 'encaje en la cartera')]
         self.assertEqual(pos, sorted(pos))
         self.assertIn('9 %', ENCARGO)
-        self.assertIn('arrendamientos', text)
+        self.assertIn('se cuentan una sola vez, en el flujo', text)
+        self.assertIn('sin** arrendamientos', text)
+        self.assertNotIn('cuéntalos siempre', text)
+        self.assertIn('`pasivo_arrendamientos`', ENCARGO)
+        self.assertIn('como fracción', text)
+        self.assertIn('no los heredes', text)
         self.assertIn('nunca elimina', text)
         self.assertIn('no indiques tamaños de posición', text)
         for word in ('munger', 'examen', 'rúbrica', 'personaje', 'contradictor', 'razonamiento', 'paso a paso'):
@@ -440,6 +479,89 @@ class BatchTests(Base):
         total, entries = cr.Register(h).committed()
         self.assertEqual(total, 3 * cost)
         self.assertEqual(len(entries), 3)
+
+    def test_github_calls_bounded_with_tree_sha_cache(self):
+        class TreeStore(GitHubStore):
+            """Como la API de contenidos: cada carpeta del listado trae el SHA de su contenido."""
+            def github(self, method, api_path, body):
+                out = super().github(method, api_path, body)
+                if method == 'GET' and isinstance(out, list):
+                    base = self.path(api_path)
+                    for item in out:
+                        blob = b''.join(k.encode() + v for k, v in sorted(self.files.items())
+                                        if k.startswith(f"{base}/{item['name']}/"))
+                        item['sha'] = hashlib.sha1(blob).hexdigest()
+                return out
+        names = [f'E{i:02d}' for i in range(20)]
+        path, exp = make_release(self.tmp.name, companies=names)
+        self.release = sc.open_release(path, exp)
+        counts = {}
+        for d in (12, 60, 120):
+            store = TreeStore()
+            for i in range(d):
+                store.files[f'{REVIEWS}/previa-{i}/reservation.json'] = json.dumps(
+                    {'budget': {'reserved_usd': '0.01'}, 'cost_status': 'CONOCIDO_ESTIMADO', 'estimated_cost_usd': '0.01'}).encode()
+            h = FakeHTTP(store)
+            with patch.dict('os.environ', {cr.CAP_ENV: '1000'}):
+                result = self.batch(h, self.rows(names=names))
+            self.assertIsNone(result['parada'])
+            self.assertEqual(len(h.sent()), 20)
+            counts[d] = sum(1 for c in h.calls if c[0] == 'github')
+            # Sin caché AUTO1 recorría el registro tres veces por empresa (≈ 3·D + 17).
+            self.assertLess(counts[d], 20 * 25 + d + 10, counts)
+        self.assertLess(counts[120] - counts[12], 120)  # D solo se lee una vez por tanda
+        # Lo que la caché no ve cambiar se vuelve a leer: una reserva nueva cuenta.
+        total, _ = sc.cached_register({})(h).committed()
+        self.assertEqual(total, Decimal('1.2') + 20 * (40000 * 4 + 8000 * 20) / Decimal(10**6))
+
+    def test_cache_rereads_changed_folder_and_without_sha(self):
+        store = GitHubStore()  # listados sin SHA: se lee siempre, como AUTO1
+        store.files[f'{REVIEWS}/x/reservation.json'] = json.dumps({'budget': {'reserved_usd': '1'}}).encode()
+        cache, h = {}, FakeHTTP(store)
+        reg = sc.cached_register(cache)
+        self.assertEqual(reg(h).committed()[0], Decimal('1'))
+        store.files[f'{REVIEWS}/x/reservation.json'] = json.dumps({'budget': {'reserved_usd': '2'}}).encode()
+        self.assertEqual(reg(h).committed()[0], Decimal('2'))
+        self.assertEqual(cache, {})
+        store.files[f'{REVIEWS}/y/reservation.json'] = json.dumps({'budget': {}, 'cost_status': 'INCIERTO_SIN_COTA'}).encode()
+        with self.assertRaisesRegex(pilot.PilotError, 'REGISTRO_CON_COSTE_SIN_COTA_RECONCILIAR'):
+            reg(h).committed()
+
+    def test_two_paid_invalid_answers_in_a_row_stop(self):
+        bad = lambda: reply(doc=screening_doc(veredicto_cribado='comprar'))  # noqa: E731
+        h = FakeHTTP(replies=[bad(), bad(), reply()])
+        rows = self.rows()
+        result = self.batch(h, rows)
+        self.assertEqual(result['parada'], 'DOS_RESPUESTAS_PAGADAS_INVALIDAS_SEGUIDAS')
+        self.assertEqual(len(h.sent()), 2)
+        self.assertEqual(rows[2]['estado'], 'NO_LLAMADA_TANDA_PARADA')
+        h = FakeHTTP(replies=[bad(), reply(), bad()])
+        self.assertIsNone(self.batch(h, self.rows(run_id='78'))['parada'])
+
+    def test_each_result_declares_lease_convention_date_and_conditions(self):
+        store = GitHubStore()
+        h = FakeHTTP(store)
+        rows = self.rows(names=('Acme',))
+        result = self.batch(h, rows)
+        md = store.files[f'{REVIEWS}/cribado-77-acme/report.md'].decode()
+        for text in (sc.CONVENCION_ARRENDAMIENTOS, sc.CONDICIONES, '| Fecha de la hoja | 2026-10-25 |',
+                     'Pasivo por arrendamientos (dato aparte)'):
+            self.assertIn(text, md)
+        sent = json.loads(h.sent()[0][3]['messages'][0]['content'])
+        self.assertEqual(sent['convencion_arrendamientos'], sc.CONVENCION_ARRENDAMIENTOS)
+        tanda = sc.render_batch(sc.batch_summary(rows, result, {'run_id': '77'}))
+        self.assertIn(sc.CONVENCION_ARRENDAMIENTOS, tanda)
+        self.assertIn('| 2026-10-25 |', tanda)
+
+    def test_preparation_warns_of_previous_screenings(self):
+        store = GitHubStore()
+        store.files[f'{REVIEWS}/cribado-12-acme/reservation.json'] = b'{}'
+        store.files[f'{REVIEWS}/cribado-12-acme-plus/reservation.json'] = b'{}'
+        rows = self.rows()
+        self.assertIsNone(sc.mark_previous(FakeHTTP(store), rows))
+        self.assertEqual([r['cribados_anteriores'] for r in rows], [['cribado-12-acme'], [], []])
+        md = sc.render_batch(sc.batch_summary(rows, {'parada': None}, {}))
+        self.assertIn('- Acme: cribado-12-acme', md)
 
     def test_structured_outputs_only_when_asked(self):
         h = FakeHTTP()

@@ -9,6 +9,7 @@ create-only, una sola llamada, estados de coste, publicación en la rama de regi
 se añaden el máximo de la tanda, la parada al tope y el informe de la tanda.
 """
 import argparse
+import base64
 import contextlib
 import csv
 import datetime
@@ -60,6 +61,19 @@ HARD_MAX_COMPANY_USD = Decimal('2')
 HARD_MAX_BATCH_USD = Decimal('30')
 MAX_COMPANIES = 20
 TASA = '9 % (provisional, decisión de la persona responsable)'
+# Decisión C-ARR de la persona responsable (ronda 2): los arrendamientos se cuentan una sola
+# vez, en el flujo. Va en cada paquete y la escribe el código en cada resultado.
+CONVENCION_ARRENDAMIENTOS = ('C-ARR (decisión de la persona responsable): los arrendamientos se cuentan una sola '
+                             'vez, en el flujo. El alquiler se resta de la caja libre; la deuda, deuda/EBITDA y '
+                             'deuda/caja libre se miden sin arrendamientos; el pasivo por arrendamientos se muestra '
+                             'aparte, como dato.')
+CONDICIONES = ('Cifras de la etapa 1 tal como las guardó la hoja, a su fecha de análisis; sin las decisiones '
+               'posteriores (P-O1, P-O2, F1-A/F1-B, D-US1/2, D-WM) ni verificación contra la fuente oficial.')
+# Decisión C-EX de la persona responsable (ronda 2): las seis empresas del examen quedan
+# fuera del cribado hasta después del 23-nov-2026. Lista cerrada: quitarla es un cambio
+# de código que se revisa.
+EXCLUIDAS = ('Ahold', 'Jumbo', 'Zoetis', 'Elis', 'Vinci', 'WasteManagement')
+EXCLUIDA = 'EMPRESA_DEL_EXAMEN_EXCLUIDA_HASTA_DESPUES_DEL_23_NOV'
 OK_STATES = ('PREPARADO_SIN_API', 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
 # Fallos antes de reservar que solo afectan a esa empresa: se registra y se sigue.
 COMPANY_ONLY = ('COSTE_MAXIMO_INSUFICIENTE_NO_SE_RECORTA', 'PAQUETE_SUPERA_CONTEXTO_DEL_MODELO_NO_SE_RECORTA',
@@ -318,12 +332,25 @@ def blind_codes(source, blind):
     blob = hashlib.sha1(b'blob %d\0' % len(raw) + raw).hexdigest()
     if blob in blobs:
         codes.append('COPIA_DE_MATERIAL_CIEGO:' + blobs[blob])
-    if any(m in da.squash(source['text']) for m in da.CONTENT_MARKERS):
-        codes.append('CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:' + source['id'])
-    hit = da.overlap(source['text'], chunks)
-    if hit is not None:
-        codes.append('SOLAPE_CON_MATERIAL_CIEGO:' + source['id'] + ':' + hit)
+    squashed = da.squash(source['text'])
+    for marker in da.CONTENT_MARKERS:
+        if marker in squashed:
+            codes.append(f"CONTENIDO_PROHIBIDO_EN_EL_PAQUETE:{source['id']}:{marker}")
+    hits = overlap_all(squashed, chunks)
+    if hits:
+        codes.append(f"SOLAPE_CON_MATERIAL_CIEGO:{source['id']}:" + '|'.join(hits))
     return codes
+
+
+def overlap_all(squashed, chunks):
+    """Todas las rutas ciegas con las que el texto (ya normalizado) comparte un fragmento.
+
+    da.overlap se para en la primera; una excepción ligada a esa ruta taparía otra.
+    """
+    if not chunks:
+        return []
+    n = da.OVERLAP_CHARS
+    return sorted({chunks[s] for s in (squashed[i:i + n] for i in range(len(squashed) - n + 1)) if s in chunks})
 
 
 def load_exceptions(text):
@@ -346,6 +373,8 @@ def load_company(release, empresa, blind, exceptions=None):
     """(paquete, excepciones aplicadas). Las excepciones no se envían al modelo."""
     if empresa not in release.companies:
         raise pilot.PilotError('EMPRESA_NO_ESTA_EN_LA_RELEASE')
+    if empresa in EXCLUIDAS:
+        raise pilot.PilotError(EXCLUIDA)
     files = release.companies[empresa]
     sources = []
     for kind in ('respuesta', 'cambios_v2'):
@@ -371,8 +400,20 @@ def load_company(release, empresa, blind, exceptions=None):
                 raise pilot.PilotError(code)
             applied.append({'archivo': s['id'], 'sha256': s['sha256'], 'codigo': code, 'motivo': motivo})
     return ({'empresa': empresa, 'tarea': 'cribado', 'tasa_descuento': TASA,
-             'release_sha256': release.sha256, 'libro_sha256': book_sha,
+             'convencion_arrendamientos': CONVENCION_ARRENDAMIENTOS,
+             'fecha_hoja': sheet_date(sources), 'release_sha256': release.sha256, 'libro_sha256': book_sha,
              'hojas_omitidas': sorted(set(sheets) - set(SHEETS)), 'sources': sources}, applied)
+
+
+def sheet_date(sources):
+    """La «Fecha de análisis» de la hoja, tal como está (ISO o texto); None si no se encuentra."""
+    for s in sources:
+        if s['id'] == 'hoja_analisis':
+            cells = csv_cells(s['text'])
+            for (col, row), value in cells.items():
+                if da.squash(value) == 'fechadeanalisis':
+                    return cells.get((col_letters(col_index(col) + 1), row))
+    return None
 
 
 def build_bundle(package, encargo, task_id, code_sha):
@@ -405,6 +446,7 @@ SCHEMA = da._obj({
     'dcf_plantilla_aplica': da._enum(DCF),
     'motor_adecuado': STR,
     'filtros': da._obj({f: _FILTRO for f in FILTROS}),
+    'pasivo_arrendamientos': STR,
     'veredicto_cribado': da._enum(VEREDICTOS),
     'que_lo_cambiaria': ARR,
     'que_falta': ARR,
@@ -447,6 +489,11 @@ def mechanical_checks(doc, bundle):
     for key in ('que_lo_cambiaria', 'que_falta'):
         if len(doc[key]) > 3:
             notes.append(f'{key} con más de 3 elementos.')
+    if not doc['pasivo_arrendamientos'].strip():
+        notes.append('Pasivo por arrendamientos vacío (C-ARR: se da aparte, o «no consta en la hoja»).')
+    free = da.fold(json.dumps(doc, ensure_ascii=False))
+    if re.search(r'tamano de (la )?posicion|% de (la )?cartera|porcentaje de (la )?cartera', free):
+        notes.append('Un texto menciona un tamaño de posición o un porcentaje de cartera.')
     return {'avisos': notes, 'nota': 'Comprobaciones mecánicas informativas: no acreditan la calidad económica.'}
 
 
@@ -486,7 +533,9 @@ def render(report, bundle, holder):
     out = ['# Cribado · ' + bundle['empresa'], '', 'Estado de la ejecución: `' + report['state'] + '`', '',
            'Cribado pendiente de revisión humana. No es una recomendación de compra, ni aceptación, '
            'ni aptitud para dinero real. Tasa 9 % provisional.', '',
+           CONVENCION_ARRENDAMIENTOS, '', CONDICIONES, '',
            '| Campo | Valor |', '|---|---|',
+           f"| Fecha de la hoja | {bundle.get('fecha_hoja') or '—'} |",
            f"| Tarea | {report['task_id']} |", f"| SHA del código | {report['code_sha']} |",
            f"| Huella del paquete (package_sha256) | {bundle['package_sha256']} |",
            f"| Huella del envío (bundle_sha256) | {report['bundle_sha256']} |",
@@ -516,6 +565,7 @@ def render(report, bundle, holder):
                 f"Veredicto `{c['veredicto_cribado']}` · DCF de la plantilla aplica: `{c['dcf_plantilla_aplica']}`", '',
                 '| Filtro | Resultado |', '|---|---|']
         out += [f"| {k} | {c['filtros'][k]['resultado']} |" for k in FILTROS]
+        out += ['', '### Pasivo por arrendamientos (dato aparte)', ''] + da._block(c['pasivo_arrendamientos'])
         out += ['', '### Tipo de negocio y motor', ''] + da._block(c['tipo_negocio'] + '\n' + c['motor_adecuado'])
         for k in FILTROS:
             out += ['### ' + k, ''] + da._block(c['filtros'][k]['motivo'] + '\nDato clave: ' + c['filtros'][k]['dato_clave'])
@@ -551,7 +601,7 @@ def parse_usd(raw, ceiling, code):
 
 
 @contextlib.contextmanager
-def configured(task_id, model, effort, max_usd, bundle, encargo, gramatica=False, holder=None):
+def configured(task_id, model, effort, max_usd, bundle, encargo, gramatica=False, holder=None, cache=None):
     if model not in da.MODELS:
         raise pilot.PilotError('MODELO_NO_AUTORIZADO')
     if effort not in da.EFFORTS:
@@ -576,7 +626,8 @@ def configured(task_id, model, effort, max_usd, bundle, encargo, gramatica=False
     holder.update(system_sha256=digest(system.encode('utf-8')), gramatica=bool(gramatica))
     values = dict(TASK=task_id, MODEL=model, EFFORT=effort, MAX_OUTPUT=da.MAX_OUTPUT, MAX_USD=max_usd,
                   INPUT_PRICE=info['input'], OUTPUT_PRICE=info['output'], SYSTEM=system, SCHEMA=SCHEMA,
-                  payload=payload, validate=validate, write=make_writer(bundle, holder), budget=budget)
+                  payload=payload, validate=validate, write=make_writer(bundle, holder), budget=budget,
+                  Register=cached_register({} if cache is None else cache))
     saved = {k: getattr(cr, k) for k in values}
     try:
         for k, v in values.items():
@@ -585,6 +636,50 @@ def configured(task_id, model, effort, max_usd, bundle, encargo, gramatica=False
     finally:
         for k, v in saved.items():
             setattr(cr, k, v)
+
+
+def cached_register(cache):
+    """cr.Register que relee una carpeta solo si cambia su SHA de árbol (H1).
+
+    El listado de la API de contenidos trae el SHA de cada carpeta, que depende de su
+    contenido: si no cambia, su reservation.json tampoco. Sin SHA en el listado se lee
+    siempre, como AUTO1. Una reserva ilegible o sin cota sigue bloqueando.
+    """
+    class CachedRegister(cr.Register):
+        def committed(self):
+            total, entries = Decimal('0'), []
+            for root in cr.REGISTER_ROOTS:
+                listing = self._get(root)
+                if listing is None:
+                    continue
+                if not isinstance(listing, list):
+                    raise pilot.PilotError('REGISTRO_RESERVAS_NO_VERIFICABLE')
+                for item in listing:
+                    if not isinstance(item, dict) or item.get('type') != 'dir':
+                        continue
+                    name, sha = item.get('name'), item.get('sha')
+                    if not isinstance(name, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,80}', name):
+                        raise pilot.PilotError('REGISTRO_RESERVAS_NO_VERIFICABLE')
+                    key = (root, name, sha) if isinstance(sha, str) and re.fullmatch(r'[0-9a-f]{40}', sha) else None
+                    if key is not None and key in cache:
+                        amount = cache[key]
+                    else:
+                        data = self._get(f'{root}/{name}/reservation.json')
+                        if data is None:
+                            amount = None
+                        else:
+                            try:
+                                record = json.loads(base64.b64decode(''.join(data['content'].split()), validate=True))
+                            except (KeyError, TypeError, AttributeError, ValueError, RecursionError):
+                                raise pilot.PilotError('REGISTRO_RESERVAS_NO_VERIFICABLE') from None
+                            amount = cr.exposure(record)
+                        if key is not None:
+                            cache[key] = amount
+                    if amount is not None:
+                        total += amount
+                        entries.append({'path': f'{root}/{name}', 'usd': str(amount)})
+            return total, entries
+    return CachedRegister
 
 
 class TrackingReceipt(cr.Receipt):
@@ -638,9 +733,9 @@ def exposure_of(report, max_usd):
     return max_usd if report.get('api_messages_sent') else Decimal('0')
 
 
-def register_exposure(http, run_id):
+def register_exposure(http, run_id, cache=None):
     """Comprometido en la rama de registro por las tareas de esta tanda (todos sus intentos)."""
-    _, entries = cr.Register(http).committed()
+    _, entries = cached_register({} if cache is None else cache)(http).committed()
     prefix = f'automation/coordination/reviews/cribado-{run_id}-'
     return sum((Decimal(e['usd']) for e in entries if e['path'].startswith(prefix)), Decimal('0'))
 
@@ -668,11 +763,26 @@ def prepare(release, names, encargo, run_id, code_sha, model, effort, max_usd, b
     return rows
 
 
+def mark_previous(http, rows):
+    """H8: avisa de las empresas que ya tienen un cribado en la rama de registro (una lectura)."""
+    try:
+        listing = http.call('github', 'GET', f'/repos/{pilot.REPO}/contents/automation/coordination/reviews'
+                            f'?ref={pilot.LEDGER_BRANCH}')
+    except pilot.PilotError as err:
+        return 'REGISTRO_NO_CONSULTADO:' + str(err)
+    names = [i.get('name') for i in listing if isinstance(i, dict) and isinstance(i.get('name'), str)] \
+        if isinstance(listing, list) else []
+    for row in rows:
+        row['cribados_anteriores'] = sorted(n for n in names if re.fullmatch(r'cribado-[0-9]+-' + re.escape(slug(row['empresa'])), n))
+    return None
+
+
 def run_batch(http, rows, encargo, model, effort, max_usd, max_batch, run_id, output, live=False,
               gramatica=False, deadline_seconds=None, clock=time.monotonic):
     """Una llamada por empresa, en secuencia, sin reintentos; para al primer tope alcanzado."""
     output = Path(output)
-    start, local, consecutive, stop = clock(), Decimal('0'), 0, None
+    start, local, consecutive, rejected, stop = clock(), Decimal('0'), 0, 0, None
+    cache, prior = {}, None
     for row in rows:
         if not row['estado'].startswith('PREPARADA'):
             continue
@@ -689,7 +799,10 @@ def run_batch(http, rows, encargo, model, effort, max_usd, max_batch, run_id, ou
             row['estado'] = 'NO_LLAMADA_TANDA_PARADA'
             continue
         try:
-            committed = max(local, register_exposure(http, run_id))
+            if prior is None:
+                # Una sola lectura: lo comprometido por intentos anteriores de esta ejecución.
+                prior = register_exposure(http, run_id, cache)
+            committed = prior + local
         except pilot.PilotError as err:
             stop = 'REGISTRO_NO_VERIFICABLE:' + str(err)
             row['estado'] = 'NO_LLAMADA_TANDA_PARADA'
@@ -702,7 +815,7 @@ def run_batch(http, rows, encargo, model, effort, max_usd, max_batch, run_id, ou
         receipt = TrackingReceipt(http, row['bundle']['code_sha'], row['task_id'])
         try:
             with configured(row['task_id'], model, effort, max_usd, row['bundle'], encargo, gramatica,
-                            dict(row['preflight'])) as holder:
+                            dict(row['preflight']), cache) as holder:
                 da.preflight(row['bundle'], holder)
                 report = cr.run(http, row['bundle'], output / slug(row['empresa']), receipt=receipt, execute=True)
         except Exception as err:  # noqa: BLE001 - se registra; nunca se repite la llamada
@@ -732,6 +845,13 @@ def run_batch(http, rows, encargo, model, effort, max_usd, max_batch, run_id, ou
                 stop = 'DOS_FALLOS_SEGUIDOS_TRAS_ENVIAR'
         else:
             consecutive = 0
+        if report['state'] == cr.REJECTED:
+            # H4: dos respuestas pagadas e inválidas seguidas apuntan a un fallo sistemático.
+            rejected += 1
+            if rejected >= 2:
+                stop = 'DOS_RESPUESTAS_PAGADAS_INVALIDAS_SEGUIDAS'
+        elif report['state'] != 'YA_RESERVADO_SIN_NUEVA_LLAMADA':
+            rejected = 0
     return {'parada': stop, 'comprometido_local_usd': str(local)}
 
 
@@ -750,6 +870,8 @@ def batch_summary(rows, result, meta):
                 'exposicion_usd': row.get('exposicion_usd', '0'),
                 'reserva_estimada_usd': (row.get('preflight') or {}).get('reserve_upper_bound_usd'),
                 'package_sha256': (row.get('bundle') or {}).get('package_sha256'),
+                'fecha_hoja': (row.get('bundle') or {}).get('fecha_hoja'),
+                'cribados_anteriores': row.get('cribados_anteriores', []),
                 'excepciones_ceguera': row.get('excepciones_ceguera', [])}
         if rep.get('error'):
             item['error'] = rep['error']
@@ -764,16 +886,22 @@ def render_batch(summary):
     m = summary['tanda']
     out = ['# Tanda de cribado', '',
            'Cribado pendiente de revisión humana. No es una recomendación de compra ni aptitud para dinero real.', '',
+           CONVENCION_ARRENDAMIENTOS, '', CONDICIONES, '',
            '| Campo | Valor |', '|---|---|']
     out += [f'| {k} | {v} |' for k, v in m.items()]
     out += [f"| Llamadas a la API | {summary['llamadas']} |",
             f"| Comprometido por la tanda (USD, coste conocido o cota) | {summary['comprometido_tanda_usd']} |",
             f"| Parada | {summary['parada'] or '—'} |", '',
-            '| Empresa | Veredicto | Estado | Coste USD | Cota USD | Reserva previa USD | Avisos |',
-            '|---|---|---|---|---|---|---|']
+            '| Empresa | Veredicto | Estado | Coste USD | Cota USD | Reserva previa USD | Avisos | Fecha de la hoja |',
+            '|---|---|---|---|---|---|---|---|']
     for i in summary['empresas']:
         out.append(f"| {i['empresa']} | {i['veredicto_cribado'] or '—'} | {i['estado']} | {i['estimated_cost_usd'] or '—'} |"
-                   f" {i['cost_upper_bound_usd'] or '—'} | {i['reserva_estimada_usd'] or '—'} | {i['avisos']} |")
+                   f" {i['cost_upper_bound_usd'] or '—'} | {i['reserva_estimada_usd'] or '—'} | {i['avisos']} |"
+                   f" {i['fecha_hoja'] or '—'} |")
+    prev = [(i['empresa'], i['cribados_anteriores']) for i in summary['empresas'] if i['cribados_anteriores']]
+    if prev:
+        out += ['', 'Ya cribadas en la rama de registro (otra ejecución las volvería a pagar):', '']
+        out += [f"- {emp}: {', '.join(dirs)}" for emp, dirs in prev]
     exc = [(i['empresa'], e) for i in summary['empresas'] for e in i['excepciones_ceguera']]
     if exc:
         out += ['', 'Excepciones de ceguera aplicadas (excepciones_ceguera.json, pendientes de revisión):', '']
@@ -796,7 +924,7 @@ def publish_batch(http, code_sha, folder, output):
 
 # --- Dry-run del universo: cotas sin API ----------------------------------------------------------
 def cotas(release, encargo, code_sha, model, effort, blind, exceptions=None, max_usd=HARD_MAX_COMPANY_USD, size=20):
-    names = sorted(release.companies, key=str.lower)
+    names = sorted((n for n in release.companies if n not in EXCLUIDAS), key=str.lower)
     rows = prepare(release, names, encargo, '0', code_sha, model, effort, max_usd, blind, exceptions)
     info = da.MODELS[model]
     table = []
@@ -830,7 +958,8 @@ def cotas(release, encargo, code_sha, model, effort, blind, exceptions=None, max
             'empresas': table, 'tandas': batches,
             'total_reserva_cota_usd': str(sum((Decimal(t['reserva_cota_usd']) for t in ok), Decimal('0'))),
             'total_coste_orientativo_usd': str(sum((Decimal(t['coste_orientativo_usd']) for t in ok), Decimal('0'))),
-            'preparadas': len(ok), 'no_preparadas': [t for t in table if t['estado'] != 'PREPARADA']}
+            'preparadas': len(ok), 'no_preparadas': [t for t in table if t['estado'] != 'PREPARADA'],
+            'excluidas': [n for n in EXCLUIDAS if n in release.companies], 'motivo_exclusion': EXCLUIDA}
 
 
 # --- Línea de órdenes ---------------------------------------------------------------------------------
@@ -879,6 +1008,10 @@ def main(argv=None):
         http = da.DirectHTTP(os.getenv('GH_TOKEN', ''), os.getenv('ANTHROPIC_API_KEY', ''), model=a.model)
         if a.execute_api and (not http.api_key or not http.github_token):
             raise pilot.PilotError('FALTA_CREDENCIAL')
+        if a.execute_api:
+            previous = 'NO_SE_CONSULTA_EN_LA_EJECUCION (la reserva create-only impide repetir la misma tarea)'
+        else:
+            previous = mark_previous(http, rows) if http.github_token else 'SIN_TOKEN_NO_CONSULTADO'
         result = run_batch(http, rows, encargo, a.model, a.effort, max_usd, max_batch, a.run_id, a.output,
                            live=a.execute_api, gramatica=gram, deadline_seconds=a.deadline_seconds)
         reserves = [Decimal(r['preflight']['reserve_upper_bound_usd']) for r in rows if 'reserve_upper_bound_usd' in r.get('preflight', {})]
@@ -888,7 +1021,8 @@ def main(argv=None):
                 'modelo': a.model, 'esfuerzo': a.effort, 'gramatica': a.gramatica,
                 'coste_maximo_por_empresa_usd': str(max_usd), 'coste_maximo_tanda_usd': str(max_batch),
                 'tope_acumulado': 'variable ' + cr.CAP_ENV + ' del environment (se comprueba antes de cada empresa)',
-                'suma_de_reservas_previas_usd': str(sum(reserves, Decimal('0')))}
+                'suma_de_reservas_previas_usd': str(sum(reserves, Decimal('0'))),
+                'consulta_de_cribados_anteriores': previous or 'hecha', 'excluidas': ', '.join(EXCLUIDAS)}
         summary = batch_summary(rows, result, meta)
         write_batch(a.output, summary)
         if a.execute_api:
@@ -922,7 +1056,8 @@ def write_cotas(output, result):
              f" y la salida máxima ({da.MAX_OUTPUT} tokens), a {result['tarifas_usd_mtok']['entrada']} / "
              f"{result['tarifas_usd_mtok']['salida']} USD por millón (tarifas del {result['tarifas_consultadas']}). "
              f"El **orientativo** supone {ROUGH_BYTES_PER_TOKEN} bytes por token y {ROUGH_OUTPUT_TOKENS} tokens de salida.", '',
-             f"- Empresas preparadas: {result['preparadas']}; no preparadas: {len(result['no_preparadas'])}.",
+             f"- Empresas preparadas: {result['preparadas']}; no preparadas: {len(result['no_preparadas'])}; "
+             f"excluidas ({result['motivo_exclusion']}): {', '.join(result['excluidas'])}.",
              f"- Total de cotas: USD {result['total_reserva_cota_usd']}.",
              f"- Total orientativo: USD {result['total_coste_orientativo_usd']}.", '',
              '| Tanda | Empresas | Suma de cotas USD | Mayor cota USD | Orientativo USD |', '|---|---|---|---|---|']
