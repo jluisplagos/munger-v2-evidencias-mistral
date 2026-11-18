@@ -508,24 +508,51 @@ def validate(response, bundle):
         raise pilot.PilotError('RESPUESTA_INCOMPLETA')
     raw = ''.join(x.get('text', '') for x in response.get('content', [])
                   if isinstance(x, dict) and x.get('type') == 'text').strip()
-    fenced = re.fullmatch(r'```json\r?\n([\s\S]*)\r?\n```', raw)
     notes = []
-    try:
-        doc = json.loads(fenced.group(1) if fenced else raw, object_pairs_hook=_sin_duplicadas)
-    except (ValueError, RecursionError):
-        # Sin gramática del servidor: si hay texto alrededor de un único objeto, se toma el
-        # objeto y se anota. El contenido pasa después por check_schema completo.
-        i, j = raw.find('{'), raw.rfind('}')
-        try:
-            if i < 0 or j <= i:
-                raise ValueError
-            doc = json.loads(raw[i:j + 1], object_pairs_hook=_sin_duplicadas)
-        except (ValueError, RecursionError):
-            raise pilot.PilotError('JSON_INVALIDO') from None
-        notes.append('texto_fuera_del_objeto_json_descartado: %d caracteres' % (len(raw) - (j + 1 - i)))
+    doc = leer_respuesta(raw, notes)
     doc = check_schema(normalize_enums(nulos_no_disponibles(doc, SCHEMA, notes), SCHEMA, notes), SCHEMA)
     return {'analisis': doc, 'package_sha256': bundle['package_sha256'], 'normalizaciones_enum': notes,
             'comprobaciones_mecanicas': safe_checks(doc, bundle)}
+
+
+def leer_respuesta(raw, notes):
+    """Objeto JSON de la respuesta, sin aflojar el contenido (check_schema va después).
+
+    Admite: el objeto solo; un bloque ```json; varios bloques ```json **sin texto entre ellos**
+    cuyas claves no se repiten (ejecución 44290314915: el modelo partió el objeto en dos
+    bloques), que se unen y se anota; o un único objeto rodeado de texto, que se anota.
+    """
+    raw = raw.strip()
+    fenced = re.fullmatch(r'```json\r?\n([\s\S]*)\r?\n```', raw)
+    try:
+        return json.loads(fenced.group(1) if fenced else raw, object_pairs_hook=_sin_duplicadas)
+    except (ValueError, RecursionError):
+        pass
+    blocks = re.findall(r'```json\r?\n([\s\S]*?)\r?\n```', raw)
+    outside = re.sub(r'```json\r?\n[\s\S]*?\r?\n```', '', raw).strip()
+    if len(blocks) > 1 and not outside:
+        merged = {}
+        try:
+            for b in blocks:
+                part = json.loads(b, object_pairs_hook=_sin_duplicadas)
+                if not isinstance(part, dict) or set(part) & set(merged):
+                    raise ValueError
+                merged.update(part)
+        except (ValueError, RecursionError):
+            raise pilot.PilotError('JSON_INVALIDO') from None
+        notes.append('objeto_json_partido_en_%d_bloques_unido' % len(blocks))
+        return merged
+    # Sin gramática del servidor: si hay texto alrededor de un único objeto, se toma el
+    # objeto y se anota. El contenido pasa después por check_schema completo.
+    i, j = raw.find('{'), raw.rfind('}')
+    try:
+        if i < 0 or j <= i:
+            raise ValueError
+        doc = json.loads(raw[i:j + 1], object_pairs_hook=_sin_duplicadas)
+    except (ValueError, RecursionError):
+        raise pilot.PilotError('JSON_INVALIDO') from None
+    notes.append('texto_fuera_del_objeto_json_descartado: %d caracteres' % (len(raw) - (j + 1 - i)))
+    return doc
 
 
 def safe_checks(doc, bundle):
@@ -652,7 +679,8 @@ SCHEMA_EN_ENCARGO = ('\n\n## Esquema de la respuesta\n\nResponde solo con un obj
                      'en false y la cifra a 0); los números van como números, sin comillas, sin separador '
                      'de miles y con punto decimal; dentro de los textos escapa las comillas dobles como '
                      '\\" y los saltos de línea como \\n; las citas pueden acortarse con «…» para evitar '
-                     'caracteres problemáticos, sin cambiar su sentido.\n\n')
+                     'caracteres problemáticos, sin cambiar su sentido. Un único objeto, en un único bloque: '
+                     'no lo partas aunque sea largo.\n\n')
 
 
 def system_con_esquema(encargo):

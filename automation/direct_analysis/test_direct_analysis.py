@@ -292,6 +292,51 @@ class SinGramaticaTests(Base):
             da.check_schema(da.nulos_no_disponibles(doc, da.SCHEMA, []), da.SCHEMA)
 
 
+class VariosBloquesTests(Base):
+    def _texto(self, rep, f):
+        for b in rep['content']:
+            if b.get('type') == 'text':
+                b['text'] = f(b['text'])
+        return rep
+
+    def _partir(self, txt, sep=''):
+        doc = json.loads(txt)
+        keys = list(doc)
+        a = {k: doc[k] for k in keys[:5]}
+        b = {k: doc[k] for k in keys[5:]}
+        return ('```json\n' + json.dumps(a, ensure_ascii=False) + '\n```\n' + sep + '\n```json\n'
+                + json.dumps(b, ensure_ascii=False) + '\n```')
+
+    def test_two_blocks_with_disjoint_keys_are_joined_and_noted(self):
+        rep = self._texto(reply(), self._partir)
+        r = self.run_da(FakeHTTP(GitHubStore(), reply=rep))
+        self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
+        self.assertIn('objeto_json_partido_en_2_bloques_unido', r['review']['normalizaciones_enum'])
+
+    def test_text_between_blocks_or_repeated_keys_is_invalid(self):
+        rep = self._texto(reply(), lambda t: self._partir(t, sep='Sigue:'))
+        self.assertEqual(self.run_da(FakeHTTP(GitHubStore(), reply=rep))['error'], 'JSON_INVALIDO')
+        def dup(t):
+            doc = json.loads(t)
+            return '```json\n' + json.dumps(doc) + '\n```\n```json\n' + json.dumps({'moneda': 'EUR'}) + '\n```'
+        rep = self._texto(reply(), dup)
+        self.assertEqual(self.run_da(FakeHTTP(GitHubStore(), reply=rep))['error'], 'JSON_INVALIDO')
+
+    def test_offline_revalidation_of_a_paid_split_output(self):
+        import revalidar
+        rep = self._texto(reply(), self._partir)
+        b = bundle()
+        report = {'task_id': 't', 'model_requested': da.DEFAULT_MODEL, 'effort_requested': 'high',
+                  'stop_reason': 'end_turn', 'estimated_cost_usd': '1.9', 'error': 'JSON_INVALIDO',
+                  'raw_model_output': next(x['text'] for x in rep['content'] if x.get('type') == 'text')}
+        d = Path(self.tmp.name)
+        (d / 'r.json').write_text(json.dumps(report)); (d / 's.json').write_text(json.dumps(b))
+        self.assertEqual(revalidar.main([str(d / 'r.json'), str(d / 's.json'), str(d / 'out')]), 0)
+        out = json.loads((d / 'out' / 'revalidacion.json').read_text())
+        self.assertEqual((out['estado'], out['resultado']), (revalidar.ESTADO, 'VALIDO_CON_EL_VALIDADOR_ACTUAL'))
+        self.assertIn('objeto_json_partido_en_2_bloques_unido', out['review']['normalizaciones_enum'])
+
+
 class CapTests(Base):
     def test_cumulative_cap_blocks_before_count_and_reserve(self):
         store = GitHubStore()
