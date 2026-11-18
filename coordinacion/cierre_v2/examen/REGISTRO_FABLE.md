@@ -9,7 +9,7 @@
 | 5 | 2026-11-18, tarde | Dictamen técnico-económico de O1 (flujo del accionista sin cobros financieros) y O2 (acciones) de Ahold: ¿defecto o método?; preguntas a la persona si es política económica | `munger-v2` `examen/ahold-f1` @ 11c31be | máximo | O1: decisión de método pendiente de la persona (etapa 1 M43/M47; no defecto de plantilla); O2: defecto de entrada (905 media vs acciones al cierre, criterio D3/E6: +0,57 €). Preguntas P-O1 y P-O2. `revisiones/dictamen_O1_O2_ahold/` |
 | 6 | 2026-11-18, tarde | C4: revisión crítica R1 de F1 con US GAAP (agente distinto del autor) | `munger-v2` `f1/usgaap` @ 34b68fc | máximo | CORRECCIONES acotadas: R1-1 (motor B sin declaración llega a concluido), R1-2 (cero «—»), R1-3 (ubicación falsa sobrevalora), decisiones D1 (Nike) y D2 (WM). `revisiones/f1_usgaap/` |
 | 7 | 2026-11-18, tarde | C4: ronda 2 del autor (correcciones de la R1) | `munger-v2` `f1/usgaap` | máximo | en curso |
-| 8 | 2026-11-18, tarde | Dictamen de perímetro bajo F1 A2_propio: gramática G4/G7/G8, C18/C55, EBIT y ROIC de A2 (bloqueo de la fase B corregida de ahold_f2) | `munger-v2` `examen/ahold-f1` @ e6ae912 | máximo | en curso → `revisiones/dictamen_perimetro_g4/` |
+| 8 | 2026-11-18, tarde | Dictamen de perímetro bajo F1 A2_propio: gramática G4/G7/G8, C18/C55, EBIT y ROIC de A2 (bloqueo de la fase B corregida de ahold_f2) | `munger-v2` `examen/ahold-f1` @ e6ae912 | máximo | G4 bloquea con razón (ROIC terminal 0,15 incoherente con foso No); 3 defectos (G7 con C55 de todo el capital; fases sin perímetro; V-F1g/k por etiquetas); decisión P-FOSO. `revisiones/dictamen_perimetro_g4/` |
 
 Reparto acordado (D7): Fable solo para F1-IMPL y para el contradictor del veredicto final; el contradictor de cada empresa usa Opus con esfuerzo alto.
 

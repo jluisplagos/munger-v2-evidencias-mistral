@@ -1,0 +1,52 @@
+==============================================================================================================
+A · QUÉ LLEVA f CON A2_propio (ventana 2023–2025, medias anuales en mm) — el alquiler entra una vez
+NOPAT medio 2403.595 − reinversión propia media 79.000 − FCF base 2312.001 = f·V̄ = 12.594 → f = 0.000139707590 (libro C58 = 0.000139707590)
+FCF base = C46 6583.667 − C47 2432.333 − C48 77.000 − C49 1707.333 − C50 55.000 = 2312.001
+     +351.000  alquiler pagado por encima de la amortización de derechos de uso: pagos netos de subarriendos C49 − amortización ROU
+      +77.000  intereses financieros netos (C48, regla espejo)
+      +55.000  SBC (C50)
+      -18.000  − amortización PPA (no es caja; D_X no la devuelve y f sí)
+      -24.000  − dividendos de negocios conjuntos sumados en C46
+     -264.071  impuestos pagados − τ_año·EBIT (escudo fiscal de los intereses y devolución belga de 2023)
+     -164.333  − partidas del CFO que no son EBIT + D&A − circulante − impuestos (cargos no monetarios, SBC…)
+      +12.595  = f·V̄ (cuadra con 12.594)
+   El alquiler de caja (fila 17, principal e intereses en una línea: AR2025 p.260) medio es 1834.0: 1356.3 van en el margen (amortización ROU)
+   y 477.7 en f (brutos; 351.0 netos de subarriendos). Intereses de arrendamiento publicados, media: 423.0.
+   Sin las compensaciones, f sería 0.00489; es 0.00014 porque impuestos y partidas no monetarias restan -428.4.
+Flujo sin crecimiento del motor: V0·[m0(1−τ) − f] = 2769.835 (capa F1: 2769.835) · NOPAT 2025 al τ de 5 años = 2782.737
+==============================================================================================================
+B · RETORNO HISTÓRICO POR PERÍMETRO (2021–2025)
+2021: todo el capital  9.42% (fila 33  9.42%) · NOPAT NIIF16 ÷ capital propio 15.83% · (EBIT − intereses arrend.)(1−t) ÷ capital propio 14.22% · S2C medio 2.72 → 4.57 · arrend. 40.5% del capital · coste arrend. 3.23% · listón todo el capital 6.39%
+2022: todo el capital  9.78% (fila 33  9.78%) · NOPAT NIIF16 ÷ capital propio 16.29% · (EBIT − intereses arrend.)(1−t) ÷ capital propio 14.75% · S2C medio 2.90 → 4.83 · arrend. 39.9% del capital · coste arrend. 3.07% · listón todo el capital 6.36%
+2023: todo el capital  7.86% (fila 33  7.86%) · NOPAT NIIF16 ÷ capital propio 13.26% · (EBIT − intereses arrend.)(1−t) ÷ capital propio 11.48% · S2C medio 3.06 → 5.16 · arrend. 40.7% del capital · coste arrend. 3.21% · listón todo el capital 6.38%
+2024: todo el capital  7.37% (fila 33  7.37%) · NOPAT NIIF16 ÷ capital propio 12.57% · (EBIT − intereses arrend.)(1−t) ÷ capital propio 10.67% · S2C medio 3.02 → 5.15 · arrend. 41.4% del capital · coste arrend. 3.51% · listón todo el capital 6.41%
+2025: todo el capital  9.48% (fila 33  9.48%) · NOPAT NIIF16 ÷ capital propio 16.15% · (EBIT − intereses arrend.)(1−t) ÷ capital propio 14.03% · S2C medio 3.19 → 5.43 · arrend. 41.3% del capital · coste arrend. 3.84% · listón todo el capital 6.51%
+MEDIA: todo el capital 8.7815% (C55 = 8.7815%) · NIIF16 ÷ propio 14.8181% · tras alquiler ÷ propio 13.0280% · factor capital total ÷ propio 1.688 · listón coherente de todo el capital 6.41%
+   Exceso sobre su listón, mismo perímetro: todo el capital +2.37% · capital propio tras alquiler +4.03% (frente a r = 9%)
+   Lo que comparó la fase A: 8.78% (todo el capital) frente a r = 9% (listón del flujo del accionista): -0.22% — cruce de perímetros
+   Con el alquiler de caja (EBIT − (pagos fila 17 − amortización ROU fila 86)): 2021 13.75% · 2022 14.32% · 2023 11.03% · 2024 10.72% · 2025 13.67% · media 12.70%
+   2025 con el ACTIVO por derecho de uso (9488) en lugar del pasivo (11974): capital sin ROU 19505 → S2C medio 4.73 (con el pasivo 5.43; ancla marginal A1 de la capa F1: 5,10)
+==============================================================================================================
+C · EL ROIC TERMINAL EN EL MOTOR: unidades y punto neutro
+MALO: N = m_obj(1−τ) = 0.02357 · ROIC neutro (el crecimiento perpetuo ni crea ni destruye valor) = r·N/(N − f) = 9.0537%
+      B18 =  0.0800 → S2C implícito del terminal  3.39 · reinversión 0.2946% de las ventas · valor terminal ÷ el de crecimiento cero = 0.9835 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t =  7.95%
+      B18 =  0.0900 → S2C implícito del terminal  3.82 · reinversión 0.2619% de las ventas · valor terminal ÷ el de crecimiento cero = 0.9993 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t =  8.95%
+      B18 =  0.0905 → S2C implícito del terminal  3.84 · reinversión 0.2603% de las ventas · valor terminal ÷ el de crecimiento cero = 1.0000 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t =  9.00%
+      B18 =  0.1200 → S2C implícito del terminal  5.09 · reinversión 0.1964% de las ventas · valor terminal ÷ el de crecimiento cero = 1.0307 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t = 11.93%
+      B18 =  0.1300 → S2C implícito del terminal  5.52 · reinversión 0.1813% de las ventas · valor terminal ÷ el de crecimiento cero = 1.0379 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t = 12.92%
+      B18 =  0.1500 → S2C implícito del terminal  6.36 · reinversión 0.1571% de las ventas · valor terminal ÷ el de crecimiento cero = 1.0496 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t = 14.91%
+NORMAL: N = m_obj(1−τ) = 0.03143 · ROIC neutro (el crecimiento perpetuo ni crea ni destruye valor) = r·N/(N − f) = 9.0402%
+      B18 =  0.0800 → S2C implícito del terminal  2.55 · reinversión 0.7856% de las ventas · valor terminal ÷ el de crecimiento cero = 0.9629 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t =  7.96%
+      B18 =  0.0900 → S2C implícito del terminal  2.86 · reinversión 0.6983% de las ventas · valor terminal ÷ el de crecimiento cero = 0.9987 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t =  8.96%
+      B18 =  0.0904 → S2C implícito del terminal  2.88 · reinversión 0.6952% de las ventas · valor terminal ÷ el de crecimiento cero = 1.0000 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t =  9.00%
+      B18 =  0.1200 → S2C implícito del terminal  3.82 · reinversión 0.5238% de las ventas · valor terminal ÷ el de crecimiento cero = 1.0705 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t = 11.95%
+      B18 =  0.1300 → S2C implícito del terminal  4.14 · reinversión 0.4835% de las ventas · valor terminal ÷ el de crecimiento cero = 1.0870 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t = 12.94%
+      B18 =  0.1500 → S2C implícito del terminal  4.77 · reinversión 0.4190% de las ventas · valor terminal ÷ el de crecimiento cero = 1.1135 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t = 14.93%
+BUENO: N = m_obj(1−τ) = 0.03535 · ROIC neutro (el crecimiento perpetuo ni crea ni destruye valor) = r·N/(N − f) = 9.0357%
+      B18 =  0.0800 → S2C implícito del terminal  2.26 · reinversión 1.1048% de las ventas · valor terminal ÷ el de crecimiento cero = 0.9502 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t =  7.97%
+      B18 =  0.0900 → S2C implícito del terminal  2.55 · reinversión 0.9820% de las ventas · valor terminal ÷ el de crecimiento cero = 0.9985 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t =  8.96%
+      B18 =  0.0904 → S2C implícito del terminal  2.56 · reinversión 0.9782% de las ventas · valor terminal ÷ el de crecimiento cero = 1.0000 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t =  9.00%
+      B18 =  0.1200 → S2C implícito del terminal  3.39 · reinversión 0.7365% de las ventas · valor terminal ÷ el de crecimiento cero = 1.0950 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t = 11.95%
+      B18 =  0.1300 → S2C implícito del terminal  3.68 · reinversión 0.6799% de las ventas · valor terminal ÷ el de crecimiento cero = 1.1173 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t = 12.95%
+      B18 =  0.1500 → S2C implícito del terminal  4.24 · reinversión 0.5892% de las ventas · valor terminal ÷ el de crecimiento cero = 1.1529 · retorno del accionista sobre el capital nuevo (N − f)·S2C_t = 14.94%
+Comprobación (NORMAL): valor terminal con B18 neutro 41307.055847 = V11·(N − f)/r 41307.055847 (dif +7.28e-12)
