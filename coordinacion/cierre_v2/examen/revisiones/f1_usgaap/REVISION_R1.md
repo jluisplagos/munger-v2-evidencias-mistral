@@ -2,7 +2,7 @@
 
 - **Revisor:** agente distinto del autor (Claude, modelo Fable 5.2, esfuerzo máximo), 18-nov-2026. No modifiqué la rama ni ningún repositorio. No hice commit.
 - **Material:** `jluisplagos/munger-v2`, rama `f1/usgaap` @ `34b68fc` (código y pruebas en `e906b06`; base `1694f08`), worktree `/home/user/e_work/wt_usgaap`. Sigue limpio y en `34b68fc`. Entre `e906b06` y `34b68fc` solo cambian documentos, `VERSION` y el manifiesto (comprobado con `git diff --stat`).
-- **Dónde trabajé:** una copia en `/home/user/e_work/revision_usgaap/copia/` (borrada al terminar) y carpetas temporales. LibreOffice siempre con `flock /home/user/e_work/libreoffice.lock`, una ejecución detrás de otra.
+- **Dónde trabajé:** una copia en `/home/user/e_work/revision_usgaap/copia/` (borrada al terminar) y carpetas temporales (borradas las mías). LibreOffice siempre con `flock /home/user/e_work/libreoffice.lock`, una ejecución detrás de otra.
 - **Evidencia:** carpeta `evidencia/` junto a este informe: mis guiones (`*.py`, `*.sh`) y sus salidas (`*.txt`).
 - **Aptitud:** uso supervisado experimental. No apto para decisiones con dinero real. Que pase estas pruebas no lo acredita.
 
@@ -13,7 +13,7 @@ Distingo **hechos** (los reproduje), *interpretaciones* y ***propuestas***.
 **Lo que está bien (hechos).**
 - Todas las pruebas declaradas se reproducen con las mismas cifras (§1).
 - **NIIF no cambia de valor.** Comparé la base `1694f08` con la entrega en 425 casos NIIF (400 al azar, el libro real de Elis con sus cuatro declaraciones y 21 variantes de la norma del libro): 412 dan el resultado idéntico campo a campo; los 13 que cambian son todos variantes de `Control maestro L4`, que es el cambio que el autor declara (d).
-- El diseño es correcto: operativos y financieros por separado, la norma como valor cerrado, y la hipótesis D-US1 con una cota que, con declaraciones veraces, cubre siempre el error (matriz del hallazgo R1-3).
+- El diseño es correcto: operativos y financieros por separado, la norma como valor cerrado, y la hipótesis D-US1 con una cota que, con declaraciones veraces, cubre el error en todos los casos que probé (matriz del hallazgo R1-3).
 - El libro V6.3.1 real coincide con la capa (13/13) y el pipeline llega a `concluido` condicionado en el caso habitual (PU1; lo repetí como X3).
 - El autor documenta sus límites con honradez. Varios de mis hallazgos amplían límites que él ya señala.
 
@@ -49,7 +49,7 @@ Todo sobre la copia de `34b68fc`. Salidas literales en `evidencia/`.
 
 **`rapida` y el manifiesto.** En el worktree tal cual, `rapida` da FALLA en el manifiesto: faltan 50 binarios de los expedientes de Ahold (`2026-11_examen_universo/ahold*`), que Git no versiona y que en `wt_usgaap` no están materializados. Están en `wt_examen` con las mismas huellas del manifiesto. Con ellos copiados en la copia limpia: `8061 archivos en el manifiesto · modificados 0 · ausentes 0 · de más 0`, entorno PASA, piloto 35 comprobaciones, comprobadores 114/114 y `RESULTADO GLOBAL: PASA` (`verificar_paquete_rapida_34b68fc_con_binarios.txt`; la salida del worktree tal cual, en `…_worktree_tal_cual.txt`). No es un defecto del código; es un aviso para quien reciba la rama.
 
-**Por qué no repetí `completa`.** La última medida tardó 63 minutos con el cerrojo de LibreOffice tomado, y mientras revisaba había otras sesiones ejecutando pipelines del examen (Ahold y Jumbo) y otra revisión esperando el cerrojo con plazo. El disco estaba al 76–79 % con otras copias en uso. Repetí una a una todas las baterías que tocan lo que cambia esta rama. Lo que no repetí: V6.4 (199), trazabilidad, integridad, auditorías, estados, resumen y cierre. Para esas me apoyo en el registro del autor (`verificacion_completa_e906b06.txt`) y en que después de `e906b06` no cambia código.
+**Por qué no repetí `completa`.** La última medida tardó 63 minutos con el cerrojo de LibreOffice tomado, y mientras revisaba había otras sesiones ejecutando pipelines del examen (Ahold y Jumbo) y otra revisión esperando el cerrojo con plazo. El disco estaba al 76–79 % con otras copias en uso. Repetí una a una todas las baterías que tocan lo que cambia esta rama. Lo que no repetí es el resto de `completa`: batería sintética, vigencia H5, juicio, entradas, entrada efectiva, relevo, V6.4, trazabilidad, integridad, auditorías, estados, resumen y cierre. Para esas me apoyo en el registro del autor (`verificacion_completa_e906b06.txt`) y en que después de `e906b06` no cambia código.
 
 **Comprobaciones propias, además de las del autor.**
 
@@ -90,7 +90,7 @@ El puente resta 250 en lugar de 200. La ficha no lleva bloque F1 y el informe no
 
 **Por qué no lo vieron las pruebas.** Las de `EX` pasan el libro ya leído (`L=`) o usan libros escritos con openpyxl. El autor declara que no ejecutó el recorrido de extremo a extremo con el motor B (límite 7). Con la declaración diciendo `US_GAAP` sí funciona: lo comprobé de extremo a extremo. XB1 termina en `no_entregable · límite del modelo` en el paso 7. XB2 llega al paso 14 con F1 evaluado en el paso 12 y utilizable (su estado final, `pendiente_de_investigacion`, lo causan los agentes simulados del motor B, no F1).
 
-**Mismo fallo en otro caso** (XB4): declaración que dice `NIIF` y libro `US GAAP`, motor B. El gancho tampoco se ejecuta, así que la mezcla de normas no se detecta. (Ese pipeline terminó en el paso 8 por otra causa que no investigué.)
+**Mismo fallo en otro caso** (XB4): declaración que dice `NIIF` y libro `US GAAP`, motor B. El gancho tampoco se ejecuta, así que la mezcla de normas no se detecta. Ese pipeline terminó después en el paso 8 por una causa ajena al gancho (`xb4_causa.txt`): la fase B simulada no pudo dar la palanca S2C, porque con mi declaración incompleta el libro V6.3.1 no calcula el ancla.
 
 **Efecto en el valor:** infravalora (el alquiler se cuenta en el EBIT y en la deuda). No es un camino de sobrevaloración, pero es justo lo que la guarda nueva tenía que impedir. Afectaría a Waste Management si sale con el motor B y sin declaración.
 
@@ -113,7 +113,7 @@ series.pagos_arr_financiero_principal.2023: la cifra '0' no está, como cifra co
 
 **Efecto.**
 - **Zoetis**: aunque todo lo demás esté bien, `F1-SERIES` da DATOS INVÁLIDOS y el expediente queda en `pendiente_de_datos`. Si se omite 2023, bloquea `F1-US-C49` por serie incompleta. No hay salida honrada.
-- **«Importe dentro de la fila» igual a cero.** Tres series no son cifras publicadas sino clasificaciones: `pasivo_arr_operativo` (dentro de la fila 23), `circulante_arr_operativo` (dentro de la fila 14) y `da_rou_operativo` (dentro de la fila 8). El documento pide «0 explícito», pero un cero así no tiene cifra impresa que citar. Con el motor B la serie del pasivo es obligatoria: si la fila 23 no lleva pasivo operativo no se puede declarar el cero, y si lo lleva bloquea `F1-US-PUENTE`. Las pruebas del autor pasan porque su fuente sintética escribe un «0» en la página.
+- **«Importe dentro de la fila» igual a cero.** Tres series no son cifras publicadas sino clasificaciones: `pasivo_arr_operativo` (dentro de la fila 23), `circulante_arr_operativo` (dentro de la fila 14) y `da_rou_operativo` (dentro de la fila 8). El documento pide «0 explícito», pero un cero así no tiene cifra impresa que citar. Con el motor B la serie del pasivo es obligatoria: si la fila 23 lleva pasivo operativo bloquea `F1-US-PUENTE`, y si no lo lleva no se puede declarar el cero. **Hecho** (`cero_motor_b.txt`): motor B, fila 23 = 0 y pasivo declarado 0. Con la fuente sintética del autor, que escribe un «0» suelto en la página, es utilizable. Con la misma fuente sin ese «0», como en un 10-K real, da `pendiente_de_datos` por `F1-SERIES` (DATOS INVÁLIDOS), tanto con el literal «0» como con «—».
 
 ***Corrección propuesta.*** Aceptar el guion («—», «–», «-») como cero publicado cuando está en la fila declarada. Para los importes «dentro de la fila», permitir un cero con motivo y cita (como el `cero` de la fase 1) en lugar de una cifra impresa.
 
@@ -156,7 +156,9 @@ En los cuatro, el rótulo es «motor A utilizable para una conclusión», sin co
 | Sin `fase1_partes` | 32 de 72 | 13 | 6 | 2 |
 | Con `fase1_partes` veraz | 11 de 72 | 3 | 2 | 0 |
 
-  Todos los errores van al alza (+10 o +20). Los dos «fuera de la cota» y los dos que sobreviven a `fase1_partes` llevan siempre una declaración falsa del tipo (ii) o (iii). **Con declaraciones veraces, la cota de D-US1 cubre el error en todos los casos.**
+  Todos los errores van al alza (+10 o +20). Los dos «fuera de la cota» llevan un tramo con hipótesis y el otro con una declaración falsa del tipo (i) o (ii). Los dos que sobreviven a `fase1_partes` sin condición son del tipo (ii) y del tipo (iii). **Con declaraciones veraces, la cota de D-US1 cubre el error en todos los casos.**
+
+**Los errores a la baja también pasan** (`error_a_la_baja.txt`). En la matriz no aparecen porque en la empresa de referencia (capex = D&A propia) los frena K3c por casualidad. En una empresa que crece al 5 % con capex por encima de su D&A, si la amortización del derecho de uso (2,5 % de las ventas) está de verdad en la fila 8 y se declara «fuera», el flujo sale en 77,6 frente a 116,4 (−33 %), sin condición y sin que salte K3c. Con «no_publicada» sale igual, pero condicionado y con una cota (+46,5) que cubre el error. Es un error conservador, pero es un valor mal calculado.
 
 **Por qué `F1-US-FILAS` no basta** (amplía el límite 2 del autor):
 1. Sin `fase1_partes` solo informa, y el pipeline sigue (así llegan a `concluido` X0–X3 y el PU1 del autor).
@@ -208,14 +210,14 @@ Es el riesgo (a) del autor. Lo juzgo en el §3 y redacto la decisión en el §5.
 
 *Interpretación.* Zoetis solo pasa si `C49` vale 1,0 y la fila 17 lleva —/1/2. Eso depende de que la fase 1 recoja el principal de la nota (su instrucción lo pide «(principal; IFRS 16) … estado de flujos», y Zoetis no lo tiene en el estado de flujos) y de resolver R1-2. Bloquear por el 0,05 % del FCF base es coherente con que no hay umbral adoptado, pero conviene que la persona lo sepa. El mensaje de E6 es engañoso: es redondeo de la etapa 1, no pagos operativos. La tolerancia (0,005) supone dos decimales; la etapa 1 de Zoetis usa uno y la de Nike, ninguno.
 
-**Waste Management** (10-K 2025, nota 7; `adversarial_capa.txt`, F1). Publica «financing lease expense» 96/73/58, que suma amortización e interés, y «cash paid» 101/90/60 sin separar el principal. Lleva esos pasivos dentro de la deuda (563) y los activos dentro del inmovilizado (568). La capa exige `da_rou` y `pagos_arr_financiero_principal` por año:
+**Waste Management** (informe anual 2025, nota 7; la caja pagada de 2023, del informe de 2024; `adversarial_capa.txt`, F1). Publica «financing lease expense» 96/73/58, que suma amortización e interés, y «cash paid» 101/90/60 sin separar el principal. Lleva esos pasivos dentro de la deuda (563) y los activos dentro del inmovilizado (568). La capa exige `da_rou` y `pagos_arr_financiero_principal` por año:
 
 ```
 F1-US-DESGLOSE · INCOMPLETO · series.da_rou sin declarar en [2023, 2024, 2025]
 F1-US-C49 · INCOMPLETO · series.pagos_arr_financiero_principal sin declarar en [2023, 2024, 2025]
 ```
 
-Con el motor A queda en `pendiente_de_datos` y no hay declaración honrada que lo evite. Necesita regla: decisión 2 del §5.
+Con el motor A queda en `pendiente_de_datos` y no hay declaración honrada que lo evite. Necesita regla: decisión 2 del §5, donde mido el efecto de la alternativa más simple (8 millones al año, el 0,35 %).
 
 ---
 
@@ -227,7 +229,7 @@ Con el motor A queda en `pendiente_de_datos` y no hay declaración honrada que l
 |---|---|---|
 | N1 · control | DATOS INVÁLIDOS («manda el dato») | bloquea, como debe |
 | N2 · la serie `pasivo_arr_operativo` lleva `fila`: «Operating lease liabilities» (la etiqueta del balance) | no salta | **utilizable, condicionada, 78 frente a 68** |
-| N3 · la cita de «operativos.existen» es «Operating lease liabilities» | no salta | **utilizable, 78** |
+| N3 · la cita de «operativos.existen» es «Operating lease liabilities» | no salta | **utilizable, condicionada, 78** |
 
 **Causa.** La página se da por limpia si la línea contiene **cualquier** cita o etiqueta `fila` de la declaración. La intención es no señalar la línea del otro tramo ya declarado, pero vale también la etiqueta del balance o la cita de existencia.
 
@@ -278,7 +280,7 @@ El caso «variación del pasivo sola en la fila 14» es frecuente, y el autor lo
 ***Propuesta.*** Resolverlo en origen. La instrucción de la fase 1 (`prompts/historia_anio.md`) no está adaptada a US GAAP:
 - pide «TODAS las líneas de variación del capital circulante»;
 - pide «amortizaciones y depreciaciones»;
-- pide el principal y el pasivo «NIIF 16 (solo esos)».
+- pide el principal «(principal; IFRS 16)» y el pasivo «NIIF 16 / IFRS 16 (solo esos)».
 
 Con US GAAP convendría que las líneas propias del arrendamiento operativo no se sumaran ni en `da` ni en `circulante_lineas` y se anotaran aparte. Así el caso frecuente quedaría «fuera de las filas», lo calcularía la V6.3.1 tal cual y `F1-US-FILAS` lo comprobaría. Es un cambio de especificación de la fase 1, fuera de esta rama. La persona debe conocerlo.
 
@@ -351,8 +353,8 @@ D-US2 manda dos cosas, contar los pagos y no bloquear. En un caso concreto (los 
 La fase 1 de las dos no se ha ejecutado. Lo que sigue sale de sus 10-K (texto de `zoetis_t1` y PDF de la Release del examen), de la etapa 1 de Zoetis y de la instrucción de la fase 1. Es una previsión.
 
 **La parte de los arrendamientos operativos sirve.** Ninguna de las dos muestra líneas del arrendamiento en el estado de flujos:
-- **Zoetis** (página 70): «Depreciation and amortization expense 487», «Other non-cash adjustments», «Other assets», «Other liabilities». Su D&A (487) es 330 de depreciación más 157 de amortización de intangibles.
-- **WM** (página 78): «Depreciation, depletion and amortization 2.863», que es 2.442 más 421 de intangibles, y cinco líneas de circulante sin arrendamientos.
+- **Zoetis** (página 70 del PDF del 10-K FY2025): «Depreciation and amortization expense 487», «Other non-cash adjustments», «Other assets», «Other liabilities». Su D&A (487) es 330 de depreciación más 157 de amortización de intangibles.
+- **WM** (página impresa 78 del informe anual 2025): «Depreciation, depletion and amortization 2.863», que es 2.442 más 421 de intangibles, y cinco líneas de circulante sin arrendamientos.
 
 Por tanto, en las dos los tramos son «no_publicada»: hipótesis D-US1, conclusión condicionada. La fase 1 sumaría en las filas 8 y 14 solo líneas que no nombran el arrendamiento, así que `F1-US-FILAS` no saltaría. Es el caso que la V6.3.1 calcula tal cual. Cota en Zoetis (pagos 67/61/57, coste 68/59/56): unos 64 millones en cada sentido, del orden del 3 % del flujo sin crecimiento (calculada con un libro sintético de sus cifras; la exacta saldrá del expediente).
 
@@ -390,7 +392,7 @@ Por tanto, en las dos los tramos son «no_publicada»: hipótesis D-US1, conclus
 
 | Opción | Qué pasa | Efecto |
 |---|---|---|
-| **A · No bloquear** | Se publica el valor de la hoja, que cuenta el coste, y al lado se enseña cuánto cambiaría contando los pagos | Nike y similares pueden concluir. El valor se aparta en la diferencia entre pagos y coste: 1,4 % del flujo en el ejemplo de prueba; con las cifras de Zoetis sería del 0,03 %. Puede ir a favor o en contra |
+| **A · No bloquear** | Se publica el valor de la hoja, que cuenta el coste, y al lado se enseña cuánto cambiaría contando los pagos | Nike y similares pueden concluir. El valor se aparta en la diferencia entre pagos y coste: 1,4 % del flujo en el ejemplo de prueba; con unos pagos y un coste tan parejos como los de Zoetis (61,7 y 61,0) sería del 0,03 %. Puede ir a favor o en contra |
 | **B · Bloquear siempre** (lo que hay hoy) | Esas empresas no concluyen hasta tener una hoja nueva | Seguro, pero deja fuera a empresas por diferencias mínimas y va contra el «sin bloquear» |
 | **C · Tope** | No bloquea si la diferencia es menor que un tope que tú fijes; bloquea si es mayor | Intermedio; hay que fijar el tope |
 
@@ -403,13 +405,17 @@ Por tanto, en las dos los tramos son «no_publicada»: hipótesis D-US1, conclus
 
 | Opción | Qué pasa | Efecto |
 |---|---|---|
-| **A · Tratarlos como deuda y activos propios**, como hipótesis declarada | No se piden esas cifras; su amortización se queda dentro de la reinversión y sus pagos, dentro de la deuda | WM puede concluir con el motor A. Límite: las altas de esos activos no pasan por el capex. Hay que enseñarlo con su tamaño |
+| **A · Tratarlos como deuda y activos propios**, como hipótesis declarada | No se piden esas cifras; su amortización se queda dentro de la amortización propia y sus pagos no se restan de la caja base | WM puede concluir con el motor A. El flujo sin crecimiento queda por encima del «correcto» en (principal − amortización). Con lo publicado es (caja pagada − gasto total) = 83,7 − 75,7 = **8 millones al año, el 0,35 %** de su CFO − capex medio (2.266): el interés está en las dos cifras y se compensa. Hay que enseñarlo |
 | **B · «Faltan datos»** (lo que hay hoy) | WM no concluye con el motor A | Seguro; el examen pierde ese caso con el motor A |
-| **C · Estimar el reparto** con método, rango y revisión | Se declara una estimación, no un dato | Más trabajo; conserva su naturaleza de estimación |
+| **C · Estimar el reparto** con método, rango y revisión | Se declara una estimación, no un dato. Una variante con cifras publicadas: tomar la caja pagada (101/90/60) como principal y el gasto total (96/73/58) como amortización | Más trabajo; conserva su naturaleza de estimación. En la variante, el interés entra de más en un lado y de menos en el otro: se compensa en el flujo sin crecimiento, pero no en la caja base ni en el ancla |
 
-**Relacionado, para Zoetis** (no hace falta decidir si se registra el dato): su arrendamiento financiero es de 1 millón al año sobre una caja de 1.995. Hoy bloquea si `C49` no lleva ese millón. Se arregla registrando `C49` = 1,0. Si prefieres que los importes mínimos no bloqueen, hace falta un tope de materialidad, que es una decisión tuya y hoy no existe.
+*Interpretación en que se apoya la cifra de la opción A:* «cash paid» es principal más interés y «financing lease expense» es amortización más interés. Si «cash paid» fuera solo el principal, la diferencia sería 8 más el interés (unos 28 millones con el 4,9 % que WM publica sobre un pasivo de 563): del orden del 1,5 %. La propuesta de la opción C no está revisada.
 
-**Sin decisión nueva** (correcciones técnicas): R1-1, R1-2, R1-3, R1-6, R1-7, R1-8, R1-9 y R1-12 a R1-15. **Para tu información:** R1-10, que propone cambiar la instrucción de la fase 1 para US GAAP. Es especificación de extracción, no política, pero cambia qué entra en las filas 8 y 14.
+**Recomendación del revisor:** A, con la diferencia a la vista.
+
+**Relacionado, para Zoetis** (no hace falta decidir si se registra el dato): su arrendamiento financiero es de 1 millón al año sobre una caja de 1.995. Hoy bloquea si `C49` no lleva ese millón. Se arregla registrando `C49` = 1,0. Con sus cifras, tratarlo como deuda daría el mismo flujo (principal medio 1,0 = amortización 1,0). Si prefieres que los importes mínimos no bloqueen, hace falta un tope de materialidad, que es una decisión tuya y hoy no existe.
+
+**Sin decisión nueva** (correcciones técnicas): R1-1 a R1-3, R1-6 a R1-9 y R1-11 a R1-16. **Para tu información:** R1-10, que propone cambiar la instrucción de la fase 1 para US GAAP. Es especificación de extracción, no política, pero cambia qué entra en las filas 8 y 14.
 
 ---
 
@@ -419,11 +425,12 @@ Por tanto, en las dos los tramos son «no_publicada»: hipótesis D-US1, conclus
 - No ejecuté la fase 1 ni el pipeline con Zoetis o Waste Management reales: el §4 es una previsión.
 - No cuantifiqué Nike con sus cifras: su 10-K no está en el árbol.
 - No contrasté las citas con el texto literal de la Codificación.
-- En XB4 no investigué por qué el pipeline terminó en el paso 8.
 - No revisé la plantilla V6.4.1 con US GAAP (límite 5 del autor).
 - Todo el recálculo es con LibreOffice; Excel real, sin probar (igual que el autor).
 
 ## Anexo · Evidencia
+
+Todo está en `evidencia/`. Para repetir los guiones hace falta una copia de `munger_v2_r1` en `34b68fc` con sus binarios: se indica con la variable `COPIA_REVISION` (por defecto, la ruta de mi copia, ya borrada). Los que usan LibreOffice se lanzan con `flock /home/user/e_work/libreoffice.lock`. Queda otra copia de guiones y salidas en `/home/user/e_work/revision_usgaap/`.
 
 | Archivo | Qué es |
 |---|---|
@@ -431,11 +438,14 @@ Por tanto, en las dos los tramos son «no_publicada»: hipótesis D-US1, conclus
 | `adversarial_capa.py` → `adversarial_capa.txt` | grupos B, C, D, E (Zoetis), F (WM), N y G (motor B) |
 | `matriz_verdad_declaracion.py` → `.txt` | 72 pares verdad × declaración, sin y con `fase1_partes` |
 | `adversarial_pipeline.py` → `adversarial_pipeline.txt`, `X3_salidas/` | X0–X3 y XB1–XB3 de extremo a extremo |
-| `xb3_diag.py` → `xb3_diag.txt` | causa de R1-1 |
+| `error_a_la_baja.py` → `error_a_la_baja.txt` | error a la baja en una empresa que crece (R1-3) |
+| `xb3_diag.py` → `xb3_diag.txt`; `xb4_causa.py` → `xb4_causa.txt` | causa de R1-1 y motivo del paso 8 en XB4 |
+| `cero_motor_b.py` → `cero_motor_b.txt` | el cero del pasivo operativo con el motor B (R1-2) |
+| `vigencia_expedientes.py` → `vigencia_41_expedientes.txt` | estado F1 de los expedientes del árbol con la base y con la entrega |
 | `zoetis_texto_real.py` → `zoetis_texto_real.txt` | declaración de Zoetis contra el texto real de su 10-K FY2025 |
 | `diferencial_niif_worker.py`, `comparar_diferencial.py` → `diferencial_niif.txt` | base `1694f08` frente a la entrega, 425 casos NIIF |
 | `fuzz_us.py` → `fuzz_us.txt` | 3.000 declaraciones mal formadas |
-| `escanear_l4.py` | valores de `Control maestro L4` en un árbol |
+| `escanear_l4.py` → `escanear_l4.txt` | valores de `Control maestro L4` en el árbol y en los expedientes del examen |
 | `ficha_elis_base_vs_entrega.txt` | las dos claves nuevas de la ficha con NIIF (las otras 26 diferencias de ese archivo son de mi árbol parcial de la base, que no pudo ejecutar la verificación de entradas; no son de la entrega) |
 | `correr_lo.sh`, `limpiar_copia.py` | reproducción de las pruebas con LibreOffice y limpieza de la copia |
 | `test_*.txt`, `mutaciones_usgaap.txt`, `prueba_pipeline_*.txt`, `probar_*.txt`, `regresion_elis_f1.txt`, `verificar_paquete_rapida_*.txt` | salidas de las pruebas del autor reproducidas |

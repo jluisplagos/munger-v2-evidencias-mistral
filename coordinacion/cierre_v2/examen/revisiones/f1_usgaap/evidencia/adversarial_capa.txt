@@ -1,0 +1,107 @@
+== B · la variación del pasivo (10 al año) está de verdad dentro de la fila 14; la declaración dice «fuera de las filas 8 y 14» con cita real
+  → B1 · sin fase1_partes (F1-US-FILAS solo informa), libro V6.3, A0
+     utilizable: True · estado propuesto: None · bloquean: []
+     flujo sin crecimiento: 78.0 (correcto: 68.0; exceso: 10.0 = +14.7 %)
+     rótulo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+     K3b: una vez · K3 conforme: True · condicionada: no
+     F1-US-FILAS: INFORMA · sin fase1_partes en el expediente: las ubicaciones declaradas de los tramos del arrendamiento operativo no se han podido contrastar con las 
+  → B1v · lo mismo en un libro V6.3.1 con A2 (regla general F1-A)
+     utilizable: True · estado propuesto: None · bloquean: []
+     flujo sin crecimiento: 78.0 (correcto: 68.0; exceso: 10.0 = +14.7 %)
+     rótulo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+     K3b: una vez · K3 conforme: True · condicionada: no
+  → B2 · con fase1_partes y la línea de la fila 14 rotulada «Accrued and other liabilities» (no nombra el arrendamiento)
+     utilizable: True · estado propuesto: None · bloquean: []
+     flujo sin crecimiento: 78.0 (correcto: 68.0; exceso: 10.0 = +14.7 %)
+     rótulo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+     K3b: una vez · K3 conforme: True · condicionada: no
+     F1-US-FILAS: salta=False · las ubicaciones declaradas no contradicen las líneas que la fase 1 sumó en las filas 8 y 14 (0 y 0 líneas con «arrendamiento» o «derecho de uso» en los años que usa el modelo)
+  → B3 · etiqueta real de Nike 2025 para la línea que lleva «operating lease liabilities» (concepto abreviado por el agente; linea = segundo renglón)
+     utilizable: True · estado propuesto: None · bloquean: []
+     flujo sin crecimiento: 78.0 (correcto: 68.0; exceso: 10.0 = +14.7 %)
+     rótulo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+     K3b: una vez · K3 conforme: True · condicionada: no
+     F1-US-FILAS: salta=False · las ubicaciones declaradas no contradicen las líneas que la fase 1 sumó en las filas 8 y 14 (0 y 0 líneas con «arrendamiento» o «derecho de uso» en los años que usa el modelo)
+  → B4 · la línea «Operating lease liabilities» solo en el lado «anterior» de AR_2025 (el que da el valor de 2024): F1-US-FILAS salta=False · utilizable True
+  → B5 · «anio» escrito como texto («2025»): F1-US-FILAS salta=False · las ubicaciones declaradas no contradicen las líneas que la fase 1 sumó en las filas 8 y 14 (0 y 0 líneas con «arrendamiento» o «derecho de uso» en lo
+  → B6 (control) · la línea en «actual» de AR_2025: F1-US-FILAS bloquea=True
+  → B7 · el mismo libro con los tramos «no_publicada» (D-US1): condicionada, con cota
+     utilizable: True · estado propuesto: None · bloquean: []
+     flujo sin crecimiento: 78.0 (correcto: 68.0; exceso: 10.0 = +14.7 %)
+     rótulo: motor A utilizable para una conclusión CONDICIONADA según F1 · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento oper
+     K3b: una vez · K3 conforme: True · condicionada: sí
+     cota · si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como …: -12.000 mm (-15.4 %)
+     cota · si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 1…: +12.000 mm (+15.4 %)
+
+== C · la amortización del derecho de uso operativo NO está en la fila 8 (D&A = 20 propia) y se declara «fila_8» con da_rou_operativo = 10
+  → C1 · libro V6.3.1, A2, fase1_partes con «Depreciation and amortization» (sin arrendamiento): nada lo contradice
+     utilizable: True · estado propuesto: None · bloquean: []
+     flujo sin crecimiento: 78.0 (correcto: 68.0; exceso: 10.0 = +14.7 %)
+     rótulo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+     K3b: una vez · K3 conforme: True · condicionada: no
+     F1-US-FILAS: salta=False · F1-SERIES: salta=False · F1-LIBRO: salta=False · V-F1e: salta=False · K3c: salta=False
+
+== D · los dos tramos netos dentro de la fila 14 (caso Nike: líneas mixtas) y pagos ≠ coste lineal
+  → D · pagos 11, coste 12: bloquean ['F1-LIBRO'] · estado no_entregable · limite_del_modelo · capa (pagos) 69.0 · libro tal cual (coste) 68.0 · diferencia 1.0 mm = +1.449 % del flujo
+  → D · pagos 12,001, coste 12 (una milésima): bloquean ['F1-LIBRO'] · estado no_entregable · limite_del_modelo · capa (pagos) 67.999 · libro tal cual (coste) 68.0 · diferencia -0.001 mm = -0.001 % del flujo
+  → D · pagos = coste: bloquean [] · estado None · capa (pagos) 68.0 · libro tal cual (coste) 68.0 · diferencia 0.0 mm = +0.000 % del flujo
+  → D · pagos y coste solo en la ventana (lo que exige D-US2) y no en 2021–2022: bloquean ['F1-LIBRO', 'F1-US-DESGLOSE'] · series.circulante_arr_operativo sin declarar en [2021, 2022] (importe del arrendamiento operativo dentro de la fila 14, con el signo de esa fila, en la ventana de f y en 
+
+== E · caso Zoetis (cifras de su 10-K 2025 y de su etapa 1): operativos «no publicados»; un arrendamiento financiero de 1 mm; C49 vacío por inmaterial
+  → E1 · C49 vacío (etapa 1: «inmaterial: celda vacía»), fila 17 = 0/1/2: utilizable False · estado pendiente_de_datos · bloquean ['F1-C49', 'F1-K3a', 'F1-K3b', 'F1-M-SIM'] · flujo 2264.1
+       F1-C49 · INCOMPLETO · Análisis C49 (principal de arrendamientos del FCF base) vacío: vacío no es cero
+       F1-M-SIM · FUERA DEL DOMINIO · perímetro A2_propio con D&A ROU 3.0 > 0 y C49 = None (cero o vacío): f devolvería la ROU sin que los pagos estén en el FCF base; el alquiler no se contaría ninguna vez
+       F1-K3b · MODELO NO APLICABLE · alquiler mal contado en la proyección con el perímetro A2_propio (financieros ninguna vez): cada clase debe contarse una vez
+       F1-K3a · DATOS INVÁLIDOS · caja base por dos vías: faltan Análisis C46–C52 o las filas 11, 12, 16, 17 o 18 de la ventana: no se puede descomponer la diferencia; diferencia total sin explicar: +1.000000
+  → E2 · C49 = 0 explícito, fila 17 = 0/1/2: utilizable False · estado pendiente_de_datos · bloquean ['F1-K3a', 'F1-K3b', 'F1-M-SIM', 'F1-US-C49'] · flujo 2264.1
+       F1-US-C49 · DATOS INVÁLIDOS · C49 = 0.0 no alcanza el principal publicado de los arrendamientos financieros (1.0 de media en la ventana): la diferencia (1.0) se pagó en financiación y no está en el FCF base: se omitiría
+       F1-M-SIM · FUERA DEL DOMINIO · perímetro A2_propio con D&A ROU 3.0 > 0 y C49 = 0.0 (cero o vacío): f devolvería la ROU sin que los pagos estén en el FCF base; el alquiler no se contaría ninguna vez
+       F1-K3b · MODELO NO APLICABLE · alquiler mal contado en la proyección con el perímetro A2_propio (financieros ninguna vez): cada clase debe contarse una vez
+       F1-K3a · DATOS INVÁLIDOS · caja base por dos vías: componente C49: +1.000000 en la caja base frente a la fila 35, explicado +0.000000; diferencia total sin explicar: +1.000000
+  → E3 · C49 = 1,0 (media del principal publicado 0/1/2), fila 17 = 0/1/2: utilizable True · estado None · bloquean [] · flujo 2263.1
+  → E4 · C49 = 1,0 y da_rou = 0 (la D&A de 487 = 330 + 157 no lleva la amortización del derecho de uso financiero): bloquean ['F1-ROU-HISTORIA']
+       F1-ROU-HISTORIA · D&A ROU declarada a cero en la ventana y la Historia muestra arrendamientos (principal fila 17 en [2024, 2025]; pasivo fila 23 en [])
+  → E5 · C49 = 1,0, da_rou = 1 (fila 86 = 1): utilizable True · bloquean [] · motor A utilizable para una conclusión CONDICIONADA según F1 · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la a
+       cota · si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se o…: -64.2 mm (-2.84 %)
+       cota · si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dent…: +63.5 mm (+2.81 %)
+       F1-US-BASE: arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); coste lineal medio 61.000, pagos medios 61.667: coste − pagos = -0.667 de media en la ventana (-0.694 a la escala del año base)
+  → E6 · redondeo: principal 5/6/6 (media 5,667) y C49 = 5,7 (un decimal): F1-US-C49 salta=True · DATOS INVÁLIDOS · C49 = 5.7 supera en 0.03333333333333333 el principal publicado de los arrendamientos financieros (5.666666666666667 de media en la ventana): con US GAAP los pagos de los arrendamientos operativos ya están en el CFO; restarlos además en C49 
+
+== F · caso Waste Management (10-K 2025): «operating lease expense» 427/264/189 (incluye corto plazo y variable) frente a caja pagada 214/103/77 (2025/2024/2023; la de 2023, del informe de 2024); financieros sin desglosar
+  → F1 · financieros = true sin da_rou ni principal (WM publica 96/73/58 de «financing lease expense», amortización + interés, y 101/90/60 de caja pagada, sin separar el principal): bloquean ['F1-LIBRO', 'F1-PERIMETRO', 'F1-US-C49', 'F1-US-DESGLOSE'] · estado pendiente_de_datos
+       F1-US-DESGLOSE · INCOMPLETO · series.da_rou sin declarar en [2023, 2024, 2025] (amortización del derecho de uso de los arrendamientos financieros dentro de la fila 8)
+       F1-US-C49 · INCOMPLETO · series.pagos_arr_financiero_principal sin declarar en [2023, 2024, 2025]: sin el principal publicado de los arrendamientos financieros no se puede comprobar que C49 no lleva pagos de los operativos
+  → F2 · (a escala de la empresa de referencia) lo que queda «a la vista» con el coste publicado de WM: arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); coste lineal medio 293.333, pagos medios 131.333: coste − pagos = +162.000 de media en la ventana (+162.000 a la escala del año base)
+       nota del resultado: D-US2: se cuentan los pagos. Si se contara el coste lineal, el flujo sin crecimiento cambiaría en −(coste − pagos) a la escala del año base
+
+== N · «no_publicada» con una página que SÍ muestra la línea: la exclusión por «declaradas» y los patrones
+  → N1 (control) · página con «Operating lease liabilities (10)»: F1-SERIES bloquea=True · arrendamientos_us_gaap.operativos.amortizacion_rou: «no_publicada», pero la página 4 de '10-K sintético' muestra una línea del arrendamiento operativo
+  → N2 · la misma página, y la serie pasivo_arr_operativo lleva «fila»: «Operating lease liabilities» (la etiqueta del balance)
+     utilizable: True · estado propuesto: None · bloquean: []
+     flujo sin crecimiento: 78.0 (correcto: 68.0; exceso: 10.0 = +14.7 %)
+     rótulo: motor A utilizable para una conclusión CONDICIONADA según F1 · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento oper
+     K3b: una vez · K3 conforme: True · condicionada: sí
+     F1-SERIES: salta=False · US GAAP · 2 clasificaciones con su cita en la página citada y 2 páginas examinadas sin línea propia (D-US1) · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una pá
+  → N3 · la misma página, y la cita de «operativos.existen» es «Operating lease liabilities»: F1-SERIES salta=False · utilizable True · flujo 78.0
+  → N4 · etiquetas reales de estados de flujos frente a los dos patrones (página de «no_publicada»: _LINEA_ARR_OP sin _LINEA_ARR_NO; fase1_partes: _LINEA_ARR)
+       'Operating lease liabilities'                                                    página de «no_publicada»: la ve     · fase1_partes: la ve
+       'Non-cash lease expense'                                                         página de «no_publicada»: la ve     · fase1_partes: la ve
+       'Noncash operating lease cost'                                                   página de «no_publicada»: la ve     · fase1_partes: la ve
+       'Operating lease right-of-use assets'                                            página de «no_publicada»: NO la ve  · fase1_partes: la ve
+       'Reduction in the carrying amount of right-of-use assets'                        página de «no_publicada»: NO la ve  · fase1_partes: la ve
+       'Amortization of ROU assets'                                                     página de «no_publicada»: NO la ve  · fase1_partes: la ve
+       'Operating lease assets and liabilities, net'                                    página de «no_publicada»: la ve     · fase1_partes: la ve
+       'Lease assets and liabilities, net'                                              página de «no_publicada»: NO la ve  · fase1_partes: la ve
+       'Operating leases, net'                                                          página de «no_publicada»: NO la ve  · fase1_partes: la ve
+       'Operating lease asset amortization'                                             página de «no_publicada»: NO la ve  · fase1_partes: la ve
+       'Amortization of operating and finance lease right-of-use assets'                página de «no_publicada»: NO la ve  · fase1_partes: la ve
+       'Right-of-use assets'                                                            página de «no_publicada»: NO la ve  · fase1_partes: la ve
+       'Changes in operating lease right‑of‑use assets'                                 página de «no_publicada»: NO la ve  · fase1_partes: la ve
+       'Other assets and liabilities, including operating leases'                       página de «no_publicada»: NO la ve  · fase1_partes: la ve
+
+== G · motor B con US GAAP
+  → G1 · libro con L4 = «U.S. GAAP» (fuera de la lista) y sin declaración: exigido_puente = False (motor B: no se evalúa nada; el puente resta los 50); con el motor A el mismo libro: exigido = True
+  → G2 · motor B, expediente sin libro evaluado legible: us_gaap_del_expediente = False (falla en abierto); motor A sin libro: exigido = True (falla en cerrado)
+  → G3 · motor B, «operativos.existen = false» (falso) con 50 de pasivo operativo en la fila 23: utilizable True · motor B utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real) (el puente resta 150 en vez de 100: infravalora)
+  → G4 · motor B · D&A propia (ancla correcta): Historia C53 (ancla de S2C) = 2.0                    · F1: utilizable True · bloquean []
+  → G4 · motor B · D&A con la amortización operativa (2,5 % de las ventas) dentro: Historia C53 (ancla de S2C) = ''                     · F1: utilizable True · bloquean []

@@ -1,0 +1,24 @@
+
+== XB3 · sin motor_a_f1.json
+   estado final: concluido · paso 14 · motor B · registro F1 en el estado: None · ¿existe motor_a_f1_resultado.json?: False
+   libro recalculado (recalc/, el que recibe el gancho): LibroV63.leer(Control maestro, L4) = '1149' → norma_del_libro = None · leer_libro (openpyxl) = 'US GAAP' → US_GAAP
+      Historia L22 = 200 · L23 = 50 · C64 = 250 (lo que resta el puente)
+   libro evaluado del expediente: LibroV63.leer(Control maestro, L4) = 'US GAAP' → norma_del_libro = US_GAAP · leer_libro (openpyxl) = 'US GAAP' → US_GAAP
+      Historia L22 = 200 · L23 = 50 · C64 = 250 (lo que resta el puente)
+   us_gaap_del_expediente(carpeta) = False · exigido_puente(carpeta, libro recalculado) = False · con el libro leído entero (L=leer_libro): True
+   vigencia(motor B): exigido False · motivo: el motor no es el A
+   objeción F1 del cierre a «concluido»: None
+   ficha: estado concluido · cubo Vigilar · bloque motor_a_f1 en la ficha: no
+   informe.md nombra F1: False
+
+== XB4 · declaración F1 que dice NIIF (mezcla) con libro US GAAP
+   estado final: no_entregable · paso 8 · motor B · registro F1 en el estado: None · ¿existe motor_a_f1_resultado.json?: False
+   libro recalculado (recalc/, el que recibe el gancho): LibroV63.leer(Control maestro, L4) = '1147' → norma_del_libro = None · leer_libro (openpyxl) = 'US GAAP' → US_GAAP
+      Historia L22 = 200 · L23 = 50 · C64 = 250 (lo que resta el puente)
+   libro evaluado del expediente: LibroV63.leer(Control maestro, L4) = 'US GAAP' → norma_del_libro = US_GAAP · leer_libro (openpyxl) = 'US GAAP' → US_GAAP
+      Historia L22 = 200 · L23 = 50 · C64 = None (lo que resta el puente)
+   us_gaap_del_expediente(carpeta) = False · exigido_puente(carpeta, libro recalculado) = False · con el libro leído entero (L=leer_libro): True
+   vigencia(motor B): exigido False · motivo: el motor no es el A
+   objeción F1 del cierre a «concluido»: None
+   ficha: estado no_entregable · cubo None · bloque motor_a_f1 en la ficha: sí
+   informe.md nombra F1: True

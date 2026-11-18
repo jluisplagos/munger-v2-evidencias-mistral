@@ -1,0 +1,14 @@
+PASA  · P6 · V6.3.1: plantilla_activa.json registra la V6.3.1 F1 y el libro lleva el perímetro declarado (C85 = C89 = A1_sin_ROU, D_X = D&A − ROU) · plantilla V6.3.1 F1 · C89 'A1_sin_ROU'
+PASA  · P6 · con arrendamientos y A1 declarado: F1-LIBRO no salta (libro = capa) y F1 no bloquea; gancho en los pasos 7 y 12; pasa de la fase B · código 0 · estado concluido · paso 14 · bloquean []
+PASA  · P6 · estado final concluido; ficha con la plantilla V6.3.1 F1 y motor_a_f1 «utilizable» con el perímetro efectivo del libro · estado concluido · ficha concluido
+PASA  · P6 · el resumen va a resumen_v2_v631_f1.csv (no a resumen_v2.csv) · ['resumen_v2_v631_f1.csv']
+PASA  · P9 · R21a: resultado F1 borrado y «--reiniciar --desde 13» → llamada rechazada (código 2), aprobación retirada: ninguna ficha oficial concluido · código 2 · ficha (None, 'None') · iciado pierde el motor y la evaluación F1 y no se repiten los pasos que los fijan). Relanzar con «--reiniciar» solo (desde el principio) o con «--desde N» solo.
+PASA  · P9 · R21b: además la declaración cambiada (30 % → 40 %): «--reiniciar --desde 13» rechazado; «--desde 13» → F1-LIBRO bloquea, sin concluido · códigos 2/0 · estado no_entregable · paso 12 · ficha ('no_entregable', 'None')
+PASA  · P9 · R21c: el estado sin el motor (expediente anterior a F1) y sin resultado: vigencia() lee el motor de fase_a.json (A, no vigente) y «--desde 13» repone el motor, evalúa F1 de nuevo y solo concluye con una evaluación F1 vigente y utilizable · vigencia sin evaluación F1 (motor_a_f1_resultado.json) · código 0 · estado concluido · F1 True
+PASA  · P8 · declaración cambiada (D&A ROU 30 % → 31 %) y «--desde 7»: el libro ya no corresponde; F1-LIBRO bloquea y no hay conclusión · código 0/0 · estado no_entregable · paso 7 · el libro V6.3.1 F1 no calcula lo declarado (A1_sin_ROU; N1 y los términos explícitos no están en el libro): D&A de derechos de uso 2016: libro (Historia C86) 6.
+PASA  · P7 · la misma declaración con la V6.3: el paso 7 termina en no_entregable · límite del modelo con F1-LIBRO; sin plantilla_activa.json · estado no_entregable · paso 7 · ['F1-LIBRO: LÍMITE DECLARADO · el libro V6.3 calcula el perímetro A0 sin normalizar y sin términos explícitos; con A1_sin_ROU: su va']
+9/9 pruebas de la V6.3.1 F1 en el pipeline PASAN
+
+real	4m21.936s
+user	1m56.261s
+sys	0m22.652s

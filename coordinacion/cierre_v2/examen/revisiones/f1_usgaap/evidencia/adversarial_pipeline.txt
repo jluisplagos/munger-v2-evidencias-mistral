@@ -1,0 +1,72 @@
+
+== X0 · control: tramos «fuera» (verdad); fila 14 sin partidas del arrendamiento
+   estado final: concluido · paso 14 · motor A · F1 en el paso 12 · bloquean []
+   rótulo F1: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+   f declarada 0.001999980285855 · flujo sin crecimiento 148.000019714 · condicionada: no · K3b: una vez
+   F1-US-FILAS · salta True · INFORMA · sin fase1_partes en el expediente: las ubicaciones declaradas de los tramos del arrendamiento operativo no se han podido contrastar con las líneas que la fase 1 sumó en las filas 8 y 14
+   F1-US-PUENTE · salta True · INFORMA · la fila 23 lleva 50.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en el capital invertido y en el ROIC histórico del libro (filas 32–33) y en Historia C64. Deuda coheren
+   precio.json: {"ponderado": 22.5621897153833}
+   ficha: estado concluido · cubo Vigilar · precio de Sí None
+
+== X1 · (b) la variación del pasivo (2,5 al año) está dentro de la fila 14 y se declara «fuera» con cita real; sin fase1_partes
+   estado final: concluido · paso 14 · motor A · F1 en el paso 12 · bloquean []
+   rótulo F1: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+   f declarada -0.000694696895022 · flujo sin crecimiento 150.694696895 · condicionada: no · K3b: una vez
+   F1-US-FILAS · salta True · INFORMA · sin fase1_partes en el expediente: las ubicaciones declaradas de los tramos del arrendamiento operativo no se han podido contrastar con las líneas que la fase 1 sumó en las filas 8 y 14
+   F1-US-PUENTE · salta True · INFORMA · la fila 23 lleva 50.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en el capital invertido y en el ROIC histórico del libro (filas 32–33) y en Historia C64. Deuda coheren
+   precio.json: {"ponderado": 22.9193686873078}
+   ficha: estado concluido · cubo Vigilar · precio de Sí None
+
+== X2 · «fila_8» falsa: da_rou_operativo = 3,0 declarado dentro de una D&A que no lo lleva (cita «Depreciation and amortization»)
+   estado final: concluido · paso 14 · motor A · F1 en el paso 12 · bloquean []
+   rótulo F1: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+   f declarada -0.001233632331198 · flujo sin crecimiento 151.233632331 · condicionada: no · K3b: una vez
+   F1-US-FILAS · salta True · INFORMA · sin fase1_partes en el expediente: las ubicaciones declaradas de los tramos del arrendamiento operativo no se han podido contrastar con las líneas que la fase 1 sumó en las filas 8 y 14
+   F1-US-PUENTE · salta True · INFORMA · la fila 23 lleva 50.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en el capital invertido y en el ROIC histórico del libro (filas 32–33) y en Historia C64. Deuda coheren
+   precio.json: {"ponderado": 22.9577438218355}
+   ficha: estado concluido · cubo Vigilar · precio de Sí None
+
+== X3 · D-US1 («no_publicada»): presentación de la cota
+   estado final: concluido · paso 14 · motor A · F1 en el paso 12 · bloquean []
+   rótulo F1: motor A utilizable para una conclusión CONDICIONADA según F1 · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se 
+   f declarada 0.001999980285855 · flujo sin crecimiento 148.000019714 · condicionada: sí · K3b: una vez
+   F1-US-FILAS · salta True · INFORMA · sin fase1_partes en el expediente: las ubicaciones declaradas de los tramos del arrendamiento operativo no se han podido contrastar con las líneas que la fase 1 sumó en las filas 8 y 14
+   F1-US-PUENTE · salta True · INFORMA · la fila 23 lleva 50.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en el capital invertido y en el ROIC histórico del libro (filas 32–33) y en Historia C64. Deuda coheren
+   precio.json: {"ponderado": 22.5621897153833}
+   ficha: estado concluido · cubo Vigilar · precio de Sí None
+   ficha.motor_a_f1.condicionada.cota: {"flujo_sin_crecimiento_con_la_hipotesis": 148.00002, "tramos_con_hipotesis": ["amortizacion_rou", "variacion_pasivo"], "si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos": {"variacion_maxima_de_f": 0.003449187, "variacion_maxima_del_flujo_sin_crecimiento_mm": -3.449187, "variacion_maxima_del_flujo_sin_crecimiento_%": -2.331, "por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)": {"MALO": {"variacion_maxima_del_valor_presente_de_los_flujos_mm": -50.749, "variacion_maxima_%": -2.79}, "NORMAL": {"variacion_maxima_del_valor_presente_de_los_flujos_mm": -74.159, "variacion_maxima_%": -3.23}, "BUENO": {"variacion_maxima_del_valor_presente_de_los_flujos_mm": -78.687, "variacion_maxima_%": -3.07}}}, "si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 
+   informe.md, línea F1: > **Motor A · F1:** utilizable para una conclusión CONDICIONADA (condición necesaria, no suficiente); condicionada a la hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14; US GAAP: se cuentan los pagos del arrendamiento operativo (coste lineal − pagos = +0.100 de media en la ventana); K3: alquiler contado una vez, caja base por dos vías conforme; perímetro declarado: A2_propio; flujo sin crecimiento frente a A0 (diagnóstico): A1_sin_ROU +0.0, A2_propio +0.0, B_cota_capex -40.0. Detalle en motor_a_f1_resultado.md. Apta para dinero real: no.
+   ¿el informe lleva alguna cifra de la cota («mm» o «%» junto a la hipótesis)?: sí · menciones de «cota» en informe.md: 1
+
+== comparación de valor (mismo FCF base, mismas palancas simuladas)
+   X0: estado concluido · f 0.001999980285855 · flujo sin crecimiento 148.000019714 · precio de Sí (ficha) None · precio.json None
+   X1: estado concluido · f -0.000694696895022 · flujo sin crecimiento 150.694696895 · precio de Sí (ficha) None · precio.json None
+   X2: estado concluido · f -0.001233632331198 · flujo sin crecimiento 151.233632331 · precio de Sí (ficha) None · precio.json None
+
+== XB1 · motor B con US GAAP y 50 de pasivo operativo en la fila 23 (declarado)
+   estado final: no_entregable · paso 7 · motor B · F1 en el paso 7 · bloquean ['F1-US-PUENTE']
+   rótulo F1: DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-US-PUENTE
+   f declarada None · flujo sin crecimiento None · condicionada: no · K3b: operativos: dos veces (en el EBIT y en la deuda del puente)
+   F1-US-PUENTE · salta True · BLOQUEA · LÍMITE DECLARADO · el puente del motor B (Historia C64 = fila 22 + fila 23 = 250.0) resta 50.0 de pasivo por arrendamiento operativo, cuyo pago ya está entero en el EBIT que proyecta el motor B: el alquiler se contaría dos veces. 
+   precio.json: {}
+   ficha: estado no_entregable · cubo None · precio de Sí None
+
+== XB2 · motor B con US GAAP, fila 23 a cero y pasivo operativo 0 declarado
+   estado final: pendiente_de_investigacion · paso 14 · motor B · F1 en el paso 12 · bloquean []
+   rótulo F1: motor B utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+   f declarada None · flujo sin crecimiento None · condicionada: no · K3b: una vez
+   precio.json: {"ponderado": 23.6433967968543}
+   ficha: estado pendiente_de_investigacion · cubo Vigilar · precio de Sí None
+   código 0 · detalle: da: respuesta a la solicitud SA-eaddd22b3e54517b (SHA-256 fa0f4bc59867…)
+[paso 14] FIN · estado pendiente_de_investigacion · auditoría APROBADO
+estado final: pendiente_de_investigacion · paso 14 · causa: incertidumbre_no_acotada: crecimiento_1_5·MALO · continuar desde el paso 8 (ver diagnostico.md)
+
+   informe.md, línea F1: > **Motor B · F1:** utilizable para una conclusión (condición necesaria, no suficiente); K3: alquiler contado una vez, caja base por dos vías sin explicar; perímetro declarado: sin declarar. Detalle en motor_a_f1_resultado.md. Apta para dinero real: no.
+   ficha.motor_a_f1.vigencia: {"exigido": true, "exento": null, "vigente": true, "utilizable": true, "motivo": null}
+
+== XB3 · motor B con US GAAP y sin declaración F1
+   estado final: concluido · paso 14 · motor B · F1 en el paso None · bloquean []
+   rótulo F1: None
+   f declarada None · flujo sin crecimiento None · condicionada: no · K3b: None
+   precio.json: {"ponderado": 23.4012555051622}
+   ficha: estado concluido · cubo Vigilar · precio de Sí None

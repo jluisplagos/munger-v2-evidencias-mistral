@@ -1,0 +1,1429 @@
+{
+ "empresa": "Empresa X (inventada)",
+ "ticker": "EMPX",
+ "fecha": "2026-10-20",
+ "moneda": "EUR",
+ "versiones": {
+  "personaje": "v2.2",
+  "plantilla": "V6.3.1 F1",
+  "gramatica": "0.2.1",
+  "referencias_mecanicas": "0.2.1",
+  "config": "0.2.2+v631f1.1"
+ },
+ "hashes": {
+  "libro_entrada": "a0a71e567ef4dbe673a8f1e9c8d1ef033c283e7ed8f5275212e3a2fdeea9f84b",
+  "libro_evaluado": "8fd72029fdedad7d1e172c3da69b874d3d82351441a5fc91d26348986a937786"
+ },
+ "estado_analisis": "concluido",
+ "causa_si_no_concluido": null,
+ "etapa1": {
+  "cubo": "0% · Vigilar · precio de Sí ≈ 15",
+  "cubo_juicio": null,
+  "precio_de_si": null,
+  "fecha": null,
+  "r": 0.09
+ },
+ "cubo": "Vigilar",
+ "cubo_cualitativo_fase_a": "Vigilar",
+ "decision": {
+  "accion": "esperar",
+  "precio_objetivo": 21.32196466508504,
+  "condicion": null,
+  "condiciones_revision": {
+   "al_alza": "…",
+   "a_la_baja": "…"
+  }
+ },
+ "insumos_decision_cartera": {
+  "precio_actual": 22,
+  "zona": "vigilar",
+  "precio_de_si": 21.32196466508504,
+  "precio_escenario_malo": 18.2214020393395,
+  "ponderado": 22.5621897153833,
+  "distancia_a_precio_si": 0.030819787950679967,
+  "distancia_a_malo": 0.17175445275729537,
+  "fundamento": "no procede (conclusión no favorable)",
+  "datos_ausentes_materiales": [],
+  "descalificadores_considerados": [
+   "deuda que mata"
+  ],
+  "r": 0.09,
+  "r_minima": 0.0815138045612993,
+  "palanca_mas_influyente": "ROIC / ROE largo plazo (±5 pts)"
+ },
+ "motor": "A",
+ "escenarios": {
+  "MALO": {
+   "historia": {
+    "historia": "El mercado se enfría y la empresa crece al 3 % con el margen de siempre.",
+    "mecanismo": "volumen (sintético)",
+    "quien_se_queda_la_mejora": "la empresa",
+    "que_lo_pararia": "un competidor con precio",
+    "hechos_en_que_se_apoya": [
+     "Historia fila 28",
+     "extracto p. 3"
+    ]
+   },
+   "frase": "El mercado se enfría y la empresa crece al 3 % con el margen de siempre.",
+   "probabilidad": 0.2,
+   "valor_accion": 18.2214020393395,
+   "palancas": {
+    "g15": {
+     "referencia_mecanica": 0.03,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.03,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    },
+    "m_obj": {
+     "referencia_mecanica": 0.2,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.2,
+     "desviacion": 0.0,
+     "clase": "fundamentada",
+     "confianza": "media"
+    },
+    "s2c": {
+     "referencia_mecanica": 1.1,
+     "referencia_no_disponible_motivo": null,
+     "valor": 1.1,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    },
+    "g_inf": {
+     "referencia_mecanica": 0.015,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.015,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    },
+    "roic_lp": {
+     "referencia_mecanica": 0.09,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.09,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    }
+   }
+  },
+  "NORMAL": {
+   "historia": {
+    "historia": "Crece como su mercado, al 8 %, y mantiene el margen del 20 %.",
+    "mecanismo": "volumen (sintético)",
+    "quien_se_queda_la_mejora": "la empresa",
+    "que_lo_pararia": "un competidor con precio",
+    "hechos_en_que_se_apoya": [
+     "Historia fila 28",
+     "extracto p. 3"
+    ]
+   },
+   "frase": "Crece como su mercado, al 8 %, y mantiene el margen del 20 %.",
+   "probabilidad": 0.6,
+   "valor_accion": 22.9749580136493,
+   "palancas": {
+    "g15": {
+     "referencia_mecanica": 0.08,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.08,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    },
+    "m_obj": {
+     "referencia_mecanica": 0.2,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.2,
+     "desviacion": 0.0,
+     "clase": "fundamentada",
+     "confianza": "media"
+    },
+    "s2c": {
+     "referencia_mecanica": 1.5,
+     "referencia_no_disponible_motivo": null,
+     "valor": 1.5,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    },
+    "g_inf": {
+     "referencia_mecanica": 0.025,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.025,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    },
+    "roic_lp": {
+     "referencia_mecanica": 0.09,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.09,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    }
+   }
+  },
+  "BUENO": {
+   "historia": {
+    "historia": "Gana cuota y el margen sube dos puntos por escala; la mejora se la queda la empresa.",
+    "mecanismo": "volumen (sintético)",
+    "quien_se_queda_la_mejora": "la empresa",
+    "que_lo_pararia": "un competidor con precio",
+    "hechos_en_que_se_apoya": [
+     "Historia fila 28",
+     "extracto p. 3"
+    ]
+   },
+   "frase": "Gana cuota y el margen sube dos puntos por escala; la mejora se la queda la empresa.",
+   "probabilidad": 0.2,
+   "valor_accion": 25.6646724966289,
+   "palancas": {
+    "g15": {
+     "referencia_mecanica": 0.08,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.08,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    },
+    "m_obj": {
+     "referencia_mecanica": 0.2,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.2,
+     "desviacion": 0.0,
+     "clase": "fundamentada",
+     "confianza": "media"
+    },
+    "s2c": {
+     "referencia_mecanica": 1.9,
+     "referencia_no_disponible_motivo": null,
+     "valor": 1.9,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    },
+    "g_inf": {
+     "referencia_mecanica": 0.03,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.03,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    },
+    "roic_lp": {
+     "referencia_mecanica": 0.12,
+     "referencia_no_disponible_motivo": null,
+     "valor": 0.12,
+     "desviacion": 0.0,
+     "clase": "sin juicio propio",
+     "confianza": "media"
+    }
+   }
+  }
+ },
+ "valor_ponderado": 22.5621897153833,
+ "precio": 22,
+ "escalera": {
+  "k": 3.0,
+  "convencion": "escalera experimental del ejercicio (D11), k = 3; la zona no es la conclusión: no mide riesgo ni fundamento",
+  "copia_de_prueba": false,
+  "V": [
+   18.2214020393395,
+   22.9749580136493,
+   25.6646724966289
+  ],
+  "p": [
+   0.2,
+   0.6,
+   0.2
+  ],
+  "precio": 22,
+  "P_estrella": 21.32196466508504,
+  "precio_si": 21.32196466508504,
+  "tope_normal_aplicado": false,
+  "precio_escenario_malo": 18.2214020393395,
+  "nota_malo": "no es un suelo de valor ni la pérdida máxima posible (D11)",
+  "ponderado": 22.5621897153833,
+  "zona": "vigilar",
+  "G": 1.860337575447327,
+  "L": 0.6201125251491079,
+  "g_impl_actual": 0.06900423295969925,
+  "g_impl_si": 0.06097863729394121,
+  "tabla_dcf_inverso_ok": true,
+  "coincide_C86": true,
+  "C156_regla_antigua": 16.9216422865374,
+  "distancias": {
+   "a_precio_si": 0.030819787950679967,
+   "a_malo": 0.17175445275729537
+  },
+  "aviso_tasa_descuento_mas_influyente": false,
+  "notas": []
+ },
+ "fundamento_material": {
+  "hipotesis_sin_fundamento": [
+   {
+    "celda": "crecimiento_1_5·MALO",
+    "hipotesis": "crecimiento_1_5 MALO = 0.03",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.024,
+      0.03
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "crecimiento_1_5·NORMAL",
+    "hipotesis": "crecimiento_1_5 NORMAL = 0.08",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.064,
+      0.08
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "crecimiento_1_5·BUENO",
+    "hipotesis": "crecimiento_1_5 BUENO = 0.08",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.064,
+      0.08
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "s2c·MALO",
+    "hipotesis": "s2c MALO = 1.1",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.88,
+      1.1
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "s2c·NORMAL",
+    "hipotesis": "s2c NORMAL = 1.5",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      1.2,
+      1.5
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "s2c·BUENO",
+    "hipotesis": "s2c BUENO = 1.9",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      1.52,
+      1.9
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "g_perpetuo·MALO",
+    "hipotesis": "g_perpetuo MALO = 0.015",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.012,
+      0.015
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "g_perpetuo·NORMAL",
+    "hipotesis": "g_perpetuo NORMAL = 0.025",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.02,
+      0.025
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "g_perpetuo·BUENO",
+    "hipotesis": "g_perpetuo BUENO = 0.03",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.024,
+      0.03
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "roic_lp·MALO",
+    "hipotesis": "roic_lp MALO = 0.09",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.072,
+      0.09
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "roic_lp·NORMAL",
+    "hipotesis": "roic_lp NORMAL = 0.09",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.072,
+      0.09
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "roic_lp·BUENO",
+    "hipotesis": "roic_lp BUENO = 0.12",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.096,
+      0.12
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "probabilidades·MALO",
+    "hipotesis": "probabilidades MALO = 0.2",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.16,
+      0.2
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "probabilidades·NORMAL",
+    "hipotesis": "probabilidades NORMAL = 0.6",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.48,
+      0.6
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   },
+   {
+    "celda": "probabilidades·BUENO",
+    "hipotesis": "probabilidades BUENO = 0.2",
+    "clase": "sin juicio propio",
+    "porque_sin_fundamento": "copiada de la referencia (sintético)",
+    "alternativas_defendibles": {
+     "hay_base": true,
+     "rango": [
+      0.16,
+      0.2
+     ],
+     "evidencia": "suelo = el peor valor de la propia serie (Historia, sintético); techo = el valor decidido"
+    }
+   }
+  ],
+  "comprobacion_conjunta": {
+   "procede": false,
+   "combinacion": null,
+   "coherencia_economica": null,
+   "sobrevive": null
+  },
+  "resultado": "no_procede",
+  "hipotesis_que_mas_condiciona": "crecimiento_1_5·MALO",
+  "que_lo_resolveria": "el ROIC por segmento de los informes (sintético)"
+ },
+ "comprobacion_conjunta": null,
+ "revision_datos_ausentes": {
+  "revisados": [
+   {
+    "dato": "evidencia Análisis!C46",
+    "que_falta": "Caja de las operaciones (media 3–5 años): no verificable",
+    "conclusion_afectada": "ninguna celda de juicio",
+    "material_para_conclusion_favorable": false,
+    "porque": "no entra en la escalera ni en los descalificadores (sintético)"
+   },
+   {
+    "dato": "evidencia Análisis!C47",
+    "que_falta": "Capex (positivo; media 3–5 años): no verificable",
+    "conclusion_afectada": "ninguna celda de juicio",
+    "material_para_conclusion_favorable": false,
+    "porque": "no entra en la escalera ni en los descalificadores (sintético)"
+   },
+   {
+    "dato": "evidencia Análisis!C50",
+    "que_falta": "Stock-based compensation (SBC): no verificable",
+    "conclusion_afectada": "ninguna celda de juicio",
+    "material_para_conclusion_favorable": false,
+    "porque": "no entra en la escalera ni en los descalificadores (sintético)"
+   },
+   {
+    "dato": "Palancas!C24",
+    "que_falta": "tamaño del mercado año 10",
+    "conclusion_afectada": "ninguna celda de juicio",
+    "material_para_conclusion_favorable": false,
+    "porque": "no entra en la escalera ni en los descalificadores (sintético)"
+   },
+   {
+    "dato": "Análisis!C88",
+    "que_falta": "P/FCF histórico",
+    "conclusion_afectada": "ninguna celda de juicio",
+    "material_para_conclusion_favorable": false,
+    "porque": "no entra en la escalera ni en los descalificadores (sintético)"
+   },
+   {
+    "dato": "Análisis!C38",
+    "que_falta": "valor intrínseco de fuente externa (contraste)",
+    "conclusion_afectada": "ninguna celda de juicio",
+    "material_para_conclusion_favorable": false,
+    "porque": "no entra en la escalera ni en los descalificadores (sintético)"
+   },
+   {
+    "dato": "extracto_v63: Tamaño del mercado (no publicado)",
+    "que_falta": null,
+    "conclusion_afectada": "ninguna celda de juicio",
+    "material_para_conclusion_favorable": false,
+    "porque": "no entra en la escalera ni en los descalificadores (sintético)"
+   },
+   {
+    "dato": "extracto_v63: Cuota de mercado",
+    "que_falta": null,
+    "conclusion_afectada": "ninguna celda de juicio",
+    "material_para_conclusion_favorable": false,
+    "porque": "no entra en la escalera ni en los descalificadores (sintético)"
+   }
+  ],
+  "alguno_material": false
+ },
+ "estado_libro": "NO LISTO · evidencias incompletas (3 pendientes) · cálculo completo",
+ "estado_evidencias": "INCOMPLETAS · datos 16 de 19 · hipótesis confirmadas 0 de 24 · 24 estimaciones · 3 no verificables · 0 hipótesis pendientes · 0 sin dato, sin clasificar, sin fuente o incoherentes · 0 «No aplicable» indebido",
+ "palanca_mas_influyente": {
+  "nombre": "ROIC / ROE largo plazo (±5 pts)",
+  "nota": "información, no criterio (D10)"
+ },
+ "semaforos": {
+  "fila40": [
+   "Crecimiento frente al sector y a su historia",
+   "✓ PASA",
+   "✓ PASA",
+   "✓ PASA"
+  ],
+  "fila41": [
+   "Margen frente a su máximo y al sector",
+   "⚠ REVISAR · margen por encima de su máximo o del Q3 del sector",
+   "⚠ REVISAR · margen por encima de su máximo o del Q3 del sector",
+   "⚠ REVISAR · margen por encima de su máximo o del Q3 del sector"
+  ],
+  "fila42": [
+   "ROIC marginal frente a su historia",
+   "✓ PASA",
+   "✓ PASA",
+   "✓ PASA"
+  ],
+  "fila43": [
+   "ROIC (o ROE) a largo plazo",
+   "✓ PASA",
+   "✓ PASA",
+   "✓ PASA"
+  ],
+  "fila44": [
+   "Peso del «para siempre»",
+   "✓ PASA",
+   "✓ PASA",
+   "✓ PASA"
+  ],
+  "fila45": [
+   "Cuota de mercado implícita",
+   "—",
+   "—",
+   "—"
+  ],
+  "fila46": [
+   "S2C medio frente al sector",
+   null,
+   "✓ PASA",
+   null
+  ],
+  "fila47": [
+   "Orden de los escenarios (MALO ≤ NORMAL ≤ BUENO)",
+   null,
+   "✓ PASA",
+   null
+  ],
+  "fila48": [
+   "Tu r frente a la r mínima",
+   null,
+   "✓ PASA · r ≥ r mínima",
+   null
+  ],
+  "fila49": [
+   "Tipo de empresa frente a motor",
+   null,
+   "✓ PASA · tipo y motor coherentes",
+   null
+  ],
+  "fila50": [
+   "Fugas al accionista (f) en un rango razonable",
+   null,
+   "✓ PASA",
+   null
+  ]
+ },
+ "salto_anio_11": [
+  "Salto en el año 11 (puntos; positivo = la rentabilidad marginal cae al pasar al terminal)",
+  0.075,
+  0.135,
+  0.165
+ ],
+ "peso_terminal": [
+  0.496317142853924,
+  0.569603651372334,
+  0.585215617099924
+ ],
+ "cambios_vs_etapa1": [
+  {
+   "celda": "C11",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C12",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C13",
+   "antes": "No",
+   "despues": "Sí",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C14",
+   "antes": "Compounder",
+   "despues": "Calidad a precio razonable",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C17",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C18",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C19",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C20",
+   "antes": "Incert. alta + riesgo bajo",
+   "despues": "Incert. alta + riesgo bajo",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C25",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C27",
+   "antes": "Estable",
+   "despues": "Estable",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C51",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C56",
+   "antes": 0.09,
+   "despues": 0.09,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C61",
+   "antes": "No está claro",
+   "despues": "No está claro",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C62",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C97",
+   "antes": "Neutral",
+   "despues": "Neutral",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C98",
+   "antes": "Buena",
+   "despues": "Buena",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "B65",
+   "antes": "El viento de cola se frena",
+   "despues": "El viento de cola se frena",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C65",
+   "antes": "Crece al ritmo de su mercado",
+   "despues": "Crece al ritmo de su mercado",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "D65",
+   "antes": "Gana cuota: el moat se ensancha",
+   "despues": "Gana cuota: el moat se ensancha",
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "B66",
+   "antes": "malo v1",
+   "despues": "El mercado se enfría y la empresa crece al 3 % con el margen de siempre.",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "C66",
+   "antes": "normal v1",
+   "despues": "Crece como su mercado, al 8 %, y mantiene el margen del 20 %.",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "D66",
+   "antes": "bueno v1",
+   "despues": "Gana cuota y el margen sube dos puntos por escala; la mejora se la queda la empresa.",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "revisada la Historia de 10 años (filas 6, 7, 29) y el extracto p. 3: sostiene la respuesta (sintético)"
+  },
+  {
+   "celda": "B68",
+   "antes": 0.015,
+   "despues": null,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "la V6.3 mide g y probabilidades con el mismo sentido; revisada la Historia (sintético)"
+  },
+  {
+   "celda": "C68",
+   "antes": 0.025,
+   "despues": null,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "la V6.3 mide g y probabilidades con el mismo sentido; revisada la Historia (sintético)"
+  },
+  {
+   "celda": "D68",
+   "antes": 0.03,
+   "despues": null,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "la V6.3 mide g y probabilidades con el mismo sentido; revisada la Historia (sintético)"
+  },
+  {
+   "celda": "B69",
+   "antes": 0.2,
+   "despues": null,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "la V6.3 mide g y probabilidades con el mismo sentido; revisada la Historia (sintético)"
+  },
+  {
+   "celda": "C69",
+   "antes": 0.6,
+   "despues": null,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "la V6.3 mide g y probabilidades con el mismo sentido; revisada la Historia (sintético)"
+  },
+  {
+   "celda": "D69",
+   "antes": 0.2,
+   "despues": null,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "la V6.3 mide g y probabilidades con el mismo sentido; revisada la Historia (sintético)"
+  },
+  {
+   "celda": "C76",
+   "antes": 0,
+   "despues": null,
+   "decision": "mantiene",
+   "motivo": "misma_evidencia",
+   "evidencia_y_razonamiento": "la V6.3 mide g y probabilidades con el mismo sentido; revisada la Historia (sintético)"
+  },
+  {
+   "celda": "C93",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "reescrita en la etapa 2 con la Historia de 10 años (S-8, sintético)"
+  },
+  {
+   "celda": "B101",
+   "antes": "Tesis v1.",
+   "despues": "Tesis sintética en cinco frases.",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "reescrita en la etapa 2 con la Historia de 10 años (S-8, sintético)"
+  },
+  {
+   "celda": "B102",
+   "antes": "Tesis inversa v1.",
+   "despues": "Tesis inversa sintética con hechos (Historia fila 29).",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "reescrita en la etapa 2 con la Historia de 10 años (S-8, sintético)"
+  },
+  {
+   "celda": "C103",
+   "antes": "Sí",
+   "despues": "Sí",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "reescrita en la etapa 2 con la Historia de 10 años (S-8, sintético)"
+  },
+  {
+   "celda": "C104",
+   "antes": "0% · Vigilar · precio de Sí ≈ 15",
+   "despues": "Pendiente de decisión de cartera · conclusión del personaje: esperar: precio de Sí ≤ 21.32 · zona vigilar · precio de Sí ≤ 21.32 · precio esc. MALO 18.22 · ponderado 22.56 · fundamento no procede (conclusión no favorable)",
+   "decision": "cambia",
+   "motivo": "evidencia_nueva",
+   "evidencia_y_razonamiento": "reescrita en la etapa 2 con la Historia de 10 años (S-8, sintético)"
+  }
+ ],
+ "n_cambios_vs_etapa1": 34,
+ "predicciones": [
+  {
+   "texto": "Ventas FY siguiente ≥ 1.000 mm (sintético)",
+   "fecha": "2028-04-12",
+   "prob": 0.7,
+   "resultado": null
+  },
+  {
+   "texto": "Margen EBIT ≥ 18 % (sintético)",
+   "fecha": "2028-04-12",
+   "prob": 0.6,
+   "resultado": null
+  },
+  {
+   "texto": "Acciones diluidas ≤ 100 mm (sintético)",
+   "fecha": "2028-04-12",
+   "prob": 0.6,
+   "resultado": null
+  }
+ ],
+ "incertidumbre_pendiente": "crecimiento_1_5 MALO = 0.03",
+ "que_lo_resolveria": "el ROIC por segmento de los informes (sintético)",
+ "cambiaria_de_cubo": {
+  "a_si": "…",
+  "a_no": "…",
+  "a_demasiado_dificil": "…"
+ },
+ "autocomprobacion": [
+  {
+   "sesgo": "anclaje en la etapa 1",
+   "hallazgo": "nada relevante (sintético)",
+   "cambio": "ninguno porque sintético"
+  },
+  {
+   "sesgo": "anclaje en el precio o en la fuente externa",
+   "hallazgo": "nada relevante (sintético)",
+   "cambio": "ninguno porque sintético"
+  },
+  {
+   "sesgo": "consistencia y compromiso",
+   "hallazgo": "nada relevante (sintético)",
+   "cambio": "ninguno porque sintético"
+  },
+  {
+   "sesgo": "historia bonita / viento de cola atribuido a la empresa",
+   "hallazgo": "nada relevante (sintético)",
+   "cambio": "ninguno porque sintético"
+  },
+  {
+   "sesgo": "optimismo del BUENO frente a la tasa base",
+   "hallazgo": "nada relevante (sintético)",
+   "cambio": "ninguno porque sintético"
+  },
+  {
+   "sesgo": "doble castigo del mismo riesgo",
+   "hallazgo": "nada relevante (sintético)",
+   "cambio": "ninguno porque sintético"
+  },
+  {
+   "sesgo": "disponibilidad (lo vívido del extracto)",
+   "hallazgo": "nada relevante (sintético)",
+   "cambio": "ninguno porque sintético"
+  },
+  {
+   "sesgo": "autoridad (guía de la dirección como hecho)",
+   "hallazgo": "nada relevante (sintético)",
+   "cambio": "ninguno porque sintético"
+  },
+  {
+   "sesgo": "¿el MALO es de verdad malo?",
+   "hallazgo": "nada relevante (sintético)",
+   "cambio": "ninguno porque sintético"
+  },
+  {
+   "sesgo": "lo no numerable que pesa y no está en las palancas",
+   "hallazgo": "nada relevante (sintético)",
+   "cambio": "ninguno porque sintético"
+  }
+ ],
+ "recuento_clases": {
+  "fundamentada": 51,
+  "convencion": 0,
+  "tecnico": 0,
+  "sin_juicio": 15
+ },
+ "desviaciones_justificadas": {
+  "n": 6,
+  "lista": [
+   {
+    "comprobacion": "G5",
+    "escenario": "MALO",
+    "justificacion": "Justificación sintética para G5: la Historia (fila 29: margen del 20 % en los diez ejercicios; fila 28) y el extracto p. 3 sostienen el valor, y el mecanismo es la escala.",
+    "hechos": [
+     "Historia fila 29",
+     "extracto p. 3"
+    ],
+    "clase": "fundamentada"
+   },
+   {
+    "comprobacion": "G5",
+    "escenario": "NORMAL",
+    "justificacion": "Justificación sintética para G5: la Historia (fila 29: margen del 20 % en los diez ejercicios; fila 28) y el extracto p. 3 sostienen el valor, y el mecanismo es la escala.",
+    "hechos": [
+     "Historia fila 29",
+     "extracto p. 3"
+    ],
+    "clase": "fundamentada"
+   },
+   {
+    "comprobacion": "G5",
+    "escenario": "BUENO",
+    "justificacion": "Justificación sintética para G5: la Historia (fila 29: margen del 20 % en los diez ejercicios; fila 28) y el extracto p. 3 sostienen el valor, y el mecanismo es la escala.",
+    "hechos": [
+     "Historia fila 29",
+     "extracto p. 3"
+    ],
+    "clase": "fundamentada"
+   },
+   {
+    "comprobacion": "G8",
+    "escenario": "MALO",
+    "justificacion": "Justificación sintética de G8 tras el recálculo: la pérdida de ventaja en el año 11 está en la tesis; Historia fila 33 y extracto p. 3.",
+    "hechos": [
+     "Historia fila 33",
+     "extracto p. 3"
+    ],
+    "clase": "fundamentada"
+   },
+   {
+    "comprobacion": "G8",
+    "escenario": "NORMAL",
+    "justificacion": "Justificación sintética de G8 tras el recálculo: la pérdida de ventaja en el año 11 está en la tesis; Historia fila 33 y extracto p. 3.",
+    "hechos": [
+     "Historia fila 33",
+     "extracto p. 3"
+    ],
+    "clase": "fundamentada"
+   },
+   {
+    "comprobacion": "G8",
+    "escenario": "BUENO",
+    "justificacion": "Justificación sintética de G8 tras el recálculo: la pérdida de ventaja en el año 11 está en la tesis; Historia fila 33 y extracto p. 3.",
+    "hechos": [
+     "Historia fila 33",
+     "extracto p. 3"
+    ],
+    "clase": "fundamentada"
+   }
+  ]
+ },
+ "avisos": [],
+ "confianza_global": "media",
+ "que_falta": {
+  "bloqueantes": [],
+  "necesarios_para_listo_provisional": [
+   {
+    "dato": "evidencia Análisis!C46",
+    "que": "Caja de las operaciones (media 3–5 años): no verificable",
+    "origen_esperado": "fase1_v63.json (fuente y página del dato) o etapa 1",
+    "nota": "el dato está pero su clasificación/documento no permite LISTO·PROVISIONAL; la fase C juzga si es material"
+   },
+   {
+    "dato": "evidencia Análisis!C47",
+    "que": "Capex (positivo; media 3–5 años): no verificable",
+    "origen_esperado": "fase1_v63.json (fuente y página del dato) o etapa 1",
+    "nota": "el dato está pero su clasificación/documento no permite LISTO·PROVISIONAL; la fase C juzga si es material"
+   },
+   {
+    "dato": "evidencia Análisis!C50",
+    "que": "Stock-based compensation (SBC): no verificable",
+    "origen_esperado": "fase1_v63.json (fuente y página del dato) o etapa 1",
+    "nota": "el dato está pero su clasificación/documento no permite LISTO·PROVISIONAL; la fase C juzga si es material"
+   }
+  ],
+  "no_bloqueantes": [
+   {
+    "dato": "Palancas!C24",
+    "que": "tamaño del mercado año 10",
+    "origen_esperado": "extractos (solo con cifra de fuente primaria)",
+    "nota": ""
+   },
+   {
+    "dato": "Análisis!C88",
+    "que": "P/FCF histórico",
+    "origen_esperado": "fase1_v63.json",
+    "nota": ""
+   },
+   {
+    "dato": "Análisis!C38",
+    "que": "valor intrínseco de fuente externa (contraste)",
+    "origen_esperado": "fase1_v63.json (opcional)",
+    "nota": ""
+   }
+  ],
+  "datos_ausentes": [
+   {
+    "dato": "evidencia Análisis!C46",
+    "que": "Caja de las operaciones (media 3–5 años): no verificable",
+    "nivel": "necesario para LISTO·PROVISIONAL",
+    "origen_esperado": "fase1_v63.json (fuente y página del dato) o etapa 1",
+    "nota": "el dato está pero su clasificación/documento no permite LISTO·PROVISIONAL; la fase C juzga si es material"
+   },
+   {
+    "dato": "evidencia Análisis!C47",
+    "que": "Capex (positivo; media 3–5 años): no verificable",
+    "nivel": "necesario para LISTO·PROVISIONAL",
+    "origen_esperado": "fase1_v63.json (fuente y página del dato) o etapa 1",
+    "nota": "el dato está pero su clasificación/documento no permite LISTO·PROVISIONAL; la fase C juzga si es material"
+   },
+   {
+    "dato": "evidencia Análisis!C50",
+    "que": "Stock-based compensation (SBC): no verificable",
+    "nivel": "necesario para LISTO·PROVISIONAL",
+    "origen_esperado": "fase1_v63.json (fuente y página del dato) o etapa 1",
+    "nota": "el dato está pero su clasificación/documento no permite LISTO·PROVISIONAL; la fase C juzga si es material"
+   },
+   {
+    "dato": "Palancas!C24",
+    "que": "tamaño del mercado año 10",
+    "nivel": "no bloqueante",
+    "origen_esperado": "extractos (solo con cifra de fuente primaria)",
+    "nota": ""
+   },
+   {
+    "dato": "Análisis!C88",
+    "que": "P/FCF histórico",
+    "nivel": "no bloqueante",
+    "origen_esperado": "fase1_v63.json",
+    "nota": ""
+   },
+   {
+    "dato": "Análisis!C38",
+    "que": "valor intrínseco de fuente externa (contraste)",
+    "nivel": "no bloqueante",
+    "origen_esperado": "fase1_v63.json (opcional)",
+    "nota": ""
+   },
+   {
+    "dato": "extracto_v63: Tamaño del mercado (no publicado)",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   },
+   {
+    "dato": "extracto_v63: Cuota de mercado",
+    "nivel": "no bloqueante",
+    "origen_esperado": "informes de la empresa (fase 1 / extracción)",
+    "nota": "declarado «no encontrado» por el agente de extracción; la fase C decide si afecta a una celda de juicio"
+   }
+  ]
+ },
+ "citas": {
+  "munger": 0,
+  "damodaran": 0
+ },
+ "dos_errores": {
+  "mas_cerca_de": "regatear",
+  "porque": "sintético"
+ },
+ "seis_preguntas": {
+  "confio_en_la_gestion": "sí (sintético)",
+  "puede_danar_reputacion": "no",
+  "que_puede_salir_mal": "que el mercado se enfríe",
+  "lo_entiendo": "sí",
+  "necesita_capital": "poco",
+  "que_caja_espero": "la de los últimos 3 años"
+ },
+ "descalificadores": [
+  {
+   "nombre": "deuda que mata",
+   "aplica": false,
+   "evidencia": "deuda neta/EBITDA 0,8 (Análisis C33)"
+  }
+ ],
+ "foso": {
+  "tipo": "coste de cambio",
+  "pruebas": {
+   "sobrino_idiota": "sí",
+   "duracion": "10 años",
+   "quien_me_mata": "nadie visible",
+   "empresa_o_nicho": "empresa"
+  }
+ },
+ "comparacion_etapa_1": {
+  "cubo_v1": "0% · Vigilar · precio de Sí ≈ 15",
+  "precio_de_si_v1": null,
+  "cubo_v2": "Vigilar",
+  "precio_de_si_v2": 21.32196466508504,
+  "por_que_difieren": "sintético"
+ },
+ "datos_etapa1_incompletos": {
+  "marca": "con datos de etapa 1 incompletos",
+  "causas": [
+   {
+    "dato": "evidencia Análisis!C46",
+    "que": "Caja de las operaciones (media 3–5 años): no verificable",
+    "origen_esperado": "fase1_v63.json (fuente y página del dato) o etapa 1",
+    "nota": "el dato está pero su clasificación/documento no permite LISTO·PROVISIONAL; la fase C juzga si es material"
+   },
+   {
+    "dato": "evidencia Análisis!C47",
+    "que": "Capex (positivo; media 3–5 años): no verificable",
+    "origen_esperado": "fase1_v63.json (fuente y página del dato) o etapa 1",
+    "nota": "el dato está pero su clasificación/documento no permite LISTO·PROVISIONAL; la fase C juzga si es material"
+   },
+   {
+    "dato": "evidencia Análisis!C50",
+    "que": "Stock-based compensation (SBC): no verificable",
+    "origen_esperado": "fase1_v63.json (fuente y página del dato) o etapa 1",
+    "nota": "el dato está pero su clasificación/documento no permite LISTO·PROVISIONAL; la fase C juzga si es material"
+   }
+  ],
+  "nota": "Limitación visible; no sustituye la revisión de materialidad (S-19): un dato material mantiene pendiente_de_datos."
+ },
+ "alcance": null,
+ "verificacion_entradas": {
+  "apto_por_entradas": false,
+  "resumen": {
+   "universo": 309,
+   "comprobadas": 0,
+   "comprobadas_universo": 0,
+   "auxiliares": 0,
+   "universo_calculo": 214,
+   "universo_juicio": 95,
+   "comprobadas_calculo": 0,
+   "comprobadas_juicio": 0,
+   "lecturas_externas": 0,
+   "formato_registro": null,
+   "entradas_no_reproducibles": 0,
+   "datos_como_hipotesis": 0,
+   "no_materiales": 0,
+   "no_materiales_sin_revisar": 0,
+   "no_aplicables": 0,
+   "resumen": "no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)",
+   "derivados_comprobados": 0,
+   "pendientes": 309,
+   "desactualizadas": 0,
+   "discrepancias": 0,
+   "errores": 0,
+   "materiales_no_comprobadas": 279,
+   "apto_por_entradas": false,
+   "motivo": "no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)",
+   "huella_entradas_economicas": "a7d0387fc7e26bc940605d0f4a0e408022a6c1604022b3a875f235b0ed1ca906",
+   "nota": "condición necesaria, no suficiente, para presentar una conclusión como apta para dinero real; los controles automáticos comprueban cobertura, conciliaciones y coherencia, no la corrección semántica (revisión independiente de las fuentes)"
+  },
+  "apto_para_dinero_real": false,
+  "motivo_modo": null,
+  "entrada_efectiva": {
+   "aplicada_en_paso_2": {
+    "modo": "registrada",
+    "declarado_en": "entrada_efectiva.json"
+   },
+   "declarada": {
+    "modo": "registrada",
+    "declarado_en": "entrada_efectiva.json"
+   },
+   "coinciden": true
+  },
+  "nota": "condición necesaria, no suficiente: superar los controles de software no acredita la aptitud para dinero real (motor A sin validar: F1; plantillas y criterios económicos no adoptados)"
+ },
+ "motor_a_f1": {
+  "version": "F1-IMPL 2 (4.15 · decisiones F1 del 17-nov-2026 · US GAAP, ASC 842: D-US1 y D-US2 del 18-nov-2026)",
+  "utilizable_para_conclusion": true,
+  "vigencia": {
+   "exigido": true,
+   "exento": null,
+   "vigente": true,
+   "utilizable": true,
+   "motivo": null
+  },
+  "rotulo": "motor A utilizable para una conclusión CONDICIONADA según F1 · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14 (condición necesaria, no suficiente; no apto para dinero real)",
+  "estado_propuesto": null,
+  "perimetro_declarado": "A2_propio",
+  "libro_v631_f1": {
+   "perimetro_efectivo": "A2_propio",
+   "motivos": [],
+   "flujos_contrastados": 33
+  },
+  "condicionada": {
+   "hipotesis": "D-US1",
+   "tramos": [
+    "amortizacion_rou",
+    "variacion_pasivo"
+   ],
+   "texto": "hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14",
+   "regla": "si la empresa no publica en qué líneas del estado de flujos van los dos tramos del arrendamiento operativo (la amortización del derecho de uso y la variación del pasivo), se supone que van netos dentro del flujo de explotación, fuera de las filas 8 (D&A) y 14 (circulante) de la Historia: hipótesis declarada, no dato; la conclusión se presenta como condicionada, con su cota de sensibilidad. Donde la empresa publica las líneas, manda el dato",
+   "registro": {
+    "fecha": "2026-11-18",
+    "persona": "persona responsable del proyecto (decisión registrada; no se firma aquí)",
+    "motivo": "munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:96–98"
+   },
+   "cota": {
+    "flujo_sin_crecimiento_con_la_hipotesis": 148.00002,
+    "tramos_con_hipotesis": [
+     "amortizacion_rou",
+     "variacion_pasivo"
+    ],
+    "si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos": {
+     "variacion_maxima_de_f": 0.003449187,
+     "variacion_maxima_del_flujo_sin_crecimiento_mm": -3.449187,
+     "variacion_maxima_del_flujo_sin_crecimiento_%": -2.331,
+     "por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)": {
+      "MALO": {
+       "variacion_maxima_del_valor_presente_de_los_flujos_mm": -50.749,
+       "variacion_maxima_%": -2.79
+      },
+      "NORMAL": {
+       "variacion_maxima_del_valor_presente_de_los_flujos_mm": -74.159,
+       "variacion_maxima_%": -3.23
+      },
+      "BUENO": {
+       "variacion_maxima_del_valor_presente_de_los_flujos_mm": -78.687,
+       "variacion_maxima_%": -3.07
+      }
+     }
+    },
+    "si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 14 (se contaría dos veces): como máximo, el coste lineal": {
+     "variacion_maxima_de_f": -0.003556974,
+     "variacion_maxima_del_flujo_sin_crecimiento_mm": 3.556974,
+     "variacion_maxima_del_flujo_sin_crecimiento_%": 2.403,
+     "por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)": {
+      "MALO": {
+       "variacion_maxima_del_valor_presente_de_los_flujos_mm": 52.335,
+       "variacion_maxima_%": 2.87
+      },
+      "NORMAL": {
+       "variacion_maxima_del_valor_presente_de_los_flujos_mm": 76.477,
+       "variacion_maxima_%": 3.33
+      },
+      "BUENO": {
+       "variacion_maxima_del_valor_presente_de_los_flujos_mm": 81.146,
+       "variacion_maxima_%": 3.16
+      }
+     }
+    },
+    "nota": "cotas, no estimaciones: la parte del pago que reduce el pasivo es menor que el pago y la amortización del derecho de uso es menor que el coste lineal; si los dos tramos estuvieran netos dentro de la fila 14, la variación sería solo −(pagos − coste lineal)"
+   }
+  },
+  "us_gaap": {
+   "base_del_arrendamiento_operativo": "pagos (D-US2)",
+   "diferencia_coste_lineal_menos_pagos": {
+    "coste_lineal_medio_de_la_ventana": 3.3,
+    "pagos_medios_de_la_ventana": 3.2,
+    "coste_menos_pagos_medio": 0.1,
+    "coste_menos_pagos_a_la_escala_del_año_base": 0.107787,
+    "coste_menos_pagos_del_año_base": 0.1,
+    "nota": "D-US2: se cuentan los pagos. Si se contara el coste lineal, el flujo sin crecimiento cambiaría en −(coste − pagos) a la escala del año base"
+   },
+   "puente_de_deuda": {
+    "ejercicio": 2025,
+    "motor": "A",
+    "deuda_financiera_fila_22": 200.0,
+    "pasivo_por_arrendamientos_fila_23": 50.0,
+    "pasivo_operativo_dentro_de_la_fila_23": 50.0,
+    "deuda_del_puente_del_libro_C64": 250.0,
+    "deuda_del_puente_coherente": 200.0,
+    "exceso_que_restaria_el_motor_B": 50.0,
+    "regla": "deuda del puente = deuda financiera + pasivo por arrendamientos financieros; el pasivo por arrendamiento operativo no entra: su pago ya está entero en el EBIT (una sola vez)"
+   }
+  },
+  "bloquean": [],
+  "avisos": [
+   {
+    "id": "F1-US-FILAS",
+    "severidad": "INFORMA",
+    "detalle": "sin fase1_partes en el expediente: las ubicaciones declaradas de los tramos del arrendamiento operativo no se han podido contrastar con las líneas que la fase 1 sumó en las filas 8 y 14"
+   },
+   {
+    "id": "V-F1k (salto del terminal)",
+    "severidad": "AVISO",
+    "detalle": "|salto| > C179 en ['MALO', 'NORMAL', 'BUENO']: G8 (vigente) exige justificación en la tesis u Observación de B18:D18"
+   },
+   {
+    "id": "F1-US-BASE",
+    "severidad": "INFORMA",
+    "detalle": "arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); coste lineal medio 3.300, pagos medios 3.200: coste − pagos = +0.100 de media en la ventana (+0.108 a la escala del año base)"
+   },
+   {
+    "id": "F1-US-HIPOTESIS",
+    "severidad": "AVISO",
+    "detalle": "hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14. CONCLUSIÓN CONDICIONADA. Cota: si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos: flujo sin crecimiento -3.449 mm (-2.3 %); si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 14 (se contaría dos veces): como máximo, el coste lineal: flujo sin crecimiento +3.557 mm (+2.4 %) · registro de la regla: 2026-11-18, munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:96–98"
+   },
+   {
+    "id": "F1-US-PUENTE",
+    "severidad": "INFORMA",
+    "detalle": "la fila 23 lleva 50.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en el capital invertido y en el ROIC histórico del libro (filas 32–33) y en Historia C64. Deuda coherente de un puente (motor B): 200.0"
+   }
+  ],
+  "diferencias_frente_a_A0_flujo_sin_crecimiento": {
+   "A0_total": 0.0,
+   "A1_sin_ROU": 0.0,
+   "A2_propio": 0.0,
+   "B_cota_capex": -40.0
+  },
+  "K3": {
+   "identidad": true,
+   "K3a_caja_base_dos_vias": true,
+   "K3b_alquiler_contado": "una vez",
+   "K3c_reposicion_frente_a_su_caja": true,
+   "K3b_por_clase": {
+    "operativos": "una vez"
+   },
+   "conforme": true
+  },
+  "libro_sha256": "73a39a8f9db316aadfe132101256979e71365619c088f72868e241f34fa9943c",
+  "libro_origen_sha256": "8fd72029fdedad7d1e172c3da69b874d3d82351441a5fc91d26348986a937786",
+  "declaracion_sha256": "a81f51f2d2f2f12facdf264a9966ca586fde699844428b20bdb3c21df558ad2b",
+  "parametros_sin_valor_adoptado": [
+   "alcance_n1_ejercicios_tau",
+   "n1_actualizacion_financiera_earnout",
+   "umbral_v_f1a"
+  ],
+  "apto_para_dinero_real": false
+ },
+ "cierre": {
+  "auditoria": "APROBADO",
+  "material_auditado": "d3fdaf99bd6788d2"
+ }
+}
