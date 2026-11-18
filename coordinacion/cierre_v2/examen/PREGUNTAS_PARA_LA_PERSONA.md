@@ -31,3 +31,12 @@
 ## F1-C · Un hueco que quedó tras las dos rondas de F1-IMPL (R2-1) · **ya no hace falta decidir**: la revisión de la V6.3.1 lo volvió a encontrar (V631-1) y se corrige dentro de la primera ronda de esa pieza
 - **Qué pasa.** Relanzar un expediente **antiguo** (cerrado antes de F1) con la combinación `--reiniciar --desde 13` puede dar todavía una ficha «Sí · comprar» sin pasar por F1. Los expedientes nuevos del examen quedan protegidos.
 - **Opciones:** (a) **recomendada:** una tercera ronda mínima (cuatro líneas que el revisor ya probó en una copia: el motor se lee de `fase_a.json`), con una comprobación del revisor; (b) solo una regla de trabajo: nunca usar `--reiniciar` junto con `--desde` (mientras tanto, el coordinador la aplica).
+
+## A-Q3 · Ahold: ¿doce últimos meses hasta junio (informe del 2T) o hasta septiembre (informe del 3T, 4-nov-2026)?
+**PENDIENTE (19-nov).**
+- **Qué pasa:** la etapa 1 y el expediente `ahold_f3` usan los doce meses hasta el 2T 2026. El informe del 3T se publicó el 4-nov-2026, antes del precio que usamos (13-nov), y ya está en las fuentes del expediente. La revisión independiente lo señala como cifra no vigente (`revisiones/expedientes_f1/REVISION_ORQUESTACION_R2.md`).
+- **Efecto conocido:** EV/EBITDA 6,59x (2T) frente a ≈6,53x (3T); con las acciones a 27-sep-2026, ≈6,43x. La caja de los doce meses y otras cifras del último año también cambiarían. La fase A de `ahold_f3` se está haciendo con el 2T.
+- **Opciones:** (a) **recomendada:** pasar a los doce meses hasta el 3T en un expediente nuevo (`ahold_f4`) y repetir la fase A, porque es lo más reciente publicado antes del precio; (b) quedarse en el 2T, como la etapa 1, declarando la desalineación en cada cifra afectada.
+
+## Z-ACC · Zoetis y Ahold: acciones de cierre de año frente a balance de mitad de año (fechas desalineadas)
+**PENDIENTE (19-nov).** Por P-O2 se usan las acciones al cierre del ejercicio (31-dic-2025), pero la deuda y la caja del EV son del 30-jun-2026. En Zoetis, con las acciones del 30-jun (414,15 M) el EV/EBITDA bajaría de 9,68x a ≈9,48x. **Recomendación:** mantener P-O2 tal cual y declarar la desalineación en la nota de cada cifra (como en Jumbo); no cambia ninguna conclusión.
