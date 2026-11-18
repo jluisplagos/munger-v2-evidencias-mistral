@@ -1,0 +1,16 @@
+L0 Elis legítima con fila: no salta · columna ok 10 · pendiente 0 · 
+L1 Elis legítima sin fila: no salta · columna ok 0 · pendiente 10 · series.da_rou.2021: sin «fila» (etiqueta de la fila): columna y ejercicio sin comprobar; series.da_rou.2022: sin «fila» (etiqueta de la fila): columna y ejercicio sin comprobar; series.da_rou.2023: sin «fila» (etiqueta de la fila): columna y ejercicio sin comp
+E1a 2025 con la cifra de 2024, con fila: SALTA DATOS INVÁLIDOS · columna ok 9 · pendiente 0 · series.da_rou.2025: la cifra '(132.2)' de la fila 'Right-of-use assets' está en la columna de ['2024'], no en la de 2025
+E1b lo mismo SIN fila: no salta · columna ok 9 · pendiente 1 · series.da_rou.2025: sin «fila» (etiqueta de la fila): columna y ejercicio sin comprobar
+E1c lo mismo con una fila ambigua («assets»): no salta · columna ok 9 · pendiente 1 · series.da_rou.2025: la fila 'assets' está en 5 líneas de la página (hace falta una)
+S1 «149.5» sin paréntesis (T9): SALTA DATOS INVÁLIDOS · columna ok 9 · pendiente 0 · series.da_rou.2025: la cifra '149.5' no está, como cifra completa, en la página 350 de 'URD2025'
+S2 «(49.5)» (parte de «(149.5)»): SALTA DATOS INVÁLIDOS · columna ok 9 · pendiente 0 · series.da_rou.2025: la cifra '(49.5)' no está, como cifra completa, en la página 350 de 'URD2025'
+S4 fuente inventada dentro del expediente, con su sha256: no salta · columna ok 1 · pendiente 0 · 
+S8 sha256 distinto: SALTA DATOS INVÁLIDOS · columna ok 0 · pendiente 0 · series.da_rou.2025: la fuente 'texto/inventada.txt' de 'X' cambió (sha256 distinto del declarado)
+S5 fuente de otro expediente (../): SALTA DATOS INVÁLIDOS · columna ok 0 · pendiente 0 · series.da_rou.2025: la fuente '../r2/munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/elis_decisiones/Elis/texto/Elis - 2025 Universal Registration Document.txt' de 'X' está fuera de la carpeta del expediente
+S5b enlace simbólico dentro del expediente a otro expediente: SALTA DATOS INVÁLIDOS · columna ok 0 · pendiente 0 · series.da_rou.2025: la fuente 'texto/enlace.txt' de 'X' está fuera de la carpeta del expediente
+S5c enlace duro (copia) del texto de otro expediente: no salta · columna ok 1 · pendiente 0 · 
+S6 «archivo» de la entrada distinto del registrado: SALTA DATOS INVÁLIDOS · columna ok 0 · pendiente 0 · series.da_rou.2025: «archivo» 'texto/otro.txt' no es la fuente registrada de 'X' ('texto/inventada.txt')
+F1 legítima con espacio de miles «(1 019,4)» (columna 2025): SALTA DATOS INVÁLIDOS · columna ok 0 · pendiente 0 · series.da_rou.2025: la cifra '(1 019,4)' no está, como cifra completa, en la página 1 de 'X'
+F2 legítima con espacio duro «(1 019,4)» (columna 2024 → se declara 2025 aquí, debería decir columna 2024): SALTA DATOS INVÁLIDOS · columna ok 0 · pendiente 0 · series.da_rou.2025: la cifra '(1\xa0019,4)' no está, como cifra completa, en la página 1 de 'X'
+F3 legítima con coma de miles «(1,019.4)» sin encabezado alineado: no salta · columna ok 0 · pendiente 1 · series.da_rou.2025: sin encabezado de ejercicio alineado con '(1,019.4)' en la fila 'Other'

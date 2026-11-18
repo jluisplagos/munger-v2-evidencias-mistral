@@ -232,3 +232,77 @@ No repetí `verificar_paquete.sh completa`: no vi motivo, porque el cambio no to
 - Excel real (todo el recálculo es LibreOffice);
 - `regresion_elis_f1.py`;
 - el tercer caso de V631-2 (fila 8 sin la D&A de derechos de uso) con libro.
+
+---
+
+# Segunda ronda (18-nov-2026) · solo lo afectado (`4928fc9..9f073e0`)
+
+- **Material:** `f1/plantilla-v631` @ `9f073e0` (código en `f833807`, resultados y README §8 en `0917de9`).
+- **Copia de trabajo:** worktree desprendido `/tmp/claude-0/revision_v631/r2`, con los 1008 binarios de la base 4.14 copiados por `copiar_binarios_a_b.py` (1008 copiados, 0 distintos). Borrado al terminar. No toqué `wt_v631`.
+- **Evidencia:** `evidencia/ronda2/`: `series2.py` y su salida, `pipe2.py` con su registro y resultado, `libros.py`, `indep_elis.py` y sus resultados.
+
+## Veredicto: CONFORME CON LÍMITES
+
+Las correcciones cierran lo que pedí en la primera ronda:
+- ninguno de mis caminos de V631-1 llega a `concluido`;
+- mis ataques de V631-2 sobre la cifra, el signo, el ejercicio con `fila` y la fuente de fuera del expediente se rechazan;
+- A1 y A2 tienen huellas distintas;
+- la plantilla reconstruida sigue dando 0 celdas distintas en A0 y los valores E9 en A1/A2.
+
+Quedan tres límites nuevos (R2-a a R2-c). Lo no corregido es aceptable como límite declarado para un examen supervisado, con las condiciones que pongo abajo.
+
+## Comprobaciones
+
+| Qué | Resultado |
+|---|---|
+| Plantilla reconstruida desde la V6.3 (`8381a6cd…`, sin cambios) | `eaece01a7d6a…` = referencia = entregable. La rama A1/A2 de C53 exige ahora `COUNT` = 5 en las filas 12, 13, 14 y 88; la rama A0 sigue siendo literalmente la de la V6.3 |
+| A0, por mi vía (construcción sobre el libro relleno y comparador propio, tolerancia 0) | Elis, Empresa X, ABB y Hermès: **0 celdas distintas** de 39.751, con perímetro vacío y con `A0_total`; los orígenes no cambian |
+| E9 en A1/A2 (LibreOffice frente a mi cálculo independiente) | f: 7·10⁻¹⁷ y 3·10⁻¹⁷; C53: 5·10⁻¹⁵ y 7·10⁻¹⁶; año 11: ≤ 8·10⁻¹³ (A1 294,942 / 413,845 / 488,862; A2 402,413 / 546,311 / 633,271) |
+| Huella de entradas (V631-3) | A1 `c5b92dcf…` ≠ A2 `b2d5ed56…` ≠ A0 `d5b22ae5…` ≠ vacío `629d707a…`; la V6.3 conserva la suya. El universo de `verificacion_entradas` pasa de 292 a **313** celdas: las 21 de C85 y C86:L87, de ámbito «cálculo» |
+| V631-1 · R21a y R21b (resultado borrado y `--reiniciar --desde 13`; R21b además con la declaración cambiada) | **Rechazadas**, código 2, sin ficha `concluido` (la aprobación se retira) |
+| R21d · borro **a mano** `estado_pipeline.json` y el resultado, con la declaración cambiada, y lanzo `--desde 13` (sin `--reiniciar`) | `no_entregable` en el paso 12. El motor se repone desde `fase_a.json` y el paso 13 obliga a repetir el 12 |
+| R21e · lo mismo sin cambiar nada | `no_entregable` en el paso 12. Del lado seguro: un estado borrado se rehace desde el principio |
+| R21f · además borro `fase_a.json` | `no_entregable`; la ficha dice «motor desconocido … F1 no se puede dar por no aplicable» (falla en cerrado) |
+| V631-2 · otro ejercicio con `fila` (E1a) | **DATOS INVÁLIDOS** («está en la columna de 2024, no en la de 2025») |
+| V631-2 · cifra parcial «(49.5)» dentro de «(149.5)»; «149.5» sin paréntesis (T9) | **DATOS INVÁLIDOS** las dos |
+| V631-2 · fuente de otro expediente (`../`) o enlace simbólico hacia él; `archivo` distinto del registrado; sha256 distinto | **DATOS INVÁLIDOS** todas |
+| Cifras legítimas: las 10 de Elis con `fila` | No saltan; columna comprobada en las 10 |
+| Pruebas del autor en la copia | `test_v631_f1` 28/28 · `test_motor_a_f1` 163/163 · estructura 21/21 · a0 22/22 · f1 35/35, todas PASAN. No repetí `prueba_pipeline_v631.py` (9/9 según el autor): mis R21a–R21f cubren y amplían su P9. Tampoco `completa` |
+
+## Límites nuevos
+
+**R2-a · baja (del lado seguro, pero rechaza cifras legítimas) · Miles separados por espacio.**
+- `_TOK` no admite un espacio dentro del número.
+- Un «(1 019,4)» legítimo, con espacio normal o duro, da **DATOS INVÁLIDOS** y bloquea.
+- El DEU 2024 de Elis, en francés, tiene 535 cifras con este formato. Las de Elis no se ven afectadas porque todas son menores de 1.000.
+- Afectaría a cualquier fuente francesa o española con importes de 1.000 o más.
+- **Corrección:** admitir grupos de tres cifras separados por espacio, espacio duro (U+00A0) o espacio fino (U+202F).
+
+**R2-b · baja (límite) · Sin `fila`, o con una fila ambigua, un año equivocado pasa como «pendiente».**
+- E1b (sin `fila`) y E1c (`fila` «assets», que aparece en cinco líneas): `F1-SERIES` no salta y F1 queda «utilizable».
+- Lo único que lo para es la aptitud por entradas, que queda en «no» porque las filas 85–87 están en el universo.
+- **Aceptable para el examen** si la conclusión nunca se presenta como acreditada sin la verificación de esas entradas. Para que se vea, recomiendo:
+  - un AVISO visible en la ficha cuando haya columnas pendientes;
+  - o exigir `fila` en todas las entradas.
+
+**R2-c · límite declarado por el autor (§9.2) · Fuente inventada o copiada.**
+- Un `.txt` fabricado dentro del expediente, con su sha256, pasa (S4).
+- También pasa un enlace duro, que equivale a una copia, al texto de otro expediente (S5c).
+- La huella solo garantiza que la fuente no cambió; no dice de dónde viene.
+- Lo cubre la verificación de entradas, con revisor y sello. Aceptable como límite.
+
+Nota sobre la carga de trabajo: un expediente V6.3.1 con A0 tiene ahora 21 celdas más en el universo. Las vacías hay que registrarlas como «no aplicable» para que sea apto por entradas. Es correcto, pero es trabajo añadido.
+
+## Lo no corregido: ¿aceptable como límite declarado para el examen?
+
+| Punto | ¿Aceptable? | Condición |
+|---|---|---|
+| V631-6 · el oráculo contrasta cachés | Sí | Solo valen resultados F1 producidos por el pipeline (recálculo forzado y `verificar_v631.py` en el paso 12), nunca un `motor_a_f1.py evaluar` a mano sobre un libro de origen desconocido |
+| V631-7 · rótulos de A30 y A76 | Sí | La nota de A90 lo explica. Es cosmético |
+| Rótulo F1 «utilizable» que conserva una ficha `no_entregable` | Sí | Manda el estado de la ficha. Conviene corregirlo cuando se pueda |
+| Fila 8 que ya excluye la ROU (A1 la restaría dos veces) | Sí | Condición: la fila 8 y las series verificadas (ya están en el universo) antes de presentar una conclusión con A1/A2 |
+| Pruebas nuevas fuera de `verificar_paquete.sh` | Sí, para el examen | Ejecutarlas a mano y registrar el resultado. **Registrarlas antes de integrar**, porque si no una regresión pasaría desapercibida |
+| Excel real | Sí | El motor del pipeline es LibreOffice. No afirmar nada sobre Excel |
+| R2-a | Sí | Del lado seguro. Corregirlo si el examen incluye fuentes con miles separados por espacio |
+
+**Aptitud:** sin cambios. Uso supervisado experimental; no apta para dinero real.
