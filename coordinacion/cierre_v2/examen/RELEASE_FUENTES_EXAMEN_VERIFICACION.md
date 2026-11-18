@@ -31,3 +31,13 @@ Las fuentes de las cuatro empresas están completas para montar sus expedientes.
 - Inspección visual del balance de 2023 (p. 66): tabla entera en una página; el número de página impreso por Jumbo (66) coincide con la página del PDF.
 - Las citas de esos dos años se refieren a la conversión. Contraste adicional: cada año aparece como comparativo en el informe siguiente (2023 en el PDF oficial de 2024).
 - Los PDF no van a Git; se conservan junto al resto de fuentes del coordinador.
+
+## Anexo 2 · guía de Zoetis del T2 2026 (subida por la persona el 18-nov-2026, 21:46 UTC)
+
+| Asset de la Release | SHA-256 | Frente a Mistral (`mistral/zoetis-guia-2t26`) |
+|---|---|---|
+| `Q2-2026-Zoetis-Earnings-Call.pdf` | `88a61cb5ee2daa492773287fe87fac6ff8341ae596099ff130523da98e0ae843` | idéntico |
+| `Zoetis_2Q26_Financial_Results.pdf` (24 pp., creado el 5-ago-2026 20:07 UTC) | `130a148ebefba6244024f8f8967acdd4ee0fbabbd21a98640dc29cf93e03d571` | idéntico |
+| `Zoetis.Inc.-.Zoetis.Announces.Second.Quarter.2026.Results.html` | `8ccb57bcc445a29facfa79cf22f415485dbe0af25a7fe88ed18fe75f8c2a39b1` | distinto de la copia de Mistral (`62061c66…`): página dinámica; el texto de la sección «FINANCIAL GUIDANCE» es idéntico (ingresos 9.120–9.320 mm USD, orgánico (3)%–(1)%, BPA ajustado 6,15–6,25; tipos de cambio a 21-jul-2026) |
+
+Publicados el 6-ago-2026, antes del corte del primer tiempo (9-oct-2026). Se añaden a las fuentes del primer tiempo de Zoetis por decisión de la persona (18-nov-2026).
