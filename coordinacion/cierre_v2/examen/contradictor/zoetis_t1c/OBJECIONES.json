@@ -1,0 +1,73 @@
+{
+ "empresa": "Zoetis Inc. (ZTS)",
+ "conclusion_atacada": {
+  "estado": "pendiente_de_datos",
+  "cubo": "Vigilar",
+  "accion": null,
+  "precio_si": 73.31
+ },
+ "objeciones": [
+  {
+   "id": "O1",
+   "direccion": "baja",
+   "hecho": {
+    "archivo": "texto/zoetis-10q-2026-q2.txt",
+    "pagina": 16,
+    "cita": "As of June 30, 2026, the additional tax liability, based on the income adjustment proposed by the IRS under the RAR, is approximately $450 million, excluding interest and penalties. This matter is currently under appeal with the IRS."
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "precio de Sí −0,50 a −1,06 (de 73,31 a 72,81–72,25); en el cálculo conjunto uso −0,60 (72,71)",
+    "cuenta": "450 ÷ 424,928 M de acciones = 1,06 por acción, sin intereses ni sanciones (cota baja del pago si se pierde). El motor A no resta pasivos del balance, así que ese pago no está en B78:D78 ni en precio.json. En la escalera k = 3, precio de Sí = (0,5·NORMAL + 0,2·BUENO + 0,9·MALO) ÷ 1,6, así que el MALO pesa 0,9 ÷ 1,6 = 0,5625. Pérdida completa solo en el MALO: 62,07 → 61,01 y precio de Sí 72,71 (−0,60); pagada dentro de dos años (÷ 1,09²): 72,81 (−0,50). Como coste esperado con p = 0,5 en los tres escenarios: 72,78 (−0,53); pérdida completa en los tres: 72,25 (−1,06). El mismo importe, a 31-dic-2025, en [zoetis-10k-fy2025.txt, PDF p. 84]. Cálculo: calc/final.py."
+   },
+   "por_que_cambia_la_conclusion": "La fase C sacó la reclamación de la tesis inversa con este motivo: «Quito la reclamación fiscal y la mediana de 47x: no están en mis entradas o no son verificables (C88)» (fase_c.json, herencia de B102). Está en dos fuentes de texto/, con importe, fecha y estado («under appeal»), y la empresa añade que el ajuste «could be material to our financial statements». Cualquiera de las cuatro formas de contarla deja el precio de Sí por debajo de 73,08, así que la zona pasa a vigilar. El Vigilar deja de ser «comprar en cuanto lleguen las dos fechas»: a 73,08 no habría Sí aunque los dos datos ausentes llegaran favorables, y la tesis inversa omite un pasivo cuantificado."
+  },
+  {
+   "id": "O2",
+   "direccion": "baja",
+   "hecho": {
+    "archivo": "texto/zoetis-10k-fy2025.txt",
+    "pagina": 59,
+    "cita": "2025 Convertible Senior Notes due 2029 $2,000 million 0.250% Interest due semi annually, not subject to amortization, aggregate principal due on June 15, 2029"
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "precio de Sí −0,40 a −2,68; central −1,88 (de 73,31 a 71,43)",
+    "cuenta": "f (1,01 % de las ventas) es la fuga entre el NOPAT y el FCF al accionista, intereses incluidos, y está calibrada en 2023–25 con una deuda nominal de 6.650. A 31-dic-2025 la deuda es de 9.150 [zoetis-10k-fy2025.txt, PDF p. 86], y las 424,93 M de acciones ya recogen las recompras pagadas con ella. El 10-Q confirma el efecto: el gasto por intereses sube un 15 % en el semestre «primarily as a result of a higher average debt balance» [zoetis-10q-2026-q2.txt, PDF p. 31]. (i) Mínimo, solo el nivel de 2026: los cupones de la tabla de deuda suman 296 [10-K 2025, PDF p. 86], frente a 276,7 pagados de media en 2023–25 (Historia fila 15). Son +19,3 al año antes de impuestos, × (1 − 0,1997), en los diez años y en el terminal como coste fijo: −0,40 por acción en los tres escenarios y precio de Sí 72,91. (ii) Central: el convertible de 2.000 al 0,25 % vence el 15-jun-2029 y su principal se paga en caja. Con la premisa de la hoja de que la deuda se refinancia siempre (Observación heredada de C62), refinanciarlo al 5,000 % de la emisión ordinaria a diez años de agosto de 2025 [10-K 2025, PDF p. 85] suma +95 al año desde mediados de 2029: −1,88 por acción y precio de Sí 71,43. (iii) Si además se refinancian al 5,000 % los vencimientos de 2027 (3,0 %), 2028 (3,9 % y 4,15 %) y 2030 (2,0 %): 70,63 (−2,68). Cálculo: calc/obj_intereses.py y calc/final.py."
+   },
+   "por_que_cambia_la_conclusion": "La fase A vio el aumento y lo dejó fuera del valor: «intereses esperados de 296 en 2026 frente a 261 pagados en 2025 (fila 15), ≈2 % del FCF base» (fase_a.json, Observación de C62); la fase C no lo lleva a ninguna cifra. Con un colchón de 0,23 (0,3 % del precio), ese 2 % basta: incluso el caso mínimo (72,91) deja el precio por encima del precio de Sí. Con el central (71,43), el precio queda un 2,3 % por encima: la zona es vigilar, y para llegar a un Sí haría falta un precio de ≈71, además de los datos ausentes."
+  },
+  {
+   "id": "O3",
+   "direccion": "baja",
+   "hecho": {
+    "archivo": "texto/zoetis-10k-fy2025.txt",
+    "pagina": 50,
+    "cita": "Our effective tax rate was 20.4% for 2025 and 20.3% for 2024."
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "precio de Sí −0,39 a −0,53 (de 73,31 a 72,92–72,78)",
+    "cuenta": "La hoja proyecta NOPAT = ventas × margen × (1 − t) con t = 0,1997, la media de 2021–25, que incluye el 18,25 % de 2021 (Historia, tipo impositivo). Pero f (0,0100954) está calibrada con el tipo de cada año de 2023–25: suma(EBIT × (1 − τ_año) − reinversión orgánica − FCF al accionista) ÷ suma(ventas) = 275,3 ÷ 27.267 = 0,0100955; con t = 0,1997 habría salido 0,01155. Usar en la proyección el tipo de la calibración (media de 2023–25 = 0,2036) da V = 61,75 / 80,08 / 105,29 (−0,32 / −0,44 / −0,59) y un precio de Sí de 72,92; con el 20,5 % de la guía, 72,78. Otras fuentes: «Our effective tax rate was 20.4% and 21.2% for the six months ended June 30, 2026 and 2025, respectively» [zoetis-10q-2026-q2.txt, PDF p. 32]; «Effective tax rate on adjusted income(b) Approximately 20.5%» [zoetis-2q2026-press-release.txt, PDF p. 1]. Cálculo: calc/obj_impuesto.py."
+   },
+   "por_que_cambia_la_conclusion": "Es la menor de las tres a la baja, pero no depende de ningún juicio: cuatro años seguidos (2022–25) y la guía de 2026 están entre el 20,3 % y el 20,6 %. Por sí sola deja el precio de Sí por debajo de 73,08: la zona pasa a vigilar y deja de cumplirse la condición de la fase C para pasar a Sí (escalera en cumple_regla_k al precio actual)."
+  },
+  {
+   "id": "O4",
+   "direccion": "sube",
+   "hecho": {
+    "archivo": "texto/zoetis-10q-2026-q2.txt",
+    "pagina": 5,
+    "cita": "414,154,046 and 424,927,535 shares outstanding at June 30, 2026, and December 31, 2025, respectively"
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "precio de Sí +2,08 a +2,40 (de 73,31 a 75,39–75,71); +1,15 si el valor se lleva solo hasta el 30-jun-2026",
+    "cuenta": "La hoja valora a 31-dic-2025: descuenta el FCF de 2026 un año entero (la réplica reproduce B78:D78 con descuento a fin de año, no con medio año) y divide por las acciones a 31-dic-2025 (424,93 M). El precio es del 8-oct-2026, y la propia hoja lo avisa (V28: «Precio y acciones con fechas separadas más de 90 días»). Llevo el valor a la fecha del precio con E(t) = E0 × 1,09^t − repartos ya pagados. NORMAL: E0 = 80,52 × 424,928 = 34.216. A 30-jun-2026: 34.216 × 1,09^0,496 − (1.190 de recompras + 447 de dividendos [10-Q 2T26, PDF p. 8]) × 1,09^0,248 = 34.037, que ÷ 414,154 M da 82,19. Al 8-oct: × 1,09^0,274 − 0,53 de dividendo trimestral [10-Q 2T26, PDF p. 3] = 83,62. Con MALO 63,38 y BUENO 111,42, el precio de Sí es 75,71 (+2,40). La cuenta ya resta que las recompras de 2026 se hicieron a ≈105 de media (1.159 por 11,0 M [10-Q 2T26, PDF p. 44]), por encima del valor. Si solo se actualizan las acciones a 413,22 M (31-jul-2026, portada del 10-Q [PDF p. 1]) sin tocar la caja, como hace la hoja con C76 = 0: 75,39 (+2,08). Cálculo: calc/obj_fecha.py."
+   },
+   "por_que_cambia_la_conclusion": "Esta va contra el Vigilar. Por sí sola no cambia el cubo, porque el dato de patentes sigue pendiente: la rama de genéricos de la fase C da 69,13 y, con esta corrección, 71,13, todavía por debajo de 73,08. Pero cambia el diagnóstico. El colchón pasa de 0,23 a 2,63 y el dato del rival deja de ser material: con p = 0,4 / 0,4 / 0,2, el caso con el que la fase C lo hace material, el precio de Sí sería 73,22 ≥ 73,08. Dejar pasar la empresa «por céntimos» sería medir mal: la hoja compara un valor de enero con un precio de octubre."
+  }
+ ],
+ "sin_objeciones_validas": false,
+ "nota": "Réplica del motor A en calc/motor.py: reproduce al céntimo B78:D78 (62,07 / 80,52 / 105,88), los FCF de los años 1 y 10, el valor sin crecimiento (64,97), la tabla del DCF inverso y el precio de Sí (73,31), con descuento a fin de año. No he leído la hoja Excel ni nada fuera de la lista del encargo; las citas están comprobadas en su página (calc/verificar_citas.py). Efecto conjunto, con interacciones (calc/final.py): las tres objeciones a la baja suman entre −1,30 y −4,26 (central −2,85, precio de Sí 70,46); con la corrección de fecha al alza, el neto queda entre 69,95 y 74,33, con un central de 72,62 (vigilar por 0,46). Si solo se acepta la de fecha: 75,71. Lectura del contradictor: el cubo Vigilar resiste en las dos direcciones; lo que no resiste es su motivo. Con las cuatro correcciones, el precio de 73,08 cae dentro del error de la propia escalera y, en el caso central, por encima del precio de Sí. «Comprar en cuanto lleguen los dos datos» no está respaldado: el Vigilar es por precio y por datos. Examinadas y descartadas: (1) Trayectoria de 2026. La hoja pone las ventas de 2026 por encima del techo de la guía (9.320) incluso en el MALO (9.467). Pero con el margen que implica la propia guía, el EBIT del MALO de 2026 (3.185) coincide con el guiado (≈3.212), y el precio de Sí solo baja 0,03 (0,80 si no se deja que la caída de ventas libere capital): no es sólida. (2) La estimación auxiliar de 74,12 de la fase C por el perímetro de la I+D no tiene base. El exceso de la fila 31 sobre capex − D&A + circulante + adquisiciones (175/160/154/141/129 en 2021–25) coincide con la amortización de intangibles de la cuenta de resultados (161/150/149/141/128), no con la I+D neta. La I+D neta que usa la hoja en la fila 36 vale 297/277/298/309/252, y con ella reproduzco esa fila al sexto decimal (calc/que_es_x.py). No hay doble cómputo de I+D en el S2C ni colchón oculto a favor de la tesis. (3) El 10-K 2025 da «a summary of our recent and upcoming key patent expirations» [PDF p. 17] que solo nombra Draxxin, Excede/Naxcel y Cerenia, con 2028 como fecha más lejana. No da fechas de Simparica Trio, Apoquel, Cytopoint ni Librela: el dato ausente se estrecha, pero no se resuelve, y su efecto no se puede cifrar sin inventar un escenario. (4) Rimadyl masticable cae un 39 % en EE. UU. tras los genéricos, frente al 66 % de Draxxin [10-K 2025, PDF p. 25]. Suaviza la rama de genéricos de la fase C, que no está en la hoja. (5) La consejera delegada, sobre la presión de cuota en dermatología: «Is that six months, is that 12 months, is that 18 months, I can't tell you» [conferencia 2T26, PDF p. 13]. Apoya p(MALO) = 0,3 sin dar cifra nueva. No propongo tamaños de posición ni cambio la r del 9 %."
+}
