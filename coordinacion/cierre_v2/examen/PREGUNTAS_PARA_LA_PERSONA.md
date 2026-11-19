@@ -46,3 +46,9 @@
 
 ## M-BYTES · Datos de mercado sin archivo guardado (bloquean «apto por entradas»)
 **PENDIENTE (19-nov).** El programa solo acepta como comprobado un dato de mercado si el archivo original está guardado con su huella. Faltan: Jumbo, precio 27,28 € del 17-nov (la captura de Euronext Athens de la persona) y Bund a 10 años del 17-nov; Damodaran (margen del sector) de Ahold, Jumbo y Zoetis. Propuesta: la persona sube a la Release la captura y las páginas guardadas como PDF; las lecturas de terceros C38 (valor intrínseco de webs) y C88 (P/FCF de terceros) se declaran «no materiales» con justificación que sella un revisor, sin subir nada.
+
+## Z-MIN · Zoetis: minoritarios negativos (2022: −2; 2023: −6 mm USD)
+**PENDIENTE (19-nov).** El libro exige minoritarios ≥ 0 (Convenciones V6.3 §8; Motor!E234; validación de Historia!C26:L26; el puente del motor B los resta). Hoy el programa los guarda en positivo (+2, +6), que no es la cifra publicada. Opciones: (a) **recomendada:** tratarlos como 0 con aviso y la cifra impresa en el registro (como el superávit de pensiones); (b) restarlos con su signo (cambia la plantilla); (c) dejarlos en positivo (no es exacto y el registro seguirá en discrepancia). Efecto económico nulo: en 2025 son 0 y el puente usa 2025.
+
+## Z-R · Zoetis: agrupación geográfica que fija la r mínima (A31/B31, A33/B33)
+**PENDIENTE (19-nov).** El sellado del registro señala que la agrupación de ventas por regiones no corresponde a las etiquetas del informe; esa agrupación fija la tasa mínima. **Recomendación:** dejarla como está y anotar la diferencia (la r usada es el 9 % fijo de la política; la mínima solo es un control).
