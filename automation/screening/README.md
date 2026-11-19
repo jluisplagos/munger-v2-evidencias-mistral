@@ -241,6 +241,27 @@ baja al coste real. El tope acumulado tiene que cubrir lo ya comprometido más 1
   (cuenta entera) sin informe de esa empresa; el código deja de empezar empresas 15 min
   antes del timeout para evitarlo.
 
+## Finalistas para la segunda vuelta (análisis directo)
+
+`finalistas.py` lee los `report.json` del cribado ya publicados en la rama de registro (sin
+red, con `git show` del clon) para las ejecuciones que se le declaran y aplica un criterio
+mecánico fijo sobre los resultados de los filtros, sin revisarlos ni aceptarlos:
+
+- nivel 1: calidad, caja y balance = `pasa`, y precio = `pasa` o `dudoso`;
+- nivel 2: ninguno de los tres es `no_pasa` ni `no_aplica`, al menos dos son `pasa`, y
+  precio = `pasa` o `dudoso`;
+- solo cuentan las respuestas con formato válido; el encaje y el veredicto del cribado no
+  entran (el veredicto se muestra).
+
+```
+python3 -I automation/screening/finalistas.py --ejecuciones 44406828081,44413758195,44502520327,44505954250 \
+  --salida automation/screening/FINALISTAS_tandas_1_3_y_pandora
+```
+
+Con las tandas 1 a 3 y Pandora (61 empresas): FW_Thorpe (nivel 1), Azkoyen, Betsson y
+CocaCola (nivel 2). Es una propuesta: decide la persona responsable. Los paquetes del
+análisis directo de las finalistas los prepara `automation/direct_analysis/universo.py`.
+
 ## Probar sin gastar
 
 ```

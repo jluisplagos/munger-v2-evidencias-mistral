@@ -1,0 +1,913 @@
+{
+ "empresa": "Zoetis Inc.",
+ "ticker": "ZTS",
+ "fecha_analisis": "2026-10-09",
+ "sector_texto": "Medicamentos, vacunas, diagnósticos y servicios genéticos para salud animal (mascotas ≈70 % y ganado ≈30 % de los ingresos)",
+ "moneda_modelo": "USD",
+ "norma_contable": "US GAAP",
+ "cierre_fiscal": "diciembre",
+ "mercado": "NYSE",
+ "ratio_adr": null,
+ "sector_damodaran": "Drugs (Pharmaceutical)",
+ "precio": {
+  "valor": 82.11,
+  "moneda_cotizacion": "USD",
+  "fecha": "2026-11-05",
+  "fx": null,
+  "fx_fecha": null,
+  "fuente": "Segundo tiempo (edición declarada de esta copia): cierre NYSE del 5-nov-2026, 82,11 USD (archivo de cotización hasta el 5-nov-2026). Precio del primer tiempo, que ya no rige: cierre oficial NYSE del 8-oct-2026 según stockanalysis.com (historial de ZTS: https://stockanalysis.com/stocks/zts/history/) y MarketBeat (https://www.marketbeat.com/stocks/NYSE/ZTS/chart/); ambos dan 73,08 USD, rango del día 71,15–73,75, volumen ≈6,2 millones; la variación del día difiere ligeramente entre las dos (+2,14 % frente a +2,03 %). Un dato de 74,81 citado por un tercero no se pudo atribuir a esa sesión y se descarta. Cierre del día, sin hora intradía."
+ },
+ "acciones_diluidas": {
+  "valor": 424.928,
+  "fecha": "2025-12-31",
+  "fuente": "Balance consolidado del 10-K FY2025: 501.891.243 acciones emitidas, 424.927.535 en circulación al 31-dic-2025 (emitidas menos 76.963.708 de autocartera). No se suma dilución: las opciones/RSU antidilutivas no son materiales y el 10-K no publica dilución al cierre; las notas convertibles (precio de conversión ≈148,20 USD, con capped calls) están muy fuera de dinero frente a 82,11 USD (5-nov-2026). Cifra de cierre del ejercicio, no media ponderada.",
+  "pagina": 68
+ },
+ "capitalizacion": {
+  "valor": 34890.8,
+  "fecha": "2026-11-05",
+  "fuente": "Segundo tiempo (edición declarada de esta copia): precio de cierre 82,11 USD (5-nov-2026) × 424,927535 millones de acciones en circulación al 31-dic-2025 = 34.890,8 millones de USD. Primer tiempo: 73,08 USD (8-oct-2026) × 424,927535 = 31.054 millones de USD."
+ },
+ "tasa_sin_riesgo": {
+  "valor": 0.0522,
+  "fuente": "Treasury de EE. UU. a 10 años, Daily Treasury Par Yield Curve Rates del Departamento del Tesoro, cierre del 8-oct-2026: 5,22 % (https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026). Contraste: portfolio-terminal.com da 5,231 % para esa fecha. Cifras intradía de ≈5,28–5,35 % vistas en prensa se descartan por no ser cierre. Moneda del modelo USD; el Treasury se toma como libre de riesgo de impago."
+ },
+ "geografia": [
+  {
+   "pais": "United States",
+   "pct": 0.5384,
+   "nota": "5.097 de 9.467 mm USD (ingresos por área geográfica, FY2025)."
+  },
+  {
+   "pais": "Región · Western Europe",
+   "pct": 0.1065,
+   "nota": "Francia 165 + Alemania 236 + Italia 137 + España 145 + Reino Unido 325 = 1.008 mm."
+  },
+  {
+   "pais": "Región · Central and South America",
+   "pct": 0.0731,
+   "nota": "Brasil 393 + Chile 139 + México 160 = 692 mm; México se asigna aquí por convención de las listas de Damodaran, aunque geográficamente es Norteamérica."
+  },
+  {
+   "pais": "Región · Asia",
+   "pct": 0.1367,
+   "nota": "China 227 + Japón 154 = 381 mm, más 913 mm de «Other emerging markets» (mezcla no desglosada de Asia, Latinoamérica, Europa del Este, Oriente Medio y África; aproximación: se asigna a Asia por ser la región emergente de mayor peso probable)."
+  },
+  {
+   "pais": "Canada",
+   "pct": 0.0306,
+   "nota": "290 mm."
+  },
+  {
+   "pais": "Región · Australia & New Zealand",
+   "pct": 0.1147,
+   "nota": "Australia 329 mm, más 641 mm de «Other developed markets» (no desglosado; aproximación) y 116 mm de «Contract manufacturing & human health» (sin ubicación de cliente; aproximación) = 1.086 mm."
+  }
+ ],
+ "geografia_fuente": {
+  "fuente": "10-K FY2025, Nota de ingresos «Revenue by geographic area» (ventas por ubicación del cliente), total 9.467 mm USD",
+  "pagina": 77
+ },
+ "unidad": "mm",
+ "anios_fcf_base": 3,
+ "historia": {
+  "anios": [
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ],
+  "partidas": {
+   "ventas": {
+    "valores": [
+     4888.0,
+     5307.0,
+     5825.0,
+     6260.0,
+     6675.0,
+     7776.0,
+     8080.0,
+     8544.0,
+     9256.0,
+     9467.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.69 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.71 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.71 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.74 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.72 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.64 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.65 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.64 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.66 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.66",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2022: OCR: en la pagina 64 (cuenta de resultados) y en p.~MD&A (linea 2667) y portada (linea 96) 2021 = 7,776; en la tabla de resumen de 'Overview' (linea 2274) el OCR lee 7,176 (error de OCR, duda anotada). Se usa 7,776, que cuadra con BAI 2021 (2,488) via suma de gastos. | 2020: Cifra cuadra con la suma de costes y BAI (6,675-2,057-1,726-463-160-25-231-17=1,996) y coincide con la tabla MD&A (pag. 3119)."
+   },
+   "ebit": {
+    "valores": [
+     1062.0,
+     1350.0,
+     1484.0,
+     1578.0,
+     1765.0,
+     2264.0,
+     2435.0,
+     2697.0,
+     2908.0,
+     3138.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.69 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.71 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.71 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.74 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.72 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.64 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.65 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.64 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.66 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.66",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). EBIT = resultado antes de impuestos − resultado financiero, la misma definición los diez años (v2.2). Notas de los lectores: 2025: La cuenta de resultados no imprime subtotal de resultado de explotación; ver ebit_derivado. | 2024: La cuenta de resultados no imprime subtotal de resultado de explotación; ver ebit_derivado. | 2023: La cuenta de resultados no imprime subtotal de resultado de explotacion. | 2022: La cuenta de resultados no imprime subtotal de resultado de explotacion; null. | 2021: La cuenta de resultados no imprime subtotal de operating income; null. | 2020: La cuenta de resultados no imprime subtotal de resultado de explotacion; null. | 2019: La cuenta de resultados no imprime subtotal de operating income; ver ebit_derivado. | 2018: El estado de resultados no imprime subtotal "
+   },
+   "da": {
+    "valores": [
+     240.0,
+     242.0,
+     308.0,
+     412.0,
+     441.0,
+     448.0,
+     465.0,
+     491.0,
+     497.0,
+     487.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.73 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.75 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.75 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.78 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.76 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.68 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.69 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.97 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.70 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.70",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2024: DUDA OCR: en el estado de flujos (p. 68) el dato de 2023 se lee '49]' (OCR de 491). Se toma 491 de la nota de segmentos (p. 97: 'Total Earnings ... 497 491 465'); la suma de segmentos 172+33+128+153+5 = 491 y el CFO de 2023 solo cuadra con 491. Ambas lecturas: '49]' (p. 68) y '491' (p. 97). 2024: 497 en ambas páginas (suma segmentos 181+43+128+140+5=497). | 2023: No incluye 'Asset write-offs and asset impairments' (46 en 2023; 53 en 2022), que es otra linea del flujo. Total 491 coincide con 'Total Earnings' D&A de la nota de segmentos (p.97). | 2021: 448/441 coinciden con la tabla de segmentos (pag. 106, 'Total Earnings' 448 441 412). Las 'Asset write-offs and a"
+   },
+   "beneficio_neto": {
+    "valores": [
+     821.0,
+     864.0,
+     1428.0,
+     1500.0,
+     1638.0,
+     2037.0,
+     2114.0,
+     2344.0,
+     2486.0,
+     2673.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.69 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.71 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.71 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.74 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.72 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.64 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.65 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.64 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.66 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.66",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2024: Cuadra: 2,496 - 10 = 2,486; 2,340 + 4 = 2,344. El OCR antepone '§' al importe de 2023 (lee '$' como '§'); sin efecto sobre la cifra. | 2022: Cuadra: 2,111 + 3 = 2,114; 2021: 2,034 + 3 = 2,037. Coincide con nota 17 (pagina de EPS). | 2021: Coincide con MD&A y nota 17 (2,037 / 1,638). Cuadra: 2,034 + 3 = 2,037; 1,636 + 2 = 1,638. | 2020: 1,636 antes de minoritarios + 2 de perdida atribuida a minoritarios = 1,638 (cuadra)."
+   },
+   "tipo_impositivo": {
+    "valores": [
+     0.3331,
+     0.4348,
+     0.1574,
+     0.1671,
+     0.1804,
+     0.1825,
+     0.2052,
+     0.203,
+     0.2033,
+     0.2045
+    ],
+    "fuente": "impuestos ÷ resultado antes de impuestos; 2016 zoetis-10k-fy2017.txt p.69 (comparativo del informe siguiente) / zoetis-10k-fy2017.txt p.69 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.71 (comparativo del informe siguiente) / zoetis-10k-fy2018.txt p.71 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.71 (comparativo del informe siguiente) / zoetis-10k-fy2019.txt p.71 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.74 (comparativo del informe siguiente) / zoetis-10k-fy2020.txt p.74 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.72 (comparativo del informe siguiente) / zoetis-10k-fy2021.txt p.72 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.64 (comparativo del informe siguiente) / zoetis-10k-fy2022.txt p.64 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.65 (comparativo del informe siguiente) / zoetis-10k-fy2023.txt p.65 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.64 (comparativo del informe siguiente) / zoetis-10k-fy2024.txt p.64 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.66 (comparativo del informe siguiente) / zoetis-10k-fy2025.txt p.66 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.66 / zoetis-10k-fy2025.txt p.66",
+    "pagina": null,
+    "nota": "Vacío si el resultado antes de impuestos es ≤ 0."
+   },
+   "cfo": {
+    "valores": [
+     713.0,
+     1346.0,
+     1790.0,
+     1795.0,
+     2126.0,
+     2213.0,
+     1912.0,
+     2353.0,
+     2953.0,
+     2904.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.73 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.75 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.75 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.78 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.76 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.68 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.69 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.68 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.70 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.70",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2024: Cuadra sumando todas las líneas del flujo: 2024 = 2,874 + 79 = 2,953; 2023 = 2,865 - 512 = 2,353 (usa D&A 491). | 2022: Cuadra con la suma de las lineas del estado de flujos en ambos anos. | 2021: Coincide con MD&A (2,213 / 2,126) y el resumen de la pagina inicial. Las lineas del flujo suman el total. | 2020: Cuadra con la suma de ajustes y variaciones de circulante (2020: 2,211-85=2,126; 2019: 1,946-151=1,795)."
+   },
+   "capex": {
+    "valores": [
+     216.0,
+     224.0,
+     338.0,
+     460.0,
+     453.0,
+     477.0,
+     586.0,
+     732.0,
+     655.0,
+     621.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.73 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.75 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.75 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.78 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.76 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.68 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.69 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.68 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.70 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.70",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2023: Una sola linea que agrupa PP&E e intangibles; excluye 'Non-cash transactions: Capital expenditures' (2 y 3). | 2020: Pagos de inmovilizado; no hay linea separada de intangibles. | 2016: Solo PP&E; no hay linea de compra de intangibles/software en el estado de flujos."
+   },
+   "adquisiciones": {
+    "valores": [
+     88.0,
+     119.0,
+     1998.0,
+     195.0,
+     113.0,
+     14.0,
+     312.0,
+     251.0,
+     -285.0,
+     28.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.73 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.75 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.75 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.78 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.76 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.68 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.69 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.68 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.70 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.70",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Adquisiciones = −(pagos y cobros por negocios del estado de flujos). Notas de los lectores: 2025: Importes tal como impresos en el estado de flujos (pagos negativos, cobros positivos). No incluye 'Payment of consideration related to previous acquisitions' (financiación: 0 en 2025, (5) en 2024). | 2024: Adquisiciones menos cobros por ventas de negocios, con signo -1 en el cobro (el pago se imprime entre paréntesis). Fuera quedan 'Payment of consideration related to previous acquisitions' (5; 3) en financiación. | 2023: Neto 2023: pagos 155 menos cobros por venta de negocios 96. En 2022 no hay cobros por ventas de negocios (impreso '—'). Excluye 'Payment of consideration related to previous acquisitions' (3 en 2023; 1 en 2022), que esta en financiacion. | 2022"
+   },
+   "circulante": {
+    "valores": [
+     439.0,
+     10.0,
+     -112.0,
+     151.0,
+     85.0,
+     343.0,
+     699.0,
+     512.0,
+     -79.0,
+     408.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.73 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.75 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.75 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.78 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.76 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.68 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.69 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.68 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.70 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.70",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Aumento del circulante = −(suma de las líneas de variación del circulante del estado de flujos): convención del ejercicio. Notas de los lectores: 2025: Bloque 'Other changes in assets and liabilities, net of acquisitions and divestitures'. No incluye 'Provision for losses on inventory' (ajuste no monetario) ni 'Deferred taxes'. 'Other tax accounts, net' incluida por estar en ese bloque. | 2024: Bloque 'Other changes in assets and liabilities, net of acquisitions and divestitures'. Se incluye 'Other tax accounts, net' por estar en el bloque (duda de criterio: son cuentas fiscales); excluidos Deferred taxes, Provision for losses on inventory y otros ajustes no monetarios. Suma 2024 = 79, 2023 = -512; cuadra con el CFO. | 2023: Bloque 'Other changes in assets and liabilities, net of acquisitions and divestitures'."
+   },
+   "intereses": {
+    "valores": [
+     165.0,
+     167.0,
+     190.0,
+     247.0,
+     257.0,
+     253.0,
+     242.0,
+     295.0,
+     274.0,
+     261.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.74 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.76 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.75 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.78 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.76 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.68 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.69 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.68 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.70 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.70",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2024: Información suplementaria del estado de flujos ('Cash paid during the period for'). | 2023: DUDA OCR/verificacion: 295 (2023) y 242 (2022) solo aparecen en la informacion suplementaria del flujo (p.69); no figuran en ninguna otra pagina del informe ni forman parte de un total que permita cuadrarlos. Lectura unica, sin contraste. Gasto por intereses de la cuenta de resultados: 239 y 221. | 2022: Informacion suplementaria del estado de flujos. | 2021: Informacion suplementaria del flujo de efectivo, neto de intereses capitalizados. | 2020: Informacion suplementaria del estado de flujos (pag. 78)."
+   },
+   "intereses_financiacion": {
+    "valores": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2016.txt p.75 (cero: El estado de flujos no tiene linea de intereses en financiacion; los intereses pagados son informacion suplementaria y van dentro del resultado de explotacion.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2017 zoetis-10k-fy2017.txt p.73 (cero: El estado de flujos parte del resultado neto y la seccion de financiacion no contiene ninguna linea de intereses; los intereses pagados quedan en explotacion) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2018 zoetis-10k-fy2018.txt p.75 (cero: El estado de flujos no tiene linea de intereses en financiacion; los intereses se pagan en explotacion.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2019 zoetis-10k-fy2019.txt p.75 (cero: Los intereses pagados no figuran en financiacion: la seccion de financiacion no tiene linea de intereses) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2020 zoetis-10k-fy2020.txt p.78 (cero: El bloque de financiacion no tiene linea de intereses pagados; los intereses pagados figuran solo como informacion suplementaria del estado de flujos (se parte de resultado neto, ASC 230).) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2021 zoetis-10k-fy2021.txt p.76 (cero: Los intereses pagados estan dentro de actividades de explotacion (US GAAP); ninguna linea de intereses en financiacion) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2022 zoetis-10k-fy2022.txt p.68 (cero: Los intereses pagados figuran en explotacion (el estado de flujos no tiene linea de intereses en financiacion; US GAAP).) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2023 zoetis-10k-fy2023.txt p.69 (cero: El estado de flujos no tiene linea de intereses en financiacion; los intereses pagados son informacion suplementaria (US GAAP, en explotacion).) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2024 zoetis-10k-fy2024.txt p.68 (cero: La sección de actividades de financiación no incluye ninguna línea de intereses pagados; los intereses se informan solo como dato suplementario.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2025 zoetis-10k-fy2025.txt p.70 (cero: El estado de flujos no tiene línea de intereses en financiación; los intereses pagados se informan como información suplementaria (clasificación en explotación, US GAAP).) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar)",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). CERO PENDIENTE DE VERIFICACIÓN en 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025: el informe no imprime cifra y la cita que lo respalda no se ha contrastado con la partida (reparación H1). El 0 se conserva; solo una decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona) lo confirma. Notas de los lectores: 2024: Los intereses pagados no figuran en la sección de financiación (están en explotación, método indirecto). Cero pendiente de verificación humana. | 2022: Cero con evidencia: ninguna linea de intereses en el bloque de financiacion. | 2021: Bajo US GAAP los intereses pagados figuran en actividades de explotacion; el flujo de financiacion no tiene linea de intereses. | 2019: Los intereses pagados figuran en actividades de explotacion (informacion suplementaria); el estado de financiacion no tiene linea de intereses.",
+    "pendientes_verificacion": [
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025
+    ]
+   },
+   "arrendamientos_principal": {
+    "valores": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     null
+    ],
+    "fuente": "2016 zoetis-10k-fy2016.txt p.75 (cero: US GAAP 2016: sin pasivos por arrendamiento NIIF 16; el estado de flujos no tiene linea de principal de arrendamientos en financiacion.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2017 zoetis-10k-fy2017.txt p.103 (cero: Sin pasivos por arrendamiento IFRS 16 (US GAAP pre-ASC 842); la financiacion no tiene pagos de arrendamiento y solo hay arrendamientos operativos) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2018 zoetis-10k-fy2018.txt p.78 (cero: Antes de la adopcion de ASC 842 no hay pagos de arrendamientos en financiacion.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2019 zoetis-10k-fy2019.txt p.96 (cero: Solo arrendamientos operativos, sin linea de pagos de principal en financiacion) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2020 zoetis-10k-fy2020.txt p.98 (cero: Solo hay arrendamientos operativos (ASC 842); no hay pagos de principal de arrendamientos financieros en financiacion.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2021 zoetis-10k-fy2021.txt p.94 (cero: Solo arrendamientos operativos US GAAP; sin pagos de principal de arrendamientos financieros en financiacion) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2022 zoetis-10k-fy2022.txt p.70 (cero: Zoetis solo tiene arrendamientos operativos (US GAAP); no hay linea de principal de arrendamientos financieros en financiacion.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2023 zoetis-10k-fy2024.txt p.86 (comparativo del informe siguiente); 2024 zoetis-10k-fy2024.txt p.86; 2025 desconocido",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). CERO PENDIENTE DE VERIFICACIÓN en 2016, 2017, 2018, 2019, 2020, 2021, 2022: el informe no imprime cifra y la cita que lo respalda no se ha contrastado con la partida (reparación H1). El 0 se conserva; solo una decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona) lo confirma. Notas de los lectores: 2025: Los pagos de arrendamientos operativos van en explotación (67 en 2025, 61 en 2024, pág. 89). Solo hay 'Financing cash flows – finance leases' 2 / 1, pero los arrendamientos financieros se han clasificado en deuda, no en NIIF 16; se deja null para decisión humana. | 2024: US GAAP: solo los arrendamientos financieros tienen flujo de financiación (1 en 2024; 2023 y 2022 '—' = 0, ver nota). Los pagos de arrendamientos operativos (61; 57) van en explotación. | 2023: El estado de flujos no tiene linea de pagos de principal de arrendamientos. Arrendamientos financieros nuevos en 2023 (pasivo 9); pagos operativos 57 van en explotacion. No se puede aislar el principal: n",
+    "pendientes_verificacion": [
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022
+    ]
+   },
+   "sbc": {
+    "valores": [
+     37.0,
+     44.0,
+     53.0,
+     67.0,
+     59.0,
+     58.0,
+     62.0,
+     60.0,
+     74.0,
+     83.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.73 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.75 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.75 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.78 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.99 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.68 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.69 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.92 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.94 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.94",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2024: También 74 y 60 en el estado de flujos (p. 68). | 2023: Coincide con la nota de pagos basados en acciones (p.92: total 60 y 62). | 2022: Coincide con la nota de pagos en acciones (62 / 58). | 2021: Coincide con el estado de flujos (58 / 59). OCR: la linea lleva marca de nota; cifras cuadran: 9+33+16=58; 9+31+19=59. | 2020: Coincide con la nota de pagos basados en acciones (pag. 104, 'Share-based compensation expense-total' 59 / 67)."
+   },
+   "id": {
+    "valores": [
+     376.0,
+     382.0,
+     432.0,
+     457.0,
+     463.0,
+     508.0,
+     539.0,
+     614.0,
+     686.0,
+     698.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.69 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.71 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.71 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.74 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.72 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.64 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.65 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.64 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.66 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.66",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2023: Coincide con MD&A (p.48: 614 y 539). | 2021: Coincide con MD&A (508 / 463). | 2020: Coincide con la tabla MD&A (463 / 457)."
+   },
+   "acciones_diluidas": {
+    "valores": [
+     498.225,
+     493.161,
+     486.898,
+     481.787,
+     478.569,
+     476.717,
+     470.385,
+     462.269,
+     454.848,
+     443.835
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.101 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.71 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.71 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.106 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.102 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.64 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.95 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.94 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.96 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.96",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Nota 17; también en cuenta de resultados pág. 66 (Diluted 443.835 / 454.848). Unidad: millones. | Unidad declarada «miles» por limitación de fase1_historia.numero(): el 10-K imprime millones con tres decimales en notación de EE. UU. («498.225» = 498,225 millones) y numero() lee el punto con tres cifras como separador de miles (498225); con «miles» el valor resultante es el correcto en millones. Pendiente: corrección de producto (formato decimal declarado). Orquestador, 18-nov-2026. | 2024: Unidad: millones (la nota declara 'MILLIONS OF DOLLARS AND SHARES'); mismo dato en p. 64. Cuadra: 454.200 + 0.648 = 454.848; 461.172 + 1.097 = 462.269. | Unidad declarada «mil"
+   },
+   "patrimonio": {
+    "valores": [
+     1487.0,
+     1770.0,
+     2185.0,
+     2708.0,
+     3769.0,
+     4543.0,
+     4405.0,
+     4997.0,
+     4770.0,
+     3331.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.71 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.73 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.73 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.76 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.74 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.66 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.67 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.66 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.68 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.68",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2024: Cuadra: 5 - 7,445 + 1,182 + 11,968 - 940 = 4,770; 5 - 5,597 + 1,133 + 10,295 - 839 = 4,997. | 2021: Cuadra: 5-2,952+1,068+7,186-764=4,543; 2020: 5-2,230+1,065+5,659-730=3,769. | 2020: 5-2,230+1,065+5,659-730=3,769; 5-2,042+1,044+4,427-726=2,708 cuadra. | 2019: Sin participaciones no dominantes: Total equity = patrimonio de Zoetis."
+   },
+   "deuda": {
+    "valores": [
+     4468.0,
+     4953.0,
+     6452.0,
+     6447.0,
+     7199.0,
+     6592.0,
+     7904.0,
+     6576.0,
+     6578.0,
+     9049.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.71 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.73 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.73 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.76 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.74 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.66 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.67 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.66,86 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.68,89 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.68,89",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Incluye deuda convertible emitida en 2025 (dentro de long-term debt). Se incluyen los arrendamientos financieros (US GAAP) en deuda; los operativos van en 'arrendamientos'. No hay short-term borrowings en balance. Ver nota si 2025 la porción corriente es '—' (cero impreso). | 2024: Short-term borrowings 2024 = '—' (0); 2023 = 3. Deuda corriente 2023 '=' en OCR = '—' (el total corriente 1,889 cuadra sin ella). Se incluyen los arrendamientos financieros US GAAP (1+7 en 2024; 1+8 en 2023, nota p. 86) como deuda; los operativos van en 'arrendamientos'. Criterio dudoso: sin los financieros, la deuda es 6,570 y 6,567. | 2023: Porcion corriente de deuda a largo plazo 2"
+   },
+   "arrendamientos": {
+    "valores": [
+     0.0,
+     0.0,
+     0.0,
+     199.0,
+     203.0,
+     192.0,
+     229.0,
+     236.0,
+     225.0,
+     248.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2016.txt p.73 (cero: Antes de 2019 no existian pasivos por arrendamiento NIIF 16 en balance (US GAAP).) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2017 zoetis-10k-fy2017.txt p.103 (cero: Antes de ASC 842/IFRS 16 no hay pasivos por arrendamiento en balance; solo arrendamientos operativos fuera de balance) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2018 zoetis-10k-fy2019.txt p.73 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.98 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.94 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.86 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.87 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.86 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.89 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.89",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). CERO PENDIENTE DE VERIFICACIÓN en 2016, 2017: el informe no imprime cifra y la cita que lo respalda no se ha contrastado con la partida (reparación H1). El 0 se conserva; solo una decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona) lo confirma. Notas de los lectores: 2025: US GAAP: pasivos por arrendamientos operativos (equivalente funcional a NIIF 16). | 2024: US GAAP (no NIIF 16): se asimilan los pasivos por arrendamientos operativos. Total de pasivos por arrendamiento 233 y 245 = operativos + financieros (51+1+174+7; 48+1+188+8): cuadra. | 2023: US GAAP (ASC 842): se toma el total de pasivos por arrendamiento (operativos 236 + financieros 9 en 2023; 229 operativos en 2022). Comprobado: 48+188+1+8=245 y 43+186=229. Si se quisiera separar, el financiero (9) iria a deuda; decision para la fase de revision. | 2022: Pasivos por arrendamiento operativo (US GAAP, equivalente a NIIF 16 a efectos de la tabla), corriente + no corriente. ",
+    "pendientes_verificacion": [
+     2016,
+     2017
+    ]
+   },
+   "caja": {
+    "valores": [
+     727.0,
+     1564.0,
+     1602.0,
+     1934.0,
+     3604.0,
+     3485.0,
+     3581.0,
+     2041.0,
+     1987.0,
+     2312.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.71 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.73 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.73 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.76 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.74 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.66 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.67 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.66 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.68 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.68",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Solo efectivo y equivalentes (definición de la plantilla). Notas de los lectores: 2024: Incluye 2 de efectivo restringido (nota al pie del balance). | 2023: Incluye efectivo restringido de 2 (2023) y 4 (2022), segun la nota al balance. Coincide con el fin de periodo del flujo. | 2022: Incluye 4 / 3 de efectivo restringido (nota al balance). | 2021: Incluye caja restringida de 3 (2021) y 2 (2020). Coincide con el estado de flujos y MD&A. | 2020: Incluye 2 de efectivo restringido. Coincide con el cierre del estado de flujos. | 2019: Incluye 2 (2019) y 5 (2018) millones de efectivo restringido, segun nota (a) del balance. | 2017: Incluye 6 millones de efectivo restringido a 31-dic-2017."
+   },
+   "pensiones": {
+    "valores": [
+     62.0,
+     60.0,
+     58.0,
+     72.0,
+     79.0,
+     67.0,
+     44.0,
+     43.0,
+     42.0,
+     42.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.95 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.102 (comparativo del informe siguiente); 2018 zoetis-10k-fy2019.txt p.99 (comparativo del informe siguiente); 2019 zoetis-10k-fy2020.txt p.101 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.97 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.89 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.90 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.89 (comparativo del informe siguiente); 2024 zoetis-10k-fy2025.txt p.91 (comparativo del informe siguiente); 2025 zoetis-10k-fy2025.txt p.91",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Déficit neto de planes de pensiones dedicados, incluido en Other noncurrent liabilities. | 2024: Déficit neto de los planes de pensiones dedicados (obligación 136 - activos 94 = 42; 129 - 86 = 43), incluido en Other noncurrent liabilities. | 2023: Solo planes dedicados internacionales (incluido en Other noncurrent liabilities). Cuadra: 129-86=43 y 122-78=44. Planes de jubilacion medica de EE.UU. de Pfizer no aportan pasivo registrado en este informe (gasto 0). | 2022: Solo planes internacionales dedicados (122-78 = 44; 159-92 = 67). Aparte, pasivo del supplemental savings plan de 43 (2022), no incluido por ser plan de ahorro, no de prestacion definida. | 2021: C"
+   },
+   "minoritarios": {
+    "valores": [
+     12.0,
+     16.0,
+     null,
+     0.0,
+     4.0,
+     1.0,
+     2.0,
+     6.0,
+     0.0,
+     0.0
+    ],
+    "fuente": "2016 zoetis-10k-fy2017.txt p.71 (comparativo del informe siguiente); 2017 zoetis-10k-fy2018.txt p.73 (comparativo del informe siguiente); 2018 desconocido; 2019 zoetis-10k-fy2020.txt p.76 (comparativo del informe siguiente); 2020 zoetis-10k-fy2021.txt p.74 (comparativo del informe siguiente); 2021 zoetis-10k-fy2022.txt p.66 (comparativo del informe siguiente); 2022 zoetis-10k-fy2023.txt p.67 (comparativo del informe siguiente); 2023 zoetis-10k-fy2024.txt p.66 (comparativo del informe siguiente); 2024 zoetis-10k-fy2024.txt p.66; 2025 zoetis-10k-fy2025.txt p.68 (cero: Equity attributable to noncontrolling interests es '—' en 2025 y 2024.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar)",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). CERO PENDIENTE DE VERIFICACIÓN en 2025: el informe no imprime cifra y la cita que lo respalda no se ha contrastado con la partida (reparación H1). El 0 se conserva; solo una decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona) lo confirma. Notas de los lectores: 2024: 2024 impreso '—' (cero); 2023 (6). Cuadra: 4,770 + 0 = 4,770; 4,997 - 6 = 4,991. | 2023: Negativo. Cuadra: 4,997 + (6) = 4,991 total equity. | 2021: Cuadra: 4,543+1=4,544; 3,769+4=3,773. | 2020: Total equity 3,773 = 3,769 + 4 cuadra. 2019: '-' (cero impreso). | 2019: El balance no tiene linea de participaciones no dominantes; el resultado atribuible a minoritarios 2019 es '—'. | 2018: 2018: '—' en balance (sin importe); no se declara cero.",
+    "pendientes_verificacion": [
+     2025
+    ]
+   }
+  }
+ },
+ "analisis": {
+  "C46": {
+   "periodo": "2023–2025",
+   "unidad": "mm",
+   "valor": 2736.667,
+   "calculo": {
+    "operacion": "media",
+    "anios": [
+     2023,
+     2024,
+     2025
+    ],
+    "terminos": [
+     {
+      "componente": "cfo_10k2025",
+      "signo": 1
+     }
+    ],
+    "componentes": {
+     "cfo_10k2025": {
+      "2025": {
+       "valor": 2904,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 70,
+       "cita": "Net cash provided by operating activities 2,904 2,953 2,353",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)"
+      },
+      "2024": {
+       "valor": 2953,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 70,
+       "cita": "Net cash provided by operating activities 2,904 2,953 2,353",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)"
+      },
+      "2023": {
+       "valor": 2353,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 70,
+       "cita": "Net cash provided by operating activities 2,904 2,953 2,353",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)"
+      }
+     }
+    },
+    "decision": "Media 2023–2025 de «Net cash provided by operating activities» (2.904 / 2.953 / 2.353; 10-K 2025 PDF p. 70) = 2.736,667, valor exacto; SUPUESTO DE LA ORQUESTACIÓN por el precedente de la decisión E1 de la persona responsable (valores exactos en lugar de redondeos), no decisión para Zoetis; la etapa 1 traía el redondeo 2.736,7. Las tres cifras salen del 10-K 2025 (texto de pdftotext, sin OCR), que publica 2025, 2024 y 2023; coinciden con la Historia de la fase 1 (2023 del 10-K 2024 por OCR, PDF p. 68), así que la cifra de 2023 queda contrastada en dos documentos. P-O1 (c): con US GAAP los intereses cobrados (ingresos por intereses de 93 mm en 2025, 10-K 2025 PDF p. 54 y p. 80) van dentro del CFO: el estado de flujos no tiene ninguna línea de intereses ni de dividendos cobrados en inversión (PDF p. 70; los intereses pagados, 261 / 274 / 295, figuran como información suplementaria y también están en el CFO); no hay subarriendos ni dividendos de negocios conjuntos que sumar. Nada que añadir.",
+    "redondeo": 3
+   },
+   "valor_sin_redondear": 2736.6666666666665,
+   "fuente": "Cálculo declarado (media 2023–2025 de: cfo_10k2025; redondeo a 3 decimales; sin redondear 2736.6666666666665): 2023 cfo_10k2025 2353 (texto/zoetis-10k-fy2025.txt p.70); 2024 cfo_10k2025 2953 (texto/zoetis-10k-fy2025.txt p.70); 2025 cfo_10k2025 2904 (texto/zoetis-10k-fy2025.txt p.70). Media 2023–2025 de «Net cash provided by operating activities» (2.904 / 2.953 / 2.353; 10-K 2025 PDF p. 70) = 2.736,667, valor exacto; SUPUESTO DE LA ORQUESTACIÓN por el precedente de la decisión E1 de la persona responsable (valores exactos en lugar de redondeos), no decisión para Zoetis; la etapa 1 traía el redondeo 2.736,7. Las tres cifras salen del 10-K 2025 (texto de pdftotext, sin OCR), que publica 2025, 2024 y 2023; coinciden con la Historia de la fase 1 (2023 del 10-K 2024 por OCR, PDF p. 68), así que la cifra de 2023 queda contrastada en dos documentos. P-O1 (c): con US GAAP los intereses cobrados (ingresos por intereses de 93 mm en 2025, 10-K 2025 PDF p. 54 y p. 80) van dentro del CFO: el estado de flujos no tiene ninguna línea de intereses ni de dividendos cobrados en inversión (PDF p. 70; los intereses pagados, 261 / 274 / 295, figuran como información suplementaria y también están en el CFO); no hay subarriendos ni dividendos de negocios conjuntos que sumar. Nada que añadir."
+  },
+  "C47": {
+   "periodo": "2023–2025",
+   "unidad": "mm",
+   "valor": 669.333,
+   "calculo": {
+    "operacion": "media",
+    "anios": [
+     2023,
+     2024,
+     2025
+    ],
+    "terminos": [
+     {
+      "componente": "capex_10k2025",
+      "signo": 1
+     }
+    ],
+    "componentes": {
+     "capex_10k2025": {
+      "2025": {
+       "valor": 621,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 70,
+       "cita": "Capital expenditures (621) (655) (732)",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)",
+       "valor_fuente": -621,
+       "signo": -1,
+       "tratamiento": "salida de caja publicada entre paréntesis; magnitud positiva en el modelo (R415-SIGNO)"
+      },
+      "2024": {
+       "valor": 655,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 70,
+       "cita": "Capital expenditures (621) (655) (732)",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)",
+       "valor_fuente": -655,
+       "signo": -1,
+       "tratamiento": "salida de caja publicada entre paréntesis; magnitud positiva en el modelo (R415-SIGNO)"
+      },
+      "2023": {
+       "valor": 732,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 70,
+       "cita": "Capital expenditures (621) (655) (732)",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)",
+       "valor_fuente": -732,
+       "signo": -1,
+       "tratamiento": "salida de caja publicada entre paréntesis; magnitud positiva en el modelo (R415-SIGNO)"
+      }
+     }
+    },
+    "decision": "Media 2023–2025 de «Capital expenditures» (621 / 655 / 732; 10-K 2025 PDF p. 70) = 669,333, valor exacto; SUPUESTO DE LA ORQUESTACIÓN por el precedente de la decisión E1 de la persona responsable (valores exactos en lugar de redondeos), no decisión para Zoetis; la etapa 1 traía el redondeo 669,3. Las tres cifras salen del 10-K 2025 (texto de pdftotext, sin OCR), que publica 2025, 2024 y 2023; coinciden con la Historia de la fase 1 (2023 del 10-K 2024 por OCR, PDF p. 68), así que la cifra de 2023 queda contrastada en dos documentos.",
+    "redondeo": 3
+   },
+   "valor_sin_redondear": 669.3333333333334,
+   "fuente": "Cálculo declarado (media 2023–2025 de: capex_10k2025; redondeo a 3 decimales; sin redondear 669.3333333333334): 2023 capex_10k2025 732 (= -1 × -732 publicado: salida de caja publicada entre paréntesis; magnitud positiva en el modelo (R415-SIGNO)) (texto/zoetis-10k-fy2025.txt p.70); 2024 capex_10k2025 655 (= -1 × -655 publicado: salida de caja publicada entre paréntesis; magnitud positiva en el modelo (R415-SIGNO)) (texto/zoetis-10k-fy2025.txt p.70); 2025 capex_10k2025 621 (= -1 × -621 publicado: salida de caja publicada entre paréntesis; magnitud positiva en el modelo (R415-SIGNO)) (texto/zoetis-10k-fy2025.txt p.70). Media 2023–2025 de «Capital expenditures» (621 / 655 / 732; 10-K 2025 PDF p. 70) = 669,333, valor exacto; SUPUESTO DE LA ORQUESTACIÓN por el precedente de la decisión E1 de la persona responsable (valores exactos en lugar de redondeos), no decisión para Zoetis; la etapa 1 traía el redondeo 669,3. Las tres cifras salen del 10-K 2025 (texto de pdftotext, sin OCR), que publica 2025, 2024 y 2023; coinciden con la Historia de la fase 1 (2023 del 10-K 2024 por OCR, PDF p. 68), así que la cifra de 2023 queda contrastada en dos documentos."
+  },
+  "C49": {
+   "periodo": "2023–2025",
+   "unidad": "mm",
+   "valor": 1.0,
+   "calculo": {
+    "operacion": "media",
+    "anios": [
+     2023,
+     2024,
+     2025
+    ],
+    "terminos": [
+     {
+      "componente": "principal_arrendamientos_financieros",
+      "signo": 1
+     }
+    ],
+    "componentes": {
+     "principal_arrendamientos_financieros": {
+      "2025": {
+       "valor": 2,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 89,
+       "cita": "Financing cash flows – finance leases 2 1 —",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)"
+      },
+      "2024": {
+       "valor": 1,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 89,
+       "cita": "Financing cash flows – finance leases 2 1 —",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)"
+      },
+      "2023": {
+       "valor": 0,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 89,
+       "cita": "Financing cash flows – finance leases 2 1 —",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)"
+      }
+     }
+    },
+    "decision": "C49 = principal de arrendamientos FINANCIEROS pagado en financiación: «Financing cash flows – finance leases» 2 / 1 / — (cero) en 2025 / 2024 / 2023 (nota de arrendamientos, 10-K 2025 PDF p. 89) → media 1,000. Con US GAAP los pagos de arrendamientos operativos (67 / 61 / 57, «Operating cash flows – operating leases», misma página) van dentro del CFO y no tienen principal en financiación. Los arrendamientos financieros SÍ están desglosados (pasivo de 7 mm, misma página), así que no se aplica la hipótesis D-WM («tratarlos como deuda», para los no desglosados): se resta su principal, como pide el coordinador (C49 = 1,0). La etapa 1 dejaba la celda vacía (= 0) por inmaterial (<0,1 % del FCF) y anotaba «si se quiere exactitud literal: 1». Contraste: el 10-K 2024 (OCR, PDF p. 86) da «Financing cash flows — finance leases 1 — —» para 2024, 2023 y 2022.",
+    "redondeo": 3
+   },
+   "valor_sin_redondear": 1.0,
+   "fuente": "Cálculo declarado (media 2023–2025 de: principal_arrendamientos_financieros; redondeo a 3 decimales; sin redondear 1.0): 2023 principal_arrendamientos_financieros 0 (texto/zoetis-10k-fy2025.txt p.89); 2024 principal_arrendamientos_financieros 1 (texto/zoetis-10k-fy2025.txt p.89); 2025 principal_arrendamientos_financieros 2 (texto/zoetis-10k-fy2025.txt p.89). C49 = principal de arrendamientos FINANCIEROS pagado en financiación: «Financing cash flows – finance leases» 2 / 1 / — (cero) en 2025 / 2024 / 2023 (nota de arrendamientos, 10-K 2025 PDF p. 89) → media 1,000. Con US GAAP los pagos de arrendamientos operativos (67 / 61 / 57, «Operating cash flows – operating leases», misma página) van dentro del CFO y no tienen principal en financiación. Los arrendamientos financieros SÍ están desglosados (pasivo de 7 mm, misma página), así que no se aplica la hipótesis D-WM («tratarlos como deuda», para los no desglosados): se resta su principal, como pide el coordinador (C49 = 1,0). La etapa 1 dejaba la celda vacía (= 0) por inmaterial (<0,1 % del FCF) y anotaba «si se quiere exactitud literal: 1». Contraste: el 10-K 2024 (OCR, PDF p. 86) da «Financing cash flows — finance leases 1 — —» para 2024, 2023 y 2022."
+  },
+  "C50": {
+   "periodo": "2023–2025",
+   "unidad": "mm",
+   "valor": 72.333,
+   "calculo": {
+    "operacion": "media",
+    "anios": [
+     2023,
+     2024,
+     2025
+    ],
+    "terminos": [
+     {
+      "componente": "sbc_10k2025",
+      "signo": 1
+     }
+    ],
+    "componentes": {
+     "sbc_10k2025": {
+      "2025": {
+       "valor": 83,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 70,
+       "cita": "Share-based compensation expense 83 74 60",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)"
+      },
+      "2024": {
+       "valor": 74,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 70,
+       "cita": "Share-based compensation expense 83 74 60",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)"
+      },
+      "2023": {
+       "valor": 60,
+       "fuente": "texto/zoetis-10k-fy2025.txt",
+       "pagina": 70,
+       "cita": "Share-based compensation expense 83 74 60",
+       "documento": "Form 10-K 2025 de Zoetis (estados financieros consolidados 2025)"
+      }
+     }
+    },
+    "decision": "Media 2023–2025 de «Share-based compensation expense» del estado de flujos (83 / 74 / 60; 10-K 2025 PDF p. 70; igual en la nota de pagos en acciones, PDF p. 94) = 72,333, valor exacto; SUPUESTO DE LA ORQUESTACIÓN por el precedente de la decisión E1 de la persona responsable (valores exactos en lugar de redondeos), no decisión para Zoetis; la etapa 1 traía el redondeo 72,3. Las tres cifras salen del 10-K 2025 (texto de pdftotext, sin OCR), que publica 2025, 2024 y 2023; coinciden con la Historia de la fase 1 (2023 del 10-K 2024 por OCR, PDF p. 68), así que la cifra de 2023 queda contrastada en dos documentos.",
+    "redondeo": 3
+   },
+   "valor_sin_redondear": 72.33333333333333,
+   "fuente": "Cálculo declarado (media 2023–2025 de: sbc_10k2025; redondeo a 3 decimales; sin redondear 72.33333333333333): 2023 sbc_10k2025 60 (texto/zoetis-10k-fy2025.txt p.70); 2024 sbc_10k2025 74 (texto/zoetis-10k-fy2025.txt p.70); 2025 sbc_10k2025 83 (texto/zoetis-10k-fy2025.txt p.70). Media 2023–2025 de «Share-based compensation expense» del estado de flujos (83 / 74 / 60; 10-K 2025 PDF p. 70; igual en la nota de pagos en acciones, PDF p. 94) = 72,333, valor exacto; SUPUESTO DE LA ORQUESTACIÓN por el precedente de la decisión E1 de la persona responsable (valores exactos en lugar de redondeos), no decisión para Zoetis; la etapa 1 traía el redondeo 72,3. Las tres cifras salen del 10-K 2025 (texto de pdftotext, sin OCR), que publica 2025, 2024 y 2023; coinciden con la Historia de la fase 1 (2023 del 10-K 2024 por OCR, PDF p. 68), así que la cifra de 2023 queda contrastada en dos documentos."
+  },
+  "C48": {
+   "valor": 0.0,
+   "fuente": "Historia de fase1_v63.json, media 2023–2025 de intereses_financiacion: zoetis-10k-fy2023.txt p.69 (cero: El estado de flujos no tiene linea de intereses en financiacion; los intereses pagados son informacion suplementaria (US GAAP, en explotacion).) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); zoetis-10k-fy2024.txt p.68 (cero: La sección de actividades de financiación no incluye ninguna línea de intereses pagados; los intereses se informan solo como dato su",
+   "pagina": null,
+   "periodo": "2023–2025",
+   "unidad": "mm",
+   "pendiente_verificacion": [
+    2023,
+    2024,
+    2025
+   ],
+   "nota": "Depende de la Historia con ceros pendientes en 2023, 2024, 2025. CERO PENDIENTE DE VERIFICACIÓN en 2023, 2024, 2025: el informe no imprime cifra y la cita que lo respalda no se ha contrastado con la partida (reparación H1). El 0 se conserva; solo una decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona) lo confirma."
+  }
+ },
+ "_notas": [
+  "Historia construida por scripts/fase1_historia.py (pieza 7); revisión completa en historia_revision.md.",
+  "Primer tiempo: la información usada es la publicada hasta el 9-oct-2026; precio y tasa son cierres del 8-oct-2026. fecha_analisis se fija en 2026-10-09 (corte del primer tiempo), no en la fecha de hoy.",
+  "Media ponderada diluida de acciones 2025 (nota 17, 10-K p. 96): 443,835 millones (básica 443,443 + 0,392 de opciones/RSU/DSU/PSU), solo informativa; no se usa como acciones del modelo.",
+  "Últimas cifras publicadas tras el cierre, solo informativas: 422.127.709 acciones el 6-feb-2026 (portada del 10-K, p. 7); 414.154.046 acciones en circulación el 30-jun-2026 (10-Q Q2 2026, balance, p. 5); media diluida del 2T26 de 417,7 millones. Las recompras reducen la cuenta tras el cierre.",
+  "Diferencia relevante: con 414,2 millones (jun-2026) la capitalización sería ≈30.265 mm USD; el criterio de la persona responsable (P-O2) fija las acciones al cierre de las cuentas.",
+  "Sector: «Drugs (Pharmaceutical)» por ser el negocio principal medicamentos y vacunas de marca (parasiticidas, dermatología, dolor, vacunas); Damodaran no tiene categoría de salud animal y «Healthcare Products» (dispositivos) o «Drugs (Biotechnology)» encajan peor.",
+  "Los 10-K de 2025 no desglosan «Other developed/emerging markets» por país; la asignación de esos 1.554 mm y de los 116 mm de contract manufacturing a regiones es aproximada (convención del ejercicio). Los pct suman 1,0000.",
+  "Las cifras de la etapa 1 (p. ej. precio 73,08) no se copiaron: el precio se verificó en fuentes web propias; coincide con el de la etapa 1.",
+  "La hora de cierre del precio y del Treasury no figura en las fuentes (cierre del día). El Treasury 10 años se leyó en la búsqueda web de la tabla del Departamento del Tesoro, sin descargar la página (el host de fetch no resolvió en esta sesión).",
+  "26 ceros pendientes de verificación (cita sin contrastar, reparación H1): ver historia_revision.md.",
+  "(cambio de base, 2025-12-31) Entradas sustituidas por cambiar_base.py desde cambio_zoetis_t1.json: C46 2736.667 → 2736.667; C47 669.333 → 669.333; C49 None → 1.0; C50 72.333 → 72.333"
+ ],
+ "pendientes_verificacion": [
+  {
+   "partida": "arrendamientos",
+   "anio": 2016,
+   "archivo": "zoetis-10k-fy2016.txt",
+   "pagina": 73,
+   "cita": "Long-term debt, net of discount and issuance costs",
+   "motivo": "Antes de 2019 no existian pasivos por arrendamiento NIIF 16 en balance (US GAAP)."
+  },
+  {
+   "partida": "arrendamientos",
+   "anio": 2017,
+   "archivo": "zoetis-10k-fy2017.txt",
+   "pagina": 103,
+   "cita": "We have facilities, vehicles and office equipment under various non-cancellable operating leases with third parties.",
+   "motivo": "Antes de ASC 842/IFRS 16 no hay pasivos por arrendamiento en balance; solo arrendamientos operativos fuera de balance"
+  },
+  {
+   "partida": "arrendamientos_principal",
+   "anio": 2016,
+   "archivo": "zoetis-10k-fy2016.txt",
+   "pagina": 75,
+   "cita": "Cash dividends paid",
+   "motivo": "US GAAP 2016: sin pasivos por arrendamiento NIIF 16; el estado de flujos no tiene linea de principal de arrendamientos en financiacion."
+  },
+  {
+   "partida": "arrendamientos_principal",
+   "anio": 2017,
+   "archivo": "zoetis-10k-fy2017.txt",
+   "pagina": 103,
+   "cita": "We have facilities, vehicles and office equipment under various non-cancellable operating leases with third parties.",
+   "motivo": "Sin pasivos por arrendamiento IFRS 16 (US GAAP pre-ASC 842); la financiacion no tiene pagos de arrendamiento y solo hay arrendamientos operativos"
+  },
+  {
+   "partida": "arrendamientos_principal",
+   "anio": 2018,
+   "archivo": "zoetis-10k-fy2018.txt",
+   "pagina": 78,
+   "cita": "We have substantially completed our implementation of a lease accounting system",
+   "motivo": "Antes de la adopcion de ASC 842 no hay pagos de arrendamientos en financiacion."
+  },
+  {
+   "partida": "arrendamientos_principal",
+   "anio": 2019,
+   "archivo": "zoetis-10k-fy2019.txt",
+   "pagina": 96,
+   "cita": "We have facilities, vehicles and equipment under various non-cancellable operating leases with third parties.",
+   "motivo": "Solo arrendamientos operativos, sin linea de pagos de principal en financiacion"
+  },
+  {
+   "partida": "arrendamientos_principal",
+   "anio": 2020,
+   "archivo": "zoetis-10k-fy2020.txt",
+   "pagina": 98,
+   "cita": "We have facilities, vehicles and equipment under various non-cancellable operating leases with third parties.",
+   "motivo": "Solo hay arrendamientos operativos (ASC 842); no hay pagos de principal de arrendamientos financieros en financiacion."
+  },
+  {
+   "partida": "arrendamientos_principal",
+   "anio": 2021,
+   "archivo": "zoetis-10k-fy2021.txt",
+   "pagina": 94,
+   "cita": "Supplemental information for operating leases is as follows:",
+   "motivo": "Solo arrendamientos operativos US GAAP; sin pagos de principal de arrendamientos financieros en financiacion"
+  },
+  {
+   "partida": "arrendamientos_principal",
+   "anio": 2022,
+   "archivo": "zoetis-10k-fy2022.txt",
+   "pagina": 70,
+   "cita": "Our current portfolio includes only operating leases",
+   "motivo": "Zoetis solo tiene arrendamientos operativos (US GAAP); no hay linea de principal de arrendamientos financieros en financiacion."
+  },
+  {
+   "partida": "intereses_financiacion",
+   "anio": 2016,
+   "archivo": "zoetis-10k-fy2016.txt",
+   "pagina": 75,
+   "cita": "Payment of debt issuance costs",
+   "motivo": "El estado de flujos no tiene linea de intereses en financiacion; los intereses pagados son informacion suplementaria y van dentro del resultado de explotacion."
+  },
+  {
+   "partida": "intereses_financiacion",
+   "anio": 2017,
+   "archivo": "zoetis-10k-fy2017.txt",
+   "pagina": 73,
+   "cita": "Net cash (used in)/provided by financing activities",
+   "motivo": "El estado de flujos parte del resultado neto y la seccion de financiacion no contiene ninguna linea de intereses; los intereses pagados quedan en explotacion"
+  },
+  {
+   "partida": "intereses_financiacion",
+   "anio": 2018,
+   "archivo": "zoetis-10k-fy2018.txt",
+   "pagina": 75,
+   "cita": "Financing Activities",
+   "motivo": "El estado de flujos no tiene linea de intereses en financiacion; los intereses se pagan en explotacion."
+  },
+  {
+   "partida": "intereses_financiacion",
+   "anio": 2019,
+   "archivo": "zoetis-10k-fy2019.txt",
+   "pagina": 75,
+   "cita": "Payment of contingent consideration related to previously acquired assets",
+   "motivo": "Los intereses pagados no figuran en financiacion: la seccion de financiacion no tiene linea de intereses"
+  },
+  {
+   "partida": "intereses_financiacion",
+   "anio": 2020,
+   "archivo": "zoetis-10k-fy2020.txt",
+   "pagina": 78,
+   "cita": "Financing Activities",
+   "motivo": "El bloque de financiacion no tiene linea de intereses pagados; los intereses pagados figuran solo como informacion suplementaria del estado de flujos (se parte de resultado neto, ASC 230)."
+  },
+  {
+   "partida": "intereses_financiacion",
+   "anio": 2021,
+   "archivo": "zoetis-10k-fy2021.txt",
+   "pagina": 76,
+   "cita": "Interest, net of capitalized interest",
+   "motivo": "Los intereses pagados estan dentro de actividades de explotacion (US GAAP); ninguna linea de intereses en financiacion"
+  },
+  {
+   "partida": "intereses_financiacion",
+   "anio": 2022,
+   "archivo": "zoetis-10k-fy2022.txt",
+   "pagina": 68,
+   "cita": "Net cash (used in)/provided by financing activities",
+   "motivo": "Los intereses pagados figuran en explotacion (el estado de flujos no tiene linea de intereses en financiacion; US GAAP)."
+  },
+  {
+   "partida": "intereses_financiacion",
+   "anio": 2023,
+   "archivo": "zoetis-10k-fy2023.txt",
+   "pagina": 69,
+   "cita": "Interest, net of capitalized interest",
+   "motivo": "El estado de flujos no tiene linea de intereses en financiacion; los intereses pagados son informacion suplementaria (US GAAP, en explotacion)."
+  },
+  {
+   "partida": "intereses_financiacion",
+   "anio": 2024,
+   "archivo": "zoetis-10k-fy2024.txt",
+   "pagina": 68,
+   "cita": "Purchases of treasury stock, including excise taxes paid",
+   "motivo": "La sección de actividades de financiación no incluye ninguna línea de intereses pagados; los intereses se informan solo como dato suplementario."
+  },
+  {
+   "partida": "intereses_financiacion",
+   "anio": 2025,
+   "archivo": "zoetis-10k-fy2025.txt",
+   "pagina": 70,
+   "cita": "Cash paid during the period for:",
+   "motivo": "El estado de flujos no tiene línea de intereses en financiación; los intereses pagados se informan como información suplementaria (clasificación en explotación, US GAAP)."
+  },
+  {
+   "partida": "minoritarios",
+   "anio": 2025,
+   "archivo": "zoetis-10k-fy2025.txt",
+   "pagina": 68,
+   "cita": "Equity attributable to noncontrolling interests",
+   "motivo": "Equity attributable to noncontrolling interests es '—' en 2025 y 2024."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2016,
+   "archivo": "zoetis-10k-fy2016.txt",
+   "pagina": 73,
+   "cita": "Total current assets",
+   "motivo": "El balance no tiene inversiones financieras corrientes distintas de caja."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2017,
+   "archivo": "zoetis-10k-fy2017.txt",
+   "pagina": 71,
+   "cita": "Other current assets",
+   "motivo": "El balance no muestra depositos a plazo ni inversiones financieras temporales; el activo corriente es caja, cuentas a cobrar, existencias y otros activos corrientes"
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2020,
+   "archivo": "zoetis-10k-fy2020.txt",
+   "pagina": 76,
+   "cita": "Other current assets",
+   "motivo": "El balance no muestra inversiones financieras ni depositos a plazo: el activo corriente es caja, cuentas a cobrar, existencias y otros activos corrientes."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2022,
+   "archivo": "zoetis-10k-fy2022.txt",
+   "pagina": 66,
+   "cita": "Total current assets",
+   "motivo": "El balance no tiene inversiones financieras corrientes; solo caja, cuentas a cobrar, existencias y otros activos corrientes."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2023,
+   "archivo": "zoetis-10k-fy2023.txt",
+   "pagina": 67,
+   "cita": "Total current assets",
+   "motivo": "El balance no tiene inversiones financieras corrientes ni depositos a plazo; el activo corriente es caja, cuentas a cobrar, existencias y otros activos corrientes."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2025,
+   "archivo": "zoetis-10k-fy2025.txt",
+   "pagina": 68,
+   "cita": "Total current assets",
+   "motivo": "El balance no presenta inversiones financieras corrientes distintas de caja."
+  }
+ ]
+}

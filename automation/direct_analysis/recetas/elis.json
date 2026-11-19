@@ -1,0 +1,165 @@
+{
+ "paquete": "elis",
+ "empresa": "elis",
+ "caso": "Elis SA, ejercicio 2025 y primer semestre de 2026",
+ "fecha_corte": "2026-11-05",
+ "notas": "Fecha de análisis de la etapa 1: 5-nov-2026 (Análisis!D4); precio de cierre del 4-nov-2026 (24,18 EUR) en los datos y la etapa 1. Datos de la hoja, extracto e historia: copia byte a byte del expediente elis_f1 del producto (rama examen/expedientes-f1, commit 8c5ee44), los mismos que recibe el personaje, con C48 = 108 (la entrada de la etapa 1, justificada por sus fuentes; no 82,933). Base económica E6 a 31-dic-2025 (decisión de la persona responsable): los datos no aplican la recompra de 2026 ni la conversión de la OCEANE, que se dan como información. Etapa 1: el libro y la respuesta de la Release del universo (los mismos bytes que el expediente: respuesta 999c42d4…, libro b775e6b0…). Fuentes: los textos del expediente (el URD 2025 y el semestral no están en ninguna Release como PDF; sus textos están versionados en el producto con su huella). No entra el comunicado de ingresos del tercer trimestre de 2026 (q3_2026_revenue.pdf de la Release fuentes-elis-e-20261117), aunque es anterior al 5-nov y la etapa 1 cita su orgánico de 9M-26: tampoco está en el expediente del personaje. Sin registro de entradas de examen para Elis.",
+ "archivos": [
+  {
+   "id": "datos_v63_md",
+   "ruta": "datos_analisis_directo/elis/datos_v63.md",
+   "descripcion": "Datos de la hoja de valoración (Historia de 10 años, análisis y palancas) de Elis SA",
+   "origen": {
+    "tipo": "git",
+    "repo": "producto",
+    "commit": "8c5ee4442a4d5bc87bf3a86fa3d9b2f3ae4f9bbf",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/elis_f1/Elis/datos_v63.md",
+    "sha256": "4dc928d44b6faf397574e219be37f50eb30a1023cacc065e9acbc572203b4dca"
+   }
+  },
+  {
+   "id": "extracto_v63_md",
+   "ruta": "datos_analisis_directo/elis/extracto_v63.md",
+   "descripcion": "Extracto de los informes con citas de página",
+   "origen": {
+    "tipo": "git",
+    "repo": "producto",
+    "commit": "8c5ee4442a4d5bc87bf3a86fa3d9b2f3ae4f9bbf",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/elis_f1/Elis/extracto_v63.md",
+    "sha256": "e944ed46584d5be0c739e5655e30dec9b624279afd112a365955d8c6cef2bf56"
+   }
+  },
+  {
+   "id": "fase1_v63_json",
+   "ruta": "datos_analisis_directo/elis/fase1_v63.json",
+   "descripcion": "Historia de 10 años con fuente de cada cifra",
+   "origen": {
+    "tipo": "git",
+    "repo": "producto",
+    "commit": "8c5ee4442a4d5bc87bf3a86fa3d9b2f3ae4f9bbf",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/elis_f1/Elis/fase1_v63.json",
+    "sha256": "ff50167735306e288511ff5852d44293e559cf0960789ee7fa2d29a87907d0ee"
+   }
+  },
+  {
+   "id": "etapa1_elis_analisis_csv",
+   "ruta": "datos_analisis_directo/elis/etapa1/Elis_evaluada__Análisis.csv",
+   "descripcion": "Excel de etapa 1 en texto (CSV, solo valores), hoja Análisis",
+   "origen": {
+    "tipo": "xlsx_hoja",
+    "insumo": "universo_etapa1.zip.zip",
+    "sha256_zip": "4d30f7352948fe7e7fe3b133386eabedbddcc71d997e972a1c6db7964d58b0a9",
+    "miembro": "EMPRESAS_LOTES_COMPLETOS/Elis/Elis_evaluada.xlsx",
+    "sha256": "b775e6b061b752cc531d72d82ba84a803fb0bfe3431c17b70bad7dbd5b43151b",
+    "hoja": "Análisis"
+   }
+  },
+  {
+   "id": "etapa1_elis_control_maestro_csv",
+   "ruta": "datos_analisis_directo/elis/etapa1/Elis_evaluada__Control_maestro.csv",
+   "descripcion": "Excel de etapa 1 en texto (CSV, solo valores), hoja Control maestro",
+   "origen": {
+    "tipo": "xlsx_hoja",
+    "insumo": "universo_etapa1.zip.zip",
+    "sha256_zip": "4d30f7352948fe7e7fe3b133386eabedbddcc71d997e972a1c6db7964d58b0a9",
+    "miembro": "EMPRESAS_LOTES_COMPLETOS/Elis/Elis_evaluada.xlsx",
+    "sha256": "b775e6b061b752cc531d72d82ba84a803fb0bfe3431c17b70bad7dbd5b43151b",
+    "hoja": "Control maestro"
+   }
+  },
+  {
+   "id": "etapa1_elis_guia_sws_csv",
+   "ruta": "datos_analisis_directo/elis/etapa1/Elis_evaluada__Guía_Simply_Wall_St.csv",
+   "descripcion": "Excel de etapa 1 en texto (CSV, solo valores), hoja Guía Simply Wall St",
+   "origen": {
+    "tipo": "xlsx_hoja",
+    "insumo": "universo_etapa1.zip.zip",
+    "sha256_zip": "4d30f7352948fe7e7fe3b133386eabedbddcc71d997e972a1c6db7964d58b0a9",
+    "miembro": "EMPRESAS_LOTES_COMPLETOS/Elis/Elis_evaluada.xlsx",
+    "sha256": "b775e6b061b752cc531d72d82ba84a803fb0bfe3431c17b70bad7dbd5b43151b",
+    "hoja": "Guía Simply Wall St"
+   }
+  },
+  {
+   "id": "etapa1_elis_opciones_csv",
+   "ruta": "datos_analisis_directo/elis/etapa1/Elis_evaluada__Opciones.csv",
+   "descripcion": "Excel de etapa 1 en texto (CSV, solo valores), hoja Opciones",
+   "origen": {
+    "tipo": "xlsx_hoja",
+    "insumo": "universo_etapa1.zip.zip",
+    "sha256_zip": "4d30f7352948fe7e7fe3b133386eabedbddcc71d997e972a1c6db7964d58b0a9",
+    "miembro": "EMPRESAS_LOTES_COMPLETOS/Elis/Elis_evaluada.xlsx",
+    "sha256": "b775e6b061b752cc531d72d82ba84a803fb0bfe3431c17b70bad7dbd5b43151b",
+    "hoja": "Opciones"
+   }
+  },
+  {
+   "id": "etapa1_elis_respuesta_md",
+   "ruta": "datos_analisis_directo/elis/etapa1/Elis_respuesta.md",
+   "descripcion": "Respuesta de etapa 1 (juicio heredado; tratar como hipótesis)",
+   "origen": {
+    "tipo": "git",
+    "repo": "producto",
+    "commit": "8c5ee4442a4d5bc87bf3a86fa3d9b2f3ae4f9bbf",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/elis_f1/Elis/etapa1/Elis_respuesta.md",
+    "sha256": "999c42d452ec42aa861bc15e9e8e893980bb5b247417697d3be0a2871599c9fe"
+   }
+  },
+  {
+   "id": "fuentes_urd_2025_seleccion",
+   "ruta": "datos_analisis_directo/elis/fuentes/elis-urd-2025.seleccion.compacto.txt",
+   "descripcion": "Documento de registro universal 2025, paginas 5 a 23, 25 a 30, 305 a 320, 324 a 396, 402 y 435 a 440 (Elis en 2025, estrategia y modelo, comentarios del ejercicio, estados financieros consolidados y notas, hechos posteriores, capital), texto con marcas de pagina",
+   "origen": {
+    "tipo": "texto_paginas",
+    "repo": "producto",
+    "commit": "8c5ee4442a4d5bc87bf3a86fa3d9b2f3ae4f9bbf",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/elis_f1/Elis/texto/Elis - 2025 Universal Registration Document.txt",
+    "sha256": "0672b95d807cab26d10ad3911f939f2c0de3a9314dd0f9c26ac4a72d60b80e3c",
+    "paginas": "5-23,25-30,305-320,324-396,402,435-440",
+    "cabecera": "Selección de páginas del documento de registro universal 2025 de Elis SA, depositado el 30-mar-2026 (texto con marcas de página del PDF original, el mismo texto del expediente, espacios repetidos unidos): páginas 5 a 23 (Elis en 2025: actividad, presencia, hitos y cifras clave), 25 a 30 (estrategia y modelo de negocio), 305 a 320 (comentarios sobre el ejercicio 2025: resultados, flujos, deuda, rentabilidad del capital, perspectivas y resumen de cinco años), 324 a 396 (estados financieros consolidados y notas 1 a 11), 402 (nota 12, hechos posteriores al cierre) y 435 a 440 (información sobre la sociedad y su capital). Se omiten la lista de sociedades consolidadas (397 a 401), los informes de auditoría, las cuentas de la sociedad matriz, el gobierno, las remuneraciones, los riesgos y la sostenibilidad, por el límite de tamaño del modelo."
+   }
+  },
+  {
+   "id": "fuentes_semestral_2026_seleccion",
+   "ruta": "datos_analisis_directo/elis/fuentes/elis-2026-half-year-financial-report.seleccion.compacto.txt",
+   "descripcion": "Informe financiero semestral a 30 de junio de 2026 (en inglés), paginas 4 a 47 (informe de gestión del semestre y estados financieros intermedios consolidados con sus notas)",
+   "origen": {
+    "tipo": "texto_paginas",
+    "repo": "producto",
+    "commit": "8c5ee4442a4d5bc87bf3a86fa3d9b2f3ae4f9bbf",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/elis_f1/Elis/fuentes_2026/texto/Elis_2026_half-year_financial_report_EN.txt",
+    "sha256": "b11f84c991ef6a8a21faa08bd62ab9ad6a69cc001eda53b3cf94f037c92c2d00",
+    "paginas": "4-47",
+    "cabecera": "Selección de páginas del informe financiero semestral 2026 de Elis SA a 30-jun-2026, en inglés (texto con marcas de página del PDF original, el mismo texto del expediente, espacios repetidos unidos): páginas 4 a 47 (informe de gestión del primer semestre: cifras clave, hechos, actividad, objetivos, riesgos, capital y hechos posteriores; estados financieros intermedios consolidados condensados y notas). Se omiten portada, índice, informe de los auditores y declaración del responsable. La versión francesa del mismo informe no se repite."
+   }
+  },
+  {
+   "id": "fuentes_presentacion_s1_2026",
+   "ruta": "datos_analisis_directo/elis/fuentes/elis-h1-2026-results-presentation.compacto.txt",
+   "descripcion": "Presentación de resultados del primer semestre de 2026, completa, texto con marcas de página",
+   "origen": {
+    "tipo": "texto_paginas",
+    "repo": "producto",
+    "commit": "8c5ee4442a4d5bc87bf3a86fa3d9b2f3ae4f9bbf",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/elis_f1/Elis/fuentes_2026/texto/Elis_H1_2026_results_presentation.txt",
+    "sha256": "bf2e42bd5ae010d5245031749f7b223c7352238ae6accd6cbd3be30abb66e275",
+    "cabecera": "Presentación de resultados del primer semestre de 2026 de Elis SA, completa (texto con marcas de página del PDF original, el mismo texto del expediente, espacios repetidos unidos)."
+   }
+  },
+  {
+   "id": "fuentes_oceane_2029_conversion",
+   "ruta": "datos_analisis_directo/elis/fuentes/elis-oceane-2029-resultados-conversion.texto.txt",
+   "descripcion": "Comunicado del 7 de octubre de 2026 con el resultado de la conversión y el canje de las obligaciones convertibles OCEANE 2029, en texto",
+   "origen": {
+    "tipo": "html",
+    "repo": "producto",
+    "commit": "8c5ee4442a4d5bc87bf3a86fa3d9b2f3ae4f9bbf",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/elis_f1/Elis/fuentes_2026/Elis_OCEANE_2029_resultados_conversion.html",
+    "sha256": "f6d6c27fc59516bc6aeeaeb6a4aa12853e4a9110ae7e52e3f337f8fbaec83be7",
+    "desde": "2026-10-07 07:00:00",
+    "hasta": "in any jurisdiction.",
+    "cabecera": "Comunicado de Elis SA «Elis announces the results of the conversion and exchange period for its 2029 OCEANEs», 7-oct-2026, tal como lo distribuyó GlobeNewswire (página HTML del expediente pasada a texto, desde la fecha de publicación hasta el aviso legal; sin menús ni contactos)."
+   }
+  }
+ ]
+}
