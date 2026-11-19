@@ -60,3 +60,34 @@
 - **Apto por entradas: False.**
 
 No acredita aptitud para dinero real.
+
+## jumbo_g, el expediente definitivo de Jumbo: sellado de los 64 pendientes (2026-11-19)
+
+- **Material:** `jumbo_g/Jumbo/verificacion_entradas.json`, cabeza `c6726b0`. Había 249 sellos vigentes y 64 pendientes. Commit del sellado: `3355b60`.
+- **Selladas (59):**
+  - **Correcciones desde jumbo_e,** examinadas en `texto/`:
+    - I17 = 7,0352 (redondeo exacto de 7,03515);
+    - L14 = 61,1586, desde las cinco líneas de AR2025 p. 209;
+    - D13, D17, E17, C23 y D23 a `no_aplicable`: sin línea de adquisiciones ni de arrendamientos en los estados de flujos de 2016/17–2018/19;
+    - años: F5, G5 e I5 citan cabeceras de columnas; D5 y E5 citan la denominación del ejercicio en el informe de gestión, con la ubicación bien declarada;
+    - justificaciones de C50 y C86:G87 actualizadas.
+  - **Mercado con archivo local:**
+    - **C37 (27,28 €):** examiné la imagen. Euronext Athens «Historical Data», 11/17/2026, CLOSE 27.2800; la huella coincide con el anexo 3 ter y la transcripción es fiel. **Límite:** la imagen no muestra el instrumento. La identificación como BELA no la dan los bytes: la dan el nombre del archivo, el anexo 3 ter y el registro de la persona (`JUMBO_BELA_20261118.md`, «Previous Close: 27,2800 EUR» en la página de BELA), que coinciden. La acepto como identificación atestada por la persona.
+    - **C57:** 3,35 %, fila 2026-11-17 del CSV WT1010 de la Bundesbank.
+    - **Palancas!C7:** Damodaran margin.xls, «Industry Averages», fila 82, Retail (General). Es la tabla de EE. UU.: elegirla es un juicio de la etapa 1.
+    - **C41 y C42:** dependían de C37 y ahora se pueden sellar.
+  - **Hipótesis y convenciones (31):** C85 coincide con la decisión F1-A vigente. Las 30 de las fases tienen el valor del libro y un fundamento idéntico a Control maestro!N. En C76 = 150 comprobé la aritmética del apoyo: 150,61. El sello acredita el registro, no el acierto del juicio.
+- **Discrepancias (2): C46 y C40.**
+  - Valor y fórmula correctos con la C76 vigente (150): 317,9025 → 317,902 y 255,3054 → 255,305.
+  - Pero la conciliación registrada sigue diciendo «C76 = 160, fase B de jumbo_e» y 317,617 / 255,108. Hay que corregir el texto.
+- **Pendientes (3):**
+  - C38 y C88: terceros sin bytes;
+  - C31: el apoyo cita el H1-2025, que no está en `texto/`.
+
+**`comprobar`:**
+- **Cobertura:** universo 313, de las que 308 están comprobadas (213 de 214 de cálculo y 95 de 99 de juicio), más 253 auxiliares; 561 sellos.
+- **Estado:** 2 discrepancias, 3 pendientes, 0 errores, 0 desactualizadas.
+- **Apto por entradas: False.** Lo impiden exactamente 5 entradas materiales sin comprobar:
+  - C46 y C40 (conciliación desactualizada);
+  - C38 y C88 (lecturas de terceros sin bytes);
+  - C31 (fuente fuera del expediente).
