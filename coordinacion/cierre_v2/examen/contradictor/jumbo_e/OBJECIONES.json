@@ -1,0 +1,58 @@
+{
+ "empresa": "Jumbo S.A. (grupo JUMBO GROUP S.A.) · BELA (Euronext Athens) · expediente jumbo_e · motor A",
+ "conclusion_atacada": {
+  "estado": "concluido (provisional hasta la auditoría)",
+  "cubo": "Sí",
+  "accion": "comprar",
+  "precio_si": 32.38
+ },
+ "objeciones": [
+  {
+   "id": "O1",
+   "direccion": "baja",
+   "hecho": {
+    "archivo": "texto/jumbo-annual-report-fy2025.txt",
+    "pagina": 180,
+    "cita": "On April 5, 2024, the Government of Greece, where the Company is domiciled, enacted Pillar II income tax legislation, effective as of January 1, 2024 (Law 5100/2024)."
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "Precio de Sí −0,37 a −0,78 € (32,38 → 32,00–31,59 €; con el tipo estructural, 31,82 €). Valores: MALO −0,29 a −0,60 €; NORMAL −0,44 a −0,92 €; BUENO −0,54 a −1,13 €.",
+    "cuenta": "El motor aplica t = 0,17988 (Historia C52: media 2021–2025 de 17,67 / 17,42 / 17,94 / 17,98 / 18,93 %), con tres años anteriores al Pilar II. Tipo efectivo de 2025 = 74.796.711 ÷ 395.106.128 = 18,93 % [AR2025, PDF p. 148]. Tipo estructural de 2025 = (86.923.348 − 12.505.848 + 2.203.571) ÷ 395.106.128 = 19,39 % (impuesto teórico al 22 %, «Effect of tax rates in other countries» y «Pillar II tax» de la conciliación [AR2025, PDF p. 180]; la tabla rotula las columnas 2024/2023, pero 395.106.128 es el resultado antes de impuestos de 2025 [AR2025, PDF p. 148]). El 17,98 % de 2024 salió bajo por «Tax free income» de (6.898.359), frente a (2.034.114) en 2025 [AR2025, PDF p. 180]. Tipo de H1 2026 = 30.098.577 ÷ 150.751.401 = 19,97 % [H1 2026, PDF p. 23], con «Effective January 1, 2026, the standard corporate income tax (CIT) rate in Cyprus has increased to 15%» y el Pilar II de «4% - 5% in Bulgaria» [H1 2026, PDF p. 40]. Réplica del motor A (calc/motor_a.py; reproduce B78:D78, PV 1–10, PV terminal, ventas del año 10 y FCF de los años 1 y 10 de resultados.json al céntimo): t = 18,93 % → V = 25,59 / 36,80 / 44,90 €, P* = 32,00 €; t = 19,39 % → 25,45 / 36,58 / 44,64 €, P* = 31,82 €; t = 19,97 % → 25,27 / 36,32 / 44,31 €, P* = 31,59 €. Con p = 0,25 / 0,6 / 0,15 y k = 3, P* = 0,5 × MALO + 0,4 × NORMAL + 0,1 × BUENO mientras MALO < P* < NORMAL."
+   },
+   "por_que_cambia_la_conclusion": "Sola no cambia la zona: P* queda entre 31,59 y 32,00 €, por encima de 27,28 €. Pero no es un juicio, es un hecho que ningún escenario recoge y que baja los tres a la vez. Junto con O2, el valor sin crecimiento pasa de 28,12 € a 27,25–27,61 €: deja de ser cierto que «el precio no paga nada por crecer» (B101); lo paga casi exacto. Y deja sin base la prueba de robustez de la fase C con la r mínima de la hoja (28,01 €; no propongo cambiar la r del 9 %): con O1 sola, 27,34–27,69 €."
+  },
+  {
+   "id": "O2",
+   "direccion": "baja",
+   "hecho": {
+    "archivo": "texto/jumbo-annual-report-fy2024.txt",
+    "pagina": 154,
+    "cita": "Interest received 13.791.382 18.490.712"
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "Precio de Sí −0,29 a −0,32 € (32,38 → 32,09–32,05 €). Si se aplica además el J1 que la fase C deja pendiente (s = 160 ÷ 471,83), −0,17 a −0,23 €, en vez del +0,14 € que daría el J1 solo.",
+    "cuenta": "f (Historia C58 = −0,0030115) se reproduce exacto como Σ(EBIT × (1 − t del año) − reinversión orgánica − FCF con J1/J2) ÷ Σ ventas de 2023–2025 = (−8,037 − 1,465 − 0,930) ÷ 3.464,16. Por año: −0,00743 (2023), −0,00127 (2024), −0,00075 (2025). 2023 es atípico por dos hechos del mismo estado de flujos [AR2024, PDF p. 154]: los intereses cobrados (18,49 mm, de los que el J1 cuenta 10,905) se ganaron sobre una caja que empezó el año en 802,9 mm («Cash and cash equivalents in the beginning of the year 444.422.556 802.933.630») y se repartió ese año («Dividends paid to owners of the Parent (217.695.614) (400.976.138)»; «Loans paid - (200.386.274)»); y el impuesto pagado de 2023 («Tax paid (68.238.621) (58.149.711)») quedó 6,72 mm bajo el devengado sobre el EBIT (361,58 × 17,94 % = 64,87 mm). En 2025 se cobraron 9,92 mm («Interest received 9.916.790 13.791.382» [AR2025, PDF p. 155]); el rendimiento de los depósitos sobre la caja media fue 1,9 % frente al 2,9 % de 2023, y en H1 2026 sigue en ≈ 1,8 % anualizado (4.799.219 cobrados [H1 2026, PDF p. 30] sobre ≈ 544 mm de caja media). Réplica del motor: f de 2024–2025 = −0,001005 → V = 25,64 / 36,91 / 45,04 €, P* = 32,09 €; f de 2025 = −0,000754 → V = 25,61 / 36,87 / 44,99 €, P* = 32,05 €. Con el J1 (s = 0,3391): f de 2024–2025 = −0,001806 → P* = 32,20 €; f de 2025 = −0,001395 → P* = 32,15 €; f de 2023–2025 = −0,004000 → P* = 32,52 €."
+   },
+   "por_que_cambia_la_conclusion": "Sola no cambia la zona. Cambia el sentido del único ajuste que la fase C deja a la orquestación: el J1 sube el precio de Sí 0,14 €, pero el f heredado lleva un 2023 que no se repite (caja de 803 mm repartida ese año e impuesto pagado con retraso) y que pesa más; neto, el precio de Sí baja. Se suma a O1 y O3 (ver nota)."
+  },
+  {
+   "id": "O3",
+   "direccion": "baja",
+   "hecho": {
+    "archivo": "texto/jumbo-annual-report-fy2025.txt",
+    "pagina": 25,
+    "cita": "Total investments in distribution centers are expected to exceed €95 million over the next three years."
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "Precio de Sí −0,20 a −0,49 € (32,38 → 32,18–31,89 €); MALO −0,40 a −0,98 € (25,88 → 25,48–24,90 €).",
+    "cuenta": "En el MALO el motor reinvierte Δventas ÷ 1,0: 37,4 mm en los años 1–3 y 129,0 mm en diez años; con el 0,75 que la fase C da por bueno, 49,8 y 172,0 mm. Solo los centros de distribución superan 95 mm en tres años [AR2025, PDF p. 25], y dos están en marcha: «the process for the acquisition of the Giga distribution center in Romania, with a total area of approximately 60.000 sq.m., is progressing» y el de Salónica «is progressing» y termina en 2027 [H1 2026, PDF p. 17]. La historia del MALO de la fase B es que «las ventas crecen solo por las tiendas nuevas (≈ +2 % de superficie al año)»: ≈ 2 aperturas al año, en una empresa que compra sus tiendas («approximately €75 million has been invested in the acquisition of 9 previously leased stores» [H1 2026, PDF p. 17] = 8,33 mm por tienda) y lleva 3,49 mm de inventario por tienda (310.497.568 ÷ 89 [H1 2026, PDF p. 25 y p. 7]). Cota baja: centros de 95 mm en los años 1–3 aparte y el resto al S2C sin tiendas compradas de la fase B (1,5) → MALO 25,48 €, P* 32,18 €. Cota alta: 2 aperturas propias al año × (8,33 + 3,49) mm + centros − circulante que liberan las tiendas existentes (1 % de las ventas × 22,2 % de circulante sobre ventas a 31.12.2025 [H1 2026, PDF p. 25]) = 302,8 mm en diez años (S2C implícito 0,43) → MALO 24,90 €, P* 31,89 €. Los NORMAL y BUENO no cambian (su S2C ya reparte los centros)."
+   },
+   "por_que_cambia_la_conclusion": "Sola no cambia la zona. Pero el MALO es el escenario que más pesa en el precio de Sí (0,5 de cada euro) y la corrección que la fase C acepta (0,75, −0,11 €) no cubre ni los centros que ya se construyen: con O3 el MALO queda entre 1,80 y 2,38 € por debajo del precio, no 1,40 €, y el escenario malo se aleja más de un suelo."
+  }
+ ],
+ "sin_objeciones_validas": false,
+ "nota": "Tres objeciones válidas, las tres a la baja. Ninguna, ni las tres juntas, cambia la zona ni la conclusión de comprar con r = 9 % y k = 3: juntas llevan el precio de Sí de 32,38 € a 30,78–31,52 € (MALO 24,03–24,96; NORMAL 35,95–36,47; BUENO 43,87–44,51 €), entre 3,50 y 4,24 € por encima de 27,28 € (combinación suave: t 18,93 %, f de 2024–2025, O3 cota baja; dura: t 19,97 %, f de 2025, O3 cota alta). Lo que sí cambian: (1) el valor sin crecimiento cae de 28,12 € a 27,25–27,61 €, casi el precio; (2) la prueba de la fase C con la r mínima de la hoja (P* 28,01 €, «la zona seguiría en cumple_regla_k») pasa a 26,59–27,25 €, por debajo del precio; es información sobre su prueba: no propongo cambiar la r del 9 %. Aviso en sentido contrario, por simetría: el motor descuenta 2026 un año entero, como si valorara a 31.12.2025, con caja de 30.06.2026 y precio de 17.11.2026; corregido, el precio de Sí subiría entre ≈ +0,5 € (base de los últimos doce meses: ventas 1.254,88 mm y margen 31,64 %) y ≈ +2,1 € (valor llevado al 18.11.2026 restando los repartos de 2026); no es una objeción a comprar y no la cuento, pero compensa en todo o en parte O1–O3, también en la prueba con la r mínima. Revisado y no incluido: el nuevo modelo de suministro de Balfin para seis mercados y las conversaciones con Fox Group para llevarlo a Israel y Canadá [H1 2026, PDF p. 17–18] (hasta −0,84 € si desapareciera el +1 punto de socios del NORMAL y del BUENO al margen del modelo, pero la cifra depende de regalías y márgenes de venta a socios que no se publican y de una negociación abierta); el margen del NORMAL (0,32) frente al de los últimos doce meses (31,64 %, −0,15 €, juicio); los pagos por arrendamientos de los últimos doce meses (un solo semestre, con etiquetas invertidas); la caja en el punto bajo de noviembre (no publicada). No propongo tamaños de posición ni escribo en el expediente. Réplica del motor y cuentas en calc/ (scripts de solo lectura: motor_a.py, final_calc.py, o2_j1.py, o3_final.py, fechas_calc.py)."
+}
