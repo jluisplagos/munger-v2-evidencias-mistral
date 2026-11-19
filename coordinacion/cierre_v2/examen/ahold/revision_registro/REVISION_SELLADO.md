@@ -62,3 +62,36 @@
 - **Apto por entradas: False.**
 
 No acredita aptitud para dinero real.
+
+## Segunda pasada: las 51 entradas corregidas tras el sellado (2026-11-19)
+
+- **Material:** la orquestación corrigió 51 entradas en `f02f7b1` (lista en `resultados/registro_cambios_sellado_ahold_f3.json`). Las examiné todas en `texto/`. Volví a examinar también C40, E13 y E14, que estaban pendientes por sus orígenes.
+- **Commit del sellado:** `a1a25fb`.
+
+**Selladas (50):**
+- **Folios y periodo:**
+  - AR2019 PDF p. 125 → folio 124 (13 entradas);
+  - AR2018 p. 160 → 160;
+  - Q2-2026 p. 15 → 15 (8 entradas);
+  - periodo del CFO del 1S-26 al 28-jun-2026.
+- **`C23` y `D23`:** pasan a `no_aplicable`, con la nota 1 de AR2025 PDF p. 65 (sin reexpresión NIIF 16 antes del 30-dic-2018).
+- **Minoritarios `D26`, `E26` y `F26`:** Group equity − patrimonio atribuible = 0. Lo comprobé en AR2018 p. 43/91, AR2019 p. 40/123 y AR2020 p. 67/147, con sus 6 auxiliares.
+- **Fila 19:** la justificación ya habla de I+D.
+- **Convenciones:** `C28`, `C31`, `C34` y `Palancas!A30`. C34: la caja (3.196) es menor que la deuda a corto (3.625), así que «No». A30 ya no afirma que Bélgica sea la mayor parte.
+- **Antes pendientes:** C40 (2.096), E13 y E14.
+
+**Discrepancias nuevas (4):**
+- **`G26`, `H26` y `K26`:** el 0 y la cita nueva («Non-controlling interests — —») son correctos. Pero el campo «columna» dice «ejercicio corriente del informe N», y la cita es el comparativo del informe N+1. Es formal.
+- **`Análisis!C24`:**
+  - el numerador, resultado operativo LTM a 28-jun-2026 = 3.561, es correcto;
+  - el denominador es el capital empleado a 28-dic-2025 (32.598). Con el del 28-jun-2026 (14.445 + 19.261, Q2-2026 p. 13 y p. 23) sale **0,106**, y con el capital medio, 0,107;
+  - el 0,109 solo se reproduce mezclando fechas, y la etapa 1 no documenta esa fecha.
+
+**Siguen en discrepancia:** `C22` y `D22` (decisión pendiente).
+
+**Siguen pendientes:** `C38` y `Palancas!C7` (lecturas externas).
+
+**`comprobar` ahora:**
+- **Cobertura:** universo 309, de las que 270 están comprobadas (178 de 214 de cálculo y 92 de 95 de juicio), más 228 auxiliares; 498 selladas en total.
+- **Estado:** 6 discrepancias y 33 pendientes (31 hipótesis y convenciones de las fases, más C38 y C7). 0 errores y 0 desactualizadas.
+- **Apto por entradas: False.**
