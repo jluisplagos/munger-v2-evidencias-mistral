@@ -1,0 +1,43 @@
+# VINCI · normalización declarada del circulante (V-CIRC) · diagnóstico sobre una copia
+
+2026-11-19 · DIAGNÓSTICO sobre una copia de vinci/Vinci con la normalización del circulante declarada (decisión V-CIRC (a)); antes de la fase A, sin palancas: no es el paso 7 ni una conclusión; no apto para dinero real.
+
+Libro del expediente (V6.3.1 F1) `64623058d3020f5d…`; código de la capa: F1-IMPL 2 (4.15 · decisiones F1 del 17-nov-2026 · US GAAP, ASC 842: D-US1, D-US2, D-US2 bis y D-WM del 18-nov-2026 · cierre de la revisión R2 · margen de partida según Palancas C8, 19-nov-2026 · normalización declarada del circulante (V-CIRC), 19-nov-2026).
+
+| | f | reinversión media | flujo sin crecimiento | ancla S2C | bloquean |
+|---|---|---|---|---|---|
+| libro V6.3.1, sin la declaración (estado actual) | 0.044898608760346 | -1514.333333333 | 3016.068605087 | 5.959528785864 | F1-K3c |
+| libro V6.3.1, con la declaración | 0.015743954245327 | 575.666666667 | 5190.976677253 | 2.32264514218 | F1-LIBRO |
+| libro V6.3.2 F1, con la declaración | 0.015743954245327 | 575.666666667 | 5190.976677253 | 2.32264514218 | — |
+
+- Libro V6.3.2 recalculado: C58 = 0.0157439542453269 · C53 = 2.3226451421801 · C76 = 575.666666666667 · C97 = circulante_a_cero · Motor V05 = OK · Palancas F16 (ancla que ven las fases) = 2.3226451421801
+- Libro − capa: f -1.0061396160665481e-16 · ancla 1.0036416142611415e-13 · reinversión -3.3298874768661335e-10
+- F1-LIBRO: el libro V6.3.2 F1 calcula el perímetro declarado (A2_propio) y la normalización del circulante declarada (circulante_a_cero en [2021, 2022, 2023, 2024, 2025]): f, ancla, D_X, series, años normalizados y 0 flujos del Motor coinciden con la capa
+- F1-REPLICA: la réplica A0 reproduce el libro (f, τ, m0 = Historia!C48, ancla y flujos): la capa F1 y el libro son el mismo motor
+- F1-K3c (V6.3.2): reinversión media (circulante normalizado a cero en [2021, 2022, 2023, 2024, 2025], V-CIRC) 575.667 ≥ 0 (o ventas a la baja)
+- F1-CIRC (V6.3.2): normalización del circulante «circulante_a_cero» en [2021, 2022, 2023, 2024, 2025]: cubre la ventana de f y los cinco años del ancla, y la caja base excluye el mismo circulante (conciliacion_fcf_base, C46: -2090.000 = media de la fila 14 de la ventana)
+- Avisos (V6.3.2): F1-SERIES-CERO, V-F1f
+- Verificador del libro V6.3.2 con las entradas (antes de recalcular): Vinci_v63_datos.xlsx · SHA-256 c2127b239a55d9f3… · referencia V6.3.2 F1 (origen 046b64fc7b7898c8…) · VEREDICTO: ÍNTEGRO · 0 fallos · 0 avisos
+
+## K3 · perímetro declarado (libro V6.3.2)
+
+| Partida | mm | Clase |
+|---|---|---|
+| FCF base que calibra f (Historia C70, entrada registrada) | 4419.333 | caja |
+| + nivel del EBIT del año base frente a la media de la ventana, al τ de proyección | 424.636 | explicada |
+| + τ de proyección frente al τ de cada año de la ventana | -182.807 | explicada |
+| − f aplicada a las ventas del año base en lugar de las medias | -45.852 | explicada |
+| + inversión neta propia y circulante de la ventana (capex − D&A propia + circulante) | -1514.333 | explicada |
+| − amortización ROU que D_X devuelve como reposición, con los pagos de arrendamiento ya dentro del FCF base | 0.000 | explicada |
+| − amortización PPA que D_X devuelve como reposición (no es caja: política (2)(i)) | 0.000 | explicada |
+| − circulante de la ventana que la normalización declarada excluye de la reinversión (V-CIRC: ni entradas ni salidas de circulante; la caja base ya lo excluye, Análisis C46) | 2090.000 | normalizacion_declarada |
+
+## Diagnóstico por perímetro (libro V6.3.2, con la normalización)
+
+| Perímetro | f | flujo sin crecimiento | ancla |
+|---|---|---|---|
+| A0_total | 0.027243070770948 | 4333.154083558 | 3.241860465116 |
+| A1_sin_ROU | 0.017018017297498 | 5095.932847624 | 2.39390932682 |
+| A2_propio | 0.015743954245327 | 5190.976677253 | 2.32264514218 |
+| B_cota_capex | 0.02377427136613 | 4591.923050358 | 2.683291983917 |
+rc=0 · 5 s

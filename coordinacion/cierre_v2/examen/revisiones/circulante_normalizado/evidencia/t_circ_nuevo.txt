@@ -1,0 +1,79 @@
+PASA  · VINCI · control: el libro sintético reproduce el de datos del expediente (f = Historia C58 = 0,0448986…, ancla C53 = 5,9595…) y la capa lo replica · f 0.044898608760 · C53 5.959528785863576
+PASA  · VINCI · (control) sin la declaración (estado actual): F1-K3c BLOQUEA (reinversión media −1.514,333 con ventas al alza) y solo él; f 4,49 %, flujo sin crecimiento 3.016,07 · ['F1-K3c'] · F0 3016.068605087
+PASA  · VINCI · (control) sin la declaración no hay bloque ni guarda de la normalización (nada cambia)
+PASA  · VINCI · con la normalización 2021–2025: f = cálculo independiente (NOPAT − (capex − D_X) − C70) ÷ ventas = 1,574 % (10⁻¹²) · 0.015743954245327 · esperado 0.015743954245326885
+PASA  · VINCI · reinversión media normalizada = capex − D_X = +575,667; flujo sin crecimiento = 5.190,98 (≈ 5.191,0 del diagnóstico; +2.174,9) · F0 5190.976677253
+PASA  · VINCI · ancla de S2C normalizada en los cinco años H–L = ΔV ÷ Σ (capex − D_X + adquisiciones) = 31.365 ÷ 13.504 = 2,3226 (10⁻⁹) · 2.32264514218
+PASA  · VINCI · F1-K3c NO salta (mide la reinversión normalizada) y F1-CIRC no salta (cubre 2021–2025 y la caja base excluye −2.090 en C46) · reinversión media (circulante normalizado a cero en [2021, 2022, 2023, 2024, 2025], V-CIRC) 575.667 ≥ 0 (o ventas a la b
+PASA  · VINCI · con el libro V6.3.1 F1 la conclusión no se toma del libro: F1-LIBRO BLOQUEA como límite declarado (la salida es la V6.3.2 F1 en un expediente nuevo) y solo él · el libro V6.3.1 F1 no calcula lo declarado (A2_propio, circulante normalizado (V-CIRC; LÍMITE DECLARADO: ni la V6.3 ni la V6.3.1 F1 lo calculan; la salida es la
+PASA  · VINCI · el resultado enseña la normalización: años, lo excluido por año (= fila 14), la partida C46 de la caja base y el efecto (sin normalizar → normalizado)
+PASA  · VINCI · (control) la fila 14 (cifra publicada) no cambia: el libro y el resultado conservan −1.463 / −2.311 / −2.496
+PASA  · VINCI · los diagnósticos por perímetro usan la misma normalización (A0, A1, A2 y la cota B; la PPA y la ROU no cambian)
+PASA  · VINCI · con un libro V6.3.2 F1 que lleva la normalización declarada: utilizable (ninguna guarda bloquea); F1-LIBRO dice V6.3.2 y la réplica usa el circulante del libro · [] · el libro V6.3.2 F1 calcula el perímetro declarado (A2_propio) y la normalización del circulante declarada (circulante_a_
+PASA  · VINCI · la capa (declaración) y el libro V6.3.2 (sus filas 93–97) dan la misma f normalizada, la misma ancla y la misma reinversión
+PASA  · G · solo la ventana (2023–2025): F1-CIRC INCOMPLETO por los años 2021–2022 del ancla; f se calcula (ventana cubierta) y el ancla no (no se mezclan) · normalización del circulante: la normalización no cubre los años [2021, 2022] del ancla de S2C (H–L): el ancla no se calcula (un ancla con el circulante en unos
+PASA  · G · la ventana sin 2024: f no se calcula (F1-PERIMETRO lo dice con la normalización) y F1-CIRC INCOMPLETO; sin excepción ni F1-REPLICA · ['F1-CIRC', 'F1-LIBRO', 'F1-PERIMETRO']
+PASA  · G · regla distinta: F1-CIRC DATOS INVÁLIDOS y la normalización NO se aplica (f y K3c como sin declarar) · normalización del circulante: regla 'circulante_medio' no admitida (la única admitida es «circulante_a_cero»)
+PASA  · G · sin regla: F1-CIRC INCOMPLETO y la normalización NO se aplica (f y K3c como sin declarar) · normalización del circulante: regla sin declarar (la única admitida es «circulante_a_cero»: ni entradas ni salidas de circulante en los años
+PASA  · G · años que no son una lista: F1-CIRC DATOS INVÁLIDOS y la normalización NO se aplica (f y K3c como sin declarar) · normalización del circulante: anios no es una lista de años (str)
+PASA  · G · un año fuera de la Historia: F1-CIRC DATOS INVÁLIDOS y la normalización NO se aplica (f y K3c como sin declarar) · normalización del circulante: anios: 2015 no está en la Historia del libro (fila 5)
+PASA  · G · un año repetido: F1-CIRC DATOS INVÁLIDOS y la normalización NO se aplica (f y K3c como sin declarar) · normalización del circulante: anios: 2025 repetido
+PASA  · G · un año como texto: F1-CIRC DATOS INVÁLIDOS y la normalización NO se aplica (f y K3c como sin declarar) · normalización del circulante: anios: '2023' no es un año (número entero)
+PASA  · G · una clave desconocida: F1-CIRC DATOS INVÁLIDOS y la normalización NO se aplica (f y K3c como sin declarar) · normalización del circulante: claves no reconocidas en normalizacion_circulante: anyos (se declaran regla, anios, fundamento, registro y, si
+PASA  · G · sin años: F1-CIRC INCOMPLETO y la normalización NO se aplica (f y K3c como sin declarar) · normalización del circulante: anios sin declarar: la lista de los ejercicios cuyo circulante no entra en la reinversión
+PASA  · G · sin fundamento: F1-CIRC INCOMPLETO (la forma es válida: el cálculo la aplica, como un perímetro declarado sin registro)
+PASA  · G · sin registro: F1-REGISTRO INCOMPLETO (es una decisión de la persona, no la rellena el agente)
+PASA  · G · la partida C46 del circulante con otro importe (−2.000 frente a la media −2.090): F1-CIRC DATOS INVÁLIDOS (y K3a ve la caja base sin explicar)
+PASA  · G · la partida del circulante declarada en otro componente (C70 en lugar de C46): F1-CIRC DATOS INVÁLIDOS (la exclusión del circulante es de C46, C46 − CFO medio) y K3a ve los componentes sin explicar
+PASA  · G · caja base CON el circulante (opción (b) del diagnóstico, sin la partida de M43): sin normalizar, K3a cuadra y K3c sigue BLOQUEANDO (reinversión −1.514,333) · ['F1-K3c']
+PASA  · G · la misma con la normalización declarada: K3c ya no saltaría (+575,667), pero F1-CIRC DATOS INVÁLIDOS (contaría el circulante como caja permanente dentro de C70): la normalización no sirve para ocultar entradas de circulante · normalización del circulante: la caja base no excluye el circulante de la ventana: ninguna partida completa de conciliacion_fcf_base del componente C46 (C46 − C
+PASA  · G · US GAAP: F1-CIRC MODELO NO APLICABLE (solo NIIF) y la normalización no se aplica
+PASA  · G · norma sin declarar: F1-NORMA bloquea, F1-CIRC INCOMPLETO y no se aplica
+PASA  · G · vacío = sin declarar: «normalizacion_circulante»: null o {} da el mismo resultado que sin la clave (salvo la huella de la declaración) · [True, True]
+PASA  · G · con contenido y sin ser un objeto ('sí'): F1-DECLARACION DATOS INVÁLIDOS y no se aplica
+PASA  · G · con contenido y sin ser un objeto ([2023, 2024, 2025]): F1-DECLARACION DATOS INVÁLIDOS y no se aplica
+PASA  · G · con contenido y sin ser un objeto (1): F1-DECLARACION DATOS INVÁLIDOS y no se aplica
+PASA  · G · años de más (2016–2025): se admiten; f y el ancla son los mismos que con 2021–2025 (solo cuentan la ventana y H–L)
+PASA  · G · la nota dentro de la declaración se admite (clave «nota»): F1-CIRC conforme y la normalización aplicada
+PASA  · G · sin circulante (fila 14 = 0): la normalización no cambia nada, no exige partida en la caja base y el libro V6.3.1 la calcula (F1-LIBRO no salta por ella) · ['F1-K3a']
+PASA  · K3 · el puente lleva la partida «circulante que la normalización excluye» (+2.090 = −media de la fila 14) y cuadra a 10⁻⁹
+PASA  · K3 · la partida del circulante excluido no es «sin explicar» y K3 queda conforme
+PASA  · K3 · (control) el puente sin normalizar no lleva esa partida
+PASA  · K3 · K3c no se debilita: con la D&A propia por encima del capex (capex − D_X < 0 con ventas al alza), la reinversión normalizada es negativa y K3c BLOQUEA · -424.333333333 · reinversión media de la ventana (circulante normalizado a cero en [2021, 2022, 2023, 2024, 2025], V-
+PASA  · K3 · ese mismo caso con una justificación declarada: K3c AVISA (la salida de siempre, sin cambios)
+PASA  · LIBRO · V6.3.2 con otros años normalizados (sin 2021) que la declaración: F1-LIBRO bloquea («años normalizados del libro … ≠ declarados») · ['F1-LIBRO']
+PASA  · LIBRO · V6.3.2 con la normalización efectiva y la declaración sin ella: F1-LIBRO bloquea; la réplica usa el circulante del libro (F1-REPLICA no salta) · ['F1-K3c', 'F1-LIBRO']
+PASA  · LIBRO · (control) V6.3.2 sin normalización y sin declaración: el mismo resultado que con el libro V6.3.1 (f, flujo, K3c, guardas que saltan); C97 «ninguna»
+PASA  · LIBRO · V6.3.2 con la fila 95 manipulada (2024 = 0): F1-REPLICA bloquea (fallo de implementación) y la nombra
+PASA  · LIBRO · V6.3.2 con una marca que no es 1 (2021 = 2): C97 «no reconocida», f y C53 vacías en el libro; la capa no falla: F1-LIBRO bloquea, F1-REPLICA no · ['F1-LIBRO']
+PASA  · LIBRO · V6.3.2 con otra regla en C93: «no reconocida»; F1-LIBRO bloquea y dice la normalización efectiva del libro
+PASA  · LIBRO · libro V6.3 (sin la sección F1) con la normalización: F1-LIBRO bloquea como límite declarado y nombra el circulante normalizado · ['F1-LIBRO']
+PASA  · LIBRO · libro V6.3 con A0 y la normalización: solo la normalización hace saltar F1-LIBRO (límite declarado); la réplica A0 es la del libro (sin normalizar) · ['F1-2i', 'F1-K3b', 'F1-K3c', 'F1-LIBRO', 'V-F1a']
+PASA  · LIBRO · V6.3.2 y declaración solo con la ventana: el libro deja C53 vacía como la capa; F1-LIBRO no salta por el ancla (bloquea F1-CIRC) · ['F1-CIRC']
+PASA  · LIBRO · V6.3.2 y declaración sin un año de la ventana: f vacía en el libro y en la capa, sin excepción; F1-REPLICA no salta · ['F1-CIRC', 'F1-PERIMETRO']
+PASA  · LIBRO · V6.3.2 con A0 y la ventana sin normalizar entera: C58 vacía no es un libro ilegible (sin ErrorDeclaracion); F1-CIRC bloquea, F1-REPLICA no · ['F1-2i', 'F1-CIRC', 'F1-K3b', 'F1-PERIMETRO', 'V-F1a']
+PASA  · LIBRO · V6.3.2 sin el valor calculado de C97 (libro sin recalcular): F1-LIBRO bloquea y lo dice
+PASA  · LIBRO · (control) corresponde() de un libro V6.3.1 sin normalización declarada: los mismos motivos que antes (ninguno nuevo)
+PASA  · LIBRO · normalizacion_del_libro y replica_circulante: None y [] en un libro V6.3.1
+PASA  · LIBRO · replica_circulante: [] en un libro V6.3.2 coherente y nombra la fila 96 manipulada
+PASA  · APLICAR · V6.3.2: C93 = «circulante_a_cero», C94:L94 = 1 en 2021–2025 y vacías en 2016–2020, con su procedencia en M93:M94
+PASA  · APLICAR · (control) V6.3.1 (por omisión): las mismas 24 celdas de siempre, sin las de la normalización (el libro V6.3.1 no las tiene)
+PASA  · APLICAR · regla inválida: C93 y C94:L94 vacías (= sin normalización; la capa bloquea con F1-CIRC si se declaró)
+PASA  · APLICAR · un año fuera de la Historia: C93 y C94:L94 vacías (= sin normalización; la capa bloquea con F1-CIRC si se declaró)
+PASA  · APLICAR · US GAAP: C93 y C94:L94 vacías (= sin normalización; la capa bloquea con F1-CIRC si se declaró)
+PASA  · APLICAR · sin declarar: C93 y C94:L94 vacías (= sin normalización; la capa bloquea con F1-CIRC si se declaró)
+PASA  · APLICAR · sobre la plantilla V6.3.2 real: escribe C93 y C94:L94 (texto y números), sin tocar sus fórmulas (C95:L97)
+PASA  · APLICAR · sobre la plantilla V6.3.1 real: no escribe nada en las filas 93–94 (no existen) y su perímetro sí
+PASA  · EE · V6.3.2: C93 y C94:L94 entran en la huella de entradas como configuración; con y sin normalización las huellas son distintas
+PASA  · EE · un libro V6.3.1 no lleva esas celdas (su huella no cambia con la V6.3.2)
+PASA  · SEL · config_v2_v632_f1.json: V6.3.2 F1, de la familia V6.3.1 (el paso 2 le aplica la declaración), con su plantilla, referencia, verificador e inventario
+PASA  · SEL · config_v2_v632_f1.json es la de la V6.3.1 salvo la plantilla, la versión, las notas y el resumen; resumen propio resumen_v2_v632_f1.csv
+PASA  · SEL · expediente nuevo con la V6.3.2: se acepta y registra plantilla_activa.json; después no se ejecuta con la V6.3.1 (ni al revés) · el expediente se preparó con V6.3.2 F1 (plantilla_activa.json: version V6.3.2 F1, archivo_sha256 046
+PASA  · SEL · un expediente V6.3.1 (plantilla_activa.json V6.3.1, como vinci/Vinci) no se ejecuta con la V6.3.2: para cambiar de plantilla, un expediente nuevo
+PASA  · SEL · configuración económica con la V6.3.2: se rechaza (no se ignora)
+PASA  · SEL · ficha.esquema.json admite «V6.3.2 F1»
+PASA  · DATOS · el volcado a las fases dice los años normalizados y lo excluido (libro V6.3.2 efectivo); con «ninguna» o un libro V6.3.1, nada
+PASA  · MD · el informe lleva la sección «Normalización declarada del circulante (V-CIRC)» con el efecto; sin la declaración, no
+PASA  · MD · la plantilla de la declaración documenta la clave (vacía = sin declarar)
+77/77 pruebas de la normalización del circulante (V-CIRC) PASAN
+rc=0

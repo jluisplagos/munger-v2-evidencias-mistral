@@ -1,0 +1,75 @@
+PASA  · PF · sin declaración, con A0_total o con A3_estimado no hay bloque (None)
+PASA  · PF · Ahold declara A2_propio: bloque con el perímetro, las palancas y el ROIC terminal declarados
+PASA  · PF · ROIC de todo el capital 2021–2025 = Historia!C55 (8,78 %) exactamente · 0.087815
+PASA  · PF · ROIC sin arrendamientos (NOPAT NIIF 16 ÷ capital propio) 2021–2025 = 14,82 % (dictamen: 14,8 %; ancla de G7 2 × = 29,64 %) · 0.148181
+PASA  · PF · sin la serie de intereses de arrendamiento: ROIC propio pagado el alquiler no calculable y no utilizable; se dice qué falta
+PASA  · PF · con los intereses publicados: ROIC del capital propio pagado todo el alquiler 2021–2025 = 13,03 % (dictamen 13,0 %) · 0.130280
+PASA  · PF · por año 14,22 / 14,75 / 11,48 / 10,67 / 14,03 % (el peor, 2024: 10,7 %), con sus celdas · {2021: 0.1422, 2022: 0.1475, 2023: 0.1148, 2024: 0.1067, 2025: 0.1403}
+PASA  · PF · fuente de los intereses comprobada (cifra en la página del documento con su huella; columna del ejercicio en los 5 años) → utilizable
+PASA  · PF · un literal que no está en la página (466 en lugar de 465) → INVÁLIDA, no utilizable, y el problema nombra la serie
+PASA  · PF · C1: la serie buena sin «fila» → columna pendiente, NO utilizable (antes contaba como comprobada)
+PASA  · PF · C1: sin «fila», la cifra de 2024 (422) o el «Total rent expense» (57) de la misma página de 2025 → NO utilizables · 0.1307 / 0.1340
+PASA  · PF · C1: con «fila», una cifra de otra fila de la misma página (57) → INVÁLIDA (no está en la fila de los intereses)
+PASA  · PF · C1: un signo cambiado (+1 con el literal entre paréntesis) → INVÁLIDA (lectura de la serie), no utilizable
+PASA  · PF · C1: falta un año (2022) → incompleta, sin media y no utilizable
+PASA  · PF · C3: con US GAAP declarado la medida NO se emite (no resta intereses a un EBIT que ya lleva el alquiler) y se dice por qué
+PASA  · PF · Historia sin el primer año: las medidas de los cinco últimos se calculan igual (13,03 %)
+PASA  · PF · Historia sin uno de los cinco últimos años: bloque «no aplicable» con su motivo (no desaparece)
+PASA  · PF · ROIC terminal neutro r·N/(N − f) con el margen de partida y la f de A2 = 9,04 % (dictamen: 9,04 % en el NORMAL)
+PASA  · PF · la regla es la de la decisión (foso con el capital propio pagado el alquiler frente a r; C55 solo frente al sector; G4 r + 0,03)
+PASA  · VOL · datos_v63.md con F1 en A2: sección «1 bis» con el perímetro declarado, la regla y la fórmula
+PASA  · VOL · cifras por año y medias: 13.03 % frente a r 9.00 % (+4.03 puntos, peor año 10.67 %), 14.82 % y ancla de G7 29.64 % (no 2 × C55 = 17.56 %)
+PASA  · VOL · el titular da también C55 frente al sector con la misma vara: 8.78 % frente a 10.08 % (−1.30 puntos)
+PASA  · VOL · C54 y C55 rotulados «todo el capital» (anclas y F18), ROIC terminal neutro 9.04 %, G4 dicho como es y límites declarados
+PASA  · VOL · sin intereses declarados la sección dice NO COMPROBADO y que no es calculable
+PASA  · VOL · C1: sin «fila» (columna pendiente) la sección NO titula la media ni la compara con r, y dice por qué
+PASA  · VOL · C1: con la fuente inválida tampoco: ni negrita ni diferencia frente a r (antes «13.21 % … +4.21 puntos»)
+PASA  · VOL · C3: con US GAAP la sección dice NO APLICABLES, con el motivo, sin tabla ni cifras del perímetro
+PASA  · VOL · Historia sin uno de los cinco últimos años: la sección lo dice (no desaparece)
+PASA  · VOL · con I+D capitalizada (Palancas!C9 = Sí) la sección avisa de que estas medidas no llevan el ajuste de C55
+PASA  · SIN · sin perímetro F1 el volcado no lleva la sección ni los rótulos nuevos
+PASA  · SIN · con F1 solo se AÑADE la sección y cambian tres rótulos (C54, C55 y F18): el resto del volcado es idéntico · ['| s2c_medio | C54 | 3.18532 |', '| roic_medio_5 | C55 | 0.0878145 |', '- ROIC medio del sector (H18): 0.100774 · ROIC propio 5 años (F18): 0.0878145']
+PASA  · VOL · leer_declaracion: sin motor_a_f1.json → None (expediente antiguo)
+PASA  · VOL · leer_declaracion: con motor_a_f1.json → la declaración
+PASA  · VOL · cota A1 de la capa F1 (5,10 en Ahold) solo si el resultado es del mismo libro (huella); de otro libro → None
+PASA  · VOL · con C53 vacía la sección da la cota A1 sobre este libro
+PASA  · RM · S2C BUENO: el tope 2 × ROIC histórico usa el del perímetro (2 × 14,82 %): 6,4 sin recortar; con C55 (17,56 %) se recorta · 5.1 → 6.4
+PASA  · RM · ROIC terminal BUENO: con P-FOSO (13,03 % comprobado) = mín(13,03 %, r + 0,03) = 0,12; con C55 (8,78 % < r) = r = 0,09 · 0.09 → 0.12
+PASA  · RM · sin intereses comprobados: ROIC BUENO como antes (C55) y la nota lo dice; el tope del S2C sí usa el perímetro (filas del libro)
+PASA  · RM · C1: con la serie sin «fila», con 422 o con 57 en 2025 la referencia BUENO del ROIC terminal queda en r = 0,09 (no 0,12)
+PASA  · RM · C3: con US GAAP las referencias son las de antes (tope del S2C con C55 y ROIC BUENO 0,09) y una nota lo dice
+PASA  · SIN · con el motor B el perímetro F1 no se usa (F1 solo afecta al motor A)
+PASA  · SIN · sin perímetro las referencias no cambian (mismas cifras y notas que sin la clave)
+PASA  · GRAM · sin perímetro (como hoy): G7 BUENO salta, 0,209 > 2 × C55 = 0,176, con el mismo texto que la gramática del expediente
+PASA  · GRAM · con A2: G7 BUENO deja de saltar (0,209 < 2 × 14,82 % = 0,296) · []
+PASA  · GRAM · G4 sigue igual con A2: tres G4 sin justificar con C18 = No (0,13/0,15/0,15 > r + 0,03); el hallazgo recuerda la vara P-FOSO
+PASA  · SIN · con motor B el perímetro F1 no cambia G7
+PASA  · SIN · sin perímetro, los hallazgos fuera de G7/G4/P-FOSO son idénticos con y sin la clave
+PASA  · GRAM · D3 (visibilidad): aviso P-FOSO con las palancas frente a las medidas del perímetro, con cifras, en gramatica.md (la lee la fase C); no cambia el código
+PASA  · GRAM · C1: con la serie sin comprobar G4 no da la cifra (dice NO COMPROBADO) y el aviso P-FOSO tampoco la compara con r
+PASA  · GRAM · C3: con US GAAP G7 vuelve a C55 (BUENO salta, 0,176) diciendo el motivo, y no hay aviso P-FOSO con cifras
+PASA  · GRAM · con A2 G7 sigue saltando por encima de 2 × el ROIC del perímetro (S2C 9,0 → 0,318 > 0,296) y lo rotula
+PASA  · F1 · V-F1g sin palancas (paso 7) ya no afirma «palancas S2C en el mismo perímetro»: dice que compara etiquetas, no cifras
+PASA  · F1 · sin palancas: «V-F1g (valores)» y «V-F1k (valores)» dicen «aún sin palancas» y no saltan
+PASA  · F1 · sin la serie de intereses la capa no bloquea por ella (F1-INTERESES-ARR no salta) y lo dice
+PASA  · F1 · con palancas: V-F1g (valores) INFORMA (con cifras; la ficha y el informe la recogen) y señala el NORMAL 1,6 más cerca del medio de todo el capital (C54 1,67) que del medio sin arrendamientos (2,5), como lectura orientativa
+PASA  · F1 · con el S2C del perímetro (NORMAL 2,5) la fila informa sin señalar; nunca bloquea
+PASA  · F1 · C4: Jumbo (NORMAL 1,2; medio propio 1,19; C54 1,11; ancla marginal 1,70 aparte) ya no sale como «perímetro cruzado» · palancas S2C NORMAL 1.2 (más cerca del medio sin arrendamientos) · S2C medio sin arrendamientos (último año) = 1.19 · C54 (medio de todo el capital) = 1.11 (dif
+PASA  · F1 · C1: una serie de intereses con la fuente inválida (466; o 57, de otra fila) BLOQUEA la capa F1 como DATOS INVÁLIDOS, ya en el paso 7
+PASA  · F1 · C1: la serie buena no bloquea; sin «fila» (columna pendiente) tampoco bloquea, pero no es utilizable
+PASA  · F1 · C1: «V-F1k (valores)» con Ahold informa el neutro (9,05/9,04/9,04 %) y 13,03 %; sin «fila» AVISA y no compara con r
+PASA  · F1 · C2: el texto de G4 dice lo que hace (hasta r + 0,03 nada; por encima, solo con C18 = Sí), sin «sin foso no admite exceso»
+PASA  · F1 · C3: con US GAAP las filas «(valores)» dicen que las medidas no son aplicables y no dan cifras
+PASA  · F1 · V-F1k (valores): ROIC terminal frente al neutro r·N/(N − f) con la f del perímetro; exceso del NORMAL 0,15 sobre el neutro · neutro 0.0929032258064516
+PASA  · SIN · con A0_total no hay filas «(valores)» ni F1-INTERESES-ARR ni detalle numérico, y V-F1g/V-F1k no remiten a ellas
+PASA  · SIN · la guarda por etiquetas sigue bloqueando un perímetro declarado distinto (palancas A0 con reinversión A2)
+PASA  · A1 · con A1_sin_ROU (y la serie de intereses buena) no hay medidas: «no aplicables · pendiente de decisión», con la pregunta para la persona; volcado sin más cambio que esa nota, gramática y referencias idénticas a sin perímetro, y la capa F1 sin filas «(valores)»
+PASA  · M0 · «Último año» en Palancas C8 (Ahold): el margen de partida es Historia C48, y datos_v63.md lo rotula con su celda y con C8; el ROIC neutro no cambia · Historia!C48 = 0.0383532571032571
+PASA  · M0 · «Media del ciclo» en Palancas C8: P-FOSO parte de Historia C49 (el margen medio del ciclo, el del Motor), no de C48, y así lo rotula en datos_v63.md · Historia!C49 = 0.0367349850896926 · neutro 0.09043779065780179 (con C48: 0.09041923253396103)
+PASA  · M0 · desde el libro (desde_libro, la que usa la capa F1) con «Media del ciclo»: Historia C49, igual que desde el volcado; sin C8, Historia C48
+PASA  · M0 · «Media del ciclo» con Historia C49 vacía: sin margen de partida ni ROIC neutro (no se toma C48 por omisión), y datos_v63.md lo deja ver
+PASA  · M0 · un valor de Palancas C8 fuera de la lista («media del ciclo»): sin margen de partida ni ROIC neutro, y lo dice (no adivina la celda)
+PASA  · M0 · la regla es la de la plantilla: C8 vacía o «Último año» → Historia C48; «Media del ciclo» → Historia C49; otro valor → ninguna
+
+72/72 pruebas del perímetro F1 y la vara del foso (P-FOSO) PASAN
+rc=0
