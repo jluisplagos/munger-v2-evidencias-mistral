@@ -1,0 +1,466 @@
+{
+ "fecha": "2026-11-19",
+ "que_es": "DIAGNÓSTICO sobre una copia de vinci/Vinci con la normalización del circulante declarada (decisión V-CIRC (a)); antes de la fase A, sin palancas: no es el paso 7 ni una conclusión; no apto para dinero real",
+ "expediente_origen": "/home/user/e_work/wt_expedientes/munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/vinci/Vinci",
+ "libro_V6.3.1_sha256": "64623058d3020f5d4d882e1b6cc266394bf8f66a55a0f2e468f38de5633b9e95",
+ "declaracion_original_sha256": "fc7d02a4b4583d6d10eb9bb82ed9513a91d600bc0d8591b793d5e5e09d0292b6",
+ "declaracion_con_la_normalizacion_sha256": "6b0cef721dd45818e169bef56e280f9fe20a8745e11c1bb7691dfa94e58c192c",
+ "normalizacion_declarada": {
+  "regla": "circulante_a_cero",
+  "anios": [
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ],
+  "fundamento": "Decisión V-CIRC (a) de la persona responsable, 19-nov-2026 (munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:134): «circulante a 0 también en la reinversión, con un mecanismo declarado (ni entradas ni salidas de circulante)». La caja base ya lo excluye: C46 = CFO − circulante por la decisión del inversor de la etapa 1 (Control maestro M43; conciliacion_fcf_base, componente C46, −2.090 = media 2023–2025 de la fila 14). Años: los que usa la reinversión, la ventana de f (2023–2025) y los cinco del ancla de S2C (2021–2025).",
+  "registro": {
+   "fecha": "2026-11-19",
+   "persona": "persona responsable del proyecto (decisión registrada; no se firma aquí)",
+   "motivo": "munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:134 (V-CIRC, 19-nov-2026, opción (a))"
+  }
+ },
+ "codigo": "F1-IMPL 2 (4.15 · decisiones F1 del 17-nov-2026 · US GAAP, ASC 842: D-US1, D-US2, D-US2 bis y D-WM del 18-nov-2026 · cierre de la revisión R2 · margen de partida según Palancas C8, 19-nov-2026 · normalización declarada del circulante (V-CIRC), 19-nov-2026, con la caja base demostrada por el cálculo declarado de C46 (revisión C1))",
+ "capa_libro_V6.3.1_sin_la_declaracion": {
+  "utilizable": false,
+  "estado_propuesto": "pendiente_de_datos",
+  "bloquean": [
+   "F1-K3c"
+  ],
+  "avisos": [
+   "F1-SERIES-CERO",
+   "V-F1f"
+  ],
+  "f": 0.044898608760346,
+  "flujo_sin_crecimiento": 3016.068605087,
+  "reinversion_media": -1514.333333333,
+  "ancla_s2c_E4": 5.959528785864,
+  "tau_proyeccion": 0.32022,
+  "m0": 0.125524470837,
+  "K3c": "reinversión media de la ventana -1514.333 < 0 con ventas que no bajan: D_X devuelve más amortización de la que el capex repuso · sin justificación",
+  "F1-CIRC": null,
+  "F1-LIBRO": "el libro V6.3.1 F1 calcula el perímetro declarado (A2_propio): f, ancla, D_X, series y 0 flujos del Motor coinciden con la capa",
+  "K3_lineas": [
+   [
+    "FCF base que calibra f (Historia C70, entrada registrada)",
+    4419.333,
+    "caja"
+   ],
+   [
+    "+ nivel del EBIT del año base frente a la media de la ventana, al τ de proyección",
+    424.635907,
+    "explicada"
+   ],
+   [
+    "+ τ de proyección frente al τ de cada año de la ventana",
+    -182.807253,
+    "explicada"
+   ],
+   [
+    "− f aplicada a las ventas del año base en lugar de las medias",
+    -130.759715,
+    "explicada"
+   ],
+   [
+    "+ inversión neta propia y circulante de la ventana (capex − D&A propia + circulante)",
+    -1514.333333,
+    "explicada"
+   ],
+   [
+    "− amortización ROU que D_X devuelve como reposición, con los pagos de arrendamiento ya dentro del FCF base",
+    0.0,
+    "explicada"
+   ],
+   [
+    "− amortización PPA que D_X devuelve como reposición (no es caja: política (2)(i))",
+    0.0,
+    "explicada"
+   ]
+  ],
+  "diagnostico_por_perimetro": {
+   "A0_total": {
+    "f": 0.056397725285967,
+    "flujo_sin_crecimiento": 2158.246011392,
+    "ancla_s2c_E4": 21.872384937238
+   },
+   "A1_sin_ROU": {
+    "f": 0.046172671812517,
+    "flujo_sin_crecimiento": 2921.024775458,
+    "ancla_s2c_E4": 6.45237605431
+   },
+   "A2_propio": {
+    "f": 0.044898608760346,
+    "flujo_sin_crecimiento": 3016.068605087,
+    "ancla_s2c_E4": 5.959528785864
+   },
+   "B_cota_capex": {
+    "f": 0.052928925881149,
+    "flujo_sin_crecimiento": 2417.014978192,
+    "ancla_s2c_E4": 9.096577726218
+   }
+  }
+ },
+ "capa_libro_V6.3.1_con_la_declaracion": {
+  "utilizable": false,
+  "estado_propuesto": "no_entregable · limite_del_modelo",
+  "bloquean": [
+   "F1-LIBRO"
+  ],
+  "avisos": [
+   "F1-SERIES-CERO",
+   "V-F1f"
+  ],
+  "f": 0.015743954245327,
+  "flujo_sin_crecimiento": 5190.976677253,
+  "reinversion_media": 575.666666667,
+  "ancla_s2c_E4": 2.32264514218,
+  "tau_proyeccion": 0.32022,
+  "m0": 0.125524470837,
+  "K3c": "reinversión media (circulante normalizado a cero en [2021, 2022, 2023, 2024, 2025], V-CIRC) 575.667 ≥ 0 (o ventas a la baja)",
+  "F1-CIRC": "normalización del circulante «circulante_a_cero» en [2021, 2022, 2023, 2024, 2025]: cubre la ventana de f y los cinco años del ancla, y la caja base excluye el mismo circulante: el cálculo declarado de C46 del expediente (fase1_v63.json, analisis.C46.calculo: media 2023–2025 de cfo + circulante + dividendos_sociedades_no_consolidadas) se reproduce con sus fuentes, es el C46 del libro (9327.333) y suma la fila 14 de la ventana (media -2090.000) sin otro término que la compense; partida de conciliacion_fcf_base C46 -2090.000. Componentes, para la revisión de entradas: que ningún componente del cálculo de C46 sea circulante, ni en parte, aunque tenga fuente (F1-CIRC solo descarta los que lo compensan exactamente): dividendos_sociedades_no_consolidadas (media +37.333): 2023: texto/vinci-urd-2024.txt p.348 «Other 41 31» · 2024: texto/vinci-urd-2025.txt p.370 «Dividends received from unconsolidated companies 40 41» · 2025: texto/vinci-urd-2025.txt p.370 «Dividends received from unconsolidated companies 40 41»",
+  "F1-LIBRO": "el libro V6.3.1 F1 no calcula lo declarado (A2_propio, circulante normalizado (V-CIRC; LÍMITE DECLARADO: ni la V6.3 ni la V6.3.1 F1 lo calculan; la salida es la plantilla V6.3.2 F1 en un expediente nuevo); N1 y los términos explícitos no están en el libro): el libro V6.3.1 F1 no normaliza el circulante (no tiene la sección de la V6.3.2 F1, Historia C93:L97): con la normalización declarada (V-CIRC) su reinversión sigue llevando la fila 14; hace falta la plantilla V6.3.2 F1, en un expediente nuevo; f: libro (Historia C58) 0.0448986087603459 ≠ capa 0.015743954245326885; ancla de S2C: libro (Historia C53) 5.95952878586358 ≠ capa 2.322645142180095: la conclusión del motor A no se toma del libro; los flujos F1 son un diagnóstico",
+  "K3_lineas": [
+   [
+    "FCF base que calibra f (Historia C70, entrada registrada)",
+    4419.333,
+    "caja"
+   ],
+   [
+    "+ nivel del EBIT del año base frente a la media de la ventana, al τ de proyección",
+    424.635907,
+    "explicada"
+   ],
+   [
+    "+ τ de proyección frente al τ de cada año de la ventana",
+    -182.807253,
+    "explicada"
+   ],
+   [
+    "− f aplicada a las ventas del año base en lugar de las medias",
+    -45.851643,
+    "explicada"
+   ],
+   [
+    "+ inversión neta propia y circulante de la ventana (capex − D&A propia + circulante)",
+    -1514.333333,
+    "explicada"
+   ],
+   [
+    "− amortización ROU que D_X devuelve como reposición, con los pagos de arrendamiento ya dentro del FCF base",
+    0.0,
+    "explicada"
+   ],
+   [
+    "− amortización PPA que D_X devuelve como reposición (no es caja: política (2)(i))",
+    0.0,
+    "explicada"
+   ],
+   [
+    "− circulante de la ventana que la normalización declarada excluye de la reinversión (V-CIRC: ni entradas ni salidas de circulante; la caja base tiene que excluirlo también, Análisis C46: F1-CIRC)",
+    2090.0,
+    "normalizacion_declarada"
+   ]
+  ],
+  "diagnostico_por_perimetro": {
+   "A0_total": {
+    "f": 0.027243070770948,
+    "flujo_sin_crecimiento": 4333.154083558,
+    "ancla_s2c_E4": 3.241860465116
+   },
+   "A1_sin_ROU": {
+    "f": 0.017018017297498,
+    "flujo_sin_crecimiento": 5095.932847624,
+    "ancla_s2c_E4": 2.39390932682
+   },
+   "A2_propio": {
+    "f": 0.015743954245327,
+    "flujo_sin_crecimiento": 5190.976677253,
+    "ancla_s2c_E4": 2.32264514218
+   },
+   "B_cota_capex": {
+    "f": 0.02377427136613,
+    "flujo_sin_crecimiento": 4591.923050358,
+    "ancla_s2c_E4": 2.683291983917
+   }
+  }
+ },
+ "libro_V6.3.2": {
+  "entradas_trasladadas": 1011,
+  "celdas_escritas_por_aplicar": {
+   "Historia!C85": "A2_propio",
+   "Historia!H86": 605.0,
+   "Historia!I86": 623.0,
+   "Historia!J86": 668.0,
+   "Historia!K86": 714.0,
+   "Historia!L86": 817.0,
+   "Historia!H87": 0.0,
+   "Historia!I87": 128.0,
+   "Historia!J87": 128.0,
+   "Historia!K87": 108.0,
+   "Historia!L87": 38.0,
+   "Historia!C93": "circulante_a_cero",
+   "Historia!H94": 1,
+   "Historia!I94": 1,
+   "Historia!J94": 1,
+   "Historia!K94": 1,
+   "Historia!L94": 1
+  },
+  "verificador_antes_de_recalcular": [
+   "Vinci_v63_datos.xlsx · SHA-256 c2127b239a55d9f3… · referencia V6.3.2 F1 (origen 046b64fc7b7898c8…)",
+   "VEREDICTO: ÍNTEGRO · 0 fallos · 0 avisos"
+  ],
+  "verificador_codigo": 0,
+  "valores_recalculados": {
+   "C58_f": 0.0157439542453269,
+   "C53_ancla": 2.3226451421801,
+   "C76_reinversion_media": 575.666666666667,
+   "C70_FCF_base": 4419.333,
+   "C97_normalizacion_efectiva": "circulante_a_cero",
+   "C93_regla": "circulante_a_cero",
+   "fila_14_circulante_publicado": {
+    "2016": -23,
+    "2017": 286,
+    "2018": 266,
+    "2019": -428,
+    "2020": -2330,
+    "2021": -1579,
+    "2022": -392,
+    "2023": -1463,
+    "2024": -2311,
+    "2025": -2496
+   },
+   "fila_94_anios_normalizados": {
+    "2016": null,
+    "2017": null,
+    "2018": null,
+    "2019": null,
+    "2020": null,
+    "2021": 1,
+    "2022": 1,
+    "2023": 1,
+    "2024": 1,
+    "2025": 1
+   },
+   "fila_95_excluido": {
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": -1579,
+    "2022": -392,
+    "2023": -1463,
+    "2024": -2311,
+    "2025": -2496
+   },
+   "fila_96_circulante_de_la_reinversion": {
+    "2016": -23,
+    "2017": 286,
+    "2018": 266,
+    "2019": -428,
+    "2020": -2330,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0
+   },
+   "fila_30_reinversion_neta_organica": {
+    "2016": null,
+    "2017": null,
+    "2018": null,
+    "2019": null,
+    "2020": null,
+    "2021": -551,
+    "2022": 639,
+    "2023": 329,
+    "2024": 876,
+    "2025": 522
+   },
+   "Motor_V05": [
+    "OK",
+    null
+   ],
+   "Palancas_F16_ancla_mostrada": 2.3226451421801
+  },
+  "libro_V6.3.1_del_expediente": {
+   "C58_f": 0.0448986087603459,
+   "C53_ancla": 5.95952878586358,
+   "C76_reinversion_media": -1514.33333333333
+  }
+ },
+ "capa_libro_V6.3.2_con_la_declaracion": {
+  "utilizable": true,
+  "estado_propuesto": null,
+  "bloquean": [],
+  "avisos": [
+   "F1-SERIES-CERO",
+   "V-F1f"
+  ],
+  "f": 0.015743954245327,
+  "flujo_sin_crecimiento": 5190.976677253,
+  "reinversion_media": 575.666666667,
+  "ancla_s2c_E4": 2.32264514218,
+  "tau_proyeccion": 0.32022,
+  "m0": 0.125524470837,
+  "K3c": "reinversión media (circulante normalizado a cero en [2021, 2022, 2023, 2024, 2025], V-CIRC) 575.667 ≥ 0 (o ventas a la baja)",
+  "F1-CIRC": "normalización del circulante «circulante_a_cero» en [2021, 2022, 2023, 2024, 2025]: cubre la ventana de f y los cinco años del ancla, y la caja base excluye el mismo circulante: el cálculo declarado de C46 del expediente (fase1_v63.json, analisis.C46.calculo: media 2023–2025 de cfo + circulante + dividendos_sociedades_no_consolidadas) se reproduce con sus fuentes, es el C46 del libro (9327.333) y suma la fila 14 de la ventana (media -2090.000) sin otro término que la compense; partida de conciliacion_fcf_base C46 -2090.000. Componentes, para la revisión de entradas: que ningún componente del cálculo de C46 sea circulante, ni en parte, aunque tenga fuente (F1-CIRC solo descarta los que lo compensan exactamente): dividendos_sociedades_no_consolidadas (media +37.333): 2023: texto/vinci-urd-2024.txt p.348 «Other 41 31» · 2024: texto/vinci-urd-2025.txt p.370 «Dividends received from unconsolidated companies 40 41» · 2025: texto/vinci-urd-2025.txt p.370 «Dividends received from unconsolidated companies 40 41»",
+  "F1-LIBRO": "el libro V6.3.2 F1 calcula el perímetro declarado (A2_propio) y la normalización del circulante declarada (circulante_a_cero en [2021, 2022, 2023, 2024, 2025]): f, ancla, D_X, series, años normalizados y 0 flujos del Motor coinciden con la capa",
+  "K3_lineas": [
+   [
+    "FCF base que calibra f (Historia C70, entrada registrada)",
+    4419.333,
+    "caja"
+   ],
+   [
+    "+ nivel del EBIT del año base frente a la media de la ventana, al τ de proyección",
+    424.635907,
+    "explicada"
+   ],
+   [
+    "+ τ de proyección frente al τ de cada año de la ventana",
+    -182.807253,
+    "explicada"
+   ],
+   [
+    "− f aplicada a las ventas del año base en lugar de las medias",
+    -45.851643,
+    "explicada"
+   ],
+   [
+    "+ inversión neta propia y circulante de la ventana (capex − D&A propia + circulante)",
+    -1514.333333,
+    "explicada"
+   ],
+   [
+    "− amortización ROU que D_X devuelve como reposición, con los pagos de arrendamiento ya dentro del FCF base",
+    0.0,
+    "explicada"
+   ],
+   [
+    "− amortización PPA que D_X devuelve como reposición (no es caja: política (2)(i))",
+    0.0,
+    "explicada"
+   ],
+   [
+    "− circulante de la ventana que la normalización declarada excluye de la reinversión (V-CIRC: ni entradas ni salidas de circulante; la caja base tiene que excluirlo también, Análisis C46: F1-CIRC)",
+    2090.0,
+    "normalizacion_declarada"
+   ]
+  ],
+  "diagnostico_por_perimetro": {
+   "A0_total": {
+    "f": 0.027243070770948,
+    "flujo_sin_crecimiento": 4333.154083558,
+    "ancla_s2c_E4": 3.241860465116
+   },
+   "A1_sin_ROU": {
+    "f": 0.017018017297498,
+    "flujo_sin_crecimiento": 5095.932847624,
+    "ancla_s2c_E4": 2.39390932682
+   },
+   "A2_propio": {
+    "f": 0.015743954245327,
+    "flujo_sin_crecimiento": 5190.976677253,
+    "ancla_s2c_E4": 2.32264514218
+   },
+   "B_cota_capex": {
+    "f": 0.02377427136613,
+    "flujo_sin_crecimiento": 4591.923050358,
+    "ancla_s2c_E4": 2.683291983917
+   }
+  }
+ },
+ "oraculo": {
+  "f_libro_menos_capa": -1.0061396160665481e-16,
+  "ancla_libro_menos_capa": 1.0036416142611415e-13,
+  "reinversion_libro_menos_capa": -3.3298874768661335e-10,
+  "F1_LIBRO": "el libro V6.3.2 F1 calcula el perímetro declarado (A2_propio) y la normalización del circulante declarada (circulante_a_cero en [2021, 2022, 2023, 2024, 2025]): f, ancla, D_X, series, años normalizados y 0 flujos del Motor coinciden con la capa",
+  "F1_REPLICA": "la réplica A0 reproduce el libro (f, τ, m0 = Historia!C48, ancla y flujos): la capa F1 y el libro son el mismo motor"
+ },
+ "normalizacion_circulante_del_resultado": {
+  "decision": "munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:134 (V-CIRC, 19-nov-2026, opción (a))",
+  "declarada": true,
+  "aplicada": true,
+  "regla": "circulante_a_cero",
+  "anios": [
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ],
+  "fundamento": "Decisión V-CIRC (a) de la persona responsable, 19-nov-2026 (munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:134): «circulante a 0 también en la reinversión, con un mecanismo declarado (ni entradas ni salidas de circulante)». La caja base ya lo excluye: C46 = CFO − circulante por la decisión del inversor de la etapa 1 (Control maestro M43; conciliacion_fcf_base, componente C46, −2.090 = media 2023–2025 de la fila 14). Años: los que usa la reinversión, la ventana de f (2023–2025) y los cinco del ancla de S2C (2021–2025).",
+  "registro": {
+   "fecha": "2026-11-19",
+   "persona": "persona responsable del proyecto (decisión registrada; no se firma aquí)",
+   "motivo": "munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:134 (V-CIRC, 19-nov-2026, opción (a))"
+  },
+  "excluido_por_anio": {
+   "2021": -1579.0,
+   "2022": -392.0,
+   "2023": -1463.0,
+   "2024": -2311.0,
+   "2025": -2496.0
+  },
+  "excluido_medio_en_la_ventana": -2090.0,
+  "caja_base": {
+   "componente": "C46",
+   "partida": "entrada de caja del circulante excluida del CFO en C46 por la decisión del inversor de la etapa 1 (media 2023–2025 de la fila 14: −1.463 / −2.311 / −2.496)",
+   "importe": -2090.0
+  },
+  "calculo_C46": {
+   "fuente": "fase1_v63.json, analisis.C46.calculo",
+   "demostrado": true,
+   "revision": "para la revisión de entradas: que ningún componente del cálculo de C46 sea circulante, ni en parte, aunque tenga fuente (F1-CIRC solo descarta los que lo compensan exactamente)",
+   "operacion": "media",
+   "anios": [
+    2023,
+    2024,
+    2025
+   ],
+   "valor_calculado": 9327.333,
+   "terminos": "cfo + circulante + dividendos_sociedades_no_consolidadas",
+   "C46_del_libro": 9327.333,
+   "componentes": {
+    "dividendos_sociedades_no_consolidadas": {
+     "signo": 1,
+     "media": 37.333333,
+     "fuentes": [
+      "2023: texto/vinci-urd-2024.txt p.348 «Other 41 31»",
+      "2024: texto/vinci-urd-2025.txt p.370 «Dividends received from unconsolidated companies 40 41»",
+      "2025: texto/vinci-urd-2025.txt p.370 «Dividends received from unconsolidated companies 40 41»"
+     ]
+    }
+   }
+  },
+  "problemas": [],
+  "efecto_en_el_perimetro_declarado": {
+   "sin_normalizar": {
+    "f": 0.044898608760346,
+    "flujo_sin_crecimiento": 3016.068605087,
+    "reinversion_media": -1514.333333333,
+    "ancla_s2c_E4": 5.959528785864
+   },
+   "normalizado": {
+    "f": 0.015743954245327,
+    "flujo_sin_crecimiento": 5190.976677253,
+    "reinversion_media": 575.666666667,
+    "ancla_s2c_E4": 2.32264514218
+   }
+  },
+  "libro": {
+   "version": "V6.3.2 F1",
+   "efectiva": "circulante_a_cero",
+   "anios": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "nota": "la fila 14 es la cifra publicada y no cambia; en los años normalizados el circulante no entra en la reinversión que calibra f ni en la del ancla de S2C (el ajuste es −fila 14; en el libro V6.3.2 F1, Historia filas 93–97). No es un dato: es la decisión V-CIRC de la persona, coherente con una caja base que excluye el mismo circulante"
+ }
+}

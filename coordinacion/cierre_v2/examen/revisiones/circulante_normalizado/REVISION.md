@@ -192,3 +192,67 @@ Dejo preparado lo que comprobé:
 - **La persona responsable:**
   - confirmar o corregir el ancla de S2C normalizada (§1) antes de lanzar la fase A de `vinci_b`;
   - conocer el límite del capital del balance (§3).
+
+## Ronda 2 · corrección C1 (`6d574b3`): **CONFORME**. Integrada en `examen/expedientes-f1` (`9afa7a6` y `6e58d05`, con push)
+
+**Qué revisé.** `git diff fbb146d..6d574b3`: 29 archivos.
+
+- `f42f7cd`: la corrección.
+- `3b971c4` y `6d574b3`: manifiesto.
+- `d78ed70`: el registro de la verificación rápida.
+
+Me centré en C1 y en las sondas; no repetí todas las baterías. Evidencia en `evidencia_r2/`, sobre una copia en `/dev/shm`, borrada al terminar.
+
+**C1 (a) · los textos.** Las cuatro afirmaciones de la ronda 1 están corregidas. Donde quedan, es para decir que se corrigieron (`F1_CIRCULANTE.md` líneas 89 y 204).
+
+**C1 (b) y (c) · la guarda y sus pruebas.** `_c46_sin_circulante` deja de fiarse de las partidas. Exige que el cálculo declarado de C46 en `fase1_v63.json` cumpla todo esto:
+
+- se reproduce con sus fuentes (`fase1_historia.calcular_entrada` con la carpeta);
+- es la media de la ventana y suma una vez el CFO y una vez la fila 14;
+- es el C46 del libro y usa las mismas filas 11 y 14;
+- ningún otro término, ni una combinación de ellos, devuelve el circulante (±0,0005).
+
+Si falta algo, bloquea con INCOMPLETO o DATOS INVÁLIDOS. La partida C46 se sigue exigiendo.
+
+| Comprobación (ejecutada por mí) | Resultado |
+|---|---|
+| `test_circulante_f1.py` | **98/98** (`evidencia_r2/test_circulante_f1_6d574b3.txt`) |
+| `mutaciones_circulante.py` | **51/51** detectadas (`evidencia_r2/mutaciones_r2.txt`) |
+| **S1** · mi sonda de la ronda 1 (caja base que cuenta el circulante y partidas C46 −2.090 / +2.090 del documento «x») | Libro V6.3.1: bloquean F1-CIRC (DATOS INVÁLIDOS: «el libro lleva C46 = 11417.333 y el cálculo declarado de C46 da 9327.333») y F1-LIBRO. Libro V6.3.2: **bloquea F1-CIRC, y solo él**; no utilizable. |
+| Las cinco variantes amañadas del autor (sin la fila 14; componente «compensación» de un documento inexistente; la línea del circulante del estado de flujos; el circulante repartido en dos componentes; un componente de 2.090) y las ocho de forma (suma, otros años, fila 14 restada o doble, sin CFO, página o cita inexistentes, otra Historia) | DATOS INVÁLIDOS en todas (grupo CAJA de la batería) |
+| **S3** · control: VINCI genuino, libro V6.3.2 sintético | utilizable, f 1,5744 %, flujo sin crecimiento 5.190,977 |
+| **VINCI real** · diagnóstico rehecho con LibreOffice (`flock`) sobre una copia | Mismas cifras: f 1,5744 %, flujo sin crecimiento 5.190,977 y ancla 2,3226 con la V6.3.2. Nada bloquea; F1-CIRC conforme con el cálculo de C46 del expediente (media 2023–2025 de cfo + circulante + dividendos 31 / 41 / 40, URD 2024 p. 348 y URD 2025 p. 370). Libro − capa: f −1·10⁻¹⁶, ancla 1·10⁻¹³. Verificador ÍNTEGRO. |
+| Sin la declaración, 6 expedientes (`ebf47fc` frente a `6d574b3`) | **Idénticos** salvo la versión y la fecha: la evaluación, el informe, las celdas V6.3.1, las huellas de los libros y la vigencia (`evidencia_r2/efecto_nulo_r2.txt`). Los expedientes son ahold_f3, ahold_f4, jumbo_g, zoetis_t1c, zoetis_t1d y vinci/Vinci. |
+
+**Una sonda nueva (S2) toca el límite 9.4.1.** Usé dos componentes con fuente verdadera, la variación de clientes y la de provisiones corrientes de una nota de circulante. Su suma es la línea del estado de flujos **menos 1** en 2023, con una media de 2.089,667 frente a 2.090. Escribí el C46 del libro igual que ese cálculo (11.417,000) y añadí una partida de «redondeo» para que K3a cuadre.
+
+- **Resultado:** nada bloquea y el resultado queda utilizable, con f −1,34 % y un flujo sin crecimiento de 7.365,5. Es casi el mismo efecto que la sonda de la ronda 1.
+- **Por qué pasa:** F1-CIRC descarta solo las compensaciones exactas (±0,0005). Una que compensa el 99,98 % pasa.
+- **Qué lo contiene:** el texto de F1-CIRC enseña los dos componentes, con su página y su cita, y pide a la revisión de entradas que ninguno sea circulante, «ni en parte».
+
+Es el límite 9.4.1 declarado («no los parciales»), pero conviene saber que «parcial» incluye «casi entero» y que el efecto puede ser el fraude completo.
+
+**Los límites del §9.4: los acepto todos.**
+
+1. **9.4.1** (componentes circulante en parte). Lo acepto con la precisión de S2. Recomiendo, sin bloquear, un aviso cuando un término o una combinación devuelva una parte material de la fila 14 (por ejemplo, más de la mitad). En VINCI no aplica: su único componente son los dividendos.
+2. **9.4.2** (fuentes de `conciliacion_fcf_base` sin contrastar). Lo acepto: es anterior a V-CIRC, y C46 ya no depende de esas partidas.
+3. **9.4.3** (C46 sin cálculo declarado). Lo acepto: bloquea con INCOMPLETO, es decir, falla cerrado.
+4. **9.4.4** (`fase1_v63.json` sin sello). Lo acepto: se vuelve a contrastar en cada ejecución con los textos del expediente y con el libro.
+5. **9.4.5** (las observaciones menores de la ronda 1). Lo acepto.
+6. **9.4.6** (sin aptitud). Lo acepto.
+
+**Lo que quedó pendiente de la ronda 1 lo resolvió la persona:** «V-ANCLA (a)», el 19-nov-2026 (`DECISIONES_PARA_EL_USUARIO.md:135`). El ancla de VINCI se calcula sin el circulante (≈ 2,32), y queda declarado el límite del capital del balance.
+
+**Integración.**
+
+- **Merge:** `git merge --no-ff 6d574b3` en `wt_expedientes`, que estaba limpio, sobre `eddbe6a`, dio `9afa7a6`.
+  - Solo entran los 58 archivos del cambio (`ebf47fc..6d574b3`, sin el manifiesto); ninguno es de un expediente.
+  - Solo hubo conflicto en el manifiesto, y conservé el del destino. `verificar_paquete.sh` se mezcló solo y pasa `bash -n`.
+- **Manifiesto:** `6e58d05`, 10.482 archivos; solo cambia ese archivo. Acepta tres cosas, con la huella del contenido comprometido:
+  - los 58 archivos del cambio;
+  - `Plantilla_V6.3.2_F1.xlsx`;
+  - lo ya comprometido en 897db35, 7d578ca, ac75ae4 y dfc0a2c (ahold_f4 y zoetis_t1d) que el manifiesto anterior dejaba fuera: 16 archivos sin entrada, 22 con la huella anterior y 2 `ESPERANDO.md` borrados, que salen.
+- **`rapida`:** sobre una copia limpia de `6e58d05` (git archive más los 1.060 binarios copiados con su huella), con `flock`, da **RESULTADO GLOBAL: PASA**. El manifiesto tiene 10.482 archivos, 0 modificados, 0 ausentes y 0 de más (`evidencia_r2/rapida_6e58d05.txt`).
+- **Push:** `eddbe6a..6e58d05`; antes comprobé que `origin` no se había movido.
+
+Experimental supervisado. No es apto para dinero real.
