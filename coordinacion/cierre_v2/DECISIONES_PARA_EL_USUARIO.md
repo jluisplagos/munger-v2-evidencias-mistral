@@ -124,3 +124,11 @@ Preguntas formuladas con el dictamen `examen/revisiones/dictamen_O1_O2_ahold/DIC
 - **C-ARR · arrendamientos en el cribado → «Una vez, en el flujo»**: como en el examen (F1, P-O1): el alquiler se resta del flujo de caja y la deuda se mide sin arrendamientos; el pasivo por arrendamientos se muestra aparte como dato.
 - **C-EX · empresas del examen → «Sí, fuera hasta el 23»**: Ahold, Jumbo, Zoetis, Elis, Vinci y Waste Management quedan fuera del cribado hasta después del veredicto del 23-nov; se criban las otras 111.
 - **Zoetis · guía 2026 → «Sí, incluirla»** (sustituye la exclusión anterior): Mistral encontró la fuente oficial (comunicado y presentación de resultados del T2 2026, **publicados el 6-ago-2026**, antes del corte del 9-oct; rama `mistral/zoetis-guia-2t26`): ingresos 9.120–9.320 mm USD, crecimiento orgánico operativo (3)%–(1)%, BPA ajustado 6,15–6,25. Se añade el comunicado a las fuentes del primer tiempo y el personaje puede usarla. Los 3 análisis directos de Zoetis ya hechos se hicieron sin ella (anotado). La actualización del 5-nov (T3) sigue fuera del primer tiempo.
+
+## 19-nov-2026 (mañana) · decisiones de la persona responsable (literal: «1 sept, 2 dejar, 3 mantener, 4 dejar, 5 cero, 6 a»)
+- **A-Q3 · Ahold → 3T (septiembre):** los doce últimos meses pasan al informe del 3T 2026 (publicado el 4-nov-2026, antes del precio del 13-nov). Expediente nuevo `ahold_f4`; se repiten las fases.
+- **A-NIC17 · Ahold, deuda 2016–2017 → dejarla** como se publicó (incluye arrendamientos financieros NIC 17) y declararlo.
+- **Z-ACC · acciones al cierre frente a balance de mitad de año → mantener P-O2** y declarar la desalineación de fechas en cada cifra (Ahold, Jumbo, Zoetis, Vinci).
+- **Z-R · Zoetis, agrupación geográfica de la r mínima → dejarla** y anotar la diferencia.
+- **Z-MIN · Zoetis, minoritarios negativos → cero** con aviso y la cifra impresa en el registro.
+- **V-CIRC · Vinci, circulante en la reinversión → (a):** circulante a 0 también en la reinversión, con un mecanismo declarado (cambio de producto con pruebas y revisión independiente; expediente nuevo de Vinci).
