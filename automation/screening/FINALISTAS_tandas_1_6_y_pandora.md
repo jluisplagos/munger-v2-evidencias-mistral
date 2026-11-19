@@ -1,8 +1,8 @@
 # Segunda vuelta del universo · finalistas propuestos (criterio mecánico)
 
-- Rama de registro: `origin/automatizacion/claude-api-piloto-registro` en `9e1868d1a0dd9727ead212e1d3f28063146a44bb`.
-- Ejecuciones del cribado leídas: 44406828081, 44413758195, 44502520327, 44505954250. La ejecución 44509331308 (tanda 4, 12 de 20 empresas publicadas al leer) no se lee: las tandas 4 a 6 se añadirán cuando terminen.
-- Empresas leídas: 61; con resultado utilizable: 61.
+- Rama de registro: `origin/automatizacion/claude-api-piloto-registro` en `6fee3d2ed8ca58f472b4dd35e07ccb94872119c2`.
+- Ejecuciones del cribado leídas: 44406828081, 44413758195, 44502520327, 44505954250, 44509331308, 44512238939, 44515220408. Son las seis tandas completas (con el informe de tanda publicado) y Pandora (tanda 0); la tanda 4 tiene 19 empresas porque Pandora ya estaba cribada.
+- Empresas leídas: 111; con resultado utilizable: 111.
 - Resultados de los filtros tal como los devolvió el modelo en el cribado: **sin revisar ni aceptar**.
 - Generado por `automation/screening/finalistas.py` (sin API, sin red). No es una recomendación de compra ni una prioridad: decide la persona responsable.
 
@@ -22,6 +22,10 @@
 | 2 | Azkoyen | dudoso | pasa | pasa | dudoso | estudiar_a_fondo | 44413758195 |
 | 2 | Betsson | dudoso | pasa | pasa | dudoso | estudiar_a_fondo | 44413758195 |
 | 2 | CocaCola | pasa | dudoso | pasa | dudoso | estudiar_a_fondo | 44502520327 |
+| 2 | Moury | dudoso | pasa | pasa | dudoso | estudiar_a_fondo | 44509331308 |
+| 2 | Spie | dudoso | pasa | pasa | dudoso | estudiar_a_fondo | 44512238939 |
+| 2 | Strabag | dudoso | pasa | pasa | dudoso | estudiar_a_fondo | 44512238939 |
+| 2 | Tupras | dudoso | pasa | pasa | dudoso | faltan_datos | 44515220408 |
 
 ## Todas las empresas leídas
 
@@ -87,4 +91,54 @@
 | Methanex | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | dudoso | dudoso | dudoso | no_aplica | descartar | — |
 | MLP_Saglik | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | dudoso | no_aplica | faltan_datos | — |
 | Mo-BRUK | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | no_pasa | no_aplica | vigilar | — |
+| Moncler | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Moury | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | dudoso | no_aplica | estudiar_a_fondo | 2 |
+| Naturelgaz | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Neochim | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | no_pasa | pasa | dudoso | no_aplica | descartar | — |
+| Nike | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | no_pasa | no_aplica | vigilar | — |
+| NKT | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | dudoso | no_aplica | vigilar | — |
+| nVent | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Oil-Dri | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | no_pasa | no_aplica | vigilar | — |
+| Omer | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | dudoso | no_aplica | estudiar_a_fondo | — |
+| Oyak | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | dudoso | no_aplica | vigilar | — |
 | Pandora | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Parex | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | dudoso | dudoso | dudoso | no_aplica | descartar | — |
+| Petrobras | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | dudoso | pasa | dudoso | no_aplica | descartar | — |
+| Petsathome | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | no_pasa | no_aplica | vigilar | — |
+| Prysmian | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | dudoso | no_pasa | no_aplica | vigilar | — |
+| Puigbrands | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Quanta | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Rational | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Rentokil | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Rheinmetall | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | no_pasa | no_aplica | vigilar | — |
+| Roche | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Rovi | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Royal_BAM | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | dudoso | pasa | dudoso | no_aplica | descartar | — |
+| RStahl | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | no_pasa | no_pasa | dudoso | no_aplica | descartar | — |
+| Salzgitter | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | no_pasa | dudoso | no_aplica | no_aplica | descartar | — |
+| Sarantis | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Schneider | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | dudoso | no_pasa | no_aplica | vigilar | — |
+| Seche | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | dudoso | dudoso | no_pasa | no_aplica | descartar | — |
+| Siemens | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | no_pasa | pasa | no_pasa | no_aplica | descartar | — |
+| Sika | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | dudoso | no_pasa | no_aplica | vigilar | — |
+| Sony | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | no_pasa | no_aplica | vigilar | — |
+| Spectra | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Spie | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | dudoso | no_aplica | estudiar_a_fondo | 2 |
+| SQM | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | pasa | dudoso | no_aplica | faltan_datos | — |
+| Strabag | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | dudoso | no_aplica | estudiar_a_fondo | 2 |
+| Sulzer | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | dudoso | pasa | no_pasa | no_aplica | vigilar | — |
+| Sweco | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| TE_Connectivity | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Technogym | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Tessenderlo | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | dudoso | dudoso | dudoso | no_aplica | descartar | — |
+| Thales | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Tupras | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | dudoso | no_aplica | faltan_datos | 2 |
+| Upsales | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Valeura | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | dudoso | pasa | dudoso | no_aplica | descartar | — |
+| Veolia | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | dudoso | dudoso | dudoso | no_aplica | faltan_datos | — |
+| Vidrala | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Viscofan | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | dudoso | pasa | no_pasa | no_aplica | vigilar | — |
+| Vitec | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | dudoso | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Volution | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |
+| Vossloh | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | no_pasa | dudoso | dudoso | no_pasa | no_aplica | descartar | — |
+| WEG | AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION | pasa | pasa | pasa | no_pasa | no_aplica | vigilar | — |

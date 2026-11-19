@@ -254,12 +254,14 @@ mecánico fijo sobre los resultados de los filtros, sin revisarlos ni aceptarlos
   entran (el veredicto se muestra).
 
 ```
-python3 -I automation/screening/finalistas.py --ejecuciones 44406828081,44413758195,44502520327,44505954250 \
-  --salida automation/screening/FINALISTAS_tandas_1_3_y_pandora
+python3 -I automation/screening/finalistas.py \
+  --ejecuciones 44406828081,44413758195,44502520327,44505954250,44509331308,44512238939,44515220408 \
+  --salida automation/screening/FINALISTAS_tandas_1_6_y_pandora
 ```
 
-Con las tandas 1 a 3 y Pandora (61 empresas): FW_Thorpe (nivel 1), Azkoyen, Betsson y
-CocaCola (nivel 2). Es una propuesta: decide la persona responsable. Los paquetes del
+Con las seis tandas y Pandora (111 empresas): FW_Thorpe (nivel 1); Azkoyen, Betsson,
+CocaCola, Moury, Spie, Strabag y Tupras (nivel 2). Fuera del criterio pese al veredicto
+`estudiar_a_fondo`: Ege_Profil, Italian_Wines y Omer. Es una propuesta: decide la persona responsable. Los paquetes del
 análisis directo de las finalistas los prepara `automation/direct_analysis/universo.py`.
 
 ## Probar sin gastar
