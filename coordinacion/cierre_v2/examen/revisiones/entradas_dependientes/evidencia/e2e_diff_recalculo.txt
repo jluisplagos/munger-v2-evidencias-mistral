@@ -1,0 +1,47 @@
+# Paso 9 de verdad sobre una copia de jumbo_g con la declaración de C46/C40 (revisor): qué cambia en recalcular_dependientes (instantáneas justo antes y justo después)
+## archivos (sha256)
+  verificacion_entradas.json: CAMBIA
+  fase1_v63.json: CAMBIA
+  fase1_metadatos.json: CAMBIA
+  motor_a_f1.json: CAMBIA
+  Jumbo_v63_datos.xlsx: CAMBIA
+  Jumbo_v63_evaluada.xlsx: CAMBIA
+  fase_b.json: igual
+  fase_a.json: igual
+  estado_pipeline.json: CAMBIA
+  recalculo_dependientes.json: CAMBIA (nuevo)
+## JSON: claves que cambian, se añaden o se quitan
+  verificacion_entradas.json: 2 cambian · 20 nuevas · 0 quitadas
+     ≠ /entradas[Análisis!C40]/valor_modelo: 255.108 → 255.305
+     ≠ /entradas[Análisis!C46]/valor_modelo: 317.617 → 317.902
+     + /entradas[Análisis!C40]/recalculo_dependiente
+     + /entradas[Análisis!C46]/recalculo_dependiente
+  fase1_v63.json: 2 cambian · 20 nuevas · 0 quitadas
+     ≠ /analisis/C40/valor: 255.108 → 255.305
+     ≠ /analisis/C46/valor: 317.617 → 317.902
+     + /analisis/C40/recalculo_dependiente
+     + /analisis/C46/recalculo_dependiente
+  fase1_metadatos.json: 2 cambian · 20 nuevas · 0 quitadas
+     ≠ /analisis/C40/valor: 255.108 → 255.305
+     ≠ /analisis/C46/valor: 317.617 → 317.902
+     + /analisis/C40/recalculo_dependiente
+     + /analisis/C46/recalculo_dependiente
+  motor_a_f1.json: 2 cambian · 7 nuevas · 0 quitadas
+     ≠ /conciliacion_fcf_base[0]/importe: 10.444 → 10.729
+     ≠ /conciliacion_fcf_base[0]/partida: dividendos de la cartera cotizada (media 0,946) e intereses cobrados que no son de la caja de C76 (media 9,498 → dividendos de la cartera cotizada (media 0,946) e intereses cobrados que no son de la caja de C76 (media 9,498 con C76 = 160) sumados al CFO en C46 por P-O1 (c)
+     + /conciliacion_fcf_base[0]/recalculo_dependiente
+## libros: celdas que cambian (todas las hojas)
+  Jumbo_v63_datos.xlsx · Análisis: ['C40', 'C46']
+     C40: 255.108 → 255.305
+     C46: 317.617 → 317.902
+  Jumbo_v63_datos.xlsx · Control maestro: ['N40', 'N43']
+     N40: [Clase: derivado de datos publicados + convención de reparto de C46] Recalculado en jumbo_f con C76  → en verificacion_entradas.json (J1 (DECISIONES_PARA_EL_USUARIO.md, 18-nov-2026)); entradas_dependientes.py en el paso 9, antes del recálculo del libro; rastro en recalculo_dependientes.json. Si las columnas J y M describen un cálculo, es el del valor declarado.
+     N43: [Clase: derivado de datos publicados + convención de reparto de la orquestación] Decisiones P-O1 (c) → en verificacion_entradas.json (J1 (DECISIONES_PARA_EL_USUARIO.md, 18-nov-2026)); entradas_dependientes.py en el paso 9, antes del recálculo del libro; rastro en recalculo_dependientes.json. Si las columnas J y M describen un cálculo, es el del valor declarado.
+  Jumbo_v63_evaluada.xlsx · Análisis: ['C40', 'C46']
+     C40: 255.108 → 255.305
+     C46: 317.617 → 317.902
+  Jumbo_v63_evaluada.xlsx · Control maestro: ['N40', 'N43']
+     N40: [Clase: derivado de datos publicados + convención de reparto de C46] Recalculado en jumbo_f con C76  → en verificacion_entradas.json (J1 (DECISIONES_PARA_EL_USUARIO.md, 18-nov-2026)); entradas_dependientes.py en el paso 9, antes del recálculo del libro; rastro en recalculo_dependientes.json. Si las columnas J y M describen un cálculo, es el del valor declarado.
+     N43: [Clase: derivado de datos publicados + convención de reparto de la orquestación] Decisiones P-O1 (c) → en verificacion_entradas.json (J1 (DECISIONES_PARA_EL_USUARIO.md, 18-nov-2026)); entradas_dependientes.py en el paso 9, antes del recálculo del libro; rastro en recalculo_dependientes.json. Si las columnas J y M describen un cálculo, es el del valor declarado.
+## huellas del registro (I13) que cambian
+   ['Análisis!C40', 'Análisis!C46'] de 566 entradas

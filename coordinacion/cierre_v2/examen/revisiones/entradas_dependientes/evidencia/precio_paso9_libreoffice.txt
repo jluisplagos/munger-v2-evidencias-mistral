@@ -1,0 +1,21 @@
+# Paso 9 de verdad (pipeline.correr hasta el paso 9, con LibreOffice bajo flock) sobre dos COPIAS de jumbo_g: con la declaración de C46/C40 (F) y sin ella (G)
+F {'precio': 27.28, 'precio_si': 33.420926577168686, 'precio_escenario_malo': 26.1248662934934, 'ponderado': 36.3393506906388, 'zona': 'cumple_regla_k'}
+G {'precio': 27.28, 'precio_si': 33.38381145581337, 'precio_escenario_malo': 26.0946496326995, 'ponderado': 36.2994761850589, 'zona': 'cumple_regla_k'}
+F historial (últimas líneas):
+      $ python3 comprobar_celdas_v2.py Jumbo_v63_evaluada.xlsx Jumbo_v63_datos.xlsx --fases A,B → 0 · PASS: 0 errores · 48 celdas correctas · fases ['A', 'B'] · motor A
+      $ python3 entradas_dependientes.py aplicar Jumbo --fase B → 0 · OK: 2 entradas dependientes declaradas · recalculadas: Análisis!C46 317.617 → 317.902 (Análisis!C76 = 150); Análisis!C40 255.108 → 255.305 (Análisis!C76 =
+    2026-11-19T07:03:18 · paso 9 · entradas dependientes de celdas de juicio tras la fase B: 2 entradas dependientes declaradas · recalculadas: Análisis!C46 317.617 → 317.902 (Análisis!C76 = 150); Análisis!C40 255.108 → 255.
+      $ python3 comprobar_celdas_v2.py Jumbo_v63_evaluada.xlsx Jumbo_v63_datos.xlsx --fases A,B → 0 · PASS: 0 errores · 48 celdas correctas · fases ['A', 'B'] · motor A
+      $ bash recalc.sh Jumbo_v63_evaluada.xlsx recalc .lo_perfil → 0 · OK: /dev/shm/rev3/e2e/F/Jumbo/recalc/Jumbo_v63_evaluada.xlsx (recálculo forzado, perfil /dev/shm/rev3/e2e/F/Jumbo/.lo_perfil)
+      $ python3 leer_resultados.py Jumbo_v63_evaluada.xlsx resultados.json --exigir-recalculo-forzado → 0 · OK: resultados.json → /dev/shm/rev3/e2e/F/Jumbo/resultados.json · motor A · estado INCOMPLETO · libro NO LISTO · inc
+      $ python3 precio_de_si.py resultados.json precio.json --k 3 → 0 · OK: precio 27.28 · esc. MALO 26.1248662934934 · precio de Sí 33.4209 (P* 33.4209) · ponderado 36.3394 · zona cumple_regla_k
+      $ python3 comprobar_gramatica.py Jumbo --tras-recalculo → 1 · código 1 · errores 0 · límites 0 · desviaciones 6 (sin justificar 3) · avisos 4 → gramatica.md
+G historial (últimas líneas):
+      $ python3 comprobar_gramatica.py Jumbo --antes-de-recalculo → 0 · código 0 · errores 0 · límites 0 · desviaciones 3 (sin justificar 0) · avisos 1 → gramatica.md
+      $ python3 fase_a_celdas.py fase_b.json B celdas_B.json → 0 · OK: 92 celdas (incluidas E/F/N de Control maestro) → /dev/shm/rev3/e2e/G/Jumbo/celdas_B.json
+      $ python3 escribir_v63.py Jumbo_v63_evaluada.xlsx Jumbo_v63_evaluada.xlsx.tmp.xlsx --celdas celdas_B.json --verificar referencia_V6.3.1_F1.json → 0 · VEREDICTO: ÍNTEGRO · 0 fallos · 0 avisos
+      $ python3 comprobar_celdas_v2.py Jumbo_v63_evaluada.xlsx Jumbo_v63_datos.xlsx --fases A,B → 0 · PASS: 0 errores · 48 celdas correctas · fases ['A', 'B'] · motor A
+      $ bash recalc.sh Jumbo_v63_evaluada.xlsx recalc .lo_perfil → 0 · OK: /dev/shm/rev3/e2e/G/Jumbo/recalc/Jumbo_v63_evaluada.xlsx (recálculo forzado, perfil /dev/shm/rev3/e2e/G/Jumbo/.lo_perfil)
+      $ python3 leer_resultados.py Jumbo_v63_evaluada.xlsx resultados.json --exigir-recalculo-forzado → 0 · OK: resultados.json → /dev/shm/rev3/e2e/G/Jumbo/resultados.json · motor A · estado INCOMPLETO · libro NO LISTO · inc
+      $ python3 precio_de_si.py resultados.json precio.json --k 3 → 0 · OK: precio 27.28 · esc. MALO 26.0946496326995 · precio de Sí 33.3838 (P* 33.3838) · ponderado 36.2995 · zona cumple_regla_k
+      $ python3 comprobar_gramatica.py Jumbo --tras-recalculo → 1 · código 1 · errores 0 · límites 0 · desviaciones 6 (sin justificar 3) · avisos 4 → gramatica.md

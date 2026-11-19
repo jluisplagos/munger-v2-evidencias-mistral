@@ -1,0 +1,58 @@
+PASA  · I1 cierre · antes de la auditoría: el pipeline espera al auditor en el paso 13 · ESPERANDO: verificacion → auditoria.md (solicitud SA-f52c00cdcb682e66) (ver ESPERANDO.md y prompts_generados/)
+PASA  · I1 cierre · antes de la auditoría: no existe ficha.json ni informe.md oficiales
+PASA  · I1 cierre · antes de la auditoría: ficha_provisional.json con el estado propuesto y confirmado = false; informe_provisional.md marcado · {'estado_propuesto': 'concluido', 'confirmado': False, 'nota': 'material para la auditoría del paso 13; no es la salida oficial: el estado lo propone la fase C y solo se confirma tras una auditoría APROBADO del material vigente'}
+PASA  · I1 cierre · antes de la auditoría: material fijado (material_auditoria.json) con la ficha provisional y el libro evaluado, y su id en el prompt
+PASA  · I1 cierre · antes de la auditoría: la ficha provisional lleva la huella del libro evaluado auditado (regenerada después del paso 12) · a20543797b1c
+PASA  · I1 cierre · llamada directa ficha.py --estado concluido sin auditoría: código 3 y ninguna ficha oficial · ficha.py: no se confirma «concluido» en la ficha oficial: no hay auditoria.md. Para el material de la auditoría, usa --provisional.
+PASA  · I1 cierre · reanudación directa --desde 14 sin aprobación: rechazo explícito (código 4), sin ficha oficial y vuelta al paso 13 · CIERRE RECHAZADO: hay una solicitud de auditoría pendiente (SA-f52c00cdcb682e66): el cierre exige su respuesta, no una aprobación anterior. No queda ninguna salida oficial vigente; el pipeline vuelve al paso 13 (auditoría).
+PASA  · I1 cierre · auditoría REPETIR: ninguna confirmación de cierre (vuelve a la fase C; sin ficha oficial) · paso 10 · 10:fase_c.json
+PASA  · I1 cierre · auditoría inválida (sin el punto 16): ningún cierre · auditoría REPETIR · paso 10
+PASA  · I1 cierre · APROBADO que nombra otro material: se pide otra auditoría (paso 13), sin cierre · auditoría inválida para el cierre: la auditoría corresponde al material 0123456789abcdef, no al fijado e3ddeb6939c84b3c.
+PASA  · I1 cierre · APROBADO sin «Material auditado»: ningún cierre
+PASA  · I1 cierre · aprobación de una versión anterior (fase_c.md cambió después de fijar el material): ningún cierre; relevo caducado registrado y auditoría nueva del material vigente · ({'material_fijado': 'e3ddeb6939c84b3c', 'material_vigente': 'b4d177c196935275', 'archivos_cambiados': ['fase_c.md'], 'detectado': '2026-11-19T07:09:49+00:00', 'material_refijado': '5d20f1d7c3b85067', 'solicitud': 'SA-954878ae7ce3abd0'}, [('SA-f52c00cdcb682e66', 'sustituida'), ('SA-954878ae7ce3abd0', 'pendiente')])
+PASA  · I1 cierre · APROBADO válido: cierre coherente en estado, ficha, informe y resumen · estado concluido · ficha concluido · resumen concluido/APROBADO
+PASA  · I1 cierre · aprobación anterior con material cambiado y --desde 14: rechazo (código 4) y, después, ninguna salida ni fila vigente obsoleta · ficha None · informe False · archivos ['01_e3ddeb6939c84b3c'] · fila ['SIN APROBACIÓN VIGENTE · cierre anterior'] · historial 1
+PASA  · I1 cierre · ficha.py directo con la aprobación de otra versión: código 3 · ficha.py: no se confirma «concluido» en la ficha oficial: el pipeline no registró una auditoría APROBADO válida (auditor
+PASA  · I1 cierre · agotamiento de correcciones de la auditoría: no_entregable conservado (ficha sin cubo ni acción) · estado no_entregable · intentos {'fase_b': 1, 'fase_c': 1, 'auditoria': 3, 'vueltas_c_a_b': 0, 'vueltas_b_a_a': 0}
+PASA  · I1 vigencia · N1 fase_c.json modificado → --desde 14: código 4; ficha, informe y fila activa ya no presentan concluido / APROBADO; cierre archivado; fila ajena intacta · ficha None · informe False · archivos ['01_e3ddeb6939c84b3c'] · fila ['SIN APROBACIÓN VIGENTE · cierre anterior'] · historial 1
+PASA  · I1 vigencia · N4 tras el rechazo, informe.py directo: código 3 y ningún informe oficial con el contenido nuevo · informe.py: no se publica el informe oficial: no hay ficha.json oficial (para el material de la auditoría, usa --provisi
+PASA  · I1 vigencia · P3 material modificado: el pipeline prepara material provisional nuevo y espera una auditoría nueva (paso 13) · material ccf0666f9d37d0bb
+PASA  · I1 vigencia · P4 auditoría nueva del material modificado: cierre oficial coherente (ficha, informe con la tesis nueva, fila activa y cierre registrado); el cierre anterior sigue en el historial · fila ['APROBADO']
+PASA  · I1 vigencia · N2 modificado → informe.py directo: código 3, no publica la tesis nueva; salidas anteriores archivadas y fila no vigente · ficha None · informe False · archivos ['01_e3ddeb6939c84b3c'] · fila ['SIN APROBACIÓN VIGENTE · cierre anterior'] · historial 1
+PASA  · I1 vigencia · N3 modificado → ficha.py directo: código 3 y la ficha oficial anterior no queda como aprobación vigente · ficha None · informe False · archivos ['01_e3ddeb6939c84b3c'] · fila ['SIN APROBACIÓN VIGENTE · cierre anterior'] · historial 1
+PASA  · I1 vigencia · N5 auditoría eliminada tras el cierre → informe.py: código 3; salidas archivadas y fila no vigente · informe.py: no se publica el informe oficial: no hay auditoria.md. Salidas oficiales anteriores archivadas en historial_
+PASA  · I1 vigencia · N5 auditoría eliminada → --desde 14: código 4 sin salidas oficiales
+PASA  · I1 vigencia · N6 auditoría REPETIR con salidas oficiales anteriores: archivadas al relanzar; ninguna salida ni fila vigente · ficha None · informe False · archivos ['01_e3ddeb6939c84b3c'] · fila ['SIN APROBACIÓN VIGENTE · cierre anterior'] · historial 1
+PASA  · I1 vigencia · N6 auditoría mal formada con salidas oficiales anteriores: archivadas al relanzar; ninguna salida ni fila vigente · ficha None · informe False · archivos ['01_e3ddeb6939c84b3c'] · fila ['SIN APROBACIÓN VIGENTE · cierre anterior'] · historial 1
+PASA  · I1 vigencia · N7 aprobación de otro material con fila previa concluido / APROBADO: no cierra, archiva, fila no vigente, se pide otra auditoría · ficha None · informe False · archivos ['01_e3ddeb6939c84b3c'] · fila ['SIN APROBACIÓN VIGENTE · cierre anterior'] · historial 1
+PASA  · I1 vigencia · conservación: la auditoría aprobatoria sigue intacta (y copiada al archivo) y la retirada dice de qué material era
+PASA  · I1 vigencia · P1 material sin cambios y aprobación vigente: informe.py, ficha.py y resumen.py regeneran oficialmente (código 0) y el pipeline no archiva nada · 0 0 0 0
+PASA  · I1 vigencia · P2 regeneración repetida: resultado estable (mismas huellas de ficha e informe) y sin duplicados en el resumen ni en el historial
+PASA  · I1 vigencia · P5 estado temprano sin auditoría (pendiente_de_datos): se publica como antes; informe.py y resumen.py directos no lo bloquean · estado pendiente_de_datos · 0 0
+PASA  · I2 marca de etapa 1 · dato necesario para LISTO · PROVISIONAL ausente y no material: marca presente con la causa exacta
+PASA  · I2 marca de etapa 1 · evidencia pendiente con números completos (ensayo real, 6 causas): marca presente con la lista exacta · evidencia Historia!C23:L23; evidencia Historia!C26:L26; evidencia Análisis!C48; evidencia Historia!C13:L13; evidencia Historia!C16:L16; evidencia Historia!C17:L17
+PASA  · I2 marca de etapa 1 · entrada completa: marca ausente
+PASA  · I2 marca de etapa 1 · ausencia solo de otro nivel (no bloqueante): la marca no se activa
+PASA  · I2 marca de etapa 1 · regeneración después de resolver la carencia: desaparece la marca obsoleta
+PASA  · I2 marca de etapa 1 · dato material: se mantiene pendiente_de_datos, acción nula y diagnóstico; la marca sigue a su disparador · estado pendiente_de_datos · acción None · marca True
+PASA  · I3 D10 ↔ C104 · admitido: concluido · comprar · sin_limitacion → «fundamento lista vacía»
+PASA  · I3 D10 ↔ C104 · admitido: concluido · comprar · comprobacion_conjunta_superada → «fundamento comprobación conjunta superada»
+PASA  · I3 D10 ↔ C104 · admitido: pendiente_de_investigacion · None · pendiente_de_investigacion → «fundamento pendiente de investigación»
+PASA  · I3 D10 ↔ C104 · admitido: pendiente_de_datos · None · no_procede → «fundamento pendiente de datos»
+PASA  · I3 D10 ↔ C104 · admitido: concluido · esperar · no_procede → «fundamento no procede (conclusión no favorable)»
+PASA  · I3 D10 ↔ C104 · rechazado: no_procede para eludir los requisitos de una conclusión favorable (comprar)
+PASA  · I3 D10 ↔ C104 · rechazado: etiqueta contradictoria con el JSON (esperar + no_procede con «lista vacía»)
+PASA  · I3 D10 ↔ C104 · rechazado: etiqueta desconocida
+PASA  · I3 D10 ↔ C104 · rechazado: combinación de estado y acción no permitida
+PASA  · I3 D10 ↔ C104 · fase C real 4.5: la etiqueta libre «no procede (…; hipótesis Palancas C8 acotada)» se rechaza; la armonizada se admite sin comprobación conjunta · antigua: 'C104 lleva una etiqueta de fundamento desconocida (admitida aquí: «fundamento no procede (conclusión no favorable)»)' · armonizada: None
+PASA  · I4 alcance · sección 1 (conclusión o acción mecánica), leída por separado, con el aviso
+PASA  · I4 alcance · sección 6 (DCF inverso), leída por separado, con el aviso
+PASA  · I4 alcance · sección 7 (escalera, precio de Sí y zona), leída por separado, con el aviso
+PASA  · I4 alcance · regeneración: ningún aviso duplicado (3 apariciones, una por sección pertinente)
+PASA  · I4 alcance · la ficha conserva el alcance y las notas de la fase C (condición e insumos)
+PASA  · I4 alcance · los valores financieros permanecen iguales a los de la ficha 4.5 · iguales
+PASA  · I4 alcance · expediente ordinario (sin alcance_v2.json): ninguna advertencia exploratoria inventada
+PASA  · I4 alcance · alcance_v2.json mal formado: ficha.py se detiene (código 1) · ficha.py: alcance_v2.json mal formado: hace falta tipo = ensayo_exploratorio, aviso y fuente no vací
+
+55/55 pruebas de aceptación del cierre PASAN
+rc=0 · 180 s
