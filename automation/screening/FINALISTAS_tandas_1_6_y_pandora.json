@@ -1,11 +1,14 @@
 {
  "registro": "origin/automatizacion/claude-api-piloto-registro",
- "registro_sha": "9e1868d1a0dd9727ead212e1d3f28063146a44bb",
+ "registro_sha": "6fee3d2ed8ca58f472b4dd35e07ccb94872119c2",
  "ejecuciones": [
   "44406828081",
   "44413758195",
   "44502520327",
-  "44505954250"
+  "44505954250",
+  "44509331308",
+  "44512238939",
+  "44515220408"
  ],
  "criterio": [
   "Solo cuentan los informes en AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION (respuesta con formato válido).",
@@ -42,6 +45,34 @@
    "nivel": 2,
    "ejecucion": "44502520327",
    "carpeta": "automation/coordination/reviews/cribado-44502520327-cocacola"
+  },
+  {
+   "empresa": "Moury",
+   "slug": "moury",
+   "nivel": 2,
+   "ejecucion": "44509331308",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-moury"
+  },
+  {
+   "empresa": "Spie",
+   "slug": "spie",
+   "nivel": 2,
+   "ejecucion": "44512238939",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-spie"
+  },
+  {
+   "empresa": "Strabag",
+   "slug": "strabag",
+   "nivel": 2,
+   "ejecucion": "44512238939",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-strabag"
+  },
+  {
+   "empresa": "Tupras",
+   "slug": "tupras",
+   "nivel": 2,
+   "ejecucion": "44515220408",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-tupras"
   }
  ],
  "empresas": [
@@ -1080,6 +1111,856 @@
    },
    "veredicto_cribado": "vigilar",
    "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "moncler",
+   "empresa": "Moncler",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-moncler",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "moury",
+   "empresa": "Moury",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-moury",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "estudiar_a_fondo",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": 2
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "naturelgaz",
+   "empresa": "Naturelgaz",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-naturelgaz",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "neochim",
+   "empresa": "Neochim",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-neochim",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "no_pasa",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "nike",
+   "empresa": "Nike",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-nike",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "nkt",
+   "empresa": "NKT",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-nkt",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "nvent",
+   "empresa": "nVent",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-nvent",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "oil-dri",
+   "empresa": "Oil-Dri",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-oil-dri",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "omer",
+   "empresa": "Omer",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-omer",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "estudiar_a_fondo",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "oyak",
+   "empresa": "Oyak",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-oyak",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "parex",
+   "empresa": "Parex",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-parex",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "dudoso",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "petrobras",
+   "empresa": "Petrobras",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-petrobras",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "petsathome",
+   "empresa": "Petsathome",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-petsathome",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "prysmian",
+   "empresa": "Prysmian",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-prysmian",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "dudoso",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "puigbrands",
+   "empresa": "Puigbrands",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-puigbrands",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "quanta",
+   "empresa": "Quanta",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-quanta",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "rational",
+   "empresa": "Rational",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-rational",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "rentokil",
+   "empresa": "Rentokil",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-rentokil",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44509331308",
+   "slug": "rheinmetall",
+   "empresa": "Rheinmetall",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44509331308-rheinmetall",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "roche",
+   "empresa": "Roche",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-roche",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "rovi",
+   "empresa": "Rovi",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-rovi",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "royal-bam",
+   "empresa": "Royal_BAM",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-royal-bam",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "rstahl",
+   "empresa": "RStahl",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-rstahl",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "no_pasa",
+    "balance": "no_pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "salzgitter",
+   "empresa": "Salzgitter",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-salzgitter",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "no_pasa",
+    "balance": "dudoso",
+    "precio": "no_aplica",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "sarantis",
+   "empresa": "Sarantis",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-sarantis",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "schneider",
+   "empresa": "Schneider",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-schneider",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "dudoso",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "seche",
+   "empresa": "Seche",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-seche",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "dudoso",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "siemens",
+   "empresa": "Siemens",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-siemens",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "no_pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "sika",
+   "empresa": "Sika",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-sika",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "dudoso",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "sony",
+   "empresa": "Sony",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-sony",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "spectra",
+   "empresa": "Spectra",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-spectra",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "spie",
+   "empresa": "Spie",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-spie",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "estudiar_a_fondo",
+   "dcf_plantilla_aplica": "si",
+   "nivel": 2
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "sqm",
+   "empresa": "SQM",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-sqm",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "faltan_datos",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "strabag",
+   "empresa": "Strabag",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-strabag",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "estudiar_a_fondo",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": 2
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "sulzer",
+   "empresa": "Sulzer",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-sulzer",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "sweco",
+   "empresa": "Sweco",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-sweco",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "te-connectivity",
+   "empresa": "TE_Connectivity",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-te-connectivity",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "technogym",
+   "empresa": "Technogym",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-technogym",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44512238939",
+   "slug": "tessenderlo",
+   "empresa": "Tessenderlo",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44512238939-tessenderlo",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "dudoso",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "thales",
+   "empresa": "Thales",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-thales",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "tupras",
+   "empresa": "Tupras",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-tupras",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "faltan_datos",
+   "dcf_plantilla_aplica": "no",
+   "nivel": 2
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "upsales",
+   "empresa": "Upsales",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-upsales",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "valeura",
+   "empresa": "Valeura",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-valeura",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "veolia",
+   "empresa": "Veolia",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-veolia",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "dudoso",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "faltan_datos",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "vidrala",
+   "empresa": "Vidrala",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-vidrala",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "viscofan",
+   "empresa": "Viscofan",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-viscofan",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "vitec",
+   "empresa": "Vitec",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-vitec",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "volution",
+   "empresa": "Volution",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-volution",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "vossloh",
+   "empresa": "Vossloh",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-vossloh",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "dudoso",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44515220408",
+   "slug": "weg",
+   "empresa": "WEG",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44515220408-weg",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
    "nivel": null
   }
  ]

@@ -184,12 +184,17 @@ doble.
 | `paquetes/universo_azkoyen.json` | `azkoyen` | 2026-10-30 | 135 585 | 1,20 | ≈ 0,66 | preparado |
 | `paquetes/universo_betsson.json` | `betsson` | 2026-10-25 | 176 900 | 1,36 | ≈ 0,74 | preparado |
 | `paquetes/universo_cocacola.json` | `cocacola` | 2026-10-30 | 146 450 | 1,24 | ≈ 0,68 | preparado |
+| `paquetes/universo_moury.json` | `moury` | 2026-10-31 | 132 460 | 1,19 | ≈ 0,66 | preparado |
+| `paquetes/universo_spie.json` | `spie` | 2026-11-07 | 178 166 | 1,37 | ≈ 0,74 | preparado |
+| `paquetes/universo_strabag.json` | `strabag` | 2026-10-11 | 143 122 | 1,23 | ≈ 0,68 | preparado |
+| `paquetes/universo_tupras.json` | `tupras` | 2026-11-01 | 133 553 | 1,19 | ≈ 0,66 | preparado |
 
 - La `empresa` del workflow es la del manifiesto, con guion: `zoetis-t2` (el lanzador no
   admite guiones bajos en la empresa) y `fw-thorpe`.
-- Paquetes nuevos, una ejecución de cada uno sin Elis: reservas 13,96 USD; orientativo
-  ≈ 6,7 USD (con Elis, cuando se desbloquee: 18,32 y ≈ 8,6). Tres repeticiones de Vinci y
-  de Zoetis T2, como en Ahold, Jumbo y Zoetis T1: ≈ 11,7 USD más.
+- Paquetes nuevos (Vinci, Zoetis T2 y las ocho finalistas), una ejecución de cada uno sin
+  Elis: reservas 18,94 USD; orientativo ≈ 9,4 USD (con Elis, cuando se desbloquee: 23,29 y
+  ≈ 11,3). Tres repeticiones de Vinci y de Zoetis T2, como en Ahold, Jumbo y Zoetis T1:
+  ≈ 11,7 USD en lugar de 3,9.
 - Los cuatro paquetes de examen nuevos rozan la cota de contexto (967 232 tokens de entrada
   como máximo con la salida de 32 768): por eso llevan selecciones de páginas declaradas.
 
@@ -264,10 +269,11 @@ van a Git: se leen de la Release.
   la empresa que no las pasa. El universo no trae fuentes oficiales: el análisis directo
   de estas empresas trabaja solo con la etapa 1.
 - La lista de finalistas sale de `automation/screening/finalistas.py` con un criterio
-  mecánico declarado (ver `automation/screening/FINALISTAS_tandas_1_3_y_pandora.md`). Con
-  las tandas 1 a 3 y Pandora: FW_Thorpe (nivel 1), Azkoyen, Betsson y CocaCola (nivel 2).
-  Cuando lleguen las tandas 4 a 6, se vuelve a ejecutar con sus ejecuciones y se preparan
-  los paquetes de las finalistas nuevas.
+  mecánico declarado (ver `automation/screening/FINALISTAS_tandas_1_6_y_pandora.md`). Con
+  las seis tandas y Pandora (111 empresas, todas con respuesta válida): FW_Thorpe (nivel 1);
+  Azkoyen, Betsson, CocaCola, Moury, Spie, Strabag y Tupras (nivel 2). Las ocho tienen su
+  paquete. Con veredicto `estudiar_a_fondo` del cribado pero fuera del criterio: Ege_Profil,
+  Italian_Wines y Omer; Tupras entra con veredicto `faltan_datos`.
 
 ## Qué no hace
 
