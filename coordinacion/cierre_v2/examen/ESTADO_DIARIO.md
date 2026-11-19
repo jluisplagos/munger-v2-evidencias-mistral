@@ -46,3 +46,11 @@
 - **API:** cribado tandas 1–4 hechas (~42 USD); 5 y 6 pendientes de la persona; paquetes del análisis directo para vinci, elis, zoetis_t2 y segunda vuelta del universo en preparación (rama `automatizacion/paquetes-examen-y-universo`; fusión en main con la frase de la persona tras revisión).
 - **Mistral:** M7 contraste (800 cifras, 0 discrepancias); M8 datos oficiales de 16 empresas de calidad en curso.
 - Pendientes al reanudar: Elis (estado de elis_f1), contradictor final del veredicto (Fable si hay cuota), evaluación con la rúbrica congelada, veredicto 23-nov, procedimiento corto, ZIP final.
+
+## 19-nov-2026 (tarde) · actualización del punto de reanudación
+- **Cerrados con auditoría APROBADA:** ahold_f4 (Vigilar · esperar, precio de Sí 33,79 €) y zoetis_t1d (Demasiado difícil). Ambos aptos por entradas.
+- **Producto:** `f1/circulante-normalizado` CONFORME e integrado en `examen/expedientes-f1` (6e58d05; `rapida` PASA). Límite 9.4.1 aceptado: la revisión de entradas de vinci_b debe mirar los componentes del cálculo de C46 que muestra F1-CIRC.
+- **zoetis_t2** montado (eddbe6a), en el relevo de la fase A; falta captura del precio del 5-nov (82,11) con bytes.
+- **API:** cribado completo (117 empresas, ~53 USD). Paquetes vinci, zoetis-t2 y 8 finalistas revisados CONFORME en `automatizacion/paquetes-examen-y-universo` (8e9b5da); falta la frase de la persona para fusionar en main. Elis bloqueado por ceguera (decisión pendiente).
+- **Mistral:** M12 (borrador de evaluación Ahold/Zoetis T1) y M11 (contraste zoetis_t2) en curso; después M8 y M10.
+- **Siguiente (viernes, con cuota renovada):** vinci_b (V6.3.2 F1, C57 3,47 %, registro corregido según `vinci/revision_registro/REVISION.md`) → fases; zoetis_t2 fases; jumbo_g auditoría (C31 pendiente del H1-2025); Elis; evaluación; contradictor final (Fable); veredicto 23-nov.
