@@ -41,3 +41,16 @@ Las fuentes de las cuatro empresas están completas para montar sus expedientes.
 | `Zoetis.Inc.-.Zoetis.Announces.Second.Quarter.2026.Results.html` | `8ccb57bcc445a29facfa79cf22f415485dbe0af25a7fe88ed18fe75f8c2a39b1` | distinto de la copia de Mistral (`62061c66…`): página dinámica; el texto de la sección «FINANCIAL GUIDANCE» es idéntico (ingresos 9.120–9.320 mm USD, orgánico (3)%–(1)%, BPA ajustado 6,15–6,25; tipos de cambio a 21-jul-2026) |
 
 Publicados el 6-ago-2026, antes del corte del primer tiempo (9-oct-2026). Se añaden a las fuentes del primer tiempo de Zoetis por decisión de la persona (18-nov-2026).
+
+## Anexo 3 · datos de mercado subidos por la persona (19-nov-2026, 08:36 UTC)
+
+| Asset | SHA-256 | Contenido | Uso |
+|---|---|---|---|
+| `bund_10y_WT1010.csv` (766892543) | `fef9498ea765b89547cebb222ab8720e91c84113c8caca74a676e21e5e571967` | Bundesbank, serie BBSSY.D.REN.EUR.A630.000000WT1010.A (rendimiento diario del Bund a 10 años), última actualización 18-nov-2026 | 13-nov 3,37 % (Ahold: el expediente tenía 3,34 % de Trading Economics → se corrige en ahold_f4); 17-nov 3,35 % (Jumbo: coincide); 9-oct 3,47 % (Vinci: la etapa 1 tenía 3,486 % de Investing → se corrige en el Vinci nuevo; el 10-oct no hay valor) |
+| `us_treasury_par_yield_2026.csv` (766892834) | `0707733bdc20fce9a21a1063c5b99dbfd3456acabb216f73e6d6b798f511243d` | Tesoro de EE. UU., curva par diaria 2026 | 8-oct 5,22 % (Zoetis T1: coincide); 5-nov 4,84 % y 6-nov 4,86 % (Zoetis T2: coinciden con Mistral) |
+| `damodaran_margin.xls` (766892761) | `25b04fce9740d9a471d50e176bf55aa6b7608cd0621b00072508a20e7c35ed7a` | Damodaran, márgenes por sector (enero 2026) | C7 de las cuatro empresas |
+| `damodaran_indname.xls` (766892588) | `a1f4d70aa2cff728d846ca0b2fbdf7ea94030d2df6e140418920d3addb22c363` | Damodaran, clasificación de empresas por sector | contraste del sector |
+| `jumbo.png` (766892797) | `cd1d1c30aee4e033e993736805da8069233e48ee61a51256157c46fecef7c7a1` | Captura de Euronext Athens, BELA: «Last Traded Price 27.4000 · Previous Close 27.4000», volumen 0 (antes de la apertura) | **No prueba el 27,28 € del 17-nov**: es el cierre del 18-nov (27,40 €), sin fecha visible. Falta la prueba del precio de Jumbo. |
+| `FUENTES.txt` (766892781) | `c3e69e1c43a3f95228936e21d1496d77f85810c824768efdebaf5b296b96c892` | Lista de URL de la persona | — |
+
+Faltan: el precio de Zoetis del 8-oct-2026 (solo está la URL) y el de Vinci del 9-oct-2026 (107,05 € de la etapa 1, sin fuente oficial).
