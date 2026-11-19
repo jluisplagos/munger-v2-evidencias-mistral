@@ -38,3 +38,11 @@
 - **Límite declarado (Jumbo):** la fase B fijó C76 = 160 (antes 200). C46 y C40 dependen de C76 por J1 (reparto de intereses cobrados); el pipeline no recalcula las entradas declaradas que dependen de una celda de juicio. Efecto: ≈ +0,8 mm/año en C46 (≈ +0,25 %), inmaterial; no se repite la fase B. Hallazgo de producto para una rama aparte.
 - Hallazgos de producto pendientes de rama aparte: signo de gastos impresos en positivo (historia_anio.md), abs() en minoritarios, reentrega del paso 5 con `--desde`, F1-US-PUENTE (cero declarado frente a la fila 23), dependencia C46/C40 ↔ C76.
 - Preguntas abiertas para la persona: A-Q3 (Ahold 2T frente a 3T) y Z-ACC (acciones frente a balance).
+
+## 19-nov-2026 (mediodía) · punto de reanudación (cuota semanal de Claude al 9 %, se renueva el viernes ~04:00 hora de la persona)
+- Expedientes definitivos (rama `examen/expedientes-f1`): **ahold_f4** (LTM 3T; Vigilar · esperar, precio de Sí 33,79 €; apto por entradas 308/309) y **zoetis_t1d** (motor B; Demasiado difícil; apto por entradas 313/315): auditorías en curso (Opus, esfuerzo medio, como fija el programa). **jumbo_g** (Vigilar · esperar, condición margen 2026): 310/313; falta C31 → informe semestral H1-2025 de Jumbo (pedido a la persona); después auditoría.
+- **Vinci:** decisiones V-CIRC (a) y V-ANCLA (a); rama de producto `f1/circulante-normalizado` con corrección C1 en curso (revisor: CONFORME CON CORRECCIONES); después `vinci_b` con V6.3.2 F1, C57 = 3,47 % (Bundesbank 9-oct), registro de Mistral revisado (`vinci/revision_registro/REVISION.md`), y fases A–C, contradictor, sellado, auditoría.
+- **Zoetis T2:** montaje de `zoetis_t2` en curso (fecha 5-nov-2026, precio 82,11, Treasury 4,84 %).
+- **API:** cribado tandas 1–4 hechas (~42 USD); 5 y 6 pendientes de la persona; paquetes del análisis directo para vinci, elis, zoetis_t2 y segunda vuelta del universo en preparación (rama `automatizacion/paquetes-examen-y-universo`; fusión en main con la frase de la persona tras revisión).
+- **Mistral:** M7 contraste (800 cifras, 0 discrepancias); M8 datos oficiales de 16 empresas de calidad en curso.
+- Pendientes al reanudar: Elis (estado de elis_f1), contradictor final del veredicto (Fable si hay cuota), evaluación con la rúbrica congelada, veredicto 23-nov, procedimiento corto, ZIP final.
