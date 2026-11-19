@@ -198,3 +198,66 @@ Después, el paso 13 regenera `ficha_provisional.json` e `informe_provisional.md
 
 - **Mayúsculas en C8.** LibreOffice trata «media del ciclo» como «Media del ciclo». La capa no lo interpreta y bloquea, que es conservador. El caso no llega a la capa porque el esquema y `comprobar_celdas_v2.py` exigen el texto exacto.
 - **Parada con C49 incalculable.** `ErrorDeclaracion` da rc 2, y el gancho lo clasifica como fallo de implementación, igual que «f no calculada». Como en el pipeline `comprobar_entrada_v63.py` lo convierte antes en `pendiente_de_datos`, la clasificación del gancho no llega a usarse.
+
+## Ronda 2 · correcciones C2 y C3 (`6f5f26a`) e integración (`7d9ab04`, `b62c284`, `a0ae904`, `6c0e678`)
+
+- **Revisor:** el mismo agente de la ronda 1 (Opus 5.5), distinto del autor, 19-nov-2026. No toqué la rama del autor ni los expedientes.
+- **Copia:** `git archive 6c0e678` con los 1059 binarios del manifiesto, copiados de `wt_expedientes` solo cuando su huella coincidía. Estaba en `/dev/shm`; la borré al terminar.
+- **LibreOffice:** con `flock`, una ejecución cada vez.
+- **Evidencia:** `evidencia/ronda2/`.
+
+### Veredicto de la ronda 2: **CONFORME**
+
+C1, C2 y C3 quedan resueltas. La integración solo toca, de los expedientes, `zoetis_t1c`, y su paso 12 da exactamente lo anticipado.
+
+**C2 · P-FOSO.** `perimetro_f1.margen_de_partida(base, c48, c49)` aplica la regla de la plantilla:
+
+| Palancas C8 | Margen de partida |
+|---|---|
+| vacía o «Último año» | C48 |
+| «Media del ciclo» | C49; si C49 está vacía, ninguno (no cae en C48) |
+| cualquier otro valor | ninguno, y el texto lo dice |
+
+`desde_libro` lee `Palancas!C8` del libro. `desde_datos` la lee del volcado (`leer_v63.palancas` trae `C8`). El bloque guarda `m0`, `m0_celda` y `base_del_margen` en lugar de `C48_m0`. Ningún otro código leía `C48_m0` (`git grep`), y `_rotulo_m0` sigue entendiendo un bloque antiguo. Es informativo: ninguna guarda usa `roic_neutro_con_m0`. Con «Último año» la cifra no cambia.
+
+- `test_perimetro_foso.py` da **72/72**. Con el `perimetro_f1.py` de `5a525e0` da **66/72**: fallan las 6 M0.
+- Seis mutaciones mías del cambio, **6 de 6 detectadas** (`evidencia/ronda2/mut_pfoso_revisor.txt`):
+  - «Media del ciclo» toma C48;
+  - un valor fuera de la lista se toma como «Último año»;
+  - `desde_datos` sin C8;
+  - `desde_libro` sin C8;
+  - el texto rotula siempre C48;
+  - con C49 vacía cae en C48.
+
+**C3 · `leer_libro` lee C8 sin LibreOffice.** La prueba nueva escribe en un `.xlsx` el libro sintético «Media del ciclo», lo lee con `leer_libro` y comprueba que la capa da lo mismo que con el diccionario.
+
+- `test_motor_a_f1.py` da **177/177**.
+- Con `leer_libro` sin la lectura de C8 da **176/177**, y la que falla es justo esa prueba.
+- El guion de mutaciones del autor ahora detecta por recuento y añade z13 (no leer C8): **13 de 13** en la copia integrada.
+
+**C1 · integración.**
+
+- `7d9ab04` es un `merge --no-ff` de `6f5f26a` sobre `a9c42b9`. Los 12 archivos del cambio son idénticos a `6f5f26a`. `verificar_paquete.sh` es el de `6f5f26a` más la batería del redondeo exacto, que viene del otro lado; no hay ninguna otra diferencia.
+- Los dos manifiestos dan 0 modificados, 0 ausentes y 0 de más en copia limpia: `b62c284` con 9542 archivos y `6c0e678` con 9547.
+- `verificar_paquete.sh rapida` sobre `6c0e678` da **RESULTADO GLOBAL: PASA** (P-FOSO 72/72, F1-SERIES 80/80, redondeo 44/44, comprobadores 114/114).
+- Sobre la copia integrada:
+
+  | Batería | Resultado |
+  |---|---|
+  | `test_motor_a_f1.py` | 177/177 |
+  | `test_motor_a_f1_usgaap.py` | 294/294 |
+  | `probar_libro_v631_usgaap.py` (LibreOffice) | 18/18 |
+  | gancho `prueba_pipeline_f1.py` (LibreOffice) | 8/8 |
+
+- Los umbrales del script son 177, 294, 18, 72 y 44, iguales a los recuentos.
+
+**Expedientes.** Entre `a9c42b9` y `6c0e678` solo cambian 16 archivos de `zoetis_t1c/Zoetis`, todos en `a0ae904` (`evidencia/ronda2/integracion_archivos.txt`). El merge y los dos manifiestos no tocan ningún expediente, y `ahold_f3`, `jumbo_e` y `jumbo_f` no cambian. En `wt_expedientes` hay archivos sin seguimiento de otra sesión (`jumbo_g/` y `configuracion/cambio_jumbo_g.json`): no forman parte de la integración y no los toqué.
+
+**Paso 12 de `zoetis_t1c` (`a0ae904`): da lo anticipado.** Su `motor_a_f1_resultado.json` es idéntico al que anticipé en la ronda 1 salvo en `libro_sha256` (`evidencia/ronda2/zoetis_paso12_frente_a_lo_anticipado.txt`). Esa diferencia es esperable: el recálculo es un archivo nuevo, y el libro de origen es el mismo (`7cb988d0…`).
+
+- La réplica es conforme: m0 = Historia C49 = 0,340556331360566, con 33 flujos. `F1-LIBRO` también es conforme y nada bloquea.
+- La conclusión es **«utilizable CONDICIONADA (D-US1)»**, con los avisos `V-F1k`, `F1-US-HIPOTESIS` y `F1-SERIES-CERO`. `F1-US-BASE` y `V-F1f` solo informan.
+- **El flujo sin crecimiento es 2.484,631379.** La **cota de D-US1 es −64,23 / +63,54 mm = −2,6 % / +2,6 %**; en valor presente del NORMAL, −3,1 % / +3,1 %.
+- `resultados.json` y `precio.json` no cambian, porque el libro ya valoraba con C49: precio de Sí 73,31, ponderado 80,06, zona `cumple_regla_k`.
+- El paso 13 regeneró `ficha_provisional.json` e `informe_provisional.md` antes de fijar el material. La ficha lleva F1 vigente y utilizable, y el informe dice −2,6 % / +2,6 % y ya no «evaluación no vigente». El material fijado es `91a9726f8fcf8982`, con el resultado F1 nuevo (`5657f787…`), y la solicitud es `SA-4456f50971f1118d`. El expediente espera la auditoría.
+- Ajeno a este cambio: la verificación de las entradas de Zoetis sigue en 0 de 315 celdas comprobadas (apta por entradas: no), y la ficha provisional propone `pendiente_de_datos`, como propuso la fase C.

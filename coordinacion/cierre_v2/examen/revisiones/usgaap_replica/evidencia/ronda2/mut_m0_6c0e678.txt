@@ -1,0 +1,16 @@
+sin mutar: 458 pruebas pasan y 2 fallan en la copia sin binarios (las del libro de Elis)
+DETECTADA    · z01 · la base del margen no se lee (m0 siempre del último año) · pasan 444 de 458 (14 dejan de pasar) (p. ej. «M0 · N1 con «Media del ciclo»: N1 normaliza el EBIT de la ve…»)
+DETECTADA    · z02 · la réplica solo contrasta la celda de la Historia · pasan 455 de 458 (3 dejan de pasar) (p. ej. «M0 · la réplica no se debilita: un libro que dice «Media del…»)
+DETECTADA    · z03 · la réplica no contrasta m0 · pasan 453 de 458 (5 dejan de pasar) (p. ej. «M0 · la celda de la Historia que elige Palancas C8 vacía (C4…»)
+DETECTADA    · z04 · un valor de Palancas C8 fuera de la lista se acepta · pasan 457 de 458 (1 dejan de pasar) (p. ej. «M0 · un valor de Palancas C8 fuera de la lista («media del c…»)
+DETECTADA    · z05 · la celda de la Historia vacía no es diferencia · pasan 457 de 458 (1 dejan de pasar) (p. ej. «M0 · la celda de la Historia que elige Palancas C8 vacía (C4…»)
+DETECTADA    · z06 · la tolerancia de m0 se relaja a 10⁻² · pasan 457 de 458 (1 dejan de pasar) (p. ej. «M0 · paso 7: una diferencia de 10⁻⁹ entre el m0 de la capa y…»)
+DETECTADA    · z07 · la partida K3 vuelve a ser el EBIT del año base · pasan 454 de 458 (4 dejan de pasar) (p. ej. «M0 · «Media del ciclo» en Palancas C8: la capa parte del mar…»)
+DETECTADA    · z08 · con «Media del ciclo» y C49 incalculable no se para · pasan 446 de 458 (12 dejan de pasar) · se interrumpe test_motor_a_f1.py (TypeError: unsupported operand type(s) for *: 'NoneType' and 'Fraction') (p. ej. «M0 · N1 con «Media del ciclo»: N1 normaliza el EBIT de la ve…»)
+DETECTADA    · z09 · la media del ciclo sobre la ventana y no sobre todos los años con ventas · pasan 448 de 458 (10 dejan de pasar) (p. ej. «M0 · N1 con «Media del ciclo»: N1 normaliza el EBIT de la ve…»)
+DETECTADA    · z10 · N1 con «Media del ciclo» y un ajuste fuera de la ventana sin aviso en F1-PARAM · pasan 457 de 458 (1 dejan de pasar) (p. ej. «M0 · N1 con «Media del ciclo»: N1 normaliza el EBIT de la ve…»)
+DETECTADA    · z11 · V-F1f: lo que lleva m0, siempre del año base · pasan 457 de 458 (1 dejan de pasar) (p. ej. «M0 · V-F1f (INFORMA) con «Media del ciclo»: lo que lleva m0 …»)
+DETECTADA    · z12 · el m0 del perímetro declarado sin N1 (la Historia en lugar del EBIT normalizado) · pasan 457 de 458 (1 dejan de pasar) (p. ej. «M0 · N1 con «Media del ciclo»: N1 normaliza el EBIT de la ve…»)
+DETECTADA    · z13 · leer_libro no lee Palancas C8 (r13 de la revisión d16a2d7; antes solo la veía L8, con LibreOffice) · pasan 457 de 458 (1 dejan de pasar) (p. ej. «M0 · leer_libro lee Palancas C8 (sin LibreOffice): el libro …»)
+
+13 de 13 mutaciones detectadas
