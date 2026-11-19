@@ -61,3 +61,34 @@
 - **Apto por entradas: False.**
 
 No acredita aptitud para dinero real.
+
+## zoetis_t1d, el expediente definitivo de Zoetis (primer tiempo): sellado de los 68 pendientes (2026-11-19)
+
+- **Material:** `zoetis_t1d/Zoetis/verificacion_entradas.json`, cabeza `fe8e898`. Commit del sellado: `897db35`.
+- **C37 (73,08 USD):** examiné la imagen `Zoetis_ZTS_2026-10-08_investor_zoetis_historical_quote.png`. La huella c1871f7e… coincide con el anexo 3 ter. Muestra investor.zoetis.com, «Historical Stock Quote», 2026 Oct 8, Closing Price $73.08 y Volume 6,176,469. Identifica la empresa. Límite: otras capturas de la misma consulta mostraban una tabla sin refrescar. Esta coincide con la lectura anterior de la tabla histórica de la empresa.
+- **C41 y C55:** ahora son exactos. C41 = 73,08 × 424,927535 = 31.053,7042578.
+- **Fila 26 (Z-MIN):**
+  - E26 = 0, el «—» impreso en el 10-K 2018;
+  - I26 y J26 = max(impreso, 0) = 0, con −2 y −6 en sus auxiliares;
+  - C26:H26 y K26:L26 se vuelven a sellar.
+- **C86:G87:** las justificaciones están corregidas.
+- **Las aproximaciones son honestas:**
+  - C33, C40 y C42 pasan a convención, con una `justificacion_clase` que declara la mezcla de bases de la Fiscal Year Alignment. La aritmética está comprobada.
+  - C24 declara que no se reproduce exactamente: con lo conservado sale ≈ 26,2–26,9 %, un rango que contiene el 26,6 %.
+  - Esto resuelve la discrepancia de clase de t1c.
+- **A31/B31 y A33/B33:** la decisión Z-R de la persona deja la agrupación, con la diferencia anotada.
+- **C57 (5,22 %):** CSV del Tesoro, «10 Yr», 10/08/2026.
+- **C7:** tabla de Damodaran, Drugs (Pharmaceutical).
+- **Hipótesis del motor B:** las 30 de las fases son iguales a Control maestro!N; C85 es la decisión F1-A.
+- **C38 y C88, materialidad (N1):** solo las leen rótulos informativos del libro.
+  - La fase C dice no usar C38 (197,36).
+  - Ninguna fase cita C88.
+  - Los datos siguen siendo lecturas externas sin bytes.
+
+**`comprobar`:**
+- **Cobertura:** universo 315, de las que 313 están comprobadas (214 de 214 de cálculo y 99 de 101 de juicio); faltan C38 y C88, no materiales con el juicio revisado.
+- **Estado:**
+  - 178 auxiliares;
+  - 0 discrepancias, 0 pendientes, 0 errores, 0 desactualizadas;
+  - 15 datos tratados como hipótesis o convención, listados.
+- **Apto por entradas: True.** Es condición necesaria, no suficiente: no acredita aptitud para dinero real ni sustituye la auditoría.

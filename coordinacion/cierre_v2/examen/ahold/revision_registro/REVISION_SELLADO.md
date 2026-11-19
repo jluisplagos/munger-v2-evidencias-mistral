@@ -95,3 +95,34 @@ No acredita aptitud para dinero real.
 - **Cobertura:** universo 309, de las que 270 están comprobadas (178 de 214 de cálculo y 92 de 95 de juicio), más 228 auxiliares; 498 selladas en total.
 - **Estado:** 6 discrepancias y 33 pendientes (31 hipótesis y convenciones de las fases, más C38 y C7). 0 errores y 0 desactualizadas.
 - **Apto por entradas: False.**
+
+## ahold_f4, el expediente definitivo de Ahold: sellado de los 73 pendientes (2026-11-19)
+
+- **Material:** `ahold_f4/Ahold/verificacion_entradas.json`, cabeza `fe8e898`. LTM al 3T por la decisión A-Q3. Commit del sellado: `897db35`.
+- **Auxiliares del 3T 2026:** examinados en `texto/AD_q3-2026-interim-report.txt` (p. 12, 14, 16 y 24): columnas Q3 | Q3 | YTD 26 | YTD 25 y balance a 27-sep-2026.
+- **C24, C33, C40 y C42:**
+  - **C24** = 3.635 ÷ (14.375 + 19.747) = 0,107. Numerador y denominador tienen ya la misma fecha, lo que resuelve la discrepancia de f3.
+  - **C33** = 16.188 ÷ 7.334 = 2,2073.
+  - **C40** = 2.150, con la regla espejo. La línea del 3T es «Interest and dividend received», y está declarado.
+  - **C42** = 6,532032. La desalineación entre las acciones de diciembre y el balance de septiembre está declarada (Z-ACC).
+- **C22 y D22:** sellados por la decisión A-NIC17 de la persona responsable («dejarla»), ya declarada en la conciliación.
+- **G26, H26 y K26:** la columna está corregida.
+- **Datos de mercado:**
+  - C57 = 3,37 %, del CSV WT1010 de la Bundesbank del 13-nov, la fecha del precio;
+  - C7 sale de la tabla de EE. UU. de Damodaran, con la limitación declarada;
+  - C37 y C41 se vuelven a sellar.
+- **Convenciones:**
+  - C28;
+  - C31: «Sí» literal y «No» económico, con la aproximación declarada;
+  - C34 = 0,82x, así que «No»;
+  - C60.
+- **Hipótesis:** las 30 de las fases tienen el fundamento igual al de Control maestro!N; C85 es la decisión F1-A. El sello no acredita el acierto del juicio.
+- **C38, materialidad (N1):** solo la leen C39/D39, C87/D87/E43 y el aviso E235. Las fases A y B no la citan. La fase C la vio y dice no haberla usado. Su valor (61,27) está lejos del ponderado (35,95). Acepto que no es material, con ese límite. El dato sigue siendo una lectura externa sin bytes.
+
+**`comprobar`:**
+- **Cobertura:** universo 309, de las que 308 están comprobadas (214 de 214 de cálculo y 94 de 95 de juicio); la que falta es C38, no material con el juicio revisado.
+- **Estado:**
+  - 229 auxiliares y 537 sellos;
+  - 0 discrepancias, 0 pendientes, 0 errores, 0 desactualizadas;
+  - 1 lectura externa listada aparte (C38).
+- **Apto por entradas: True.** Es condición necesaria, no suficiente: no acredita aptitud para dinero real ni sustituye la auditoría.
