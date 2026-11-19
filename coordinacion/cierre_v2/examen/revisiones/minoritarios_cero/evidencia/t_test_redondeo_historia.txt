@@ -1,0 +1,46 @@
+PASA  · 7.035.150 € → 7,0352 mm (no 7,0351) · 7.0352 (se espera 7.0352)
+PASA  · (7.035.150) → −7,0352 (mitad lejos de cero también en negativo) · -7.0352 (se espera -7.0352)
+PASA  · -7,035,150 → −7,0352 · -7.0352 (se espera -7.0352)
+PASA  · 7.035,15 miles → 7,0352 · 7.0352 (se espera 7.0352)
+PASA  · 7.035150 sin empate a 3 decimales → 7,035 · 7.035 (se espera 7.035)
+PASA  · circulante de jumbo_f 2025: −Σ componentes = 61,15855 → 61,1586 · 61.1586 (se espera 61.1586)
+PASA  · ROUND(2.5; 0) = 3.0 · 3.0 (se espera 3.0)
+PASA  · ROUND(-2.5; 0) = -3.0 · -3.0 (se espera -3.0)
+PASA  · ROUND(0.5; 0) = 1.0 · 1.0 (se espera 1.0)
+PASA  · ROUND(-0.5; 0) = -1.0 · -1.0 (se espera -1.0)
+PASA  · ROUND(1.5; 0) = 2.0 · 2.0 (se espera 2.0)
+PASA  · ROUND(1.0005; 3) = 1.001 · 1.001 (se espera 1.001)
+PASA  · ROUND(-1.0005; 3) = -1.001 · -1.001 (se espera -1.001)
+PASA  · ROUND(2.675; 2) = 2.68 · 2.68 (se espera 2.68)
+PASA  · ROUND(-2.675; 2) = -2.68 · -2.68 (se espera -2.68)
+PASA  · ROUND(5e-05; 4) = 0.0001 · 0.0001 (se espera 0.0001)
+PASA  · ROUND(1.00049; 3) = 1.0 · 1.0 (se espera 1.0)
+PASA  · ROUND(-1.00049; 3) = -1.0 · -1.0 (se espera -1.0)
+PASA  · ROUND(1.00051; 3) = 1.001 · 1.001 (se espera 1.001)
+PASA  · fracción exacta −7035150/10⁶ a 4 decimales · -7.0352 (se espera -7.0352)
+PASA  · entero sin decimales · 7.0 (se espera 7.0)
+PASA  · −0,00004 → 0 (sin cero negativo) · '0.0' (se espera '0.0')
+PASA  · numero_exacto ≡ numero (misma lectura, exacta) · '1,125,977'→1125977; '(12.345)'→-12345; '-8,580'→-8580; '3.463'→3463; '–'→0; '-'→0
+PASA  · numero_exacto rechaza «12a»
+PASA  · exacto rechaza un booleano
+PASA  · exacto rechaza un texto (la cifra impresa se lee con numero_exacto)
+PASA  · redondear rechaza NaN
+PASA  · suma 1,0001 + 1,0004 = 2,0005 → 2,001 · 2.001 (se espera 2.001)
+PASA  · suma con signo −(1,0001 + 1,0004) → −2,001 · -2.001 (se espera -2.001)
+PASA  · suma −1,0004 − 0,0001 = −1,0005 → −1,001 · -1.001 (se espera -1.001)
+PASA  · media de 2,0015 ×3 = 2,0015 → 2,002 · 2.002 (se espera 2.002)
+PASA  · media (1,0001 + 1,0004)/2 = 1,00025 → 1,0003 a 4 decimales · 1.0003 (se espera 1.0003)
+PASA  · media (1,0001 + 1,0004 + 2,0015)/3 = 1,334 exacto · 1.334 (se espera 1.334)
+PASA  · valor sin redondear de la suma = 2,0005 (float de la suma exacta) · 2.0005 (se espera 2.0005)
+PASA  · jumbo_f: construye · _v63.json escrito (10 años, 17 diferencias con el comparativo, 28 ceros pendientes de verificación, 0 confirmados por decisión humana; ver historia_revision.md)
+PASA  · jumbo_f: Historia!I17 (arrendamientos_principal 2022) = 7,0352 · 7.0352
+PASA  · jumbo_f: Historia!L14 (circulante 2025, suma de componentes 61,15855) = 61,1586 · 61.1586
+PASA  · jumbo_f: toda la Historia con 4 decimales como mucho
+PASA  · acciones 134.365.650 sin unidad declarada (regla por tamaño: > 10⁵ → ÷ 10⁶): 134,36565 → 134,3657 millones · 134.3657
+PASA  · acciones 134.365,65 unidad declarada «miles»: 134,36565 → 134,3657 millones · 134.3657
+PASA  · Ahold (informe en millones): construye · _v63.json escrito (10 años, 22 diferencias con el comparativo, 12 ceros pendientes de verificación, 0 confirmados por decisión humana; ver historia_revision.md)
+PASA  · Ahold: ventas 2025 «92,352» en millones = 92.352 · 92352.0
+PASA  · Ahold: acciones 2025 «905» con unidad declarada «millones» = 905 · 905.0
+PASA  · Ahold: toda la Historia igual que la de su fase1_v63.json
+
+44/44 comprobaciones PASAN
