@@ -161,3 +161,64 @@ La opción (a) que recomienda el autor es razonable: un déficit de minoritarios
 | C2 | media | Resolver la dilución sumada frente a `impreso` (componentes o `dilucion_impresa`) y avisar cuando falte `impreso`. |
 | C3 | menor | Capitalización de respaldo exacta o a 3 decimales, no a 1; en el prompt, «sin redondear el resultado». |
 | C4 | menor | Que las pruebas fallen con el código anterior por el motivo correcto; casos de C1 y del límite de los 3 decimales en millones. |
+
+---
+
+# Ronda 2 · `2a323b8` (sobre `fd03369`) e integración
+
+- **Revisado:** `2a323b8`, con las correcciones C1–C4 y el aviso de signo, frente a mi ronda 1.
+- **Revisor:** el mismo agente de la ronda 1, distinto del autor. 19-nov-2026.
+- **Copias:** copia limpia `git archive 2a323b8` con los 1059 binarios (huellas del manifiesto): 9675 archivos, 0 modificados, 0 ausentes, 0 de más. Borrada al terminar.
+- **Evidencia:** `evidencia_r2/`.
+
+## Veredicto: **CONFORME**
+
+### Correcciones
+
+| # | Estado | Comprobación |
+|---|---|---|
+| C1 | **hecha** | La escala de la cifra impresa tiene clave propia, `escala_impreso`, y `unidad` sigue siendo la unidad de `valor`. Nunca se usa para leer `impreso`. Prueba: con `unidad` «millones de acciones» (como Ahold) e `impreso`, `construir` construye, conserva la unidad y da el valor por comprobado. Con `unidad` «millones» e `impreso` en unidades, la escala no se toma de `unidad`. |
+| C2 | **hecha** | `dilucion: [{impreso, escala_impreso, pagina, concepto}]`. Cada componente se lee con su escala y se suma de forma exacta a las acciones en circulación. Detiene: la dilución sumada sin declarar sus componentes, la dilución redondeada, un componente mal formado y un valor de `dilucion` que no es una lista. Si los metadatos no traen `impreso`, `historia_revision.md` lo avisa en la sección nueva «Acciones de los metadatos (Análisis!C55)», sin bloquear. Límite menor: `pagina` y `concepto` no se validan (son documentales). |
+| C3 | **hecha** | La capitalización de respaldo es `float(exacto(precio) × exacto(acciones))`, sin redondear (73,08 × 424,927535 = 31.053,7042578). El prompt añade «sin redondear el resultado». |
+| C4 | **hecha** | Con el código de `f02f7b1` la prueba da **3/30** (lo reproduje). Las tres que pasan son comportamiento que no cambia: `v63_xml` escribe el repr, y zoetis_t1c construye con el valor exacto y con sus metadatos de hoy. Ninguna comprobación de defecto pasa ya por el motivo equivocado. Hay casos nuevos para C1 y para «424.928» en millones, que ahora explica el separador de miles. |
+| Extra | **hecho** | `SALDOS_SIN_SIGNO` = deuda, arrendamientos, caja, otros activos financieros, minoritarios, acciones. Un negativo impreso se avisa en `historia_revision.md` y la conversión no cambia. En los 49 expedientes solo salta en Zoetis: minoritarios 2022 (−2) y 2023 (−6), en sus tres copias. |
+
+**Observación sin corrección.** Pensiones queda fuera del aviso a propósito: en el estado de financiación el déficit suele imprimirse en negativo («funded status»). Pero esa misma ambigüedad es la razón para avisar. `ajustar` toma el valor absoluto de la fila 25, y un superávit impreso en negativo, como activo neto, pasaría a déficit sin aviso. Para un cambio aparte: un aviso neutro también para pensiones («impreso negativo: confirmar si es déficit o superávit»).
+
+### Comprobaciones de esta ronda
+
+- **Diagnóstico de expedientes.** Ejecuté `construir` con `f02f7b1` y con `2a323b8` sobre los 49 expedientes con `fase1_partes` (`evidencia_r2/comparacion_49_expedientes_r2.txt`).
+  - `fase1_v63.json` y la salida del programa son **idénticos en los 38 que construyen**.
+  - Los 11 que no construyen dan el mismo error con las dos versiones.
+  - `historia_revision.md` solo **añade** dos secciones: «Acciones de los metadatos» (en los 38, con el aviso de `impreso` ausente) y «Signo de saldos impresos en negativo» (solo en las 3 copias de Zoetis).
+- **Baterías** (`evidencia_r2/bateria.txt`):
+
+| Batería | Resultado |
+|---|---|
+| `verificar_paquete.sh` rápido (manifiesto 9675 · 0/0/0; acciones exactas 30/30; redondeo 44/44; F1-SERIES; P-FOSO; piloto) | **PASA GLOBAL** |
+| `test_acciones_metadatos_exactas.py` | 30/30 (3/30 con `f02f7b1`) |
+| `test_redondeo_historia.py` | 44/44 |
+| `test_acciones_unidad_examen.py` | 10/10 |
+| `test_entrada_efectiva_415.py` (LibreOffice) | PASA |
+| `test_verificacion_entradas_414.py` | PASA |
+| `test_motor_a_f1.py` | 177/177 |
+| `test_pieza1.py` | 17/17 |
+| `test_v631_f1.py` | 29/29 |
+
+- **Manifiesto de la rama:** respecto de `fd03369` solo cambian los 4 archivos del cambio.
+
+## Integración en `examen/expedientes-f1`
+
+- **Base:** `aaa2802`. Es `f02f7b1` más 3 commits del examen: ahold_f3 sellado, y fase A y fase B escrita de jumbo_g. Ninguno toca código.
+- **`f55754c`**, `merge --no-ff` de `producto/minoritarios-acciones` (`2a323b8`):
+  - Solo entran los 4 archivos aceptados: `personaje_v2/scripts/fase1_historia.py`, `personaje_v2/prompts/metadatos_fase1.md`, `personaje_v2/pruebas/test_acciones_metadatos_exactas.py` y `verificar_paquete.sh`.
+  - Los 4 son idénticos byte a byte a `2a323b8`.
+  - El manifiesto de la rama no se fusionó: se conservó el de `aaa2802`.
+  - No se tocó ningún expediente, no se ejecutó el pipeline y no se tocó jumbo_g.
+- **`1fc9359`**, manifiesto regenerado en su propio commit. Lo generé sobre una copia limpia de `f55754c` con los 1059 binarios: 9687 archivos.
+  - Respecto del manifiesto anterior, que estaba desfasado: los 4 archivos aceptados más 141 entradas del árbol del examen (jumbo_g 135, ahold_f3 4, zoetis_t1c 1, configuracion 1).
+  - Esas 141 entradas solo se listan; esta integración no las acredita, y la cabecera y el mensaje del commit lo dicen.
+- **`verificar_paquete.sh` rápido sobre esa copia con el manifiesto nuevo:** **RESULTADO GLOBAL PASA** (9687 · 0/0/0). Salida en `evidencia_r2/verificar_paquete_rapida_integracion_1fc9359.txt`.
+- **Push:** `origin/examen/expedientes-f1` = `1fc9359` (avance rápido desde `aaa2802`).
+
+Los expedientes en curso no cambian solos: el paso 2 del pipeline solo llama a `construir` si falta `fase1_v63.json`. Para que C55 de Zoetis salga exacto (424,927535) hace falta un expediente nuevo con `impreso` en sus metadatos.
