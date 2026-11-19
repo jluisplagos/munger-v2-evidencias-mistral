@@ -1,0 +1,41 @@
+PASA  · réplica: la capa F1 reproduce el libro en A0 (f, τ, m0, ancla y 33 flujos) · {"f": 0.041681455273796, "C58": 0.041681455273796, "ancla": 9.039509536785, "C53": 9.039509536785, "m0": 0.131337558372248, "m0_del_libro": 0.131337558372248, "m0_celda": "Historia!C48", "base_del_margen": "\u00daltimo a\u00f1o", "flujos_contrastados": 33, "conforme": true, "perimetro_replicado": "A0"}
+PASA  · E9 A0: f, flujo sin crecimiento y C53 · f 0.041681455273796 · F0 248.496395343 · C53 9.039509536785
+PASA  · E9 A1: f, flujo sin crecimiento y C53 · f 0.012624225323285 · F0 387.878115969 · C53 2.445331695332
+PASA  · E9 A2: f, flujo sin crecimiento y C53 · f -0.006118601744165 · F0 477.783708846 · C53 1.612524303305
+PASA  · E9 B: f, flujo sin crecimiento y C53 · f 0.022646228408102 · F0 339.804571572 · C53 2.651525243106
+PASA  · E9 A1: flujos de los años 1–10 y año 11 con las palancas actuales · desviación máxima 0.00e+00
+PASA  · E9 A2: flujos de los años 1–10 y año 11 con las palancas actuales · desviación máxima 0.00e+00
+PASA  · E9 T1: flujos A0 = los del libro · desviación máxima 0.00e+00
+PASA  · (1a) flujo corregido frente a A0 en la base 2025: +139,4 · +139.381721
+PASA  · V-F1a salta con el libro tal cual (A0 con ROU y C49 > 0)
+PASA  · K3 en A0: puente cuadrado y doble cómputo del arrendamiento señalado (132,5 de media; 139,4 a la escala de 2025) · {"doble_computo": 139.381721, "reposicion_no_monetaria": 89.905593}
+PASA  · K3 en A2: sin doble cómputo (partidas sin explicar: ninguna)
+PASA  · K3a: caja base por dos vías conforme (307,933 frente a 323,000; −25,067 de C48 y +10,0 de C47 declarados) · {"C70": 307.933, "media_fila_35": 323.0, "diferencia": -15.067, "componentes": {"C46": -0.000333, "C47": 9.999667, "C48": -25.066667, "C49": 0.0, "C50": 0.000333, "C70": 0.0}, "explicado": {"C48": -25.067, "C47": 10.0}, "residuo": 0.0}
+PASA  · K3b/K3c con el libro tal cual (A0): alquiler contado dos veces y reinversión media −81,2: bloquean
+PASA  · K3b con las decisiones (A3: f devuelve la ROU, pagos en el FCF base): alquiler contado una vez
+PASA  · T16: N1 en A0 (τ 0,2619/0,2806/0,2559; τ5 0,28234; m0 0,131379; f 0,044900433; flujo 236,891) · f 0.044900432751701 · F0 236.890936177 · τ {'2023': 0.2619, '2024': 0.2806, '2025': 0.2559} · τ5 0.28234
+PASA  · T16: −11,605 (solo ventana) y variantes sin decidir −11,190 (2021–22) y −12,396 (actualización) · {"N1 solo en la ventana, sin la actualización financiera": -11.605459, "N1 también en los ejercicios del τ fuera de la ventana": -11.189527, "N1 con la actualización financiera fuera del BAI que da el tipo": -12.395744, "N1 en los ejercicios del τ y con la actualización financiera": -11.979812}
+PASA  · T16: variación del año 11 NORMAL −18,609 · -18.608670
+PASA  · T16: con N1 sin decidir sus opciones, F1-PARAM bloquea y F1-LIBRO también (el libro no normaliza)
+PASA  · Elis sigue en pendiente_de_datos: estado del expediente sin cambios
+PASA  · Elis: la evaluación F1 con las decisiones propone pendiente_de_datos (código 3) · DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-LIBRO, F1-PARAM, F1-PERIMETRO, F1-REGISTRO, V-F1d, V-F1g, V-F1i, V-F1j, V-F1k, V-F1l
+PASA  · Elis con las decisiones: V-F1d bloquea · A3_estimado sin estimación de la reinversión necesaria (R sigue en pendiente_de_datos: 3a, 3b (iv))
+PASA  · Elis con las decisiones: V-F1j bloquea · clasificación de las compras de sociedades pendiente (opción A de 4b, hasta M6)
+PASA  · Elis con las decisiones: V-F1i bloquea · transición conocida con su tratamiento pendiente (sin importe ni horizonte la conclusión queda pendiente; nunca cero por defecto)
+PASA  · Elis con las decisiones: V-F1g bloquea · perímetro de las palancas S2C sin declarar
+PASA  · Elis con las decisiones: V-F1k bloquea · perímetro del ROIC del terminal sin declarar
+PASA  · Elis con las decisiones: F1-PARAM bloquea · alcance de N1 a los ejercicios del τ fuera de la ventana sin decisión adoptada (declarados fuera de la ventana: [2021, 2022]); no se elige por omisión; se calcu
+PASA  · Elis con las decisiones: F1-LIBRO bloquea · LÍMITE DECLARADO · el libro V6.3 calcula el perímetro A0 sin normalizar y sin términos explícitos; con A3_estimado y N1: su valor no corresponde a la declaració
+PASA  · Elis con las decisiones: V-F1l bloquea · N1 exige el margen objetivo declarado sin esos ajustes (condición de 5a): sin declarar
+PASA  · Elis con las decisiones: V-F1a no salta (el perímetro no es A0)
+PASA  · invariantes: C48 = 108, C49 = 128,1, C70 = 307,933
+PASA  · (1b) sensibilidad: pagos −16,8; ROU +10,1; total −6,7 · {"convencion": "media de la ventana (referencia de ensayo y convención declarada; no es una estimación del peso futuro)", "pagos_media_%_ventas": 3.3589, "pagos_año_base_%_ventas": 3.7087, "sensibilidad_pagos_mm (A0, A1 y A2)": -16.778, "sensibilidad_amortizacion_ROU_que_devuelve_f_mm (A1 y A2)": 10.118, "total_A1_A2_mm": -6.66}
+PASA  · V-F1f informa (escala PPA +4,206; ROU −10,118) con el perímetro A2 · aquí se muestra como diagnóstico · {"PPA: media ÷ ventas medias (lo que devuelve f en A2)": 0.018743, "PPA: año base ÷ ventas del año base (lo que lleva m0)": 0.017866, "efecto de escala de la PPA en el flujo sin crecimiento de A2 (mm)
+PASA  · V-F1k (bloque 10): saltos +0,47/+0,68/+2,41 puntos ≤ C179: no avisa
+PASA  · ficha provisional de la copia: bloque motor_a_f1 presente, no utilizable, estado pendiente_de_datos · código 0 · OK: ficha_provisional.json · estado propuesto pendiente_de_datos · cubo Vigilar · acción None 
+PASA  · la ficha provisional cumple su esquema · VÁLIDO · ficha_provisional.json contra ficha.esquema.json
+PASA  · informe provisional de la copia: línea «Motor A · F1» · código 0 
+PASA  · el libro de la copia no cambia
+PASA  · el expediente original no cambia (huellas de todos sus archivos)
+39/39 PASAN
+rc=0

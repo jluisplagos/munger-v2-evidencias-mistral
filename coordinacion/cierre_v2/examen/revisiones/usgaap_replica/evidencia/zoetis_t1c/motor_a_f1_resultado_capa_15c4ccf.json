@@ -1,0 +1,1365 @@
+{
+ "version": "F1-IMPL 2 (4.15 · decisiones F1 del 17-nov-2026 · US GAAP, ASC 842: D-US1, D-US2, D-US2 bis y D-WM del 18-nov-2026 · cierre de la revisión R2)",
+ "fecha": "2026-11-19",
+ "libro_sha256": "532504ee82b7c74a69eaf9993a249f4cb6d77a7ff6a7df14d2171270d887f97e",
+ "declaracion_sha256": "d85c2ea4820fa304bf046b41dfb21a2fa7dcbb20e157809979556aba160f4c0d",
+ "apto_para_dinero_real": false,
+ "parametros_sin_valor_adoptado": {
+  "alcance_n1_ejercicios_tau": {
+   "valor": null,
+   "opciones": [
+    "solo_ventana",
+    "tambien_ejercicios_tau_fuera_de_la_ventana"
+   ],
+   "documento": "N1_ALCANCE_EJERCICIOS_TAU.md (propuesta, no adoptada)"
+  },
+  "n1_actualizacion_financiera_earnout": {
+   "valor": null,
+   "opciones": [
+    "excluida",
+    "incluida_fuera_del_BAI"
+   ],
+   "documento": "N1_ACTUALIZACION_EARNOUT_MEXICO.md (propuesta, no adoptada)"
+  },
+  "umbral_v_f1a": {
+   "valor": null,
+   "opciones": [
+    "sin umbral (V-F1a bloquea con cualquier importe)",
+    "una medida y un valor"
+   ],
+   "documento": "PROPUESTA_UMBRAL_V-F1a.md (propuesta, no adoptada)"
+  }
+ },
+ "convencion_tau": "cinco_anios",
+ "motor_del_libro": "A",
+ "aplica": true,
+ "entradas_registradas": {
+  "Historia!C70 (FCF base que calibra f)": 1994.001,
+  "Análisis!C48": 0.0,
+  "Análisis!C49 (principal de arrendamientos)": 1.0,
+  "Análisis!C52": 1994.001,
+  "Historia!C58 (f del libro, A0)": 0.010095412036528,
+  "Historia!C52 (τ de 5 años)": 0.1997,
+  "Historia!C53 (S2C, A0)": 0.808572256009,
+  "V0": 9467.0,
+  "m0 del libro": 0.378366958909898,
+  "ventana": [
+   2023,
+   2024,
+   2025
+  ],
+  "horizonte_ancla": [
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ],
+  "nota": "entradas registradas del FCF base: no cambian con F1 (E0.3, T10); la capa F1 no las escribe"
+ },
+ "palancas": {
+  "MALO": {
+   "g15": 0.0,
+   "m_obj": 0.32,
+   "s2c": 0.6,
+   "roic": 0.09,
+   "g_inf": 0.01
+  },
+  "NORMAL": {
+   "g15": 0.035,
+   "m_obj": 0.35,
+   "s2c": 0.8,
+   "roic": 0.11,
+   "g_inf": 0.025
+  },
+  "BUENO": {
+   "g15": 0.07,
+   "m_obj": 0.375,
+   "s2c": 1.0,
+   "roic": 0.12,
+   "g_inf": 0.03
+  }
+ },
+ "replica_del_libro": {
+  "f": 0.010095412036528,
+  "C58": 0.010095412036528,
+  "ancla": 0.808572256009,
+  "C53": 0.808572256009,
+  "flujos_contrastados": 33,
+  "conforme": false,
+  "perimetro_replicado": "D_X del libro (A2_propio)"
+ },
+ "K3a_caja_base": {
+  "C70": 1994.001,
+  "media_fila_35": 1994.0,
+  "diferencia": 0.001,
+  "componentes": {
+   "C46": 0.000333,
+   "C47": 0.000333,
+   "C48": 0.0,
+   "C49": 0.0,
+   "C50": 0.000333,
+   "C70": 0.0
+  },
+  "explicado": {},
+  "residuo": 0.001
+ },
+ "K3": {
+  "identidad": true,
+  "K3a_caja_base_dos_vias": true,
+  "K3b_alquiler_contado": "una vez",
+  "K3c_reposicion_frente_a_su_caja": true,
+  "K3b_contrastado": false,
+  "K3b_fundamento": "según la hipótesis D-US1 (no es un dato ni una comprobación independiente)",
+  "K3b_por_clase": {
+   "operativos": "una vez",
+   "financieros": "una vez"
+  },
+  "conforme": null,
+  "conforme_nota": "K3b no es una comprobación independiente: según la hipótesis D-US1 (no es un dato ni una comprobación independiente)"
+ },
+ "libro_v631_f1": {
+  "perimetro_efectivo": "A2_propio",
+  "motivos": [
+   "flujos del Motor distintos de los de la capa en 12 celdas (Motor!AU6, Motor!AV6, Motor!AW6, Motor!AX6)"
+  ],
+  "flujos_contrastados": 33
+ },
+ "bloque_10_del_libro": {
+  "MALO": {
+   "fila_176": 0.1536576,
+   "fila_177": 0.09,
+   "fila_178_salto": 0.0636576,
+   "C179": 0.05,
+   "supera_umbral": true,
+   "salto_igualdad_exacta": 0.065194176
+  },
+  "NORMAL": {
+   "fila_176": 0.224084,
+   "fila_177": 0.11,
+   "fila_178_salto": 0.114084,
+   "C179": 0.05,
+   "supera_umbral": true,
+   "salto_igualdad_exacta": 0.1196861
+  },
+  "BUENO": {
+   "fila_176": 0.3001125,
+   "fila_177": 0.12,
+   "fila_178_salto": 0.1801125,
+   "C179": 0.05,
+   "supera_umbral": true,
+   "salto_igualdad_exacta": 0.189115875
+  }
+ },
+ "perimetro_f1_valores": {
+  "palancas": null,
+  "aplicable": false,
+  "motivo_no_aplicable": "norma contable 'US_GAAP': la medida solo tiene fórmula con NIIF (NIIF 16). Con US GAAP el arrendamiento operativo va entero en el EBIT y restarle su interés lo contaría dos veces; no se emite hasta que tenga su fórmula. G7 y las referencias usan C55, de todo el capital, como antes"
+ },
+ "sensibilidad_peso_arrendamiento_1b": null,
+ "materialidad_R_3a": {
+  "D&A propia media (referencia inferior; no es cota)": 350.333,
+  "capex propio medio (cota superior de R_propia + transición)": 669.333,
+  "nota": "solo mide la materialidad de R_propia más la transición; no fija R (3a)"
+ },
+ "materialidad_V_F1a": {
+  "D&A ROU media de la ventana (mm)": 1.0,
+  "÷ ventas medias": 0.00011,
+  "÷ FCF base": 0.000502,
+  "exceso en el flujo sin crecimiento del año base (mm)": 1.042,
+  "umbral": "ninguno adoptado: V-F1a bloquea con cualquier importe"
+ },
+ "perimetro_declarado": "A2_propio",
+ "calculo_perimetro_declarado": {
+  "f": 0.010095412036528,
+  "flujo_sin_crecimiento": 2771.10133425,
+  "tau_proyeccion": 0.1997,
+  "m0": 0.37836695891,
+  "nopat_medio": 2685.091533333,
+  "reinversion_media": 599.333333333,
+  "ancla_s2c_E4": 0.808572256009,
+  "tau_ventana": {
+   "2023": 0.203,
+   "2024": 0.2033,
+   "2025": 0.2045
+  },
+  "escenarios": {
+   "MALO": {
+    "anios_1_10": [
+     2682.658580650193,
+     2594.215827050193,
+     2505.773073450192,
+     2417.330319850193,
+     2328.887566250192,
+     2301.988674716026,
+     2279.639962748224,
+     2261.698022524713,
+     2248.045347584911,
+     2238.58906438604
+    ],
+    "anio_11": 2143.211988088492
+   },
+   "NORMAL": {
+    "anios_1_10": [
+     2409.420073993949,
+     2447.704120135313,
+     2485.716509915929,
+     2523.391329434022,
+     2560.658383593735,
+     2672.319110869621,
+     2783.270568945476,
+     2893.022596749876,
+     3001.071540787558,
+     3106.90384591652
+    ],
+    "anio_11": 2743.530481553075
+   },
+   "BUENO": {
+    "anios_1_10": [
+     2296.929381272706,
+     2451.873258340545,
+     2617.254324229646,
+     2793.774560377352,
+     2982.183083397012,
+     3266.352881180987,
+     3548.959594641055,
+     3825.021260659169,
+     4089.273307560733,
+     4336.32220277791
+    ],
+    "anio_11": 3680.578165750054
+   }
+  },
+  "K3": {
+   "lineas": [
+    {
+     "partida": "FCF base que calibra f (Historia C70, entrada registrada)",
+     "mm": 1994.001,
+     "clase": "caja"
+    },
+    {
+     "partida": "+ nivel del EBIT del año base frente a la media de la ventana, al τ de proyección",
+     "mm": 168.329767,
+     "clase": "explicada"
+    },
+    {
+     "partida": "+ τ de proyección frente al τ de cada año de la ventana",
+     "mm": 13.2533,
+     "clase": "explicada"
+    },
+    {
+     "partida": "− f aplicada a las ventas del año base en lugar de las medias",
+     "mm": -3.816066,
+     "clase": "explicada"
+    },
+    {
+     "partida": "+ inversión neta propia y circulante de la ventana (capex − D&A propia + circulante)",
+     "mm": 599.333333,
+     "clase": "explicada"
+    },
+    {
+     "partida": "− amortización ROU que D_X devuelve como reposición, con los pagos de arrendamiento ya dentro del FCF base",
+     "mm": 0.0,
+     "clase": "explicada"
+    },
+    {
+     "partida": "− amortización PPA que D_X devuelve como reposición (no es caja: política (2)(i))",
+     "mm": 0.0,
+     "clase": "explicada"
+    }
+   ],
+   "flujo_sin_crecimiento": 2771.10133425,
+   "suma_de_partidas": 2771.10133425,
+   "identidad_cuadra": true,
+   "doble_computo_mm_en_la_ventana": 0.0,
+   "doble_computo_mm_a_la_escala_del_año_base": 0.0,
+   "doble_computo_por_clase_a_la_escala_del_año_base": {
+    "doble_computo": 0.0,
+    "reposicion_no_monetaria": 0.0
+   },
+   "partidas_sin_explicar": []
+  }
+ },
+ "diagnostico_por_perimetro": {
+  "A0_total": {
+   "f": 0.025645344188946,
+   "flujo_sin_crecimiento": 2623.890126563,
+   "tau_proyeccion": 0.1997,
+   "m0": 0.37836695891,
+   "nopat_medio": 2685.091533333,
+   "reinversion_media": 458.0,
+   "ancla_s2c_E4": 1.036377134373,
+   "tau_ventana": {
+    "2023": 0.203,
+    "2024": 0.2033,
+    "2025": 0.2045
+   },
+   "escenarios": {
+    "MALO": {
+     "anios_1_10": [
+      2535.447372963245,
+      2447.004619363245,
+      2358.561865763245,
+      2270.119112163245,
+      2181.676358563245,
+      2154.483044613705,
+      2131.544310125493,
+      2112.713795986246,
+      2097.869247234136,
+      2086.911203031757
+     ],
+     "anio_11": 1990.017348120666
+    },
+    "NORMAL": {
+     "anios_1_10": [
+      2257.056474037959,
+      2290.007794180862,
+      2322.500812553073,
+      2354.463082663466,
+      2385.817648186209,
+      2491.708631193646,
+      2597.061164399547,
+      2701.413119472115,
+      2804.288607623297,
+      2905.201339423153
+     ],
+     "anio_11": 2536.785412397374
+    },
+    "BUENO": {
+     "anios_1_10": [
+      2139.413389047672,
+      2283.331146659759,
+      2436.914264731205,
+      2600.81069671402,
+      2775.711749277246,
+      3047.080324345796,
+      3317.846319736764,
+      3583.276775109281,
+      3838.342531559948,
+      4077.863503497102
+     ],
+     "anio_11": 3414.365705490822
+    }
+   },
+   "K3": {
+    "lineas": [
+     {
+      "partida": "FCF base que calibra f (Historia C70, entrada registrada)",
+      "mm": 1994.001,
+      "clase": "caja"
+     },
+     {
+      "partida": "+ nivel del EBIT del año base frente a la media de la ventana, al τ de proyección",
+      "mm": 168.329767,
+      "clase": "explicada"
+     },
+     {
+      "partida": "+ τ de proyección frente al τ de cada año de la ventana",
+      "mm": 13.2533,
+      "clase": "explicada"
+     },
+     {
+      "partida": "− f aplicada a las ventas del año base en lugar de las medias",
+      "mm": -9.69394,
+      "clase": "explicada"
+     },
+     {
+      "partida": "+ inversión neta propia y circulante de la ventana (capex − D&A propia + circulante)",
+      "mm": 599.333333,
+      "clase": "explicada"
+     },
+     {
+      "partida": "− amortización ROU que D_X devuelve como reposición, con los pagos de arrendamiento ya dentro del FCF base",
+      "mm": -1.0,
+      "clase": "doble_computo"
+     },
+     {
+      "partida": "− amortización PPA que D_X devuelve como reposición (no es caja: política (2)(i))",
+      "mm": -140.333333,
+      "clase": "reposicion_no_monetaria"
+     }
+    ],
+    "flujo_sin_crecimiento": 2623.890126563,
+    "suma_de_partidas": 2623.890126563,
+    "identidad_cuadra": true,
+    "doble_computo_mm_en_la_ventana": 141.333333,
+    "doble_computo_mm_a_la_escala_del_año_base": 147.211208,
+    "doble_computo_por_clase_a_la_escala_del_año_base": {
+     "doble_computo": 1.041589,
+     "reposicion_no_monetaria": 146.169619
+    },
+    "partidas_sin_explicar": [
+     "− amortización ROU que D_X devuelve como reposición, con los pagos de arrendamiento ya dentro del FCF base",
+     "− amortización PPA que D_X devuelve como reposición (no es caja: política (2)(i))"
+    ]
+   }
+  },
+  "A1_sin_ROU": {
+   "f": 0.025535321084094,
+   "flujo_sin_crecimiento": 2624.931715297,
+   "tau_proyeccion": 0.1997,
+   "m0": 0.37836695891,
+   "nopat_medio": 2685.091533333,
+   "reinversion_media": 459.0,
+   "ancla_s2c_E4": 1.035224323322,
+   "tau_ventana": {
+    "2023": 0.203,
+    "2024": 0.2033,
+    "2025": 0.2045
+   },
+   "escenarios": {
+    "MALO": {
+     "anios_1_10": [
+      2536.488961696879,
+      2448.046208096879,
+      2359.603454496879,
+      2271.160700896879,
+      2182.717947296879,
+      2155.526716524806,
+      2132.592156724239,
+      2113.767929664584,
+      2098.931813981901,
+      2087.984395447
+     ],
+     "anio_11": 1991.101272460061
+    },
+    "NORMAL": {
+     "anios_1_10": [
+      2258.13451837727,
+      2291.123570072049,
+      2323.655640600451,
+      2355.658329692503,
+      2387.054728861262,
+      2492.986535530976,
+      2598.378683771334,
+      2702.768846905684,
+      2805.680939697573,
+      2906.628479799285
+     ],
+     "anio_11": 2538.248231282909
+    },
+    "BUENO": {
+     "anios_1_10": [
+      2140.52788899266,
+      2284.523661600897,
+      2438.190255718222,
+      2602.176007070128,
+      2777.172631358283,
+      3048.631781115856,
+      3319.481555172407,
+      3584.987231374964,
+      3840.117985163728,
+      4079.692220708994
+     ],
+     "anio_11": 3416.249284219071
+    }
+   },
+   "K3": {
+    "lineas": [
+     {
+      "partida": "FCF base que calibra f (Historia C70, entrada registrada)",
+      "mm": 1994.001,
+      "clase": "caja"
+     },
+     {
+      "partida": "+ nivel del EBIT del año base frente a la media de la ventana, al τ de proyección",
+      "mm": 168.329767,
+      "clase": "explicada"
+     },
+     {
+      "partida": "+ τ de proyección frente al τ de cada año de la ventana",
+      "mm": 13.2533,
+      "clase": "explicada"
+     },
+     {
+      "partida": "− f aplicada a las ventas del año base en lugar de las medias",
+      "mm": -9.652351,
+      "clase": "explicada"
+     },
+     {
+      "partida": "+ inversión neta propia y circulante de la ventana (capex − D&A propia + circulante)",
+      "mm": 599.333333,
+      "clase": "explicada"
+     },
+     {
+      "partida": "− amortización ROU que D_X devuelve como reposición, con los pagos de arrendamiento ya dentro del FCF base",
+      "mm": 0.0,
+      "clase": "explicada"
+     },
+     {
+      "partida": "− amortización PPA que D_X devuelve como reposición (no es caja: política (2)(i))",
+      "mm": -140.333333,
+      "clase": "reposicion_no_monetaria"
+     }
+    ],
+    "flujo_sin_crecimiento": 2624.931715297,
+    "suma_de_partidas": 2624.931715297,
+    "identidad_cuadra": true,
+    "doble_computo_mm_en_la_ventana": 140.333333,
+    "doble_computo_mm_a_la_escala_del_año_base": 146.169619,
+    "doble_computo_por_clase_a_la_escala_del_año_base": {
+     "doble_computo": 0.0,
+     "reposicion_no_monetaria": 146.169619
+    },
+    "partidas_sin_explicar": [
+     "− amortización PPA que D_X devuelve como reposición (no es caja: política (2)(i))"
+    ]
+   }
+  },
+  "A2_propio": {
+   "f": 0.010095412036528,
+   "flujo_sin_crecimiento": 2771.10133425,
+   "tau_proyeccion": 0.1997,
+   "m0": 0.37836695891,
+   "nopat_medio": 2685.091533333,
+   "reinversion_media": 599.333333333,
+   "ancla_s2c_E4": 0.808572256009,
+   "tau_ventana": {
+    "2023": 0.203,
+    "2024": 0.2033,
+    "2025": 0.2045
+   },
+   "escenarios": {
+    "MALO": {
+     "anios_1_10": [
+      2682.658580650193,
+      2594.215827050193,
+      2505.773073450192,
+      2417.330319850193,
+      2328.887566250192,
+      2301.988674716026,
+      2279.639962748224,
+      2261.698022524713,
+      2248.045347584911,
+      2238.58906438604
+     ],
+     "anio_11": 2143.211988088492
+    },
+    "NORMAL": {
+     "anios_1_10": [
+      2409.420073993949,
+      2447.704120135313,
+      2485.716509915929,
+      2523.391329434022,
+      2560.658383593735,
+      2672.319110869621,
+      2783.270568945476,
+      2893.022596749876,
+      3001.071540787558,
+      3106.90384591652
+     ],
+     "anio_11": 2743.530481553075
+    },
+    "BUENO": {
+     "anios_1_10": [
+      2296.929381272706,
+      2451.873258340545,
+      2617.254324229646,
+      2793.774560377352,
+      2982.183083397012,
+      3266.352881180987,
+      3548.959594641055,
+      3825.021260659169,
+      4089.273307560733,
+      4336.32220277791
+     ],
+     "anio_11": 3680.578165750054
+    }
+   },
+   "K3": {
+    "lineas": [
+     {
+      "partida": "FCF base que calibra f (Historia C70, entrada registrada)",
+      "mm": 1994.001,
+      "clase": "caja"
+     },
+     {
+      "partida": "+ nivel del EBIT del año base frente a la media de la ventana, al τ de proyección",
+      "mm": 168.329767,
+      "clase": "explicada"
+     },
+     {
+      "partida": "+ τ de proyección frente al τ de cada año de la ventana",
+      "mm": 13.2533,
+      "clase": "explicada"
+     },
+     {
+      "partida": "− f aplicada a las ventas del año base en lugar de las medias",
+      "mm": -3.816066,
+      "clase": "explicada"
+     },
+     {
+      "partida": "+ inversión neta propia y circulante de la ventana (capex − D&A propia + circulante)",
+      "mm": 599.333333,
+      "clase": "explicada"
+     },
+     {
+      "partida": "− amortización ROU que D_X devuelve como reposición, con los pagos de arrendamiento ya dentro del FCF base",
+      "mm": 0.0,
+      "clase": "explicada"
+     },
+     {
+      "partida": "− amortización PPA que D_X devuelve como reposición (no es caja: política (2)(i))",
+      "mm": 0.0,
+      "clase": "explicada"
+     }
+    ],
+    "flujo_sin_crecimiento": 2771.10133425,
+    "suma_de_partidas": 2771.10133425,
+    "identidad_cuadra": true,
+    "doble_computo_mm_en_la_ventana": 0.0,
+    "doble_computo_mm_a_la_escala_del_año_base": 0.0,
+    "doble_computo_por_clase_a_la_escala_del_año_base": {
+     "doble_computo": 0.0,
+     "reposicion_no_monetaria": 0.0
+    },
+    "partidas_sin_explicar": []
+   }
+  },
+  "B_cota_capex": {
+   "f": 0.045192782484322,
+   "flujo_sin_crecimiento": 2438.834528221,
+   "tau_proyeccion": 0.1997,
+   "m0": 0.37836695891,
+   "nopat_medio": 2685.091533333,
+   "reinversion_media": 280.333333333,
+   "ancla_s2c_E4": 1.388363998011,
+   "tau_ventana": {
+    "2023": 0.203,
+    "2024": 0.2033,
+    "2025": 0.2045
+   },
+   "escenarios": {
+    "MALO": {
+     "anios_1_10": [
+      2350.391774620926,
+      2261.949021020926,
+      2173.506267420926,
+      2085.063513820926,
+      1996.620760220926,
+      1969.057335074702,
+      1945.376897748334,
+      1925.429379134824,
+      1909.086555047902,
+      1896.240683923661
+     ],
+     "anio_11": 1797.440123821489
+    },
+    "NORMAL": {
+     "anios_1_10": [
+      2065.523929753659,
+      2091.771610846612,
+      2117.326362802124,
+      2142.107527171234,
+      2166.029648251749,
+      2264.667627261349,
+      2362.981889345348,
+      2460.545545441344,
+      2556.917609093696,
+      2651.646065930312
+     ],
+     "anio_11": 2276.891257067211
+    },
+    "BUENO": {
+     "anios_1_10": [
+      1941.403898821391,
+      2071.460992117639,
+      2210.213199371136,
+      2358.240556778746,
+      2516.161699546503,
+      2771.438171531747,
+      3027.319490670756,
+      3279.385711906236,
+      3522.903607955189,
+      3752.9614121842
+     ],
+     "anio_11": 3079.716551438533
+    }
+   },
+   "K3": {
+    "lineas": [
+     {
+      "partida": "FCF base que calibra f (Historia C70, entrada registrada)",
+      "mm": 1994.001,
+      "clase": "caja"
+     },
+     {
+      "partida": "+ nivel del EBIT del año base frente a la media de la ventana, al τ de proyección",
+      "mm": 168.329767,
+      "clase": "explicada"
+     },
+     {
+      "partida": "+ τ de proyección frente al τ de cada año de la ventana",
+      "mm": 13.2533,
+      "clase": "explicada"
+     },
+     {
+      "partida": "− f aplicada a las ventas del año base en lugar de las medias",
+      "mm": -17.082872,
+      "clase": "explicada"
+     },
+     {
+      "partida": "+ reinversión de la ventana que la proyección sin crecimiento no repite (capex − D_X + circulante; D_X = capex propio: cota)",
+      "mm": 280.333333,
+      "clase": "explicada"
+     }
+    ],
+    "flujo_sin_crecimiento": 2438.834528221,
+    "suma_de_partidas": 2438.834528221,
+    "identidad_cuadra": true,
+    "doble_computo_mm_en_la_ventana": 0.0,
+    "doble_computo_mm_a_la_escala_del_año_base": 0.0,
+    "doble_computo_por_clase_a_la_escala_del_año_base": {
+     "doble_computo": 0.0,
+     "reposicion_no_monetaria": 0.0
+    },
+    "partidas_sin_explicar": []
+   }
+  }
+ },
+ "diferencias_frente_a_A0_flujo_sin_crecimiento": {
+  "A0_total": 0.0,
+  "A1_sin_ROU": 1.041589,
+  "A2_propio": 147.211208,
+  "B_cota_capex": -185.055598
+ },
+ "condicionada": {
+  "hipotesis": "D-US1",
+  "tramos": [
+   "amortizacion_rou",
+   "variacion_pasivo"
+  ],
+  "texto": "hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14",
+  "regla": "si la empresa no publica en qué líneas del estado de flujos van los dos tramos del arrendamiento operativo (la amortización del derecho de uso y la variación del pasivo), se supone que van netos dentro del flujo de explotación, fuera de las filas 8 (D&A) y 14 (circulante) de la Historia: hipótesis declarada, no dato; la conclusión se presenta como condicionada, con su cota de sensibilidad. Donde la empresa publica las líneas, manda el dato",
+  "registro": {
+   "fecha": "2026-11-18",
+   "persona": "persona responsable del proyecto (decisión registrada; no se firma aquí)",
+   "motivo": "munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:96–98"
+  },
+  "condiciones": [
+   {
+    "id": "D-US1",
+    "tipo": "hipótesis general declarada",
+    "tramos": [
+     "amortizacion_rou",
+     "variacion_pasivo"
+    ],
+    "texto": "hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14",
+    "regla": "si la empresa no publica en qué líneas del estado de flujos van los dos tramos del arrendamiento operativo (la amortización del derecho de uso y la variación del pasivo), se supone que van netos dentro del flujo de explotación, fuera de las filas 8 (D&A) y 14 (circulante) de la Historia: hipótesis declarada, no dato; la conclusión se presenta como condicionada, con su cota de sensibilidad. Donde la empresa publica las líneas, manda el dato",
+    "registro": {
+     "fecha": "2026-11-18",
+     "persona": "persona responsable del proyecto (decisión registrada; no se firma aquí)",
+     "motivo": "munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:96–98"
+    }
+   }
+  ],
+  "cota": {
+   "flujo_sin_crecimiento_con_la_hipotesis": 2771.101334,
+   "tramos_con_hipotesis": [
+    "amortizacion_rou",
+    "variacion_pasivo"
+   ],
+   "si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos": {
+    "variacion_maxima_de_f": 0.006784758,
+    "variacion_maxima_del_flujo_sin_crecimiento_mm": -64.231305,
+    "variacion_maxima_del_flujo_sin_crecimiento_%": -2.318,
+    "por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)": {
+     "MALO": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": -767.244,
+      "variacion_maxima_%": -2.86
+     },
+     "NORMAL": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": -1072.012,
+      "variacion_maxima_%": -3.09
+     },
+     "BUENO": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": -1384.842,
+      "variacion_maxima_%": -3.04
+     }
+    }
+   },
+   "si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 14 (se contaría dos veces): como máximo, el coste lineal": {
+    "variacion_maxima_de_f": -0.006711409,
+    "variacion_maxima_del_flujo_sin_crecimiento_mm": 63.536913,
+    "variacion_maxima_del_flujo_sin_crecimiento_%": 2.293,
+    "por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)": {
+     "MALO": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": 758.95,
+      "variacion_maxima_%": 2.83
+     },
+     "NORMAL": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": 1060.423,
+      "variacion_maxima_%": 3.05
+     },
+     "BUENO": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": 1369.87,
+      "variacion_maxima_%": 3.01
+     }
+    }
+   },
+   "nota": "cotas, no estimaciones (salvo la de D-WM): la parte del pago que reduce el pasivo es menor que el pago y la amortización del derecho de uso es menor que el coste lineal; si los dos tramos estuvieran netos dentro de la fila 14, la variación sería solo −(pagos − coste lineal)",
+   "resumen": {
+    "flujo_sin_crecimiento_mm": [
+     -64.231305,
+     63.536913
+    ],
+    "flujo_sin_crecimiento_%": [
+     -2.318,
+     2.293
+    ],
+    "valor_presente_NORMAL_%": [
+     -3.09,
+     3.05
+    ],
+    "texto": "cota: el flujo sin crecimiento podría cambiar entre -64.231 y +63.537 mm (-2.3 % y +2.3 %); el valor presente de los flujos en el escenario NORMAL, entre -3.1 % y +3.0 %"
+   }
+  }
+ },
+ "us_gaap": {
+  "decisiones": {
+   "D-US1": {
+    "regla": "si la empresa no publica en qué líneas del estado de flujos van los dos tramos del arrendamiento operativo (la amortización del derecho de uso y la variación del pasivo), se supone que van netos dentro del flujo de explotación, fuera de las filas 8 (D&A) y 14 (circulante) de la Historia: hipótesis declarada, no dato; la conclusión se presenta como condicionada, con su cota de sensibilidad. Donde la empresa publica las líneas, manda el dato",
+    "registro": {
+     "fecha": "2026-11-18",
+     "persona": "persona responsable del proyecto (decisión registrada; no se firma aquí)",
+     "motivo": "munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:96–98"
+    }
+   },
+   "D-US2": {
+    "regla": "cuando el coste lineal del arrendamiento operativo y los pagos del año difieren, se cuentan los pagos y la diferencia queda a la vista, sin bloquear",
+    "registro": {
+     "fecha": "2026-11-18",
+     "persona": "persona responsable del proyecto (decisión registrada; no se firma aquí)",
+     "motivo": "munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:96–98"
+    }
+   },
+   "D-US2 bis": {
+    "regla": "con el alquiler operativo mezclado en las líneas de otros activos y otros pasivos (los dos tramos dentro de la fila 14) no se bloquea: se publica el valor de la hoja, que cuenta el coste contable, y al lado cuánto cambiaría contando los pagos; antes, el programa comprueba que el expediente muestra las dos líneas (la del activo y la del pasivo)",
+    "registro": {
+     "fecha": "2026-11-18",
+     "persona": "persona responsable del proyecto (decisión registrada; no se firma aquí)",
+     "motivo": "munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:112–114 (tras la revisión R1 de F1 con US GAAP)"
+    }
+   },
+   "D-WM": {
+    "regla": "los arrendamientos financieros que la empresa no desglosa se tratan como deuda y activos propios (hipótesis declarada): su amortización queda dentro de la propia y sus pagos no se restan de la caja base; la diferencia estimada (caja pagada − gasto total) se enseña junto al resultado",
+    "registro": {
+     "fecha": "2026-11-18",
+     "persona": "persona responsable del proyecto (decisión registrada; no se firma aquí)",
+     "motivo": "munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:112–114 (tras la revisión R1 de F1 con US GAAP)"
+    }
+   }
+  },
+  "base_del_arrendamiento_operativo": "pagos (D-US2)",
+  "operativos": {
+   "existen": true,
+   "ubicacion_de_la_amortizacion_del_derecho_de_uso": "fuera_de_las_filas_8_y_14",
+   "ubicacion_de_la_variacion_del_pasivo": "fuera_de_las_filas_8_y_14",
+   "hipotesis_D_US1_en": [
+    "amortizacion_rou",
+    "variacion_pasivo"
+   ],
+   "pagos_medios_de_la_ventana": 61.666667,
+   "coste_lineal_medio_de_la_ventana": 61.0,
+   "coste_comparable_con_los_pagos": true,
+   "amortizacion_dentro_de_la_fila_8_media": 0.0,
+   "tramos_dentro_de_la_fila_14": [],
+   "retirado_del_circulante_medio": null
+  },
+  "financieros": {
+   "existen": true,
+   "tratados_como_deuda_D_WM": false,
+   "ubicacion_de_la_amortizacion_del_derecho_de_uso": "fila_8",
+   "principal_publicado_medio_de_la_ventana": 1.0,
+   "amortizacion_dentro_de_la_fila_8_media": 1.0
+  },
+  "diferencia_coste_lineal_menos_pagos": {
+   "coste_lineal_medio_de_la_ventana": 61.0,
+   "pagos_medios_de_la_ventana": 61.666667,
+   "coste_menos_pagos_medio": -0.666667,
+   "coste_menos_pagos_a_la_escala_del_año_base": -0.694392,
+   "coste_menos_pagos_del_año_base": 1.0,
+   "coste_entre_pagos": 0.9892,
+   "nota": "D-US2: se cuentan los pagos. Si se contara el coste lineal, el flujo sin crecimiento cambiaría en −(coste − pagos) a la escala del año base. El coste declarado es el de los contratos capitalizados (sin corto plazo ni variable): si la diferencia no es de calendario sino de perímetro, se declara «coste_comparable_con_los_pagos»: false"
+  },
+  "D_US2_bis": null,
+  "D_WM": null,
+  "cota_D_US1": {
+   "flujo_sin_crecimiento_con_la_hipotesis": 2771.101334,
+   "tramos_con_hipotesis": [
+    "amortizacion_rou",
+    "variacion_pasivo"
+   ],
+   "si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos": {
+    "variacion_maxima_de_f": 0.006784758,
+    "variacion_maxima_del_flujo_sin_crecimiento_mm": -64.231305,
+    "variacion_maxima_del_flujo_sin_crecimiento_%": -2.318,
+    "por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)": {
+     "MALO": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": -767.244,
+      "variacion_maxima_%": -2.86
+     },
+     "NORMAL": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": -1072.012,
+      "variacion_maxima_%": -3.09
+     },
+     "BUENO": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": -1384.842,
+      "variacion_maxima_%": -3.04
+     }
+    }
+   },
+   "si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 14 (se contaría dos veces): como máximo, el coste lineal": {
+    "variacion_maxima_de_f": -0.006711409,
+    "variacion_maxima_del_flujo_sin_crecimiento_mm": 63.536913,
+    "variacion_maxima_del_flujo_sin_crecimiento_%": 2.293,
+    "por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)": {
+     "MALO": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": 758.95,
+      "variacion_maxima_%": 2.83
+     },
+     "NORMAL": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": 1060.423,
+      "variacion_maxima_%": 3.05
+     },
+     "BUENO": {
+      "variacion_maxima_del_valor_presente_de_los_flujos_mm": 1369.87,
+      "variacion_maxima_%": 3.01
+     }
+    }
+   },
+   "nota": "cotas, no estimaciones (salvo la de D-WM): la parte del pago que reduce el pasivo es menor que el pago y la amortización del derecho de uso es menor que el coste lineal; si los dos tramos estuvieran netos dentro de la fila 14, la variación sería solo −(pagos − coste lineal)",
+   "resumen": {
+    "flujo_sin_crecimiento_mm": [
+     -64.231305,
+     63.536913
+    ],
+    "flujo_sin_crecimiento_%": [
+     -2.318,
+     2.293
+    ],
+    "valor_presente_NORMAL_%": [
+     -3.09,
+     3.05
+    ],
+    "texto": "cota: el flujo sin crecimiento podría cambiar entre -64.231 y +63.537 mm (-2.3 % y +2.3 %); el valor presente de los flujos en el escenario NORMAL, entre -3.1 % y +3.0 %"
+   }
+  },
+  "contraste_de_ubicaciones": {
+   "tramos": {
+    "amortizacion_rou": {
+     "ubicacion_declarada": "no_publicada",
+     "estado": "hipotesis_D_US1",
+     "motivo": "la empresa no publica la línea: hipótesis general declarada (no es un dato)"
+    },
+    "variacion_pasivo": {
+     "ubicacion_declarada": "no_publicada",
+     "estado": "hipotesis_D_US1",
+     "motivo": "la empresa no publica la línea: hipótesis general declarada (no es un dato)"
+    },
+    "amortizacion_rou_financiero": {
+     "ubicacion_declarada": "fila_8",
+     "estado": "por_omision",
+     "motivo": "dentro de la fila 8 por omisión (como NIIF 16): ninguna línea sumada en la fila 8 la nombra en [2021, 2022, 2023, 2024, 2025]; no se ha contrastado con una línea (el importe es el declarado en series.da_rou)"
+    }
+   },
+   "fundamento": "hipótesis",
+   "fase1_partes": {
+    "informes": [
+     2016,
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025
+    ],
+    "sin_examinar": [],
+    "ilegibles": [],
+    "sha256": "e327a9f6163ad32ed68b387695b6919f2264b8e26bd8b4e78aeb7243c5bdff18"
+   },
+   "sin_contrastar": {},
+   "importe_sin_contrastar": [],
+   "lineas_ajenas_al_tramo": []
+  },
+  "puente_de_deuda": {
+   "ejercicio": 2025,
+   "motor": "A",
+   "deuda_financiera_fila_22": 9042.0,
+   "pasivo_por_arrendamientos_fila_23": 7.0,
+   "pasivo_operativo_dentro_de_la_fila_23": 0.0,
+   "deuda_del_puente_del_libro_C64": 9049.0,
+   "deuda_del_puente_coherente": 9049.0,
+   "exceso_que_restaria_el_motor_B": 0.0,
+   "lineas_de_arrendamiento_operativo_sumadas_en_la_fila_23": [],
+   "regla": "deuda del puente = deuda financiera + pasivo por arrendamientos financieros; el pasivo por arrendamiento operativo no entra: su pago ya está entero en el EBIT (una sola vez)"
+  }
+ },
+ "fase1_partes_sha256": "e327a9f6163ad32ed68b387695b6919f2264b8e26bd8b4e78aeb7243c5bdff18",
+ "F1_SERIES": {
+  "invalidas": [],
+  "incompletas": [],
+  "columna_comprobada": 0,
+  "columna_pendiente": [
+   "series.da_rou.2021: cero comprobado por una frase de la página: el programa comprueba la cita, no que pruebe la inexistencia; la confirma un revisor (la aptitud por entradas sigue en «no»)",
+   "series.da_rou.2022: cero comprobado por una frase de la página: el programa comprueba la cita, no que pruebe la inexistencia; la confirma un revisor (la aptitud por entradas sigue en «no»)",
+   "series.da_rou.2023: sin encabezado de ejercicio alineado con '1' en la fila 'Amortization of right-of-use assets'",
+   "series.da_rou.2024: sin encabezado de ejercicio alineado con '1' en la fila 'Amortization of right-of-use assets'",
+   "series.da_rou.2025: sin encabezado de ejercicio alineado con '1' en la fila 'Amortization of right-of-use assets'",
+   "series.da_ppa.2021: sin encabezado de ejercicio alineado con '175' en la fila 'Amortization and depreciation'",
+   "series.da_ppa.2022: sin encabezado de ejercicio alineado con '160' en la fila 'Amortization and depreciation'",
+   "series.da_ppa.2023: sin encabezado de ejercicio alineado con '153' en la fila 'Amortization and depreciation'",
+   "series.da_ppa.2024: sin encabezado de ejercicio alineado con '140' en la fila 'Amortization and depreciation'",
+   "series.da_ppa.2025: sin encabezado de ejercicio alineado con '128' en la fila 'Amortization and depreciation'",
+   "series.pagos_arr_operativo.2023: sin encabezado de ejercicio alineado con '57' en la fila 'Operating cash flows – operating leases'",
+   "series.pagos_arr_operativo.2024: sin encabezado de ejercicio alineado con '61' en la fila 'Operating cash flows – operating leases'",
+   "series.pagos_arr_operativo.2025: sin encabezado de ejercicio alineado con '67' en la fila 'Operating cash flows – operating leases'",
+   "series.coste_arr_operativo.2023: sin encabezado de ejercicio alineado con '56' en la fila 'Operating lease expense'",
+   "series.coste_arr_operativo.2024: sin encabezado de ejercicio alineado con '59' en la fila 'Operating lease expense'",
+   "series.coste_arr_operativo.2025: sin encabezado de ejercicio alineado con '68' en la fila 'Operating lease expense'",
+   "series.pasivo_arr_operativo.2025: cero comprobado por una frase de la página: el programa comprueba la cita, no que pruebe la inexistencia; la confirma un revisor (la aptitud por entradas sigue en «no»)",
+   "series.pagos_arr_financiero_principal.2023: sin encabezado de ejercicio alineado con el cero impreso '—' en la fila 'Financing cash flows – finance leases'",
+   "series.pagos_arr_financiero_principal.2024: sin encabezado de ejercicio alineado con '1' en la fila 'Financing cash flows – finance leases'",
+   "series.pagos_arr_financiero_principal.2025: sin encabezado de ejercicio alineado con '2' en la fila 'Financing cash flows – finance leases'"
+  ],
+  "nota": "condición mínima, no la verificación de entradas: las filas 85–87 del libro V6.3.1 entran en su universo",
+  "citas_de_clasificacion_comprobadas": 2,
+  "paginas_sin_linea_propia_del_arrendamiento_operativo": 2,
+  "nota_us_gaap": "las series y clasificaciones propias de US GAAP no están en el libro: quedan fuera del universo de verificacion_entradas.py"
+ },
+ "guardas": [
+  {
+   "id": "F1-NORMA",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "US GAAP declarada; libro: US GAAP",
+   "decision": "generalidad",
+   "clase": null
+  },
+  {
+   "id": "V-F1e",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "invariantes de E1 y signos declarados: conformes",
+   "decision": "(1a)",
+   "clase": null
+  },
+  {
+   "id": "V-F1b",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "D&A ROU declarada en la ventana o C49 = 0",
+   "decision": "(1a)",
+   "clase": null
+  },
+  {
+   "id": "V-F1a",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "no aplica: el perímetro no es A0",
+   "decision": "(1a)",
+   "clase": null
+  },
+  {
+   "id": "V-F1m",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "no aplica: el perímetro no es A0",
+   "decision": "(1a)",
+   "clase": null
+  },
+  {
+   "id": "F1-M-SIM",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "no salta",
+   "decision": "(1a) · simétrica de V-F1m",
+   "clase": null
+  },
+  {
+   "id": "F1-ROU-HISTORIA",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "sin conflicto entre la ROU declarada y las filas 17 y 23 de la Historia",
+   "decision": "(1a)",
+   "clase": null
+  },
+  {
+   "id": "F1-US-MEZCLA",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "sin partidas propias de NIIF en un libro US GAAP (C48 y fila 16 a cero)",
+   "decision": "US GAAP · ASC 842",
+   "clase": null
+  },
+  {
+   "id": "F1-US-DESGLOSE",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "arrendamientos operativos y financieros declarados por separado, con sus series · hipótesis D-US1 en amortizacion_rou, variacion_pasivo",
+   "decision": "US GAAP · ASC 842",
+   "clase": null
+  },
+  {
+   "id": "F1-US-C49",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "C49 = 1.0 es el principal publicado de los arrendamientos financieros (1.0 de media en la ventana; redondeo de C49 ±0.5)",
+   "decision": "US GAAP · ASC 842",
+   "clase": null
+  },
+  {
+   "id": "F1-US-DA",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "la amortización del derecho de uso operativo no queda dentro de la reinversión",
+   "decision": "US GAAP · ASC 842",
+   "clase": null
+  },
+  {
+   "id": "F1-US-SIM",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "la variación del pasivo operativo no queda sola dentro de la reinversión",
+   "decision": "simétrica · US GAAP · ASC 842",
+   "clase": null
+  },
+  {
+   "id": "F1-US-FILAS",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "la amortización del derecho de uso: no publicada (hipótesis D-US1) · hipotesis D US1; la variación del pasivo: no publicada (hipótesis D-US1) · hipotesis D US1; la amortización del derecho de uso de los arrendamientos financieros: dentro de la fila 8 · por omision · lo declarado no contradice las líneas que la fase 1 sumó en las filas 8 y 14 en los años que usa el modelo (2021–2025; informes 2016–2025)",
+   "decision": "US GAAP · ubicaciones frente a las líneas del expediente (D-US1: manda el dato)",
+   "clase": null
+  },
+  {
+   "id": "F1-2i",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "el perímetro no trata la PPA como reposición",
+   "decision": "(2)(i)",
+   "clase": null
+  },
+  {
+   "id": "V-F1l",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "sin ajustes de normalización (el diagnóstico se muestra como diagnóstico)",
+   "decision": "(5a)",
+   "clase": null
+  },
+  {
+   "id": "V-F1j",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "compras: crecimiento_por_hipotesis",
+   "decision": "(4b)",
+   "clase": null
+  },
+  {
+   "id": "V-F1i",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "sin transición conocida",
+   "decision": "(5b)",
+   "clase": null
+  },
+  {
+   "id": "V-F1d",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "no aplica: el perímetro no es A3_estimado",
+   "decision": "(3a)",
+   "clase": null
+  },
+  {
+   "id": "V-F1c",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "no aplica: el perímetro no es A3_estimado",
+   "decision": "(3a)",
+   "clase": null
+  },
+  {
+   "id": "V-F1h",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "margen EBIT_NIIF16_PPA_constante coherente con A2_propio",
+   "decision": "(2)",
+   "clase": null
+  },
+  {
+   "id": "V-F1g",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "perímetro declarado de las palancas S2C = perímetro de la reinversión (A2_propio): compara etiquetas de la declaración, no cifras; los valores, en «V-F1g (valores)» (P-FOSO, D3)",
+   "decision": "(4a)",
+   "clase": null
+  },
+  {
+   "id": "V-F1k",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "perímetro declarado del ROIC del terminal = el de las palancas S2C (A2_propio): compara etiquetas de la declaración, no cifras; los valores, en «V-F1k (valores)» (P-FOSO, D3)",
+   "decision": "(4a)",
+   "clase": null
+  },
+  {
+   "id": "F1-REPLICA",
+   "salta": true,
+   "severidad": "BLOQUEA",
+   "efecto": "DATOS INVÁLIDOS",
+   "detalle": "Motor!AU6 2453.48261683346 ≠ réplica 2682.6585806501926; Motor!AV6 2422.33385418764 ≠ réplica 2594.2158270501927; Motor!AW6 2391.18509154182 ≠ réplica 2505.7730734501924; Motor!AX6 2360.03632889601 ≠ réplica 2417.3303198501926; Motor!AU7 2172.22295144363 ≠ réplica 2409.4200739939492; Motor!AV7 2263.57985375563 ≠ réplica 2447.7041201353127; Motor!AW7 2358.67076611395 ≠ réplica 2485.716509915929; Motor!AX7 2457.6451570165 ≠ réplica 2523.391329434022; Motor!AU8 2051.7110999888 ≠ réplica 2296.929381272706; Motor!AV8 2255.08558761021 ≠ réplica 2451.8732583405454; Motor!AW8 2476.87911910867 ≠ réplica 2617.254324229646; Motor!AX8 2718.67382563763 ≠ réplica 2793.7745603773524",
+   "decision": "T1/T7",
+   "clase": "implementacion"
+  },
+  {
+   "id": "F1-K3a",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "caja base por dos vías: cada diferencia entre C70 y la fila 35 está explicada por una partida declarada",
+   "decision": "K3",
+   "clase": null
+  },
+  {
+   "id": "F1-K3b",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "alquiler contado una vez (operativos, financieros) · según la hipótesis D-US1 (no es un dato ni una comprobación independiente)",
+   "decision": "K3",
+   "clase": null
+  },
+  {
+   "id": "F1-K3c",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "reinversión media 599.333 ≥ 0 (o ventas a la baja)",
+   "decision": "K3",
+   "clase": null
+  },
+  {
+   "id": "F1-LIBRO",
+   "salta": true,
+   "severidad": "BLOQUEA",
+   "efecto": "MODELO NO APLICABLE",
+   "detalle": "el libro V6.3.1 F1 no calcula lo declarado (A2_propio; N1 y los términos explícitos no están en el libro): flujos del Motor distintos de los de la capa en 12 celdas (Motor!AU6, Motor!AV6, Motor!AW6, Motor!AX6): la conclusión del motor A no se toma del libro; los flujos F1 son un diagnóstico",
+   "decision": "(1a) · implantación",
+   "clase": "modelo"
+  },
+  {
+   "id": "V-F1k (salto del terminal)",
+   "salta": true,
+   "severidad": "AVISO",
+   "efecto": "AVISO",
+   "detalle": "|salto| > C179 en ['MALO', 'NORMAL', 'BUENO']: G8 (vigente) exige justificación en la tesis u Observación de B18:D18",
+   "decision": "(4a)",
+   "clase": null
+  },
+  {
+   "id": "V-F1g (valores)",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "perímetro A2_propio declarado; medidas del perímetro no aplicables: norma contable 'US_GAAP': la medida solo tiene fórmula con NIIF (NIIF 16). Con US GAAP el arrendamiento operativo va entero en el EBIT y restarle su interés lo contaría dos veces; no se emite hasta que tenga su fórmula. G7 y las referencias usan C55, de todo el capital, como antes",
+   "decision": "(4a) · P-FOSO",
+   "clase": null
+  },
+  {
+   "id": "V-F1k (valores)",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "perímetro A2_propio declarado; medidas del perímetro no aplicables: norma contable 'US_GAAP': la medida solo tiene fórmula con NIIF (NIIF 16). Con US GAAP el arrendamiento operativo va entero en el EBIT y restarle su interés lo contaría dos veces; no se emite hasta que tenga su fórmula. G7 y las referencias usan C55, de todo el capital, como antes",
+   "decision": "(4a) · P-FOSO",
+   "clase": null
+  },
+  {
+   "id": "V-F1f",
+   "salta": true,
+   "severidad": "INFORMA",
+   "efecto": "INFORMA",
+   "detalle": "{\"PPA: media ÷ ventas medias (lo que devuelve f en A2)\": 0.01544, \"PPA: año base ÷ ventas del año base (lo que lleva m0)\": 0.013521, \"efecto de escala de la PPA en el flujo sin crecimiento de A2 (mm)\": 18.17, \"ROU: media ÷ ventas medias (lo que devuelve f en A1 y A2)\": 0.00011, \"ROU: año base ÷ ventas del año base (lo que lleva m0)\": 0.000106, \"efecto de escala de la ROU en el flujo sin crecimiento de A1 y A2 (mm)\": 0.042}",
+   "decision": "(2)",
+   "clase": null
+  },
+  {
+   "id": "F1-US-BASE",
+   "salta": true,
+   "severidad": "INFORMA",
+   "efecto": "INFORMA",
+   "detalle": "arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); coste lineal medio 61.000, pagos medios 61.667: coste − pagos = -0.667 de media en la ventana (-0.694 a la escala del año base)",
+   "decision": "D-US2",
+   "clase": null
+  },
+  {
+   "id": "F1-US-HIPOTESIS",
+   "salta": true,
+   "severidad": "AVISO",
+   "efecto": "AVISO",
+   "detalle": "hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14. CONCLUSIÓN CONDICIONADA. Cota: si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos: flujo sin crecimiento -64.231 mm (-2.3 %); si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 14 (se contaría dos veces): como máximo, el coste lineal: flujo sin crecimiento +63.537 mm (+2.3 %) · registro de las reglas: D-US1: 2026-11-18, munger-v2-evidencias-mistral, coordinacion/cierre_v2/DECISIONES_PARA_EL_USUARIO.md:96–98",
+   "decision": "D-US1 · D-WM · R1-3",
+   "clase": null
+  },
+  {
+   "id": "F1-US-PUENTE",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "la fila 23 no lleva pasivo por arrendamiento operativo: la deuda del puente es la del libro",
+   "decision": "puente de deuda · US GAAP",
+   "clase": null
+  },
+  {
+   "id": "F1-SERIES-CERO",
+   "salta": true,
+   "severidad": "AVISO",
+   "efecto": "PENDIENTE",
+   "detalle": "CERO SIN CIFRA IMPRESA, PENDIENTE DE REVISOR (no comprobado: el programa solo ha visto que la frase está en la página; no bloquea F1-SERIES y la aptitud por entradas sigue en «no»): series.da_rou.2021: motivo «Sin arrendamientos financieros en 2021: «Our current portfolio includes only operating leases»; la amortización del derecho de uso de los operativos no está dentro de la fila 8 (D-US1). Cero por lectura, PENDIENTE DE REVISOR»; cita (p. 78 de 'Zoetis · Form 10-K FY2021') «Our current portfolio includes only operating leases which are recorded as a right of use» · series.da_rou.2022: motivo «Sin arrendamientos financieros en 2022: «Our current portfolio includes only operating leases»; la amortización del derecho de uso de los operativos no está dentro de la fila 8 (D-US1). Cero por lectura, PENDIENTE DE REVISOR»; cita (p. 70 de 'Zoetis · Form 10-K FY2022') «Our current portfolio includes only operating leases which are recorded as a right of use» · series.pasivo_arr_operativo.2025: motivo «Pasivo por arrendamiento OPERATIVO dentro de la fila 23 de la Historia en 2025 = 0: la fila 23 lleva solo el pasivo por arrendamientos financieros (1 + 6 = 7, PDF p. 89) por la corrección registrada de fase1_partes (resultados/correccion_fase1_partes.json); el pasivo operativo publicado (52 + 196 = »; cita (p. 89 de 'Zoetis · Form 10-K FY2025') «Supplemental information for our lease portfolio is as follows:»",
+   "decision": "(1a) · F1-SERIES-ESCALA",
+   "clase": null
+  },
+  {
+   "id": "F1-SERIES",
+   "salta": false,
+   "severidad": null,
+   "efecto": null,
+   "detalle": "US GAAP · 2 clasificaciones con su cita en la página citada y 2 páginas examinadas sin línea propia (D-US1) · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente del expediente con su huella; columna del ejercicio comprobada en 0 años, PENDIENTE en 20 (la aptitud por entradas sigue en «no»)",
+   "decision": "(1a) · H12 · V631-2",
+   "clase": null
+  }
+ ],
+ "bloquea": true,
+ "utilizable_para_conclusion": false,
+ "estado_propuesto": "no_entregable · fallo_de_implementacion",
+ "rotulo": "DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-LIBRO, F1-REPLICA",
+ "declaracion_ruta": "/dev/shm/rev_m0/exp/zoetis_t1c/Zoetis/motor_a_f1.json",
+ "libro_origen_sha256": "7cb988d0a6e6067c6cad2b341be79b27f8f853d30f66f3bbb10a470c95da6226"
+}

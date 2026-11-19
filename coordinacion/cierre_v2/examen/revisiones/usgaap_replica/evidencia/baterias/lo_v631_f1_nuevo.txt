@@ -1,0 +1,37 @@
+PASA  · libro de Elis: d2593777…, sin cambios
+PASA  · Elis A1: perímetro efectivo A1_sin_ROU y Motor V05 OK · V05 'OK'
+PASA  · Elis A1 recalculado por LibreOffice: f = E9 (10⁻¹²) · 0.0126242253232846 frente a 0.012624225323285
+PASA  · Elis A1: C53 (ancla de S2C) = E9 (10⁻⁹) · 2.4453316953317 frente a 2.445331695332
+PASA  · Elis A1: los 33 flujos del Motor (años 1–10 y 11, tres escenarios) = E9 (10⁻⁹) · desviación máxima 1.02e-12
+PASA  · Elis A1: el año 11 NORMAL se aparta del de A0 en 205,363 (control negativo: el terminal usa la f del perímetro) · 205.363093
+PASA  · Elis A1: la capa coincide con el libro (f 10⁻¹², ancla 10⁻⁹) y F1-REPLICA no salta (réplica con la D_X del libro) · réplica D_X del libro (A1_sin_ROU) · 33 flujos
+PASA  · Elis A1: F1-LIBRO NO salta (libro V6.3.1 con el perímetro, las series, D_X, f, ancla y 33 flujos de la capa) · []
+PASA  · Elis A1: F1-SERIES sin problemas: las 10 cifras de D&A de derechos de uso y PPA completas, con su signo, en su fila y en la columna de su ejercicio, en el texto del expediente con su huella · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente del expediente con su huella; columna del ejercicio comprobada en 10 años
+PASA  · Elis A2: perímetro efectivo A2_propio y Motor V05 OK · V05 'OK'
+PASA  · Elis A2 recalculado por LibreOffice: f = E9 (10⁻¹²) · -0.00611860174416477 frente a -0.006118601744165
+PASA  · Elis A2: C53 (ancla de S2C) = E9 (10⁻⁹) · 1.61252430330525 frente a 1.612524303305
+PASA  · Elis A2: los 33 flujos del Motor (años 1–10 y 11, tres escenarios) = E9 (10⁻⁹) · desviación máxima 1.02e-12
+PASA  · Elis A2: la capa coincide con el libro (f 10⁻¹², ancla 10⁻⁹) y F1-REPLICA no salta (réplica con la D_X del libro) · réplica D_X del libro (A2_propio) · 33 flujos
+PASA  · Elis A2: F1-LIBRO NO salta (libro V6.3.1 con el perímetro, las series, D_X, f, ancla y 33 flujos de la capa) · []
+PASA  · Elis A2: F1-SERIES sin problemas: las 10 cifras de D&A de derechos de uso y PPA completas, con su signo, en su fila y en la columna de su ejercicio, en el texto del expediente con su huella · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente del expediente con su huella; columna del ejercicio comprobada en 10 años
+PASA  · V631-2 · E1: la D&A ROU de 2025 declarada con la cifra de 2024 de la misma página: libro y capa coinciden, pero F1-SERIES la rechaza (columna de 2024) · series.da_rou.2025: la cifra '(132.2)' de la fila 'Right-of-use assets' está en la columna de ['2024'], no en la de 2025 (además de las guardas que ya bloquean)
+PASA  · V631-5 · A1 con el circulante de 2021 vacío (fuera de la ventana, dentro de H–L): C53 vacía en el libro y en la capa; f = E9
+PASA  · V631-4 · A0 con el capex de 2021 vacío: el libro calcula C53 como la V6.3 (≥ 3 años) y el oráculo no lo hace bloquear (la capa no lo calcula) · C53 6.32909379968204
+PASA  · A1 con la D&A ROU de 2024 vacía (ventana): f y C53 vacías en el libro, Motor V05 INCOMPLETO, capa en pendiente_de_datos sin error ni F1-REPLICA · 'Motor A · perímetro A1_sin_ROU: falta la amortización de derechos de uso (Historia fila 86) o la PPA (fila 87) en algún año de la ventana que calibra f; vacío 
+PASA  · A1 con la D&A ROU de 2021 vacía (fuera de la ventana, dentro del ancla H–L): f = E9, C53 vacía (cinco años) y la capa coincide
+PASA  · A2 con la PPA de 2025 vacía: f vacía y Motor V05 INCOMPLETO (vacío no es cero)
+PASA  · C85 = «A3_estimado» (no está en el libro): perímetro efectivo «no reconocido», f vacía y Motor V05 DATOS INVÁLIDOS
+PASA  · A3_estimado declarado (sin estimación): la capa termina en pendiente_de_datos (V-F1d) y F1-LIBRO bloquea (A3 no está en el libro)
+PASA  · libro A1 con la declaración A2: F1-LIBRO bloquea (perímetro efectivo distinto)
+PASA  · libro A1 con una D&A ROU distinta de la declarada (2024): F1-LIBRO bloquea (serie, D_X, f y flujos)
+PASA  · libro V6.3 (Elis tal cual) con la declaración A1: F1-LIBRO bloquea como antes (límite declarado) y no hay bloque V6.3.1
+PASA  · libro V6.3.1 con A0 y la declaración A0: F1-LIBRO no salta, la réplica es la de A0 y V-F1a sigue bloqueando (arrendamiento dos veces)
+PASA  · sintético NIIF 16 pesado · A0_total: libro = capa (f, ancla) y F1-LIBRO y F1-REPLICA no saltan · f 0.0400000005795958 · C53 1.48148148148148 · []
+PASA  · sintético NIIF 16 pesado · A1_sin_ROU: libro = capa (f, ancla) y F1-LIBRO y F1-REPLICA no saltan · f 0.0100000003592903 · C53 0.925925923782236 · []
+PASA  · sintético NIIF 16 pesado · A2_propio: libro = capa (f, ancla) y F1-LIBRO y F1-REPLICA no saltan · f 0.00400000017151303 · C53 0.861326440960309 · []
+PASA  · sintético: NIIF 16 pesado (D&A ROU media ≥ 40 % del FCF base, con el principal dentro) · 27.833 / 55.665
+PASA  · sintético: f_A1 = f_A0 − ROU media ÷ ventas medias (identidad, con los valores del libro) · ROU media 27.833 = 50 % del FCF base 55.665
+PASA  · sintético: f_A2 = f_A0 − (ROU + PPA) media ÷ ventas medias
+PASA  · sintético: C53_A1 = ΔV ÷ (Σ fila 31 en A0 + Σ ROU H–L) y C53_A2 con la PPA
+35/35 comprobaciones V6.3.1 F1 (f1) PASAN
+rc=0
