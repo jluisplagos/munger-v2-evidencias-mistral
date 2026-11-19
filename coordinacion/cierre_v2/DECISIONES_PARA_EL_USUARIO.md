@@ -132,3 +132,4 @@ Preguntas formuladas con el dictamen `examen/revisiones/dictamen_O1_O2_ahold/DIC
 - **Z-R · Zoetis, agrupación geográfica de la r mínima → dejarla** y anotar la diferencia.
 - **Z-MIN · Zoetis, minoritarios negativos → cero** con aviso y la cifra impresa en el registro.
 - **V-CIRC · Vinci, circulante en la reinversión → (a):** circulante a 0 también en la reinversión, con un mecanismo declarado (cambio de producto con pruebas y revisión independiente; expediente nuevo de Vinci).
+- **V-ANCLA · Vinci, circulante en el ancla S2C → (a) excluirlo también** (literal: «7a», 19-nov-2026): el ancla de ventas sobre capital de VINCI se calcula sin el circulante (≈ 2,32 en lugar de 5,96). Límite declarado: el capital del balance (ROIC, C54–C55) sigue incluyendo el circulante negativo.
