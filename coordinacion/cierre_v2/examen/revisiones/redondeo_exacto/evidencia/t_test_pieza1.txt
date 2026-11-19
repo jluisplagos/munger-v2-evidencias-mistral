@@ -1,0 +1,19 @@
+PASA  · 1a escribir una celda de cada tipo en la plantilla · OK: 8 celdas escritas en /dev/shm/rv/copia/munger_v2_r1/personaje_v2/pruebas/salida_pieza1/plantilla_1.xlsx (10964 cachés de fórmula borradas)
+PASA  · 1b verificar_v63.py = 0 tras escribir · VEREDICTO: ÍNTEGRO · 0 fallos · 0 avisos
+PASA  · 1c vaciar Palancas!C10 en una segunda escritura y seguir íntegro · VEREDICTO: ÍNTEGRO · 0 fallos · 0 avisos
+PASA  · 1d lectura XML: C11, B14, C10 vacía, B38 serial · C11='Sí' B14=0.04 C10=None B38=46477
+PASA  · 1e openpyxl lee Palancas!B38 como fecha 2027-03-31 · 2027-03-31 00:00:00
+PASA  · 1f recálculo forzado: Análisis!D11 = «✓ PASA» con C11 escrita · D11='✓ PASA'
+PASA  · 1g add_cached_values.py + verificar_v63.py = 0 · VEREDICTO: ÍNTEGRO · 0 fallos · 0 avisos
+PASA  · 2a Empresa X: escribir Palancas!C14 (+2 pts) deja el libro íntegro · VEREDICTO: ÍNTEGRO · 0 fallos · 0 avisos
+PASA  · 2b Empresa X: Análisis!C78 cambia tras el recálculo forzado · C14 0.08 → 0.1; C78 25.0689493251303 → 27.2973323169117
+PASA  · 2c el libro escrito no conserva <v> en celdas con fórmula (cachés borradas) · <c r="C78" s="450"><f>IF(C65="","Falta: ¿qué tiene que pasar?",IF(Motor!$B$252,Motor!$B$25
+PASA  · 3 escrituras sucesivas A→B→C: íntegro en cada paso y los valores anteriores se conservan · codes=[0, 0, 0]
+PASA  · 4a negarse a escribir una celda con fórmula (Análisis!A6) · ERROR: Análisis!A6 no está en la lista blanca
+PASA  · 4a' negarse a escribir una celda con fórmula incluso con lista blanca «cualquiera» · ERROR: Análisis!A6 tiene fórmula: no se escribe
+PASA  · 4b negarse a escribir una celda de datos con la lista blanca «juicio» (Análisis!C37) · ERROR: Análisis!C37 no está en la lista blanca
+PASA  · 4c con la lista blanca «entradas» sí escribe Análisis!C37 y sigue íntegro
+PASA  · 4d escribir una celda fija (Análisis!A1) con «cualquiera» lo detecta el verificador (≠ 0) ·   FALLO  Análisis!A1: celda fija alterada '  HOJA DE EVALUACIÓN DE EMPRESAS — V6.3 ' → 'x'
+PASA  · 5 --copia-de-prueba no toca el libro de origen
+
+17/17 pruebas PASAN

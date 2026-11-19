@@ -1,0 +1,10 @@
+casos 20029 numero distinto 0 numero_exacto≠numero 0
+numero('-0') viejo/nuevo: -0.0 -0.0 exacto: 0
+redondear ≠ VE._round_frac: 0
+redondear 7.03515 4 -> 7.0352 | round py: 7.0351
+redondear 61.15855 4 -> 61.1586 | round py: 61.1585
+redondear 0.30000000000000004 1 -> 0.3 | round py: 0.3
+redondear 1e-07 4 -> 0.0 | round py: 0.0
+redondear -1e-07 4 -> 0.0 | round py: -0.0
+redondear 123456789.12345 4 -> 123456789.1235 | round py: 123456789.1234
+redondear 2.0004999999999997 3 -> 2.0 | round py: 2.0
