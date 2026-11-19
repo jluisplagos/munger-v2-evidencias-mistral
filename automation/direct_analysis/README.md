@@ -4,9 +4,11 @@
 
 Compara el personaje completo con un **análisis directo en una sola pasada** de un
 modelo potente, con los **mismos datos verificados** y la misma tasa (9 %).
-Es la comparación de `REORIENTACION_UNIVERSO.md` §10: Ahold y Zoetis (primer tiempo).
-Más adelante sirve también para repetir un caso (repetibilidad) y para medir lo que
-cuesta un análisis.
+Es la comparación de `REORIENTACION_UNIVERSO.md` §10: las empresas del examen (Ahold,
+Jumbo, Zoetis en sus dos tiempos, Vinci y Elis) y, en una segunda vuelta, las finalistas del
+cribado del universo, solo con su etapa 1. Sirve también para repetir un caso
+(repetibilidad) y para medir lo que cuesta un análisis. La lista de paquetes y su coste
+están en «Paquetes preparados».
 
 Cada ejecución hace **como máximo una llamada** a la API de Anthropic, sin reintentos,
 y solo después de que una persona la apruebe en GitHub.
@@ -160,6 +162,105 @@ Opus 5.5, 4 / 20; Fable 5.2, 8 / 40; Sonnet 5.5, 2 / 10.
   llama. Sin la variable, no se llama nunca.
 - El origen del crédito (promocional o comprado) solo se ve en Claude Console.
 
+## Paquetes preparados y coste estimado por ejecución
+
+Prueba sin API (`direct_analysis.py` sin `--execute-api`, Opus 5.5, esfuerzo `high`, con
+todas las ramas del repositorio para la ceguera). «Cota» es la cota de entrada del
+lanzador (un token por byte); «Reserva» es lo que hay que cubrir con `coste_maximo_usd`;
+«Orientativo» es el coste esperado con lo observado en las 11 ejecuciones pagadas de Ahold,
+Jumbo y Zoetis T1 (entrada real ≈ 0,40 × cota; salida ≈ 21 000 tokens, de 18 000 a
+24 000), y en el cribado para los paquetes pequeños (≈ 0,45 × cota). Con Fable 5.2, el
+doble.
+
+| Manifiesto (`paquete`) | `empresa` | Corte | Cota (tokens) | Reserva USD | Orientativo USD | Estado sin API |
+|---|---|---|---|---|---|---|
+| `paquetes/ahold.json` | `ahold` | 2026-11-17 | 962 711 | 4,51 | 1,92–1,95 (real) | preparado |
+| `paquetes/jumbo.json` | `jumbo` | 2026-11-17 | 814 919 | 3,92 | 1,76–1,84 (real) | preparado |
+| `paquetes/zoetis.json` | `zoetis` | 2026-10-09 | 943 029 | 4,43 | 1,86–1,97 (real) | preparado |
+| `paquetes/zoetis_t2.json` | `zoetis-t2` | 2026-11-05 | 953 227 | 4,47 | ≈ 1,95 | preparado |
+| `paquetes/vinci.json` | `vinci` | 2026-10-10 | 955 234 | 4,48 | ≈ 1,95 | preparado |
+| `paquetes/elis.json` | `elis` | 2026-11-05 | 924 126 (sin el control de solape) | 4,35 | ≈ 1,90 | **bloqueado por la ceguera** (abajo) |
+| `paquetes/universo_fw_thorpe.json` | `fw-thorpe` | 2026-10-30 | 140 370 | 1,22 | ≈ 0,67 | preparado |
+| `paquetes/universo_azkoyen.json` | `azkoyen` | 2026-10-30 | 135 585 | 1,20 | ≈ 0,66 | preparado |
+| `paquetes/universo_betsson.json` | `betsson` | 2026-10-25 | 176 900 | 1,36 | ≈ 0,74 | preparado |
+| `paquetes/universo_cocacola.json` | `cocacola` | 2026-10-30 | 146 450 | 1,24 | ≈ 0,68 | preparado |
+
+- La `empresa` del workflow es la del manifiesto, con guion: `zoetis-t2` (el lanzador no
+  admite guiones bajos en la empresa) y `fw-thorpe`.
+- Paquetes nuevos, una ejecución de cada uno sin Elis: reservas 13,96 USD; orientativo
+  ≈ 6,7 USD (con Elis, cuando se desbloquee: 18,32 y ≈ 8,6). Tres repeticiones de Vinci y
+  de Zoetis T2, como en Ahold, Jumbo y Zoetis T1: ≈ 11,7 USD más.
+- Los cuatro paquetes de examen nuevos rozan la cota de contexto (967 232 tokens de entrada
+  como máximo con la salida de 32 768): por eso llevan selecciones de páginas declaradas.
+
+### Cómo se hizo cada paquete (recetas reproducibles)
+
+Cada paquete nuevo tiene su **receta** en `recetas/<paquete>.json`: de qué insumo sale
+cada archivo (asset de la Release con su huella, o archivo de un commit fijado del producto
+o de este repositorio), qué páginas, qué cabecera y qué ediciones declaradas. La receta
+`recetas/zoetis.json` reproduce byte a byte el paquete ya fusionado de Zoetis T1 y sirve de
+prueba del método. Para comprobar un paquete:
+
+```
+python3 -I automation/direct_analysis/preparar_paquete.py comprobar automation/direct_analysis/recetas/vinci.json \
+  --insumos <carpeta con los assets de la Release> --repo auxiliar=<este clon> --repo producto=<clon de munger-v2>
+```
+
+Escribe `IGUAL` si regenera los mismos bytes. Necesita `pdftotext`/`pdfinfo` (poppler) y
+`openpyxl` en el equipo de quien prepara; el workflow no la usa. Los PDF, HTML, XLSX y ZIP no
+van a Git: se leen de la Release.
+
+- **Vinci** (`recetas/vinci.json`): fecha de análisis de la etapa 1, 10-oct-2026, precio
+  del 9-oct. Fuentes de la Release `fuentes-examen-20261118`: URD 2025 (páginas 4–18, 24–25,
+  129–144 y 356–425) y semestral a 30-jun-2026 (3–30 y 35–72). Fuera: la información de
+  los nueve meses del 22-oct-2026. Datos, extracto e historia del expediente `vinci/Vinci`
+  del producto (`examen/expedientes-f1`, ee1ca6a); etapa 1 de `fuentes/etapa1-examen-20261117`
+  (la versión 2 del 25-oct de la Release del universo no se usa). **Edición declarada**: de
+  la copia de `datos_v63.md` se retira la sección «1 bis» (perímetro F1 y vara del foso
+  P-FOSO, con remisiones a la gramática G4/G7), que es regla del personaje y no dato, y que
+  además salta el control de solape. Avisos: decisiones del inversor con fecha 23-oct (usan
+  cifras hasta el 30-jun) y un precio de contraste del 14-oct en los datos (no se usa como
+  precio).
+- **Zoetis T2** (`recetas/zoetis_t2.json`): los archivos del paquete del primer tiempo, con
+  los mismos bytes, más el 10-Q del T3 (páginas 1 y 3–47), el comunicado (HTML a texto) y la
+  presentación del 5-nov-2026, y la cotización hasta el 5-nov (82,11 USD; extracto de la
+  transcripción de `mistral/examen-zoetis-t2`, sin las filas posteriores). Para caber en la
+  cota sale el 10-Q del T1 y el del T2 queda en sus estados (páginas 3–9). Datos de la hoja y
+  etapa 1 sin cambios respecto del primer tiempo (con el precio del 8-oct y sin las frases
+  de la guía retiradas en T1): si deben cambiar en T2, lo decide la persona responsable.
+- **Elis** (`recetas/elis.json`): datos, extracto e historia del expediente `elis_f1`
+  (`examen/expedientes-f1`, 8c5ee44), con C48 = 108; etapa 1 de la Release del universo
+  (mismos bytes que el expediente); fuentes: los textos del expediente (URD 2025 y semestral
+  2026, que no están como PDF en ninguna Release), la presentación del semestre y el
+  comunicado de la conversión de la OCEANE. **Bloqueado**: el control de solape del lanzador
+  lo rechaza (`SOLAPE_CON_MATERIAL_CIEGO`) por dos falsos positivos, textos de la etapa 1 o
+  de los datos copiados después en material ciego: la ficha provisional del traspaso
+  (`traspaso/resultado_20261117/registro/relevo_copia_base/ficha_provisional.json`, el párrafo
+  B101, en la respuesta, la hoja Análisis y los datos) y una evidencia de revisión
+  (`examen/revisiones/hoja_ef93699/evidencia_ronda2/fecha_del_precio_en_los_12.txt`, la
+  cita del precio en los datos y la historia). El lanzador no tiene excepciones (las de
+  `excepciones_ceguera.json` son solo del cribado). Para desbloquearlo hace falta una de
+  dos decisiones: añadir al lanzador excepciones con huella y código exactos, como el
+  cribado (cambio de código con revisión), o retirar de las copias esos párrafos (cambia la
+  etapa 1 y la cita del precio). Tampoco entra el comunicado de ingresos del T3 2026
+  (`q3_2026_revenue.pdf`): la etapa 1 cita su 9M-26, pero no está en el expediente del
+  personaje.
+
+### Segunda vuelta del universo
+
+- `universo.py --release universo_etapa1.zip.zip --empresas A,B [--escribir]` prepara el
+  paquete de etapa 1 de cada empresa con las comprobaciones del cribado (huella de la
+  Release, lista blanca, empresas del examen fuera) y el mismo lector de XLSX: respuesta y
+  cambios v2 byte a byte y las hojas del libro en CSV, con la fecha de corte = fecha de
+  análisis de la hoja. Aplica antes las capas de ceguera y deja fuera, sin escribir nada,
+  la empresa que no las pasa. El universo no trae fuentes oficiales: el análisis directo
+  de estas empresas trabaja solo con la etapa 1.
+- La lista de finalistas sale de `automation/screening/finalistas.py` con un criterio
+  mecánico declarado (ver `automation/screening/FINALISTAS_tandas_1_3_y_pandora.md`). Con
+  las tandas 1 a 3 y Pandora: FW_Thorpe (nivel 1), Azkoyen, Betsson y CocaCola (nivel 2).
+  Cuando lleguen las tandas 4 a 6, se vuelve a ejecutar con sus ejecuciones y se preparan
+  los paquetes de las finalistas nuevas.
+
 ## Qué no hace
 
 - No reintenta. No usa modelo de reserva (*fallback*): sería otra llamada a otro modelo.
@@ -199,7 +300,10 @@ Opus 5.5, 4 / 20; Fable 5.2, 8 / 40; Sonnet 5.5, 2 / 10.
 python3 -I -m unittest discover -s automation/direct_analysis -p 'test_*.py' -v
 ```
 
-Las pruebas simulan la API y la rama de registro; no abren red.
+Las pruebas simulan la API y la rama de registro; no abren red. `test_paquetes.py` arma
+cada manifiesto de `paquetes/` del commit actual como en `preparar` (huellas, rutas, cota de
+contexto y reserva por debajo de 5 USD) y prueba las recetas y el generador del universo; la
+ceguera con todas las ramas la comprueba `preparar` en el workflow.
 
 ## Respuesta partida en bloques y revalidación fuera de línea
 
