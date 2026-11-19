@@ -91,3 +91,28 @@ No acredita aptitud para dinero real.
   - C46 y C40 (conciliación desactualizada);
   - C38 y C88 (lecturas de terceros sin bytes);
   - C31 (fuente fuera del expediente).
+
+### jumbo_g, ronda corta tras la corrección de la orquestación (2026-11-19)
+
+- **Material:** producto `dea03c5`, `resultados/registro_tras_sellado_jumbo_g.json`. Commit del sellado: `440f022`.
+- **C46 y C40, sellados.** La conciliación ya dice C76 = 150 y cita `recalculo_dependientes.json`. Recalculé con la fórmula registrada:
+  - C46: s = 450 ÷ 1.415,485114 = 0,317912 → 317,9025 → 317,902;
+  - C40: 255,3054 → 255,305.
+- **C38 y C88: sellado el juicio de materialidad (N1), no el dato.** Los dos siguen siendo lecturas externas sin bytes.
+  - **Qué comprobé en el libro:** busqué en las fórmulas de las 11 hojas quién lee cada celda.
+    - C38 solo la leen C39 → D39, C87 → D87 y E43, y el aviso Motor!E235.
+    - C88 solo la lee el rótulo D88, cuya fórmula nunca escribe «BANDERA» ni «REVISAR». Así, Motor!B311 y C311 no pueden saltar por ella.
+    - Ninguna fórmula de la valoración, de los escenarios ni de la Historia las usa.
+  - **Qué comprobé en las fases:**
+    - C38: las fases A y B no la citan. La fase C la examina en su autocomprobación de anclaje y la descarta («no uso C38 ni como contraste de la conclusión»).
+    - C88: ninguna fase la cita.
+  - **Límite que dejo anotado:** C38 estuvo a la vista del juicio (`datos_v63.md`), y el libro la marca «Rellenado y verificado». Que no haya anclaje lo declara la fase C; no se puede demostrar.
+- **C31, pendiente:** su apoyo cita el H1-2025, que no está en el expediente.
+
+**`comprobar`:**
+- **Cobertura:** universo 313, de las que 310 están comprobadas (214 de 214 de cálculo y 96 de 99 de juicio), más 253 auxiliares.
+- **Estado:**
+  - 0 discrepancias, 0 errores, 0 desactualizadas;
+  - 2 entradas no materiales con el juicio revisado;
+  - 2 lecturas externas sin bytes, listadas aparte.
+- **Apto por entradas: False.** Lo impide **una sola entrada material sin comprobar: `Análisis!C31`.**
