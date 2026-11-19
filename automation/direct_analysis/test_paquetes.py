@@ -184,6 +184,14 @@ class UniversoTests(unittest.TestCase):
             self.assertEqual(a['sha256'], hashlib.sha256(datos[a['ruta']]).hexdigest())
             da.check_path(a['ruta'], 'acme')
 
+    def test_fecha_de_la_hoja_en_los_formatos_del_universo(self):
+        for valor, iso in (('2026-10-30', '2026-10-30'), ('2026-10-30 00:00:00', '2026-10-30'), ('25-oct-2026', '2026-10-25'),
+                           ('5/11/2026', '2026-11-05'), ('7 de nov de 2026', '2026-11-07')):
+            self.assertEqual(universo.fecha_iso(valor), iso)
+        for malo in ('octubre', '32-oct-2026', '25-xyz-2026', None):
+            with self.assertRaises((pilot.PilotError, ValueError)):
+                universo.fecha_iso(malo)
+
     def test_examen_excluidas_y_ceguera_sin_escribir(self):
         hechos, fallos = universo.preparar(self.release, ['Zoetis', 'Nadie'], ({}, {}))
         self.assertEqual(hechos, {})

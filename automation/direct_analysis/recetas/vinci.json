@@ -3,12 +3,12 @@
  "empresa": "vinci",
  "caso": "VINCI SA, ejercicio 2025 y primer semestre de 2026",
  "fecha_corte": "2026-10-10",
- "notas": "Fecha de análisis de la etapa 1: 10-oct-2026 (Análisis!D4); precio de cierre del 9-oct-2026 (107,05 EUR) en los datos y la etapa 1. Fuera del paquete, por ser del 22-oct-2026: el comunicado y la presentación de los nueve meses de 2026 (assets vinci-9m2026-* de la Release). Datos de la hoja, extracto e historia: copia byte a byte del expediente vinci/Vinci del producto (los mismos que recibe el personaje), salvo la sección 1 bis de datos_v63.md (perímetro F1 y vara del foso P-FOSO, con remisiones a la gramática G4/G7: reglas del personaje, no datos), que se retira de la copia por ceguera: además salta el control de solape (la misma plantilla de texto está en una salida de revisión de examen/). Las cifras de esa sección se derivan de las filas de la Historia y de las notas de las fuentes, que siguen. Etapa 1: la de la rama fuentes/etapa1-examen-20261117 (la misma respuesta que el expediente; la Release del universo trae una versión 2 del 25-oct-2026 que no se usa). Avisos para la revisión, sin cambio de bytes: las decisiones del inversor del Control maestro llevan fecha 23-oct-2026 (posterior al corte), pero solo usan cifras hasta el 30-jun-2026; los datos citan como contraste un precio de 107,32 EUR del 14-oct-2026 (Tradegate), posterior al corte, y no lo usan como precio. El registro de entradas de Vinci no está sellado: no entra (como en Jumbo y Zoetis).",
+ "notas": "Fecha de análisis de la etapa 1: 10-oct-2026 (Análisis!D4); precio de cierre del 9-oct-2026 (107,05 EUR) en los datos y la etapa 1. Fuera del paquete, por ser del 22-oct-2026: el comunicado y la presentación de los nueve meses de 2026 (assets vinci-9m2026-* de la Release). Datos de la hoja, extracto e historia: copia byte a byte del expediente vinci/Vinci del producto (los mismos que recibe el personaje), salvo la sección 1 bis de datos_v63.md (perímetro F1 y vara del foso P-FOSO, con remisiones a la gramática G4/G7: reglas del personaje, no datos), que se retira de la copia por ceguera: además salta el control de solape (la misma plantilla de texto está en una salida de revisión de examen/). Las cifras de esa sección se derivan de las filas de la Historia y de las notas de las fuentes, que siguen. Etapa 1: la de la rama fuentes/etapa1-examen-20261117 (la misma respuesta que el expediente; la Release del universo trae una versión 2 del 25-oct-2026 que no se usa). Avisos para la revisión, sin cambio de bytes: las decisiones del inversor del Control maestro llevan fecha 23-oct-2026 (posterior al corte), pero solo usan cifras hasta el 30-jun-2026; Revisión f8b2dfc (C1, C2): en la copia de datos_v63.md las etiquetas de C54 y C55 quedan neutras («(todo el capital)», sin la instrucción del método sobre el perímetro F1), y de datos_v63.md y fase1_v63.json se retira el precio de contraste de 107,32 EUR del 14-oct-2026 (Tradegate), posterior al corte; queda el del 9-sep-2026. El registro de entradas de Vinci no está sellado: no entra (como en Jumbo y Zoetis).",
  "archivos": [
   {
    "id": "datos_v63_md",
    "ruta": "datos_analisis_directo/vinci/datos_v63.md",
-   "descripcion": "Datos de la hoja de valoración (Historia de 10 años, análisis y palancas) de VINCI SA. Retirada la sección 1 bis (perímetro F1 y vara del foso: reglas del otro método, no datos de la empresa) y sus tres remisiones; las cifras de la Historia quedan intactas",
+   "descripcion": "Datos de la hoja de valoración (Historia de 10 años, análisis y palancas) de VINCI SA. Retiradas la sección 1 bis (reglas de método, no datos), sus remisiones y un precio de contraste posterior al corte; etiquetas de C54 y C55 neutras; Historia intacta",
    "origen": {
     "tipo": "git",
     "repo": "producto",
@@ -26,6 +26,16 @@
       "de": "; ver 1 bis)",
       "a": ")",
       "veces": 3
+     },
+     {
+      "de": "(todo el capital: con F1 en el perímetro declarado, solo frente al sector)",
+      "a": "(todo el capital)",
+      "veces": 2
+     },
+     {
+      "de": " y 107,32 € el 14-oct-2026 (Tradegate), coherentes con el dato.",
+      "a": ", coherente con el dato.",
+      "veces": 1
      }
     ]
    }
@@ -45,13 +55,20 @@
   {
    "id": "fase1_v63_json",
    "ruta": "datos_analisis_directo/vinci/fase1_v63.json",
-   "descripcion": "Historia de 10 años con fuente de cada cifra",
+   "descripcion": "Historia de 10 años con fuente de cada cifra. Retirado un precio de contraste posterior a la fecha de corte",
    "origen": {
     "tipo": "git",
     "repo": "producto",
     "commit": "ee1ca6a6d8caae05faf96398fa22cb5b8d0a662e",
     "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/vinci/Vinci/fase1_v63.json",
-    "sha256": "df617107b2e3dcb737130df6dc7e968930789647ecf10c7ab77dca185f35f185"
+    "sha256": "df617107b2e3dcb737130df6dc7e968930789647ecf10c7ab77dca185f35f185",
+    "reemplazos": [
+     {
+      "de": " y 107,32 € el 14-oct-2026 (Tradegate), coherentes con el dato.",
+      "a": ", coherente con el dato.",
+      "veces": 1
+     }
+    ]
    }
   },
   {

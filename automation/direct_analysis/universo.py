@@ -38,6 +38,7 @@ import screening as sc  # noqa: E402  (importa direct_analysis, critical_review 
 
 da, pilot = sc.da, sc.pilot
 PREFIJO_MANIFIESTO = 'universo_'
+MESES = ('ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic')
 DESCRIPCIONES = {
     'respuesta': 'Respuesta de etapa 1 (juicio heredado; tratar como hipótesis)',
     'cambios_v2': 'Cambios de la versión 1 a la 2 del libro de etapa 1, de la propia persona',
@@ -61,6 +62,9 @@ def fecha_iso(valor):
         m = re.fullmatch(r'(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})', valor.strip())
         if m:
             return datetime.date(int(m.group(3)), int(m.group(2)), int(m.group(1))).isoformat()
+        m = re.fullmatch(r'(\d{1,2})[ -](?:de )?([a-z]{3})[a-z]*\.?[ -](?:de )?(\d{4})', da.fold(valor.strip()))
+        if m and m.group(2) in MESES:  # «25-oct-2026», como guardan algunas hojas
+            return datetime.date(int(m.group(3)), MESES.index(m.group(2)) + 1, int(m.group(1))).isoformat()
     raise pilot.PilotError('FECHA_DE_ANALISIS_NO_LEGIBLE')
 
 

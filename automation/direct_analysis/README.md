@@ -177,8 +177,8 @@ doble.
 | `paquetes/ahold.json` | `ahold` | 2026-11-17 | 962 711 | 4,51 | 1,92–1,95 (real) | preparado |
 | `paquetes/jumbo.json` | `jumbo` | 2026-11-17 | 814 919 | 3,92 | 1,76–1,84 (real) | preparado |
 | `paquetes/zoetis.json` | `zoetis` | 2026-10-09 | 943 029 | 4,43 | 1,86–1,97 (real) | preparado |
-| `paquetes/zoetis_t2.json` | `zoetis-t2` | 2026-11-05 | 953 227 | 4,47 | ≈ 1,95 | preparado |
-| `paquetes/vinci.json` | `vinci` | 2026-10-10 | 955 234 | 4,48 | ≈ 1,95 | preparado |
+| `paquetes/zoetis_t2.json` | `zoetis-t2` | 2026-11-05 | 955 377 | 4,48 | ≈ 1,95 | preparado |
+| `paquetes/vinci.json` | `vinci` | 2026-10-10 | 955 094 | 4,48 | ≈ 1,95 | preparado |
 | `paquetes/elis.json` | `elis` | 2026-11-05 | 924 126 (sin el control de solape) | 4,35 | ≈ 1,90 | **bloqueado por la ceguera** (abajo) |
 | `paquetes/universo_fw_thorpe.json` | `fw-thorpe` | 2026-10-30 | 140 370 | 1,22 | ≈ 0,67 | preparado |
 | `paquetes/universo_azkoyen.json` | `azkoyen` | 2026-10-30 | 135 585 | 1,20 | ≈ 0,66 | preparado |
@@ -218,16 +218,24 @@ van a Git: se leen de la Release.
   (la versión 2 del 25-oct de la Release del universo no se usa). **Edición declarada**: de
   la copia de `datos_v63.md` se retira la sección «1 bis» (perímetro F1 y vara del foso
   P-FOSO, con remisiones a la gramática G4/G7), que es regla del personaje y no dato, y que
-  además salta el control de solape. Avisos: decisiones del inversor con fecha 23-oct (usan
-  cifras hasta el 30-jun) y un precio de contraste del 14-oct en los datos (no se usa como
-  precio).
+  además salta el control de solape; las etiquetas de C54 y C55 quedan neutras («(todo el
+  capital)»), y de `datos_v63.md` y `fase1_v63.json` se retira el precio de contraste del
+  14-oct, posterior al corte (revisión f8b2dfc, C1 y C2). Aviso: decisiones del inversor
+  con fecha 23-oct (usan cifras hasta el 30-jun).
 - **Zoetis T2** (`recetas/zoetis_t2.json`): los archivos del paquete del primer tiempo, con
   los mismos bytes, más el 10-Q del T3 (páginas 1 y 3–47), el comunicado (HTML a texto) y la
   presentación del 5-nov-2026, y la cotización hasta el 5-nov (82,11 USD; extracto de la
   transcripción de `mistral/examen-zoetis-t2`, sin las filas posteriores). Para caber en la
-  cota sale el 10-Q del T1 y el del T2 queda en sus estados (páginas 3–9). Datos de la hoja y
-  etapa 1 sin cambios respecto del primer tiempo (con el precio del 8-oct y sin las frases
-  de la guía retiradas en T1): si deben cambiar en T2, lo decide la persona responsable.
+  cota sale el 10-Q del T1 y el del T2 queda en sus estados (páginas 3–9). **Edición
+  declarada** (revisión f8b2dfc, O2): en las copias de `datos_v63.md` y `fase1_v63.json` el
+  precio es el cierre del 5-nov (C37) y la capitalización se recalcula (C41 = 82,11 ×
+  424,927535 = 34 890,8 mm); `datos_v63.md` abre con una nota: el resto del volcado y la
+  etapa 1 son del primer tiempo, la etapa 1 se conserva sin cambios como hipótesis, y C42,
+  C57, el estado técnico y la conciliación no se recalculan. La fila del 4-nov (89,2 USD)
+  coincide en las dos transcripciones conservadas de la tabla de la empresa (la del extractor
+  y la del expediente `zoetis_t1d`), pero no se ha podido contrastar con otra fuente; no se
+  usa. Sin las frases de la guía retiradas en T1: si deben volver en T2, lo decide la
+  persona responsable.
 - **Elis** (`recetas/elis.json`): datos, extracto e historia del expediente `elis_f1`
   (`examen/expedientes-f1`, 8c5ee44), con C48 = 108; etapa 1 de la Release del universo
   (mismos bytes que el expediente); fuentes: los textos del expediente (URD 2025 y semestral

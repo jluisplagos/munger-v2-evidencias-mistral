@@ -3,18 +3,60 @@
  "empresa": "zoetis-t2",
  "caso": "Zoetis, ejercicio 2025 y 2026 hasta el tercer trimestre (segundo tiempo)",
  "fecha_corte": "2026-11-05",
- "notas": "Segundo tiempo: los archivos del paquete del primer tiempo (receta zoetis.json, mismos bytes y huellas) más lo publicado el 5-nov-2026 (10-Q del tercer trimestre, comunicado y presentación) y el precio de cierre de ese día. Por el límite de contexto del lanzador (cota de un token por byte), el 10-Q del primer trimestre sale y el del segundo queda en sus estados financieros: el 10-Q del tercer trimestre actualiza notas y análisis a 30-sep-2026. Datos de la hoja, extracto, historia y etapa 1 sin cambios respecto del primer tiempo (incluida la retirada de la guía de 2026 de origen desconocido, decisión de la persona responsable): si en el segundo tiempo deben volver las frases retiradas, lo decide la persona responsable.",
+ "notas": "Segundo tiempo: los archivos del paquete del primer tiempo (receta zoetis.json, mismos bytes y huellas) más lo publicado el 5-nov-2026 (10-Q del tercer trimestre, comunicado y presentación) y el precio de cierre de ese día. Por el límite de contexto del lanzador (cota de un token por byte), el 10-Q del primer trimestre sale y el del segundo queda en sus estados financieros: el 10-Q del tercer trimestre actualiza notas y análisis a 30-sep-2026. Datos de la hoja, extracto, historia y etapa 1 sin cambios respecto del primer tiempo (incluida la retirada de la guía de 2026 de origen desconocido, decisión de la persona responsable): si en el segundo tiempo deben volver las frases retiradas, lo decide la persona responsable. Revisión f8b2dfc (O2): las copias de datos_v63.md y fase1_v63.json llevan el precio del 5-nov-2026 (C37 / precio), la capitalización recalculada (C41 / capitalizacion) (82,11 × 424,927535 = 34.890,8 mm), el resumen y la nota de las acciones con ese precio; datos_v63.md, además, una nota inicial: la etapa 1 es del primer tiempo y se conserva como hipótesis; C42, C57, el estado técnico y la conciliación no se recalculan. La etapa 1 original no se toca. Fila del 4-nov-2026 (89,2 USD): igual en la transcripción de mistral/examen-zoetis-t2 (4eeff61) y en la del expediente zoetis_t1d del producto (fuentes_mercado/Zoetis_IR_XNYS_ZTS_historico_acciones_20261118.txt, sha256 7a8d45f2…); las dos salen de la misma página leída el 18-nov-2026 y no hay otra fuente conservada; desde esta sesión la página y otras fuentes de precios están bloqueadas por la red. No se usa: el precio es el del 5-nov.",
  "archivos": [
   {
    "id": "datos_v63_md",
    "ruta": "datos_analisis_directo/zoetis-t2/datos_v63.md",
-   "descripcion": "Datos de la hoja de valoración (Historia de 10 años, análisis y palancas) de Zoetis Inc.. Retiradas las frases que citaban una guia de 2026 sin fuente en el paquete (origen desconocido, posible informacion posterior al corte); decision de la persona responsable: no se usa en el primer tiempo",
+   "descripcion": "Datos de la hoja de valoración de Zoetis Inc. del primer tiempo, con el precio del 5 de noviembre de 2026 (82,11 USD) en C37, la capitalización recalculada en C41 y una nota inicial del segundo tiempo (edición declarada). Sin las frases de una guía de 2026 de origen desconocido",
    "origen": {
     "tipo": "git",
     "repo": "auxiliar",
     "commit": "e96470eb0a4401b13d6a265312a2f421cea26f20",
     "ruta": "datos_analisis_directo/zoetis/datos_v63.md",
-    "sha256": "9369c2ee3ef78c3320da80867ef3b8104fad7d4dbcd488c1a1da5d68504edde5"
+    "sha256": "9369c2ee3ef78c3320da80867ef3b8104fad7d4dbcd488c1a1da5d68504edde5",
+    "reemplazos": [
+     {
+      "de": "# DATOS V6.3 · Zoetis Inc. (ZTS) · fecha de análisis 2026-10-09",
+      "a": "# DATOS V6.3 · Zoetis Inc. (ZTS) · fecha de análisis 2026-10-09 · segundo tiempo: precio del 5-nov-2026 (ver la nota)",
+      "veces": 1
+     },
+     {
+      "de": "## 1. Estado técnico del libro",
+      "a": "> **Nota del segundo tiempo (edición declarada de esta copia).** El precio vigente es el cierre del 5-nov-2026 en la bolsa de Nueva York, **82,11 USD** (C37; archivo de cotización hasta el 5-nov-2026), y la capitalización se recalcula con él: **C41 = 34.890,8 mm** (82,11 × 424,927535 millones de acciones a 31-dic-2025, la misma convención que el primer tiempo). El resto de este volcado es el del primer tiempo (fecha de análisis 9-oct-2026, cuentas hasta el 30-jun-2026): no se recalculan las cifras que dependían del precio del 8-oct-2026 (73,08 USD), como C42 (EV/EBITDA), ni la tasa sin riesgo del 8-oct (C57), el estado técnico del libro o la conciliación del apartado 5. La etapa 1 (el bloque HEREDADO y los archivos de etapa1/) es del primer tiempo, se conserva sin cambios y es una hipótesis, no un hecho: donde cite 73,08 USD o la capitalización de entonces, rige el precio del 5-nov-2026. Lo publicado después del 9-oct-2026 está en las fuentes del 5-nov-2026 (10-Q del tercer trimestre, comunicado y presentación).\n\n## 1. Estado técnico del libro",
+      "veces": 1
+     },
+     {
+      "de": "| C37 | Precio actual | 73.08 | Rellenado y verificado | Cierre oficial NYSE del 8-oct-2026 según",
+      "a": "| C37 | Precio actual | 82.11 | Segundo tiempo (edición declarada) | Cierre NYSE del 5-nov-2026: 82,11 USD (archivo de cotización hasta el 5-nov-2026: tabla «XNYS:ZTS historical stock data» de la página oficial de la empresa). Precio del primer tiempo, que ya no rige: cierre oficial NYSE del 8-oct-2026 según",
+      "veces": 1
+     },
+     {
+      "de": "| — | fecha 2026-10-08 · moneda de cotización USD |",
+      "a": "| — | fecha 2026-11-05 · moneda de cotización USD |",
+      "veces": 1
+     },
+     {
+      "de": "| C41 | Capitalización (mm) | 31053.7 | Rellenado y verificado | Precio de cierre 73,08 USD (8-oct-2026) × 424,927535 millones de acciones en circulación al 31-dic-2025 = 31.054 millones de USD.",
+      "a": "| C41 | Capitalización (mm) | 34890.8 | Segundo tiempo (edición declarada) | Precio de cierre 82,11 USD (5-nov-2026) × 424,927535 millones de acciones en circulación al 31-dic-2025 = 34.890,8 millones de USD (la misma convención de acciones que el primer tiempo; la portada del 10-Q del tercer trimestre da 406.316.147 acciones en circulación a 30-oct-2026). Primer tiempo: 73,08 USD (8-oct-2026) × 424,927535 = 31.054 millones de USD.",
+      "veces": 1
+     },
+     {
+      "de": "Precio (C37): 73.08 USD con fecha 2026-10-08",
+      "a": "Precio (C37): 82.11 USD con fecha 2026-11-05",
+      "veces": 1
+     },
+     {
+      "de": "Capitalización (C41): 31053.7",
+      "a": "Capitalización (C41): 34890.8",
+      "veces": 1
+     },
+     {
+      "de": "frente a 73,08 USD.",
+      "a": "frente a 82,11 USD (5-nov-2026).",
+      "veces": 1
+     }
+    ]
    }
   },
   {
@@ -92,13 +134,40 @@
   {
    "id": "fase1_v63_json",
    "ruta": "datos_analisis_directo/zoetis-t2/fase1_v63.json",
-   "descripcion": "Historia de 10 años con fuente de cada cifra",
+   "descripcion": "Historia de 10 años con fuente de cada cifra; precio y capitalización del 5 de noviembre de 2026 (82,11 USD; edición declarada de esta copia), el resto como en el primer tiempo",
    "origen": {
     "tipo": "git",
     "repo": "auxiliar",
     "commit": "e96470eb0a4401b13d6a265312a2f421cea26f20",
     "ruta": "datos_analisis_directo/zoetis/fase1_v63.json",
-    "sha256": "66165b379399bd10aca91259f5fddb366ab08824ffe58bf7f377ab1d7a646561"
+    "sha256": "66165b379399bd10aca91259f5fddb366ab08824ffe58bf7f377ab1d7a646561",
+    "reemplazos": [
+     {
+      "de": "\"valor\": 73.08,\n  \"moneda_cotizacion\": \"USD\",\n  \"fecha\": \"2026-10-08\",",
+      "a": "\"valor\": 82.11,\n  \"moneda_cotizacion\": \"USD\",\n  \"fecha\": \"2026-11-05\",",
+      "veces": 1
+     },
+     {
+      "de": "Cierre oficial NYSE del 8-oct-2026 según",
+      "a": "Segundo tiempo (edición declarada de esta copia): cierre NYSE del 5-nov-2026, 82,11 USD (archivo de cotización hasta el 5-nov-2026). Precio del primer tiempo, que ya no rige: cierre oficial NYSE del 8-oct-2026 según",
+      "veces": 1
+     },
+     {
+      "de": "\"valor\": 31053.7,\n  \"fecha\": \"2026-10-08\",",
+      "a": "\"valor\": 34890.8,\n  \"fecha\": \"2026-11-05\",",
+      "veces": 1
+     },
+     {
+      "de": "Precio de cierre 73,08 USD (8-oct-2026) × 424,927535 millones de acciones en circulación al 31-dic-2025 = 31.054 millones de USD.",
+      "a": "Segundo tiempo (edición declarada de esta copia): precio de cierre 82,11 USD (5-nov-2026) × 424,927535 millones de acciones en circulación al 31-dic-2025 = 34.890,8 millones de USD. Primer tiempo: 73,08 USD (8-oct-2026) × 424,927535 = 31.054 millones de USD.",
+      "veces": 1
+     },
+     {
+      "de": "frente a 73,08 USD.",
+      "a": "frente a 82,11 USD (5-nov-2026).",
+      "veces": 1
+     }
+    ]
    }
   },
   {
@@ -172,7 +241,7 @@
     "ruta": "resultados_examen/zoetis_t2/fuentes_mercado/Zoetis_IR_XNYS_ZTS_historico_acciones_20261118.txt",
     "sha256": "1eee36e610e2d4980e85f416306c6878d2ba503f92f6859d8933a705556808de",
     "lineas": "2,7,16-20,22",
-    "cabecera": "Cotización de cierre de Zoetis Inc. (ZTS, NYSE) hasta el 5-nov-2026, fecha de corte de este paquete: extracto de la transcripción conservada de la tabla «XNYS:ZTS historical stock data» de la página oficial de la empresa. Se omiten las filas posteriores al 5-nov-2026 y las notas de la lectura. El precio de cierre del 5-nov-2026 (82,11 USD) sustituye al del 8-oct-2026 (73,08 USD) que figura en los datos de la hoja de valoración y la etapa 1, que son del primer tiempo."
+    "cabecera": "Cotización de cierre de Zoetis Inc. (ZTS, NYSE) hasta el 5-nov-2026, fecha de corte de este paquete: extracto de la transcripción conservada de la tabla «XNYS:ZTS historical stock data» de la página oficial de la empresa. Se omiten las filas posteriores al 5-nov-2026 y las notas de la lectura. El precio de cierre del 5-nov-2026 (82,11 USD) es el que rige y sustituye al del 8-oct-2026 (73,08 USD) del primer tiempo, que conserva la etapa 1. La fila del 4-nov-2026 (89,2 USD) coincide en las dos transcripciones de esa tabla conservadas el 18-nov-2026, pero no se ha podido contrastar con otra fuente."
    }
   }
  ]
