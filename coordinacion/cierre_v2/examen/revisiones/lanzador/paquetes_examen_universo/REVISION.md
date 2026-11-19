@@ -62,3 +62,34 @@
 - **O2.** Los datos y la etapa 1 de Zoetis T2 siguen con el precio del 8-oct (73,08 USD). Solo la cabecera de la cotización dice que la sustituye 82,11 USD. Además, la transcripción trae 89,2 USD el 4-nov, entre 82,99 y 82,11. Es fiel a la fuente, pero conviene comprobarlo.
 - **O3.** Ege_Profil e Italian_Wines tienen veredicto `estudiar_a_fondo`, pero no entran por el criterio (dos «dudoso» en calidad, caja y balance). Es correcto según lo declarado, pero la persona debe saberlo.
 - **O4.** Elis sigue bloqueado. Las dos salidas que propone el autor (excepciones con huella en el lanzador, o editar las copias de la etapa 1) requieren decisión y revisión. No se debe desbloquear por otra vía.
+
+## Ronda 2 · `8e9b5da` (commits `cd24039` y `8e9b5da`)
+
+**Veredicto: conforme.** C1 y C2 están corregidas y O2 está atendida. No hay correcciones nuevas. No se integra en `main`: eso exige la frase de la persona responsable.
+
+### Comprobaciones (ejecutadas por el revisor)
+
+- **Límites de seguridad.** `git diff origin/main 8e9b5da` no cambia `.github/`, `direct_analysis.py`, `revalidar.py`, `screening.py`, `excepciones_ceguera.json` ni `automation/coordination/`. `finalistas.py` tampoco cambia. `universo.py` solo añade la lectura de fechas en texto («25-oct-2026»), sin red ni API.
+- **C1.** En `datos_v63.md` de Vinci, las etiquetas de C54 y C55 pasan a «(todo el capital)». No queda ninguna mención de «perímetro declarado» ni de «1 bis». La edición está declarada en la receta.
+- **C2.** Ya no aparecen «107,32» ni «Tradegate» en `datos_v63.md` ni en `fase1_v63.json` de Vinci.
+- **O2 (Zoetis T2).** Las copias de los datos llevan una nota inicial inequívoca:
+  - C37 = 82,11 USD del 5-nov-2026;
+  - C41 = 34.890,8 mm (comprobado: 82,11 × 424,927535 = 34.890,80);
+  - C55 y `fase1_v63.json` se ajustan igual;
+  - el resto es del primer tiempo y no se recalcula;
+  - la etapa 1 queda sin cambios y rige el precio nuevo.
+
+  La cabecera de la cotización declara que la fila del 4-nov (89,2 USD) no se ha podido contrastar. Suficiente.
+- **Recetas.** `preparar_paquete.py comprobar` da `IGUAL` para Vinci y para Zoetis T2, con los assets de `fuentes-examen-20261118` y los clones del auxiliar y del producto.
+- **Universo.** `universo.py --escribir` con el asset `universo_etapa1.zip.zip` de la Release `universo-etapa1-20261118` regenera las ocho empresas finalistas sin ninguna diferencia en Git (bytes y manifiestos idénticos).
+- **Baterías.** `automation/direct_analysis`: 60 pruebas OK. `automation/screening`: 44 pruebas OK.
+- **Prueba sin API.**
+  - `vinci`, `zoetis-t2`, `moury`, `spie`, `strabag`, `tupras` y `fw-thorpe` quedan en `PREPARADO_SIN_API`, con 0 mensajes. La ceguera se comprobó con todas las ramas remotas.
+  - `elis` sigue rechazado por `SOLAPE_CON_MATERIAL_CIEGO` (O4 sin cambios).
+  - Fechas de corte de las nuevas: Moury 31-oct, Spie 7-nov, Strabag 11-oct, Tupras 1-nov.
+- **Finalistas.** `finalistas.py` sobre el registro `6fee3d2` con las siete ejecuciones declaradas regenera el `.md` idéntico: 111 empresas, todas utilizables. Las finalistas son FW_Thorpe (nivel 1) y, en nivel 2, Azkoyen, Betsson, CocaCola, Moury, Spie, Strabag y Tupras. Las etapas 1 nuevas no mencionan rúbrica, contradictor ni coordinación.
+
+### Observaciones (no bloquean)
+
+- **O3 (actualizada).** Ege_Profil, Italian_Wines y Omer tienen veredicto `estudiar_a_fondo` y quedan fuera por el criterio. Tupras entra con veredicto `faltan_datos`, porque el criterio no usa el veredicto. Es coherente con lo declarado, pero la persona debe saberlo.
+- O1 y O4 siguen como en la ronda 1.
