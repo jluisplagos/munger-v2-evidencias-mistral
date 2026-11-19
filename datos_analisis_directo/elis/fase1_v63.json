@@ -1,0 +1,753 @@
+{
+ "empresa": "Elis SA",
+ "ticker": "ELIS (Euronext Paris, compartimento A; ISIN FR0012435121)",
+ "fecha_analisis": "2026-11-18",
+ "sector_texto": "Alquiler y mantenimiento (lavado, reparación, reposición y logística) de ropa plana, ropa de trabajo y equipos de higiene y bienestar para clientes de hostelería, sanidad, industria y comercio y servicios, en 31 países (URD 2025, p. 328: «an international service provider in 31 countries, offering solutions for the rental & maintenance of textile products and hygiene and well-being appliances»)",
+ "moneda_modelo": "EUR",
+ "norma_contable": "IFRS (adoptadas por la Unión Europea)",
+ "cierre_fiscal": "diciembre",
+ "mercado": "Euronext Paris, compartimento A (URD 2025, p. 445, apartado 6.3.1: «listed for trading in Compartment A of the Euronext Paris regulated market»; otras bolsas: «None»)",
+ "ratio_adr": null,
+ "sector_damodaran": "Business & Consumer Services",
+ "precio": {
+  "valor": 24.18,
+  "moneda_cotizacion": "EUR",
+  "fecha": "2026-11-04",
+  "fx": null,
+  "fx_fecha": null,
+  "fuente": "Euronext (fuente oficial del mercado), histórico NO AJUSTADO de ELIS FR0012435121-XPAR, https://live.euronext.com/en/popout-page/getHistoricalPrice/FR0012435121-XPAR, leído el 14-nov-2026 hacia las 11:50 CET en el navegador integrado (añadido por el orquestador): «04/11/2026 23.80 24.32 23.68 24.18 24.18 354,998 8,578,726 24.1656» (apertura, máximo, mínimo, último, cierre, títulos, efectivo, CMP). Lectura conservada en /home/claude/trabajo_4_14/fuentes_mercado/elis/ (texto y captura, con huellas). Coincide con la lectura del agente de metadatos: Cierre de la sesión del 4-nov-2026 en Euronext Paris según Twelve Data, https://twelvedata.com/markets/703441/stock/euronext/elis/historical-data (bolsa «Euronext», EUR), consultada el 2026-11-14 entre las 11:30 y las 11:45 CET; cabecera de la página: «Last update Nov 13, 5:35 PM CET». Fila literal leída: «Nov 04, 2026 | 23.80 | 24.32 | 23.68 | 24.18 | 1.60% | 354998» (apertura, máximo, mínimo, cierre, variación, volumen). Rango del día: 23,68–24,32 EUR. La columna de variación no cuadra con los cierres de la propia tabla (24,18 frente a 23,72 del 3-nov = +1,94 %, no +1,60 %); el cierre sí es coherente con el resto de la serie. Es la única fuente que encontré que identifica la sesión del 4-nov-2026. Otras consultadas, sin esa sesión (copias anteriores): Investing.com (Paris, filas hasta el 25-sep y el 20-oct-2026), StockAnalysis (EPA:ELIS, hasta el 8 y el 9-oct-2026), ABC Bourse (hasta el 26-oct-2026, intradía), Zonebourse y MarketScreener (Deutsche Börse, oct-2026), Eulerpool (24,36 EUR sin fecha). Boursorama no se pudo leer (bloqueo por robots) y la ficha de Euronext Live no mostraba precios. En los días comunes (14 a 23-oct-2026) los cierres de Twelve Data coinciden con los de ABC Bourse e Investing.com (p. ej., 22,52 el 16-oct y 22,22 el 23-oct)."
+ },
+ "acciones_diluidas": {
+  "valor": 232.47681,
+  "fecha": "2025-12-31",
+  "fuente": "Acciones EN CIRCULACIÓN a 31-dic-2025 = 232.848.588 emitidas − 371.778 propias = 232.476.810 (URD 2025 de Elis (edición inglesa, «Elis - 2025 Universal Registration Document.pdf», sha256 04bfd08724e768804e7110093d3ec2cf017a7e7fe2983bacd75656d3a95cd62e; texto con marcas [PDF PAGE n], sha256 0672b95d807cab26…); nota 10.1, PDF p. 394, folio 392: «NUMBER OF SHARES AS AT DECEMBER 31, 2025 232,848,588» y «Treasury shares 371,778»; mismas cifras en el cuadro de accionistas a 12/31/2025, PDF p. 439, folio 437: «Treasury stock 371,778» y «TOTAL 232,848,588», y en el resumen de autocartera, PDF p. 441, folio 439: «Treasury shares held directly or indirectly as at December 31, 2025 371,778(b)», «(b) O/w 131,550 for the liquidity agreement»). Decisión E6 de la persona responsable, 14-nov-2026 (base coherente a 31-dic-2025). Las emitidas no incluyen ninguna acción de la conversión de la OCEANE de 2026: la última operación de capital es la amortización de 4.705.107 propias del 23-dic-2025 (PDF p. 437) y el informe semestral de 2026 da 232.848.588 también a 30-jun-2026 (fuentes_2026, PDF p. 46). No es la media ponderada del BPA diluido (259.077.654, nota 10.3, PDF p. 395), que suma 23.355.764 acciones potenciales de la OCEANE y 1.767.869 contingentes. Dilución potencial NO incluida (se declara aparte): OCEANE 2029, 3.800 bonos × 6.146,2538 = 23.355.764 acciones a 31-dic-2025 (PDF p. 380); acciones de rendimiento, 2.613.905 derechos vivos a 31-dic-2025 (nota 5.4, PDF p. 360; hasta el 120 % según condiciones, PDF p. 361).",
+  "pagina": "PDF 394, 439 y 441 (folios 392, 437 y 439), URD 2025",
+  "periodo": "31-dic-2025 (fecha de las cuentas)",
+  "unidad": "millones de acciones",
+  "literal": "NUMBER OF SHARES AS AT DECEMBER 31, 2025 232,848,588 · Treasury shares 371,778 (URD 2025, PDF p. 394)"
+ },
+ "capitalizacion": {
+  "valor": 5621.2892658,
+  "fecha": "2026-11-04",
+  "fuente": "24,18 € (cierre del 4-nov-2026, histórico no ajustado de Euronext, fuentes_mercado/Euronext_ELIS_historico_no_ajustado_20261114.txt) × 232.476810 millones de acciones en circulación a 31-dic-2025 = 5621.2892658 mm. Fechas distintas (precio de 2026, acciones de las cuentas de 2025), derivado de la decisión E6. No es una actualización a 2026: no recoge la recompra de 2026 ni la conversión de la OCEANE del 7-oct-2026. Contraste: el URD 2025 (PDF p. 447) da 5.648,9 mm a 31-dic-2025 sobre las 232.848.588 emitidas a 24,26 €.",
+  "pagina": "derivado (precio: fuentes_mercado/, fila 04/11/2026; acciones: URD 2025 PDF p. 394)",
+  "periodo": "precio del 4-nov-2026 × acciones a 31-dic-2025",
+  "unidad": "millones de EUR"
+ },
+ "tasa_sin_riesgo": {
+  "valor": 0.0329,
+  "fuente": "Bund alemán a 10 años, cierre del 2026-11-04: 3,2866 % según Investing.com, «Germany 10-Year Bond Yield Historical Data», https://www.investing.com/rates-bonds/germany-10-year-bond-yield-historical-data (consultada el 2026-11-14 hacia las 11:45 CET con un rango de fechas de 14-oct a 13-nov-2026). Fila literal: «Nov 04, 2026 | 3.2866» (3-nov: 3,3101; 5-nov: 3,2466). Contraste oficial: la curva Svensson del Bundesbank (serie BBSIS D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A, «Term structure of interest rates on listed Federal securities (method by Svensson) / residual maturity of 10.0 years / daily data»), API api.statistiken.bundesbank.de consultada el 2026-11-14 hacia las 11:45 CET, da 3,38 el 2026-11-04. Es un rendimiento cupón cero ajustado a 10,0 años, no el del bono de referencia, y en los días comparables queda entre 5 y 9 pb por encima del de mercado. Se usa el de mercado."
+ },
+ "geografia": [
+  {
+   "pais": "France",
+   "pct": 0.2992,
+   "nota": "Zona Francia, 1.399,4 millones de EUR, más «Eliminations & other segments», 35,6 millones de EUR (0,74 %: fábricas Le Jacquard Français en Francia y Kennedy Hygiene en Reino Unido, holdings y Asia, que son Malasia y Singapur). Lo sumo a Francia por ser una cantidad pequeña: el informe no la reparte por país."
+  },
+  {
+   "pais": "Región · Western Europe",
+   "pct": 0.3907,
+   "nota": "Suma de dos zonas. Europa central, 1.234,1 millones de EUR: Alemania y Austria, Bélgica y Luxemburgo, Países Bajos, Polonia, República Checa, Hungría y Eslovaquia, y Suiza. Escandinavia y Europa del Este, 639,8 millones de EUR: Dinamarca, Finlandia, Noruega, Suecia, Estonia, Letonia, Lituania y Rusia. Elijo la región más parecida, porque la mayor parte es Europa occidental o nórdica. Por la nota de riesgo de cambio (p. 376), del total del grupo Suiza es el 3,2 %, Polonia el 1,7 %, Dinamarca el 5,1 %, Suecia el 5,0 % y Noruega el 1,6 %. Polonia, la República Checa, Hungría, Eslovaquia, los países bálticos y Rusia son Europa del Este, pero el informe no da su cifra de ventas por separado."
+  },
+  {
+   "pais": "United Kingdom",
+   "pct": 0.1208,
+   "nota": "Zona Reino Unido e Irlanda, 579,5 millones de EUR. Según la p. 376, el Reino Unido es el 10,2 % de las ventas del grupo, así que Irlanda sería alrededor del 1,9 %. No la separo porque el informe no da una cifra para Irlanda."
+  },
+  {
+   "pais": "Región · Central and South America",
+   "pct": 0.0954,
+   "nota": "Zona Latinoamérica, 457,7 millones de EUR: Brasil, Chile, Colombia y México. Por la p. 376, Brasil es el 5,7 % de las ventas del grupo y México el 2,6 %."
+  },
+  {
+   "pais": "Spain",
+   "pct": 0.094,
+   "nota": "Zona Europa del Sur, 450,7 millones de EUR: España y Andorra, Italia y Portugal. Asigno la zona a España como país representativo: el informe no da el reparto entre los tres países, e Italia y Portugal tienen otra prima de riesgo país."
+  }
+ ],
+ "geografia_fuente": {
+  "fuente": "URD 2025, nota 3.1 «Segment information», línea «External customers» de 2025 (total 4.796,8 millones de EUR): Francia 1.399,4; Europa central 1.234,1; Escandinavia y Europa del Este 639,8; Reino Unido e Irlanda 579,5; Latinoamérica 457,7; Europa del Sur 450,7; otros 35,6. La composición de cada zona está en la p. 342 (nota 3). Las mismas cifras aparecen en la p. 305 (4.2.2, «Revenue by geographic region») y en la p. 345 (nota 4.2). El país de cada zona es el de la filial que factura, no necesariamente el del cliente; el informe no da otro reparto.",
+  "pagina": 342
+ },
+ "unidad": "mm",
+ "anios_fcf_base": 3,
+ "historia": {
+  "anios": [
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ],
+  "partidas": {
+   "ventas": {
+    "valores": [
+     1512.8,
+     2193.6,
+     3133.3,
+     3281.8,
+     2806.3,
+     3048.3,
+     3820.9,
+     4309.4,
+     4573.7,
+     4796.8
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.202 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.166 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.159 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.170 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.226 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.258 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.276 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.270 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.324 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.324",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2024: AVISO formato: importe impreso con espacio como separador de miles (formato frances, p. ej. '4 573,7'); comprobar-anio lo rechaza como 'no numerico'. Se deja tal cual esta impreso, sin reescribirlo. | 2018: 2017 reexpresado: excluye 'Clinical Solutions' (actividad interrumpida, IFRS 5)."
+   },
+   "ebit": {
+    "valores": [
+     186.6,
+     116.2,
+     245.2,
+     335.2,
+     118.1,
+     261.5,
+     369.0,
+     496.8,
+     596.3,
+     630.0
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.202 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.166 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.159 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.170 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.226 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.258 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.276 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.270 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.324 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.324",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). EBIT = resultado antes de impuestos − resultado financiero, la misma definición los diez años (v2.2). Notas de los lectores: 2025: Subtotal impreso 'Operating income'. No confundir con el EBIT ajustado de gestion. | 2024: Subtotal impreso 'Resultat operationnel'. No confundir con el EBIT ajustado de gestion. | 2023: Subtotal impreso 'Operating income' de la cuenta de resultados. No confundir con el 'EBIT' ajustado de gestion (683.1 / 543.7, PDF PAGE 268), que excluye amortizacion de PPA, otros ingresos/gastos operativos, IFRS 2, etc. | 2022: Subtotal impreso 'Operating income', despues de deterioro de fondo de comercio (58.7 en 2022) y de amortizacion de intangibles de combinaciones de negocios. 2021 reexpresado 261.5 (publicado 261.7). | 2021: Subtotal impreso 'Operating income'. El 2020 r"
+   },
+   "da": {
+    "valores": [
+     299.6,
+     456.0,
+     673.7,
+     736.9,
+     751.6,
+     744.8,
+     799.0,
+     877.4,
+     965.1,
+     1019.4
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.228 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.192 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.185 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.195 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.252 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.284 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.301 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.296 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.350 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.350",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Total de Note 4.5 (PDF PAGE 350). Desglose 2025/2024: Textile rental & maintenance items (565.1)/(537.6) y Other rental & maintenance items (36.3)/(35.3) = amortizacion del lino y equipos PROPIOS alquilados a clientes (inmovilizado, no NIIF 16); Other PP&E and intangibles (183.6)/(172.5); Right-of-use assets (149.5)/(132.2) = amortizacion de derechos de uso NIIF 16, incluida en este total; grants +1.0/+0.9; impairment en OOIE (0.1)/(3.3); amortizacion de intangibles de combinaciones (85.7)/(85.0). La linea del estado de flujos 'Depreciation, amortization and provisions' 1,020.8/963.4 incluye provisiones. Elis alquila a sus clientes lino/ropa y equipos propios ('"
+   },
+   "beneficio_neto": {
+    "valores": [
+     93.0,
+     41.5,
+     82.2,
+     142.0,
+     2.7,
+     114.3,
+     202.6,
+     262.0,
+     337.7,
+     366.6
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.202 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.166 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.159 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.170 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.226 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.258 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.276 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.270 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.324 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.324",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2022: 2021 reexpresado 114.3 (publicado 114.5 en el URD 2021). | 2021: 2020 reexpresado 2.7 (publicado 3.9 en el URD 2020). | 2020: 2019 incluye 4.1 de resultado de actividades discontinuadas. | 2019: Incluye actividades interrumpidas (+4.1 / -1.2). | 2018: Incluye el resultado de actividades interrumpidas (-1.2 / -0.7)."
+   },
+   "tipo_impositivo": {
+    "valores": [
+     0.2903,
+     0.2411,
+     0.3838,
+     0.2565,
+     0.9091,
+     0.331,
+     0.2823,
+     0.2963,
+     0.2754,
+     0.256
+    ],
+    "fuente": "impuestos ÷ resultado antes de impuestos; 2016 Elis - 2017 Registration Document.txt p.202 (comparativo del informe siguiente) / Elis - 2017 Registration Document.txt p.202 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.166 (comparativo del informe siguiente) / Elis - 2018 Registration document.txt p.166 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.159 (comparativo del informe siguiente) / Elis - 2019 Universal Registration Document.txt p.159 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.170 (comparativo del informe siguiente) / Elis - 2020 Universal Registration Document.txt p.170 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.226 (comparativo del informe siguiente) / Elis_URD_2021_EN.txt p.226 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.258 (comparativo del informe siguiente) / Elis - 2022 Universal Registration Document.txt p.258 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.276 (comparativo del informe siguiente) / Elis_Universal Registration Document_2023_EN.txt p.276 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.270 (comparativo del informe siguiente) / Elis_Document d'enregistrement universel_2024_FR.txt p.270 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.324 (comparativo del informe siguiente) / Elis - 2025 Universal Registration Document.txt p.324 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.324 / Elis - 2025 Universal Registration Document.txt p.324",
+    "pagina": null,
+    "nota": "Vacío si el resultado antes de impuestos es ≤ 0."
+   },
+   "cfo": {
+    "valores": [
+     424.8,
+     421.6,
+     853.3,
+     1018.5,
+     847.6,
+     961.6,
+     1091.2,
+     1325.6,
+     1452.1,
+     1510.6
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.205 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.169 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.162 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.173 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.229 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.261 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.279 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.273 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.327 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.327",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Despues de impuestos pagados; intereses y pagos de arrendamientos van en financiacion. | 2024: Despues de impuestos pagados; intereses y pagos de arrendamientos van en financiacion. AVISO formato: importe impreso con espacio como separador de miles (formato frances, p. ej. '4 573,7'); comprobar-anio lo rechaza como 'no numerico'. Se deja tal cual esta impreso, sin reescribirlo. | 2023: Despues de impuestos pagados; los intereses pagados (incl. intereses de arrendamientos) van en financiacion. | 2022: Los pagos de principal e intereses de arrendamientos NIIF 16 figuran en financiacion, no en explotacion. | 2021: Los pagos de principal e intereses de arrendamiento"
+   },
+   "capex": {
+    "valores": [
+     263.6,
+     481.9,
+     654.4,
+     682.3,
+     499.2,
+     573.9,
+     699.8,
+     823.9,
+     887.4,
+     890.2
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.205 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.169 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.162 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.173 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.229 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.261 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.279 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.273 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.327 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.327",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Pagos brutos (cobros por desinversion 0.0 y 15.3 en 2025 no restados). Las compras de inmovilizado material INCLUYEN las compras de lino y equipos propios para alquilar: 'Investments' en Rental & maintenance items 635.0 (2025) / 628.8 (2024) sobre 887.1 / 852.4 de inversiones totales en PP&E (Note 6.4, PDF PAGE 367, devengo). No incluye nuevos derechos de uso NIIF 16 (183.9 / 145.7, Note 6.3, PDF PAGE 366), que no son salida de caja. Elis alquila a sus clientes lino/ropa y equipos propios ('Rental & maintenance items', inmovilizado material, Note 6.4, PDF PAGE 367); eso NO es NIIF 16. Los derechos de uso NIIF 16 son activos que Elis arrienda (inmuebles, vehiculo"
+   },
+   "adquisiciones": {
+    "valores": [
+     216.0,
+     1361.9,
+     61.2,
+     53.2,
+     87.1,
+     86.8,
+     221.7,
+     82.1,
+     183.3,
+     117.6
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.205 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.169 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.162 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.173 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.229 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.261 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.279 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.273 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.327 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.327",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Adquisiciones = −(pagos y cobros por negocios del estado de flujos). Notas de los lectores: 2024: 2023 reexpresado (82,1) frente a (82,2) en el informe 2023. | 2022: Pago neto con el signo impreso. 2021 reexpresado (86.8) frente a publicado (86.9). | 2021: Pago neto con el signo impreso. El 2020 reexpresado (87.6) difiere del publicado (88.1). | 2020: Pago neto = pagos por adquisiciones (negativo) + cobros por ventas (positivo), con el signo impreso. | 2019: Signos del EFE (pago negativo, cobro positivo); la suma es la salida neta. 2019 incluye el cobro por la venta de 'Clinical Solutions'. | 2018: En el texto del EFE (p.169) estas líneas están desordenadas: los conceptos aparecen juntos y los importes en líneas sueltas (2018: 9.5, (62.2), 1.0; 2017: 1.3, (1"
+   },
+   "circulante": {
+    "valores": [
+     -26.9,
+     118.4,
+     15.8,
+     -26.9,
+     -26.7,
+     -10.2,
+     52.6,
+     5.9,
+     6.9,
+     4.0
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.205 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.169 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.162 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.173 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.229 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.261 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.279 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.273 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.327 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.327",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Aumento del circulante = −(suma de las líneas de variación del circulante del estado de flujos): convención del ejercicio. Notas de los lectores: 2025: Las 7 lineas suman la 'Change in working capital requirement' de gestion (4.0) / (6.9) (PDF PAGE 314); por eso se incluyen 'Other changes' y 'Employee benefits'. Excluido 'Tax paid'. | 2024: Las 7 lineas suman la 'Variation du besoin en fonds de roulement' de gestion (6,9) / (5,9) (PDF PAGE 259); por eso se incluyen 'Variation des autres postes' y 'Avantages du personnel'. Excluido 'Impots verses'. | 2023: Las 7 lineas suman la 'Change in working capital requirement' de gestion (5.9) / (52.6) (PDF PAGE 268), por eso se incluyen 'Other changes' y 'Employee benefits'. Excluido 'Tax paid'. | 2022: Todas las lineas entre 'Cash flows before finance costs and tax' y '"
+   },
+   "intereses": {
+    "valores": [
+     50.0,
+     60.5,
+     55.2,
+     110.7,
+     64.1,
+     74.6,
+     72.9,
+     70.5,
+     78.9,
+     99.4
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.205 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.169 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.162 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.173 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.229 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.261 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.279 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.273 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.327 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.327",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Intereses financieros NETOS pagados, SIN los intereses de pasivos por arrendamiento NIIF 16, que van dentro de 'Lease liability payments (including interest on lease liabilities)' (177.9)/(150.8) (PDF PAGE 327) y no se imprimen por separado en el estado de flujos (en resultados: 29.2 / 25.8, Note 8.2). No se suman aqui para no mezclar NIIF 16. | 2024: Intereses financieros NETOS pagados, SIN los intereses de pasivos por arrendamiento NIIF 16, que en 2024 van dentro de 'Paiements de passifs locatifs (y compris interets sur passifs locatifs)' (150,8)/(130,8) (PDF PAGE 273) y no se imprimen por separado en el estado de flujos (en resultados: 25,8 / 19,8, note 8.2)."
+   },
+   "intereses_financiacion": {
+    "valores": [
+     50.0,
+     60.5,
+     55.2,
+     110.7,
+     64.1,
+     74.6,
+     72.9,
+     70.5,
+     78.9,
+     99.4
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.205 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.169 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.162 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.173 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.229 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.261 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.279 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.273 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.327 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.327",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Figuran en actividades de financiacion. Los intereses de arrendamientos tambien estan en financiacion, dentro de la linea de pagos de pasivos por arrendamiento. | 2024: Figuran en actividades de financiacion. Los intereses de arrendamientos tambien estan en financiacion, dentro de la linea de pagos de pasivos locativos. | 2023: Toda la linea de intereses pagados figura en actividades de financiacion (incluye intereses de arrendamientos NIIF 16). | 2022: Figura en actividades de financiacion. Incluye intereses de arrendamientos NIIF 16 (no separados). | 2021: Figura en actividades de financiacion. Incluye intereses de arrendamientos NIIF 16 (no separados). | 2020"
+   },
+   "arrendamientos_principal": {
+    "valores": [
+     0.0,
+     0.0,
+     0.0,
+     73.3,
+     73.4,
+     89.4,
+     101.5,
+     111.0,
+     125.0,
+     148.3
+    ],
+    "fuente": "2016 4 - Document de reference 2016_0.txt p.217 (cero: Anterior a NIIF 16: los arrendamientos operativos (location simple) no están en balance y se presentan como compromisos fuera de balance; no hay pagos de principal de pasivos por arrendamiento NIIF 16. Los reembolsos de crédit-bail (arrendamiento financiero NIC 17) no se desglosan y van en 'Remboursement d’emprunts'.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2017 Elis - 2017 Registration Document.txt p.244 (cero: Anterior a NIIF 16: los arrendamientos operativos no están en balance (solo compromisos fuera de balance, nota 6.4); no hay pagos de principal de pasivos NIIF 16. Los reembolsos de arrendamientos financieros NIC 17 no se desglosan (dentro de 'Repayment of borrowings').) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2018 Elis - 2018 Registration document.txt p.205 (cero: Anterior a NIIF 16 (aplicada desde 2019): arrendamientos operativos fuera de balance (compromisos, nota 6.4); no hay pagos de principal de pasivos NIIF 16. Los reembolsos de arrendamientos financieros NIC 17 no se desglosan (dentro de 'Repayment of borrowings').) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2019 Elis - 2020 Universal Registration Document.txt p.173 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.229 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.261 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.279 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.312 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.366 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.366",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). CERO PENDIENTE DE VERIFICACIÓN en 2016, 2017, 2018: el informe no imprime cifra y la cita que lo respalda no se ha contrastado con la partida (reparación H1). El 0 se conserva; solo una decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona) lo confirma. Notas de los lectores: 2025: El estado de flujos solo imprime 'Lease liability payments (including interest on lease liabilities)' (177.9) / (150.8) (PDF PAGE 327), que mezcla principal e intereses; el principal sale de la conciliacion de pasivos por arrendamiento de Note 6.3 (PDF PAGE 366). Solo NIIF 16 (activos que Elis arrienda), nada que ver con el lino alquilado a clientes. Elis alquila a sus clientes lino/ropa y equipos propios ('Rental & maintenance items', inmovilizado material, Note 6.4, PDF PAGE 367); eso NO es NIIF 16. Los derechos de uso NIIF 16 son activos que Elis arrienda (inmuebles, vehiculos, maquinas; Note 6.3, PDF PAGE 366). | 2024: El estado de flujos 2024 solo imprime '",
+    "pendientes_verificacion": [
+     2016,
+     2017,
+     2018
+    ]
+   },
+   "sbc": {
+    "valores": [
+     5.4,
+     8.7,
+     17.0,
+     11.2,
+     13.6,
+     28.0,
+     20.3,
+     22.9,
+     27.1,
+     34.7
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.232 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.195 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.188 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.199 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.255 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.287 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.279 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.299 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.353 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.353",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Note 5.2 (PDF PAGE 353); coincide con 'Share-based payments' 34.7 / 27.1 del estado de flujos. Excluye las cargas sociales asociadas (11.2) / (4.3), linea siguiente. | 2024: Note 5.2 (PDF PAGE 299); coincide con 'Paiements en actions' 27,1 / 22,9 del estado de flujos. Excluye las contribuciones sociales asociadas (4,3) / (8,2), linea siguiente. | 2023: Importe IFRS 2 abonado a patrimonio (coincide con el estado de cambios en el patrimonio, PDF PAGE 280). Ambiguedad: Note 5.2 (PDF PAGE 305) imprime 'Equity-settled share-based payments' (31.1) / (22.3) dentro de gastos de personal, presumiblemente con cargas sociales asociadas; no se usa. | 2022: Gasto de personal"
+   },
+   "id": {
+    "valores": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "fuente": "2016 desconocido; 2017 desconocido; 2018 desconocido; 2019 desconocido; 2020 desconocido; 2021 desconocido; 2022 desconocido; 2023 desconocido; 2024 desconocido; 2025 desconocido",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: No hay importe de I+D impreso: la seccion 4.7 (PDF PAGE 316) solo remite al capitulo 1 y dice 'The Company has no other research and development activities.' Desconocido. | 2024: No hay importe de I+D impreso: la seccion 4.7 'Activites en matiere de recherche et developpement' (PDF PAGE 262) solo remite al capitulo 1. Desconocido. | 2023: No hay importe de I+D impreso: la seccion 5.7 (PDF PAGE 270) solo remite a la seccion 1.2 y dice 'The Company has no other research and development activities.' Desconocido. | 2022: null: la seccion 5.7 (p. 252) remite a 'Focus on Innovation' pero no da importe del gasto de I+D reconocido en resultados. | 2021: null: la seccion"
+   },
+   "acciones_diluidas": {
+    "valores": [
+     114.1355,
+     165.5241,
+     233.225,
+     234.1898,
+     234.7339,
+     241.5371,
+     250.7666,
+     262.6421,
+     260.9314,
+     259.0777
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.269 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.227 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.225 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.235 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.292 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.329 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.348 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.340 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.395 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.395",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: En numero de acciones (unidades). El dato 2024 de este informe (260,931,417) difiere del informe 2024 (260 561 343) por cambio en el efecto de los bonos convertibles (23,355,764 frente a 22 906 781). | 2024: En numero de acciones (unidades). El dato 2023 de este informe (262 642 141) difiere del informe 2023 (263 549 576) sin explicacion expresa; el basico 2023 tambien cambia (232 122 085 frente a 233 122 085). AVISO formato: importe impreso con espacio como separador de miles (formato frances, p. ej. '4 573,7'); comprobar-anio lo rechaza como 'no numerico'. Se deja tal cual esta impreso, sin reescribirlo. | 2023: En numero de acciones (unidades), no en millones"
+   },
+   "patrimonio": {
+    "valores": [
+     1146.3,
+     2920.2,
+     2866.8,
+     2955.7,
+     2807.7,
+     3013.0,
+     3211.5,
+     3475.2,
+     3598.1,
+     3812.5
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.204 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.168 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.161 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.172 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.228 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.260 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.278 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.272 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.326 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.326",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2024: AVISO formato: importe impreso con espacio como separador de miles (formato frances, p. ej. '4 573,7'); comprobar-anio lo rechaza como 'no numerico'. Se deja tal cual esta impreso, sin reescribirlo. | 2018: 2017 reexpresado (IFRS 3)."
+   },
+   "deuda": {
+    "valores": [
+     1773.2,
+     3703.1,
+     3554.7,
+     3544.4,
+     3418.6,
+     3304.0,
+     3464.2,
+     3690.7,
+     3660.1,
+     3418.3
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.259 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.218 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.216 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.225 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.283 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.318 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.337 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.329 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.384 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.384",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Total impreso de Note 8.5 (PDF PAGE 384) = no corriente 2,617.8 + corriente 800.5 (2024 reexpresado: 2,653.1 + 1,007.0). Incluye OCEANEs, USPP, EMTN, NEU MTN, NEU CP, deuda por movilizacion de cuentas a cobrar 200.0, otros prestamos, intereses devengados y costes de emision. NO incluye pasivos por arrendamiento NIIF 16 (lineas separadas del balance). | 2024: Total impreso de note 8.5 (PDF PAGE 329) = plus d'un an 2 653,3 + moins d'un an 1 006,8 (2023: 2 717,5 + 973,2). Incluye OCEANEs, USPP, EMTN, NEU CP, deuda de movilizacion de creditos comerciales 199,9, otros prestamos, intereses devengados y costes de emision. NO incluye pasivos locativos NIIF 16 (lineas se"
+   },
+   "arrendamientos": {
+    "valores": [
+     0.0,
+     0.0,
+     0.0,
+     407.4,
+     447.3,
+     453.5,
+     485.4,
+     538.3,
+     606.2,
+     703.2
+    ],
+    "fuente": "2016 4 - Document de reference 2016_0.txt p.217 (cero: Anterior a NIIF 16: no hay pasivos por arrendamiento en balance; los arrendamientos operativos solo figuran como compromisos (251.885 en 2016). El crédit-bail NIC 17 (12.746) está dentro de deuda.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2017 Elis - 2017 Registration Document.txt p.244 (cero: Anterior a NIIF 16: no hay pasivos por arrendamiento en balance; arrendamientos operativos solo como compromisos (312.2 en 2017). Los arrendamientos financieros NIC 17 (12.5) están en deuda.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2018 Elis - 2018 Registration document.txt p.205 (cero: Anterior a NIIF 16: no hay pasivos por arrendamiento en balance; arrendamientos operativos solo como compromisos (339.0 en 2018). Los arrendamientos financieros NIC 17 (22.9) están en deuda.) (CERO PENDIENTE DE VERIFICACIÓN: cita sin contrastar); 2019 Elis - 2020 Universal Registration Document.txt p.211 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.269 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.302 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.321 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.312 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.366 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.366",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). CERO PENDIENTE DE VERIFICACIÓN en 2016, 2017, 2018: el informe no imprime cifra y la cita que lo respalda no se ha contrastado con la partida (reparación H1). El 0 se conserva; solo una decisión humana registrada en fase1_decisiones.json (valor, fuente con página, fecha y persona) lo confirma. Notas de los lectores: 2025: = no corriente 563.2 + corriente 140.0 (2024 reexpresado: 480.3 + 125.9) del balance. Solo pasivos NIIF 16. Elis alquila a sus clientes lino/ropa y equipos propios ('Rental & maintenance items', inmovilizado material, Note 6.4, PDF PAGE 367); eso NO es NIIF 16. Los derechos de uso NIIF 16 son activos que Elis arrienda (inmuebles, vehiculos, maquinas; Note 6.3, PDF PAGE 366). | 2024: = no corriente 478,1 + corriente 125,7 (2023 reexpresado: 430,8 + 107,5) del balance. Solo pasivos NIIF 16. Elis alquila a sus clientes lino/ropa y equipos propios ('Articles en location-entretien', inmovilizado material, note 6.4, PDF PAGE 313); eso NO es NIIF 16. Los derechos de us",
+    "pendientes_verificacion": [
+     2016,
+     2017,
+     2018
+    ]
+   },
+   "caja": {
+    "valores": [
+     169.0,
+     416.4,
+     197.0,
+     172.3,
+     137.6,
+     160.1,
+     286.1,
+     665.3,
+     622.0,
+     398.1
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.204 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.168 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.161 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.172 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.228 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.260 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.278 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.272 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.326 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.326",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Solo efectivo y equivalentes (definición de la plantilla). Notas de los lectores: 2023: Balance. En el estado de flujos la caja final es 664.7 (neta de descubiertos). | 2022: Activo del balance (antes de descubiertos). Incluye depositos a plazo y valores negociables 3.4 (0.1), nota 8.4. | 2021: Activo del balance (antes de descubiertos). Incluye depositos a plazo y valores negociables 0.1 (1.0), nota 8.4. | 2020: Activo del balance (antes de descubiertos). Incluye depositos a plazo y valores negociables 1.0 (0.9), nota 8.4. | 2019: Activo del balance, antes de descubiertos. Incluye depósitos a plazo y valores 0.9 / 1.3 (nota 8.4). | 2018: Activo del balance, antes de descubiertos. Incluye depósitos a plazo y valores 1.3 / 0.9 (nota 8.4). | 2017: Ac"
+   },
+   "pensiones": {
+    "valores": [
+     64.8,
+     83.7,
+     81.5,
+     87.1,
+     74.8,
+     54.0,
+     47.4,
+     74.9,
+     91.6,
+     67.1
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.234 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.197 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.190 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.200 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.257 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.289 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.307 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.301 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.355 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.355",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Déficit neto de prestación definida, línea (3) = (1) − (2) del cuadro «FUNDED STATUS OF EMPLOYEE BENEFIT OBLIGATION» (Note 5.3, PDF PAGE 355): 67.1 (2025) y 91.6 (2024). No incluye «Other long-term benefits» (línea 4), que la línea (5) sí suma. | 2024: Déficit neto de prestación definida, línea (3) = (1) − (2) del cuadro de la note 5.3 (PDF PAGE 301): 91,6 (2024) y 74,9 (2023). No incluye los «autres avantages à long terme» (línea 4), que la línea (5) sí suma. | 2023: Déficit neto de prestación definida, línea (3) = (1) − (2) del cuadro «FUNDED STATUS OF EMPLOYEE BENEFIT OBLIGATION» (Note 5.3, PDF PAGE 307): 74.9 (2023) y 47.4 (2022). No incluye «Other long-term"
+   },
+   "minoritarios": {
+    "valores": [
+     4.5,
+     2.9,
+     1.4,
+     0.8,
+     0.6,
+     0.7,
+     0.8,
+     0.7,
+     0.0,
+     0.0
+    ],
+    "fuente": "2016 Elis - 2017 Registration Document.txt p.204 (comparativo del informe siguiente); 2017 Elis - 2018 Registration document.txt p.168 (comparativo del informe siguiente); 2018 Elis - 2019 Universal Registration Document.txt p.161 (comparativo del informe siguiente); 2019 Elis - 2020 Universal Registration Document.txt p.172 (comparativo del informe siguiente); 2020 Elis_URD_2021_EN.txt p.228 (comparativo del informe siguiente); 2021 Elis - 2022 Universal Registration Document.txt p.260 (comparativo del informe siguiente); 2022 Elis_Universal Registration Document_2023_EN.txt p.278 (comparativo del informe siguiente); 2023 Elis_Document d'enregistrement universel_2024_FR.txt p.272 (comparativo del informe siguiente); 2024 Elis - 2025 Universal Registration Document.txt p.326 (comparativo del informe siguiente); 2025 Elis - 2025 Universal Registration Document.txt p.326",
+    "pagina": null,
+    "nota": "Construido por fase1_historia.py: cifra más reciente publicada de cada año (comparativo del informe siguiente cuando existe). Notas de los lectores: 2025: Impreso 0.0 en el balance."
+   }
+  }
+ },
+ "analisis": {
+  "C24": {
+   "valor": 0.097,
+   "fuente": "(E6, reexpresado a 31-dic-2025) ROCE antes de impuestos sobre el capital empleado total (definición de la decisión del inversor del 10-nov-2026, que se conserva; cambia solo el periodo): EBIT ajustado 2025 766,6 ÷ capital empleado bruto medio 2024–2025 (patrimonio + deuda financiera bruta + pasivos por arrendamiento) = 766,6 ÷ ((3.598,1 + 3.660,1 + 606,2) + (3.812,5 + 3.418,3 + 703,2)) / 2 = 766,6 ÷ 7.899,2 = 9,705 % (0,097). URD 2025: EBIT ajustado PDF p. 315 «ADJUSTED EBIT (I) 766.6 732.9»; patrimonio PDF p. 326 «TOTAL EQUITY 3,812.5 3,598.1»; deuda PDF p. 384 «BORROWINGS AND FINANCIAL DEBT 3,418.3 3,660.1»; arrendamientos PDF p. 366 (703,2 y 606,2). La etapa 1 tenía 0,098 con los doce meses a 30-jun-2026. Decisión E6 de la persona responsable (14-nov-2026): base coherente a 31-dic-2025, sin aplicar la conversión ni la recompra de 2026.",
+   "pagina": "PDF 315, 326, 366 y 384 (URD 2025)",
+   "periodo": "ejercicio 2025 (capital empleado medio dic-2024/dic-2025)",
+   "unidad": "%"
+  },
+  "C31": {
+   "valor": "Sí",
+   "fuente": "(E6, reexpresado a 31-dic-2025) Cuentas a cobrar comerciales netas 838,6 frente a 771,0 (+8,8 %) con ingresos 4.796,8 frente a 4.573,7 (+4,9 %); existencias 205,9 frente a 200,0 (+3,0 %). URD 2025, nota 4.4 PDF p. 349 «TRADE RECEIVABLES AND NOTES RECEIVABLE 838.6 771.0», cuenta de resultados PDF p. 324 «Revenue … 4,796.8 4,573.7», balance PDF p. 326 «Inventories … 205.9 200.0». Los cobros crecen más que los ingresos: Sí (la etapa 1 tenía Sí con el semestre a 30-jun-2026). Decisión E6 de la persona responsable (14-nov-2026): base coherente a 31-dic-2025, sin aplicar la conversión ni la recompra de 2026.",
+   "pagina": "PDF 324, 326 y 349 (URD 2025)",
+   "periodo": "31-dic-2025 frente a 31-dic-2024",
+   "unidad": "mm EUR / %"
+  },
+  "C33": {
+   "valor": 2.22,
+   "fuente": "(E6, reexpresado a 31-dic-2025) (deuda financiera bruta 3.418,3 + pasivos por arrendamiento 703,2 − caja no restringida 341,5) ÷ EBITDA ajustado 2025 1.700,1 = 3.780,0 ÷ 1.700,1 = 2,223 → 2,22. Caja no restringida = efectivo 398,1 − Latinoamérica 45,8 − Rusia 8,0 − contrato de liquidez 2,8 (misma definición que la etapa 1). URD 2025: PDF p. 384 (deuda 3.418,3; caja 398,1), PDF p. 366 (arrendamientos 703,2), PDF p. 383 (45,8; 8,0; 2,8), PDF p. 314 «ADJUSTED EBITDA 1,700.1». Sin la conversión de la OCEANE (la OCEANE sigue como deuda). Decisión E6 de la persona responsable (14-nov-2026): base coherente a 31-dic-2025, sin aplicar la conversión ni la recompra de 2026.",
+   "pagina": "PDF 314, 366, 383 y 384 (URD 2025)",
+   "periodo": "31-dic-2025; EBITDA ajustado del ejercicio 2025",
+   "unidad": "x"
+  },
+  "C34": {
+   "valor": "No",
+   "fuente": "(E6, reexpresado a 31-dic-2025) Caja no restringida 341,5 (= 398,1 − 45,8 − 8,0 − 2,8, URD 2025 PDF p. 383) ÷ deuda financiera a menos de un año 800,5 (URD 2025 PDF p. 384 «Of which maturing in less than one year 800.5») = 0,43x; con la caja total 398,1 ÷ 800,5 = 0,50x. La caja no cubre la deuda a corto: No (la etapa 1 tenía No con 30-jun-2026). Decisión E6 de la persona responsable (14-nov-2026): base coherente a 31-dic-2025, sin aplicar la conversión ni la recompra de 2026.",
+   "pagina": "PDF 383 y 384 (URD 2025)",
+   "periodo": "31-dic-2025",
+   "unidad": "x"
+  },
+  "C40": {
+   "valor": 323.9,
+   "fuente": "(E6, reexpresado al ejercicio 2025) FCF 2025 menos SBC, con la definición de la decisión del inversor del 10-nov-2026 (CFO − capex neto − intereses netos pagados − pagos de arrendamientos con intereses − SBC): 1.510,6 − 874,7 − 99,4 − 177,9 − 34,7 = 323,9. URD 2025: estado de flujos PDF p. 327 (CFO 1.510,6; «Lease liability payments (including interest…) (177.9)»; «Net interest paid (99.4)»; «Share-based payments 34.7») y PDF p. 314 («Net capex (874.7)»; «FREE CASH FLOW 358.6», que coincide con 1.510,6 − 874,7 − 99,4 − 177,9). La etapa 1 tenía 264,5 con los doce meses a 30-jun-2026. Decisión E6 de la persona responsable (14-nov-2026): base coherente a 31-dic-2025, sin aplicar la conversión ni la recompra de 2026.",
+   "pagina": "PDF 314 y 327 (URD 2025)",
+   "periodo": "ejercicio 2025",
+   "unidad": "mm EUR"
+  },
+  "C42": {
+   "valor": 5.53,
+   "fuente": "(E6, reexpresado a 31-dic-2025) EV ÷ EBITDA con la definición de la etapa 1 (EV = capitalización + deuda bruta + arrendamientos − caja no restringida): (5621.2893 + 3.418,3 + 703,2 − 341,5) ÷ 1.700,1 = 5.5298 → 5,53. Capitalización = 24,18 € × 232,47681 M acciones en circulación a 31-dic-2025 (C41); deuda, arrendamientos y caja de URD 2025 PDF p. 384, 366 y 383; EBITDA ajustado 2025 PDF p. 314. Fechas distintas (precio del 4-nov-2026, balance y EBITDA de 2025). Decisión E6 de la persona responsable (14-nov-2026): base coherente a 31-dic-2025, sin aplicar la conversión ni la recompra de 2026.",
+   "pagina": "PDF 314, 366, 383 y 384 (URD 2025); precio en fuentes_mercado/",
+   "periodo": "capitalización con precio del 4-nov-2026 y acciones a 31-dic-2025; deuda a 31-dic-2025; EBITDA ajustado 2025",
+   "unidad": "x"
+  },
+  "C53": {
+   "valor": 398.1,
+   "fuente": "(E6, reexpresado a 31-dic-2025) Efectivo y equivalentes a 31-dic-2025: URD 2025, nota 8.4, PDF p. 383 «CASH AND CASH EQUIVALENTS (ASSETS) 398.1 622.0» y nota 8.5, PDF p. 384 (= Historia!L24). La etapa 1 usaba el balance de 30-jun-2026. Decisión E6 de la persona responsable (14-nov-2026): base coherente a 31-dic-2025, sin aplicar la conversión ni la recompra de 2026.",
+   "pagina": "PDF 383 y 384 (URD 2025)",
+   "periodo": "31-dic-2025",
+   "unidad": "mm EUR"
+  },
+  "C54": {
+   "valor": 4121.5,
+   "fuente": "(E6, reexpresado a 31-dic-2025) Deuda total con arrendamientos = deuda financiera bruta 3.418,3 (URD 2025, nota 8.5, PDF p. 384 «BORROWINGS AND FINANCIAL DEBT 3,418.3») + pasivos por arrendamiento 703,2 (URD 2025, PDF p. 366 «AS AT 12/31/2025 … 703.2») = 4.121,5 (= Historia!C64 = L22 + L23). Incluye la OCEANE 2029 como deuda (362,0). La etapa 1 usaba el balance de 30-jun-2026. Decisión E6 de la persona responsable (14-nov-2026): base coherente a 31-dic-2025, sin aplicar la conversión ni la recompra de 2026.",
+   "pagina": "PDF 366 y 384 (URD 2025)",
+   "periodo": "31-dic-2025",
+   "unidad": "mm EUR"
+  },
+  "C46": {
+   "valor": 1429.433,
+   "fuente": "Media 2023–2025 de «Net cash from operating activities» (1.325,6 DEU 2024 PDF p. 273; 1.452,1 y 1.510,6 URD 2025 PDF p. 327) = 1.429,4333 (valor exacto); SUPUESTO DE LA ORQUESTACIÓN (14-nov-2026), por el precedente de la decisión E1 de la persona responsable en Viscofan y Vidrala (valores exactos en lugar de redondeos); NO es una decisión de la persona responsable para Elis: sustituye el redondeo de la etapa 1 (1429.4).",
+   "pagina": "DEU 2024 PDF 273; URD 2025 PDF 327",
+   "periodo": "2023–2025",
+   "unidad": "mm"
+  },
+  "C47": {
+   "valor": 857.167,
+   "fuente": "Media 2023–2025 del capex NETO según la definición de Elis («Net capex» publicado: 820,8 DEU 2024 PDF p. 259 «Investissements nets»; 876,0 y 874,7 URD 2025 PDF p. 314) = 857,1667 (valor exacto; es la fórmula de derivación del registro de verificación). Con las líneas del estado de flujos la media sería 857,133 (2023: 26,8 + 797,1 − 0,1 − 2,8 − 0,3 = 820,7 frente a 820,8 publicado, diferencia de redondeo de la propia empresa); no se usa porque el concepto elegido por el inversor es el «Net capex» publicado. SUPUESTO DE LA ORQUESTACIÓN (14-nov-2026), por el precedente de la decisión E1 de la persona responsable en Viscofan y Vidrala (valores exactos en lugar de redondeos); NO es una decisión de la persona responsable para Elis: sustituye el redondeo de la etapa 1 (857.1).",
+   "pagina": "DEU 2024 PDF 259; URD 2025 PDF 314",
+   "periodo": "2023–2025",
+   "unidad": "mm"
+  },
+  "C50": {
+   "valor": 28.233,
+   "fuente": "Media 2023–2025 de «Share-based payments» del estado de flujos (22,9 DEU 2024 PDF p. 273 «Paiements en actions»; 27,1 y 34,7 URD 2025 PDF p. 327) = 28,2333 (valor exacto); SUPUESTO DE LA ORQUESTACIÓN (14-nov-2026), por el precedente de la decisión E1 de la persona responsable en Viscofan y Vidrala (valores exactos en lugar de redondeos); NO es una decisión de la persona responsable para Elis: sustituye el redondeo de la etapa 1 (28.2).",
+   "pagina": "DEU 2024 PDF 273; URD 2025 PDF 327",
+   "periodo": "2023–2025",
+   "unidad": "mm"
+  },
+  "C48": {
+   "periodo": "2023–2025",
+   "unidad": "mm",
+   "valor": 108.0,
+   "calculo": {
+    "operacion": "media",
+    "anios": [
+     2023,
+     2024,
+     2025
+    ],
+    "terminos": [
+     {
+      "partida": "intereses_financiacion",
+      "signo": 1
+     },
+     {
+      "componente": "pagos_arrendamientos_con_intereses",
+      "signo": 1
+     },
+     {
+      "partida": "arrendamientos_principal",
+      "signo": -1
+     }
+    ],
+    "componentes": {
+     "pagos_arrendamientos_con_intereses": {
+      "2023": {
+       "valor": 130.8,
+       "fuente": "texto/Elis_Document d'enregistrement universel_2024_FR.txt",
+       "pagina": 273,
+       "cita": "Paiements de passifs locatifs (y compris intérêts sur passifs locatifs) (150,8) (130,8)",
+       "documento": "Document d'enregistrement universel 2024 d'Elis (incluye los estados financieros consolidados 2024; en francés)",
+       "valor_fuente": -130.8,
+       "signo": -1,
+       "tratamiento": "pago publicado entre paréntesis (salida de caja) en el estado de flujos de efectivo; el cálculo usa su magnitud positiva para restarle el principal y obtener los intereses de arrendamientos (4.15, hito 2, R415-SIGNO: conversión declarada, sin cambio de valor)"
+      },
+      "2024": {
+       "valor": 150.8,
+       "fuente": "texto/Elis - 2025 Universal Registration Document.txt",
+       "pagina": 327,
+       "cita": "Lease liability payments (including interest on lease liabilities) (177.9) (150.8)",
+       "documento": "Universal Registration Document 2025 de Elis (incluye los estados financieros consolidados 2025)",
+       "valor_fuente": -150.8,
+       "signo": -1,
+       "tratamiento": "pago publicado entre paréntesis (salida de caja) en el estado de flujos de efectivo; el cálculo usa su magnitud positiva para restarle el principal y obtener los intereses de arrendamientos (4.15, hito 2, R415-SIGNO: conversión declarada, sin cambio de valor)"
+      },
+      "2025": {
+       "valor": 177.9,
+       "fuente": "texto/Elis - 2025 Universal Registration Document.txt",
+       "pagina": 327,
+       "cita": "Lease liability payments (including interest on lease liabilities) (177.9) (150.8)",
+       "documento": "Universal Registration Document 2025 de Elis (incluye los estados financieros consolidados 2025)",
+       "valor_fuente": -177.9,
+       "signo": -1,
+       "tratamiento": "pago publicado entre paréntesis (salida de caja) en el estado de flujos de efectivo; el cálculo usa su magnitud positiva para restarle el principal y obtener los intereses de arrendamientos (4.15, hito 2, R415-SIGNO: conversión declarada, sin cambio de valor)"
+      }
+     }
+    },
+    "decision": "Tratamiento del inversor del 10-nov-2026 registrado en el Control maestro de la etapa 1 (filas 45 y 47: «C48 = intereses netos en financiación 82,9 + intereses de arrendamientos 25,1»), conciliado con la base E6 (cupón de la OCEANE dentro de «Net interest paid»). Intereses de arrendamientos = pagos de pasivos por arrendamiento con intereses − principal (desde el informe 2024 «Net interest paid» los excluye).",
+    "redondeo": 3
+   },
+   "valor_sin_redondear": 108.0,
+   "fuente": "Cálculo declarado (media 2023–2025 de: intereses_financiacion + pagos_arrendamientos_con_intereses − arrendamientos_principal; redondeo a 3 decimales; sin redondear 108.0): 2023 intereses_financiacion (Historia) 70.5; 2023 pagos_arrendamientos_con_intereses 130.8 (= -1 × -130.8 publicado: pago publicado entre paréntesis (salida de caja) en el estado de flujos de efectivo; el cálculo usa su magnitud positiva para restarle el principal y obtener los intereses de arrendamientos (4.15, hito 2, R415-SIGNO: conversión declarada, sin cambio de valor)) (texto/Elis_Document d'enregistrement universel_2024_FR.txt p.273); 2023 arrendamientos_principal (Historia) 111.0; 2024 intereses_financiacion (Historia) 78.9; 2024 pagos_arrendamientos_con_intereses 150.8 (= -1 × -150.8 publicado: pago publicado entre paréntesis (salida de caja) en el estado de flujos de efectivo; el cálculo usa su magnitud positiva para restarle el principal y obtener los intereses de arrendamientos (4.15, hito 2, R415-SIGNO: conversión declarada, sin cambio de valor)) (texto/Elis - 2025 Universal Registration Document.txt p.327); 2024 arrendamientos_principal (Historia) 125.0; 2025 intereses_financiacion (Historia) 99.4; 2025 pagos_arrendamientos_con_intereses 177.9 (= -1 × -177.9 publicado: pago publicado entre paréntesis (salida de caja) en el estado de flujos de efectivo; el cálculo usa su magnitud positiva para restarle el principal y obtener los intereses de arrendamientos (4.15, hito 2, R415-SIGNO: conversión declarada, sin cambio de valor)) (texto/Elis - 2025 Universal Registration Document.txt p.327); 2025 arrendamientos_principal (Historia) 148.3. Tratamiento del inversor del 10-nov-2026 registrado en el Control maestro de la etapa 1 (filas 45 y 47: «C48 = intereses netos en financiación 82,9 + intereses de arrendamientos 25,1»), conciliado con la base E6 (cupón de la OCEANE dentro de «Net interest paid»). Intereses de arrendamientos = pagos de pasivos por arrendamiento con intereses − principal (desde el informe 2024 «Net interest paid» los excluye)."
+  },
+  "C49": {
+   "valor": 128.1,
+   "fuente": "Historia de fase1_v63.json, media 2023–2025 de arrendamientos_principal: Elis_Document d'enregistrement universel_2024_FR.txt p.312 (comparativo del informe siguiente); Elis - 2025 Universal Registration Document.txt p.366 (comparativo del informe siguiente); Elis - 2025 Universal Registration Document.txt p.366",
+   "pagina": null,
+   "periodo": "2023–2025",
+   "unidad": "mm"
+  }
+ },
+ "_notas": [
+  "Historia construida por scripts/fase1_historia.py (pieza 7); revisión completa en historia_revision.md.",
+  "Precio: solo Twelve Data muestra la sesión del 4-nov-2026 (24,18 EUR). No encontré una segunda fuente para ese día que lo confirme: Investing.com, StockAnalysis, ABC Bourse, Zonebourse y MarketScreener solo devolvieron copias anteriores, Boursorama estaba bloqueada y la ficha de Euronext no mostraba precios. Su columna de variación no cuadra con sus propios cierres. La etapa 1 (etapa1/Elis_respuesta.md) también usó 24,18 EUR.",
+  "Último cierre visto, solo como información: 24,42 EUR el 13-nov-2026 (Twelve Data: «Nov 13, 2026 | 24.50 | 24.50 | 24.24 | 24.42 | -0.33% | 261880»; MarketScreener, consultado el 14-nov-2026, mostraba Euronext Paris a 24,42 EUR, sin fecha de la cotización).",
+  "Bund: el valor de mercado del 4-nov-2026 (3,2866 %, Investing.com) es una sola fuente comercial. La serie oficial del Bundesbank da 3,38 % para ese día, pero es otro concepto (Svensson, cupón cero a 10,0 años). La diferencia es de 9 pb. Trading Economics no tenía noticia del 4-nov; el 9-nov daba «around 3.25%» y el 12-nov «near 3.33%», en línea con Investing.com. La etapa 1 usó 3,29 %.",
+  "No pude leer: el archivo fuentes_2026/Elis_OCEANE_2029_ajuste_ratio.html, citado en fuentes_2026/HUELLAS_descarga_persona_responsable.txt sin huella, no existe en la carpeta; el dato del ajuste de la relación lo tomé del informe semestral de 2026 (p. 15). fuentes_2026/Elis_comunicados_Euronext.html solo trae títulos y fechas de comunicados (por ejemplo, número de acciones a 31-oct-2026, publicado el 12-nov-2026, y la ampliación de capital para empleados «Elis for All 2026», publicada el 10-nov-2026), no su contenido. No los leí.",
+  "Geografía: son 7 zonas del informe en 5 filas. Europa central y Escandinavia y Europa del Este van juntas en «Región · Western Europe» (39,1 %), aunque incluyen Europa del Este (Polonia, Chequia, Hungría, Eslovaquia, bálticos y Rusia) sin cifra separada. Europa del Sur va a «Spain» (incluye Italia y Portugal). Reino Unido e Irlanda va a «United Kingdom». «Otros» (0,74 %) va a «France». Las ventas se asignan por la filial que factura, no por el país del cliente. Los porcentajes redondeados suman 1,0001.",
+  "Errata en el URD 2025 (p. 305): el texto dice «record revenue of €4,596.8 million», pero la tabla de esa misma página, la cuenta de resultados y la nota 3 dan 4.796,8 millones de EUR. Uso 4.796,8.",
+  "Sector: elijo «Business & Consumer Services» porque Elis vende un servicio a empresas (externalización del alquiler y mantenimiento de textiles y equipos), no un producto. Los servicios son 4.673,8 de los 4.796,8 millones de EUR de ventas de 2025 y la venta de bienes 123,0 (nota 4.2, p. 345). Descarté «Apparel» (no vende ropa) y «Environmental & Waste Services» (no gestiona residuos). Es una decisión mía, no una clasificación publicada por Damodaran que haya comprobado.",
+  "Norma contable: IFRS adoptadas por la UE, según el informe de los auditores (URD 2025, p. 401: «in accordance with International Financial Reporting Standards as adopted by the European union»). Forma social: société anonyme con Directorio y Consejo de Supervisión (p. 434); sede en Puteaux.",
+  "(orquestador, 14-nov) El precio del 4-nov-2026 se contrastó con el histórico oficial de Euronext (no ajustado): 24,18, igual que Twelve Data. Límite: lectura de la página con fecha y hora, no un archivo descargado.",
+  "(E6, decisión de la persona responsable del 14-nov-2026) Metadatos ACTIVOS escritos por cambiar_base.py: acciones en circulación a 31-dic-2025 (232.476810 M = 232.848.588 emitidas − 371.778 propias, URD 2025 PDF p. 394, 439 y 441) y capitalización = 24,18 € × esas acciones (5621.3 mm), con fechas distintas declaradas; precio (24,18 €, 4-nov-2026) y tasa sin riesgo sin cambios. La OCEANE 2029 sigue como deuda a 31-dic-2025 (componente de deuda 362,0 mm, nota 8.5, PDF p. 384; 364,4 con el interés devengado, PDF p. 383) y su cupón sigue en C48; sus 23.355.764 acciones potenciales NO están en el denominador. Hechos posteriores que NO se aplican a esta base (solo información): recompra de 17.787.422 acciones por 466,8 mm en el primer semestre de 2026 y 16.914.214 propias a 30-jun-2026 (informe semestral 2026, PDF p. 46 y p. 14); conversión del 99,13 % de las OCEANE el 7-oct-2026 con 23.569.556 acciones entregadas (18.104.556 propias + 5.465.000 nuevas; capital de 238.313.588 acciones) y amortización en efectivo de los 33 bonos restantes por 3.304.271,85 € el 13-oct-2026 (fuentes_2026/Elis_OCEANE_2029_resultados_conversion.html). Aplicar solo una parte de esas operaciones sería incoherente (decisión E6). Las notas de la base anterior sobre las acciones están en antecedentes/notas_retiradas.json.",
+  "16 ceros pendientes de verificación (cita sin contrastar, reparación H1): ver historia_revision.md.",
+  "(cambio de base, 2025-12-31) Entradas sustituidas por cambiar_base.py desde cambio_elis_f1.json: C24 None → 0.097; C31 None → 'Sí'; C33 None → 2.22; C34 None → 'No'; C40 None → 323.9; C42 None → 5.53; C53 None → 398.1; C54 None → 4121.5; C46 1429.433 → 1429.433; C47 867.167 → 857.167; C50 28.233 → 28.233; C48 82.933 → 108.0"
+ ],
+ "pendientes_verificacion": [
+  {
+   "partida": "arrendamientos",
+   "anio": 2016,
+   "archivo": "4 - Document de reference 2016_0.txt",
+   "pagina": 217,
+   "cita": "Les engagements futurs minimums relatifs aux contrats de location simple en cours sont les suivants :",
+   "motivo": "Anterior a NIIF 16: no hay pasivos por arrendamiento en balance; los arrendamientos operativos solo figuran como compromisos (251.885 en 2016). El crédit-bail NIC 17 (12.746) está dentro de deuda."
+  },
+  {
+   "partida": "arrendamientos",
+   "anio": 2017,
+   "archivo": "Elis - 2017 Registration Document.txt",
+   "pagina": 244,
+   "cita": "Outstanding future minimum operating lease commitments are as follows:",
+   "motivo": "Anterior a NIIF 16: no hay pasivos por arrendamiento en balance; arrendamientos operativos solo como compromisos (312.2 en 2017). Los arrendamientos financieros NIC 17 (12.5) están en deuda."
+  },
+  {
+   "partida": "arrendamientos",
+   "anio": 2018,
+   "archivo": "Elis - 2018 Registration document.txt",
+   "pagina": 205,
+   "cita": "Outstanding future minimum operating lease commitments are as follows:",
+   "motivo": "Anterior a NIIF 16: no hay pasivos por arrendamiento en balance; arrendamientos operativos solo como compromisos (339.0 en 2018). Los arrendamientos financieros NIC 17 (22.9) están en deuda."
+  },
+  {
+   "partida": "arrendamientos_principal",
+   "anio": 2016,
+   "archivo": "4 - Document de reference 2016_0.txt",
+   "pagina": 217,
+   "cita": "Les engagements futurs minimums relatifs aux contrats de location simple en cours sont les suivants :",
+   "motivo": "Anterior a NIIF 16: los arrendamientos operativos (location simple) no están en balance y se presentan como compromisos fuera de balance; no hay pagos de principal de pasivos por arrendamiento NIIF 16. Los reembolsos de crédit-bail (arrendamiento financiero NIC 17) no se desglosan y van en 'Remboursement d’emprunts'."
+  },
+  {
+   "partida": "arrendamientos_principal",
+   "anio": 2017,
+   "archivo": "Elis - 2017 Registration Document.txt",
+   "pagina": 244,
+   "cita": "Outstanding future minimum operating lease commitments are as follows:",
+   "motivo": "Anterior a NIIF 16: los arrendamientos operativos no están en balance (solo compromisos fuera de balance, nota 6.4); no hay pagos de principal de pasivos NIIF 16. Los reembolsos de arrendamientos financieros NIC 17 no se desglosan (dentro de 'Repayment of borrowings')."
+  },
+  {
+   "partida": "arrendamientos_principal",
+   "anio": 2018,
+   "archivo": "Elis - 2018 Registration document.txt",
+   "pagina": 205,
+   "cita": "Outstanding future minimum operating lease commitments are as follows:",
+   "motivo": "Anterior a NIIF 16 (aplicada desde 2019): arrendamientos operativos fuera de balance (compromisos, nota 6.4); no hay pagos de principal de pasivos NIIF 16. Los reembolsos de arrendamientos financieros NIC 17 no se desglosan (dentro de 'Repayment of borrowings')."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2016,
+   "archivo": "4 - Document de reference 2016_0.txt",
+   "pagina": 228,
+   "cita": "Dépôt à terme et valeurs mobilières de placement",
+   "motivo": "El balance no tiene activos financieros corrientes distintos de la caja; los depósitos a plazo y valores mobiliarios están dentro de tesorería (nota 8.4). 'Autres actifs' corrientes son gastos anticipados, derivados corrientes (2.773) y otros (nota 4.7, p.206), no incluidos."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2017,
+   "archivo": "Elis - 2017 Registration Document.txt",
+   "pagina": 258,
+   "cita": "Term deposits and marketable securities",
+   "motivo": "El balance no tiene activos financieros corrientes distintos de la caja; los depósitos a plazo y valores están dentro de tesorería (nota 8.4). 'Other assets' corrientes son gastos anticipados, derivados corrientes (0.1) y otros (nota 4.7, p.230), no incluidos."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2018,
+   "archivo": "Elis - 2018 Registration document.txt",
+   "pagina": 217,
+   "cita": "Term deposits and marketable securities",
+   "motivo": "El balance no tiene activos financieros corrientes distintos de la caja; los depósitos a plazo y valores están dentro de tesorería (nota 8.4). 'Other assets' corrientes son gastos anticipados, derivados corrientes (1.4) y otros (nota 4.9, p.194), no incluidos."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2019,
+   "archivo": "Elis - 2019 Universal Registration Document.txt",
+   "pagina": 215,
+   "cita": "Term deposits and marketable securities",
+   "motivo": "El balance no tiene activos financieros corrientes distintos de la caja; los depósitos a plazo y valores están dentro de tesorería (nota 8.4). 'Other assets' corrientes son gastos anticipados, derivados corrientes (0.3) y otros (nota 4.9, p.187), no incluidos."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2020,
+   "archivo": "Elis - 2020 Universal Registration Document.txt",
+   "pagina": 225,
+   "cita": "“Cash and cash equivalents” includes cash, demand deposits, other very short-term investments with original maturities of three months",
+   "motivo": "El balance no tiene linea de activos financieros corrientes distintos de caja; los depositos a plazo (1.0) estan dentro de caja (nota 8.4). 'Other assets' (18.8) son gastos anticipados y derivados (nota 4.9), no depositos."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2021,
+   "archivo": "Elis_URD_2021_EN.txt",
+   "pagina": 283,
+   "cita": "“Cash and cash equivalents” includes cash, demand deposits, other very short-term investments with original maturities of three",
+   "motivo": "El balance no tiene linea de activos financieros corrientes distintos de caja; los depositos a plazo (0.1) estan dentro de caja (nota 8.4). 'Other assets' (18.9) son gastos anticipados y derivados (nota 4.9), no depositos."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2022,
+   "archivo": "Elis - 2022 Universal Registration Document.txt",
+   "pagina": 317,
+   "cita": "“Cash and cash equivalents” includes cash, demand deposits, other very short-term investments with original maturities of three",
+   "motivo": "El balance no tiene linea de activos financieros corrientes distintos de caja; los depositos a plazo (3.4) estan dentro de caja (nota 8.4). 'Other assets' (17.4) son gastos anticipados y derivados (nota 4.9), no depositos."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2023,
+   "archivo": "Elis_Universal Registration Document_2023_EN.txt",
+   "pagina": 278,
+   "cita": "TOTAL CURRENT ASSETS 1,769.7 1,309.1",
+   "motivo": "El activo corriente del balance no tiene linea de depositos o inversiones financieras temporales distinta de la caja; 'Other assets' (19.3) son gastos anticipados y derivados de cobertura (Note 4.9)."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2024,
+   "archivo": "Elis_Document d'enregistrement universel_2024_FR.txt",
+   "pagina": 272,
+   "cita": "TOTAL DES ACTIFS COURANTS 1 763,6 1 770,0",
+   "motivo": "El activo corriente del balance no tiene linea de depositos o inversiones financieras temporales distinta de la caja; 'Autres actifs' (27,6) son gastos anticipados y derivados (note 4.9, PDF PAGE 298)."
+  },
+  {
+   "partida": "otros_activos_financieros",
+   "anio": 2025,
+   "archivo": "Elis - 2025 Universal Registration Document.txt",
+   "pagina": 326,
+   "cita": "TOTAL CURRENT ASSETS 1,654.0 1,763.9",
+   "motivo": "El activo corriente del balance no tiene linea de depositos o inversiones financieras temporales distinta de la caja; 'Other assets' (26.0) son gastos anticipados y derivados (Note 4.9, PDF PAGE 352)."
+  }
+ ]
+}

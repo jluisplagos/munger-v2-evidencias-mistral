@@ -1,0 +1,66 @@
+  GUÍA · de dónde sale cada dato,,
+Dato de la hoja,Pestaña en Simply Wall St,Nota
+Crecimiento ingresos/beneficios,Past,Revenue & Earnings a 5–10 años.
+FCF creciente,Health / Past,Free Cash Flow histórico.
+ROIC / ROCE,(no directo),Return on Capital Employed o NOPAT÷Capital.
+Caja operativa ÷ Neto,Income + Cash Flow,CFO entre Net Income (o FCF÷Neto).
+Márgenes 5–10 años,Past,Gross/Operating/Net en el tiempo.
+Acciones en circulación,Past,Shares Outstanding: ¿sube o baja?
+Cobros/inventario vs ingresos,Balance,Receivables/Inventory vs Revenue.
+Goodwill ÷ activo,Balance,Goodwill sobre Total Assets.
+Deuda neta ÷ EBITDA,Health → Debt,Net Debt y EBITDA.
+Caja vs deuda corto plazo,Health,Short Term Liabilities vs Cash.
+Valor intrínseco,Valuation,Fair Value (DCF) vs Share Price.
+EV/EBITDA,Valuation,Contrasta con pares e historia.
+% insiders / compras-ventas,Ownership,Insiders y Recent Insider Transactions.
+  CÓMO LEER EL VEREDICTO GLOBAL,,
+INCOMPLETA · faltan campos,No emite conclusión hasta cubrir los datos clave y obtener un DCF ponderado válido.,
+DESCARTAR · demasiado difícil,Etapa 0 = No. Fuera de tu círculo o no puedes explicar la tesis.,
+SIN MARGEN / ASIMETRÍA DÉBIL / PRECIO EXIGENTE / TERMINAL NO SOSTENIBLE,"Tu propio DCF no da colchón, el escenario malo pesa demasiado frente al bueno, el precio exige hipótesis demasiado optimistas o el g terminal no se sostiene.",
+PROFUNDIZAR · banderas/dudas,Hay riesgos o preguntas que debes resolver antes de fiarte del resultado.,
+CANDIDATA PARA SEGUIR ESTUDIANDO,No significa “compra”. Significa: el marco no ha detectado un bloqueo obvio.,
+Simply Wall St,Es una referencia externa. El veredicto global no depende de su Fair Value.,
+  DESGLOSE DEL DCF SIMPLIFICADO · de dónde sale cada dato,,
+Dato de la hoja,Pestaña en Simply Wall St,Nota
+Caja de las operaciones,Past / Cash Flow,Cash from Operations. Preferiblemente media 3–5 años si el negocio es estable.
+Capex,Past / Cash Flow,Capital Expenditures. En positivo; preferiblemente media 3–5 años.
+Caja y equivalentes,Health / Balance,Contexto. Este DCF simplificado no la suma automáticamente.
+Deuda total,Health → Debt,"Contexto. Si cambia mucho o domina la estructura, el DCF CFO−capex pierde fiabilidad."
+Acciones diluidas,Past / Income,Diluted shares outstanding. Usa la misma unidad (mm).
+Escenarios y probabilidades,— (tuyo),Tu juicio. Las probabilidades deben sumar 100%; mira siempre también el rango de escenarios.
+  QUÉ AUTOMATIZAR Y QUÉ NO,,
+TÚ lo decides,"Escenarios, probabilidades, tesis, tesis inversa, círculo de competencia.",No existe una fórmula que pueda saber esto por ti.
+TÚ introduces,Datos históricos de estados financieros / fuente fiable.,"Si no sabes qué significa un dato, no lo rellenes a ciegas."
+EXCEL calcula,"FCF, valores descontados, valor terminal, márgenes e indicadores.",Aquí sí conviene automatizar: reduce errores aritméticos.
+EXCEL avisa,"Probabilidades ≠100%, FCF≤0, terminal >70%, supuestos agresivos.","Probabilidades ≠100%, FCF≤0, financiación inestable, terminal incoherente o hipótesis exigentes."
+NO automatices,La historia que justifica cada escenario.,Es precisamente la parte que demuestra si entiendes la empresa.
+  DCF EN 60 SEGUNDOS · SIN JERGA INNECESARIA,,
+1,FCF base,CFO − Capex − intereses/arrendamientos en financiación (IFRS) − SBC si eliges restarla: aproximación al flujo del accionista.
+2,Escenario,Decides cuánto podría crecer esa caja durante 10 años.
+3,Descuento,Cada euro/dólar futuro vale menos hoy; r representa la rentabilidad que exiges.
+4,Valor terminal,Estima lo que vale la caja posterior al año 10 con crecimiento perpetuo prudente.
+5,Valor por acción,Suma los valores de hoy y divide entre acciones diluidas.
+6,Margen de seguridad,Compara tu valor con el precio. No convierte una estimación en una certeza.
+⚠,Cuándo NO usar este DCF,"Bancos/aseguradoras, FCF negativo, financiación/deuda que cambia mucho o negocios extremadamente cíclicos/inestables."
+  CONTROLES V4 · qué aportan y dónde obtenerlos,,
+Dato de la hoja,Dónde encontrarlo,Nota
+Tasa sin riesgo comparable,Banco central / mercado de bonos,Misma moneda que los flujos. Sirve como referencia; no determina automáticamente tu r.
+Stock-based compensation (SBC),Cash Flow / notas de compensación,"Elige explícitamente Sí o No en la fila 51 de Análisis. Si queda vacío, el FCF base no se calcula. Si eliges No, la hoja avisa cuando la SBC pesa ≥10% del FCF."
+CAGR de acciones diluidas,Past / Income / shares,Comprueba si las recompras realmente neutralizan emisiones/SBC a nivel de acción.
+P/FCF histórico,Proveedor fiable / histórico propio,Solo contraste. El múltiplo terminal corresponde a una empresa más madura y no tiene por qué igualar la historia.
+Sensibilidad r × g terminal,— (automático),"Nueve valores: r ±2 puntos y todos los g terminales ±0,5 puntos. Busca robustez, no un número exacto."
+Aplicabilidad + sostenibilidad terminal,Informe anual + tu análisis,Decide si CFO−capex es una aproximación válida y si el g terminal puede sostenerse con reinversión/ROIC razonables.
+  NOVEDADES V5 · V5.1 · V5.2 · V5.3 · qué ha cambiado y qué tienes que hacer,,
+Cambio,Por qué,Qué haces tú
+"ROIC, goodwill e insiders en %",Antes esperaban 18 para 18%; si escribías 18% salía una bandera falsa.,"Escribe 18% (o 0,18). La celda rechaza valores imposibles."
+Intereses y arrendamientos (IFRS),"En IFRS pueden quedar fuera de CFO, y entonces CFO − Capex sobrestima la caja.","Si la empresa reporta en IFRS, rellena las filas 48 y 49 con lo que esté en financiación."
+SBC en el FCF (obligatorio),Es un coste real: diluye o se compensa con recompras pagadas con tu caja.,"Elige explícitamente Sí o No en la fila 51. Si queda vacío, el FCF base no se calcula; si eliges No, la fila 59 avisa cuando la SBC pesa ≥10% del FCF."
+DCF inverso sin redondeo,"Antes redondeaba hacia abajo en tramos de 0,5 puntos, siempre a tu favor.",Nada: ahora interpola.
+Escenarios sin valores de serie,"Crecimientos, g y probabilidades venían puestos y contaban como rellenados.",Elígelos tú para cada empresa.
+Simply Wall St fuera del veredicto,La diferencia con SWS contaba como ⚠ REVISAR y podía cambiar el veredicto global.,Ahora es ⚠ OJO: aviso de contraste que no cuenta.
+Desplegables con alerta,Un «Si» sin tilde escrito a mano contaba como bandera.,Elige siempre del desplegable.
+Orden y limpieza,"Desglose del DCF plegable con [−]/[+], tabla auxiliar oculta, celdas con fórmula vacía corregidas, todos los veredictos con color y contadores de banderas con una fórmula más compatible.",—
+V5.1–V5.2 · SBC obligatoria,"Antes la fila 51 venía en «Sí» y contaba como rellenada sin que decidieras, y el FCF podía calcularse sin la SBC.","Escribe la SBC en la fila 50 (0 si no tiene) y elige Sí o No en la 51. Sin las dos, el FCF base no se calcula."
+V5.3 · Filas 26 y 33 validan números,Un texto escrito por error contaba como mayor que cualquier número: daba ✓ PASA en la 26 y ✗ BANDERA en la 33.,Escribe un número o N/A; la celda rechaza otra cosa.
+V5.3 · FCF Yield coherente con el DCF,Usaba un FCF escrito a mano que podía no coincidir con el FCF base del DCF.,"Deja la fila 40 vacía para usar el FCF base, o escribe otro y mira el aviso de diferencia."
+V5.3 · Exceso de caja opcional,Con mucha caja neta sobrante el valor por acción salía infravalorado.,"Si hay caja claramente no operativa, escríbela en C76. Se suma en escenarios, sensibilidad y DCF inverso. No restes deuda."

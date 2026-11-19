@@ -1,0 +1,146 @@
+{
+ "paquete": "vinci",
+ "empresa": "vinci",
+ "caso": "VINCI SA, ejercicio 2025 y primer semestre de 2026",
+ "fecha_corte": "2026-10-10",
+ "notas": "Fecha de análisis de la etapa 1: 10-oct-2026 (Análisis!D4); precio de cierre del 9-oct-2026 (107,05 EUR) en los datos y la etapa 1. Fuera del paquete, por ser del 22-oct-2026: el comunicado y la presentación de los nueve meses de 2026 (assets vinci-9m2026-* de la Release). Datos de la hoja, extracto e historia: copia byte a byte del expediente vinci/Vinci del producto (los mismos que recibe el personaje), salvo la sección 1 bis de datos_v63.md (perímetro F1 y vara del foso P-FOSO, con remisiones a la gramática G4/G7: reglas del personaje, no datos), que se retira de la copia por ceguera: además salta el control de solape (la misma plantilla de texto está en una salida de revisión de examen/). Las cifras de esa sección se derivan de las filas de la Historia y de las notas de las fuentes, que siguen. Etapa 1: la de la rama fuentes/etapa1-examen-20261117 (la misma respuesta que el expediente; la Release del universo trae una versión 2 del 25-oct-2026 que no se usa). Avisos para la revisión, sin cambio de bytes: las decisiones del inversor del Control maestro llevan fecha 23-oct-2026 (posterior al corte), pero solo usan cifras hasta el 30-jun-2026; los datos citan como contraste un precio de 107,32 EUR del 14-oct-2026 (Tradegate), posterior al corte, y no lo usan como precio. El registro de entradas de Vinci no está sellado: no entra (como en Jumbo y Zoetis).",
+ "archivos": [
+  {
+   "id": "datos_v63_md",
+   "ruta": "datos_analisis_directo/vinci/datos_v63.md",
+   "descripcion": "Datos de la hoja de valoración (Historia de 10 años, análisis y palancas) de VINCI SA. Retirada la sección 1 bis (perímetro F1 y vara del foso: reglas del otro método, no datos de la empresa) y sus tres remisiones; las cifras de la Historia quedan intactas",
+   "origen": {
+    "tipo": "git",
+    "repo": "producto",
+    "commit": "ee1ca6a6d8caae05faf96398fa22cb5b8d0a662e",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/vinci/Vinci/datos_v63.md",
+    "sha256": "7249375b83cea36b52bf2b1b906d279e66ae0431b1e6ed68aaa6c49755b5e179",
+    "retirar": [
+     {
+      "desde": "## 1 bis. Perímetro F1 declarado y vara del foso",
+      "hasta": "## 2. Datos de Análisis con su evidencia"
+     }
+    ],
+    "reemplazos": [
+     {
+      "de": "; ver 1 bis)",
+      "a": ")",
+      "veces": 3
+     }
+    ]
+   }
+  },
+  {
+   "id": "extracto_v63_md",
+   "ruta": "datos_analisis_directo/vinci/extracto_v63.md",
+   "descripcion": "Extracto de los informes con citas de página",
+   "origen": {
+    "tipo": "git",
+    "repo": "producto",
+    "commit": "ee1ca6a6d8caae05faf96398fa22cb5b8d0a662e",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/vinci/Vinci/extracto_v63.md",
+    "sha256": "d076d0c11dc0cc1755f1cbac59286afcf757f651a2759cd22eb105d3f9fd649a"
+   }
+  },
+  {
+   "id": "fase1_v63_json",
+   "ruta": "datos_analisis_directo/vinci/fase1_v63.json",
+   "descripcion": "Historia de 10 años con fuente de cada cifra",
+   "origen": {
+    "tipo": "git",
+    "repo": "producto",
+    "commit": "ee1ca6a6d8caae05faf96398fa22cb5b8d0a662e",
+    "ruta": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/vinci/Vinci/fase1_v63.json",
+    "sha256": "df617107b2e3dcb737130df6dc7e968930789647ecf10c7ab77dca185f35f185"
+   }
+  },
+  {
+   "id": "etapa1_vinci_analisis_csv",
+   "ruta": "datos_analisis_directo/vinci/etapa1/Vinci_evaluada__Análisis.csv",
+   "descripcion": "Excel de etapa 1 en texto (CSV, solo valores), hoja Análisis",
+   "origen": {
+    "tipo": "xlsx_hoja",
+    "repo": "auxiliar",
+    "commit": "cc69c0ad6bce50012e56610355038f7d00e5e537",
+    "ruta": "fuentes_usuario/vinci_etapa1/Vinci_evaluada.xlsx",
+    "sha256": "7537492d096127eb88a6e7d7f3618197ba320bfec7c8d049fa273ad0cf9004d0",
+    "hoja": "Análisis"
+   }
+  },
+  {
+   "id": "etapa1_vinci_control_maestro_csv",
+   "ruta": "datos_analisis_directo/vinci/etapa1/Vinci_evaluada__Control_maestro.csv",
+   "descripcion": "Excel de etapa 1 en texto (CSV, solo valores), hoja Control maestro",
+   "origen": {
+    "tipo": "xlsx_hoja",
+    "repo": "auxiliar",
+    "commit": "cc69c0ad6bce50012e56610355038f7d00e5e537",
+    "ruta": "fuentes_usuario/vinci_etapa1/Vinci_evaluada.xlsx",
+    "sha256": "7537492d096127eb88a6e7d7f3618197ba320bfec7c8d049fa273ad0cf9004d0",
+    "hoja": "Control maestro"
+   }
+  },
+  {
+   "id": "etapa1_vinci_guia_sws_csv",
+   "ruta": "datos_analisis_directo/vinci/etapa1/Vinci_evaluada__Guía_Simply_Wall_St.csv",
+   "descripcion": "Excel de etapa 1 en texto (CSV, solo valores), hoja Guía Simply Wall St",
+   "origen": {
+    "tipo": "xlsx_hoja",
+    "repo": "auxiliar",
+    "commit": "cc69c0ad6bce50012e56610355038f7d00e5e537",
+    "ruta": "fuentes_usuario/vinci_etapa1/Vinci_evaluada.xlsx",
+    "sha256": "7537492d096127eb88a6e7d7f3618197ba320bfec7c8d049fa273ad0cf9004d0",
+    "hoja": "Guía Simply Wall St"
+   }
+  },
+  {
+   "id": "etapa1_vinci_opciones_csv",
+   "ruta": "datos_analisis_directo/vinci/etapa1/Vinci_evaluada__Opciones.csv",
+   "descripcion": "Excel de etapa 1 en texto (CSV, solo valores), hoja Opciones",
+   "origen": {
+    "tipo": "xlsx_hoja",
+    "repo": "auxiliar",
+    "commit": "cc69c0ad6bce50012e56610355038f7d00e5e537",
+    "ruta": "fuentes_usuario/vinci_etapa1/Vinci_evaluada.xlsx",
+    "sha256": "7537492d096127eb88a6e7d7f3618197ba320bfec7c8d049fa273ad0cf9004d0",
+    "hoja": "Opciones"
+   }
+  },
+  {
+   "id": "etapa1_vinci_respuesta_md",
+   "ruta": "datos_analisis_directo/vinci/etapa1/Vinci_respuesta.md",
+   "descripcion": "Respuesta de etapa 1 (juicio heredado; tratar como hipótesis)",
+   "origen": {
+    "tipo": "git",
+    "repo": "auxiliar",
+    "commit": "cc69c0ad6bce50012e56610355038f7d00e5e537",
+    "ruta": "fuentes_usuario/vinci_etapa1/Vinci_respuesta.md",
+    "sha256": "63411305c449466d47e60a360db4c1292490912fc8b17c2641337a00b67307af"
+   }
+  },
+  {
+   "id": "fuentes_urd_2025_seleccion",
+   "ruta": "datos_analisis_directo/vinci/fuentes/vinci-urd-2025.seleccion.compacto.txt",
+   "descripcion": "Documento de registro universal 2025, paginas 4 a 18, 24 y 25, 129 a 144 y 356 a 425 (cifras clave por negocio y cartera de concesiones, modelo de negocio, informe del consejo sobre las cuentas, estados financieros consolidados y notas), texto con marcas de pagina",
+   "origen": {
+    "tipo": "pdf",
+    "insumo": "vinci-urd-2025.pdf",
+    "sha256": "6c5e06674848aea0c98924fb2e936c9e985b92c6deb47d46b59cdd8466fbbe96",
+    "paginas": "4-18,24-25,129-144,356-425",
+    "cabecera": "Selección de páginas del documento de registro universal 2025 de VINCI SA, depositado en la AMF el 27-feb-2026 (texto con marcas de página del PDF original, espacios repetidos unidos): páginas 4 a 18 (cifras clave del grupo y de cada negocio, cartera de concesiones y aeropuertos con sus vencimientos), 24 y 25 (modelo de negocio y estrategia), 129 a 144 (informe del consejo sobre las cuentas del ejercicio: resultados, flujos, balance, deuda, rentabilidad del capital, hechos posteriores y perspectivas) y 356 a 425 (estados financieros consolidados y notas). No se incluyen las demás secciones (gobierno, remuneraciones, riesgos, sostenibilidad, plan de vigilancia, cuentas de la sociedad matriz, informes de auditoría, tablas de correspondencia), por el límite de tamaño del modelo."
+   }
+  },
+  {
+   "id": "fuentes_semestral_2026_seleccion",
+   "ruta": "datos_analisis_directo/vinci/fuentes/vinci-hy-report-2026.seleccion.compacto.txt",
+   "descripcion": "Informe financiero semestral a 30 de junio de 2026, paginas 3 a 30 y 35 a 72 (informe de gestion del semestre, estados financieros intermedios consolidados y notas)",
+   "origen": {
+    "tipo": "pdf",
+    "insumo": "vinci-hy-report-2026.pdf",
+    "sha256": "e38d02a646b5633334266da731be1e8e6f07cca29b756abc94f89b5753ba1d86",
+    "paginas": "3-30,35-72",
+    "cabecera": "Selección de páginas del informe financiero semestral de VINCI SA a 30-jun-2026, publicado a finales de julio de 2026 (texto con marcas de página del PDF original, espacios repetidos unidos): páginas 3 a 30 (informe de gestión del primer semestre: resultados, ingresos, flujos, balance, hechos posteriores y perspectivas; estados financieros intermedios consolidados y primeras notas) y 35 a 72 (información por negocio y área geográfica y resto de notas). Se omiten las páginas 31 a 34 y 73 y 74 (principios y métodos contables, iguales en lo esencial a los del documento de registro universal), el informe de los auditores, la declaración del responsable y el glosario, por el límite de tamaño del modelo. Los estados intermedios publicados aparte (vinci-hy-interim-fs-2026) son las páginas 20 a 24 de este informe y no se repiten."
+   }
+  }
+ ]
+}
