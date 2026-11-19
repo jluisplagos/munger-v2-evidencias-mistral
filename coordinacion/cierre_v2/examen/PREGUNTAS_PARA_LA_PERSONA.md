@@ -40,3 +40,9 @@
 
 ## Z-ACC · Zoetis y Ahold: acciones de cierre de año frente a balance de mitad de año (fechas desalineadas)
 **PENDIENTE (19-nov).** Por P-O2 se usan las acciones al cierre del ejercicio (31-dic-2025), pero la deuda y la caja del EV son del 30-jun-2026. En Zoetis, con las acciones del 30-jun (414,15 M) el EV/EBITDA bajaría de 9,68x a ≈9,48x. **Recomendación:** mantener P-O2 tal cual y declarar la desalineación en la nota de cada cifra (como en Jumbo); no cambia ninguna conclusión.
+
+## A-NIC17 · Ahold: deuda de 2016 y 2017 con arrendamientos financieros de la norma antigua (NIC 17)
+**PENDIENTE (19-nov).** La fila «deuda sin arrendamientos» de 2016–2017 incluye los arrendamientos financieros de la norma antigua, porque así se publicaban (antes de la NIIF 16). **Recomendación:** dejarla como se publicó y declararlo (son años fuera de la base de caja 2023–2025 y no mueven la conclusión); la alternativa es restarlos con la nota de arrendamientos de esos años.
+
+## M-BYTES · Datos de mercado sin archivo guardado (bloquean «apto por entradas»)
+**PENDIENTE (19-nov).** El programa solo acepta como comprobado un dato de mercado si el archivo original está guardado con su huella. Faltan: Jumbo, precio 27,28 € del 17-nov (la captura de Euronext Athens de la persona) y Bund a 10 años del 17-nov; Damodaran (margen del sector) de Ahold, Jumbo y Zoetis. Propuesta: la persona sube a la Release la captura y las páginas guardadas como PDF; las lecturas de terceros C38 (valor intrínseco de webs) y C88 (P/FCF de terceros) se declaran «no materiales» con justificación que sella un revisor, sin subir nada.
