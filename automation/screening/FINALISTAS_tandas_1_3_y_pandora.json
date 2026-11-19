@@ -1,0 +1,1086 @@
+{
+ "registro": "origin/automatizacion/claude-api-piloto-registro",
+ "registro_sha": "9e1868d1a0dd9727ead212e1d3f28063146a44bb",
+ "ejecuciones": [
+  "44406828081",
+  "44413758195",
+  "44502520327",
+  "44505954250"
+ ],
+ "criterio": [
+  "Solo cuentan los informes en AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION (respuesta con formato válido).",
+  "Nivel 1: calidad, caja y balance = pasa, y precio = pasa o dudoso.",
+  "Nivel 2: ninguno de calidad, caja y balance es no_pasa ni no_aplica; al menos dos de los tres son pasa; precio = pasa o dudoso.",
+  "Encaje no cuenta (nunca elimina). El veredicto del cribado se muestra y no entra en el criterio.",
+  "Finalistas propuestos = nivel 1 + nivel 2. Es una propuesta mecánica, no una recomendación."
+ ],
+ "finalistas": [
+  {
+   "empresa": "FW_Thorpe",
+   "slug": "fw-thorpe",
+   "nivel": 1,
+   "ejecucion": "44502520327",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-fw-thorpe"
+  },
+  {
+   "empresa": "Azkoyen",
+   "slug": "azkoyen",
+   "nivel": 2,
+   "ejecucion": "44413758195",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-azkoyen"
+  },
+  {
+   "empresa": "Betsson",
+   "slug": "betsson",
+   "nivel": 2,
+   "ejecucion": "44413758195",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-betsson"
+  },
+  {
+   "empresa": "CocaCola",
+   "slug": "cocacola",
+   "nivel": 2,
+   "ejecucion": "44502520327",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-cocacola"
+  }
+ ],
+ "empresas": [
+  {
+   "ejecucion": "44406828081",
+   "slug": "pandora",
+   "empresa": "Pandora",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44406828081-pandora",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "aak",
+   "empresa": "AAK",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-aak",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "aarsleff",
+   "empresa": "Aarsleff",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-aarsleff",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "abb",
+   "empresa": "ABB",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-abb",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "acomo",
+   "empresa": "Acomo",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-acomo",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "no_pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "airbus",
+   "empresa": "Airbus",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-airbus",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "airtelafrica",
+   "empresa": "AirtelAfrica",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-airtelafrica",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "andina",
+   "empresa": "Andina",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-andina",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "antofagasta",
+   "empresa": "Antofagasta",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-antofagasta",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "arcadis",
+   "empresa": "Arcadis",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-arcadis",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "asml",
+   "empresa": "ASML",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-asml",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "azkoyen",
+   "empresa": "Azkoyen",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-azkoyen",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "estudiar_a_fondo",
+   "dcf_plantilla_aplica": "si",
+   "nivel": 2
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "bc-speakers",
+   "empresa": "BC_Speakers",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-bc-speakers",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "berkosan",
+   "empresa": "Berkosan",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-berkosan",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "no_pasa",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "besi",
+   "empresa": "BESI",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-besi",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "betsson",
+   "empresa": "Betsson",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-betsson",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "estudiar_a_fondo",
+   "dcf_plantilla_aplica": "si",
+   "nivel": 2
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "bioventix",
+   "empresa": "Bioventix",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-bioventix",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "borgestad",
+   "empresa": "Borgestad",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-borgestad",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "dudoso",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "bossa",
+   "empresa": "Bossa",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-bossa",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "dudoso",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "campine",
+   "empresa": "Campine",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-campine",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44413758195",
+   "slug": "carriage",
+   "empresa": "Carriage",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44413758195-carriage",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "no_pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "chewy",
+   "empresa": "Chewy",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-chewy",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "cocacola",
+   "empresa": "CocaCola",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-cocacola",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "estudiar_a_fondo",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": 2
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "ege-gubre",
+   "empresa": "Ege_Gubre",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-ege-gubre",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "ege-profil",
+   "empresa": "Ege_Profil",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-ege-profil",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "estudiar_a_fondo",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "elia",
+   "empresa": "Elia",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-elia",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "no_pasa",
+    "balance": "dudoso",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "excellence",
+   "empresa": "Excellence",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-excellence",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "ferrari",
+   "empresa": "Ferrari",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-ferrari",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "ferrovial",
+   "empresa": "Ferrovial",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-ferrovial",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "faltan_datos",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "frontera",
+   "empresa": "Frontera",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-frontera",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "dudoso",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "faltan_datos",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "fw-thorpe",
+   "empresa": "FW_Thorpe",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-fw-thorpe",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "estudiar_a_fondo",
+   "dcf_plantilla_aplica": "si",
+   "nivel": 1
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "golar",
+   "empresa": "Golar",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-golar",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "no_pasa",
+    "balance": "no_pasa",
+    "precio": "no_aplica",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "grupa",
+   "empresa": "Grupa",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-grupa",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "no_pasa",
+    "balance": "dudoso",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "gubre-fabrikalari",
+   "empresa": "Gubre_Fabrikalari",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-gubre-fabrikalari",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "demasiado_dificil",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "hal",
+   "empresa": "Hal",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-hal",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "heidelberg",
+   "empresa": "Heidelberg",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-heidelberg",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "heijmans",
+   "empresa": "Heijmans",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-heijmans",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "hellofresh",
+   "empresa": "HelloFresh",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-hellofresh",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "no_pasa",
+    "balance": "pasa",
+    "precio": "no_aplica",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "hermes",
+   "empresa": "Hermes",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-hermes",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "hitachi",
+   "empresa": "Hitachi",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-hitachi",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44502520327",
+   "slug": "hubbell",
+   "empresa": "Hubbell",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44502520327-hubbell",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "dudoso",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "indeks-indes",
+   "empresa": "Indeks_Indes",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-indeks-indes",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "inditex",
+   "empresa": "Inditex",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-inditex",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "indra",
+   "empresa": "Indra",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-indra",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "intuitive",
+   "empresa": "Intuitive",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-intuitive",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "italian-wines",
+   "empresa": "Italian_Wines",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-italian-wines",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "estudiar_a_fondo",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "jetblue",
+   "empresa": "JetBlue",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-jetblue",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "no_pasa",
+    "balance": "no_pasa",
+    "precio": "no_aplica",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "kongsberg",
+   "empresa": "Kongsberg",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-kongsberg",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "kopparbergs",
+   "empresa": "Kopparbergs",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-kopparbergs",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "leonardo",
+   "empresa": "Leonardo",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-leonardo",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "lifco",
+   "empresa": "Lifco",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-lifco",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "lifeservicesgroup",
+   "empresa": "Lifeservicesgroup",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-lifeservicesgroup",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "no_pasa",
+    "balance": "no_pasa",
+    "precio": "no_aplica",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "limes",
+   "empresa": "Limes",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-limes",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "london-security",
+   "empresa": "London_Security",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-london-security",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "loreal",
+   "empresa": "LOreal",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-loreal",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "lvmh",
+   "empresa": "LVMH",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-lvmh",
+   "filtros": {
+    "calidad": "pasa",
+    "caja": "pasa",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "mavi",
+   "empresa": "Mavi",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-mavi",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "si",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "mercadolibre",
+   "empresa": "MercadoLibre",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-mercadolibre",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "dudoso",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "demasiado_dificil",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "methanex",
+   "empresa": "Methanex",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-methanex",
+   "filtros": {
+    "calidad": "no_pasa",
+    "caja": "dudoso",
+    "balance": "dudoso",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "descartar",
+   "dcf_plantilla_aplica": "no",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "mlp-saglik",
+   "empresa": "MLP_Saglik",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-mlp-saglik",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "dudoso",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "faltan_datos",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  },
+  {
+   "ejecucion": "44505954250",
+   "slug": "mo-bruk",
+   "empresa": "Mo-BRUK",
+   "estado": "AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION",
+   "carpeta": "automation/coordination/reviews/cribado-44505954250-mo-bruk",
+   "filtros": {
+    "calidad": "dudoso",
+    "caja": "dudoso",
+    "balance": "pasa",
+    "precio": "no_pasa",
+    "encaje": "no_aplica"
+   },
+   "veredicto_cribado": "vigilar",
+   "dcf_plantilla_aplica": "dudoso",
+   "nivel": null
+  }
+ ]
+}

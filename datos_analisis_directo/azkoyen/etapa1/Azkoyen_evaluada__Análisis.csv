@@ -1,0 +1,189 @@
+fila,A,B,C,D,E
+1,  HOJA DE EVALUACIÓN DE EMPRESAS — V5.3 · Checklist + calidad financiera + valoración por escenarios,,,,
+2,  IDENTIFICACIÓN,,,,
+3,Empresa,"Azkoyen, S.A.",Ticker,AZK (BME · Mercado Continuo),
+4,Sector,"Industrial · bienes de equipo (vending/coffee, medios de pago, control de accesos)",Fecha de análisis,2026-10-30,
+5,  VEREDICTO GLOBAL  (no es una orden de compra: resume lo que has rellenado),,,,
+6,DESCARTAR · demasiado difícil,,✗ Banderas,⚠ Revisar,Progreso
+7,(tu checklist + TU DCF; Simply Wall St queda como referencia externa),,4,5,1
+8,"  AUTOMÁTICO = cuentas, márgenes y avisos.  MANUAL = entender el negocio, elegir escenarios/probabilidades y escribir la tesis.  Si no entiendes un dato, no lo inventes.",,,,
+9,  ETAPA 0 · FILTRO RÁPIDO — ¿sigo o va a la pila de 'demasiado difícil'?,,,,
+10,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+11,¿Entiendo el negocio y lo explico a un niño de 10 años en ≤5 frases?,"Si no puedes, va a 'demasiado difícil'. El 99% de ideas acaban aquí.",Sí,✓ PASA,Pabrai #2. Escríbelo en la Etapa 5.
+12,¿Está dentro de tu círculo de competencia?,"1 cm de ancho, 1 km de profundidad.",No,✗ BANDERA,Pabrai #3.
+13,¿El valor es claro SIN modelos complejos? (tesis sin Excel),"Si necesitas un Excel para ver que es barata, descártala.",No,✗ BANDERA,Pabrai #4.
+14,Tipo de oportunidad,"Define qué compras. La hoja ajusta algunas señales (ROIC/crecimiento), pero no sustituye el contexto sectorial.",Cíclica / commodity,—,Compounder → pesa ROIC. Deep value → pesa precio y balance.
+15,  ETAPA 1 · CALIDAD DEL NEGOCIO (cualitativo — lo que más errores causa),,,,
+16,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+17,¿Hay un viento de cola duradero?,"Electrificación, red, automatización, salud-tech…",No,✗ BANDERA,Es el viento del SECTOR. Anota cuál.
+18,¿Ventaja competitiva sostenible (moat)?,Por qué ESTA empresa capta el viento mejor y lo defiende.,No,✗ BANDERA,"El hueco nº1 de los 3 docs. Tipo: marca, costes, red, escala…"
+19,Ingresos / beneficios crecen de forma consistente,"Si no crece, necesitas razón muy buena para poseerla.",Sí,✓ PASA,Doc 1. SWS: Past.
+20,Riesgo ≠ incertidumbre,Incertidumbre alta + riesgo real bajo = la mayor oportunidad.,Incert. alta + riesgo bajo,✓ PASA,Pabrai #7.
+21,  ETAPA 2 · CALIDAD FINANCIERA Y BANDERAS ROJAS,,,,
+22,    Rentabilidad y calidad del beneficio,,,,
+23,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+24,ROIC / ROCE  (%),Métrica nº1 de calidad. >15% sostenido = compounder.,0.17,ℹ CONTEXTO · no es el criterio principal,Mete el % (ej. 18%). Escribe N/A si no es una métrica útil para este tipo de empresa.
+25,Free Cash Flow: ¿creciente?,La caja es más difícil de falsear que los ingresos.,Sí,✓ PASA,SWS: Health / Past.
+26,Caja operativa ÷ Beneficio neto,"Test de conversión a caja. ≥0,9 sano; <0,7 exige investigar por qué.",1.453,✓ PASA,"Usa una media/lectura representativa. Un ratio bajo no demuestra por sí solo ventas incobrables: revisa working capital, impuestos y partidas no monetarias."
+27,Tendencia de márgenes (5–10 años),"Su evolución, no un año (bruto/operativo/neto).",Estable,✓ PASA · estables,SWS: Past.
+28,Dilución: acciones en circulación,El dato más olvidado. Recompra=bueno; emite=tu trozo encoge.,Estable,ℹ ESTABLE,SWS: Past → Shares Outstanding.
+29,    Banderas rojas del balance,,,,
+30,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+31,¿Cobros o inventario crecen MÁS RÁPIDO que ingresos?,Señal de problemas de demanda o ventas infladas.,No,✓ PASA,'No' es lo bueno. SWS: Balance.
+32,Goodwill ÷ Activo total  (%),Mucho goodwill puede reflejar adquisiciones; importa la calidad del M&A y los deterioros posteriores.,0.253,⚠ REVISAR,"Mete el % (ej. 25%). No hay un umbral universal que convierta el goodwill en 'malo': revisa adquisiciones, impairments y retorno obtenido."
+33,Deuda neta ÷ EBITDA  (x),Umbral que faltaba: <2.5x cómodo; >4x apalancada.,0.42,✓ PASA,"Mete el múltiplo. Escribe N/A si no es aplicable (p. ej., ciertos negocios financieros)."
+34,¿La caja cubre la deuda a corto plazo?,Liquidez inmediata.,Sí,✓ PASA,SWS: Health.
+35,  ETAPA 3 · VALORACIÓN (tu DCF manda; Simply Wall St es solo contraste),,,,
+36,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+37,Precio actual,Cotización por acción.,10.4,—,Lo usa el margen de seguridad de abajo.
+38,Valor intrínseco (Simply Wall St),"Fair Value externo por DCF. Úsalo para contrastar, no para decidir.",23.88,—,SWS: Valuation → Share Price vs Fair Value.
+39,→ Margen de seguridad (SWS · referencia),(VI − Precio) ÷ VI. ≥30% excelente; 10–30% justo; <10% sin colchón.,0.564489112227806,✓ DESCUENTO SWS,Se calcula solo con Precio y VI de arriba.
+40,FCF (mm)  — para FCF Yield,FCF Yield = FCF ÷ Capitalización.,27.56,⚠ OJO · difiere +44% del FCF base (fila 52),"Opcional. Si lo dejas vacío se usa el FCF base normalizado de la fila 52 (el mismo del DCF). Si escribes otro (p. ej. LTM), la columna Veredicto avisa cuando difiere >20%."
+41,  ↳ Capitalización (mm)  → FCF Yield,≥5% atractivo · 3–5% justo · <3% caro (según tipos).,253.64,✓ ATRACTIVO · 10.9%,Veredicto = FCF Yield calculado (con el % al final).
+42,EV / EBITDA  (x),"No hay un múltiplo universal “barato”. Compáralo con pares, historia y calidad.",8.33,ℹ COMPARA · pares + historia,"No hay corte automático: compáralo con pares, historia, crecimiento, márgenes y calidad."
+43,▸ MI VALOR INTRÍNSECO por escenarios,El desglose está debajo: usa [−] / [+] a la izquierda para plegarlo o abrirlo.,13.5273090537144,⚠ REVISAR,Valor ponderado · margen 23% · vs SWS -43%
+44,    1 · Datos base del DCF SIMPLIFICADO al accionista  (mm · media de 3–5 años cuando tenga sentido),,,,
+45,Dato,Qué es,Tu dato,Resultado,Dónde / nota
+46,Caja de las operaciones (mm),Cash from Operations. Media de 3–5 años.,26.162,—,Estado de flujos de caja. SWS: Cash Flow.
+47,Capex: inversión en activos (mm),Capital Expenditures. Escríbelo en POSITIVO.,3.67,—,Estado de flujos de caja. Suele venir con signo menos: quítaselo.
+48,Intereses pagados en «financiación» (mm) · solo IFRS,En IFRS los intereses pagados pueden ir en financiación; entonces CFO no los descuenta y hay que restarlos aquí.,0.461,ℹ se resta del FCF,"Estado de flujos, bloque de financiación ('Interest paid'). Escríbelo en POSITIVO. Si los intereses ya van dentro de CFO (siempre en US GAAP), déjalo vacío."
+49,Pagos por arrendamientos · principal (mm) · IFRS 16,"En IFRS 16 el principal de los alquileres va en financiación: si no lo restas, CFO − Capex sobrestima la caja.",2.929,ℹ se resta del FCF,"Estado de flujos, financiación ('Payment of lease liabilities' / 'Principal elements of lease payments'). En POSITIVO. En US GAAP normalmente vacío."
+50,Stock-based compensation (SBC) (mm),"Compensación en acciones. CFO la suma porque no es caja, pero es un coste real: diluye o se compensa con recompras pagadas con tu caja.",0,ℹ se resta del FCF,"OBLIGATORIO: escríbela (0 si no tiene); sin ella no se calcula el FCF base. Estado de flujos ('Stock-based compensation'), en POSITIVO y en la misma base que CFO (idealmente media 3–5 años)."
+51,¿Restar la SBC del FCF base?,"Recomendado: Sí. Con No, el valor por acción ignora la dilución futura o la caja que se va en recompras para compensarla.",Sí,ℹ FCF neto de SBC,"OBLIGATORIO: elige Sí o No. Si queda vacío, el FCF base no se calcula. Si eliges No, la fila 59 te avisará cuando la SBC pese ≥10% del FCF."
+52,→ Caja libre (FCF) base normalizada (mm),CFO − Capex − intereses y arrendamientos en financiación (IFRS) − SBC (si la restas). Aproximación al flujo del accionista si la financiación es razonablemente estable.,19.102,✓ PASA,"Se calcula solo. Si sale ≤0, este DCF no sirve. La fila 62 comprueba si la financiación/estructura hace poco fiable esta aproximación."
+53,Caja y equivalentes (mm) — CONTEXTO,Dato de balance. Este DCF simplificado no la suma automáticamente.,50.24,ℹ CONTEXTO,"Si existe exceso de caja claramente no operativo, úsalo como contraste y documéntalo; no lo mezcles mecánicamente con el modelo."
+54,Deuda total (mm) — CONTEXTO,Dato de balance. Este DCF simplificado no resta automáticamente la deuda.,39.19,ℹ CONTEXTO,"La deuda importa para la fiabilidad del flujo y el riesgo. Si cambia mucho o domina la estructura financiera, marca la fila 62 como no aplicable."
+55,Acciones diluidas (mm),Diluted shares outstanding.,24.389,—,"Cuenta de resultados. En millones, igual que lo demás."
+56,Rentabilidad exigida al accionista (r / hurdle rate),Tu rentabilidad mínima objetivo. No pretende estimar un 'coste de equity verdadero' con precisión académica.,0.09,—,"PENDIENTE DE INVERSOR. La versión original traía 10,0% precargado; en esta versión maestra no se presupone ninguna rentabilidad exigida. El DCF solo debe usarse cuando tú fijes r."
+57,Tasa sin riesgo a 10 años (misma moneda) — referencia,Referencia de coste de oportunidad; debe corresponder a la moneda de los flujos del DCF.,0.0334,ℹ spread sobre rf: 5.7%,Ej.: Treasury 10Y si los flujos están en USD. No cambia tu r: solo muestra el spread que te estás exigiendo.
+58,   ↳ Calidad del FCF por acción y aplicabilidad del DCF simplificado,,,,
+59,Peso de la SBC sobre el FCF,"SBC ÷ FCF antes de restarla. Si no la restas y pesa ≥10%, el valor por acción sale inflado.",0,ℹ SBC 0% · ya restada,Se calcula solo con la SBC de la fila 50. Contrástalo con el CAGR de acciones y las recompras (filas 60–61).
+60,CAGR de acciones diluidas · 3–5 años (%),¿Tu participación económica se diluye o se reduce después de recompras y emisiones?,6.999999999999999e-05,⚠ REVISAR · acciones +0.0%/año,Calcula el CAGR del número de acciones diluidas. Negativo = menos acciones; positivo = dilución neta.
+61,¿Las recompras neutralizan la SBC a nivel de acciones?,No basta con que la empresa anuncie recompras: mira si el número diluido de acciones realmente baja/queda estable.,Sí,ℹ SBC neutralizada en acciones,"Contrasta SBC, recompras y evolución de diluted shares. Si no está claro, elige 'No está claro'."
+62,¿Este DCF simplificado es aplicable y la financiación es estable?,CFO−Capex aproxima mejor el flujo del accionista cuando deuda/financiación no cambian de forma material.,Sí,✓ MODELO APLICABLE,"Si es banco/aseguradora, la deuda cambia mucho o el modelo de negocio exige otro enfoque, marca que NO aplica."
+63,    2 · Tus 3 escenarios  (elige en los desplegables · el precio actual se toma de arriba),,,,
+64,,MALO,NORMAL,BUENO,Nota
+65,¿Qué tiene que pasar?,Cae el ciclo del sector,"Márgenes estables, sin sorpresas",Nuevo producto o mercado funciona,"OBLIGATORIO. Sin una historia, el número no vale: el escenario no se calcula hasta que la elijas."
+66,En tus palabras (una frase),"Coffee & Vending y Coges siguen débiles porque los operadores no invierten, la cartera de Time & Security sigue bajando y la caja libre se queda plana diez años.","Ventas al 4-5 % con margen de explotación del 12-13 %, Payment Technologies sostiene el resultado y la caja libre crece en torno al 4 % anual.","Payment Technologies sigue creciendo a doble dígito con Cashlogy fuera de Europa y las suscripciones de Coges y Vendon, gana peso en el mix y la caja libre crece en torno al 8 % anual.","Opcional, pero es donde de verdad lo entiendes. Ej.: ""Si X pierde el contrato con Y…"""
+67,Crecimiento de la caja libre · años 1–10,0,0.04,0.08,Esto lo decides TÚ. Usa historia + economía del negocio. >15% anual durante 10 años es excepcional.
+68,Crecimiento para siempre · desde el año 11,0.01,0.02,0.025,"Normalmente 1–3%. Nunca debe ser ≥ r. Cuanto más alto, más depende el valor del futuro lejano."
+69,Probabilidad que le das,0.2,0.6,0.2,✓ Suman 100%
+70,   ↳ Cómo se calcula · la cuenta paso a paso (el manzano) · se pliega con [−] a la izquierda,,,,
+71,Caja libre del año 10 (mm),19.102,28.2756263305102,41.2397852979048,FCF × (1 + crecimiento)^10. Lo que daría el manzano en el año 10.
+72,Valor HOY de los años 1–10 (mm),122.590097407539,148.887853217962,181.641853739563,"Cada año: FCF del año ÷ (1+r)^año, y se suman los 10."
+73,Valor HOY del 'para siempre' (mm),101.869751820683,174.040124806098,274.702065515235,"FCF año 10 × (1+g) ÷ (r − g), y traído a hoy ÷ (1+r)^10."
+74,% del valor que viene del 'para siempre',0.453843982213076,0.538944088620066,0.601962804640453,"Cuanto mayor sea este %, más sensible es el valor a hipótesis lejanas. No existe un umbral universal que vuelva 'incorrecto' el DCF."
+75,Tu 'para siempre' = vender en el año 10 a… (veces su FCF),12.625,14.5714285714286,15.7692307692308,"(1 + g) ÷ (r − g). Ej.: r 10% y g 2,5% ≈ 13,7x. Compáralo con el P/FCF al que ha cotizado la empresa (Conclusión)."
+76,Exceso de caja NO operativa que sumas (mm) · opcional,0,0,0,"Escríbelo en C (se aplica a los 3 escenarios). Vacío = 0, como antes. Solo caja claramente sobrante (no la necesaria para operar) y ≤ caja de la fila 53. NO restes deuda: el FCF ya va después de intereses, sería contarla dos veces."
+77,Valor total para el accionista (mm),224.459849228223,322.92797802406,456.343919254798,Valor hoy de los años 1–10 + valor terminal + exceso de caja no operativa (si lo has escrito en la fila 76).
+78,VALOR INTRÍNSECO POR ACCIÓN,9.20332318783971,13.2407223758276,18.7110549532493,Valor total ÷ acciones. Compáralo con el precio actual de arriba.
+79,Margen de seguridad vs precio,-0.130026598842193,0.21454436511815,0.444178854373256,(Valor − Precio) ÷ Valor. Negativo = está más cara que ese escenario.
+80,Prima/descuento del valor del escenario vs precio,-0.115065078092336,0.273146382291118,0.799139899350897,Valor del escenario ÷ precio − 1. NO es una rentabilidad futura: mide la distancia entre el precio y tu valor estimado hoy.
+81,    3 · Conclusión,,,,
+82,Criterio,Qué significa,Tu dato,Veredicto,Dónde / nota
+83,Valor intrínseco ponderado (por acción),"Media de los 3 escenarios según tus probabilidades. Tu ""precio justo"".",13.5273090537144,—,Solo calcula si los 3 escenarios tienen valor y las probabilidades suman exactamente 100%.
+84,→ Margen de seguridad (ponderado),(Valor − Precio) ÷ Valor. ≥30% excelente; 10–30% justo; <10% sin colchón.,0.231184860292349,⚠ REVISAR,"Este es el margen principal: sale de TU DCF ponderado, no del Fair Value de SWS."
+85,Asimetría de valoración · escenario MALO / BUENO,Compara la distancia del precio al valor del escenario MALO con la del BUENO.,-12% / +80%,✓ PASA · asimetría favorable,"Es una asimetría de valoración, no una distribución de rentabilidades ni una garantía. Depende por completo de tus escenarios."
+86,Crecimiento que el precio ya da por hecho,DCF inverso: crecimiento de FCF (años 1–10) que haría que el valor fuese igual al precio actual.,0.00739850296639448,✓ PASA · ≤ NORMAL,"Usa el crecimiento perpetuo NORMAL. Si el precio exige más crecimiento que tu escenario BUENO, el mercado ya descuenta mucho."
+87,Tu valor vs el de Simply Wall St,¿Tu número ponderado y el de SWS se parecen?,-0.433529771620001,⚠ OJO · hipótesis muy distintas,"Si difieren más de ±25%, uno de los dos supone algo raro: averigua cuál antes de fiarte."
+88,Múltiplo de salida implícito vs su historia,Tu 'para siempre' (NORMAL) frente al P/FCF al que ha cotizado la empresa. Escribe ese P/FCF histórico en 'Tu dato'.,10.9,ℹ 14.6x implícito vs 10.9x histórico · investiga la diferencia,"El múltiplo histórico es contexto, no un juez: crecimiento, tipos, ROIC y madurez pueden ser distintos en el año terminal."
+89,Sensibilidad · valor ponderado con r × g terminal,"g − 0,5 pts",g base,"g + 0,5 pts","Mueve r ±2 pts y TODOS los g terminales ±0,5 pts; escenarios y probabilidades no cambian."
+90,r − 2 pts (7.0%),18.0458966436904,19.2518527710447,20.732740470401,Más favorable por r; conservador por g.
+91,Tu r (9.0%),12.9981388444425,13.5273090537144,14.1389959333651,Caso base: debe coincidir con el valor ponderado de arriba.
+92,r + 2 pts (11.0%),10.1114315507662,10.3860251005404,10.6931980114932,Caso más exigente por r; optimista/conservador según la columna de g.
+93,Chequeo terminal · ¿el g NORMAL es sostenible?,"Piensa en reinversión + ROIC de una empresa madura, no solo en g < r.",No lo sé,⚠ REVISAR · justifica reinversión/ROIC,El crecimiento perpetuo exige reinversión. Documenta por qué el g NORMAL es sostenible; 'No lo sé' obliga a investigar.
+94,  ETAPA 4 · GESTIÓN,,,,
+95,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+96,Skin in the game: % de insiders,La cifra aislada no tiene un umbral universal: importa el valor económico y el contexto.,0.0063,ℹ CONTEXTO · no hay umbral universal,Mete el % (ej. 5%). SWS: Ownership → Insiders.
+97,¿Insiders comprando o vendiendo?,Comprando=buena señal; venta en masa=mala.,Neutral,ℹ NEUTRAL,SWS: Ownership → Insider Transactions.
+98,Asignación de capital de la dirección,"Recompras solo si están baratas, deuda sensata y M&A que cree valor por acción.",Aceptable,⚠ REVISAR,"Mira el historial, no las promesas."
+99,  ETAPA 5 · VEREDICTO Y DISCIPLINA (Pabrai — antes de actuar),,,,
+100,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+101,Tesis en ≤5 frases (para un niño de 10 años),"Azkoyen es un grupo industrial pequeño con un negocio bueno, Payment Technologies (81 % del resultado de explotación de 2025, margen del 29 %), y dos flojos: Coffee & Vending (2 %) y Time & Security (5 %). Tiene balance sano, ROCE del 15-19 %, ninguna dilución y caja libre normalizada creciente. No sé juzgar si el margen de Payment dura diez años: el extracto no nombra competidores y la propia empresa pone su tamaño insuficiente frente a ellos entre sus riesgos principales. A 10,40 € el precio está por encima de mi valor del escenario malo (≈9,2 €) y hay una OPA a 10 € pendiente, con dominicales que representan el 47,54 % del voto en el consejo. No tengo ventaja: demasiado difícil.",,,"Si no cabe aquí, no la entiendes."
+102,Tesis inversa: ¿qué me haría NO comprar / estar equivocado?,"El No, mejor que un bajista: es un conjunto de nichos sin escala, y la propia empresa lo dice al poner el «dimensionamiento insuficiente (concentración de competidores)» entre sus riesgos de nivel 1. Dos de sus tres negocios ya ganan poco y van a peor: en 1S26 Coffee & Vending pierde 1,6 mm antes de impuestos y Time & Security gana 0,1 mm, con la cartera un 15,6 % más baja. Todo el valor cuelga de Payment, y dentro de Payment de Cashlogy y de Coges, que depende de ayudas públicas italianas que ya se retrasaron. La caja libre reciente está favorecida por un capex por debajo de la amortización y por la liberación de circulante. El fondo de comercio (61,6 mm, 25 % del activo) se somete en 2026 a un test con hipótesis muy por encima de lo real en Ascaso, Coges y Primion. La gestión compró Ascaso, que se deterioró; no recompró acciones cuando cotizaban a 5x FCF; y en 2026 pidió 30 mm prestados para pagar 1 € por acción el mismo día en que se anunció la OPA (no sé si hay relación). El Presidente ejecutivo no tiene acciones significativas. Y el mercado ha pagado de mediana 10,9x FCF, no las 13,3x de hoy sobre la base. Lo mejor contra mi abstención: mi valor ponderado estimado (≈13,5 €) está un 30 % por encima del precio, el balance es casi neutro y antes del anuncio la acción cotizaba a 11,40 €.",,,Un checklist que solo confirma te hace comprar de todo.
+103,¿Categoría 'nunca vender'?,"Si sí: se revisa por deterioro fundamental, NO por valoración.",No,—,Pabrai #9.
+104,Tamaño de posición pensado (%),"Decisión de cartera, NO un resultado de esta hoja.","0% · Demasiado difícil · precio de Sí de referencia ≈ 9,2 € (estimado), no operativo mientras C12 sea No",ℹ PLAN DE CARTERA,"No uses una regla fija. Piensa en concentración, correlación, liquidez y pérdida máxima tolerable."
+105,"  Regla de oro: la mayoría de errores vienen de NO ENTENDER EL NEGOCIO, no de pasar por alto una métrica. Si la Etapa 0 falla, ninguna métrica salva la idea.  ·  Amarillo = lo rellenas tú · Columna Veredicto = automática.  ·  ⚠ OJO = aviso de contraste: no cambia el veredicto global.",,,,
+106,▸ Tabla auxiliar del DCF inverso (no tocar) · se abre con [+] a la izquierda,,,,
+107,Crecimiento años 1–10,Valor por acción,,,
+108,-0.1,4.84448970998912,,,
+109,-0.095,5.01164963190084,,,
+110,-0.09,5.18559935152106,,,
+111,-0.08500000000000001,5.36661475926633,,,
+112,-0.08,5.55498197019314,,,
+113,-0.075,5.75099765407763,,,
+114,-0.07000000000000001,5.95496937442799,,,
+115,-0.065,6.16721593662335,,,
+116,-0.06,6.38806774537551,,,
+117,-0.055,6.61786717171402,,,
+118,-0.05,6.85696892969724,,,
+119,-0.045,7.10574046305608,,,
+120,-0.04,7.3645623419801,,,
+121,-0.035,7.63382867025874,,,
+122,-0.03,7.91394750299437,,,
+123,-0.025,8.20534127510652,,,
+124,-0.02,8.50844724085075,,,
+125,-0.015,8.82371792457863,,,
+126,-0.01,9.1516215829689,,,
+127,-0.005,9.49264267896348,,,
+128,0,9.84728236764562,,,
+129,0.00499999999999999,10.2160589943007,,,
+130,0.01,10.5995086049047,,,
+131,0.015,10.998185469287,,,
+132,0.02,11.412662617222,,,
+133,0.025,11.8435323877019,,,
+134,0.03,12.291406991652,,,
+135,0.035,12.7569190883519,,,
+136,0.04,13.2407223758276,,,
+137,0.045,13.7434921954881,,,
+138,0.05,14.2659261512788,,,
+139,0.055,14.8087447436321,,,
+140,0.06,15.3726920184979,,,
+141,0.065,15.9585362317398,,,
+142,0.07000000000000001,16.5670705291896,,,
+143,0.075,17.199113642653,,,
+144,0.08,17.8555106021686,,,
+145,0.08500000000000001,18.5371334648202,,,
+146,0.09,19.2448820604137,,,
+147,0.095,19.9796847543272,,,
+148,0.1,20.7424992278534,,,
+149,0.105,21.5343132763527,,,
+150,0.11,22.3561456255438,,,
+151,0.115,23.2090467662596,,,
+152,0.12,24.0940998080047,,,
+153,0.125,25.0124213516496,,,
+154,0.13,25.9651623816084,,,
+155,0.135,26.9535091778448,,,
+156,0.14,27.9786842480599,,,
+157,0.145,29.0419472804189,,,
+158,0.15,30.1445961171775,,,
+159,0.155,31.2879677495761,,,
+160,0.16,32.4734393343705,,,
+161,0.165,33.7024292323784,,,
+162,0.17,34.97639806942,,,
+163,0.175,36.2968498200401,,,
+164,0.18,37.6653329144025,,,
+165,0.185,39.0834413687519,,,
+166,0.19,40.5528159398455,,,
+167,0.195,42.0751453037596,,,
+168,0.2,43.6521672594824,,,
+169,0.205,45.2856699577102,,,
+170,0.21,46.9774931552675,,,
+171,0.215,48.7295294955805,,,
+172,0.22,50.543725815632,,,
+173,0.225,52.4220844798409,,,
+174,0.23,54.3666647413036,,,
+175,0.235,56.3795841308513,,,
+176,0.24,58.463019874373,,,
+177,0.245,60.6192103388662,,,
+178,0.25,62.8504565076797,,,
+179,0.255,65.1591234854197,,,
+180,0.26,67.5476420329954,,,
+181,0.265,70.0185101332859,,,
+182,0.27,72.5742945879181,,,
+183,0.275,75.2176326456475,,,
+184,0.28,77.9512336628429,,,
+185,0.285,80.7778807965794,,,
+186,0.29,83.7004327308539,,,
+187,0.295,86.7218254364366,,,
+188,0.3,89.8450739648867,,,
