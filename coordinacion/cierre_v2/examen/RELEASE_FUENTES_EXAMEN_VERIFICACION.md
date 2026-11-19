@@ -54,3 +54,7 @@ Publicados el 6-ago-2026, antes del corte del primer tiempo (9-oct-2026). Se añ
 | `FUENTES.txt` (766892781) | `c3e69e1c43a3f95228936e21d1496d77f85810c824768efdebaf5b296b96c892` | Lista de URL de la persona | — |
 
 Faltan: el precio de Zoetis del 8-oct-2026 (solo está la URL) y el de Vinci del 9-oct-2026 (107,05 € de la etapa 1, sin fuente oficial).
+
+### Anexo 3 bis (19-nov, ~08:50 UTC) · entregados en el chat por la persona
+- `VINCI_historical_price.xls` (SHA-256 `78eee9c5d6b1e0402ab9bf8979a5f2d19c09acf3d861bca9e9427ebe305afb9d`): exportación de Euronext «Historical Data», FR0000125486, del 2024-11-20 al 2026-11-18. Fila «2026-10-09, 107.8, 108.1, 106.75, 107.05, 107.05 …» → **cierre de VINCI del 9-oct-2026 = 107,05 €, verificado** (coincide con la etapa 1). Copia local del coordinador en `/home/user/e_work/fuentes_examen/mercado_persona/` (no va a Git: XLS); debe conservarse en `fuentes_mercado/` del Vinci nuevo con su huella.
+- Captura de investor.zoetis.com «Historical Stock Quote», fecha 2026-Oct-8: «Closing Price $73.08» → coincide con C37 de Zoetis T1. Llegó pegada en el chat, sin archivo: se pide a la persona que la suba a la Release como imagen para conservar sus bytes.
