@@ -1,0 +1,58 @@
+{
+ "empresa": "VINCI SA (DG, Euronext Paris) · expediente vinci_b · fecha de análisis 2026-10-10 · precio 107,05 €",
+ "conclusion_atacada": {
+  "estado": "concluido (provisional hasta la auditoría)",
+  "cubo": "Vigilar",
+  "accion": "esperar",
+  "precio_si": 97.79
+ },
+ "objeciones": [
+  {
+   "id": "O1",
+   "direccion": "sube",
+   "hecho": {
+    "archivo": "texto/vinci-urd-2025.txt",
+    "pagina": "399",
+    "cita": "Nota 23.5, columnas «London Gatwick airport · OMA (Mexico) · Edinburgh airport»: «Net income 288 203 102» / «of which attributable to non-controlling interests 144 143 51» / «Net assets 1,533 2,316 1,185» / «of which attributable to non-controlling interests 767 1,624 593» / «Net cash flows (used in)/from operating activities 348 282 159» / «Net cash flows (used in)/from investing activities (245) (108) (92)»"
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "Precio de Sí +4,7 a +10,5 € (de 97,79 a 102,5–108,3 €); central +9,7 € (107,51 €). NORMAL +4,5 a +10,9 € (central +9,0 €).",
+    "cuenta": "Libro: exceso de los minoritarios = 805 ÷ (0,09 − g) − 3.576 = 6.486 / 7.924 / 8.809 M (MALO / NORMAL / BUENO) → −0,008 / −0,008 / −0,007 de margen. Con el resultado atribuido (372 M en 2025, URD 2025 PDF p. 356 y p. 138: «Income attributable to non-controlling interests totalled €372 million (€410 million in 2024)»): 372 ÷ (0,09 − g) − 3.576 = 1.074 / 1.738 / 2.147 M; ÷ 811 / 975 / 1.293 M por milésima (réplica del motor, igual que la fase B) = −0,0013 / −0,0018 / −0,0017. Márgenes: 0,085 + 0,008 − 0,0013 = 0,0917; 0,09 + 0,008 − 0,0018 = 0,0962; 0,10 + 0,007 − 0,0017 = 0,1053. S2C del NORMAL re-derivado con la regla de la fase B: 0,09 ÷ (0,0962 × 0,68) = 1,38 → 1,4. Motor B (mi réplica reproduce 79,28 / 101,75 / 174,47 y 97,79 al céntimo): V = 89,02 / 110,79 / 186,88; precio de Sí = (0,6 × 110,79 + 0,15 × 186,88 + 0,75 × 89,02) ÷ 1,5 = 107,51. Con S2C 1,5: 108,26. Con el redondeo a 0,005 de la fase B (0,09 / 0,095 / 0,105; S2C 1,4): 105,36. Con las tres filiales (338 sobre 2.984): 107,27. Extremo adverso, todos los minoritarios a precio de compra con prima de control (OMA 1.169 ÷ 0,2999 × 0,7001 = 2.729, URD 2023 PDF p. 170; Edimburgo 1.431 ÷ 0,5001 × 0,4999 = 1.430, URD 2025 PDF p. 370; Gatwick 3.080 ÷ 0,5001 × 0,4999 = 3.079, informe anual 2019 PDF p. 302 «buying shares for €3,080 million in cash»; resto al contable 592): exceso 4.254 M → márgenes 0,0878 / 0,0936 / 0,1037, S2C 1,4 → precio de Sí 102,47."
+   },
+   "por_que_cambia_la_conclusion": "La fase C declara el tamaño del recorte «hipótesis sin base» y dice que lo resolvería «la nota de intereses minoritarios del URD 2025: resultado neto, dividendos, deuda neta y flujo». Esa nota está en la misma p. 399 que cita: los socios ganaron 338 M en las tres filiales (372 M en el grupo) y cobraron 805 M (URD 2025 PDF p. 358: «– to non-controlling interests 23.5 (805) (902)»), 2,2 veces su resultado en 2025 y en 2024 (902 ÷ 410). Su parte de la caja libre de las tres filiales (explotación menos inversión) fue ≈207 M (0,4999 × 103 + 0,7001 × 174 + 0,4999 × 67), y su valor contable bajó de 4.085 a 3.576. Capitalizar 805 para siempre da 11.500 M a los minoritarios en el NORMAL. Si OMA y Edimburgo valen lo que se pagó por ellas y el resto vale su contable, al 49,99 % de Gatwick le tocan ≈6,7 mil M, 47 veces los 144 M que gana. La propia regla de la fase B («si es menor que los dividendos, hacia 0,095») manda subir el margen. Con el dato, el precio de Sí sube de 97,79 a ≈105–108 €: la zona pasa de «caro» a «vigilar» o «cumple_regla_k». En el caso central (107,51) el precio de 107,05 ya cumple la regla k = 3. Además, la frontera de la acción que da la fase C (exceso ≈3,45 mil M) no sale con su propio motor: es ≈2,1 mil M con un exceso igual en los tres escenarios y ≈2,3 mil M en el NORMAL con un recorte proporcional. El exceso por resultado (1,1–2,1 mil M) queda por debajo. «Esperar con 97,79» deja pasar el negocio con un objetivo ≈10 € más bajo de lo que dan los hechos del expediente."
+  },
+  {
+   "id": "O2",
+   "direccion": "sube",
+   "hecho": {
+    "archivo": "texto/vinci-urd-2021.txt",
+    "pagina": "67",
+    "cita": "«The 2021 tax expense amounted to €1,625 million. It includes a negative impact of €388 million from the UK government’s decision to increase the corporate income tax rate (from 19% to 25% in 2023), which in particular led to a reassessment of deferred tax liabilities arising from the valuation difference on the company that owns London Gatwick airport. This reassessment had no cash impact.»"
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "Precio de Sí +3,3 a +6,6 € (101,1–104,4 €); central +5,3 € (103,03 €). NORMAL +3,6 a +6,9 € (central +6,5 €).",
+    "cuenta": "El motor aplica para siempre t = 0,32022, la media simple 2021–2025 de la Historia (0,4254 / 0,2823 / 0,2731 / 0,2850 / 0,3353). 2021 sin los 388 sin caja: (1.625 − 388) ÷ 3.820 = 0,3238. 2025 sin la contribución excepcional (URD 2025 PDF p. 138: «Assuming no change in taxation in France, the tax expense would have been €2,212 million and the effective tax rate would have been 29.0%»): 2.212 ÷ 7.936 = 0,2787. Media sin el diferido británico: 0,2999; sin los dos: 0,2886. Motor con la r operativa que recalcula la plantilla (6,438 % y 6,454 %): t 0,2999 → V 82,79 / 105,94 / 180,17 y precio de Sí 101,79 (+4,00); t 0,2886 → V 84,73 / 108,26 / 183,32 y 104,00 (+6,22). Central: MALO a 0,2999, porque su historia repite la contribución; NORMAL y BUENO a 0,2886 → V 82,79 / 108,26 / 183,32 y precio de Sí 103,03 (+5,25). El S2C del NORMAL que deriva la fase B no cambia con el mismo t: 0,77 × 7,26 % (Airports) + 0,23 × 16,85 % (Energy Solutions) = 9,46 %, y 0,0946 ÷ (0,09 × 0,7114) = 1,48 ≈ 1,5. Contraprueba por suma de partes (resto del grupo al 8,7 % más caja de autopistas de 3,0 o 2,7 mil M, a la tasa del motor): +3,3 € (autopistas fijas, t 0,2999) a +6,6 € (autopistas con el mismo t, t 0,2886)."
+   },
+   "por_que_cambia_la_conclusion": "Un quinto del 32 % que el motor cobra para siempre, en los tres escenarios y en el terminal, sale de un ajuste de impuestos diferidos de 2021 «sin impacto en caja». Otra parte sale de una contribución que el NORMAL no repite: la fase B usa 3,0 mil M de caja de autopistas en el NORMAL y deja «la contribución excepcional repetida» solo para el MALO (2,7). La propia empresa da su tipo sin cambios fiscales: 29,0 % en 2025 y 29,4 % en 2024 (URD 2024 PDF p. 352). Solo con quitar el apunte sin caja de 2021, el precio de Sí sube 4 € y la zona pasa a «vigilar». Junto con O1 (las dos centrales), el precio de Sí es 113,07 €, por encima del precio de 107,05: «esperar» sería dejar pasar una compra que cumple la regla."
+  },
+  {
+   "id": "O3",
+   "direccion": "baja",
+   "hecho": {
+    "archivo": "texto/vinci-urd-2025.txt",
+    "pagina": "356",
+    "cita": "Cuenta de resultados consolidada, 2025 / 2024: «Cost of gross financial debt (1,760) (1,785)» / «Financial income from cash investments 513 595» / «Cost of net financial debt 5 (1,247) (1,191)»"
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "Precio de Sí −5,5 a −9,3 € (88,5–92,3 €); central −5,9 € (91,87 €). NORMAL −6,1 a −10,2 € (central −6,5 €).",
+    "cuenta": "La plantilla calcula el coste de la deuda (Historia C63) como intereses 2025 ÷ media de deuda más arrendamientos 2024–2025: 1.428 ÷ 38.710 = 3,69 %. Esos 1.428 son 1.318 de «Net interest paid» (URD 2025 PDF p. 139; datos_v63 §3, fila «intereses»: «neto de los intereses cobrados») más 110 de arrendamientos. Con ese 3,69 %, la r operativa es (59.516 × 0,09 + 39.561 × 0,0369 × 0,6798) ÷ 99.077 = 6,41 %. A la vez, el motor resta toda la caja: pasivos netos 27.052 = 39.561 + 4.745 − 17.254. Así el rendimiento de la caja (513 M en 2025) cuenta dos veces: una al restar la caja y otra al rebajar el coste de una deuda que se pondera en bruto. Con el tipo bruto publicado (URD 2025 PDF p. 138: «In 2025, the average interest rate on long-term gross financial debt was 4.4% (4.9% in 2024)»): r operativa = (5.356,5 + 39.561 × 0,044 × 0,6798) ÷ 99.077 = 6,60 % → V 74,84 / 95,25 / 163,48 y precio de Sí 91,87 (−5,92). Con el coste bruto de la cuenta de resultados, (1.760 + 110) ÷ 38.710 = 4,83 %: r operativa 6,72 % → V 72,30 / 91,58 / 157,31 y precio de Sí 88,51 (−9,27). Contraprueba por suma de partes, con la caja de autopistas descontada a la nueva tasa: −5,5 y −8,7 €."
+   },
+   "por_que_cambia_la_conclusion": "El objetivo de 97,79 € está 6–9 € por encima de lo que da la regla k = 3 con el coste de la deuda bien medido: comprar a 97,79 sería pagar de más, y la zona sigue en «caro». No cambio r (9 %): corrijo un dato de la tasa del motor, que toma intereses netos de lo que rinde una caja que el motor ya resta entera. El cubo Vigilar y la acción «esperar» no cambian por esta objeción; cambia el precio objetivo, a la baja."
+  }
+ ],
+ "sin_objeciones_validas": false,
+ "nota": "Dirección neta: al alza. Con las tres objeciones en su valor central, V = 87,74 / 110,25 / 183,77 y el precio de Sí es 106,35 € (+8,6 €; rango de la combinación 98,5–108,1 €). La zona pasa a «vigilar», con el precio solo 0,70 € por encima: «esperar» sobrevive por muy poco, con un objetivo ≈106 € y no ≈98 €. Sin O3, la acción cambia (113,07 €). Todas las cuentas salen de una réplica del motor B que reproduce al céntimo B78:D78 (79,28 / 101,75 / 174,47), C83 (107,04), el precio de Sí (97,79), el tornado (+45,46 € con −1 punto de tasa; ±35,07 € con ±2 puntos de margen) y las sensibilidades de la fase C (104,94; 113,26; 101,29; 95,68). Comprobé, sin encontrar error, el margen equivalente de la fase B: por suma de partes salen 0,093 / 0,101 / 0,109 antes de minoritarios, frente a sus 0,093–0,094 / 0,098–0,101 / 0,105–0,108. También el valor de la caja de autopistas (≈22,8 mil M frente a ≈23) y la mezcla del S2C. Descarté dos objeciones por ser de juicio o de convención, no de hecho. (1) Las probabilidades 0,25 / 0,15 usan el mismo hecho (Airports 6,9 %) que ya bajó el S2C del NORMAL; con 0,2 / 0,6 / 0,2 el precio de Sí sería 101,75 con el tope del NORMAL. (2) El valor está a 31-dic-2025 y el precio es del 9-oct-2026, ya sin el dividendo final de 3,95 € (pagado el 23-abr-2026, URD 2025 PDF p. 399) y con el dividendo a cuenta de 1,10 € (fecha ex 13-oct-2026, semestral PDF p. 18). Llevar el valor a la fecha del precio a r = 9 % subiría el precio de Sí ≈+2,8 €; la alineación de fechas está pendiente de la persona responsable (Z-ACC). No propongo tamaños de posición, no cambio r ni escribo en el expediente."
+}
