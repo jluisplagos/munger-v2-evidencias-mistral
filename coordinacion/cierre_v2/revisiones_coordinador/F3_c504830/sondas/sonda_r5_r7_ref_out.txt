@@ -1,0 +1,10 @@
+Diagnóstico V6!C5: =IF(Análisis!$C$62="Sí","A",IF(Análisis!$C$62="No · financiación cambia mucho","B",IF(OR(Análisis!$C$62="No · banco o aseguradora",Análisis!$C$62="No · banco, aseguradora o regulada"),"C",IF(Análisis!$C$62="","","—"))))
+Diagnóstico V6!C6: =IF(OR(Palancas!$C5="",Palancas!$C6=""),"—",IF(AND(Palancas!$C6="Financiera (banco o aseguradora)",C5<>"C"),"⚠ REVISAR · financiera: usa el motor C en Análisis C62",IF(AND(Palancas!$C6="Cíclica o materias primas",Palancas!$C8<>"Media del ciclo"),"⚠ REVISAR · cíclica: usa la media del ciclo como base",IF(AND(Palancas!$C6="Intangibles (I+D, marca)",Palancas!$C9<>"Sí"),"⚠ REVISAR · intangibles: activa la I+D en las anclas",IF(Palancas!$C6="Multinegocio o conglomerado","⚠ REVISAR · conglomerado: un solo juego de palancas mezcla negocios distintos; considera valorar por partes",IF(AND(Palancas!$C6="Emergente (riesgo país)",N(Palancas!$B$34)=0),"⚠ REVISAR · emergente: rellena dónde vende (Palancas, bloque 4)",IF(AND(Palancas!$C5="En declive",N(Análisis!$C$68)>0.01),"⚠ REVISAR · en declive: g para siempre ≤ 1 %",IF(AND(Palancas!$C5="Joven (sin beneficios estables)",N(Palancas!$C22)=0),"⚠ REVISAR · joven: ¿probabilidad de quiebra?","✓ PASA · tipo y motor coherentes"))))))))
+Motor!BJ7: =IF($BS7,(1-$N7)*BI7+$N7*$O7,"")
+Motor!N7: =N(Palancas!$C22)
+Motor!O7: =N(Palancas!$C23)
+Motor!Q7: =IF($BS7,IF(Q$3<=5,$E7,$E7-($E7-$H7)*(Q$3-5)/5),"")
+Motor!BK7: =IF(AND($BS7,N($P7)>0),BJ7/$P7,"")
+C5 contiene "Palancas": False
+C62=«Sí», C6=Financiera -> motor A | C6 REVISAR: True | V11 NOA: True
+BI = 115.0592; BJ = (1-p)·BI + p·rec = 105.5532

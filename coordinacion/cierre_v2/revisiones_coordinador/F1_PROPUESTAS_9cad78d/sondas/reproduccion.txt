@@ -1,0 +1,51 @@
+== 0. Material
+commit revisado: 9cad78ddc6bba6e3597517cde6a8045960f0bdda (copia por git archive)
+98c0012c0ecf7d3cf6f172452764239515126ea1ca37cd7b84c4a9ef249911e3  fuentes_pdf/Elis - 2022 Universal Registration Document.pdf
+04bfd08724e768804e7110093d3ec2cf017a7e7fe2983bacd75656d3a95cd62e  fuentes_pdf/Elis - 2025 Universal Registration Document.pdf
+94e994f0de79cc588240f9866d263c4a5ae27fe3ccff83bc0b817eb91633c1e9  fuentes_pdf/Elis_Document d'enregistrement universel_2024_FR.pdf
+e2d316b38441a167ee96e413e0c63e39a66f824302d18d5b7c78cc8b8d060537  fuentes_pdf/Elis_URD_2021_EN.pdf
+8aac7004177529bb20d9ca84ce05d747a15d238ffbdc5669e2add9569443bd31  fuentes_pdf/Elis_Universal Registration Document_2023_EN.pdf
+d2593777650f1d9d77bcc7b9eaa6f4c0c12a742fa4706bd20b35808f99c92385  Elis_v63_evaluada.xlsx
+fy2025_presentacion_en.pdf: OK
+fy2025_comunicado_en.pdf: OK
+cgmbrochure2026.pdf: OK
+factsheet2026.pdf: OK
+fy2024_presentacion_en.pdf: OK
+fy2024_comunicado_en.pdf: OK
+fy2024_revenue_en.pdf: OK
+q1_2025_revenue.pdf: OK
+h1_2025_comunicado_fr.pdf: OK
+q3_2026_revenue.pdf: OK
+h1_2026_comunicado_en.pdf: OK
+[OK ] Release fuentes-elis-e-20261117: 11 PDF con su SHA256SUMS
+manifiesto del frente: 398 de 398
+[OK ] manifiesto del frente
+
+== 1. Scripts del autor sobre la copia (salidas fuera del árbol del autor)
+[OK ] verificar_cifras.py (código 2 = hay PENDIENTE y ningún FALLO)
+[OK ] salida idéntica byte a byte a la entregada: verificacion_cifras.json
+{"controles": 67, "fallidos": [], "errores": []}
+[OK ] copia_investigacion_f1.py
+{"controles": 107, "fallidos": [], "errores": [], "lecturas": 103, "lecturas_comprobadas_en_su_linea": 103, "pasajes": 19, "pasajes_encontrados": 19, "busquedas_sin_resultado_confirmadas": 2}
+[OK ] n1_alcance_y_actualizacion.py (107 controles; 103 lecturas; 19 pasajes)
+{"casos": 30, "casos_con_su_estado_esperado": 30, "comprobaciones_directas": 14, "directas_ok": 14, "variantes_erroneas": 6, "variantes_detectadas": 6, "errores": []}
+[OK ] umbral_v_f1a_frontera.py (30 casos; 14 directas; 6 variantes)
+[OK ] salida idéntica byte a byte a la entregada: copia_investigacion_f1.json
+[OK ] salida idéntica byte a byte a la entregada: copia_investigacion_f1.md
+[OK ] salida idéntica byte a byte a la entregada: n1_alcance_y_actualizacion.json
+[OK ] salida idéntica byte a byte a la entregada: n1_alcance_y_actualizacion.md
+[OK ] salida idéntica byte a byte a la entregada: umbral_v_f1a_frontera.json
+[OK ] salida idéntica byte a byte a la entregada: umbral_v_f1a_frontera.md
+
+== 2. Sondas del revisor
+[OK ] s1 · recálculo independiente de N1 (18 cifras)
+[OK ] s2 · 14 mutantes del script de N1, todos detectados
+[OK ] s2b · mutantes sobre cifras sin control propio (informativa)
+[OK ] s3 · regla del umbral escrita aparte: 30 de 30 casos
+[OK ] s3b · coma flotante (informativa)
+[OK ] s3c · 6 mutantes del script del umbral, todos detectados
+[OK ] s4 · indicación fiscal de 2021 y línea fiscal 2022–25 (lecturas en página)
+[OK ] s5 · pasivo, residuo de 2024 e intereses pagados de 2023 (lecturas en página)
+[OK ] s6 · 25 cifras clave con un segundo extractor (pypdf)
+
+RESUMEN: 22 pasos correctos, 0 con fallo

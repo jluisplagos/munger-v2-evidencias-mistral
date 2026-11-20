@@ -1,0 +1,51 @@
+1. CONSERVACIÓN FRENTE A LA 4.9
+CUMPLE   · [constata] el manifiesto de la 4.9 conservado es el del ZIP base (1.733 archivos)
+NO CUMPLE · [recalcula] frente al manifiesto de la 4.9 solo cambian los archivos declarados y ninguno desaparece · fuera de lo declarado: ['personaje_v2/ANEXO_D_salidas_y_formatos.md', 'personaje_v2/esquema/fase_c.esquema.json', 'personaje_v2/esquema/ficha.esquema.json', 'personaje_v2/prompts/fase_a.md', 'personaje_v2/prompts/fase_b.md', 'personaje_v2/prompts/fase_c_turno1.md', 'personaje_v2/prompts/fase_c_turno2.md', 'personaje_v2/prompts/historia_anio.md', 'personaje_v2/prompts/verificacion.md', 'personaje_v2/pruebas/agentes_sinteticos.py', 'personaje_v2/pruebas/test_cierre_v2.py', 'personaje_v2/scripts/comprobacion_conjunta.py', 'personaje_v2/scripts/comprobar_entorno.sh', 'personaje_v2/scripts/comprobar_entrada_v63.py', 'personaje_v2/scripts/comprobar_gramatica.py', 'personaje_v2/scripts/config_v2.py', 'personaje_v2/scripts/escribir_v63.py', 'personaje_v2/scripts/fase1_historia.py', 'personaje_v2/scripts/leer_resultados.py', 'personaje_v2/scripts/leer_v63.py', 'personaje_v2/scripts/migrar_v53_a_v63.py', 'personaje_v2/scripts/referencias_mecanicas.py', 'personaje_v2/scripts/rellenar_fase1_v63.py', 'personaje_v2/scripts/volcar_datos_v63.py'] · desaparecidos []
+NO CUMPLE · [recalcula] los archivos nuevos están en el expediente de la 4.10, salvo acreditar_libro.py y la batería nueva · ['personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md', 'personaje_v2/config_v2_v641_experimental.json', 'personaje_v2/config_v2_v64_experimental.json', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10_1/INFORME_RECORRIDO_4_10_1.md', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10_1/REGISTRO_ENTREGA_4.10.1.md', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10_1/REGISTRO_PRUEBAS_4_10_1.md']
+CUMPLE   · [recalcula] originales, expedientes anteriores (incluida la 4.9), fuentes, plantilla y kit conservan sus bytes (1549 archivos, SHA-256 en disco)
+CUMPLE   · [recalcula] fase1_decisiones.json de la referencia conserva su huella (ninguna confirmación de la IA)
+2. CORRECCIONES TÉCNICAS
+CUMPLE   · [constata] H2 (Pipeline.veredicto_auditoria) no cambia: el texto de la función es el de la 4.9
+CUMPLE   · [recalcula] la lectura común quita el BOM y los CRLF antes de H2 y conserva el texto (texto_fiel)
+CUMPLE   · [constata] la lectura común se usa en motivo_rechazo_cierre y en el paso 13
+CUMPLE   · [constata] ficha.py, informe.py, resumen.py y el pipeline exigen vigencia con un cierre registrado aunque la ficha pierda sus marcadores
+CUMPLE   · [constata] verificar_todo.sh acredita el archivo final después de las cachés (acreditar_libro.py, al final)
+CUMPLE   · [constata] la reproducción con el código de la 4.9 conserva sus fallos: 26 de 69 pasan (BOM, ambos marcadores, {}, restauración, fila sin empresa, libro)
+CUMPLE   · [reejecuta] el equivalente de la mutación M22 de la 4.9 sobre el código de la 4.10 (decodificar sin la lectura común) hace fallar la batería de integridad
+NO CUMPLE · [constata] verificar_paquete.sh completa exige la batería de trazabilidad (al menos 74 pruebas)
+CUMPLE   · [constata] existe el productor del ZIP portable y el arranque documenta la incidencia del nombre
+CUMPLE   · [constata] el nombre de la 4.9 con «ñ» sigue en el manifiesto tal cual (no se renombró)
+3. N4 REVISADA
+CUMPLE   · [reejecuta] n4_revision.py, ejecutado de nuevo en un temporal, da la misma matriz revisada que la entregada
+CUMPLE   · [constata] la matriz revisada da 18 completas, 8 parciales, 9 dependientes de la definición y 3 no aplicables (38)
+CUMPLE   · [constata] derivados corrientes de 2024 y 2025 (25,567 y 1,157; balance español de 2025, pág. 9) y 2023 sin derivados
+CUMPLE   · [constata] ningún campo humano relleno en la matriz revisada
+CUMPLE   · [constata] la matriz de la 4.9 no se reescribió
+4. VARIANTES (recálculo con LibreOffice en un temporal)
+CUMPLE   · [reejecuta] variantes_4_10.py vuelve a dar exactamente los mismos valores de las 12 variantes y cumple sus 14 identidades
+CUMPLE   · [recalcula] la base reproduce la referencia mecánica (53,670420 · 70,772197 · 86,488762 · 70,495154 · 65,688087)
+CUMPLE   · [recalcula] N8: V_sin = V_con − 43,338/35,206 en los tres escenarios, el ponderado y el precio de Sí (cálculo de este control)
+CUMPLE   · [recalcula] N7 puro: V' = V·35,206/35,182858 (cálculo de este control)
+CUMPLE   · [recalcula] N6: r_op de C1 = (r·E + i·(1−τ)·D)/(E+D) con E = 90,10 × 35,182858 (cálculo de este control)
+CUMPLE   · [recalcula] P3: las dos representaciones de la situación B dan lo mismo y no cambian la valoración del motor B
+CUMPLE   · [constata] ninguna variante cambia r (0,09), salvo la de historia adversa ninguna toca palancas, y todas declaran sus celdas
+CUMPLE   · [recalcula] la copia combinada es, byte a byte, la acreditada en su comprobante, y su verificación final es ÍNTEGRO
+CUMPLE   · [recalcula] los valores guardados en la copia combinada son los de C1
+CUMPLE   · [recalcula] N10: ponderados de la sensibilidad de pesos = suma de pesos × valores (cálculo de este control)
+5. EXPEDIENTE EXPLORATORIO, DECISIONES Y DOCUMENTACIÓN
+CUMPLE   · [constata] el expediente exploratorio está en su estado legítimo: paso 5, esperando al agente de extracción, sin auditoría ni ficha oficial
+CUMPLE   · [constata] la copia no heredó la aprobación: el pipeline archivó el cierre de la 4.6.1 al cambiar el material
+CUMPLE   · [constata] las entradas de C1 en la copia (N = 35,182858; E = 3.169,975506 con fecha 31-dic-2025) y el alcance exploratorio declarado
+CUMPLE   · [constata] propuesta única: diez decisiones con los campos humanos vacíos
+NO CUMPLE · [constata] VERSION, CONTINUIDAD.md y PROMPT_NUEVA_VENTANA.md describen la 4.10 (versión, ZIP, batería de 74, LEEME de la 4.10 y este control)
+NO CUMPLE · [constata] el mensaje de arranque recupera la estructura de uso: pasos, línea separadora y título del mensaje
+CUMPLE   · [constata] existe INFORME_FINANCIERO_4_10.md
+CUMPLE   · [constata] existe INFORME_CORRECCIONES_TECNICAS_4_10.md
+CUMPLE   · [constata] existe ACLARACION_PN1_4_10.md
+CUMPLE   · [constata] existe ESPECIFICACION_INTEGRACION_4_10.md
+CUMPLE   · [constata] existe propuestas/PROPUESTA_DECISIONES_4_10.md
+CUMPLE   · [constata] existe REGISTRO_ENTREGA_4.10.md
+CUMPLE   · [constata] existe resultados/LEEME_BATERIAS_HISTORICAS.md
+CUMPLE   · [constata] existe arranque/ARRANQUE_4_10.md
+Tipos de control: 3 reejecutan, 13 recalculan y 28 solo constatan.
+RESULTADO: 39 de 44 comprobaciones cumplen.

@@ -1,0 +1,12 @@
+DETECTADO    rc=1 · U01 umbral propuesto 0,1 % → 0,2 % en la regla
+      {"casos": 30, "casos_con_su_estado_esperado": 29, "comprobaciones_directas": 14, "directas_ok": 14, "variantes_erroneas": 6, "variantes_detectadas": 6, "errores": ["F08"]}
+DETECTADO    rc=1 · U02 frontera estricta en la regla (X < u·FCF)
+      {"casos": 30, "casos_con_su_estado_esperado": 25, "comprobaciones_directas": 14, "directas_ok": 14, "variantes_erroneas": 6, "variantes_detectadas": 6, "errores": ["F07", "F10", "F14", "F16", "F21"]}
+DETECTADO    rc=1 · U03 valor absoluto del FCF base y sin guarda
+      {"casos": 30, "casos_con_su_estado_esperado": 29, "comprobaciones_directas": 14, "directas_ok": 13, "variantes_erroneas": 6, "variantes_detectadas": 6, "errores": ["F20", "FCF base cero o negativo: el motivo mostrado es que la medida no está definida"]}
+DETECTADO    rc=1 · U04 media sustituida por el último año
+      {"casos": 30, "casos_con_su_estado_esperado": 25, "comprobaciones_directas": 14, "directas_ok": 14, "variantes_erroneas": 6, "variantes_detectadas": 6, "errores": ["F10", "F11", "F12", "F22", "F25"]}
+DETECTADO    rc=1 · U05 estado esperado de F07 cambiado (AVISO → BLOQUEA con la propuesta)
+      {"casos": 30, "casos_con_su_estado_esperado": 29, "comprobaciones_directas": 14, "directas_ok": 14, "variantes_erroneas": 6, "variantes_detectadas": 6, "errores": ["F07"]}
+DETECTADO    rc=1 · U06 V-F1m ignorado (solo uno positivo pasa al umbral)
+      {"casos": 30, "casos_con_su_estado_esperado": 28, "comprobaciones_directas": 14, "directas_ok": 12, "variantes_erroneas": 6, "variantes_detectadas": 6, "errores": ["F02", "F03", "vigente (sin umbral), D&A ROU positiva y C49 cero: V-F1m BLOQUEA", "vigente (sin umbral), D&A ROU cero y C49 positivo: V-

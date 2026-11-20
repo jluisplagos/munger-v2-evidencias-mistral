@@ -1,0 +1,58 @@
+{
+  "sha": "716cbd6794b7fcde8b3862c9d1e7acdaf516d262",
+  "manifiesto": {
+    "coinciden": 374,
+    "fallos": []
+  },
+  "ejecuciones": [
+    {
+      "script": "controles_sinteticos_f1.py",
+      "exit": 0,
+      "log": "controles_sinteticos_f1.log"
+    },
+    {
+      "script": "copia_investigacion_f1.py",
+      "exit": 0,
+      "stdout_final": "{\"controles\": 55, \"fallidos\": [], \"errores\": []}\n",
+      "stderr": ""
+    },
+    {
+      "script": "contraste_f1.py",
+      "exit": 0,
+      "stdout_final": "{\"comprobaciones\": 292, \"fallidas\": 0, \"por_clase\": {\"fuente\": 127, \"libro\": 136, \"algebraica\": 29}, \"libro_contrastado\": true, \"libro_sha256\": \"d2593777650f1d9d77bcc7b9eaa6f4c0c12a742fa4706bd20b35808f99c92385\", \"entradas_usadas\": 419, \"entradas_usadas_pendientes\": [], \"contrapartes_de_identidad_pendientes\": [\"LS_AMORT_ROU_2021\"], \"copia_recalculada_con_caja_no_nula\": true}\n",
+      "stderr": ""
+    }
+  ],
+  "comparacion_salidas": [
+    {
+      "archivo": "controles_sinteticos_f1.json",
+      "identico": true,
+      "sha_reproducido": "5874da29891dda67a82497053609589d3116ee1fefaed5f756bf1fcbf7173874",
+      "sha_publicado": "5874da29891dda67a82497053609589d3116ee1fefaed5f756bf1fcbf7173874"
+    },
+    {
+      "archivo": "copia_investigacion_f1.json",
+      "identico": true,
+      "sha_reproducido": "1a77430a4885003adbd89888875af9e9ba1500456115db64d7f1652bd6a7277b",
+      "sha_publicado": "1a77430a4885003adbd89888875af9e9ba1500456115db64d7f1652bd6a7277b"
+    },
+    {
+      "archivo": "copia_investigacion_f1.md",
+      "identico": true,
+      "sha_reproducido": "fc1e79f26cbc0e3703da6f806d0698ac787c441a34acd1d58e7a7803410da883",
+      "sha_publicado": "fc1e79f26cbc0e3703da6f806d0698ac787c441a34acd1d58e7a7803410da883"
+    },
+    {
+      "archivo": "contraste_f1.json",
+      "identico": true,
+      "sha_reproducido": "147f4f4936c3e1f50745dc563072ab46e0245d346f91ceda969f465e67543024",
+      "sha_publicado": "147f4f4936c3e1f50745dc563072ab46e0245d346f91ceda969f465e67543024"
+    },
+    {
+      "archivo": "contraste_f1.md",
+      "identico": true,
+      "sha_reproducido": "9bf29b579a3f5695564c64faae96462cf730861453d74d15c941b4ea97184a57",
+      "sha_publicado": "9bf29b579a3f5695564c64faae96462cf730861453d74d15c941b4ea97184a57"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+== HEAD rama entrega
+93a97801f8c4f6a4dc5cabd4540248390cf113d0
+== commits ec707a5..93a9780
+93a9780 Vibe Nuage Agent <vibe@mistral.ai> 2026-11-16 21:37:06 +0000 E-ELIS bloque 3 (entrega final, E finito como busqueda acotada): cada p
+78d2898 Vibe Nuage Agent <vibe@mistral.ai> 2026-11-16 21:36:24 +0000 E-ELIS bloque 2 (busqueda finita + lectura): 12 documentos oficiales nu
+b4a4703 Vibe Nuage Agent <vibe@mistral.ai> 2026-11-16 21:23:38 +0000 E-ELIS bloque 1 (inventario): rama desde paquete ec707a5; preguntas M1/
+== archivos en el diff
+resultados_cierre/elis_fuentes/ENTREGA.json
+resultados_cierre/elis_fuentes/FUENTES_Y_BUSQUEDA.csv
+resultados_cierre/elis_fuentes/HALLAZGOS_ELIS.md
+resultados_cierre/elis_fuentes/LECTURA_FUENTES.jsonl
+resultados_cierre/elis_fuentes/MANIFIESTO_SHA256.txt
+resultados_cierre/elis_fuentes/PREGUNTAS_Y_RESULTADOS.csv
+resultados_cierre/elis_fuentes/PUNTO_DE_RECUPERACION.md
+resultados_cierre/elis_fuentes/README.md
+resultados_cierre/elis_fuentes/RESUMEN_PARA_INTEGRADOR.md
+resultados_cierre/elis_fuentes/scripts/descargar_fuentes_elis.py
+resultados_cierre/elis_fuentes/scripts/inventario_bloque1.py
+resultados_cierre/elis_fuentes/scripts/lectura_bloque2.py
+== fuera de resultados_cierre/elis_fuentes/ (vacio = bien)
+== binarios/caches por extension o ruta (vacio = bien)
+== numstat binario (vacio = bien)
+== patrones de secreto (vacio = bien)
+== tamano maximo de archivo anadido (bytes)
+100644 blob 45942576dfd2f63cf7cba1ba67fde2559243406c   26026	resultados_cierre/elis_fuentes/LECTURA_FUENTES.jsonl
+== .gitignore en 93a9780
+.trabajo/
+__pycache__/
+*.pyc
+== INDICE_DESCARGAS / .trabajo en el arbol 93a9780 (vacio = no publicados)
+== sha256sum -c del manifiesto (en su carpeta)
+ENTREGA.json: OK
+FUENTES_Y_BUSQUEDA.csv: OK
+HALLAZGOS_ELIS.md: OK
+LECTURA_FUENTES.jsonl: OK
+PREGUNTAS_Y_RESULTADOS.csv: OK
+PUNTO_DE_RECUPERACION.md: OK
+README.md: OK
+RESUMEN_PARA_INTEGRADOR.md: OK
+scripts/descargar_fuentes_elis.py: OK
+scripts/inventario_bloque1.py: OK
+scripts/lectura_bloque2.py: OK
+exit=0
+== archivos de la carpeta no listados en el manifiesto
+== B/P-M1
+daa74783d2708fcd46ca7c24ae1ffbb327c35784
+ningun archivo resultados_m2/ en el diff
+resultados_m2 identico entre ec707a5 y 93a9780
+== textos desfasados dentro de la entrega
+8:- Bloque 2 (pendiente): búsqueda finita (hasta 12 documentos oficiales nuevos) y lectura con página/columna; salidas en `LECTURA_FUENTES.jsonl`.
+9:- Bloque 3 (pendiente): entrega completa con hallazgos/límites, scripts, resumen para el integrador, `ENTREGA.json`, manifiesto y recuperación.
+<rev_E>/entrega/resultados_cierre/elis_fuentes/RESUMEN_PARA_INTEGRADOR.md:1:# Resumen para el integrador (Claude coordinador) · E-ELIS bloque 2 · 2026-11-16
+<rev_E>/entrega/resultados_cierre/elis_fuentes/HALLAZGOS_ELIS.md:1:# Hallazgos · E-ELIS bloque 2 · búsqueda finita de fuentes oficiales de Elis (2026-11-16)
+<rev_E>/entrega/resultados_cierre/elis_fuentes/ENTREGA.json:25:    "Bloque 2 (este commit): descarga reproducible (scripts/descargar_fuentes_elis.py), lectura verificada (LECTURA_FUENTES.jsonl, 28 citas con pagina PDF), PREGUNTAS_Y_RESULTADOS.csv actualizado por pregunta, FUENTES_Y_BUSQUEDA.csv ampliado, HALLAZGOS_ELIS.md, RESUMEN_PARA_INTEGRADOR.md",
+<rev_E>/entrega/resultados_cierre/elis_fuentes/PUNTO_DE_RECUPERACION.md:9:- **Bloque 2 cerrado (este commit):** 12 documentos oficiales nuevos de `fr.elis.com` descargados (HTTP 200, TLS verificado; sha256/bytes/páginas en `INDICE_DESCARGAS.csv` bajo `.trabajo/elis_fuentes/`); lectura verificada con 28 citas (documento + página PDF + patrón) en `LECTURA_FUENTES.jsonl` (`scripts/lectura_bloque2.py`); resultados por pregunta actualizados en `PREGUNTAS_Y_RESULTADOS.csv` y en `HALLAZGOS_ELIS.md`; resumen en `RESUMEN_PARA_INTEGRADOR.md`.
+<rev_E>/entrega/resultados_cierre/elis_fuentes/PUNTO_DE_RECUPERACION.md:28:1. ~~Bloque 3~~ **cerrado en este commit**: E finito; control consultado (`coordinacion/cierre-v2` @ `2fea890`, sin asignación nueva a E).
+<rev_E>/entrega/resultados_cierre/elis_fuentes/PUNTO_DE_RECUPERACION.md:7:- Rama `mistral/e-fuentes-elis` desde el paqu
+<rev_E>/entrega/resultados_cierre/elis_fuentes/PUNTO_DE_RECUPERACION.md:28:1. ~~Bloque 3~~ **cerrado en este commit**: 
+<rev_E>/entrega/resultados_cierre/elis_fuentes/ENTREGA.json:15:  "autor_contexto_modelo_herramientas": "Vibe Code de Mi
+<rev_E>/entrega/resultados_cierre/elis_fuentes/ENTREGA.json:39:      "sha_material": "716cbd6 / f5775dc / ff0c60cd",
+<rev_E>/entrega/resultados_cierre/elis_fuentes/RESUMEN_PARA_INTEGRADOR.md:3:Rama `mistral/e-fuentes-elis` (auxiliar), c
+== frases 'no publicado' / 'no localizado'
+<rev_E>/entrega/resultados_cierre/elis_fuentes/PUNTO_DE_RECUPERACION.md:15:Muller. La finalidad reposición vs crecimiento **no publicada**
+<rev_E>/entrega/resultados_cierre/elis_fuentes/PUNTO_DE_RECUPERACION.md:24:ado_tras_bloque2` y `HALLAZGOS_ELIS.md`), nunca «no publicado e
+<rev_E>/entrega/resultados_cierre/elis_fuentes/RESUMEN_PARA_INTEGRADOR.md:11:.160,0 M€, 842,0 alineados (72,6%). **Sigue sin publicarse e
+<rev_E>/entrega/resultados_cierre/elis_fuentes/PREGUNTAS_Y_RESULTADOS.csv:4:M€/año; FINALIDAD (reposición vs crecimiento) no publicada;
+<rev_E>/entrega/resultados_cierre/elis_fuentes/ENTREGA.json:78:ja 117,6 M EUR); finalidad reposicion/crecimiento no publicada",
+<rev_E>/entrega/resultados_cierre/elis_fuentes/LECTURA_FUENTES.jsonl:15:la inversion en lino", "no_demuestra": "Sigue sin publicar el desgl
+<rev_E>/entrega/resultados_cierre/elis_fuentes/LECTURA_FUENTES.jsonl:32:mpras pequenas dentro del perimetro organico/externo publicado", "s
+== recuento 'no localizado en esta busqueda'
+0
+exit=0

@@ -1,0 +1,37 @@
+# zoetis_t1c · variantes del libro evaluado (copia) recalculadas con LibreOffice (recalc.sh, con flock) y evaluadas con la capa vieja (15c4ccf) y la nueva (5a525e0)
+# v_control: C8 «Media del ciclo» (sin cambio) · v_ultimo: «Último año» · v_vacio: C8 vacía · v_minusculas: «media del ciclo» · v_ciclo_c49vacia: «Media del ciclo» con el EBIT de 2016 vacío · v_paso7: sin palancas ni g (como en el paso 7)
+
+== v_control · libro: C8 'Media del ciclo' · C48 0.378366958909898 · C49 0.340556331360566 · Diagnóstico V6 C10 0.340556331360566 · Motor D6 0.340556331360566 · AU6 2453.48261683346 · BL7×J7 2484.631379479275
+  viejo: rc=5 · bloquean ['F1-REPLICA', 'F1-LIBRO'] · F0 2771.10133425 · m0 0.37836695891 · réplica conforme False (33 flujos; celda None) · cota % [-2.318, 2.293]
+      F1-REPLICA: Motor!AU6 2453.48261683346 ≠ réplica 2682.6585806501926; Motor!AV6 2422.33385418764 ≠ réplica 2594.2158270501927; Motor!AW6 2391.18509154182 ≠ réplica 2505.7730734501924; Motor!AX6 2360.03632889601 ≠ réplica 2417.3303198501926; Motor!AU7 2172.22295144363 ≠ réplica 2409.4200739939492; Motor!AV7 2263.
+  nuevo: rc=0 · bloquean [] · F0 2484.631379479 · m0 0.340556331361 · réplica conforme True (33 flujos; celda Historia!C49) · cota % [-2.585, 2.557]
+      F1-REPLICA: la réplica A0 reproduce el libro (f, τ, m0 = Historia!C49, ancla y flujos): la capa F1 y el libro son el mismo motor
+
+== v_ultimo · libro: C8 'Último año' · C48 0.378366958909898 · C49 0.340556331360566 · Diagnóstico V6 C10 0.378366958909898 · Motor D6 0.378366958909898 · AU6 2682.65858065019 · BL7×J7 2771.101334250189
+  viejo: rc=0 · bloquean [] · F0 2771.10133425 · m0 0.37836695891 · réplica conforme True (33 flujos; celda None) · cota % [-2.318, 2.293]
+      F1-REPLICA: la réplica A0 reproduce el libro (f, τ, m0, ancla y flujos): la capa F1 y el libro son el mismo motor
+  nuevo: rc=0 · bloquean [] · F0 2771.10133425 · m0 0.37836695891 · réplica conforme True (33 flujos; celda Historia!C48) · cota % [-2.318, 2.293]
+      F1-REPLICA: la réplica A0 reproduce el libro (f, τ, m0 = Historia!C48, ancla y flujos): la capa F1 y el libro son el mismo motor
+
+== v_vacio · libro: C8 None · C48 0.378366958909898 · C49 0.340556331360566 · Diagnóstico V6 C10 0.378366958909898 · Motor D6 0.378366958909898 · AU6 2682.65858065019 · BL7×J7 2771.101334250189
+  viejo: rc=0 · bloquean [] · F0 2771.10133425 · m0 0.37836695891 · réplica conforme True (33 flujos; celda None) · cota % [-2.318, 2.293]
+      F1-REPLICA: la réplica A0 reproduce el libro (f, τ, m0, ancla y flujos): la capa F1 y el libro son el mismo motor
+  nuevo: rc=0 · bloquean [] · F0 2771.10133425 · m0 0.37836695891 · réplica conforme True (33 flujos; celda Historia!C48) · cota % [-2.318, 2.293]
+      F1-REPLICA: la réplica A0 reproduce el libro (f, τ, m0 = Historia!C48, ancla y flujos): la capa F1 y el libro son el mismo motor
+
+== v_minusculas · libro: C8 'media del ciclo' · C48 0.378366958909898 · C49 0.340556331360566 · Diagnóstico V6 C10 0.340556331360566 · Motor D6 0.340556331360566 · AU6 2453.48261683346 · BL7×J7 2484.631379479275
+  viejo: rc=5 · bloquean ['F1-REPLICA', 'F1-LIBRO'] · F0 2771.10133425 · m0 0.37836695891 · réplica conforme False (33 flujos; celda None) · cota % [-2.318, 2.293]
+      F1-REPLICA: Motor!AU6 2453.48261683346 ≠ réplica 2682.6585806501926; Motor!AV6 2422.33385418764 ≠ réplica 2594.2158270501927; Motor!AW6 2391.18509154182 ≠ réplica 2505.7730734501924; Motor!AX6 2360.03632889601 ≠ réplica 2417.3303198501926; Motor!AU7 2172.22295144363 ≠ réplica 2409.4200739939492; Motor!AV7 2263.
+  nuevo: rc=5 · bloquean ['F1-REPLICA', 'F1-LIBRO'] · F0 2771.10133425 · m0 0.37836695891 · réplica conforme False (33 flujos; celda Historia!C48) · cota % [-2.318, 2.293]
+      F1-REPLICA: Palancas C8 = 'media del ciclo': la base del margen de partida no es ningún valor de la lista (Último año o Media del ciclo); la capa no la interpreta; m0 0.3783669589098975 ≠ Diagnóstico V6!C10 0.340556331360566 (base del margen, Palancas C8: 'media del ciclo'); m0 0.3783669589098975 ≠ Motor!D6 0.3
+
+== v_ciclo_c49vacia · libro: C8 'Media del ciclo' · C48 0.378366958909898 · C49 None · Diagnóstico V6 C10 None · Motor D6 None · AU6 None · BL7×J7 None
+  viejo: rc=4 · bloquean ['F1-LIBRO'] · F0 2771.10133425 · m0 0.37836695891 · réplica conforme True (0 flujos; celda None) · cota % [-2.318, 2.293]
+      F1-REPLICA: la réplica A0 reproduce el libro (f, τ, m0, ancla y flujos): la capa F1 y el libro son el mismo motor
+  nuevo: sin resultado · rc=2 · ERROR: Palancas C8 = «Media del ciclo» y el margen medio del ciclo no es calculable (a algún año con ventas le falta el EBIT, o sus ventas son cero: Historia C49 vacía): el motor A no es calculable
+
+== v_paso7 · libro: C8 'Media del ciclo' · C48 0.378366958909898 · C49 0.340556331360566 · Diagnóstico V6 C10 0.340556331360566 · Motor D6 0.340556331360566 · AU6 None · BL7×J7 None
+  viejo: rc=0 · bloquean [] · F0 2771.10133425 · m0 0.37836695891 · réplica conforme True (0 flujos; celda None) · cota % [-2.318, 2.293]
+      F1-REPLICA: la réplica A0 reproduce el libro (f, τ, m0, ancla y flujos): la capa F1 y el libro son el mismo motor
+  nuevo: rc=0 · bloquean [] · F0 2484.631379479 · m0 0.340556331361 · réplica conforme True (0 flujos; celda Historia!C49) · cota % [-2.585, 2.557]
+      F1-REPLICA: la réplica A0 reproduce el libro (f, τ, m0 = Historia!C49, ancla y flujos): la capa F1 y el libro son el mismo motor

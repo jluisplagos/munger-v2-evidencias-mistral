@@ -1,0 +1,18 @@
+PASA  · la plantilla V6.3.1 F1 es la entregada (eaece01a…): no se toca · eaece01a7d6a1d86
+PASA  · L1 · el libro recalculado es US GAAP (L4) y lleva A2 con la amortización operativa en la fila 86 (30 % de la D&A) y la PPA en la 87; Motor V05 OK · V05 'OK' · L86 12
+PASA  · L1 · libro = capa: f (10⁻¹²), ancla de S2C (10⁻⁹) y 33 flujos; F1-LIBRO, F1-REPLICA y F1-NORMA no saltan · f -0.0140000000215722 · C53 1.12233445740575 · []
+PASA  · L1 · nada bloquea: utilizable para una conclusión (sin hipótesis); K3 conforme, alquiler una vez · []
+PASA  · L2 · con A0 el libro trata esa amortización como reposición: F1-US-DA bloquea (alquiler dos veces) y F1-2i por la PPA · ['F1-2i', 'F1-K3b', 'F1-US-DA']
+PASA  · L2 · identidad con los valores del libro: f_A2 = f_A0 − (amortización operativa + PPA) media ÷ ventas medias · f_A0 0.00200000000011334 · f_A2 -0.0140000000215722
+PASA  · L3 · operativos + financieros: la fila 86 lleva la suma (30 % + 20 % de la D&A); libro = capa; nada bloquea; una vez en cada clase · [] · {'operativos': 'una vez', 'financieros': 'una vez'}
+PASA  · L4 · tramos no publicados (hipótesis D-US1) con A2: el libro V6.3.1 tal cual lo calcula (fila 86 a cero, libro = capa); nada bloquea; conclusión CONDICIONADA con su cota · [] · motor A utilizable para una conclusión CONDICIONADA según F1 · hipótesis D-US1 (no es un d
+PASA  · L5 · variación del pasivo dentro de la fila 14 (2,5 al año): el libro no la retira → F1-LIBRO es lo único que bloquea; la réplica del libro sigue conforme · ['F1-LIBRO']
+PASA  · L5 · la f de la capa es la del libro + 2,5 ÷ ventas medias (el libro sobrevaloraría el flujo en esa parte del alquiler) · capa -0.002000000005308 · libro -0.00469467718618532
+PASA  · L6 · motor B en el libro real: el puente (Diagnóstico V6 C16) resta Historia C64 = fila 22 + fila 23, con el pasivo operativo dentro · C64 250 · C16 150
+PASA  · L6 · F1 evalúa solo el puente con el motor B: F1-US-PUENTE bloquea (límite declarado); la deuda coherente es la fila 22 y el puente coherente sería C16 − fila 23 · ['F1-US-PUENTE'] · coherente 200.0
+PASA  · L6 · con la fila 23 sin pasivo operativo (0 en el libro y 0 declarado) el motor B no bloquea por F1: utilizable · []
+13/13 comprobaciones de F1 · US GAAP sobre el libro V6.3.1 PASAN
+
+real	11m15.224s
+user	0m19.135s
+sys	0m5.337s

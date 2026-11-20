@@ -1,0 +1,36 @@
+[P] PASA  control positivo sintético: 321 comprobadas de 321 (+2 auxiliares), apta por entradas
+[C] PASA  cobertura incompleta (una celda sin entrada): no apta, con la celda pendiente · 320 de 321 celdas del universo comprobadas (231 de 232 de cálculo y 89 de 89 de juicio; +2 datos de origen auxiliares); 0 lecturas externas sin bytes; 0 entradas del FCF base no reproducibles; 0 datos tratados como hipótesis o convención; 0
+[C] PASA  entrada repetida: no apta (una misma celda no cuenta dos veces) · ['Historia!F6']
+[C] PASA  entrada de una celda que no es del universo: no apta · ['Historia!Z99']
+[K] PASA  columna equivocada (el período declarado no es el año de la columna de la Historia): error · ['Historia!F6: la columna F de la Historia es 2019, pero el período declarado es «ejercicio 1999» (columna «ejercicio 1999»)']
+[U] PASA  unidades: escala 1 con la fuente en miles de euros y el modelo en mm: error · ['Historia!F6: escala 1.0 incoherente con las unidades (fuente «miles de euros» → modelo «mm» = 0.001)']
+[U] PASA  unidades: la fuente declarada en millones con un valor en miles: incoherente (error o discrepancia) · ['Historia!F6: escala 0.001 incoherente con las unidades (fuente «millones de euros» → modelo «mm» = 1.0)']
+[S] PASA  signo cambiado: discrepancia · ['Historia!F6: signo × escala × valor_fuente = -849.697 ≠ valor del modelo 849.697']
+[R] PASA  perímetro distinto del del expediente sin justificación: error · ['Historia!F6: perímetro «segmento de envolturas» distinto del del expediente «consolidado» sin justificación']
+[R] PASA  perímetro distinto con su justificación declarada: aceptado (la pertinencia es del revisor)
+[D] PASA  derivado con un origen pendiente: el derivado queda pendiente · ['Historia!C6: el origen aux:parte_2 no está comprobado (pendiente)']
+[D] PASA  derivado cuya fórmula no reproduce el valor: discrepancia · ['Historia!C6: la fórmula da 146.1666 y el modelo 730.833 (no es exacto; el redondeo del libro a 3 decimales solo vale en un importe («derivacion.unidad»); una transformación distinta se declara en la fórmula, p. ej. round(…, 4))']
+[A] PASA  reutilización desactualizada (el dato del libro ya no es el registrado): desactualizada · ['Historia!F6: el libro dice 849.697 y el registro 850.697: la comprobación no vale para el dato actual']
+[A] PASA  fuente conservada con su huella: vale; si la fuente cambia, la comprobación queda desactualizada · ['Análisis!C37: la fuente fuentes_sinteticas/fuente.txt cambió (sha256 distinto del registrado)']
+[I] PASA  revisor igual al extractor: error (revisión independiente obligatoria) · ['Historia!F6: la comprobación exige un revisor independiente del extractor (los dos declarados y distintos)']
+[I] PASA  revisor sin fuente examinada (aceptó el registro): error · ['Historia!F6: el revisor no declara qué fuente examinó (no basta con aceptar el registro del extractor)']
+[I] PASA  el revisor registra una discrepancia: no apta · ['Historia!F6: el revisor registra una discrepancia: (prueba) la nota dice otra cifra']
+[H] PASA  hipótesis presentada como dato publicado: error · ['Análisis!C62: la celda es una hipótesis del modelo (motor): no se presenta como dato_publicado']
+[H] PASA  hipótesis sin alternativas: error (conserva fundamento, alternativas y límites) · ['Análisis!C62: hipotesis sin alternativas (una hipótesis conserva su identificación, fundamento, alternativas y límites)']
+[H] PASA  (14-nov) una discrepancia registrada por el revisor en una hipótesis cuenta: no apta (antes se ignoraba) · ['Análisis!C62: el revisor registra una discrepancia en la hipotesis: (prueba) el fundamento ya no describe el dato vigente']
+[H] PASA  (14-nov) una hipótesis con la comprobación explícitamente pendiente: pendiente, no apta (antes contaba como comprobada) · ['Análisis!C62: la hipotesis tiene la comprobación pendiente: (prueba) texto sustituido, pendiente de confirmación del revisor']
+[Z] PASA  dato ausente con un valor en el libro: error (es un dato o un cero que hay que contrastar) · ['Historia!F6: dato ausente con un valor en el libro: es un dato (o un cero) que hay que contrastar']
+[Z] PASA  cero comprobado con un valor distinto de cero: error · ['Historia!F6: cero comprobado con un valor distinto de cero']
+[Z] PASA  no aplicable sin justificación: pendiente · ['Control maestro!D5: no_aplicable sin justificación']
+[T] PASA  cita que no está en la página citada: discrepancia · ['Historia!F6: la cita no está en la página 1 de fuentes_sinteticas/fuente.txt']
+[T] PASA  cita sin el valor de la fuente: discrepancia (los dígitos tienen que estar en el pasaje citado) · ['Historia!F6: la cita no contiene el valor de la fuente 849697.0 como cifra completa de la página (formato equivalente, sin redondear)']
+[Z] PASA  cero comprobado con la celda VACÍA en el libro: discrepancia (vacío no es cero; antes pasaba) · ['Historia!G13: la celda está vacía en el libro y la fuente publica 0: vacío no es cero (dato ausente ≠ cero comprobado)']
+[T] PASA  el valor solo aparece DENTRO de otra cifra de la cita: discrepancia (antes pasaba por coincidencia de dígitos) · ['Historia!F6: la cita no contiene el valor de la fuente 849697.0 como cifra completa de la página (formato equivalente, sin redondear)']
+[T] PASA  cifra con miles separados por espacio y coma decimal (francés): aceptada
+[T] PASA  cero impreso como «-» aceptado; el «0» de «2019» y el «12» de «2012» no cuentan; columnas a un espacio («912.160 849.697») sí
+[G] PASA  sin registro: la ficha y el informe dicen «apta por entradas: no» y nunca «apta para dinero real» · 0/0 · ['verificación de las entradas financieras incompleta: no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)', 'la entrega es experimental: plantillas, configuració
+[G] PASA  con el registro completo: apta por entradas, pero la conclusión sigue sin presentarse como apta para dinero real (condición necesaria, no suficiente) · 0/0 · ['la entrega es experimental: plantillas, configuración económica, perímetro y protocolos no adoptados']
+[M] PASA  el registro forma parte del material auditado: añadirlo o cambiarlo después de la auditoría retira la aprobación · antes: None · después: el material cambió después de la auditoría (verificacion_entradas.json): la aprobación no vale para la versión nueva
+33/33 pruebas de la verificación de las entradas (4.14) PASAN
+RESULTADO verificación de las entradas: PASA
+rc=0 · 89 s

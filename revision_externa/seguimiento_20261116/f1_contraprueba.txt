@@ -1,0 +1,19 @@
+1. CASOS COHERENTES DEL AUTOR CON EL ANCLA QUE DA LA FÓRMULA DE E4
+  P1b
+      como lo ejecuta el autor (g = 0, S2C = 1): coherente True; motor − caja {'año_1': 0, 'año_5': 0, 'año_6': 0, 'año_10': 0, 'terminal': 0}
+      con g = 5 % y S2C = 1 (ancla sin la transición): coherente True; motor − caja {'año_1': 0, 'año_5': 0, 'año_6': 0, 'año_10': 0, 'terminal': 0}
+      con g = 5 % y el ancla de E4 con D_X = R: 5 ÷ (5 + 7): coherente False; motor − caja {'año_1': -7, 'año_5': -8.508544, 'año_6': -8.933971, 'año_10': -10.859298, 'terminal': -11.402262}
+  P2d
+      como lo ejecuta el autor (g = 5 %, S2C = 1, escrita a mano): coherente True; motor − caja {'año_1': 0, 'año_5': 0, 'año_6': 0, 'año_10': 0, 'terminal': 0}
+      con g = 5 % y el ancla de E4 con D_X = R_propia: 5 ÷ (5 + 9): coherente False; motor − caja {'año_1': -9, 'año_5': -10.939556, 'año_6': -11.486534, 'año_10': -13.961954, 'terminal': -14.660052}
+
+2. MOTOR SINTÉTICO FRENTE A motor_a
+  g 1–5 = 0.05, g∞ = 0.05: diferencia máxima 0; años con diferencia ninguno
+  g 1–5 = 0.05, g∞ = 0.02: diferencia máxima 9.104811; años con diferencia [6, 7, 8, 9, 10, 'año 11']
+
+3. CASOS DEL AUTOR POR CUESTIÓN Y CRECIMIENTO
+  P1: 5 casos; con crecimiento 0
+  P2: 13 casos; con crecimiento 10
+  P4: 4 casos; con crecimiento 3
+
+RESUMEN: {'1_el_ancla_de_E4_rompe_P1b_y_P2d': True, '2_el_motor_sintetico_solo_coincide_con_g_constante': True, '3_ningun_caso_de_P1_tiene_crecimiento': True}

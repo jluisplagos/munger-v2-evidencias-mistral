@@ -1,0 +1,62 @@
+== manifiesto en 3934bc9 (sha256sum -c desde resultados_qwen/ejecucion_d)
+./RESUMEN_PARA_INTEGRADOR.md: FAILED
+./scripts/ejecutar_caso.py: FAILED
+./scripts/lib_arnes.py: FAILED
+./scripts/preparar_entorno.sh: FAILED
+exit=1
+== archivos del árbol fuera del manifiesto en 3934bc9
+== manifiesto en 5f4b2a2 (sha256sum -c desde resultados_qwen/ejecucion_d)
+./RESUMEN_PARA_INTEGRADOR.md: FAILED
+./scripts/ejecutar_caso.py: FAILED
+./scripts/especificaciones/adaptaciones.json: FAILED
+./scripts/especificaciones/bloque2/Q1-026.json: FAILED
+./scripts/especificaciones/bloque2/Q1-034.json: FAILED
+./scripts/especificaciones/piloto/Q1-027.json: FAILED
+./scripts/generar_matriz.py: FAILED
+./scripts/generar_relevo.py: FAILED
+./scripts/lib_arnes.py: FAILED
+./scripts/preparar_entorno.sh: FAILED
+./scripts/pruebas_arnes.py: FAILED
+exit=1
+== archivos del árbol fuera del manifiesto en 5f4b2a2
+scripts/generar_correspondencia.py
+== git diff --name-only 1ac661b 3934bc9
+resultados_qwen/ejecucion_d/scripts/ejecutar_caso.py
+resultados_qwen/ejecucion_d/scripts/lib_arnes.py
+resultados_qwen/ejecucion_d/scripts/preparar_entorno.sh
+-- binarios/caches:
+ninguno
+-- numstat binario:
+ninguno
+-- patrones de secreto:
+ninguno
+-- salidas publicadas tocadas (ENTREGA, MATRIZ, relevo, evidencias, HALLAZGOS, RESUMEN, manifiesto):
+ninguna
+== git diff --name-only 1ac661b 5f4b2a2
+resultados_qwen/ejecucion_d/scripts/ejecutar_caso.py
+resultados_qwen/ejecucion_d/scripts/especificaciones/adaptaciones.json
+resultados_qwen/ejecucion_d/scripts/especificaciones/bloque2/Q1-026.json
+resultados_qwen/ejecucion_d/scripts/especificaciones/bloque2/Q1-034.json
+resultados_qwen/ejecucion_d/scripts/especificaciones/piloto/Q1-027.json
+resultados_qwen/ejecucion_d/scripts/generar_correspondencia.py
+resultados_qwen/ejecucion_d/scripts/generar_matriz.py
+resultados_qwen/ejecucion_d/scripts/generar_relevo.py
+resultados_qwen/ejecucion_d/scripts/lib_arnes.py
+resultados_qwen/ejecucion_d/scripts/preparar_entorno.sh
+resultados_qwen/ejecucion_d/scripts/pruebas_arnes.py
+-- binarios/caches:
+ninguno
+-- numstat binario:
+ninguno
+-- patrones de secreto:
+ninguno
+-- salidas publicadas tocadas (ENTREGA, MATRIZ, relevo, evidencias, HALLAZGOS, RESUMEN, manifiesto):
+ninguna
+== banco 4745f38 (sha256sum -c)
+exit=0
+== ENTREGA.json publicado: base_revisada_sha y bloque
+bdcbba789244d167c9cef360d8225ae29275e917 | Bloques 3/4 del programa de cierre (PROMPT_MISTRAL_D): cierre de la matriz de 36 y transferencia
+== claves de la plantilla ausentes en ENTREGA.json
+ninguna
+== git status del repositorio
+limpio

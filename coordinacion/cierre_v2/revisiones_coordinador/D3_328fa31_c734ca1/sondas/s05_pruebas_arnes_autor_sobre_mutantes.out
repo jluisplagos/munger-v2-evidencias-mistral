@@ -1,0 +1,43 @@
+PASA · 1 positivo real Q1-001 (COMPONENTE_OK, sha observado, spec_sha256) · rc=0
+PASA · 2 negativo esperado real Q1-006 (sellar exit 1 en esperado) · rc=0
+PASA · 3 candidata incompleta -> rc 2 ERROR_ENTORNO · rc=2 estado=ERROR_ENTORNO
+PASA · 4 artefacto heredado tras fallo -> detectado, NO copiado · rc=1 estado=ERROR copiado=False
+PASA · 5 matriz sin carpeta de evidencias -> rc 0, 36 filas, 0 CUMPLE · rc=0 filas=36
+PASA · 6 resultado mutado -> aserción FALLA detectada · 03_comprobar_sellado.json:comprobadas contiene 'Historia!C23' -> FALLA
+PASA · 7 recuentos == CSV (fuente única) · estados={'PARCIAL_COMPONENTE': 28, 'BLOQUEO_ENTORNO': 1, 'ERROR (COMPONENTE_OK)': 1, 'NO_EJECUTADO': 6}
+PASA · 8 spec vacía -> rc 2 ERROR_ESPECIFICACION · rc=2
+PASA · 9 criterio sin afirma -> rc 2 · rc=2
+FALLA · 10 aserción con ruta ../ -> rc!=0 y error registrado · rc=1 errores=["aserción sobre archivo no producido por el producto: '../Q1-036/07_informe_provisional.md'"]
+PASA · 11 negativo sin universo -> FALLA · salida.json: salida sin universo positivo (vacía); el negativo no acredita
+PASA · 12 resultado forjado de 2 campos -> sin CUMPLE · veredicto=''
+PASA · 13 rastreado modificado -> rc 2 ERROR_ENTORNO · rc=2
+PASA · 14 una ejecución = un log (Q1-001 dos veces -> 1 '# Caso') · n=1
+PASA · 15 control negativo en vacío: todas las aserciones fallan · pasan=[]
+FALLA · 16 toda comprobación del arnés marcada _simulada/[SIMULADO] (incl. --revisor) · marcadas=False revisor_sim=True
+PASA · 17 P3va copiar_artefacto ../../Q1-036 -> rc!=0, no copiado · rc=1 estado=ERROR copiado=False
+PASA · 18 P3vb guardar ../Q1-036 -> víctima intacta, rc!=0 · rc=1 victima='ORIGINAL Q1-036'
+PASA · 19 N1a escribir_fuente ../../../Q1-036 -> registro ajeno intacto · registro='{"original": "Q1-036"}' rc=1
+PASA · 20 N1b copiar_artefacto ruta absoluta -> rc!=0 · rc=1 estado=ERROR
+PASA · 21 P1v aserción sobre ejecucion.log (archivo del arnés) -> rc!=0 · rc=1
+PASA · 22 N3 aserción run: -> rc!=0 (no soportado) · rc=1 errores=['plantilla del registro de entradas (comando documentado del producto): exit 1 no está en esperado [0]', 'aserción con prefijo run: no soportada (D3-R1 inv.3: solo salidas del producto en evidencias)']
+PASA · 23 P9w id '.' -> rc 2 SIN borrar evidencia ajena · rc=2
+PASA · 24 N4 id '../fuera' -> rc 2 SIN borrar fuera de EVIDENCIAS · rc=2
+PASA · 25 N4b id '' -> rc 2 SIN borrar EVIDENCIAS · rc=2
+PASA · 26 P8va skip-worktree -> rc 2
+PASA · 27 P8vb no rastreado en scripts/ -> rc 2
+PASA · 28 N5a assume-unchanged -> rc 2
+PASA · 29 N5b oculto por .git/info/exclude -> rc 2
+PASA · 30 M2 resultado de 4 campos con spec_sha256 -> generar_matriz sola: sin CUMPLE · Q1-001='' 'ERROR (COMPONENTE_OK)'
+PASA · 31 N2a salidas vaciadas (universo 0) -> sin CUMPLE · Q1-003=''
+PASA · 32 N2b otra candidata/otro banco/harness 2.0 -> sin CUMPLE · Q1-004=''
+PASA · 33 M3 Q1-026 ERROR_ENTORNO -> BLOQUEO_ENTORNO desde el resultado · Q1-026='BLOQUEO_ENTORNO'
+PASA · 34 D3-R2 control contra el ESTADO PREVIO: toda aserción falla salvo las marcadas no_discriminante · mal=[]
+Traceback (most recent call last):
+  File "<rev_D3>/trabajo/pruebas_autor_mutante/resultados_qwen/ejecucion_d/scripts/pruebas_arnes.py", line 521, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "<rev_D3>/trabajo/pruebas_autor_mutante/resultados_qwen/ejecucion_d/scripts/pruebas_arnes.py", line 478, in main
+    reg = json.load(open(os.path.join(tmp, "run_rev", "Q1-001", "Viscofan", "verificacion_entradas.json")))
+                    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<rev_D3>/trabajo/tmp/pruebas_arnes_v4_2kp94ewm/run_rev/Q1-001/Viscofan/verificacion_entradas.json'
+exit 1

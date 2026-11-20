@@ -1,0 +1,84 @@
+== automation-tests.yml
+  disparadores:  push:  workflow_dispatch: 
+  ramas:  branches: [automatizacion/coordinacion-api-v1, automatizacion/piloto-claude-api]
+  permisos:  contents: read 
+  secretos: 
+  pip_install_sin_hash: 0  setup-python: 0
+  execute_api/inferencia: 0
+  persist-credentials false: 1  acciones fijadas por SHA: 1/1
+== claude-critical-review.yml
+  disparadores:  workflow_dispatch: 
+  ramas: 
+  permisos:  contents: read  contents: write 
+  secretos: secrets.ANTHROPIC_API_KEY secrets.GITHUB_TOKEN 
+  pip_install_sin_hash: 0  setup-python: 0
+  execute_api/inferencia: 1
+  persist-credentials false: 2  acciones fijadas por SHA: 3/3
+== piloto-claude-api.yml
+  disparadores:  workflow_dispatch: 
+  ramas: 
+  permisos:  contents: read  contents: write 
+  secretos: secrets.ANTHROPIC_API_KEY secrets.GITHUB_TOKEN 
+  pip_install_sin_hash: 0  setup-python: 0
+  execute_api/inferencia: 1
+  persist-credentials false: 2  acciones fijadas por SHA: 3/3
+== qwen-bank-mistral-groups.yml
+  disparadores:  workflow_dispatch: 
+  ramas: 
+  permisos:  contents: read  contents: write  contents: write 
+  secretos: secrets.ANTHROPIC_API_KEY secrets.GITHUB_TOKEN secrets.MISTRAL_VIBE_CLI_KEY 
+  pip_install_sin_hash: 1  setup-python: 1
+  execute_api/inferencia: 3
+  persist-credentials false: 3  acciones fijadas por SHA: 6/6
+== qwen-bank-mistral-review.yml
+  disparadores:  workflow_dispatch: 
+  ramas: 
+  permisos:  contents: read  contents: write 
+  secretos: secrets.GITHUB_TOKEN secrets.MISTRAL_VIBE_CLI_KEY 
+  pip_install_sin_hash: 1  setup-python: 1
+  execute_api/inferencia: 1
+  persist-credentials false: 2  acciones fijadas por SHA: 4/4
+== vibe-auth.yml
+  disparadores:  workflow_dispatch: 
+  ramas: 
+  permisos:  contents: read  contents: write 
+  secretos: secrets.GITHUB_TOKEN secrets.MISTRAL_VIBE_CLI_KEY 
+  pip_install_sin_hash: 1  setup-python: 1
+  execute_api/inferencia: 1
+  persist-credentials false: 2  acciones fijadas por SHA: 4/4
+== vibe-readiness.yml
+  disparadores:  push: 
+  ramas:  branches: [automatizacion/coordinacion-api-v1]
+  permisos:  contents: read 
+  secretos: 
+  pip_install_sin_hash: 1  setup-python: 1
+  execute_api/inferencia: 0
+  persist-credentials false: 1  acciones fijadas por SHA: 2/2
+== escrituras GitHub en código (método, rama)
+<rev_auto>/automation/coordination/critical_review.py:216:        if (service, method, path) != ('anthropic', 'POST', '/v1/messages'):
+<rev_auto>/automation/coordination/critical_review.py:221:                      data=pilot.canonical({**body, 'stream': True}), method='POST',
+<rev_auto>/automation/coordination/critical_review.py:528:    count = http.call('anthropic', 'POST', '/v1/messages/count_tokens', payload(bundle))
+<rev_auto>/automation/coordination/critical_review.py:537:        response = http.call('anthropic', 'POST', '/v1/messages',
+<rev_auto>/automation/coordination/qwen_bank_review.py:56:        self.http.call('github', 'PUT', self.base + '/reservation.json', {
+<rev_auto>/automation/coordination/test_auto1_transporte.py:88:        resp = http.client.HTTPResponse(Sock(Raw(self.data, self.end)), method='POST')
+<rev_auto>/automation/coordination/test_auto1_transporte.py:129:        if method == 'PUT':
+<rev_auto>/automation/coordination/test_auto1_transporte.py:191:            h.call('anthropic', 'POST', '/v1/messages', {'model': cr.MODEL, 'max_tokens': 1})
+<rev_auto>/automation/coordination/test_auto1_transporte.py:199:            h.call('anthropic', 'POST', '/v1/messages', {'model': cr.MODEL, 'max_tokens': 1})
+<rev_auto>/automation/coordination/test_auto1_transporte.py:264:            h.call('anthropic', 'POST', '/v1/messages', {'model': cr.MODEL, 'max_tokens': 1})
+<rev_auto>/automation/coordination/test_auto1_transporte.py:394:                h.call('anthropic', 'POST', '/v1/messages', body)
+<rev_auto>/automation/coordination/test_auto1_transporte.py:396:        h.call('anthropic', 'POST', '/v1/messages', {'model': cr.MODEL, 'max_tokens': 1})
+<rev_auto>/automation/coordination/test_auto1_transporte.py:405:                h.call('anthropic', 'POST', '/v1/messages/count_tokens', {'model': 'claude-fable-5-2'})
+<rev_auto>/automation/claude_review/pilot.py:265:                self.http.call('github', 'POST', f'/repos/{REPO}/git/refs',
+<rev_auto>/automation/claude_review/pilot.py:287:            self.http.call('github', 'PUT', self.base + '/' + name, body)
+<rev_auto>/automation/claude_review/pilot.py:351:    count = http.call('anthropic', 'POST', '/v1/messages/count_tokens',
+<rev_auto>/automation/claude_review/pilot.py:361:        response = http.call('anthropic', 'POST', '/v1/messages',
+<rev_auto>/automation/coordination/qwen_bank_review.py:58:            'branch': pilot.LEDGER_BRANCH, 'sha': previous['sha'],
+<rev_auto>/automation/claude_review/pilot.py:24:LEDGER_BRANCH = 'automatizacion/claude-api-piloto-registro'
+<rev_auto>/automation/claude_review/pilot.py:277:        body = {'message': 'Piloto Claude API: ' + name, 'branch': LEDGER_BRANCH,
+== referencias a main, coordinacion/cierre-v2, CONTROL.json, ESTADO.md en código Python
+== bucles while/reintentos en código
+<rev_auto>/automation/coordination/critical_review.py:104:    while True:
+<rev_auto>/automation/coordination/critical_review.py:116:        while cut >= 0:
+<rev_auto>/automation/coordination/critical_review.py:141:            continue  # comentarios ':' y campos id:/retry:
+<rev_auto>/automation/coordination/qwen_bank_review.py:21:               'api_retry_max_elapsed_time = 0\napi_stream_idle_timeout = 0\n'
+<rev_auto>/automation/coordination/vibe_connection.py:31:                'api_retry_max_elapsed_time = 0\n'

@@ -1,0 +1,93 @@
+# S05_M4_marcas_comandos.txt · 2026-11-17T14:00:58Z
+L90-91 (2 líneas) · antes ['ND'] · después ['TRASP'] · OK
+    90: flock -x <e_work>/libreoffice.lock bash verificar_paquete.sh completa
+    91: flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/scripts/comprobar_entrega_4_14.py
+L96-96 (1 líneas) · antes ['TRASP'] · después ['ND'] · OK
+    96: flock -x <e_work>/libreoffice.lock soffice --version
+L165-165 (1 líneas) · antes ['LIT', 'ND'] · después ['TRASP', 'F1'] · OK
+    165: gh release download base-4.14 --repo jluisplagos/munger-v2 --pattern munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip --dir .downloads
+L172-172 (1 líneas) · antes ['TRASP', 'F1'] · después ['TRASP', 'F1', 'ND'] · OK
+    172: gh api -H "Accept: application/octet-stream" repos/jluisplagos/munger-v2/releases/assets/750814858 > .downloads/munger_v2_r1_entrega4.14_cierre_verifi
+L174-174 (1 líneas) · antes [] · después [] · SIN MARCA
+    174: «comando probado en el traspaso del 17-nov» *(autodeclarado)*. El informe da «0 / 0» para tres órdenes juntas (esta descarga, `stat` y `sha256sum`, §4
+L178-179 (2 líneas) · antes ['TRASP', 'F1', 'ND'] · después ['LIT', 'TRASP'] · OK
+    178: stat -c '%s %n' .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+    179: sha256sum .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+L185-186 (2 líneas) · antes ['LIT', 'TRASP'] · después [] · OK
+    185: python tools/base_414.py materialize --source .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+    186: python tools/base_414.py verify --report docs/VERIFICACION_BASE_COMPLETA_LOCAL.json
+L191-192 (2 líneas) · antes [] · después ['LIT-NP', 'LIT', 'TRASP', 'F1'] · OK
+    191: python3 -I tools/base_414.py materialize --source <zip>
+    192: python3 -I tools/base_414.py verify --report <registro>/VERIFICACION_BASE_COMPLETA_LOCAL_414.json
+L194-194 (1 líneas) · antes [] · después ['LIT-NP', 'LIT'] · OK
+    194: «comando probado en la preparación F1 del 15-nov», códigos 0/0 (`F1PREP/log_base414.txt:2`, `:12`, `:14`, `:23`). El traspaso usó la variante del READ
+L200-200 (1 líneas) · antes ['LIT-NP', 'LIT'] · después ['TRASP', 'ND'] · OK
+    200: git worktree add ../candidata integracion/candidata-cierre-v2
+L207-207 (1 líneas) · antes ['TRASP', 'ND'] · después ['LIT', 'TRASP', 'F1'] · OK
+    207: python3 -I <copia_de>/copiar_binarios.py <clon_de_main> <worktree_candidata> <registro>/paso5_copia_binarios.json
+L223-223 (1 líneas) · antes [] · después ['F1', 'ND'] · OK
+    223: tail -n +2 MANIFIESTO_SHA256.txt | sha256sum -c --quiet
+L225-225 (1 líneas) · antes [] · después [] · SIN MARCA
+    225: «comando probado en la preparación F1 del 15-nov», código 0, sobre el manifiesto del hito 1 (7004/7004) (`F1PREP/preparacion.json`, `paso4_worktree_B.
+L234-234 (1 líneas) · antes [] · después ['TRASP'] · OK
+    234: mkdir copia_limpia_1 && cp -a candidata/munger_v2_r1 copia_limpia_1/
+L239-239 (1 líneas) · antes ['TRASP'] · después ['TRASP'] · OK
+    239: flock -x <e_work>/libreoffice.lock bash verificar_paquete.sh completa
+L284-284 (1 líneas) · antes [] · después ['TRASP'] · OK
+    284: flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/scripts/comprobar_entrega_4_14.py
+L296-296 (1 líneas) · antes [] · después ['LIT', 'TRASP'] · OK
+    296: flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.p
+L333-333 (1 líneas) · antes [] · después ['TRASP'] · OK
+    333: flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py
+L335-335 (1 líneas) · antes [] · después [] · SIN MARCA
+    335: «comando probado en el traspaso del 17-nov» *(autodeclarado)*: el informe lo abrevia con «…» (`TRASP/INFORME_TRASPASO.md:34`); el código 1 y las horas
+L338-338 (1 líneas) · antes ['TRASP'] · después ['ND', 'ADAPT'] · OK
+    338: flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py
+L349-350 (2 líneas) · antes [] · después ['TRASP', 'ND'] · OK
+    349: find <copia>/munger_v2_r1/personaje_v2/pruebas/_v64 -name '*.xlsx' -not -path '<copia>/munger_v2_r1/personaje_v2/pruebas/_v64/vigencia/*' -delete
+    350: rm -rf <copia>/munger_v2_r1/personaje_v2/pruebas/_v64/vigencia
+L365-365 (1 líneas) · antes ['LIT-NP', 'LIT'] · después [] · OK
+    365: python3 -I personaje_v2/scripts/cambiar_base.py preparar CAMBIO.json
+L377-377 (1 líneas) · antes ['LIT-NP', 'LIT'] · después [] · OK
+    377: python3 -B personaje_v2/scripts/configuracion_economica.py validar configuracion_economica.json
+L392-392 (1 líneas) · antes ['LIT-NP', 'LIT'] · después ['LIT-NP', 'LIT'] · OK
+    392: python3 -B scripts/verificacion_entradas.py sellar CARPETA --revisor NOMBRE --fecha AAAA-MM-DD CELDA [CELDA …]
+L403-405 (3 líneas) · antes ['LIT-NP', 'LIT', 'TRASP', 'ND', 'ADAPT'] · después [] · OK
+    403: python3 personaje_v2/scripts/pipeline.py CARPETA --config personaje_v2/config_v2_v64_experimental.json     (V6.4, motor B)
+    404: python3 personaje_v2/scripts/pipeline.py CARPETA --config personaje_v2/config_v2_v641_experimental.json    (V6.4.1)
+    405: python3 personaje_v2/scripts/pipeline.py CARPETA --config personaje_v2/config_v2.json                      (V6.3, motor A)
+L502-503 (2 líneas) · antes [] · después ['TRASP', 'ND'] · OK
+    502: cp -a personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/elis_motor_A personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14
+    503: flock -x <e_work>/libreoffice.lock python3 personaje_v2/scripts/pipeline.py personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/elis_mot
+L598-607 (10 líneas) · antes [] · después [] · SIN MARCA
+    598: source <evid>/coordinacion/cierre_v2/herramientas/lanzador_comun.sh
+    599: R=<trabajo>/registro
+    600: LOCK=<e_work>/libreoffice.lock
+    601: iniciar "$R/registro_lanzador.log" 5
+    602: en_dir copia_limpia <trabajo>/copia_limpia_1/munger_v2_r1
+    603: paso df_antes_p08 "$R/df_antes_p08.txt" df -h <trabajo> "${TMPDIR:-/tmp}"
+    604: paso p08_verificar_completa "$R/paso8_verificar_paquete_completa.log" flock -x "$LOCK" bash verificar_paquete.sh completa
+    605: paso p09_control_4_14 "$R/paso9_comprobar_entrega_4_14.log" flock -x "$LOCK" python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensay
+    606: paso p10_historicos "$R/paso10_salida.txt" flock -x "$LOCK" python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/co
+    607: terminar
+L614-615 (2 líneas) · antes ['ND', 'ADAPT'] · después ['ND'] · OK
+    614: bash lanzador_traspaso.sh; rc_lanzador=$?
+    615: python3 -I <evid>/coordinacion/cierre_v2/herramientas/comprobar_registro.py <trabajo>/registro/registro_lanzador.log --esperados 5; rc_registro=$?
+
+líneas de comando en bloque: 46 · sin marca en el párrafo anterior ni en el siguiente: 13
+
+Nota del revisor: los «SIN MARCA» de las líneas 174, 194, 225 y 335 son la propia marca (texto sangrado), no un comando; el bloque 598-607 es la plantilla, marcada **[NO DOCUMENTADO]** en la línea 593.
+
+## órdenes en línea y sus marcas
+197:verify --git-only` (*literal de la fuente, no probado*: `README.md:51`).
+383:verificacion_entradas.py plantilla CARPETA` (*literal de la fuente, no probado*), desde `personaje_v2/`. Se hace
+395:verificacion_entradas.py comprobar CARPETA` (*literal de la fuente, no probado*). El pipeline la repite en el pa
+
+## F1PREP: órdenes y códigos
+$ python3 -I tools/base_414.py materialize --source <home>/e_work/dl_base414/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+[codigo_salida_materialize=0]
+$ python3 -I tools/base_414.py verify --report <home>/e_work/inventario/VERIFICACION_BASE_COMPLETA_LOCAL_414.json
+[codigo_salida_verify=0]
+copia_binarios claves: ['script', 'recuento', 'existentes_distintos', 'detalle']
+manifiesto_B.comando: tail -n +2 MANIFIESTO_SHA256.txt | sha256sum -c --quiet (y una segunda pasada sin --quiet para contar OK) · código 0
+paso2.codigo_salida_alternativa: 0

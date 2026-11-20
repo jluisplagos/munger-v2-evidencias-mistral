@@ -1,0 +1,213 @@
+{
+ "E0 Elis A1 correcto": {
+  "F1-LIBRO": "no salta",
+  "F1-REPLICA": "no salta",
+  "F1-SERIES": "no salta",
+  "bloquean": [
+   "F1-2i",
+   "F1-REGISTRO",
+   "V-F1g",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ],
+  "f_capa": 0.012624225323285,
+  "motivos_v631": []
+ },
+ "E1 ROU 2025 = cifra de 2024 (misma página)": {
+  "F1-LIBRO": "no salta",
+  "F1-REPLICA": "no salta",
+  "F1-SERIES": "no salta",
+  "bloquean": [
+   "F1-2i",
+   "F1-REGISTRO",
+   "V-F1g",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ],
+  "f_capa": 0.01388885445069,
+  "motivos_v631": [],
+  "Historia!C58": 0.0138888544506905,
+  "Historia!C53": 2.49843102799046,
+  "Motor!BF7": 404.907379819818
+ },
+ "E2 H13/H14 vacías (2021)": {
+  "F1-LIBRO": "no salta",
+  "F1-REPLICA": "no salta",
+  "F1-SERIES": "no salta",
+  "bloquean": [
+   "F1-2i",
+   "F1-REGISTRO",
+   "V-F1g",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ],
+  "f_capa": 0.012624225323285,
+  "motivos_v631": [],
+  "Historia!C58": 0.0126242253232846,
+  "Historia!C53": 2.6993490642799,
+  "Historia!H31": -78.3,
+  "Motor!D205": "OK"
+ },
+ "E3a libro A1, declaración A2": {
+  "F1-LIBRO": "SALTA BLOQUEA · el libro V6.3.1 F1 no calcula lo declarado (A2_propio; N1 y los términos explícitos no están en el libro): perímetro efectivo del libro (Historia C89) 'A1_sin_ROU' ≠ declarado 'A2_propio'; D_X 2021: libro 652.2 ≠ capa 571.1; D_X 2",
+  "F1-REPLICA": "no salta",
+  "F1-SERIES": "no salta",
+  "bloquean": [
+   "F1-LIBRO",
+   "F1-REGISTRO",
+   "V-F1g",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ],
+  "f_capa": -0.006118601744165,
+  "motivos_v631": [
+   "perímetro efectivo del libro (Historia C89) 'A1_sin_ROU' ≠ declarado 'A2_propio'",
+   "D_X 2021: libro 652.2 ≠ capa 571.1",
+   "D_X 2022: libro 695.3 ≠ capa 612.4"
+  ]
+ },
+ "E3b libro A1, ROU 2025 de la declaración +0,1": {
+  "F1-LIBRO": "SALTA BLOQUEA · el libro V6.3.1 F1 no calcula lo declarado (A1_sin_ROU; N1 y los términos explícitos no están en el libro): D&A de derechos de uso 2025: libro (Historia L86) 149.5 ≠ declaración 149.6; D_X 2025: libro 869.9 ≠ capa 869.8; f: libro ",
+  "F1-REPLICA": "no salta",
+  "F1-SERIES": "SALTA AVISO · series.da_rou.2025: la cifra '(149.6)' no está en la página 350 de texto/Elis - 2025 Universal Registration Document.txt (además de las guardas que ya bloquean)",
+  "bloquean": [
+   "F1-2i",
+   "F1-LIBRO",
+   "F1-REGISTRO",
+   "V-F1g",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ],
+  "f_capa": 0.012616915328328,
+  "motivos_v631": [
+   "D&A de derechos de uso 2025: libro (Historia L86) 149.5 ≠ declaración 149.6",
+   "D_X 2025: libro 869.9 ≠ capa 869.8",
+   "f: libro (Historia C58) 0.0126242253232846 ≠ capa 0.012616915328328423"
+  ]
+ },
+ "E3c libro sin recalcular": {
+  "F1-LIBRO": "ausente",
+  "F1-REPLICA": "ausente",
+  "F1-SERIES": "ausente",
+  "bloquean": [],
+  "f_capa": null,
+  "motivos_v631": null
+ },
+ "E3d libro V6.3 con la sección 84–89 de un libro A1 (D_X, C89) en caché": {
+  "F1-REPLICA": "SALTA",
+  "F1-LIBRO": "SALTA"
+ },
+ "E3e libro V6.3 con las salidas contrastadas copiadas del A1": {
+  "F1-REPLICA": "no",
+  "F1-LIBRO": "no"
+ },
+ "E4a D_X 2016 = D&A (fuera de ventana)": {
+  "F1-LIBRO": "SALTA BLOQUEA · el libro V6.3.1 F1 no calcula lo declarado (A1_sin_ROU; N1 y los términos explícitos no están en el libro): D_X 2016: libro 299.6 ≠ capa None: la conclusión del motor A no se toma del libro; los flujos F1 son un diagnóstico",
+  "F1-REPLICA": "SALTA BLOQUEA · Historia C88 (D_X 2016) 299.6 ≠ réplica None",
+  "F1-SERIES": "no salta",
+  "bloquean": [
+   "F1-2i",
+   "F1-LIBRO",
+   "F1-REGISTRO",
+   "F1-REPLICA",
+   "V-F1g",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ],
+  "f_capa": 0.012624225323285,
+  "motivos_v631": [
+   "D_X 2016: libro 299.6 ≠ capa None"
+  ]
+ },
+ "E4b D_X 2025 + 1e-6": {
+  "F1-LIBRO": "SALTA BLOQUEA · el libro V6.3.1 F1 no calcula lo declarado (A1_sin_ROU; N1 y los términos explícitos no están en el libro): D_X 2025: libro 869.900001 ≠ capa 869.9; f: libro (Historia C58) 0.0126242253963845 ≠ capa 0.012624225323284527; ancla de ",
+  "F1-REPLICA": "SALTA BLOQUEA · Historia L88 (D_X 2025) 869.900001 ≠ réplica 869.9",
+  "F1-SERIES": "no salta",
+  "bloquean": [
+   "F1-2i",
+   "F1-LIBRO",
+   "F1-REGISTRO",
+   "F1-REPLICA",
+   "V-F1g",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ],
+  "f_capa": 0.012624225323285,
+  "motivos_v631": [
+   "D_X 2025: libro 869.900001 ≠ capa 869.9",
+   "f: libro (Historia C58) 0.0126242253963845 ≠ capa 0.012624225323284527",
+   "ancla de S2C: libro (Historia C53) 2.44533169833579 ≠ capa 2.4453316953316953"
+  ]
+ },
+ "E6 sin perímetro declarado, libro A1": {
+  "F1-LIBRO": "no salta",
+  "F1-REPLICA": "no salta",
+  "F1-SERIES": "no salta",
+  "bloquean": [
+   "F1-PERIMETRO",
+   "F1-REGISTRO",
+   "V-F1g",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ],
+  "f_capa": 0.041681455273796,
+  "motivos_v631": [
+   "el perímetro declarado None no está en el libro V6.3.1 (solo A0_total, A1_sin_ROU, A2_propio)",
+   "perímetro efectivo del libro (Historia C89) 'A1_sin_ROU' ≠ declarado None",
+   "D_X 2021: libro 652.2 ≠ capa None"
+  ]
+ },
+ "E7a V6.3.1 A0 sin capex 2021": {
+  "F1-LIBRO": "SALTA BLOQUEA · el libro V6.3.1 F1 no calcula lo declarado (A0_total; N1 y los términos explícitos no están en el libro): D&A de derechos de uso 2021: libro (Historia H86) None ≠ declaración 92.6; D&A de derechos de uso 2022: libro (Historia I86)",
+  "F1-REPLICA": "no salta",
+  "F1-SERIES": "no salta",
+  "bloquean": [
+   "F1-2i",
+   "F1-K3b",
+   "F1-K3c",
+   "F1-LIBRO",
+   "F1-REGISTRO",
+   "V-F1a",
+   "V-F1g",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ],
+  "f_capa": 0.041681455273796,
+  "motivos_v631": [
+   "D&A de derechos de uso 2021: libro (Historia H86) None ≠ declaración 92.6",
+   "D&A de derechos de uso 2022: libro (Historia I86) None ≠ declaración 103.7",
+   "D&A de derechos de uso 2023: libro (Historia J86) None ≠ declaración 115.8"
+  ],
+  "Historia!C53": 6.32909379968204,
+  "Historia!C58": 0.0416814552737959
+ },
+ "E7b V6.3 A0 sin capex 2021": {
+  "F1-LIBRO": "no salta",
+  "F1-REPLICA": "no salta",
+  "F1-SERIES": "no salta",
+  "bloquean": [
+   "F1-2i",
+   "F1-K3b",
+   "F1-K3c",
+   "F1-REGISTRO",
+   "V-F1a",
+   "V-F1g",
+   "V-F1i",
+   "V-F1j",
+   "V-F1k"
+  ],
+  "f_capa": 0.041681455273796,
+  "motivos_v631": null,
+  "Historia!C53": 6.32909379968204,
+  "Historia!C58": 0.0416814552737959
+ }
+}

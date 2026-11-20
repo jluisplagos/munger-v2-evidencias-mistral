@@ -1,0 +1,1998 @@
+{
+ "version_hoja": "2.0",
+ "generada": "2026-11-18T12:39:53",
+ "expediente": "/tmp/claude-0/revision_hoja_r2/exp/Vidrala_414/Vidrala",
+ "entradas_sha256": {
+  "ficha.json": "e1ce40400a1b24cd1b5506605dc6f791300aa95364d150c23c84d55e573973f8",
+  "informe.md": "2b2e21b428bbf297c7f71a4b5e904bbc7c0a364bc2fc803802d11eb809fc0ea9",
+  "precio.json": "bdd2211c49df5d2ee3111331548b6ac2763f61bfe1f62700589d45b3f64e97b0",
+  "resultados.json": "d84c70ad6fd01cd338f49047897320b34ad7964d04a786c07cbb95f9de7379e7",
+  "fase_c.json": "9667773e64a28636a1f3f0255ec311ff8b4a8231436ef7bdcc004d19d88eff87",
+  "estado_pipeline.json": "efdda69ff06d37a32ec27a8b4b18a3236bf1ba5ccc07f6f3da1497b07d51b3d5",
+  "Vidrala_v63_evaluada.xlsx": "82ff7fb8b66ebfbb39746c61c38230c909c53be88ea2b42cf9c7df2f3187a9e1",
+  "cierre_vigente.json": "b0f757e4c84fa53d1b78687e861df7663ed7d47e215ef08599936f9fa81dd4a0",
+  "fase1_metadatos.json": "8f74860813a12166e35246cbf663c8b9e9dacef5b6ecbaecd5fb9404dc55cd20",
+  "fase1_fuentes.json": "06a2f2ea5ae2f2b0f91e2891cd846972cd4625c49697914f78b55a40d6dbbe9c",
+  "fase1_v63.json": "6ad4071b9223024d20b68ad2e9ec79b19ea7596ef70495803fd39bd45568f71c"
+ },
+ "vigencia": {
+  "vigente": true,
+  "motivo": null
+ },
+ "veredicto": {
+  "estado_analisis": "concluido",
+  "concluye": true,
+  "cubo": "Vigilar",
+  "accion": "esperar",
+  "precio_compra": 56.0,
+  "causa": null,
+  "objetivo": {
+   "protocolo": "objetivo_condicionado",
+   "tratamiento": "objetivo_condicionado",
+   "estado_del_objetivo": "emitido_condicionado",
+   "origen_del_bloqueo": null,
+   "valor_calculado_condicional": 56.002005168244615,
+   "precio_objetivo_emitido": 56.0,
+   "provisional": true,
+   "hipotesis_que_lo_condicionan": [
+    {
+     "hipotesis": "PM1.estructura",
+     "informacion_que_falta": "Desglose del capex de 2021–2025 y del previsto por destino (reposición de hornos, crecimiento, descarbonización); si una reconstrucción de horno añade capacidad (toneladas antes y después); serie de toneladas vendidas o fundidas de 2019–2025; y cómo se midió el ROIC de la fase B (Q-ROIC1)."
+    },
+    {
+     "hipotesis": "PM1.familia",
+     "informacion_que_falta": "Coste de reposición a precios corrientes de un horno frente a su coste histórico y calendario de reconstrucciones (lo que daría θ o validaría Λ); en su defecto, el desglose del capex por destino."
+    },
+    {
+     "hipotesis": "PM1.parametro",
+     "informacion_que_falta": "Capex de reposición de hornos por año de 2021–2025 y coste de reconstruir hoy un horno frente a su coste histórico."
+    },
+    {
+     "hipotesis": "PM1.roic_terminal",
+     "informacion_que_falta": "Cómo se pensó el ROIC de largo plazo de la fase B: rendimiento del capital que crece neto de la reposición, o de toda la inversión (Q-ROIC1); para el BUENO, el ROIC histórico recalculado con la amortización a coste de reposición."
+    }
+   ],
+   "hipotesis_no_cubiertas_por_el_ambito": [
+    "PM1.familia"
+   ],
+   "accion_provisional": "esperar",
+   "accion_sostenida_en_ambito": true,
+   "motivos_no_sostenida": [],
+   "rango_calculado": {
+    "precio_si": [
+     51.26020399023426,
+     65.71813435862349
+    ],
+    "ponderado": [
+     55.7995237729976,
+     70.0204972712378
+    ],
+    "n_escenarios": 19,
+    "escenarios": [
+     "heredado",
+     "solo_N1",
+     "solo_N2",
+     "solo_R1",
+     "activa_sin_N1",
+     "escudo_alternativo",
+     "activa_sin_N2",
+     "activa_R0_sin_PM1",
+     "cartera_legado",
+     "activa_sin_PM1",
+     "activa_solo_P0",
+     "estructura_H",
+     "estructura_S",
+     "estructura_SR2",
+     "estructura_SRF",
+     "parametro_minimo",
+     "parametro_maximo",
+     "convencion_anios_alternativa",
+     "convencion_terminal_alternativa"
+    ],
+    "zonas": [
+     "caro"
+    ],
+    "naturaleza": "rango de una tabla de sensibilidad: solo las variantes calculadas (y la comprobación conjunta, si se ejecutó); no es un intervalo de confianza ni una medida completa de la incertidumbre económica, y no cubre las hipótesis no exploradas"
+   },
+   "materialidad": {
+    "datos_ausentes_materiales": [],
+    "hipotesis_sin_fundamento_suficiente": [
+     "PM1.estructura",
+     "PM1.familia",
+     "PM1.parametro",
+     "PM1.roic_terminal"
+    ],
+    "materiales_para_la_accion": [],
+    "materialidad_para_la_accion_no_determinada": [],
+    "materiales_para_el_objetivo": [
+     "N1.tipo",
+     "PM1.estructura",
+     "PM1.familia",
+     "PM1.parametro"
+    ],
+    "materialidad_para_el_objetivo_no_determinada": [
+     "PM1.roic_terminal"
+    ],
+    "limites_del_modelo_materiales": [],
+    "ambito_por_parametro": {
+     "N3.regla": [
+      "heredado",
+      "solo_N1",
+      "solo_N2",
+      "activa_R0_sin_PM1"
+     ],
+     "PM1.estructura": [
+      "heredado",
+      "solo_N1",
+      "solo_N2",
+      "solo_R1",
+      "activa_R0_sin_PM1",
+      "activa_sin_PM1",
+      "activa_solo_P0",
+      "estructura_H",
+      "estructura_S",
+      "estructura_SR2",
+      "estructura_SRF"
+     ],
+     "PM1.cartera": [
+      "heredado",
+      "solo_N1",
+      "solo_N2",
+      "solo_R1",
+      "activa_R0_sin_PM1",
+      "cartera_legado",
+      "activa_sin_PM1"
+     ],
+     "N1.tipo": [
+      "heredado",
+      "solo_N2",
+      "solo_R1",
+      "activa_sin_N1"
+     ],
+     "N1.escudo": [
+      "heredado",
+      "solo_N2",
+      "solo_R1",
+      "activa_sin_N1",
+      "escudo_alternativo"
+     ],
+     "N2.margen": [
+      "heredado",
+      "solo_N1",
+      "solo_R1",
+      "activa_sin_N2"
+     ],
+     "N3.circulante": [
+      "heredado",
+      "solo_N1",
+      "solo_N2",
+      "activa_R0_sin_PM1"
+     ],
+     "PM1.familia": [
+      "heredado",
+      "solo_N1",
+      "solo_N2",
+      "solo_R1",
+      "activa_R0_sin_PM1",
+      "activa_sin_PM1"
+     ],
+     "PM1.parametro": [
+      "heredado",
+      "solo_N1",
+      "solo_N2",
+      "solo_R1",
+      "activa_R0_sin_PM1",
+      "activa_sin_PM1",
+      "parametro_minimo",
+      "parametro_maximo"
+     ],
+     "PM1.convencion_anios": [
+      "heredado",
+      "solo_N1",
+      "solo_N2",
+      "solo_R1",
+      "activa_R0_sin_PM1",
+      "activa_sin_PM1",
+      "convencion_anios_alternativa"
+     ],
+     "PM1.convencion_terminal": [
+      "heredado",
+      "solo_N1",
+      "solo_N2",
+      "solo_R1",
+      "activa_R0_sin_PM1",
+      "activa_sin_PM1",
+      "convencion_terminal_alternativa"
+     ],
+     "PM1.roic_terminal": [
+      "heredado",
+      "solo_N1",
+      "solo_N2",
+      "solo_R1",
+      "activa_R0_sin_PM1",
+      "activa_sin_PM1",
+      "estructura_SR2"
+     ]
+    },
+    "ambito_aislado_por_parametro": {
+     "N3.regla": [],
+     "PM1.estructura": [
+      "activa_solo_P0",
+      "estructura_H",
+      "estructura_S",
+      "estructura_SR2",
+      "estructura_SRF"
+     ],
+     "PM1.cartera": [
+      "cartera_legado"
+     ],
+     "N1.tipo": [],
+     "N1.escudo": [
+      "escudo_alternativo"
+     ],
+     "N2.margen": [
+      "activa_sin_N2"
+     ],
+     "N3.circulante": [],
+     "PM1.familia": [],
+     "PM1.parametro": [
+      "parametro_minimo",
+      "parametro_maximo"
+     ],
+     "PM1.convencion_anios": [
+      "convencion_anios_alternativa"
+     ],
+     "PM1.convencion_terminal": [
+      "convencion_terminal_alternativa"
+     ],
+     "PM1.roic_terminal": []
+    }
+   },
+   "cobertura": {
+    "por_parametro": {
+     "N3.regla": {
+      "tipo": "variacion_conjunta_necesaria",
+      "aisladas": [],
+      "conjuntas_necesarias": [
+       "activa_R0_sin_PM1"
+      ],
+      "conjuntas": [
+       "heredado",
+       "solo_N1",
+       "solo_N2"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [
+       "N3.circulante",
+       "PM1.cartera",
+       "PM1.convencion_anios",
+       "PM1.convencion_terminal",
+       "PM1.estructura",
+       "PM1.familia",
+       "PM1.parametro",
+       "PM1.roic_terminal"
+      ],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": true
+     },
+     "PM1.estructura": {
+      "tipo": "contraste_aislado",
+      "aisladas": [
+       "activa_solo_P0",
+       "estructura_H",
+       "estructura_S",
+       "estructura_SRF"
+      ],
+      "conjuntas_necesarias": [
+       "estructura_SR2"
+      ],
+      "conjuntas": [
+       "heredado",
+       "solo_N1",
+       "solo_N2",
+       "solo_R1",
+       "activa_R0_sin_PM1",
+       "activa_sin_PM1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [
+       "PM1.roic_terminal"
+      ],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": true
+     },
+     "PM1.cartera": {
+      "tipo": "contraste_aislado",
+      "aisladas": [
+       "cartera_legado"
+      ],
+      "conjuntas_necesarias": [],
+      "conjuntas": [
+       "heredado",
+       "solo_N1",
+       "solo_N2",
+       "solo_R1",
+       "activa_R0_sin_PM1",
+       "activa_sin_PM1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": true
+     },
+     "N1.tipo": {
+      "tipo": "variacion_conjunta_necesaria",
+      "aisladas": [],
+      "conjuntas_necesarias": [
+       "activa_sin_N1"
+      ],
+      "conjuntas": [
+       "heredado",
+       "solo_N2",
+       "solo_R1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [
+       "N1.escudo"
+      ],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": true
+     },
+     "N1.escudo": {
+      "tipo": "contraste_aislado",
+      "aisladas": [
+       "escudo_alternativo"
+      ],
+      "conjuntas_necesarias": [],
+      "conjuntas": [
+       "heredado",
+       "solo_N2",
+       "solo_R1",
+       "activa_sin_N1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": true
+     },
+     "N2.margen": {
+      "tipo": "contraste_aislado",
+      "aisladas": [
+       "activa_sin_N2"
+      ],
+      "conjuntas_necesarias": [],
+      "conjuntas": [
+       "heredado",
+       "solo_N1",
+       "solo_R1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": true
+     },
+     "N3.circulante": {
+      "tipo": "variacion_conjunta",
+      "aisladas": [],
+      "conjuntas_necesarias": [],
+      "conjuntas": [
+       "heredado",
+       "solo_N1",
+       "solo_N2",
+       "activa_R0_sin_PM1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": null
+     },
+     "PM1.familia": {
+      "tipo": "variacion_conjunta",
+      "aisladas": [],
+      "conjuntas_necesarias": [],
+      "conjuntas": [
+       "heredado",
+       "solo_N1",
+       "solo_N2",
+       "solo_R1",
+       "activa_R0_sin_PM1",
+       "activa_sin_PM1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": null
+     },
+     "PM1.parametro": {
+      "tipo": "contraste_aislado",
+      "aisladas": [
+       "parametro_minimo",
+       "parametro_maximo"
+      ],
+      "conjuntas_necesarias": [],
+      "conjuntas": [
+       "heredado",
+       "solo_N1",
+       "solo_N2",
+       "solo_R1",
+       "activa_R0_sin_PM1",
+       "activa_sin_PM1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": true
+     },
+     "PM1.convencion_anios": {
+      "tipo": "contraste_aislado",
+      "aisladas": [
+       "convencion_anios_alternativa"
+      ],
+      "conjuntas_necesarias": [],
+      "conjuntas": [
+       "heredado",
+       "solo_N1",
+       "solo_N2",
+       "solo_R1",
+       "activa_R0_sin_PM1",
+       "activa_sin_PM1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": true
+     },
+     "PM1.convencion_terminal": {
+      "tipo": "contraste_aislado",
+      "aisladas": [
+       "convencion_terminal_alternativa"
+      ],
+      "conjuntas_necesarias": [],
+      "conjuntas": [
+       "heredado",
+       "solo_N1",
+       "solo_N2",
+       "solo_R1",
+       "activa_R0_sin_PM1",
+       "activa_sin_PM1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": true
+     },
+     "PM1.roic_terminal": {
+      "tipo": "variacion_conjunta_necesaria",
+      "aisladas": [],
+      "conjuntas_necesarias": [
+       "estructura_SR2"
+      ],
+      "conjuntas": [
+       "heredado",
+       "solo_N1",
+       "solo_N2",
+       "solo_R1",
+       "activa_R0_sin_PM1",
+       "activa_sin_PM1"
+      ],
+      "comprobacion_conjunta": false,
+      "vinculados_necesarios": [
+       "PM1.estructura"
+      ],
+      "accion_invariante_en_variantes_calculadas": true,
+      "accion_invariante_en_contrastes": true
+     }
+    },
+    "base_de_la_materialidad_para_la_accion": {
+     "N1.tipo": "calculada",
+     "N1.escudo": "calculada",
+     "N2.margen": "calculada",
+     "N3.regla": "calculada",
+     "N3.circulante": "juicio_economico",
+     "PM1.estructura": "calculada",
+     "PM1.familia": "juicio_economico",
+     "PM1.parametro": "calculada",
+     "PM1.convencion_anios": "calculada",
+     "PM1.convencion_terminal": "calculada",
+     "PM1.roic_terminal": "calculada",
+     "PM1.cartera": "calculada"
+    },
+    "base_de_la_materialidad_para_el_objetivo": {
+     "N1.tipo": "juicio_economico",
+     "N1.escudo": "juicio_economico",
+     "N2.margen": "juicio_economico",
+     "N3.regla": "juicio_economico",
+     "N3.circulante": "juicio_economico",
+     "PM1.estructura": "juicio_economico",
+     "PM1.familia": "juicio_economico",
+     "PM1.parametro": "juicio_economico",
+     "PM1.convencion_anios": "juicio_economico",
+     "PM1.convencion_terminal": "juicio_economico",
+     "PM1.roic_terminal": "no_determinada",
+     "PM1.cartera": "juicio_economico"
+    },
+    "juicios_economicos_objetivo": [
+     {
+      "clave": "N1.tipo",
+      "material_para_objetivo": true,
+      "evidencia": [
+       "configuracion_v64_variantes.md: activa_sin_N1",
+       "Historia fila 10 (tipo efectivo 2016–2025)",
+       "datos_v63.md §0: tipos (C52 0,20032; NOPAT y escudo 0,220541)"
+      ],
+      "inferencias": [
+       "El tipo de 2023–2025 representa mejor el perímetro de hoy (sin Italia) que la media de cinco años.",
+       "Llamar material a +1,75 € es juicio, con el criterio de 1,58 €; no cambia los condicionantes porque el parámetro tiene fundamento."
+      ]
+     },
+     {
+      "clave": "N1.escudo",
+      "material_para_objetivo": false,
+      "evidencia": [
+       "configuracion_v64_variantes.md: escudo_alternativo",
+       "Análisis C33",
+       "Diagnóstico V6 C15 (r_op)"
+      ],
+      "inferencias": [
+       "Que −0,08 € no sea material es juicio: está por debajo de la precisión con la que leo cualquier palanca."
+      ]
+     },
+     {
+      "clave": "N2.margen",
+      "material_para_objetivo": false,
+      "evidencia": [
+       "configuracion_v64_variantes.md: activa_sin_N2",
+       "Historia fila 29 y C49",
+       "datos_v63.md §0: margen de partida 0,185467"
+      ],
+      "inferencias": [
+       "El margen de partida solo fija la senda de los años 1–5; la alternativa es la medida con el perímetro mezclado.",
+       "Que −0,94 € no sea material es juicio, con el criterio de 1,58 €."
+      ]
+     },
+     {
+      "clave": "N3.regla",
+      "material_para_objetivo": false,
+      "evidencia": [
+       "configuracion_v64_variantes.md: activa_R0_sin_PM1, activa_sin_PM1, solo_R1, heredado",
+       "contraste_objetivo_v64.md (N3.regla)",
+       "aviso inversion_fija_para_crecer_negativa en las tres variantes con R0",
+       "[ES, PDF p. 168] vida de los hornos",
+       "Historia, crecimiento de ventas y capex (datos_v63.md §3)"
+      ],
+      "inferencias": [
+       "Que la capacidad conservada sirva a la recuperación no está probado (la empresa adaptó capacidad en 2025 [ES, PDF p. 94]); en el MALO no hace falta, porque sus ventas no superan las de 2025.",
+       "Que +1,36 € no sea material para el objetivo es juicio, con mi criterio de 1,58 €; supone que el efecto de R0 frente a R1 sin P-M1 es el mismo que con P-M1."
+      ]
+     },
+     {
+      "clave": "N3.circulante",
+      "material_para_objetivo": false,
+      "evidencia": [
+       "balance a 31-dic-2025 y 2024 [ES, PDF p. 9 y p. 10]",
+       "configuracion_v64_variantes.md: heredado, solo_N1, solo_N2, activa_R0_sin_PM1 (variación conjunta)",
+       "aviso inversion_fija_para_crecer_negativa: nwc_efectivo 0,147"
+      ],
+      "inferencias": [
+       "Con R1 el total de la reinversión del crecimiento lo fija el S2C, así que el ratio de circulante solo pesa en lo que se libera al caer las ventas.",
+       "Que no sea material para la acción ni para el objetivo es juicio: ninguna variante lo varía solo a él."
+      ]
+     },
+     {
+      "clave": "PM1.estructura",
+      "material_para_objetivo": true,
+      "evidencia": [
+       "configuracion_v64_variantes.md: estructura_S, estructura_SR2, estructura_SRF, estructura_H, activa_solo_P0",
+       "contraste_objetivo_v64.md (PM1.estructura)",
+       "CORRECCIONES_ECONOMICAS_VIDRALA_4_13.md §1 y §3 (información de la orquestación)",
+       "Historia filas 8, 12, 13 y 14 (datos_v63.md §3)",
+       "[ES, PDF p. 50, p. 51, p. 168 y p. 180]"
+      ],
+      "inferencias": [
+       "Ningún hecho del expediente separa la reposición del crecimiento en los años que crecieron (2021–2024), porque ese crecimiento fue sobre todo precio y la compra de Brasil.",
+       "Llamarlo material para el objetivo es mi lectura del tamaño con el criterio declarado (1,58 €), no una constatación calculada."
+      ]
+     },
+     {
+      "clave": "PM1.familia",
+      "material_para_objetivo": true,
+      "evidencia": [
+       "configuracion_v64_variantes.md: activa_solo_P0 (cota sin requisito), parametro_minimo y parametro_maximo (variación dentro de Λ)",
+       "configuracion_economica.json → trazabilidad PM1.familia",
+       "Historia filas 8 y 12"
+      ],
+      "inferencias": [
+       "Para subir por encima de 63,11 haría falta un requisito negativo (reposición por debajo de la amortización), que la historia de capex no apoya: por eso la familia no puede cambiar la acción.",
+       "Otra familia movería el objetivo al menos tanto como λ dentro de Λ: por eso la juzgo material para el objetivo."
+      ]
+     },
+     {
+      "clave": "PM1.parametro",
+      "material_para_objetivo": true,
+      "evidencia": [
+       "configuracion_v64_variantes.md: parametro_minimo, parametro_maximo",
+       "Historia filas 8 y 12",
+       "[ES, PDF p. 50, p. 51 y p. 168]"
+      ],
+      "inferencias": [
+       "Atribuir todo el exceso a la reposición daría λ ≈ 1,46 y f ≈ 1,72 (cálculo mío: 229,4 ÷ 500,2 de amortización repuesta; 547,7 ÷ 318,3): el rango de la configuración podría quedarse corto por arriba.",
+       "Parte del exceso es descarbonización y electrificación [ES, PDF p. 173] y Brasil, que no son reposición en sentido estricto."
+      ]
+     },
+     {
+      "clave": "PM1.convencion_anios",
+      "material_para_objetivo": false,
+      "evidencia": [
+       "configuracion_v64_variantes.md: convencion_anios_alternativa"
+      ],
+      "inferencias": [
+       "Que −0,13 € no sea material es juicio, con el criterio de 1,58 €."
+      ]
+     },
+     {
+      "clave": "PM1.convencion_terminal",
+      "material_para_objetivo": false,
+      "evidencia": [
+       "configuracion_v64_variantes.md: convencion_terminal_alternativa"
+      ],
+      "inferencias": [
+       "Que +0,40 € no sea material es juicio, con el criterio de 1,58 €."
+      ]
+     },
+     {
+      "clave": "PM1.cartera",
+      "material_para_objetivo": false,
+      "evidencia": [
+       "configuracion_v64_variantes.md: cartera_legado",
+       "configuracion_economica.json → PM1.cartera_fuente (nota de intangibles, ES 2025 págs. 52–53)"
+      ],
+      "inferencias": [
+       "Que una relación con clientes comprada no exija reposición con caja es economía, no dato; 2023 = 0 es un supuesto de la configuración (dos meses de Vidroporto).",
+       "Que −0,55 € no sea material es juicio, con el criterio de 1,58 €."
+      ]
+     }
+    ],
+    "juicios_economicos": [
+     {
+      "clave": "N3.circulante",
+      "material_para_accion": false,
+      "evidencia": [
+       "balance a 31-dic-2025 y 2024 [ES, PDF p. 9 y p. 10]",
+       "configuracion_v64_variantes.md: heredado, solo_N1, solo_N2, activa_R0_sin_PM1 (variación conjunta)",
+       "aviso inversion_fija_para_crecer_negativa: nwc_efectivo 0,147"
+      ],
+      "inferencias": [
+       "Con R1 el total de la reinversión del crecimiento lo fija el S2C, así que el ratio de circulante solo pesa en lo que se libera al caer las ventas.",
+       "Que no sea material para la acción ni para el objetivo es juicio: ninguna variante lo varía solo a él."
+      ]
+     },
+     {
+      "clave": "PM1.familia",
+      "material_para_accion": false,
+      "evidencia": [
+       "configuracion_v64_variantes.md: activa_solo_P0 (cota sin requisito), parametro_minimo y parametro_maximo (variación dentro de Λ)",
+       "configuracion_economica.json → trazabilidad PM1.familia",
+       "Historia filas 8 y 12"
+      ],
+      "inferencias": [
+       "Para subir por encima de 63,11 haría falta un requisito negativo (reposición por debajo de la amortización), que la historia de capex no apoya: por eso la familia no puede cambiar la acción.",
+       "Otra familia movería el objetivo al menos tanto como λ dentro de Λ: por eso la juzgo material para el objetivo."
+      ]
+     }
+    ],
+    "juicios_objetivo": [
+     {
+      "hipotesis": "Usar el tipo de 2023–2025 (22,05 %) en lugar del de la Historia (20,03 %) no desplaza el precio de Sí más de 1,58 €.",
+      "contraste": [
+       {
+        "variante": "activa_sin_N1",
+        "descripcion": "la activa sin N1 (tipo de la Historia; el escudo va ligado a N1)",
+        "precio_si": 57.75017819768099,
+        "delta_eur": 1.7481730294363729,
+        "delta_pct": 0.031216257778349285,
+        "atribuible": true
+       },
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_R1",
+        "descripcion": "solo N3 · R1, sin N1, N2 ni P-M1",
+        "precio_si": 63.39709057205946,
+        "delta_eur": 7.395085403814846,
+        "delta_pct": 0.13205036822517485,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "variacion_conjunta_necesaria",
+      "limites": [
+       "Solo se calcula una alternativa (C52); un tipo mayor que el de 2025 (24,33 %) no está calculado.",
+       "El tipo del NOPAT y el del escudo van ligados: no se separan sus efectos.",
+       "El contraste está a λ 1,15 y con SR1."
+      ],
+      "base": "juicio_economico",
+      "material": true,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": null,
+      "razonamiento": [
+       "activa_sin_N1 mueve +1,75 € (+3,12 %), por encima de mi criterio de 1,58 €: es material para el objetivo.",
+       "No condiciona el objetivo porque tiene fundamento suficiente: el tipo de 2023–2025 es el del perímetro actual y la alternativa es la menos defendible y además la favorable a la tesis de compra.",
+       "Cambia frente a la 4.13, que lo juzgó no material «del orden de un punto de margen» sin declarar el criterio."
+      ],
+      "evidencia": [
+       "contraste_objetivo_v64.md: activa_sin_N1 57,7502 (+1,75), atribuible",
+       "Historia, tipo impositivo 2021–2025: 15,86 %, 18,14 %, 20,40 %, 21,43 %, 24,33 % (datos_v63.md §3)",
+       "datos_v63.md §0: C52 0,20032; NOPAT y escudo 0,220541"
+      ],
+      "clave": "N1.tipo",
+      "fundamento_suficiente": true
+     },
+     {
+      "hipotesis": "Usar el mismo tipo en el NOPAT y en el escudo de r_op no desplaza el precio de Sí más de 1,58 €.",
+      "contraste": [
+       {
+        "variante": "escudo_alternativo",
+        "descripcion": "la activa con el escudo «Tipo de la Historia (separado)»",
+        "precio_si": 55.9219960692726,
+        "delta_eur": -0.08000909897201325,
+        "delta_pct": -0.0014286827539772026,
+        "atribuible": true
+       },
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_R1",
+        "descripcion": "solo N3 · R1, sin N1, N2 ni P-M1",
+        "precio_si": 63.39709057205946,
+        "delta_eur": 7.395085403814846,
+        "delta_pct": 0.13205036822517485,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_sin_N1",
+        "descripcion": "la activa sin N1 (tipo de la Historia; el escudo va ligado a N1)",
+        "precio_si": 57.75017819768099,
+        "delta_eur": 1.7481730294363729,
+        "delta_pct": 0.031216257778349285,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "contraste_aislado",
+      "limites": [
+       "Solo una alternativa (el tipo de la Historia en el escudo); un endeudamiento mayor que el de 2025 agrandaría el escudo y no está calculado."
+      ],
+      "base": "juicio_economico",
+      "material": false,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": {
+       "referencia": "resolucion_de_las_palancas",
+       "valor_eur": 1.58,
+       "fuente": "un punto de margen NORMAL: 7,36 € ÷ 2 × 0,4286 = 1,58 € de precio de Sí (resultados.json → tornado; precio_de_si.p_estrella)"
+      },
+      "razonamiento": [
+       "escudo_alternativo mueve −0,08 € (−0,14 %), muy por debajo de 1,58 €; con 0,36x de deuda neta sobre EBITDA el escudo pesa poco."
+      ],
+      "evidencia": [
+       "contraste_objetivo_v64.md: escudo_alternativo 55,9220 (−0,08)",
+       "Análisis C33 = 0,36x"
+      ],
+      "clave": "N1.escudo",
+      "fundamento_suficiente": true
+     },
+     {
+      "hipotesis": "Partir del margen de continuadas de 2020–2025 (18,55 %) en lugar de C49 (16,86 %) no desplaza el precio de Sí más de 1,58 €.",
+      "contraste": [
+       {
+        "variante": "activa_sin_N2",
+        "descripcion": "la activa sin N2 (margen de partida de Palancas C8)",
+        "precio_si": 55.06035736144328,
+        "delta_eur": -0.9416478068013348,
+        "delta_pct": -0.01681453733616108,
+        "atribuible": true
+       },
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N1",
+        "descripcion": "solo N1 (tipo normalizado), con R0 y sin P-M1",
+        "precio_si": 63.03914449175743,
+        "delta_eur": 7.037139323512818,
+        "delta_pct": 0.1256587027977198,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_R1",
+        "descripcion": "solo N3 · R1, sin N1, N2 ni P-M1",
+        "precio_si": 63.39709057205946,
+        "delta_eur": 7.395085403814846,
+        "delta_pct": 0.13205036822517485,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "contraste_aislado",
+      "limites": [
+       "Solo se calcula C49; un margen de partida sin los 43,1 mm de «Otros» de 2025 (−2,9 puntos ese año) no está calculado.",
+       "El margen de partida solo fija la senda de los años 1–5 hacia el objetivo de cada escenario."
+      ],
+      "base": "juicio_economico",
+      "material": false,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": {
+       "referencia": "resolucion_de_las_palancas",
+       "valor_eur": 1.58,
+       "fuente": "un punto de margen NORMAL: 7,36 € ÷ 2 × 0,4286 = 1,58 € de precio de Sí (resultados.json → tornado; precio_de_si.p_estrella)"
+      },
+      "razonamiento": [
+       "activa_sin_N2 mueve −0,94 € (−1,68 %), por debajo de 1,58 €.",
+       "Con fundamento suficiente: no condicionaría el objetivo aunque fuera material."
+      ],
+      "evidencia": [
+       "contraste_objetivo_v64.md: activa_sin_N2 55,0604 (−0,94)",
+       "Historia fila 29 y C49 (datos_v63.md §3)",
+       "[ES, PDF p. 79] «Otros» 43,124 mm"
+      ],
+      "clave": "N2.margen",
+      "fundamento_suficiente": true
+     },
+     {
+      "hipotesis": "Conservar el capital fijo cuando caen las ventas (R1) frente a liberarlo (R0) no desplaza el precio de Sí más de 1,58 €, una vez separado lo que en el contraste es la retirada de P-M1.",
+      "contraste": [
+       {
+        "variante": "activa_R0_sin_PM1",
+        "descripcion": "la activa con R0, que exige quitar P-M1 (R0 + P-M1 no está especificado): variación conjunta necesaria",
+        "precio_si": 63.98079229855869,
+        "delta_eur": 7.978787130314075,
+        "delta_pct": 0.1424732401338795,
+        "atribuible": true
+       },
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N1",
+        "descripcion": "solo N1 (tipo normalizado), con R0 y sin P-M1",
+        "precio_si": 63.03914449175743,
+        "delta_eur": 7.037139323512818,
+        "delta_pct": 0.1256587027977198,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "variacion_conjunta_necesaria",
+      "limites": [
+       "R0 con P-M1 no está especificado: el único contraste atribuible (activa_R0_sin_PM1) quita a la vez la reposición; el efecto propio de R1 sale por diferencia con activa_sin_PM1 y supone que no hay interacción con P-M1.",
+       "Solo se calcula la alternativa R0 (liberar capital fijo); una recuperación parcial de capital fijo no está calculada.",
+       "Solo actúa en el MALO; un MALO más severo (ventas más abajo) agrandaría el efecto y no está calculado."
+      ],
+      "base": "juicio_economico",
+      "material": false,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": {
+       "referencia": "otra_hipotesis_calculada",
+       "valor_eur": 6.62,
+       "fuente": "configuracion_v64_variantes.md: activa_sin_PM1 62,6253 frente a activa 56,0020 (+6,62, retirada de P-M1, ya condicionante); el resto del contraste, 63,9808 − 62,6253 = +1,36 €, es R0 frente a R1"
+      },
+      "razonamiento": [
+       "El contraste atribuible mueve +7,98 €, pero 6,62 € de esos son quitar P-M1 (activa_sin_PM1), que es la hipótesis de reposición que ya condiciona el objetivo; lo que corresponde a la regla es +1,36 € (2,4 %), por debajo de mi criterio de 1,58 €.",
+       "La alternativa R0 está fuera del dominio económico de una vidriera: libera capital fijo al caer las ventas, con hornos específicos de vida larga.",
+       "Tiene fundamento suficiente, así que aunque fuera material no condicionaría el objetivo."
+      ],
+      "evidencia": [
+       "contraste_objetivo_v64.md: activa_R0_sin_PM1 63,9808 (+7,98), atribuible",
+       "configuracion_v64_variantes.md: activa_sin_PM1 62,6253; solo_R1 63,3971; heredado 64,7522",
+       "aviso inversion_fija_para_crecer_negativa en solo_N1, solo_N2 y activa_R0_sin_PM1",
+       "vida esperada de los hornos de hasta 15 años [ES, PDF p. 168]"
+      ],
+      "clave": "N3.regla",
+      "fundamento_suficiente": true
+     },
+     {
+      "hipotesis": "Tomar el circulante comercial de 2025 (14,70 % de las ventas) no desplaza el precio de Sí más de 1,58 €.",
+      "contraste": [
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N1",
+        "descripcion": "solo N1 (tipo normalizado), con R0 y sin P-M1",
+        "precio_si": 63.03914449175743,
+        "delta_eur": 7.037139323512818,
+        "delta_pct": 0.1256587027977198,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_R0_sin_PM1",
+        "descripcion": "la activa con R0, que exige quitar P-M1 (R0 + P-M1 no está especificado): variación conjunta necesaria",
+        "precio_si": 63.98079229855869,
+        "delta_eur": 7.978787130314075,
+        "delta_pct": 0.1424732401338795,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "variacion_conjunta",
+      "limites": [
+       "Ninguna variante lo varía solo a él: las cuatro que lo varían cambian también la regla (y quitan P-M1).",
+       "Otras definiciones del circulante (con «otros activos y pasivos») no están calculadas.",
+       "Con H o SRF el reparto entre fijo y circulante pesaría más; no está calculado."
+      ],
+      "base": "juicio_economico",
+      "material": false,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": {
+       "referencia": "resolucion_de_las_palancas",
+       "valor_eur": 1.58,
+       "fuente": "un punto de margen NORMAL: 7,36 € ÷ 2 × 0,4286 = 1,58 € de precio de Sí (resultados.json → tornado; precio_de_si.p_estrella)"
+      },
+      "razonamiento": [
+       "Con R1 el total de la reinversión del crecimiento lo fija el S2C; el ratio solo decide lo que se libera al caer las ventas (MALO) y el reparto entre fijo y circulante.",
+       "Cálculo mío: pasar del 14,70 % de 2025 al 14,88 % de 2024 cambia el circulante liberado del MALO en ~0,2 mm (0,18 puntos × 106,8 mm de caída de ventas), menos de 0,01 € de precio de Sí."
+      ],
+      "evidencia": [
+       "balance a 31-dic-2025 y 2024 [ES, PDF p. 9 y p. 10]",
+       "contraste_objetivo_v64.md: sin contraste atribuible (variación conjunta)",
+       "resultados.json → ventas del año 10 del MALO 1.358,4 mm"
+      ],
+      "clave": "N3.circulante",
+      "fundamento_suficiente": true
+     },
+     {
+      "hipotesis": "Elegir SR1 entre las estructuras compatibles (S, SR2, SRF, H o sin requisito) no desplaza el precio de Sí más de 1,58 €.",
+      "contraste": [
+       {
+        "variante": "activa_solo_P0",
+        "descripcion": "la activa sin requisito adicional, con P0",
+        "precio_si": 63.11470693526011,
+        "delta_eur": 7.112701767015494,
+        "delta_pct": 0.12700798383284823,
+        "atribuible": true
+       },
+       {
+        "variante": "estructura_H",
+        "descripcion": "misma configuración con la estructura H (entradas compatibles)",
+        "precio_si": 61.36952771733541,
+        "delta_eur": 5.367522549090793,
+        "delta_pct": 0.09584518506016627,
+        "atribuible": true
+       },
+       {
+        "variante": "estructura_S",
+        "descripcion": "misma configuración con la estructura S (entradas compatibles)",
+        "precio_si": 55.519482772004295,
+        "delta_eur": -0.48252239624032,
+        "delta_pct": -0.008616162846146259,
+        "atribuible": true
+       },
+       {
+        "variante": "estructura_SRF",
+        "descripcion": "misma configuración con la estructura SRF (entradas compatibles)",
+        "precio_si": 58.23872498740856,
+        "delta_eur": 2.2367198191639446,
+        "delta_pct": 0.039939995227746855,
+        "atribuible": true
+       },
+       {
+        "variante": "estructura_SR2",
+        "descripcion": "misma configuración con la estructura SR2 (entradas compatibles)",
+        "precio_si": 57.02629521239385,
+        "delta_eur": 1.0242900441492324,
+        "delta_pct": 0.018290238734702414,
+        "atribuible": true
+       },
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N1",
+        "descripcion": "solo N1 (tipo normalizado), con R0 y sin P-M1",
+        "precio_si": 63.03914449175743,
+        "delta_eur": 7.037139323512818,
+        "delta_pct": 0.1256587027977198,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_R1",
+        "descripcion": "solo N3 · R1, sin N1, N2 ni P-M1",
+        "precio_si": 63.39709057205946,
+        "delta_eur": 7.395085403814846,
+        "delta_pct": 0.13205036822517485,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_R0_sin_PM1",
+        "descripcion": "la activa con R0, que exige quitar P-M1 (R0 + P-M1 no está especificado): variación conjunta necesaria",
+        "precio_si": 63.98079229855869,
+        "delta_eur": 7.978787130314075,
+        "delta_pct": 0.1424732401338795,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_sin_PM1",
+        "descripcion": "la activa sin P-M1 (sin requisito adicional y cartera legado)",
+        "precio_si": 62.62534174748255,
+        "delta_eur": 6.623336579237936,
+        "delta_pct": 0.11826963265582557,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "contraste_aislado",
+      "limites": [
+       "Todos los contrastes están a λ 1,15; con λ 1,10 o 1,25 la distancia entre estructuras cambia y no está calculada.",
+       "SR2 solo se calcula con ROIC × f (ligado a PM1.roic_terminal).",
+       "No hay estructuras mixtas (parte de la reposición con la inversión fija y parte con la total).",
+       "D_hist y f dependen de K14 (E2: decisión de la persona responsable de mantener el 84,994 publicado, con reserva sobre la plusvalía de Italia) y de J14 (E3: supuesto de la orquestación, pareja A con reserva). Sus alternativas solo están medidas en la activa: K14 ≈ 34,447 da +0,049 € y la pareja B de 2023 +0,010 € frente a este expediente (+0,033 y −0,006 frente a la activa 4.13; resultados/efecto_correcciones_vidrala.md), no en cada estructura.",
+       "La familia Θ no está calculada en ninguna estructura."
+      ],
+      "base": "juicio_economico",
+      "material": true,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": null,
+      "razonamiento": [
+       "Las alternativas atribuibles mueven el precio de Sí de −0,48 € (S) a +7,11 € (sin requisito); H (+5,37), SRF (+2,24) y sin requisito superan mi criterio de 1,58 €, y SR2 (+1,02) y S (−0,48) no.",
+       "Ningún hecho del expediente elige entre H, SR1, SRF y SR2: el rango que abren (hasta 7,11 €, el 12,7 % del objetivo) es la mitad de la amplitud de todas las variantes calculadas (14,46 €).",
+       "Sin fundamento suficiente y material: condiciona el objetivo."
+      ],
+      "evidencia": [
+       "contraste_objetivo_v64.md: activa_solo_P0 +7,11, estructura_H +5,37, estructura_SRF +2,24, estructura_SR2 +1,02, estructura_S −0,48 (atribuibles)",
+       "configuracion_v64_variantes.md: rango del precio de Sí 51,26–65,72 €",
+       "Historia, capex y amortización 2016–2025 (datos_v63.md §3)",
+       "[ES, PDF p. 50] altas de 2025 «principalmente» por renovación de hornos"
+      ],
+      "clave": "PM1.estructura",
+      "fundamento_suficiente": false
+     },
+     {
+      "hipotesis": "Medir la reposición con Λ ((λ − 1) × la amortización que se repone) en lugar de con Θ (θ × el exceso histórico) no desplaza el precio de Sí más de 1,58 €.",
+      "contraste": [
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N1",
+        "descripcion": "solo N1 (tipo normalizado), con R0 y sin P-M1",
+        "precio_si": 63.03914449175743,
+        "delta_eur": 7.037139323512818,
+        "delta_pct": 0.1256587027977198,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_R1",
+        "descripcion": "solo N3 · R1, sin N1, N2 ni P-M1",
+        "precio_si": 63.39709057205946,
+        "delta_eur": 7.395085403814846,
+        "delta_pct": 0.13205036822517485,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_R0_sin_PM1",
+        "descripcion": "la activa con R0, que exige quitar P-M1 (R0 + P-M1 no está especificado): variación conjunta necesaria",
+        "precio_si": 63.98079229855869,
+        "delta_eur": 7.978787130314075,
+        "delta_pct": 0.1424732401338795,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_sin_PM1",
+        "descripcion": "la activa sin P-M1 (sin requisito adicional y cartera legado)",
+        "precio_si": 62.62534174748255,
+        "delta_eur": 6.623336579237936,
+        "delta_pct": 0.11826963265582557,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "variacion_conjunta",
+      "limites": [
+       "Ninguna variante calcula Θ; las seis que «varían» la familia quitan P-M1 entera.",
+       "La correspondencia entre θ y λ es mía (θ = 0 equivale a no tener requisito; θ = 1, a tratar como reposición los 229,4 mm de exceso), no calculada.",
+       "Interacción con la estructura no calculada."
+      ],
+      "base": "juicio_economico",
+      "material": true,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": null,
+      "razonamiento": [
+       "Θ va de θ = 0 (sin requisito, que en el extremo coincide con activa_solo_P0: +7,11 €) a θ = 1 (todo el exceso de 2021–2025 como reposición, Rh ≈ 229,4 mm, más del triple de los 75,0 mm de λ 1,15, que llevaría el precio de Sí por debajo del de parametro_maximo, 51,26 €, −4,74).",
+       "Otra familia movería el objetivo al menos tanto como λ dentro de Λ, por encima de mi criterio de 1,58 €.",
+       "Sin fundamento suficiente y material: condiciona el objetivo."
+      ],
+      "evidencia": [
+       "configuracion_v64_variantes.md: activa_solo_P0 63,1147 (cota sin requisito); parametro_minimo 58,3729 y parametro_maximo 51,2602",
+       "datos_v63.md §0: exceso medio 47,76 mm; Rh 75,03 mm; D_hist 547,7 mm",
+       "contraste_objetivo_v64.md: sin contraste atribuible (variación conjunta)"
+      ],
+      "clave": "PM1.familia",
+      "fundamento_suficiente": false
+     },
+     {
+      "hipotesis": "λ = 1,15 dentro de [1,10; 1,25] no desplaza el precio de Sí más de 1,58 €.",
+      "contraste": [
+       {
+        "variante": "parametro_minimo",
+        "descripcion": "estructura activa con λ = 1.1 (extremo del rango declarado)",
+        "precio_si": 58.372905757249775,
+        "delta_eur": 2.37090058900516,
+        "delta_pct": 0.04233599461094932,
+        "atribuible": true
+       },
+       {
+        "variante": "parametro_maximo",
+        "descripcion": "estructura activa con λ = 1.25 (extremo del rango declarado)",
+        "precio_si": 51.26020399023426,
+        "delta_eur": -4.7418011780103555,
+        "delta_pct": -0.08467198922189928,
+        "atribuible": true
+       },
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N1",
+        "descripcion": "solo N1 (tipo normalizado), con R0 y sin P-M1",
+        "precio_si": 63.03914449175743,
+        "delta_eur": 7.037139323512818,
+        "delta_pct": 0.1256587027977198,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_R1",
+        "descripcion": "solo N3 · R1, sin N1, N2 ni P-M1",
+        "precio_si": 63.39709057205946,
+        "delta_eur": 7.395085403814846,
+        "delta_pct": 0.13205036822517485,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_R0_sin_PM1",
+        "descripcion": "la activa con R0, que exige quitar P-M1 (R0 + P-M1 no está especificado): variación conjunta necesaria",
+        "precio_si": 63.98079229855869,
+        "delta_eur": 7.978787130314075,
+        "delta_pct": 0.1424732401338795,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_sin_PM1",
+        "descripcion": "la activa sin P-M1 (sin requisito adicional y cartera legado)",
+        "precio_si": 62.62534174748255,
+        "delta_eur": 6.623336579237936,
+        "delta_pct": 0.11826963265582557,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "contraste_aislado",
+      "limites": [
+       "El rango [1,10; 1,25] es el de una crítica independiente de la 4.8, no una medición (DECISIONES_PENDIENTES_4_14.md, D2).",
+       "λ ≈ 1,46 (todo el exceso de 2021–2025 como reposición, f ≈ 1,72) no está calculado.",
+       "Solo con SR1; con otra estructura el efecto de λ cambia.",
+       "D_hist depende de K14 (E2, decisión con reserva) y de J14 (E3, supuesto con reserva); sus alternativas, medidas solo en la activa (λ 1,15), mueven el precio de Sí +0,049 € y +0,010 € frente a este expediente."
+      ],
+      "base": "juicio_economico",
+      "material": true,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": null,
+      "razonamiento": [
+       "Las dos alternativas atribuibles superan mi criterio: +2,37 € (λ 1,10) y −4,74 € (λ 1,25); el rango que abren, 7,11 €, es el 12,7 % del objetivo.",
+       "El extremo superior de λ que los hechos no excluyen (≈ 1,46) bajaría más el objetivo.",
+       "Sin fundamento suficiente y material: condiciona el objetivo."
+      ],
+      "evidencia": [
+       "contraste_objetivo_v64.md: parametro_minimo 58,3729 (+2,37) y parametro_maximo 51,2602 (−4,74), atribuibles",
+       "Historia, capex y amortización 2021–2025 (datos_v63.md §3)",
+       "[ES, PDF p. 50, p. 51 y p. 168]"
+      ],
+      "clave": "PM1.parametro",
+      "fundamento_suficiente": false
+     },
+     {
+      "hipotesis": "Mantener plana la amortización de 2025 en los años 1–10 no desplaza el precio de Sí más de 1,58 €.",
+      "contraste": [
+       {
+        "variante": "convencion_anios_alternativa",
+        "descripcion": "estructura activa con los años «Proporcional a las ventas»",
+        "precio_si": 55.87534090196578,
+        "delta_eur": -0.1266642662788371,
+        "delta_pct": -0.002261780911206744,
+        "atribuible": true
+       },
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N1",
+        "descripcion": "solo N1 (tipo normalizado), con R0 y sin P-M1",
+        "precio_si": 63.03914449175743,
+        "delta_eur": 7.037139323512818,
+        "delta_pct": 0.1256587027977198,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_R1",
+        "descripcion": "solo N3 · R1, sin N1, N2 ni P-M1",
+        "precio_si": 63.39709057205946,
+        "delta_eur": 7.395085403814846,
+        "delta_pct": 0.13205036822517485,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_R0_sin_PM1",
+        "descripcion": "la activa con R0, que exige quitar P-M1 (R0 + P-M1 no está especificado): variación conjunta necesaria",
+        "precio_si": 63.98079229855869,
+        "delta_eur": 7.978787130314075,
+        "delta_pct": 0.1424732401338795,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_sin_PM1",
+        "descripcion": "la activa sin P-M1 (sin requisito adicional y cartera legado)",
+        "precio_si": 62.62534174748255,
+        "delta_eur": 6.623336579237936,
+        "delta_pct": 0.11826963265582557,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "contraste_aislado",
+      "limites": [
+       "Solo una alternativa (proporcional a las ventas); una amortización que crezca con el capex de 2021–2025 no está calculada.",
+       "Contraste a λ 1,15 y con SR1."
+      ],
+      "base": "juicio_economico",
+      "material": false,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": {
+       "referencia": "resolucion_de_las_palancas",
+       "valor_eur": 1.58,
+       "fuente": "un punto de margen NORMAL: 7,36 € ÷ 2 × 0,4286 = 1,58 € de precio de Sí (resultados.json → tornado; precio_de_si.p_estrella)"
+      },
+      "razonamiento": [
+       "convencion_anios_alternativa mueve −0,13 € (−0,23 %), por debajo de 1,58 €."
+      ],
+      "evidencia": [
+       "contraste_objetivo_v64.md: convencion_anios_alternativa 55,8753 (−0,13)"
+      ],
+      "clave": "PM1.convencion_anios",
+      "fundamento_suficiente": true
+     },
+     {
+      "hipotesis": "Llevar el requisito de reposición al terminal proporcional a las ventas no desplaza el precio de Sí más de 1,58 €.",
+      "contraste": [
+       {
+        "variante": "convencion_terminal_alternativa",
+        "descripcion": "estructura activa con el terminal «Crece con g»",
+        "precio_si": 56.402898200892835,
+        "delta_eur": 0.40089303264822007,
+        "delta_pct": 0.007158547831346984,
+        "atribuible": true
+       },
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N1",
+        "descripcion": "solo N1 (tipo normalizado), con R0 y sin P-M1",
+        "precio_si": 63.03914449175743,
+        "delta_eur": 7.037139323512818,
+        "delta_pct": 0.1256587027977198,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_R1",
+        "descripcion": "solo N3 · R1, sin N1, N2 ni P-M1",
+        "precio_si": 63.39709057205946,
+        "delta_eur": 7.395085403814846,
+        "delta_pct": 0.13205036822517485,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_R0_sin_PM1",
+        "descripcion": "la activa con R0, que exige quitar P-M1 (R0 + P-M1 no está especificado): variación conjunta necesaria",
+        "precio_si": 63.98079229855869,
+        "delta_eur": 7.978787130314075,
+        "delta_pct": 0.1424732401338795,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_sin_PM1",
+        "descripcion": "la activa sin P-M1 (sin requisito adicional y cartera legado)",
+        "precio_si": 62.62534174748255,
+        "delta_eur": 6.623336579237936,
+        "delta_pct": 0.11826963265582557,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "contraste_aislado",
+      "limites": [
+       "Solo una alternativa (crece con g); con λ mayor el requisito terminal pesa más.",
+       "Contraste a λ 1,15 y con SR1."
+      ],
+      "base": "juicio_economico",
+      "material": false,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": {
+       "referencia": "resolucion_de_las_palancas",
+       "valor_eur": 1.58,
+       "fuente": "un punto de margen NORMAL: 7,36 € ÷ 2 × 0,4286 = 1,58 € de precio de Sí (resultados.json → tornado; precio_de_si.p_estrella)"
+      },
+      "razonamiento": [
+       "convencion_terminal_alternativa mueve +0,40 € (+0,72 %), por debajo de 1,58 €."
+      ],
+      "evidencia": [
+       "contraste_objetivo_v64.md: convencion_terminal_alternativa 56,4029 (+0,40)"
+      ],
+      "clave": "PM1.convencion_terminal",
+      "fundamento_suficiente": true
+     },
+     {
+      "hipotesis": "Dejar el ROIC terminal sin reestimar (SR1) en lugar de multiplicarlo por f (SR2) no desplaza el precio de Sí más de 1,58 € en el ámbito de la otra hipótesis sin fundamento de la que depende, λ.",
+      "contraste": [
+       {
+        "variante": "estructura_SR2",
+        "descripcion": "misma configuración con la estructura SR2 (entradas compatibles)",
+        "precio_si": 57.02629521239385,
+        "delta_eur": 1.0242900441492324,
+        "delta_pct": 0.018290238734702414,
+        "atribuible": true
+       },
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N1",
+        "descripcion": "solo N1 (tipo normalizado), con R0 y sin P-M1",
+        "precio_si": 63.03914449175743,
+        "delta_eur": 7.037139323512818,
+        "delta_pct": 0.1256587027977198,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_R1",
+        "descripcion": "solo N3 · R1, sin N1, N2 ni P-M1",
+        "precio_si": 63.39709057205946,
+        "delta_eur": 7.395085403814846,
+        "delta_pct": 0.13205036822517485,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_R0_sin_PM1",
+        "descripcion": "la activa con R0, que exige quitar P-M1 (R0 + P-M1 no está especificado): variación conjunta necesaria",
+        "precio_si": 63.98079229855869,
+        "delta_eur": 7.978787130314075,
+        "delta_pct": 0.1424732401338795,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_sin_PM1",
+        "descripcion": "la activa sin P-M1 (sin requisito adicional y cartera legado)",
+        "precio_si": 62.62534174748255,
+        "delta_eur": 6.623336579237936,
+        "delta_pct": 0.11826963265582557,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "variacion_conjunta_necesaria",
+      "limites": [
+       "Solo se calcula SR2 a λ 1,15 (f = 1,1587); en λ 1,25 (f = 1,296) no está calculado.",
+       "No separa el ROIC terminal de la estructura: el único contraste atribuible es estructura_SR2.",
+       "No responde a Q-ROIC1 (qué base de inversión mide el ROIC de la fase B)."
+      ],
+      "base": "no_determinada",
+      "material": null,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": null,
+      "razonamiento": [
+       "El contraste atribuible mueve +1,02 € (+1,83 %), por debajo de mi criterio de 1,58 € a λ 1,15.",
+       "El efecto de SR2 entra por ROIC × f: con f − 1 de 0,159 a 0,296 entre la activa y λ 1,25, mi aproximación lineal lo lleva a ~1,9 €, por encima del criterio. No está calculado, y la 4.13 lo excluyó sin esa comparación.",
+       "Sin una comparación calculada que lo acote en el ámbito de λ, lo dejo no determinado: condiciona el objetivo (encargo de cierre §5: sin base suficiente, no determinada)."
+      ],
+      "evidencia": [
+       "contraste_objetivo_v64.md: estructura_SR2 57,0263 (+1,02), atribuible",
+       "configuracion_v64_variantes.md: factor de reestimación, rango de f 1,0000–1,2959",
+       "fase_b.json: Observaciones de Palancas!B18:D18 y C16"
+      ],
+      "clave": "PM1.roic_terminal",
+      "fundamento_suficiente": false
+     },
+     {
+      "hipotesis": "No reponer con caja la amortización de la cartera de clientes de Vidroporto (P0) no desplaza el precio de Sí más de 1,58 €.",
+      "contraste": [
+       {
+        "variante": "cartera_legado",
+        "descripcion": "la activa con la cartera legado (se repone con la amortización)",
+        "precio_si": 55.4569123722288,
+        "delta_eur": -0.5450927960158154,
+        "delta_pct": -0.009733451407288268,
+        "atribuible": true
+       },
+       {
+        "variante": "heredado",
+        "descripcion": "modo heredado (V6.3 efectiva: R0, sin P-M1, tipo de la Historia, margen de Palancas C8)",
+        "precio_si": 64.75222545947766,
+        "delta_eur": 8.750220291233042,
+        "delta_pct": 0.15624833905402316,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N1",
+        "descripcion": "solo N1 (tipo normalizado), con R0 y sin P-M1",
+        "precio_si": 63.03914449175743,
+        "delta_eur": 7.037139323512818,
+        "delta_pct": 0.1256587027977198,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_N2",
+        "descripcion": "solo N2 (margen de partida), con R0 y sin P-M1",
+        "precio_si": 65.71813435862349,
+        "delta_eur": 9.716129190378872,
+        "delta_pct": 0.17349609466998706,
+        "atribuible": false
+       },
+       {
+        "variante": "solo_R1",
+        "descripcion": "solo N3 · R1, sin N1, N2 ni P-M1",
+        "precio_si": 63.39709057205946,
+        "delta_eur": 7.395085403814846,
+        "delta_pct": 0.13205036822517485,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_R0_sin_PM1",
+        "descripcion": "la activa con R0, que exige quitar P-M1 (R0 + P-M1 no está especificado): variación conjunta necesaria",
+        "precio_si": 63.98079229855869,
+        "delta_eur": 7.978787130314075,
+        "delta_pct": 0.1424732401338795,
+        "atribuible": false
+       },
+       {
+        "variante": "activa_sin_PM1",
+        "descripcion": "la activa sin P-M1 (sin requisito adicional y cartera legado)",
+        "precio_si": 62.62534174748255,
+        "delta_eur": 6.623336579237936,
+        "delta_pct": 0.11826963265582557,
+        "atribuible": false
+       }
+      ],
+      "cobertura": "contraste_aislado",
+      "limites": [
+       "Solo se calcula la alternativa «legado» (reponerla como el resto); un valor de la cartera distinto del publicado no está calculado.",
+       "El contraste está a λ 1,15 y con SR1."
+      ],
+      "base": "juicio_economico",
+      "material": false,
+      "criterio": {
+       "origen": "juicio_propio_del_agente",
+       "descripcion": "Material para el objetivo si la alternativa calculada atribuible mueve el precio de Sí más de 1,58 € (2,8 % de 56,00): lo que mueve un punto de margen operativo NORMAL (tornado: 7,36 € de valor NORMAL por 2 puntos; escalera: 0,4286 € de precio de Sí por euro de valor NORMAL). Es la incertidumbre que ya acepto en la palanca fundamentada de la que más depende el objetivo (Palancas!C15: perímetro +0,5 puntos, «Otros» de 2025 −1 punto). Es mi juicio, no una política: no hay ninguna adoptada (D1 pendiente).",
+       "referencia": "resultados.json → tornado (margen ±2 puntos: 7,36 €); precio.json y precio_de_si.p_estrella (pendiente 0,4286); fase_c.md §9"
+      },
+      "comparado_con": {
+       "referencia": "resolucion_de_las_palancas",
+       "valor_eur": 1.58,
+       "fuente": "un punto de margen NORMAL: 7,36 € ÷ 2 × 0,4286 = 1,58 € de precio de Sí (resultados.json → tornado; precio_de_si.p_estrella)"
+      },
+      "razonamiento": [
+       "cartera_legado mueve −0,55 € (−0,97 %), por debajo de mi criterio de 1,58 €.",
+       "Con fundamento suficiente: aunque fuera material, no condicionaría el objetivo."
+      ],
+      "evidencia": [
+       "contraste_objetivo_v64.md: cartera_legado 55,4569 (−0,55)",
+       "configuracion_economica.json → PM1.cartera_fuente (nota de intangibles, ES 2025 págs. 52–53)"
+      ],
+      "clave": "PM1.cartera",
+      "fundamento_suficiente": true
+     }
+    ],
+    "sin_fundamento_excluidas_por_juicio": null,
+    "discrepancias_revisadas": {
+     "N3.regla": [
+      {
+       "discrepancia": "hipotesis_en_la_configuracion_con_fundamento_suficiente",
+       "resolucion": "La configuración la llama hipótesis porque D-N3 no está firmada y porque «que la regla cuadre no demuestra la conservación». Separo dos cosas. La dirección (no se recupera capital fijo al caer las ventas) la juzgo con fundamento suficiente para esta empresa: hornos específicos de hasta 15 años [ES, PDF p. 168], capex que sube en 2020 y 2025 con ventas a la baja (Historia filas 12 y 28) y una alternativa, R0, que libera capital fijo, imposible aquí. La conservación de la capacidad para la recuperación no está probada, pero en el MALO no actúa. Mantengo la confianza media de la configuración. No decido D-N3: es una lectura para Vidrala."
+      }
+     ],
+     "PM1.roic_terminal": [
+      {
+       "discrepancia": "confianza_distinta",
+       "resolucion": "La configuración le da confianza media porque deja Q-ROIC1 sin decidir. Yo la bajo a baja: al releer la fase B, el ROIC se eligió con la misma base histórica que el S2C, que SR1 sí reestima, y el 9 % es una convención sin base de medición. No puedo afirmar que «ROIC sin cambio» sea lo coherente. La diferencia no cambia el tratamiento: su efecto (+1,06 €) es parte de la hipótesis de estructura."
+      }
+     ]
+    },
+    "nota": "contraste_aislado y variacion_conjunta_necesaria permiten una materialidad calculada; variacion_conjunta y sin_cobertura, solo un juicio económico con evidencia o «no determinada». La invariancia de la acción vale solo para las variantes calculadas."
+   },
+   "motivo": "Esperar por precio: zona «caro», 90,10 frente a un precio de Sí de 56,00. Condicionan el objetivo la estructura, la familia y el parámetro de la reposición de hornos (sin fundamento suficiente y materiales para el objetivo por mi criterio declarado de 1,58 €, que es juicio mío y no política) y el ROIC terminal (sin fundamento suficiente y materialidad no determinada). Ninguno es material para la acción y las 19 variantes calculadas dan «caro» (precio de Sí de 51,26 a 65,72; tabla de sensibilidad, no intervalo de confianza). La familia no tiene contraste aislado: que no cambie la acción es juicio (cota sin requisito, 63,11 €), no cálculo. No hubo comprobación conjunta (no procedía con esperar). En las entradas, E1 (medias exactas de C46–C47) y E2 (K14 = 84,994 publicado, con reserva sobre la plusvalía de Italia) son decisiones de la persona responsable; E3 (pareja A de 2023, con reserva) y E4 (C48 dato ausente, motor A no calculable) son supuestos de la orquestación, no decisiones. Sus alternativas medidas mueven el precio de Sí 0,000 € (E1 y E4), +0,049 € (E2, K14 ≈ 34,447, exploratoria) y +0,010 € (E3, pareja B) frente a este expediente: ninguna condiciona el objetivo con mi criterio de 1,58 €. La delimitación de P-M1 (D2) tampoco está decidida: este objetivo condicionado es el tratamiento del protocolo declarado, no una delimitación. Tratamiento: concluido · Vigilar · esperar con 56,00 € como objetivo condicionado (provisional).",
+   "nota": "protocolo experimental del objetivo (encargo 4.12 §4): se ensaya en copias; no está adoptado como regla general"
+  },
+  "precio_si_hoja_de_calculo": 56.002005168244615,
+  "precio": 90.1,
+  "fecha_precio": "2025-12-31",
+  "dias_precio_antes_del_analisis": 318,
+  "zona": "caro",
+  "ponderado": 60.6741181667017,
+  "aptitud": {
+   "aptitud_de_uso": true,
+   "verificacion_entradas": true,
+   "motor_a_f1": false,
+   "apto_por_entradas": true
+  },
+  "f1_inutil": false
+ },
+ "por_que": {
+  "tesis": [
+   {
+    "campo": "B101",
+    "indice": 0,
+    "original": "Vidrala fabrica envases de vidrio en Iberia, Reino Unido e Irlanda y Brasil, sin ningún cliente por encima del 10 % de las ventas [ES, PDF p. 104], y lleva diez años con un ROIC por encima del sector (13,8 % de media en cinco años frente al 9,3 %; Historia C55, Palancas H18).",
+    "texto": "Vidrala fabrica envases de vidrio en Iberia, Reino Unido e Irlanda y Brasil, sin ningún cliente por encima del 10 % de las ventas, y lleva diez años con un ROIC por encima del sector (13,8 % de media en cinco años frente al 9,3 %)."
+   },
+   {
+    "campo": "B101",
+    "indice": 1,
+    "original": "Leo que gana por fabricar cerca del cliente y trasladar la energía al precio con retraso: el margen operativo cayó al 13,7 % en 2022 y volvió al 20,8 % en 2024 (Historia I29, K29), pero el 19,9 % de 2025 (L29) está junto al máximo, con el gas a la baja, 43,1 mm de «Otros» sin explicar [ES, PDF p. 79] y bajadas de precio supuestas para 2026 [ES, PDF p. 54].",
+    "texto": "Leo que gana por fabricar cerca del cliente y trasladar la energía al precio con retraso: el margen operativo cayó al 13,7 % en 2022 y volvió al 20,8 % en 2024, pero el 19,9 % de 2025 está junto al máximo, con el gas a la baja, 43,1 mm de «Otros» sin explicar y bajadas de precio supuestas para 2026."
+   },
+   {
+    "campo": "B101",
+    "indice": 2,
+    "original": "Mi NORMAL deja el margen en la media del ciclo (18 %) y, desde el año 11, el capital nuevo rinde el 9 %, apenas sobre la tasa del motor (8,69 %), frente al 14,6 % de los años 1–10, así que crecer aporta poco: a 90,10 € (31-dic-2025) pago más que mi escenario BUENO (78,48 €) y el precio descuenta un crecimiento de ventas del 14,3 % anual durante cinco años, frente al 1,5 % de mi NORMAL (60,19 €).",
+    "texto": "Mi NORMAL deja el margen en la media del ciclo (18 %) y, desde el año 11, el capital nuevo rinde el 9 %, apenas sobre la tasa del motor (8,69 %), frente al 14,6 % de los años 1–10, así que crecer aporta poco: a 90,10 € (31-dic-2025) pago más que mi escenario BUENO (78,48 €) y el precio descuenta un crecimiento de ventas del 14,3 % anual durante cinco años, frente al 1,5 % de mi NORMAL (60,19 €)."
+   },
+   {
+    "campo": "B101",
+    "indice": 3,
+    "original": "Vigilar: espero hasta 56,00 € (precio de Sí), un objetivo condicionado a la reposición de hornos y al ROIC del terminal que en las 19 variantes calculadas va de 51,26 a 65,72 €.",
+    "texto": "Vigilar: espero hasta 56,00 € (precio de Sí), un objetivo condicionado a la reposición de hornos y al ROIC del terminal que en las 19 variantes calculadas va de 51,26 a 65,72 €."
+   }
+  ],
+  "tesis_inversa": [
+   {
+    "campo": "B102",
+    "indice": 0,
+    "original": "Defiendo el No.",
+    "texto": "Defiendo el No."
+   },
+   {
+    "campo": "B102",
+    "indice": 1,
+    "original": "Vidrala vende un producto poco diferenciado en un mercado que la propia empresa llama maduro [ES, PDF p. 55], con consumo inferior a lo previsto, capacidad que se adapta [ES, PDF p. 94] y ventas orgánicas del −5,4 % en 2025 [ES, PDF p. 88]: no hay volumen que crezca, y las materias primas consumidas fueron planas en 2024–2025 [ES_2024, PDF p. 214; ES, PDF p. 195].",
+    "texto": "Vidrala vende un producto poco diferenciado en un mercado que la propia empresa llama maduro, con consumo inferior a lo previsto, capacidad que se adapta y ventas orgánicas del −5,4 % en 2025: no hay volumen que crezca, y las materias primas consumidas fueron planas en 2024–2025."
+   },
+   {
+    "campo": "B102",
+    "indice": 2,
+    "original": "El margen del 19,9 % (Historia L29) es energía barata camino del cliente: la empresa supone bajadas de precio en 2026 [ES, PDF p. 54] y el gas de 39,9 a 23,3 €/MWh hasta 2029 [ES, PDF p. 56], y 2,9 puntos de ese margen son 43,1 mm de «Otros» que nadie explica [ES, PDF p. 79].",
+    "texto": "El margen del 19,9 % es energía barata camino del cliente: la empresa supone bajadas de precio en 2026 y el gas de 39,9 a 23,3 €/MWh hasta 2029, y 2,9 puntos de ese margen son 43,1 mm de «Otros» que nadie explica."
+   },
+   {
+    "campo": "B102",
+    "indice": 3,
+    "original": "Los hornos se comen la caja: el capex supera a la amortización todos los años desde 2017 y fue 1,42 veces en 2025 con ventas a la baja (Historia L12, L8), siguen en uso 627 mm de activos ya amortizados que habrá que reponer a coste de hoy [ES, PDF p. 51] y la descarbonización empieza en 2026 [ES, PDF p. 72 y p. 173]; mi modelo solo carga como reposición un tercio del exceso de 2021–2025 (75,0 de 229,4 mm).",
+    "texto": "Los hornos se comen la caja: el capex supera a la amortización todos los años desde 2017 y fue 1,42 veces en 2025 con ventas a la baja, siguen en uso 627 mm de activos ya amortizados que habrá que reponer a coste de hoy y la descarbonización empieza en 2026; mi modelo solo carga como reposición un tercio del exceso de 2021–2025 (75,0 de 229,4 mm)."
+   },
+   {
+    "campo": "B102",
+    "indice": 4,
+    "original": "El cliente gana fuerza: los diez mayores pasan del ~30 % de las ventas en 2019 al ~38 % en 2024 y algo más del 35 % en 2025 [CF_2019, PDF p. 67; ES_2024, PDF p. 110; ES, PDF p. 104].",
+    "texto": "El cliente gana fuerza: los diez mayores pasan del ~30 % de las ventas en 2019 al ~38 % en 2024 y algo más del 35 % en 2025."
+   },
+   {
+    "campo": "B102",
+    "indice": 5,
+    "original": "El crecimiento se busca donde el foso no está probado: Brasil, con el real −20 % en 2024 [ES, PDF p. 106] y deuda a CDI [ES, PDF p. 105], y Chile, cuya compra está condicionada a un plan de ajuste [ES, PDF p. 85].",
+    "texto": "El crecimiento se busca donde el foso no está probado: Brasil, con el real −20 % en 2024 y deuda a CDI, y Chile, cuya compra está condicionada a un plan de ajuste."
+   },
+   {
+    "campo": "B102",
+    "indice": 6,
+    "original": "Y el ROIC fue la tasa en 2016–2017 (9,4 %, Historia C33:D33) sin que yo pueda nombrar al competidor que más daño puede hacer: la empresa solo habla de sus «cinco principales competidores», sin nombres [ES_2024, PDF p. 128].",
+    "texto": "Y el ROIC fue la tasa en 2016–2017 (9,4 %) sin que yo pueda nombrar al competidor que más daño puede hacer: la empresa solo habla de sus «cinco principales competidores», sin nombres."
+   }
+  ]
+ },
+ "lo_que_lo_haria_falso": {
+  "cambiaria_de_cubo.a_no": [
+   {
+    "campo": "cambiaria_de_cubo.a_no",
+    "indice": 0,
+    "original": "Un margen operativo por debajo del 14 % sin choque de energía; dos años más de capex por encima de 1,4 veces la amortización con ventas planas; datos de cuota que muestren pérdida frente a competidores; o los diez mayores clientes por encima del 40 % de las ventas con el margen a la baja.",
+    "texto": "Un margen operativo por debajo del 14 % sin choque de energía; dos años más de capex por encima de 1,4 veces la amortización con ventas planas; datos de cuota que muestren pérdida frente a competidores; o los diez mayores clientes por encima del 40 % de las ventas con el margen a la baja."
+   }
+  ],
+  "cambiaria_de_cubo.a_si": [
+   {
+    "campo": "cambiaria_de_cubo.a_si",
+    "indice": 0,
+    "original": "Un precio por debajo de 56,00 € sin que cambie el negocio.",
+    "texto": "Un precio por debajo de 56,00 € sin que cambie el negocio."
+   },
+   {
+    "campo": "cambiaria_de_cubo.a_si",
+    "indice": 1,
+    "original": "El umbral subiría con un capex desglosado que sitúe la reposición cerca de la amortización (variante λ 1,10: 58,37 €) o pruebe que reconstruir un horno añade capacidad (variante H: 61,37 €), o con un margen operativo de 2026–2027 del 18 % o más con energía normal.",
+    "texto": "El umbral subiría con un capex desglosado que sitúe la reposición cerca de la amortización (variante λ 1,10: 58,37 €) o pruebe que reconstruir un horno añade capacidad (variante H: 61,37 €), o con un margen operativo de 2026–2027 del 18 % o más con energía normal."
+   },
+   {
+    "campo": "cambiaria_de_cubo.a_si",
+    "indice": 2,
+    "original": "Ninguno de esos hechos, por sí solo, lleva el precio de Sí a 90,10 €.",
+    "texto": "Ninguno de esos hechos, por sí solo, lleva el precio de Sí a 90,10 €."
+   }
+  ],
+  "cambiaria_de_cubo.a_demasiado_dificil": [
+   {
+    "campo": "cambiaria_de_cubo.a_demasiado_dificil",
+    "indice": 0,
+    "original": "Que el valor pase a depender sobre todo de Brasil y Chile (divisa, deuda a CDI); datos de competidores que muestren exceso de capacidad duradero; o una sustitución del vidrio por otros envases que no sepa juzgar.",
+    "texto": "Que el valor pase a depender sobre todo de Brasil y Chile (divisa, deuda a CDI); datos de competidores que muestren exceso de capacidad duradero; o una sustitución del vidrio por otros envases que no sepa juzgar."
+   }
+  ],
+  "decision.condiciones_revision.a_la_baja": [
+   {
+    "campo": "decision.condiciones_revision.a_la_baja",
+    "indice": 0,
+    "original": "Bajaría el precio de Sí: un margen operativo de 2026 por debajo del 17 % sin choque de energía; «Otros» ingresos no recurrentes (≈ −2,2 € de precio de Sí, cálculo mío del turno 1); una reposición medida por encima de λ 1,25 (variante λ 1,25: 51,26 €); o datos de cuota que muestren pérdida frente a competidores.",
+    "texto": "Bajaría el precio de Sí: un margen operativo de 2026 por debajo del 17 % sin choque de energía; «Otros» ingresos no recurrentes (≈ −2,2 € de precio de Sí, cálculo mío del turno 1); una reposición medida por encima de λ 1,25 (variante λ 1,25: 51,26 €); o datos de cuota que muestren pérdida frente a competidores."
+   }
+  ],
+  "decision.condiciones_revision.al_alza": [
+   {
+    "campo": "decision.condiciones_revision.al_alza",
+    "indice": 0,
+    "original": "Subiría el precio de Sí: un margen operativo de 2026–2027 del 18 % o más con el gas en la senda que supone la empresa [ES, PDF p. 56] y los «Otros» ingresos explicados como recurrentes (43,1 mm en 2025 y 27,9 mm en 2024 [ES, PDF p. 79; ES_2024, PDF p. 87]); un capex desglosado que sitúe la reposición cerca de la amortización (variante λ 1,10: 58,37 €) o que pruebe que reconstruir un horno añade capacidad (variante H: 61,37 €); un ROIC de largo plazo medido neto de reposición que sostenga el del terminal (variante SR2, que lo cambia: 57,03 €).",
+    "texto": "Subiría el precio de Sí: un margen operativo de 2026–2027 del 18 % o más con el gas en la senda que supone la empresa y los «Otros» ingresos explicados como recurrentes (43,1 mm en 2025 y 27,9 mm en 2024); un capex desglosado que sitúe la reposición cerca de la amortización (variante λ 1,10: 58,37 €) o que pruebe que reconstruir un horno añade capacidad (variante H: 61,37 €); un ROIC de largo plazo medido neto de reposición que sostenga el del terminal (variante SR2, que lo cambia: 57,03 €)."
+   }
+  ]
+ },
+ "predicciones": [
+  {
+   "texto": "El margen operativo de 2027 (resultado de explotación entre ventas de las cuentas consolidadas) queda entre el 16 % y el 20 %.",
+   "fecha": "2028-04-30",
+   "prob": 0.7,
+   "celdas": "Palancas!A38:C38"
+  },
+  {
+   "texto": "La variación orgánica de las ventas de 2027 (perímetro comparable y divisa constante, como la publica la empresa) queda entre −2 % y +4 %.",
+   "fecha": "2028-04-30",
+   "prob": 0.65,
+   "celdas": "Palancas!A39:C39"
+  },
+  {
+   "texto": "Los pagos por inmovilizado material e intangible de 2027 (estado de flujos) superan 1,2 veces la amortización del ejercicio.",
+   "fecha": "2028-04-30",
+   "prob": 0.7,
+   "celdas": "Palancas!A40:C40"
+  }
+ ],
+ "sensibilidad": {
+  "celda_tasa": "Análisis!C56",
+  "tasa_heredada": 0.09,
+  "k": 3.0,
+  "filas": [
+   {
+    "r": 0.07,
+    "C56_leida": 0.07,
+    "precio": 90.1,
+    "precio_si": 76.56276727903627,
+    "ponderado": 84.0404440504117,
+    "zona": "caro",
+    "V": [
+     57.8685753505977,
+     83.0253052964046,
+     113.257729012247
+    ],
+    "precio_escenario_malo": 57.8685753505977,
+    "g_impl_actual": 0.03673207050615984,
+    "C86_hoja": 0.03673207050616,
+    "sin_lectura": null,
+    "sin_escalera": null,
+    "notas": [],
+    "r_operativa_C15": 0.0684232472352134,
+    "r_minima_C17": 0.0816784108874886,
+    "r_vs_minima_C18": "⚠ REVISAR · tu r (7.0 %) < r mínima (8.2 %)",
+    "estado_tecnico": "COMPLETO Y VÁLIDO"
+   },
+   {
+    "r": 0.08,
+    "C56_leida": 0.08,
+    "precio": 90.1,
+    "precio_si": 64.6937116546709,
+    "ponderado": 70.4932121167472,
+    "zona": "caro",
+    "V": [
+     50.1949604994804,
+     69.8105599114603,
+     92.8394203498743
+    ],
+    "precio_escenario_malo": 50.1949604994804,
+    "g_impl_actual": 0.08907462054331443,
+    "C86_hoja": 0.0890746205433144,
+    "sin_lectura": null,
+    "sin_escalera": null,
+    "notas": [],
+    "r_operativa_C15": 0.0776573819892091,
+    "r_minima_C17": 0.0816784108874886,
+    "r_vs_minima_C18": "⚠ REVISAR · tu r (8.0 %) < r mínima (8.2 %)",
+    "estado_tecnico": "COMPLETO Y VÁLIDO"
+   },
+   {
+    "r": 0.09,
+    "C56_leida": 0.09,
+    "precio": 90.1,
+    "precio_si": 56.002005168244615,
+    "ponderado": 60.6741181667017,
+    "zona": "caro",
+    "V": [
+     44.3217226721019,
+     60.1901164149973,
+     78.4785189164147
+    ],
+    "precio_escenario_malo": 44.3217226721019,
+    "g_impl_actual": 0.14290199276464988,
+    "C86_hoja": 0.14290199276465,
+    "sin_lectura": null,
+    "sin_escalera": null,
+    "notas": [],
+    "r_operativa_C15": 0.0868915167432047,
+    "r_minima_C17": 0.0816784108874886,
+    "r_vs_minima_C18": "✓ PASA · r ≥ r mínima",
+    "estado_tecnico": "COMPLETO Y VÁLIDO"
+   },
+   {
+    "r": 0.1,
+    "C56_leida": 0.1,
+    "precio": 90.1,
+    "precio_si": 49.34545527711372,
+    "ponderado": 53.2145710347679,
+    "zona": "caro",
+    "V": [
+     39.6726658829783,
+     52.8602723138018,
+     67.8193723494558
+    ],
+    "precio_escenario_malo": 39.6726658829783,
+    "g_impl_actual": 0.20014172763527524,
+    "C86_hoja": 0.200141727635275,
+    "sin_lectura": null,
+    "sin_escalera": null,
+    "notas": [],
+    "r_operativa_C15": 0.0961256514972004,
+    "r_minima_C17": 0.0816784108874886,
+    "r_vs_minima_C18": "✓ PASA · r ≥ r mínima",
+    "estado_tecnico": "COMPLETO Y VÁLIDO"
+   },
+   {
+    "r": 0.11,
+    "C56_leida": 0.11,
+    "precio": 90.1,
+    "precio_si": 44.07365218837131,
+    "ponderado": 47.3452969426208,
+    "zona": "caro",
+    "V": [
+     35.8945403027477,
+     47.0810774350139,
+     59.5887121053144
+    ],
+    "precio_escenario_malo": 35.8945403027477,
+    "g_impl_actual": 0.26314032649598756,
+    "C86_hoja": 0.263140326495988,
+    "sin_lectura": null,
+    "sin_escalera": null,
+    "notas": [],
+    "r_operativa_C15": 0.105359786251196,
+    "r_minima_C17": 0.0816784108874886,
+    "r_vs_minima_C18": "✓ PASA · r ≥ r mínima",
+    "estado_tecnico": "COMPLETO Y VÁLIDO"
+   }
+  ],
+  "reproduce_oficial": true,
+  "diferencias": {},
+  "estable_frente_a_la_tasa": true,
+  "estable_texto": "**Frente a la tasa, el resultado no cambia:** con el 8 %, 9 % y 10 % el precio del análisis queda en el mismo sitio (más caro que el valor medio de los tres escenarios). Esto solo habla de la tasa; no dice que el análisis sea seguro."
+ },
+ "fechas": [
+  [
+   "Análisis",
+   "14 de noviembre de 2026"
+  ],
+  [
+   "Datos base (último ejercicio de la Historia)",
+   "ejercicio 2025 (cierre fiscal: diciembre)"
+  ],
+  [
+   "Precio usado en el análisis",
+   "31 de diciembre de 2025"
+  ],
+  [
+   "Acciones",
+   "31 de diciembre de 2025"
+  ],
+  [
+   "Fuentes",
+   "documentos de los ejercicios 2016 a 2025 (10 ejercicios)"
+  ]
+ ],
+ "versiones": {
+  "personaje": "v2.2",
+  "plantilla": "V6.4 experimental",
+  "gramatica": "0.2.1",
+  "referencias_mecanicas": "0.2.1",
+  "config": "0.2.2+v64exp.2"
+ },
+ "avisos": [],
+ "md_sha256": "0aa52bad2be6def637e1494de6ba59971e3ea38bb6da999c01aff2d5700f0a52"
+}

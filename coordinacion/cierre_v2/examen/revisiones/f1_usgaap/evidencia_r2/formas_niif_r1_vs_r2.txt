@@ -1,0 +1,26 @@
+135 formas de una declaración NIIF utilizable (ronda 1 34b68fc frente a ronda 2 bcb6dc3) · idénticas 87 · distintas 48
+utilizables con la ronda 1: 31 · con la ronda 2: 28
+base: {'utilizable': True, 'estado': None, 'bloquean': []} → {'utilizable': True, 'estado': None, 'bloquean': []}
+tipos de diferencia: {'bloqueaba y sigue bloqueando (cambia la lista de guardas o el estado)': 41, 'excepción → bloquea (DATOS INVÁLIDOS)': 4, 'UTILIZABLE → bloquea': 3}
+  clasificacion_compras = 'x'
+      ronda 1: {'excepcion': "AttributeError: 'str' object has no attribute 'get'"}
+      ronda 2: {'utilizable': False, 'estado': 'pendiente_de_datos', 'bloquean': ['F1-DECLARACION', 'V-F1j']}
+  transicion = 'x'
+      ronda 1: {'excepcion': "AttributeError: 'str' object has no attribute 'get'"}
+      ronda 2: {'utilizable': False, 'estado': 'pendiente_de_datos', 'bloquean': ['F1-DECLARACION', 'V-F1i']}
+  series = 'x'
+      ronda 1: {'excepcion': "AttributeError: 'str' object has no attribute 'get'"}
+      ronda 2: {'utilizable': False, 'estado': 'pendiente_de_datos', 'bloquean': ['F1-2i', 'F1-DECLARACION', 'V-F1b']}
+  normalizacion = []
+      ronda 1: {'utilizable': True, 'estado': None, 'bloquean': []}
+      ronda 2: {'utilizable': False, 'estado': 'pendiente_de_datos', 'bloquean': ['F1-DECLARACION']}
+  normalizacion = ''
+      ronda 1: {'utilizable': True, 'estado': None, 'bloquean': []}
+      ronda 2: {'utilizable': False, 'estado': 'pendiente_de_datos', 'bloquean': ['F1-DECLARACION']}
+  normalizacion = 0
+      ronda 1: {'utilizable': True, 'estado': None, 'bloquean': []}
+      ronda 2: {'utilizable': False, 'estado': 'pendiente_de_datos', 'bloquean': ['F1-DECLARACION']}
+  normalizacion = 'x'
+      ronda 1: {'excepcion': "AttributeError: 'str' object has no attribute 'get'"}
+      ronda 2: {'utilizable': False, 'estado': 'pendiente_de_datos', 'bloquean': ['F1-DECLARACION']}
+-- cambios de estado propuesto entre versiones (sin cambiar «utilizable»): {('no_entregable · limite_del_modelo', 'pendiente_de_datos'): 12, (None, 'pendiente_de_datos'): 3}

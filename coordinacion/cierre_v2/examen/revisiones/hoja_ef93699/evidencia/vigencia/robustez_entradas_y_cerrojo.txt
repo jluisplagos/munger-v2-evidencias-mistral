@@ -1,0 +1,39 @@
+### Entradas mal formadas (copia de Hermès; códigos documentados: 0, 2, 3, 4, 5, 6)
+ficha_truncada → código 1 · json.decoder.JSONDecodeError: Unterminated string starting at: line 18 column 2 (char 490) · archivos de hoja escritos: 0
+ficha_es_una_lista → código 1 · AttributeError: 'list' object has no attribute 'get' · archivos de hoja escritos: 0
+provisional_es_un_texto → código 1 · AttributeError: 'str' object has no attribute 'get' · archivos de hoja escritos: 0
+estado_pipeline_truncado → código 1 · json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 2 column 1 (char 2) · archivos de hoja escritos: 0
+fase1_metadatos_roto → código 1 · json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 2 column 1 (char 2) · archivos de hoja escritos: 0
+precio_es_una_lista → código 1 · AttributeError: 'list' object has no attribute 'get' · archivos de hoja escritos: 0
+fase_c_sin_celdas → código 0 · OK: /tmp/claude-0/revision_hoja/exp/M_fase_c_sin_celdas/hoja_resumen.md · 1 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre e · archivos de hoja escritos: 2
+fase_c_vacia → código 0 · OK: /tmp/claude-0/revision_hoja/exp/M_fase_c_vacia/hoja_resumen.md · 0 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y · archivos de hoja escritos: 2
+   hoja con fase_c.json = {} (código 0):
+      ## En pocas palabras
+      
+      
+      
+      *Origen de cada frase* (fase_c.json, texto del personaje; solo se quitan las referencias a celdas y páginas, que están en el informe, §8 y §10): .
+      
+      ## Lo que lo haría falso
+      
+      *Texto del personaje* (fase_c.json: `cambiaria_de_cubo` y `decision.condiciones_revision`; sin referencias a corchetes de fuente):
+      
+      
+      ## Cuánto depende de la tasa
+      ## Predicciones fechadas
+      
+      Se comprueban en esta fecha con este dato:
+      
+      1. **no consta** — None Probabilidad que le da el personaje: —.
+      2. **no consta** — None Probabilidad que le da el personaje: —.
+      3. **no consta** — None Probabilidad que le da el personaje: —.
+      
+      ## Fechas y versión
+
+### Cerrojo
+(a) hoja_resumen.py envuelta en flock del MISMO cerrojo (cerrojo privado para no bloquear el común; corte a los 40 s):
+   código 124 tras 40 s (124 = seguía bloqueada cuando se cortó) · archivos de hoja: 0
+(b) ruta del cerrojo inexistente (lo que pasa con el valor por defecto en otra máquina):
+FALLO DEL RECÁLCULO: recálculo con r = 0.07: flock: cannot open lock file /ruta/que/no/existe/libreoffice.lock: No such file or directory
+   código 6
+47:LOCK_DEFECTO = os.environ.get("HOJA_RESUMEN_LOCK", "/home/user/e_work/libreoffice.lock")

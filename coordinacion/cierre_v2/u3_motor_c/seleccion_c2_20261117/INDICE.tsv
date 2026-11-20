@@ -1,0 +1,12 @@
+candidato	documento	url	fecha_utc	resultado_http	bytes	sha256	ruta_local	estado	nota
+(ninguno)	registro de reaplicación del protocolo, previo a toda petición de red	(local)	2026-11-17T13:47:29Z	—	1460	99a83450e9e1817f42319606cb50c3102f71ede36a4f40b98733634b53ec1e99	<fuentes_c2>/00_REAPLICACION_ANTES_DE_DATOS.txt	LOCAL	escrito antes de consultar ningún sitio de candidato
+Hannover Rück SE	portada del sitio oficial (cabecera, curl por defecto)	https://www.hannover-re.com/	2026-11-17T13:47:37Z	proxy 200 Connection Established; sitio HTTP/2 403 (server: CloudFront; x-cache: Error from cloudfront; content-length 919)				NO_ACCESIBLE	rechazo del propio sitio, no del proxy
+Hannover Rück SE	portada (host sin www)	https://hannover-re.com/	2026-11-17T13:47:38Z	proxy 200; sitio 302 -> https://www.hannover-re.com:443/				NO_ACCESIBLE	redirige al host anterior
+Hannover Rück SE	reintento con agente de usuario de navegador (método del modelo Fineco)	https://www.hannover-re.com/	2026-11-17T13:47:4xZ	NO_EJECUTADO				NO_ACCESIBLE	el clasificador de permisos de la sesión lo denegó («Unauthorized Access»); no se reintentó ni se rodeó
+Hannover Rück SE	informe anual 2025 (Group Annual Report)	(no localizado)		NO_EJECUTADO				NO_VERIFICADO	depende del acceso al sitio
+Hannover Rück SE	SFCR de grupo 2025	(no localizado)		NO_EJECUTADO				NO_VERIFICADO	depende del acceso al sitio
+KBC Group NV	portada del sitio oficial	https://www.kbc.com/	2026-11-17T13:47:57Z	CONNECT 403 del proxy (estado del proxy: connect_rejected www.kbc.com:443, 13:47:58.049Z)				HOST_BLOQUEADO	no se esquivó ni se cambió la red; candidato detenido
+KBC Group NV	relación con inversores	https://www.kbc.com/en/investor-relations.html	2026-11-17T13:47:58Z	CONNECT 403 del proxy (connect_rejected www.kbc.com:443, 13:47:58.295Z)				HOST_BLOQUEADO	mismo host
+KBC Group NV	informe anual 2025 y Pilar 3 2025	(no localizado)		NO_EJECUTADO				NO_VERIFICADO	depende del host bloqueado
+Talanx AG	portada del sitio oficial	https://www.talanx.com/	2026-11-17T13:48:05Z	CONNECT 403 del proxy (connect_rejected www.talanx.com:443, 13:48:06.191Z)				HOST_BLOQUEADO	no se esquivó ni se cambió la red; candidato detenido
+Talanx AG	informe anual 2025 y SFCR de grupo 2025	(no localizado)		NO_EJECUTADO				NO_VERIFICADO	depende del host bloqueado

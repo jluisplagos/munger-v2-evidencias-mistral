@@ -1,0 +1,113 @@
+1. ALCANCE DE LOS CAMBIOS (frente a la 4.12)
+NO CUMPLE · [constata] los archivos de la 4.12 que cambian son exactamente los declarados · de más ['personaje_v2/prompts/historia_anio.md', 'personaje_v2/pruebas/test_cierre_v2.py', 'personaje_v2/scripts/cambiar_base.py', 'personaje_v2/scripts/comprobar_gramatica.py', 'personaje_v2/scripts/fase1_historia.py'] · sin cambiar []
+CUMPLE   · [constata] ningún archivo de la 4.12 desaparece
+NO CUMPLE · [constata] los archivos nuevos están en el expediente 4.13, en la V6.4.1 o son los dos nuevos declarados (estructura_json.py y la configuración V6.4.1) · ['personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/HITO_1_4_15.md', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/revision_independiente/hito1/REVISION_FABLE_HITO1.md', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/revision_independiente/hito1/REVISION_FABLE_HITO1_TERCERA.md', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/revision_independiente/hito1/REVISION_FABLE_HITO1_CUARTA.md', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/revision_independiente/hito1/REVISION_FABLE_HITO1_CORRECCIONES.md']
+CUMPLE   · [constata] originales de personaje_v2/empresas_v2/: 489 archivos con la huella de la 4.12
+CUMPLE   · [constata] expedientes y entregas anteriores: 2954 archivos con la huella de la 4.12
+CUMPLE   · [constata] plantillas, referencias y scripts de v6/: 80 archivos con la huella de la 4.12
+CUMPLE   · [constata] contrastes de entregas anteriores: 49 archivos con la huella de la 4.12
+
+2. PLANTILLAS (V6.3, V6.4 y V6.4.1)
+CUMPLE   · [reejecuta] V6.3: entregables y referencia con sus SHA-256
+CUMPLE   · [reejecuta] V6.4 experimental: plantilla y referencia con su huella (sin cambios)
+CUMPLE   · [reejecuta] V6.4.1 experimental: plantilla y referencia NUEVAS con su huella
+CUMPLE   · [reejecuta] verificar_v64.py (V6.4.1): la plantilla V6.4.1 es ÍNTEGRA con su referencia nueva
+CUMPLE   · [reejecuta] la reconstrucción de la V6.4.1 desde la V6.4 tiene el mismo contenido, miembro a miembro, que la plantilla entregada
+CUMPLE   · [constata] compatibilidad: con el perímetro vacío o «Caja» y en heredado, la V6.4.1 da 0 celdas distintas de la V6.4, y la réplica de las bases no discrepa
+
+3. VERIFICADOR DEL PAQUETE Y BATERÍA
+CUMPLE   · [constata] verificar_paquete.sh completa exige la batería de la V6.4 con al menos 195 pruebas y conserva las demás con sus mínimos
+CUMPLE   · [constata] la batería de la V6.4 tiene los grupos A–H (H: V6.4.1, cobertura y avisos agrupados) y las pruebas de la revisión interna
+NO CUMPLE · [constata] la ronda final de verificar_paquete.sh completa está registrada y la batería de la V6.4 pasa entera · 195/195 pruebas de integración V6.4 PASAN
+
+4. GUARDAS DE TIPOS ANTES DE LA VIGENCIA (§3)
+NO CUMPLE · [constata] sonda de tipos con el código final: 96 primeras llamadas sobre copias del piloto; toda alteración del material retira la aprobación sin excepción · []
+CUMPLE   · [constata] registro de publicaciones ilegible: retirada pendiente visible (código 5) en las cuatro vías
+
+5. ACCIÓN PROVISIONAL Y FINAL (§4)
+NO CUMPLE · [constata] contraejemplo del salto del protocolo: las fases C reales se aceptan y las cuatro alteraciones se rechazan o quedan sin protocolo · e y objetiv
+cond_bloqueo_comprar           final concluido/esperar/56.02 · tratamiento objetivo_bloqueado · coherencia_v64: contradicción en la decisión de la fase C: con el tratamiento objetivo_bloqueado (acción evaluada 'esperar') corresponden estado pendiente_de_datos, acción None y objetiv
+rc=0
+
+
+6. VISCOFAN: ACCIONES Y EVIDENCIA ACTIVA (§6)
+CUMPLE   · [constata] conciliación de acciones: las cifras de la nota 20, la circulación de cierre y el antecedente de la etapa 1 (R7)
+CUMPLE   · [constata] evidencia activa de C37, C41, C42, C55, C57, D4 y la lista de períodos sin los textos de la etapa 1 que contradicen las entradas (la nota de antecedente de C42 aparte)
+CUMPLE   · [constata] la fila de C42 declara las fechas de las entradas (precio del 3-nov-2026, balance a 31-dic-2025) y el antecedente sustituido
+CUMPLE   · [constata] N = 45,479209 con su concepto (media «diluida» publicada y contradictoria) y C42 recalculado sobre la base de 2025
+CUMPLE   · [constata] alternativas de acciones sobre el libro vigente del expediente 4.13 (R10): reproducen el caso activo
+
+7. PERÍMETRO DE LA INVERSIÓN Y RÉPLICA (§7)
+CUMPLE   · [constata] conciliación de arrendamientos 2021–2025 sin errores de lectura, con las líneas de las frases de altas corregidas (R11)
+CUMPLE   · [constata] Viscofan: el otro perímetro y los extremos de θ (0 y 1) calculados como variantes, con θ = 0,5 como punto de cálculo
+CUMPLE   · [constata] dominios del perímetro: la cota de SRF con NIIF 16 (1,2011) se calcula sobre su base, no se traslada la de «Caja» (1,1413)
+CUMPLE   · [constata] naturaleza de la configuración de Viscofan con las bases del perímetro NIIF 16 (R5)
+CUMPLE   · [constata] referencia mecánica del S2C anclada en el S2C histórico del perímetro NIIF 16 (B155; R6)
+
+8. INTERPRETACIONES ECONÓMICAS DE VIDRALA (§8)
+CUMPLE   · [constata] Q-ROIC1 con la condición de la 4.9, r_op frente a r personal calculado y la mezcla fijo/circulante con sus denominadores
+
+9. EXPEDIENTES FINALES
+CUMPLE   · [constata] Vidrala condicionado: el pipeline terminó (estado 'concluido', auditoría 'APROBADO') sin una espera abierta
+CUMPLE   · [constata] Vidrala condicionado: auditoría APROBADO de la solicitud vigente, sobre el material vigente
+CUMPLE   · [constata] Vidrala condicionado: configuración experimental válida, declarada como ensayo y con protocolo del objetivo
+CUMPLE   · [constata] Vidrala condicionado: plantilla_activa.json = V6.4 experimental con la huella de la plantilla entregada
+CUMPLE   · [constata] Vidrala condicionado: el material auditado incluye la configuración, la selección, las variantes y la cadena de trazabilidad
+CUMPLE   · [reejecuta] Vidrala condicionado: las 24 huellas del material auditado coinciden con los archivos
+CUMPLE   · [reejecuta] Vidrala condicionado: objetivo_v64.evaluar sobre el material final da el tratamiento que publica la ficha y el estado del expediente
+CUMPLE   · [reejecuta] Vidrala condicionado: objetivo_v64.contradicciones_salida no encuentra ninguna contradicción en la salida final (acción, estado, protocolo y los dos objetivos)
+CUMPLE   · [reejecuta] Vidrala condicionado: variantes de formato 4.13; la «activa» reproduce precio.json (1e-9) y las variantes son de las entradas económicas del libro final
+CUMPLE   · [constata] Vidrala condicionado: fase C con el contrato de cobertura (base de la materialidad para la acción y para el objetivo, null ⇔ no determinada) en sus 12 parámetros
+CUMPLE   · [constata] Vidrala condicionado: los grupos de avisos de dominio de las variantes llegan evaluados a la fase C, la ficha y el informe
+CUMPLE   · [constata] Vidrala condicionado: auditoría ligada a la solicitud vigente y al material vigente (los identificadores coinciden con solicitud_auditoria.json y material_auditoria.json)
+CUMPLE   · [reejecuta] Vidrala condicionado: cierre_v2.motivo_vigencia da la salida oficial por vigente (ficha, informe, cierre registrado y aprobación del material)
+CUMPLE   · [constata] Vidrala condicionado: la auditoría vigente no es ninguna de las apartadas ni de las archivadas (6), por huella
+CUMPLE   · [constata] Vidrala condicionado: el registro de la réplica es posterior al libro evaluado final recalculado
+CUMPLE   · [constata] Vidrala condicionado: réplica independiente de los libros finales (sin fórmulas de la hoja nueva): todos los casos coinciden
+CUMPLE   · [constata] Vidrala bloqueo: el pipeline terminó (estado 'pendiente_de_datos', auditoría 'APROBADO') sin una espera abierta
+CUMPLE   · [constata] Vidrala bloqueo: auditoría APROBADO de la solicitud vigente, sobre el material vigente
+CUMPLE   · [constata] Vidrala bloqueo: configuración experimental válida, declarada como ensayo y con protocolo del objetivo
+CUMPLE   · [constata] Vidrala bloqueo: plantilla_activa.json = V6.4 experimental con la huella de la plantilla entregada
+CUMPLE   · [constata] Vidrala bloqueo: el material auditado incluye la configuración, la selección, las variantes y la cadena de trazabilidad
+CUMPLE   · [reejecuta] Vidrala bloqueo: las 24 huellas del material auditado coinciden con los archivos
+CUMPLE   · [reejecuta] Vidrala bloqueo: objetivo_v64.evaluar sobre el material final da el tratamiento que publica la ficha y el estado del expediente
+CUMPLE   · [reejecuta] Vidrala bloqueo: objetivo_v64.contradicciones_salida no encuentra ninguna contradicción en la salida final (acción, estado, protocolo y los dos objetivos)
+CUMPLE   · [reejecuta] Vidrala bloqueo: variantes de formato 4.13; la «activa» reproduce precio.json (1e-9) y las variantes son de las entradas económicas del libro final
+CUMPLE   · [constata] Vidrala bloqueo: fase C con el contrato de cobertura (base de la materialidad para la acción y para el objetivo, null ⇔ no determinada) en sus 12 parámetros
+CUMPLE   · [constata] Vidrala bloqueo: los grupos de avisos de dominio de las variantes llegan evaluados a la fase C, la ficha y el informe
+CUMPLE   · [constata] Vidrala bloqueo: auditoría ligada a la solicitud vigente y al material vigente (los identificadores coinciden con solicitud_auditoria.json y material_auditoria.json)
+CUMPLE   · [reejecuta] Vidrala bloqueo: cierre_v2.motivo_vigencia da la salida oficial por vigente (ficha, informe, cierre registrado y aprobación del material)
+CUMPLE   · [constata] Vidrala bloqueo: la auditoría vigente no es ninguna de las apartadas ni de las archivadas (6), por huella
+CUMPLE   · [constata] Vidrala bloqueo: el registro de la réplica es posterior al libro evaluado final recalculado
+CUMPLE   · [constata] Vidrala bloqueo: réplica independiente de los libros finales (sin fórmulas de la hoja nueva): todos los casos coinciden
+CUMPLE   · [constata] Viscofan: el pipeline terminó (estado 'concluido', auditoría 'APROBADO') sin una espera abierta
+CUMPLE   · [constata] Viscofan: auditoría APROBADO de la solicitud vigente, sobre el material vigente
+CUMPLE   · [constata] Viscofan: configuración experimental válida, declarada como ensayo y con protocolo del objetivo
+CUMPLE   · [constata] Viscofan: plantilla_activa.json = V6.4.1 experimental con la huella de la plantilla entregada
+CUMPLE   · [constata] Viscofan: el material auditado incluye la configuración, la selección, las variantes y la cadena de trazabilidad
+CUMPLE   · [reejecuta] Viscofan: las 24 huellas del material auditado coinciden con los archivos
+CUMPLE   · [reejecuta] Viscofan: objetivo_v64.evaluar sobre el material final da el tratamiento que publica la ficha y el estado del expediente
+CUMPLE   · [reejecuta] Viscofan: objetivo_v64.contradicciones_salida no encuentra ninguna contradicción en la salida final (acción, estado, protocolo y los dos objetivos)
+CUMPLE   · [reejecuta] Viscofan: variantes de formato 4.13; la «activa» reproduce precio.json (1e-9) y las variantes son de las entradas económicas del libro final
+CUMPLE   · [constata] Viscofan: fase C con el contrato de cobertura (base de la materialidad para la acción y para el objetivo, null ⇔ no determinada) en sus 12 parámetros
+CUMPLE   · [constata] Viscofan: los grupos de avisos de dominio de las variantes llegan evaluados a la fase C, la ficha y el informe
+CUMPLE   · [constata] Viscofan: auditoría ligada a la solicitud vigente y al material vigente (los identificadores coinciden con solicitud_auditoria.json y material_auditoria.json)
+CUMPLE   · [reejecuta] Viscofan: cierre_v2.motivo_vigencia da la salida oficial por vigente (ficha, informe, cierre registrado y aprobación del material)
+CUMPLE   · [constata] Viscofan: la auditoría vigente no es ninguna de las apartadas ni de las archivadas (1), por huella
+CUMPLE   · [constata] Viscofan: el registro de la réplica es posterior al libro evaluado final recalculado
+CUMPLE   · [constata] Viscofan: réplica independiente de los libros finales (sin fórmulas de la hoja nueva): todos los casos coinciden
+CUMPLE   · [constata] las dos copias de Vidrala difieren SOLO en el protocolo del objetivo: misma configuración económica
+CUMPLE   · [constata] no se reutiliza una aprobación: tres auditorías distintas y las anteriores apartadas como antecedentes
+CUMPLE   · [constata] estados acordes al protocolo: condicionado concluido · esperar; bloqueo pendiente_de_datos sin acción
+CUMPLE   · [constata] relevos a agentes reales registrados (fases A, B y C de Viscofan, fases C de Vidrala y auditorías)
+
+10. REVISIÓN INTERNA, PROPUESTA Y DOCUMENTACIÓN
+CUMPLE   · [constata] las dos revisiones internas en contexto separado presentes y declaradas como internas (R1–R18 y S1–S14)
+CUMPLE   · [constata] propuesta en tres grupos (política de salida, elecciones por empresa, ampliaciones), con recomendación, alternativas, evidencia y efectos, y firmas vacías
+CUMPLE   · [constata] las cifras de efecto de la propuesta incluyen los precios de Sí de las activas finales (leídos de precio.json)
+NO CUMPLE · [constata] VERSION, CONTINUIDAD.md y PROMPT_NUEVA_VENTANA.md describen la 4.13
+CUMPLE   · [constata] informe integrado con las cuatro separaciones (integridad, reproducción, fundamento económico, aptitud) y el estado de cada hallazgo externo
+CUMPLE   · [constata] guía de uso actualizada para la 4.13 y registros de la entrega y de pruebas presentes
+CUMPLE   · [constata] el control no escribe ningún .pyc en el árbol (revisión interna R13 y S2; las cachés previas no son suyas y el ZIP las excluye)
+
+RESULTADO: 83 de 89 comprobaciones cumplen (20 reejecutan, 69 constatan).

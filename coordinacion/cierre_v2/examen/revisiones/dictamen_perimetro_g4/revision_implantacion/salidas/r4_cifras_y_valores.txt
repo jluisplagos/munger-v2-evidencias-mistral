@@ -1,0 +1,33 @@
+roic_propio_pagado_el_alquiler_medio     módulo 0.1302800349 · réplica 0.1302800349 · dif 0.0e+00
+roic_sin_arrendamientos_medio            módulo 0.1481806181 · réplica 0.1481806181 · dif 0.0e+00
+roic_todo_el_capital_medio               módulo 0.0878145413 · réplica 0.0878145413 · dif 0.0e+00
+roic_neutro_con_m0                       módulo 0.0904192325 · réplica 0.0904192325 · dif 0.0e+00
+   neutro MALO: réplica 9.053666% · módulo PF.neutro 9.053666%
+   neutro NORMAL: réplica 9.040190% · módulo PF.neutro 9.040190%
+   neutro BUENO: réplica 9.035706% · módulo PF.neutro 9.035706%
+C55 del libro: 0.0878145412805803 · por año (módulo): {'2021': 0.1422, '2022': 0.1475, '2023': 0.1148, '2024': 0.1067, '2025': 0.1403}
+CIFRAS: CONFORMES con la réplica del dictamen
+
+libro recalculado (1.ª pasada): S2C (2.5, 3.2, 3.5) · ROIC (0.08, 0.09, 0.09)
+   V-F1g (valores): salta True · INFORMA · MALO más cerca de C54 (todo el capital); NORMAL más cerca de C54 (todo el capital); BUENO más cerca de C54 (todo el capital)
+   V-F1k (valores): salta True · INFORMA · exceso sobre el neutro: -1.05 / -0.04 / -0.04 puntos · bloquean: ninguna
+
+S2C en A2 y ROIC = r: S2C (3.9, 5.4, 5.9) · ROIC (0.09, 0.09, 0.09)
+   V-F1g (valores): salta False · None · MALO más cerca de C54 (todo el capital); NORMAL más cerca de ancla del perímetro; BUENO más cerca de ancla del perímetro
+   V-F1k (valores): salta True · INFORMA · exceso sobre el neutro: -0.05 / -0.04 / -0.04 puntos · bloquean: F1-LIBRO, F1-REPLICA
+
+S2C en A2 y tope sin foso: S2C (3.9, 5.4, 5.9) · ROIC (0.09, 0.12, 0.12)
+   V-F1g (valores): salta False · None · MALO más cerca de C54 (todo el capital); NORMAL más cerca de ancla del perímetro; BUENO más cerca de ancla del perímetro
+   V-F1k (valores): salta True · INFORMA · exceso sobre el neutro: -0.05 / +2.96 / +2.96 puntos · bloquean: F1-LIBRO, F1-REPLICA
+
+vigente (vuelta C→B): S2C (3.9, 5.4, 5.9) · ROIC (0.13, 0.15, 0.15)
+   V-F1g (valores): salta False · None · MALO más cerca de C54 (todo el capital); NORMAL más cerca de ancla del perímetro; BUENO más cerca de ancla del perímetro
+   V-F1k (valores): salta True · INFORMA · exceso sobre el neutro: +3.95 / +5.96 / +5.96 puntos · bloquean: F1-LIBRO, F1-REPLICA
+
+NORMAL 4,0: justo bajo la media geométrica de las dos anclas (4,03): S2C (3.0, 4.0, 4.5) · ROIC (0.09, 0.09, 0.09)
+   V-F1g (valores): salta True · INFORMA · MALO más cerca de C54 (todo el capital); NORMAL más cerca de C54 (todo el capital); BUENO más cerca de ancla del perímetro
+   V-F1k (valores): salta True · INFORMA · exceso sobre el neutro: -0.05 / -0.04 / -0.04 puntos · bloquean: F1-LIBRO, F1-REPLICA
+
+NORMAL 4,1: justo encima: S2C (3.0, 4.1, 4.5) · ROIC (0.09, 0.09, 0.09)
+   V-F1g (valores): salta False · None · MALO más cerca de C54 (todo el capital); NORMAL más cerca de ancla del perímetro; BUENO más cerca de ancla del perímetro
+   V-F1k (valores): salta True · INFORMA · exceso sobre el neutro: -0.05 / -0.04 / -0.04 puntos · bloquean: F1-LIBRO, F1-REPLICA

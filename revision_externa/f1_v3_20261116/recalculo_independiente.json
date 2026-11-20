@@ -1,0 +1,760 @@
+{
+  "A_base": {
+    "FCF_base": 307.933,
+    "C48": 108.0,
+    "tau_2021_25": [
+      0.331,
+      0.2823,
+      0.2963,
+      0.2754,
+      0.256
+    ],
+    "tau_5": 0.2882,
+    "m0": 0.131337558,
+    "nopat_medio": 416.799047,
+    "por_perimetro": {
+      "A0": {
+        "f": 0.041681455274,
+        "F0": 248.496395343,
+        "reinversion_media": -81.2
+      },
+      "A1": {
+        "f": 0.012624225323,
+        "F0": 387.878115969,
+        "reinversion_media": 51.3
+      },
+      "A2": {
+        "f": -0.006118601744,
+        "F0": 477.783708846,
+        "reinversion_media": 136.766667
+      }
+    }
+  },
+  "A_libro": {
+    "sha256": "d2593777650f1d9d77bcc7b9eaa6f4c0c12a742fa4706bd20b35808f99c92385",
+    "comparaciones_que_coinciden": 89,
+    "diagnostico_bloque_10": {
+      "rentabilidad_marginal_años_1_10 (fila 176)": [
+        0.074739,
+        0.10677,
+        0.1441395
+      ],
+      "ROIC_del_terminal (fila 177)": [
+        0.07,
+        0.1,
+        0.12
+      ],
+      "salto_en_el_año_11 (fila 178)": [
+        0.00473899999999999,
+        0.00676999999999998,
+        0.0241395
+      ],
+      "umbral_del_aviso (fila 179)": {
+        "rotulo": "Umbral del aviso (puntos; ajustable)",
+        "valor": 0.05
+      }
+    }
+  },
+  "B_escenarios": {
+    "N1a · earnout 2023, tipo fijo": {
+      "tau_2023_25": [
+        0.2963,
+        0.2754,
+        0.256
+      ],
+      "tau_proyeccion": 0.2882,
+      "m0": 0.131338,
+      "f_A0": 0.044196893,
+      "F0_A0": 236.43,
+      "variacion_F0": -12.066,
+      "de_ella": {
+        "f": -12.066,
+        "m0": 0.0,
+        "tau": 0.0
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        -14.423,
+        -17.778,
+        -19.381
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -12.609,
+        -15.036,
+        -17.429
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N1a · earnout 2023, no deducible": {
+      "tau_2023_25": [
+        0.2619,
+        0.2754,
+        0.256
+      ],
+      "tau_proyeccion": 0.28132,
+      "m0": 0.131338,
+      "f_A0": 0.045569131,
+      "F0_A0": 234.182,
+      "variacion_F0": -14.314,
+      "de_ella": {
+        "f": -18.648,
+        "m0": 0.0,
+        "tau": 4.334
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        -18.741,
+        -22.614,
+        -24.288
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -15.002,
+        -18.098,
+        -20.979
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N1 · earnout 2023–25, tipo fijo": {
+      "tau_2023_25": [
+        0.2963,
+        0.2754,
+        0.256
+      ],
+      "tau_proyeccion": 0.2882,
+      "m0": 0.131379,
+      "f_A0": 0.043746946,
+      "F0_A0": 238.731,
+      "variacion_F0": -9.765,
+      "de_ella": {
+        "f": -9.908,
+        "m0": 0.142,
+        "tau": 0.0
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        -11.843,
+        -14.598,
+        -15.914
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -10.235,
+        -12.347,
+        -14.312
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N1 · earnout 2023–25, no deducibles": {
+      "tau_2023_25": [
+        0.2619,
+        0.2806,
+        0.2559
+      ],
+      "tau_proyeccion": 0.28234,
+      "m0": 0.131379,
+      "f_A0": 0.044900433,
+      "F0_A0": 236.891,
+      "variacion_F0": -11.605,
+      "de_ella": {
+        "f": -15.441,
+        "m0": 0.144,
+        "tau": 3.692
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        -15.433,
+        -18.609,
+        -19.976
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -12.195,
+        -14.863,
+        -17.229
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N2 · bajas 2025, tipo fijo": {
+      "tau_2023_25": [
+        0.2963,
+        0.2754,
+        0.256
+      ],
+      "tau_proyeccion": 0.2882,
+      "m0": 0.12598,
+      "f_A0": 0.040283726,
+      "F0_A0": 236.908,
+      "variacion_F0": -11.589,
+      "de_ella": {
+        "f": 6.705,
+        "m0": -18.293,
+        "tau": 0.0
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        8.015,
+        9.879,
+        10.769
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -8.287,
+        8.355,
+        9.685
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N2 · bajas 2025, gravadas al tipo teórico": {
+      "tau_2023_25": [
+        0.2963,
+        0.2754,
+        0.2559
+      ],
+      "tau_proyeccion": 0.28818,
+      "m0": 0.12598,
+      "f_A0": 0.040288143,
+      "F0_A0": 236.899,
+      "variacion_F0": -11.598,
+      "de_ella": {
+        "f": 6.683,
+        "m0": -18.294,
+        "tau": 0.013
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        8.0,
+        9.861,
+        10.752
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -8.296,
+        8.344,
+        9.672
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N2 · bajas 2025, no gravadas": {
+      "tau_2023_25": [
+        0.2963,
+        0.2754,
+        0.2701
+      ],
+      "tau_proyeccion": 0.29102,
+      "m0": 0.12598,
+      "f_A0": 0.039660868,
+      "F0_A0": 238.191,
+      "variacion_F0": -10.305,
+      "de_ella": {
+        "f": 9.692,
+        "m0": -18.221,
+        "tau": -1.777
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        10.131,
+        12.288,
+        13.246
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -6.943,
+        9.971,
+        11.558
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N2s · bajas 2023–25, tipo fijo": {
+      "tau_2023_25": [
+        0.2963,
+        0.2754,
+        0.256
+      ],
+      "tau_proyeccion": 0.2882,
+      "m0": 0.12598,
+      "f_A0": 0.040424907,
+      "F0_A0": 236.231,
+      "variacion_F0": -12.266,
+      "de_ella": {
+        "f": 6.027,
+        "m0": -18.293,
+        "tau": 0.0
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        7.205,
+        8.881,
+        9.681
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -8.995,
+        7.511,
+        8.707
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N1 + N2 · earnout no deducible; bajas 2025 con tipo fijo": {
+      "tau_2023_25": [
+        0.2619,
+        0.2806,
+        0.256
+      ],
+      "tau_proyeccion": 0.28236,
+      "m0": 0.126022,
+      "f_A0": 0.043498096,
+      "F0_A0": 225.162,
+      "variacion_F0": -23.335,
+      "de_ella": {
+        "f": -8.714,
+        "m0": -18.3,
+        "tau": 3.679
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        -7.403,
+        -8.712,
+        -9.188
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -20.597,
+        -6.496,
+        -7.529
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N1 + N2 · earnout no deducible; bajas 2025 gravadas al tipo teórico": {
+      "tau_2023_25": [
+        0.2619,
+        0.2806,
+        0.2558
+      ],
+      "tau_proyeccion": 0.28232,
+      "m0": 0.126022,
+      "f_A0": 0.043506934,
+      "F0_A0": 225.143,
+      "variacion_F0": -23.353,
+      "de_ella": {
+        "f": -8.756,
+        "m0": -18.301,
+        "tau": 3.704
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        -7.433,
+        -8.746,
+        -9.223
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -20.616,
+        -6.519,
+        -7.556
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N1 + N2 · earnout no deducible; bajas 2025 no gravadas": {
+      "tau_2023_25": [
+        0.2619,
+        0.2806,
+        0.27
+      ],
+      "tau_proyeccion": 0.28516,
+      "m0": 0.126022,
+      "f_A0": 0.042879452,
+      "F0_A0": 226.437,
+      "variacion_F0": -22.06,
+      "de_ella": {
+        "f": -5.747,
+        "m0": -18.228,
+        "tau": 1.915
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        -5.3,
+        -6.318,
+        -6.727
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -19.262,
+        -4.89,
+        -5.668
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "Contraejemplo · nota 4.6 entera, tipo fijo": {
+      "tau_2023_25": [
+        0.2963,
+        0.2754,
+        0.256
+      ],
+      "tau_proyeccion": 0.2882,
+      "m0": 0.131984,
+      "f_A0": 0.046322771,
+      "F0_A0": 228.44,
+      "variacion_F0": -20.057,
+      "de_ella": {
+        "f": -22.263,
+        "m0": 2.207,
+        "tau": 0.0
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        -26.613,
+        -32.803,
+        -35.76
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -21.421,
+        -27.744,
+        -32.159
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    }
+  },
+  "B_comparacion_con_autor": {
+    "valores_que_coinciden": 108,
+    "escenarios_comparados": 12,
+    "escenarios_del_autor": 12
+  },
+  "C_convencion_del_tipo": {
+    "con τ de proyección de 5 años (convención registrada)": {
+      "no_deducible": -11.605,
+      "tipo_fijo": -9.765,
+      "diferencia": -1.84,
+      "año11_NORMAL_no_deducible": -18.609,
+      "año11_NORMAL_tipo_fijo": -14.598
+    },
+    "si el τ de proyección fuera la media de la ventana (los mismos tres años que calibran f)": {
+      "no_deducible": -9.141,
+      "tipo_fijo": -9.763,
+      "diferencia": 0.622,
+      "año11_NORMAL_no_deducible": -15.848,
+      "año11_NORMAL_tipo_fijo": -14.598
+    },
+    "referencia antes de impuestos": {
+      "EBIT medio de la ventana: variación": 13.467,
+      "EBIT 2025 − k·EBIT medio: variación (lo único que cambia en caja antes de impuestos)": -13.966
+    }
+  },
+  "D_limite_de_N1": {
+    "conciliacion_linea_fiscal": {
+      "2023": {
+        "ajuste_nota_4_6": -48.9,
+        "actualizacion": 12.4,
+        "gasto_no_deducible": 61.3,
+        "al_25_83_%": -15.834,
+        "linea_publicada": -15.8,
+        "cuadra_al_redondeo": true
+      },
+      "2024": {
+        "ajuste_nota_4_6": 8.7,
+        "actualizacion": 5.6,
+        "gasto_no_deducible": -3.1,
+        "al_25_83_%": 0.801,
+        "linea_publicada": 0.8,
+        "cuadra_al_redondeo": true
+      },
+      "2025": {
+        "ajuste_nota_4_6": -0.2,
+        "actualizacion": 0.7,
+        "gasto_no_deducible": 0.9,
+        "al_25_83_%": -0.232,
+        "linea_publicada": -0.2,
+        "cuadra_al_redondeo": true
+      }
+    },
+    "N1_mas_actualizacion": {
+      "tau_2023_25": [
+        0.2544,
+        0.2772,
+        0.2556
+      ],
+      "tau_proyeccion": 0.2801,
+      "m0": 0.131379,
+      "f_A0": 0.045359475,
+      "F0_A0": 236.101,
+      "variacion_F0": -12.396,
+      "de_ella": {
+        "f": -17.643,
+        "m0": 0.144,
+        "tau": 5.103
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        -16.91,
+        -20.27,
+        -21.668
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -13.035,
+        -15.934,
+        -18.469
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "N1_mas_2021_22": {
+      "tau_2023_25": [
+        0.2619,
+        0.2806,
+        0.2559
+      ],
+      "tau_proyeccion": 0.28168,
+      "m0": 0.131379,
+      "f_A0": 0.044900433,
+      "F0_A0": 237.307,
+      "variacion_F0": -11.19,
+      "de_ella": {
+        "f": -15.441,
+        "m0": 0.144,
+        "tau": 4.108
+      },
+      "variacion_año11_MALO_NORMAL_BUENO": [
+        -15.093,
+        -18.142,
+        -19.433
+      ],
+      "variacion_NORMAL_años_1_5_10": [
+        -11.765,
+        -14.37,
+        -16.657
+      ],
+      "misma_variacion_en_A1_y_A2": true
+    },
+    "variacion_frente_a_N1": {
+      "actualizacion · F0": -0.79,
+      "actualizacion · año 11 NORMAL": -1.661,
+      "2021–22 · F0": 0.416,
+      "2021–22 · año 11 NORMAL": 0.466
+    }
+  },
+  "E_diagnostico": {
+    "earnout_y_otros_en_f (línea del EFE × k)": 13.675,
+    "plusvalias_en_f (línea del EFE × k)": -4.032,
+    "plusvalia_2025_en_m0 (25,7 × (1 − τ5))": 18.293,
+    "suma": 27.936,
+    "línea del EFE − línea de la nota 4.6, bajas (pérdidas ordinarias)": {
+      "2023": 3.1,
+      "2024": 5.8,
+      "2025": 2.6
+    },
+    "línea del EFE + ajuste de la nota 4.6, earnout (otros no monetarios)": {
+      "2023": -0.5,
+      "2024": -0.6,
+      "2025": -0.3
+    },
+    "monetarios de la nota 4.6": {
+      "2023": -16.9,
+      "2024": -22.2,
+      "2025": -28.2
+    },
+    "cobros por bajas 2025 frente a plusvalía del EFE 2025": [
+      15.3,
+      23.1
+    ]
+  },
+  "F_arrendamientos": {
+    "pagos ÷ ventas: media y 2025 (%)": [
+      3.3589,
+      3.7087
+    ],
+    "amortización ROU ÷ ventas: media y 2025 (%)": [
+      2.9057,
+      3.1167
+    ],
+    "pagos: media escalada y 2025": [
+      161.121763,
+      177.9
+    ],
+    "amortización ROU: media escalada (lo que devuelve f en A1 y A2) y 2025 (lo que lleva m0)": [
+      139.381721,
+      149.5
+    ],
+    "F0 con el peso de 2025 en los pagos (A0, A1 y A2)": -16.778237,
+    "F0 con el peso de 2025 también en la amortización ROU que devuelve f (solo A1 y A2)": 10.118279,
+    "F0 con el peso de 2025 en las dos cosas (A1 y A2)": -6.659958
+  },
+  "G_PPA": {
+    "PPA media ÷ ventas medias (%)": 1.8743,
+    "PPA 2025 ÷ ventas 2025 (%)": 1.7866,
+    "PPA que devuelve f sobre las ventas de 2025": 89.906,
+    "PPA de 2025 en m0": 85.7,
+    "f devuelve de más (sube el flujo sin crecimiento de A2)": 4.206,
+    "ROU: f devuelve de menos (baja el flujo sin crecimiento de A1 y A2)": -10.118,
+    "los dos efectos de escala juntos en A2": -5.913
+  },
+  "H_terminal": {
+    "MALO": {
+      "ROIC de la palanca": 0.07,
+      "ROIC que iguala la inversión del año 11 con ΔV/S2C: (1+g∞)·m_obj·(1−τ)·S2C": 0.075486,
+      "rentabilidad marginal de los años 1–10 según Convenciones §3: m_obj·(1−τ)·S2C": 0.074739,
+      "inversión del año 11 con el ROIC de la palanca": 61.222,
+      "con ΔV/S2C": 56.772,
+      "diferencia": 4.45,
+      "comprobación: con el ROIC de la propuesta la inversión es ΔV/S2C": true,
+      "con el de Convenciones §3 la inversión es (1+g∞) veces ΔV/S2C": true,
+      "salto del año 11 según el libro (puntos): m_obj·(1−τ)·S2C − ROIC": 0.4739,
+      "salto con la fórmula de la propuesta (puntos)": 0.5486
+    },
+    "NORMAL": {
+      "ROIC de la palanca": 0.1,
+      "ROIC que iguala la inversión del año 11 con ΔV/S2C: (1+g∞)·m_obj·(1−τ)·S2C": 0.108905,
+      "rentabilidad marginal de los años 1–10 según Convenciones §3: m_obj·(1−τ)·S2C": 0.10677,
+      "inversión del año 11 con el ROIC de la palanca": 125.767,
+      "con ΔV/S2C": 115.483,
+      "diferencia": 10.284,
+      "comprobación: con el ROIC de la propuesta la inversión es ΔV/S2C": true,
+      "con el de Convenciones §3 la inversión es (1+g∞) veces ΔV/S2C": true,
+      "salto del año 11 según el libro (puntos): m_obj·(1−τ)·S2C − ROIC": 0.677,
+      "salto con la fórmula de la propuesta (puntos)": 0.8905
+    },
+    "BUENO": {
+      "ROIC de la palanca": 0.12,
+      "ROIC que iguala la inversión del año 11 con ΔV/S2C: (1+g∞)·m_obj·(1−τ)·S2C": 0.147743,
+      "rentabilidad marginal de los años 1–10 según Convenciones §3: m_obj·(1−τ)·S2C": 0.14414,
+      "inversión del año 11 con el ROIC de la palanca": 154.244,
+      "con ΔV/S2C": 125.281,
+      "diferencia": 28.964,
+      "comprobación: con el ROIC de la propuesta la inversión es ΔV/S2C": true,
+      "con el de Convenciones §3 la inversión es (1+g∞) veces ΔV/S2C": true,
+      "salto del año 11 según el libro (puntos): m_obj·(1−τ)·S2C − ROIC": 2.4139,
+      "salto con la fórmula de la propuesta (puntos)": 2.7743
+    }
+  },
+  "I_compras": {
+    "adquisiciones netas, media 2023–25": 127.667,
+    "escalada a las ventas de 2025": 134.297,
+    "en % del FCF base": 41.5,
+    "capex propio medio": 867.167,
+    "capex propio + adquisiciones, media": 994.833,
+    "composicion_por_año": {
+      "2023": {
+        "adquisiciones netas (EFE)": 82.1,
+        "de ellas, earnouts y pagos aplazados": 34.4,
+        "de ellos, Lavartex (México, comprada en 2022)": 31.4,
+        "flujo neto de «otras adquisiciones» (por debajo del umbral de «importantes»)": 35.3
+      },
+      "2024": {
+        "adquisiciones netas (EFE)": 183.3,
+        "de ellas, earnouts y pagos aplazados": 93.9,
+        "de ellos, Lavartex (México, comprada en 2022)": 83.2,
+        "flujo neto de «otras adquisiciones» (por debajo del umbral de «importantes»)": 22.0
+      },
+      "2025": {
+        "adquisiciones netas (EFE)": 117.6,
+        "de ellas, earnouts y pagos aplazados": 23.3,
+        "de ellos, Lavartex (México, comprada en 2022)": 19.7,
+        "flujo neto de «otras adquisiciones» (por debajo del umbral de «importantes»)": 37.3
+      }
+    },
+    "Lavartex: pagos de 2023–25 (earnout y aplazados)": 134.3,
+    "«otras adquisiciones»: flujo neto medio 2023–25": 31.533,
+    "en % del FCF base (otras)": 10.2,
+    "crecimiento orgánico publicado 2021–25 (%)": {
+      "2021": 7.4,
+      "2022": 21.0,
+      "2023": 11.8,
+      "2024": 5.2,
+      "2025": 3.8
+    },
+    "crecimiento externo publicado 2022–25 (%)": {
+      "2022": 3.1,
+      "2023": 1.8,
+      "2024": 1.2,
+      "2025": 1.8
+    }
+  },
+  "fuentes": {
+    "csv_sha256": "3f9ae6e6dae3fc013a8ab595bc165168c0d300b5d08ac416a99ebc07b73f1331",
+    "cifras_csv_usadas": 138,
+    "lecturas_del_revisor": {
+      "actualizacion_earnout_2023": {
+        "valor": 12.4,
+        "doc": "DEU2024FR",
+        "pagina_pdf": 259,
+        "literal": "12,4"
+      },
+      "actualizacion_earnout_2024": {
+        "valor": 5.6,
+        "doc": "DEU2024FR",
+        "pagina_pdf": 259,
+        "literal": "5,6"
+      },
+      "actualizacion_earnout_2025": {
+        "valor": 0.7,
+        "doc": "URD2025",
+        "pagina_pdf": 313,
+        "literal": "0.7"
+      },
+      "linea_fiscal_earnout_2023": {
+        "valor": -15.8,
+        "doc": "DEU2024FR",
+        "pagina_pdf": 337,
+        "literal": "(15,8)"
+      },
+      "linea_fiscal_earnout_2024": {
+        "valor": 0.8,
+        "doc": "URD2025",
+        "pagina_pdf": 392,
+        "literal": "0.8"
+      },
+      "linea_fiscal_earnout_2025": {
+        "valor": -0.2,
+        "doc": "URD2025",
+        "pagina_pdf": 392,
+        "literal": "(0.2)"
+      },
+      "ajuste_earnout_2022": {
+        "valor": 2.4,
+        "doc": "URD2023",
+        "pagina_pdf": 302,
+        "literal": "2.4"
+      },
+      "ajuste_earnout_2021": {
+        "valor": -3.0,
+        "doc": "URD2022",
+        "pagina_pdf": 285,
+        "literal": "(3.0)"
+      },
+      "adq_earnouts_y_diferidos_2023": {
+        "valor": 34.4,
+        "doc": "DEU2024FR",
+        "pagina_pdf": 288,
+        "literal": "(34,4)"
+      },
+      "adq_earnouts_y_diferidos_2024": {
+        "valor": 93.9,
+        "doc": "URD2025",
+        "pagina_pdf": 342,
+        "literal": "(93.9)"
+      },
+      "adq_earnouts_y_diferidos_2025": {
+        "valor": 23.3,
+        "doc": "URD2025",
+        "pagina_pdf": 341,
+        "literal": "(23.3)"
+      },
+      "adq_lavartex_2023": {
+        "valor": 31.4,
+        "doc": "DEU2024FR",
+        "pagina_pdf": 288,
+        "literal": "(31,4)"
+      },
+      "adq_lavartex_2024": {
+        "valor": 83.2,
+        "doc": "URD2025",
+        "pagina_pdf": 342,
+        "literal": "(83.2)"
+      },
+      "adq_lavartex_2025": {
+        "valor": 19.7,
+        "doc": "URD2025",
+        "pagina_pdf": 341,
+        "literal": "(19.7)"
+      },
+      "adq_otras_flujo_neto_2023": {
+        "valor": 35.3,
+        "doc": "DEU2024FR",
+        "pagina_pdf": 288,
+        "literal": "(35,3)"
+      },
+      "adq_otras_flujo_neto_2024": {
+        "valor": 22.0,
+        "doc": "URD2025",
+        "pagina_pdf": 342,
+        "literal": "(22.0)"
+      },
+      "adq_otras_flujo_neto_2025": {
+        "valor": 37.3,
+        "doc": "URD2025",
+        "pagina_pdf": 341,
+        "literal": "(37.3)"
+      }
+    }
+  },
+  "resumen": {
+    "fallos": [],
+    "libro_contrastado": true,
+    "comparado_con_el_autor": true
+  }
+}

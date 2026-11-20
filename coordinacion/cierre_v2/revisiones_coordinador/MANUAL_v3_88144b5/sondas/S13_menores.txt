@@ -1,0 +1,56 @@
+# S13_menores.txt · 2026-11-17T14:01:19Z
+## m2
+<aux>/coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_3149128_v3.md:0
+<aux>/coordinacion/cierre_v2/manual/PROPUESTA_CONTINUIDAD_2_5.md:0
+## m3
+    if len(sys.argv) < 2:
+        print(__doc__)
+        return 2
+    return 0
+    sys.exit(main())
+## m4
+     **Límite abierto (H9):** la vuelta es siempre al paso 12. Si lo cambiado son salidas de fases anteriores (fases A, B o C, o la entrada efectiva), volver al paso 12 no basta, y el procedimiento para ese caso no está documentado: está pendiente de verificar por cambio afectado.
+  cierra nada. **Límite (H9):** vuelve siempre al paso 12; si cambian salidas de fases anteriores habría que volver al paso que las consume
+## m6
+33 35 -> 23 25 True
+39 39 -> 29 29 True
+41 41 -> 31 31 True
+42 43 -> 32 33 True
+45 45 -> 35 35 True
+46 46 -> 36 36 True
+51 51 -> 41 41 True
+README:5 en main: False
+0
+d69d4837f0e99ce30f38d3461f15cceee9a58730
+## m10
+182
+## I18 · Prueba de traspaso: documentación desfasada o incompleta (14-nov, ≈
+## I19 · Un relevo caducado no se avisa (prueba de traspaso)
+## I20 · La ficha y el informe de la V6.3 no muestran la aptitud por entradas
+## I21 · Limpiezas de la prueba de traspaso (14-nov, ≈21:03 y ≈21:40)
+bb141a50e38ee27b
+## m11 (CONTROL.json en acea175)
+34 "head": "31491289a9a13a670dd563c1b2df85dad54eb74a", · bloque: "candidata_integrada": {
+35 "estado": "957af65 + G-DOCS (3149128; 4 archivos documentales revisado · bloque: "candidata_integrada": {
+589 "revisor_propuesto": "Claude + receptor distinto", · bloque: "id": "G-MANUAL",
+762 "siguiente_accion": "Candidata con su primera integración (G-DOCS, 314 · bloque: "id": "T-CAND",
+810 "siguiente_accion": "Ensayar cambio anterior y punto real de reanudaci · bloque: "id": "T-CAMBIOS",
+817 "id": "T-TRASPASO", · bloque: "id": "T-TRASPASO",
+818 "tarea": "Traspaso sin historial y revisión de manual", · bloque: "id": "T-TRASPASO",
+841 "siguiente_accion": "Aceptado con límites (sin pasos de agentes; el re · bloque: "id": "T-TRASPASO",
+a6e982a49149b52a
+## citados de EVID: cambios acea175 -> 88144b5
+0
+## m12
+| 2b | `gh api -H "Accept: application/octet-stream" repos/jluisplagos/munger-v2/releases/assets/750814858 > .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip` (MAIN) y después `st
+## §13: prefijos nuevos de la v3
+bb141a50e38ee27b munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/INCIDENCIAS_4_14.md
+1ed5fd6ba4e2f34a munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8/scripts/comprobar_entrega_4_8.py
+ee998bbf07370987 munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_9/scripts/comprobar_entrega_4_9.py
+987be84638f72b0b munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py
+b218619edf2c27a0 munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py
+8559c88c705616dd munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py
+d52f322abfb0e502 origin/main README.md
+## sondeo: huellas
+4d0bf6a066590e1c94593cfeed20deaab1521778bc0f0a5ac583c9a5971b149f  <aux>/coordinacion/cierre_v2/manual/sondeo_literales_v3/salida.txt
+34d56aabfb8069674494cf7a549517fea21acd5d52eed47e422e8fbc8107f226  <aux>/coordinacion/cierre_v2/manual/sondeo_literales_v3/sondeo_literales_v3.py

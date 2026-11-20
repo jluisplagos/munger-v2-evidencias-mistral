@@ -1,0 +1,58 @@
+{
+  "empresa": "Koninklijke Ahold Delhaize N.V. (AD)",
+  "conclusion_atacada": {
+    "estado": "pendiente_de_investigacion",
+    "cubo": "Vigilar",
+    "accion": null,
+    "precio_si": 36.84
+  },
+  "objeciones": [
+    {
+      "id": "O1",
+      "direccion": "baja",
+      "hecho": {
+        "archivo": "texto/AD_annual-report-2023.txt",
+        "pagina": 232,
+        "cita": "The non-current income tax receivable at January 1, 2023, related to a €382 million payment to the Belgian tax authorities for an additional assessment notice issued for the tax return over 2018. In March 2023, Ahold Delhaize signed an agreement with the Belgian tax authorities relating to its tax return over 2018. Based on this agreement, Ahold Delhaize fully recovered its associated outstanding receivable in May 2023."
+      },
+      "dato_ausente": null,
+      "cuanto_mueve": {
+        "cifra_o_rango": "Precio de Sí central de 36,84 a 34,75 (−2,10 €; −5,7 %). Rango: −1,56 € (35,28) a −3,28 € (33,56). Valor por acción −1,76 / −2,27 / −2,60 € (MALO / NORMAL / BUENO); ponderado de 40,19 a 37,96; precio de Sí de la combinación adversa de 34,42 a 32,42.",
+        "cuenta": "El motor no usa C52 directamente: usa la fuga f (Historia!C58), calibrada en 2023–2025 como f = (NOPAT medio − reinversión neta orgánica media − C52) ÷ ventas medias = (2.403,6 − 79,0 − 2.312,0) ÷ 90.147,3 = 0,0001397 (coincide con la hoja). El flujo de explotación de 2023 lleva la devolución belga: en la tabla de impuestos pagados por país, Bélgica +367 en 2023 frente a (17) en 2022 (AR2023 p. 220) y (11) y (19) en 2024 y 2025 (AR2025 p. 230). Quitar 382 ÷ 3 = 127,3 al año de C52 sube f en 127,3 ÷ 90.147,3 = 0,001413 (f = 0,001553): el flujo sin crecimiento pasa de 2.769,8 a 2.639,4. Con la réplica del motor A (calc/motor.py, que reproduce 28,47 / 40,68 / 50,44 y P* 36,84 y 34,42 exactos), V = 26,71 / 38,41 / 47,84 y P* (G = 3·L) = 34,75 con 0,2/0,6/0,2 y 32,42 con 0,3/0,6/0,1. Con 367 en vez de 382: P* 34,83. Cota baja (exceso del impuesto total de 2023 sobre la media de 2024–2025: (470 + 499) ÷ 2 − 200 = 284,5, es decir 94,8 al año): P* 35,28. Cota alta: la fuga del propio año base 2025, el único de la ventana sin devolución y sin pérdidas no monetarias grandes en arrendamientos y venta de activos (1 en 2025 frente a 180 en 2023 por FreshDirect y 181 en 2024; AR2025 p. 46, AR2023 p. 64), es NOPAT 2.747,9 − reinversión 85 − FCF base del año 2.446 = 216,9 (f = 0,00235): P* 33,56. Dicho de otro modo, el flujo sin crecimiento del motor (2.770) supera en 239 (un 9 %) lo que la empresa generó en 2025 para el accionista antes de reinvertir (2.446 + 85 = 2.531). La fase C estimó ≈ 1,5 € sin crecimiento (122 ÷ 0,09 ÷ 886,9); en el motor la fuga es f × ventas de cada año y crece con ellas, por eso el efecto es mayor."
+      },
+      "por_que_cambia_la_conclusion": "Con las probabilidades centrales el precio de 36,05 ya no cumple la regla k: el precio de Sí queda en 34,75 (35,28 en la cota baja), por debajo del precio. La zona central pasa de cumple_regla_k a vigilar, así que no hay conclusión favorable que someter a D10: el estado no es «pendiente de investigación» por B69:D69 sino vigilar por precio, y el precio de Sí de la conclusión está sobrestimado en unos 2,1 € (36,84 frente a 34,75). La condición a_si de la propia fase C («una caja de partida sin la devolución belga que siga dejando el precio por debajo del precio de Sí») no se cumple hoy. El cubo Vigilar se mantiene, pero ninguna vía a Sí sobrevive a esta objeción, ni sumada a O2 y O3 (precio de Sí central 35,65 con O1 + O2; adversa 34,90 con O1 + O2 + O3)."
+    },
+    {
+      "id": "O2",
+      "direccion": "sube",
+      "hecho": {
+        "archivo": "texto/AD_q3-2026-interim-report.txt",
+        "pagina": 21,
+        "cita": "The final dividend of €0.73 per common share was paid on April 23, 2026. On August 5, 2026, the Company announced the interim dividend for 2026 of €0.51 per common share, which was paid on August 27, 2026. […] In the first three quarters of the year, 23,847,837 of the Company's own shares were repurchased at an average price of €35.41 per share. […] The number of outstanding common shares as of September 27, 2026, was 865,173,863 (December 28, 2025: 886,877,259)."
+      },
+      "dato_ausente": null,
+      "cuanto_mueve": {
+        "cifra_o_rango": "A la fecha del precio, precio de Sí central de 36,84 a 37,82–38,38 (+1,0 a +1,5 €) y de la combinación adversa de 34,42 a 35,09–35,71 (+0,7 a +1,3 €). Visto al revés: el precio de 36,05 del 13-nov-2026 equivale a 34,62 a 28-dic-2025.",
+        "cuenta": "El valor del motor está fechado a 28-dic-2025: descuenta el flujo de 2026 un año entero y divide entre las acciones de esa fecha (C55; datos_v63: «no es una valoración actualizada a 2026»). El precio (C37) es del 13-nov-2026, 320 días después, cuando el accionista ya ha cobrado los dividendos de abril y agosto y la empresa ya ha recomprado acciones. Llevo el valor a la fecha del precio al 9 %: E(t) = E0 × 1,09^(320/365) − repartos capitalizados al 9 %, con 1,09^(320/365) = 1,07848 y repartos = 643 de dividendo el 23-abr + 445 el 27-ago (1.088 en total) + 579 y 285 de recompras en el 1S y el 3T (864 en total; Q3-2026 p. 16) = 2.030,5 capitalizados; y divido entre 865,17 M de acciones (sin contar las recompras de octubre y noviembre, que con precio < valor solo subirían la cifra). Cuenta bruta: V(t) = 29,13 / 42,63 / 53,41 → P* 38,38 central y 35,71 adverso. Cuenta neta (además resto, en cada escenario, lo que el flujo del año 1 del motor excede a la guía de 2026, unos 2.100 con la definición de la empresa, menos SBC ≈ 60 y desinversiones ≈ 80 que esa definición suma (Q3-2026 p. 9, 24) = 1.960: 688,6 / 374,3 / 265,7): V(t) = 28,34 / 42,20 / 53,11 → P* 37,82 central y 35,09 adverso. Comprobación al revés, que no usa las acciones de 2026 y por tanto respeta P-O2 (a) (acciones al cierre del ejercicio base): (36,05 + 0,73 × 1,09^(204/365) + 0,51 × 1,09^(78/365)) ÷ 1,07848 = 34,62."
+      },
+      "por_que_cambia_la_conclusion": "La conclusión compara un valor de diciembre de 2025 con un precio de noviembre de 2026, que ya descuenta 1,24 € por acción de dividendos cobrados y un 2,7 % de acciones recompradas a 35,41 €. A la misma fecha, el colchón del caso central pasa de 0,79 € a 1,8–2,3 € y la distancia de la combinación adversa se reduce de 1,63 € a 0,34–0,96 €. Por sí sola no supera la comprobación conjunta (35,09–35,71 < 36,05), pero junto con O3 la supera: 37,04 ≥ 36,05 con 0,2/0,7/0,1, y entonces el orden de mando da comprar / cubo Sí. Con la variante de ocho años de O3 se queda en 36,00, a 0,05 € del precio. Frente a O1 no basta: O1 + O2 deja el precio de Sí central en 35,65."
+    },
+    {
+      "id": "O3",
+      "direccion": "sube",
+      "hecho": {
+        "archivo": "texto/AD_annual-report-2025.txt",
+        "pagina": 64,
+        "cita": "The multiple-year overview is provided for 10 years. However, the figures prior to 2018 are not comparable because they have not been restated for the impact of IFRS 16. In addition, it should be noted that the former Delhaize business is included as of July 24, 2016."
+      },
+      "dato_ausente": null,
+      "cuanto_mueve": {
+        "cifra_o_rango": "Precio de Sí de la combinación adversa de 34,42 a 36,15 (+1,73 €) con el techo corregido a 0,2; con la variante de solo ocho años comparables, 35,23 (+0,81 €).",
+        "cuenta": "La combinación adversa que hace fallar la comprobación (0,3/0,6/0,1) toma el techo 0,3 de p(MALO) de añadir 2016 a 2023 y 2024, «con un margen NIIF del 3,19 % y el subyacente más bajo de la serie (3,8 %, AR2025 p. 64)». Las dos cifras son anteriores a la NIIF 16 y la misma página dice que no son comparables. La reexpresión de 2018 mide el efecto: el resultado operativo pasó de 2.395 a 2.623 (+228, +0,36 puntos sobre 62.791 de ventas) y el subyacente de 2.554 a 2.761 (+0,33 puntos, del 4,1 % al 4,4 %) (AR2019 p. 39, «2018 as reported / Effect of IFRS 16 adoption / 2018 restated»). En términos comparables, 2016 tendría un margen NIIF de ≈ 3,55 % (por encima del 3,2 % que las fases B y C usan como nivel del MALO) y un subyacente de ≈ 4,1 % (igual que 2023 y por encima del 4,0 % de 2024–2025). No es un año de MALO por ninguno de los dos criterios de la fase C. Sin él quedan 2023 y 2024: 2 de 10, de modo que el techo es 0,2, igual al suelo. Con p(BUENO) en el suelo 0,1 de la fase C, la combinación es 0,2/0,7/0,1. Los V no cambian (28,47 / 40,68 / 50,44): 0,7 × (40,68 − P) + 0,1 × (50,44 − P) = 3 × 0,2 × (P − 28,47), luego P = 50,603 ÷ 1,4 = 36,15. Si en vez de ajustar 2016–2017 se descartan (8 años), el MALO pesa 2/8 = 0,25 en los dos extremos: la adversa 0,25/0,65/0,1 da 35,23 y la central 0,25/0,55/0,2 da 35,88."
+      },
+      "por_que_cambia_la_conclusion": "El techo 0,3 es lo único que hace sobrevive = false (34,42 < 36,05), y se apoya en un dato que la propia empresa declara no comparable. La fase C también se contradice: en su §6 dice que de 2016–2017 «ninguna ancla de las palancas usa esos años», pero su techo de B69 usa 2016. Con 2016 ajustado a la NIIF 16 y la cuenta de diez años de la propia fase C, la combinación adversa da 36,15 ≥ 36,05. Entonces sobrevive = true, y por el orden de mando la conclusión es comprar / cubo Sí, por 0,10 €, sin colchón alguno. Advertencia: si se descartan los dos años en lugar de ajustarlos, ni la adversa (35,23) ni la central (35,88) cumplen la regla. La dirección de esta objeción depende, por tanto, de ajustar y no descartar. Pierde su efecto si se acepta O1."
+    }
+  ],
+  "sin_objeciones_validas": false,
+  "nota": "Réplica exacta del motor A en calc/motor.py (reproduce V = 28,47 / 40,68 / 50,44, ponderado 40,19, P* 36,84 y 34,42 y el valor sin crecimiento 34,70). Todas las cuentas están en calc/objeciones_calc.py (salida en calc/salida_objeciones_calc.txt); ninguna toca el expediente ni la tasa del 9 %. Las citas se comprobaron contra su página con calc/verificar_citas2.py. En O1 la extracción del PDF intercala en las mismas líneas texto de otra columna; la cita es la frase del informe sin ese texto. Cómo interactúan: O1 domina. Con O1 sola, en cualquiera de sus variantes (35,28 / 34,75 / 33,56), el precio no cumple la regla ni con las probabilidades centrales. Ninguna combinación con O2 y O3 llega a Sí. El mejor caso es O1 en su cota baja más O2: deja el central en 36,21, pero la adversa con O3 queda en 35,45 < 36,05, así que el resultado sigue siendo pendiente y Vigilar. El cubo Vigilar resiste en neto. Con la cifra central de O1 no resisten ni el estado «pendiente de investigación» por B69:D69 ni el precio de Sí de 36,84. Con O1 + O2, el precio de Sí a la fecha del precio es ≈ 35,65 con las probabilidades centrales (34,43–36,21 según la variante de O1). Si O1 se rechaza, O2 + O3 llevan a Sí (37,04). Ninguna objeción lleva a No. Descartadas por falta de hecho o de efecto suficiente: (1) el tipo impositivo medio de cinco años, porque el 22,4 % de 2025 «resulted from a changed mix of earnings between jurisdictions and one-time events» (AR2025 p. 46); (2) el margen BUENO por encima del máximo, ya justificado como G5 (−0,4 a −0,8 €); (3) el margen NORMAL de 0,04, que sostiene el 4,0 % NIIF acumulado de 2026 (Q3-2026 p. 3); (4) los planes multiempresa, con una parte proporcional del déficit de 50 (AR2025 p. 254); (5) el precio de fuente secundaria, que la fase C ya señala; (6) Tesco Chequia y Eslovaquia, sin precio ni rentabilidad en texto/ para valorarla."
+}

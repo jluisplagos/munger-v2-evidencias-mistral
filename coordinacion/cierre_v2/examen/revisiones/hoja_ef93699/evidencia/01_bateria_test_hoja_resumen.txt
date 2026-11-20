@@ -1,0 +1,66 @@
+PASA  · frases: no corta en «p. 104», «EE. UU.» ni iniciales; corta ante «2)»
+PASA  · limpiar: quita corchetes de fuente y referencias a celdas, conserva cifras y paréntesis con contenido
+PASA  · limpiar: un elemento de referencia dentro de una parte se quita («(9,4 %, Historia C33:D33)» → «(9,4 %)»)
+PASA  · limpiar: conserva las citas de Munger y los paréntesis con valores («(C33 = −1,35)», «(p(MALO) a 0,3)»)
+PASA  · limpiar: quita el ordinal inicial «1)»
+PASA  · verificar_origen_frases: una frase con una cifra añadida, un campo inexistente o un índice fuera de rango se rechazan
+PASA  · Hermes: la hoja sale (código 0, hoja_resumen.md y hoja_resumen.json) · origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor ponderado)
+PASA  · Hermes: no cambia ningún archivo del expediente; solo añade la hoja (y nada de copias temporales) · cambiados [] · nuevos ['hoja_resumen.json', 'hoja_resumen.md']
+PASA  · Hermes: el veredicto coincide con la ficha (estado, cubo, acción, precio de Sí, precio, zona, ponderado)
+PASA  · Hermes: una sola línea de veredicto con cubo, acción, precio de Sí redondeado y «experimental; no apto para dinero real» · **Veredicto del personaje** — concluido · cubo **Vigilar** · acción **esperar** · precio de Sí **757,05 €** (precio actual 1.312,50 €, caro:
+PASA  · Hermes: la aptitud sigue a la ficha (si la ficha la declara, se cita; si no, no se presume)
+PASA  · Hermes: el párrafo tiene entre 5 y 8 frases, cada una con su número de origen en la hoja · 6 frases
+PASA  · Hermes: el párrafo empieza por la tesis (qué hace la empresa), incluye la tesis inversa y «a No»
+PASA  · Hermes: ninguna frase del texto llano carece de origen (frase exacta de fase_c.json, limpieza reproducible, sin cifras nuevas) · 12 frases
+PASA  · Hermes: la tesis y la tesis inversa de fase_c.json son las del libro evaluado (Análisis!B101, B102)
+PASA  · Hermes: --verificar-origen comprueba el origen (código 0) · ORIGEN COMPROBADO: 12 frases
+PASA  · Hermes: una frase inventada en la hoja se detecta (--verificar-origen, código 4) · gana' | frase del párrafo que no está en hoja_resumen.md: 'Con un margen EBIT por encima del 32 % los diez años y del 3'
+PASA  · Hermes: tasas 7, 8, 9, 10 y 11 %, cada copia con su r leída en Análisis!C56 tras el recálculo
+PASA  · Hermes: al 9 % la copia reproduce EXACTAMENTE el precio de Sí oficial (y ponderado, zona, V, crecimiento implícito) · 757.0536909228641 vs 757.0536909228641
+PASA  · Hermes: el precio de Sí y el ponderado bajan al subir la tasa, y el crecimiento que exige el precio sube
+PASA  · Hermes: cada fila cuadra con la regla de la escalera (P* con k = 3.0 sobre V y las mismas probabilidades) y su zona
+PASA  · Hermes: al 10 % las cifras coinciden con el libro recalculado de forma independiente (B78:D78, C83, C86) · [487.207025190306, 734.821473847302, 979.318473281212] vs [487.207025190306, 734.821473847302, 979.318473281212]
+PASA  · Hermes: la tabla de la hoja muestra las cifras redondeadas de cada fila y rotula la heredada
+PASA  · Hermes: rótulos «el 9 % es provisional», «la prueba del 10 % es información, no condición» y firmeza según el tramo 8–10 %
+PASA  · Hermes: tres predicciones de Palancas A38:C40 (fase C) con fecha y probabilidad, iguales a las de la ficha
+PASA  · Hermes: fechas por separado (análisis, datos base, precio, acciones, fuentes) y versión del personaje
+PASA  · Hermes: la hoja no parece una auditoría (sin línea «Material auditado», H2 no la aprueba) ni tiene línea «Veredicto:»
+PASA  · Hermes: la huella de la ficha leída está en la hoja
+PASA  · Hermes: --comprobar da la hoja por vigente (código 0) · HOJA VIGENTE: lee la ficha 93a880c4d718550f… y el material actual del expediente
+PASA  · Hermes: si la ficha cambia, --comprobar avisa de que la hoja está desactualizada (código 4) · .json cambió. Regenerarla: hoja_resumen.py /tmp/claude-0/revision_hoja/tmp/test_hoja_cqfs15r7/Hermes
+PASA  · Hermes: sin cierre_vigente.json, la hoja se regenera con aviso y guarda la huella nueva · AVISO: la ficha cambió desde la hoja anterior (93a880c4d718550f… → a7fc8bd246b64c53…): se regenera
+OK: /tmp/claude-0/rev
+PASA  · Vidrala: la hoja sale (código 0, hoja_resumen.md y hoja_resumen.json) · origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor ponderado)
+PASA  · Vidrala: no cambia ningún archivo del expediente; solo añade la hoja (y nada de copias temporales) · cambiados [] · nuevos ['hoja_resumen.json', 'hoja_resumen.md']
+PASA  · Vidrala: el veredicto coincide con la ficha (estado, cubo, acción, precio de Sí, precio, zona, ponderado)
+PASA  · Vidrala: una sola línea de veredicto con cubo, acción, precio de Sí redondeado y «experimental; no apto para dinero real» · **Veredicto del personaje** — concluido · cubo **Vigilar** · acción **esperar** · precio de Sí **56,00 €** (precio actual 90,10 €, caro: por
+PASA  · Vidrala: la aptitud sigue a la ficha (si la ficha la declara, se cita; si no, no se presume)
+PASA  · Vidrala: el párrafo tiene entre 5 y 8 frases, cada una con su número de origen en la hoja · 6 frases
+PASA  · Vidrala: el párrafo empieza por la tesis (qué hace la empresa), incluye la tesis inversa y «a No»
+PASA  · Vidrala: ninguna frase del texto llano carece de origen (frase exacta de fase_c.json, limpieza reproducible, sin cifras nuevas) · 13 frases
+PASA  · Vidrala: la tesis y la tesis inversa de fase_c.json son las del libro evaluado (Análisis!B101, B102)
+PASA  · Vidrala: --verificar-origen comprueba el origen (código 0) · ORIGEN COMPROBADO: 13 frases
+PASA  · Vidrala: una frase inventada en la hoja se detecta (--verificar-origen, código 4) ·  con' | frase del párrafo que no está en hoja_resumen.md: 'Leo que gana por fabricar cerca del cliente y trasladar la e'
+PASA  · Vidrala: tasas 7, 8, 9, 10 y 11 %, cada copia con su r leída en Análisis!C56 tras el recálculo
+PASA  · Vidrala: al 9 % la copia reproduce EXACTAMENTE el precio de Sí oficial (y ponderado, zona, V, crecimiento implícito) · 56.002005168244615 vs 56.002005168244615
+PASA  · Vidrala: el precio de Sí y el ponderado bajan al subir la tasa, y el crecimiento que exige el precio sube
+PASA  · Vidrala: cada fila cuadra con la regla de la escalera (P* con k = 3.0 sobre V y las mismas probabilidades) y su zona
+PASA  · Vidrala: al 10 % las cifras coinciden con el libro recalculado de forma independiente (B78:D78, C83, C86) · [39.6726658829783, 52.8602723138018, 67.8193723494558] vs [39.6726658829783, 52.8602723138018, 67.8193723494558]
+PASA  · Vidrala: la tabla de la hoja muestra las cifras redondeadas de cada fila y rotula la heredada
+PASA  · Vidrala: rótulos «el 9 % es provisional», «la prueba del 10 % es información, no condición» y firmeza según el tramo 8–10 %
+PASA  · Vidrala: tres predicciones de Palancas A38:C40 (fase C) con fecha y probabilidad, iguales a las de la ficha
+PASA  · Vidrala: fechas por separado (análisis, datos base, precio, acciones, fuentes) y versión del personaje
+PASA  · Vidrala: la hoja no parece una auditoría (sin línea «Material auditado», H2 no la aprueba) ni tiene línea «Veredicto:»
+PASA  · Vidrala: la huella de la ficha leída está en la hoja
+PASA  · Vidrala: --comprobar da la hoja por vigente (código 0) · HOJA VIGENTE: lee la ficha e1ce40400a1b24cd… y el material actual del expediente
+PASA  · Vidrala: si la ficha cambia, --comprobar avisa de que la hoja está desactualizada (código 4) · json cambió. Regenerarla: hoja_resumen.py /tmp/claude-0/revision_hoja/tmp/test_hoja_cqfs15r7/Vidrala
+PASA  · Vidrala: con cierre_vigente.json, una ficha que no es la del cierre no genera hoja (código 3) y no toca la anterior · EXPEDIENTE NO CERRADO O INCOMPLETO: ficha.json no es la del cierre vigente (cierre_vigente.json → ficha_sha256)
+PASA  · expediente sin terminar: no se genera hoja (código 3) · ADO O INCOMPLETO: el pipeline no ha terminado (estado_pipeline.json sin «fin» o sin estado_analisis)
+PASA  · libro evaluado distinto del de la ficha: no se genera hoja (código 3) · : el libro evaluado no es el de la ficha (ficha.hashes.libro_evaluado 0016663a4802… ≠ 0153079bf6db…)
+PASA  · falta fase_c.json: no se genera hoja (código 3) · EXPEDIENTE NO CERRADO O INCOMPLETO: faltan archivos del cierre: fase_c.json
+PASA  · los expedientes originales del paquete no cambian
+60/60 pruebas de la hoja resumen PASAN
+
+real	0m54.037s
+user	0m46.033s
+sys	0m12.221s

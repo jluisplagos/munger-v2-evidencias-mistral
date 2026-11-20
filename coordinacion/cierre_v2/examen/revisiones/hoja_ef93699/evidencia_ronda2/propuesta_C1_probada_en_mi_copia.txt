@@ -1,0 +1,44 @@
+### (revisor) La corrección que propongo para C1 (try/except alrededor del bloque que archiva la hoja en pipeline.py), probada EN MI COPIA del paquete.
+### No es código de la rama: pipeline.py se sustituye solo durante esta prueba y se restaura después (huella comprobada al final).
+--- diferencia respecto a 6406a99:
+>         try:
+>             _hoja = [n for n in CIE.HOJA_RESUMEN if os.path.isfile(os.path.join(a.carpeta, n))]
+>             if _hoja:
+>                 _base = os.path.join(a.carpeta, "historial_hojas_resumen")
+>                 _n = 1 + (len([x for x in os.listdir(_base) if os.path.isdir(os.path.join(_base, x))]) if os.path.isdir(_base) else 0)
+>                 _dest = os.path.join(_base, f"{_n:02d}_relanzamiento_" + dt.datetime.now().strftime("%Y%m%dT%H%M%S"))
+>                 CIE.archivar_hoja_resumen(a.carpeta, _dest, "relanzamiento del pipeline" + (" con --reiniciar" if a.reiniciar else f" con --desde {a.desde}"))
+>                 print(f"HOJA RESUMEN ARCHIVADA COMO NO VIGENTE ({os.path.relpath(_dest, a.carpeta)}): el pipeline se relanza")
+>         except Exception as _e:  # (propuesta C1 del revisor) la hoja es material de estudio: nunca detiene la vía oficial
+>             print(f"AVISO: la hoja resumen no se pudo archivar ({type(_e).__name__}: {str(_e)[:120]}); el pipeline continúa")
+
+### A9b' · pipeline.py EXP --desde 13 (obstáculo puesto: archivo historial_hojas_resumen; fase_c.json alterado; hoja dentro)
+antes:
+   estado_pipeline.json: presente · salidas oficiales en el expediente: cierre_vigente.json ficha.json informe.md  · hoja en el expediente: hoja_resumen.json hoja_resumen.md  · historial_hojas_resumen sigue siendo un archivo: sí · historial_cierres: 01_ca33c29a97ebc3ed 02_ca33c29a97ebc3ed 
+   último antecedente (02_ca33c29a97ebc3ed): RETIRADA.json auditoria_en_el_momento_de_la_retirada.md cierre_vigente.json ficha.json informe.md rastro_previo 
+   hoja_resumen.py --comprobar → código 4 · HOJA NO VIGENTE: el análisis oficial no está vigente: el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva. Retirar la hoja: ya no resume un an�
+llamada → código 10 · salida:
+      AVISO: la hoja resumen no se pudo archivar (NotADirectoryError: [Errno 20] Not a directory: '/tmp/claude-0/revision_hoja_r2/relanz/C1_A9b/EmpresaX/historial_hojas_resumen/01_relanzamie); el pipeline continúa
+      SALIDAS OFICIALES ARCHIVADAS (historial_cierres/03_3a1d57d4416838d1): el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+      [paso 13] solicitud de auditoría SA-2dc0742db4c8d549 registrada para el material d3ffb7ee4e043fff
+      ESPERANDO: verificacion → auditoria.md (solicitud SA-2dc0742db4c8d549); auditoria.md es una auditoría ya usada (su huella SHA-256 es la de una respuesta anterior): no responde a la solicitud vigente (ver ESPERANDO.md y prompts_generados/
+después:
+   estado_pipeline.json: presente · salidas oficiales en el expediente:  · hoja en el expediente:  · historial_hojas_resumen sigue siendo un archivo: sí · historial_cierres: 01_ca33c29a97ebc3ed 02_ca33c29a97ebc3ed 03_3a1d57d4416838d1 
+   último antecedente (03_3a1d57d4416838d1): HOJA_RESUMEN_NO_VIGENTE.json RETIRADA.json auditoria_en_el_momento_de_la_retirada.md cierre_vigente.json ficha.json hoja_resumen.NO_VIGENTE.json hoja_resumen.NO_VIGENTE.md informe.md rastro_previo 
+   hoja_resumen.py --comprobar → código 4 · SIN HOJA: no hay hoja_resumen.md y hoja_resumen.json en /tmp/claude-0/revision_hoja_r2/relanz/C1_A9b/EmpresaX
+
+### A9c' · pipeline.py EXP --reiniciar (obstáculo puesto: archivo historial_hojas_resumen; fase_c.json alterado; hoja dentro)
+antes:
+   estado_pipeline.json: presente · salidas oficiales en el expediente: cierre_vigente.json ficha.json informe.md  · hoja en el expediente: hoja_resumen.json hoja_resumen.md  · historial_hojas_resumen sigue siendo un archivo: sí · historial_cierres: 01_ca33c29a97ebc3ed 02_ca33c29a97ebc3ed 
+   último antecedente (02_ca33c29a97ebc3ed): RETIRADA.json auditoria_en_el_momento_de_la_retirada.md cierre_vigente.json ficha.json informe.md rastro_previo 
+   hoja_resumen.py --comprobar → código 4 · HOJA NO VIGENTE: el análisis oficial no está vigente: el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva. Retirar la hoja: ya no resume un an�
+llamada → código 10 · salida:
+      AVISO: la hoja resumen no se pudo archivar (NotADirectoryError: [Errno 20] Not a directory: '/tmp/claude-0/revision_hoja_r2/relanz/C1_A9c/EmpresaX/historial_hojas_resumen/01_relanzamie); el pipeline continúa
+      SALIDAS OFICIALES ARCHIVADAS (historial_cierres/03_3a1d57d4416838d1): el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+      ESPERANDO: fase_c_turno2 → fase_c.json (ver ESPERANDO.md y prompts_generados/)
+después:
+   estado_pipeline.json: presente · salidas oficiales en el expediente:  · hoja en el expediente:  · historial_hojas_resumen sigue siendo un archivo: sí · historial_cierres: 01_ca33c29a97ebc3ed 02_ca33c29a97ebc3ed 03_3a1d57d4416838d1 
+   último antecedente (03_3a1d57d4416838d1): HOJA_RESUMEN_NO_VIGENTE.json RETIRADA.json auditoria_en_el_momento_de_la_retirada.md cierre_vigente.json ficha.json hoja_resumen.NO_VIGENTE.json hoja_resumen.NO_VIGENTE.md informe.md rastro_previo 
+   hoja_resumen.py --comprobar → código 4 · SIN HOJA: no hay hoja_resumen.md y hoja_resumen.json en /tmp/claude-0/revision_hoja_r2/relanz/C1_A9c/EmpresaX
+
+pipeline.py restaurado en mi copia: huella 098cfc06eae0bd97… · en el manifiesto de 6406a99: 1 coincidencia

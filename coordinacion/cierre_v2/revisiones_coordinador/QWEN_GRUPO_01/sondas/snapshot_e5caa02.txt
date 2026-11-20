@@ -1,0 +1,11 @@
+$ git diff --stat e5caa02 953af02 -- automation/coordination/reviews/qwen-bank-group-01/
+(sin salida = sin cambios)
+$ git diff --stat c898af7^ e5caa02 -- automation/coordination/reviews/qwen-bank-group-01/
+ .../qwen-bank-group-01/postprocessed_report.json   |   1 +
+ .../qwen-bank-group-01/postprocessed_report.md     | 130 +++++++++++++++++++++
+ 2 files changed, 131 insertions(+)
+$ git ls-tree --name-only c898af7^ automation/coordination/reviews/qwen-bank-group-01/
+automation/coordination/reviews/qwen-bank-group-01/report.json
+automation/coordination/reviews/qwen-bank-group-01/report.md
+automation/coordination/reviews/qwen-bank-group-01/reservation.json
+automation/coordination/reviews/qwen-bank-group-01/sources.json

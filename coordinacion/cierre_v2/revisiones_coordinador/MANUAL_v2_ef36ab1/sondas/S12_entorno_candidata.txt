@@ -1,0 +1,29 @@
+$ cd <candidata>/munger_v2_r1 && python3 -I -B -c 'import hashlib,os
+L=open("MANIFIESTO_SHA256.txt",encoding="utf-8").read().splitlines()
+e=[l.split("  ",1) for l in L[1:] if l.strip()]
+ok=sum(1 for h,p in e if os.path.isfile(p) and hashlib.sha256(open(p,"rb").read()).hexdigest()==h)
+aus=sum(1 for h,p in e if not os.path.isfile(p))
+print("entradas",len(e),"iguales",ok,"ausentes",aus)'
+entradas 7762 iguales 7762 ausentes 0
+[código 0]
+
+$ git -C <candidata> status --short | wc -l
+0
+[código 0]
+
+$ git -C <candidata> status --short --ignored | wc -l
+682
+[código 0]
+
+$ git -C <candidata> status --short --ignored -- '*.json' | wc -l
+83
+[código 0]
+
+$ cat $(git -C <candidata> rev-parse --git-common-dir)/info/exclude | grep -v '^#' | wc -l
+83
+[código 0]
+
+$ ls -la <home>/e_work/libreoffice.lock
+-rw-r--r-- 1 root root 0 Nov 16 21:24 <home>/e_work/libreoffice.lock
+[código 0]
+

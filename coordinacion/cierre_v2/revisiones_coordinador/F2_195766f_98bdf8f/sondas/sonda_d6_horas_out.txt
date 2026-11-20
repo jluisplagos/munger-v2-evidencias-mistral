@@ -1,0 +1,37 @@
+$ git log --format="%h author=%ad committer=%cd" --date=iso-strict (commits citados en COMANDOS.md)
+90329a1 author=2026-11-16T21:16:13+00:00 committer=2026-11-16T21:16:13+00:00
+e94ee7c author=2026-11-16T21:32:34+00:00 committer=2026-11-16T21:32:34+00:00
+c7716a0 author=2026-11-16T21:42:17+00:00 committer=2026-11-16T21:42:17+00:00
+223f16d author=2026-11-16T21:50:14+00:00 committer=2026-11-16T21:50:14+00:00
+52fb120 author=2026-11-16T22:07:15+00:00 committer=2026-11-16T22:07:15+00:00
+868f448 author=2026-11-16T22:07:42+00:00 committer=2026-11-16T22:07:42+00:00
+195766f author=2026-11-17T09:35:37+00:00 committer=2026-11-17T09:35:37+00:00
+e9f76a9 author=2026-11-17T09:39:34+00:00 committer=2026-11-17T09:39:34+00:00
+9873234 author=2026-11-17T09:41:31+00:00 committer=2026-11-17T09:41:31+00:00
+c761cc8 author=2026-11-17T09:43:47+00:00 committer=2026-11-17T09:43:47+00:00
+
+$ grep de horas en COMANDOS.md @c761cc8
+5:Bloque F-REV: commits 90329a1 2026-11-16T21:16:13Z (F1 W1–W3), e94ee7c 21:32:34Z (C20),
+6:c7716a0 21:42:17Z (CSV). Entorno: sandbox `/workspace`, repo auxiliar clonado en
+73:## Bloque C20 (mismo bloque F-REV, segunda entrega de Claude) · commit e94ee7c 2026-11-16T21:32:34Z
+97:## Bloque CSV (F-REV, tercera entrega de Claude) · commit c7716a0 2026-11-16T21:42:17Z
+114:## Bloque B-PM1 (contraste documental del dossier de Mistral B) · commit 223f16d 2026-11-16T21:50:14Z (evidencia 21:48:58Z)
+127:## Bloque Cola 2 (F-B3/F-C1, paquete de preparacion) · commit 52fb120 2026-11-16T22:07:15Z; checkpoint 868f448 22:07:42Z
+
+$ git diff 9873234 c761cc8 -- COMANDOS.md (vacio = sin cambios)
+0
+
+$ ¿COMANDOS.md @c761cc8 tiene bloque F2?
+1
+
+$ evidencia verificacion_fuentes_y_runs.txt (hora interna)
+2026-11-16T21:48:58Z
+$ hora interna de evidencias F2
+d1_d2_inventario_y_huellas.txt: 2026-11-17T09:34:27Z
+d3_verificar_contrato_c.txt: 
+d3_citas_producto_957af65.txt: 
+d6_horas_reales_commits.txt: 2026-11-17T09:39:34Z
+d7_extractor_ruta_argumento.txt: 
+
+$ commits de U3 (coordinacion) y de la rama F en el tiempo
+95d9e46 2026-11-17T09:36:01+00:00 U3 draft: motor C contract from the real engine, selection protocol and two unverified candidates; official downloads blocked

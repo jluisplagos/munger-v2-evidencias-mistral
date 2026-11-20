@@ -1,0 +1,30 @@
+DETECTADO    rc=1 · M01 línea fiscal 2022: valor y literal 0,5 → 0,6
+      {"controles": 107, "fallidos": ["línea fiscal de 2022: con la cifra reexpresada (2,4) NO cuadra dentro de la cota"], "errores": ["línea fiscal de 2022: con la cifra reexpresada (2,4) NO cuadra dentro de la cota", "lecturas con el valor distinto de su literal, o no encontradas en su línea o en su pág
+DETECTADO    rc=1 · M02 línea fiscal 2022: página 345 → 344
+      {"controles": 107, "fallidos": [], "errores": ["lecturas con el valor distinto de su literal, o no encontradas en su línea o en su página: ['fiscal_earnout_2022']"], "lecturas": 103, "lecturas_comprobadas_en_su_linea": 102, "pasajes": 19, "pasajes_encontrados": 19, "busquedas_sin_resultado_confirmad
+DETECTADO    rc=1 · M03 APM 2021 neto 3,7: posición −2 → −1 (columna de 2020)
+      {"controles": 107, "fallidos": [], "errores": ["lecturas con el valor distinto de su literal, o no encontradas en su línea o en su página: ['apm_costes_y_earnout_2021_neto_de_impuesto']"], "lecturas": 103, "lecturas_comprobadas_en_su_linea": 102, "pasajes": 19, "pasajes_encontrados": 19, "busquedas_
+DETECTADO    rc=1 · M04 APM 2021 neto: valor 3,7 → 4,5 con literal 3.7 (valor distinto del literal)
+      {"controles": 107, "fallidos": ["2021: con el redondeo de las cifras impresas, al menos 2,4 de los 3,0 del ajuste de earnout llevan efecto fiscal en la medida neta de impuesto", "2021: para que el ajuste de earnout no llevara efecto fiscal, los costes de transacción tendrían que llevar más del 60 %"
+DETECTADO    rc=1 · M05 tipo teórico 2021: 28,41 → 25,83 (valor y literal)
+      {"controles": 107, "fallidos": ["tipo teórico de 2021: el mismo en el URD 2021 y en el URD 2022", "reestructuración de 2021: el intervalo de redondeo de su tipo implícito queda por debajo del tipo teórico (no es un tipo único)"], "errores": ["tipo teórico de 2021: el mismo en el URD 2021 y en el URD
+DETECTADO    rc=1 · M06 huella de la presentación de 2024 alterada
+      {"controles": 107, "fallidos": [], "errores": ["huella de PDF distinta: ['REL_FY2024_PRES']"], "lecturas": 103, "lecturas_comprobadas_en_su_linea": 103, "pasajes": 19, "pasajes_encontrados": 19, "busquedas_sin_resultado_confirmadas": 2}
+DETECTADO    rc=1 · M07 pasivo 2024 cierre 23,9 → 23,1 (valor y literal)
+      {"controles": 107, "fallidos": ["pasivo ligado a adquisiciones 2025: saldo final = inicial + altas + revaluación + actualización − pagos", "cierre de 2024: pasivo a valor razonable = aplazado corriente + no corriente (cota 0,15)"], "errores": ["pasivo ligado a adquisiciones 2025: saldo final = inici
+DETECTADO    rc=1 · M08 conciliación 2024: actualización (5,6) → (6,5) (valor y literal)
+      {"controles": 107, "fallidos": ["2024: conciliación publicada, cargo en resultados = suma de sus partidas (cota 0,5)", "2024: actualización del earnout en la conciliación = fila verificada"], "errores": ["2024: conciliación publicada, cargo en resultados = suma de sus partidas (cota 0,5)", "2024: ac
+DETECTADO    rc=1 · M09 referencia −11,190 → −11,290
+      {"controles": 107, "fallidos": ["propuesta §5.1: con 2021–22, flujo sin crecimiento −11,190"], "errores": ["propuesta §5.1: con 2021–22, flujo sin crecimiento −11,190"], "lecturas": 103, "lecturas_comprobadas_en_su_linea": 103, "pasajes": 19, "pasajes_encontrados": 19, "busquedas_sin_resultado_confi
+DETECTADO    rc=1 · M10 regla N1 con signo contrario (suma el ajuste en lugar de quitarlo)
+      {"controles": 107, "fallidos": ["propuesta §5.1: N1 en 2023–25, flujo sin crecimiento −11,605", "propuesta §5.1: N1 en 2023–25, año 11 NORMAL −18,609", "propuesta §5.1: con 2021–22, flujo sin crecimiento −11,190", "propuesta §5.1: con 2021–22, año 11 NORMAL −18,142", "propuesta §5.1: diferencia de a
+DETECTADO    rc=1 · M11 pasaje inexistente
+      {"controles": 107, "fallidos": [], "errores": ["lecturas con el valor distinto de su literal, o no encontradas en su línea o en su página: ['tipo efectivo de Francia en 2023, por ajustes de earnout no deducibles']"], "lecturas": 103, "lecturas_comprobadas_en_su_linea": 103, "pasajes": 19, "pasajes_e
+DETECTADO    rc=1 · M12 búsqueda sin resultado: página con línea de earnout (URD 2023 p.345 en lugar de URD 2022 p.326)
+      {"controles": 107, "fallidos": [], "errores": ["lecturas con el valor distinto de su literal, o no encontradas en su línea o en su página: ['conciliación fiscal de 2021 en el URD 2022']"], "lecturas": 103, "lecturas_comprobadas_en_su_linea": 103, "pasajes": 19, "pasajes_encontrados": 19, "busquedas_
+DETECTADO    rc=1 · M13 τ de proyección de la ventana en lugar de cinco años (cambia la convención E8.1 sin decirlo)
+      {"controles": 107, "fallidos": ["τ de 5 años = Historia!C52", "flujo sin crecimiento A0 = referencia de E9 (248,496395342656)", "Motor!BF6 sin ajustes = libro", "Motor!BF7 sin ajustes = libro", "Motor!BF8 sin ajustes = libro", "propuesta §5.1: N1 en 2023–25, flujo sin crecimiento −11,605", "propuest
+DETECTADO    rc=1 · M14 actualización tratada como deducible en el cuadre (sin ella debe NO cuadrar): quita la actualización del dato
+      {"controles": 107, "fallidos": ["línea fiscal de 2023 = (ajuste − actualización) × tipo teórico, dentro de la cota de redondeo", "línea fiscal de 2024 = (ajuste − actualización) × tipo teórico, dentro de la cota de redondeo", "línea fiscal de 2025 = (ajuste − actualización) × tipo teórico, dentro de
+
+Mutantes: 14; no detectados: 0

@@ -1,0 +1,167 @@
+Estado OFICIAL (ficha.json y estado_pipeline.json) de los expedientes de prueba y qué hizo hoja_resumen.py
+
+== Elis_414
+   ficha: estado pendiente_de_datos · cubo Vigilar · acción None · precio_objetivo None · plantilla V6.3 · cierre {'auditoria': 'APROBADO', 'material_auditado': 'e122326117abed07'}
+   estado_pipeline: estado pendiente_de_datos · paso 14 · fin 2026-11-14T18:56:40 · auditoría APROBADO
+   causa_si_no_concluido: {"tipo": "falta_de_datos", "detalle": "extracto_v63: Reparto del capex entre mantenimiento y crecimiento: no publicado.: Decide cuánto de la inversión propia por encima de su amortización (+136,7 de media en 2023–25, cálculo propio con [DEU2024, PDF p. 296; URD2025, PDF p. 350]) es crecimiento: con todo reposición el precio de Sí corregido es ≈11,08 € y con todo crecimiento ≈21,89 € (réplica del motor fuera de la hoj
+   fundamento: pendiente de datos: el reparto del capex entre reposición y crecimiento, que Elis no publica [URD2025, PDF p. 312], decide el precio de Sí; además, dos hipótesis sin fundamento suficiente (ancla f del motor A en Historia C58 dentro de Análisis!C62, hallazgo F1; rendimiento del capital orgánico en Palancas C16, D16, C18, D18, sin base para acotar los techos). Sin comprobación conjunta: la conclusión provisional no es 
+   aptitud_de_uso en la ficha: False · verificacion_entradas: no hay bloque
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/Elis_414/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor pond
+   hoja, línea de veredicto: **Veredicto del personaje** — pendiente de datos · cubo **Vigilar** · acción **sin acción (estado pendiente de datos)** · precio de Sí **7,30 €** (precio actual 24,18 €, caro: por encima del valor ponderado) · **experimental; no apto para dinero real** — la ficha no declara la aptitud de uso, es anterior a ese bloque: no se pres
+
+== Vidrala_412_bloqueo
+   ficha: estado pendiente_de_datos · cubo Vigilar · acción None · precio_objetivo None · plantilla V6.4 experimental · cierre {'auditoria': 'APROBADO', 'material_auditado': '6111eb9cf586324c'}
+   estado_pipeline: estado pendiente_de_datos · paso 14 · fin 2026-11-13T00:13:00 · auditoría APROBADO
+   causa_si_no_concluido: {"tipo": "falta_de_datos", "detalle": "objetivo bloqueado (protocolo experimental bloqueo_del_objetivo; ensayo, no adopción): lo condicionan PM1.estructura, PM1.familia, PM1.parametro. Protocolo «bloqueo_del_objetivo» (ensayo, no adoptado). Conclusión provisional esperar por precio: 90,10 está en zona «caro», un 60,8 % por encima del precio de Sí de 56,02 (diferencia ÷ precio de Sí). Condicionan el objetivo PM1.estru
+   objetivo: estado bloqueado · provisional False · emitido None · valor calculado condicional 56.01809018887024
+   fundamento: pendiente de datos: objetivo bloqueado por el protocolo experimental «bloqueo_del_objetivo» (ensayo, no adoptado). Lo condicionan PM1.estructura, PM1.familia y PM1.parametro (reposición de hornos), materiales para el objetivo y sin fundamento suficiente; lista D10 vacía; ningún dato de datos_ausentes.json es material (S-19). El precio de Sí 56,02 es el valor calculado condicional, no un objetivo; rango del precio de 
+   aptitud_de_uso en la ficha: True · verificacion_entradas: no hay bloque
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/Vidrala_412_bloqueo/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del
+   hoja, línea de veredicto: **Veredicto del personaje** — pendiente de datos · cubo **Vigilar** · acción **sin acción (estado pendiente de datos)** · precio de Sí **56,02 €** (precio actual 90,10 €, caro: por encima del valor ponderado) · **experimental; no apto para dinero real** — según la ficha, aptitud_de_uso de la entrega 4.12.
+
+== Vidrala_413_bloqueo
+   ficha: estado pendiente_de_datos · cubo Vigilar · acción None · precio_objetivo None · plantilla V6.4 experimental · cierre {'auditoria': 'APROBADO', 'material_auditado': '86e66e0a6876aba2'}
+   estado_pipeline: estado pendiente_de_datos · paso 14 · fin 2026-11-13T15:58:07 · auditoría APROBADO
+   causa_si_no_concluido: {"tipo": "falta_de_datos", "detalle": "objetivo bloqueado (protocolo experimental bloqueo_del_objetivo; ensayo, no adopción): lo condicionan PM1.estructura, PM1.familia, PM1.parametro. Conclusión provisional esperar con el precio (90,10 €) por encima del precio de Sí (56,02 €): el objetivo sería el precio de Sí. Lo condicionan tres parámetros de P-M1 materiales para el objetivo y sin fundamento suficiente (estructura
+   objetivo: estado bloqueado · provisional False · emitido None · valor calculado condicional 56.01809018887024
+   fundamento: pendiente de datos: objetivo bloqueado por el protocolo «bloqueo_del_objetivo» (P-M1 estructura, familia y λ sin fundamento suficiente); lista D10 vacía; sin dato ausente material
+   aptitud_de_uso en la ficha: True · verificacion_entradas: no hay bloque
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/Vidrala_413_bloqueo/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del
+   hoja, línea de veredicto: **Veredicto del personaje** — pendiente de datos · cubo **Vigilar** · acción **sin acción (estado pendiente de datos)** · precio de Sí **56,02 €** (precio actual 90,10 €, caro: por encima del valor ponderado) · **experimental; no apto para dinero real** — según la ficha, aptitud_de_uso de la entrega 4.13.
+
+== Vidrala_414
+   ficha: estado concluido · cubo Vigilar · acción esperar · precio_objetivo 56.0 · plantilla V6.4 experimental · cierre {'auditoria': 'APROBADO', 'material_auditado': '7ad2b7ae3c04b02a'}
+   estado_pipeline: estado concluido · paso 14 · fin 2026-11-14T15:59:31 · auditoría APROBADO
+   causa_si_no_concluido: null
+   objetivo: estado emitido_condicionado · provisional True · emitido 56.0 · valor calculado condicional 56.002005168244615
+   decision.condicion: esperar por precio: comprar solo con el precio en 56,00 € o menos y el negocio sin cambios; objetivo condicionado (provisional) a la reposición de hornos (PM1.estructura, PM1.familia, PM1.parametro) y al ROIC del terminal (PM1.roic_terminal), sin fundamento suficiente
+   fundamento: no procede (conclusión no favorable): lista D10 vacía; objetivo condicionado (provisional) a la reposición de hornos (PM1.estructura, PM1.familia, PM1.parametro) y al ROIC del terminal (PM1.roic_terminal), sin fundamento suficiente; sin comprobación conjunta (no procedía con esperar; no existe comprobacion_conjunta.json). Entradas (información): E1 (medias exactas de C46–C47) y E2 (K14 = 84,994 publicado, con reserva
+   aptitud_de_uso en la ficha: True · verificacion_entradas: no hay bloque
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/Vidrala_414/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor p
+   hoja, línea de veredicto: **Veredicto del personaje** — concluido · cubo **Vigilar** · acción **esperar** · precio de Sí **56,00 €** (precio actual 90,10 €, caro: por encima del valor ponderado) · **experimental; no apto para dinero real** — según la ficha, aptitud_de_uso de la entrega 4.14.
+
+== Viscofan_414
+   ficha: estado concluido · cubo Vigilar · acción esperar · precio_objetivo 39.8 · plantilla V6.4.1 experimental · cierre {'auditoria': 'APROBADO', 'material_auditado': 'ac9c53796eab59cd'}
+   estado_pipeline: estado concluido · paso 14 · fin 2026-11-14T16:17:05 · auditoría APROBADO
+   causa_si_no_concluido: null
+   objetivo: estado emitido_condicionado · provisional True · emitido 39.8 · valor calculado condicional 39.79819353512519
+   fundamento: no procede (conclusión no favorable): lista D10 vacía y sin comprobación conjunta (no existe comprobacion_conjunta.json). Objetivo condicionado (provisional) por tres hipótesis de la configuración experimental sin fundamento suficiente (PM1.estructura, PM1.familia y PM1.parametro); rango del precio de Sí en las dieciocho variantes calculadas de 38,13 a 42,98 €, todas en caro; la familia Λ no está calculada. Datos apl
+   aptitud_de_uso en la ficha: True · verificacion_entradas: no hay bloque
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/Viscofan_414/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor 
+   hoja, línea de veredicto: **Veredicto del personaje** — concluido · cubo **Vigilar** · acción **esperar** · precio de Sí **39,80 €** (precio actual 54,70 €, caro: por encima del valor ponderado) · **experimental; no apto para dinero real** — según la ficha, aptitud_de_uso de la entrega 4.14.
+
+== Hermes
+   ficha: estado concluido · cubo Vigilar · acción esperar · precio_objetivo 757.05 · plantilla V6.3 · cierre None
+   estado_pipeline: estado concluido · paso 14 · fin 2026-11-04T11:07:06 · auditoría APROBADO
+   causa_si_no_concluido: null
+   fundamento: no procede la comprobación conjunta (conclusión esperar); 4 hipótesis sin fundamento suficiente, 2 sin base para acotar (Palancas!C18, Análisis!B68:D68): precio objetivo provisional
+   aptitud_de_uso en la ficha: False · verificacion_entradas: no hay bloque
+   aprobaciones_retiradas.json: False · cierre_vigente.json: False
+   hoja_resumen.py: —
+   hoja, línea de veredicto: **Veredicto del personaje** — concluido · cubo **Vigilar** · acción **esperar** · precio de Sí **757,05 €** (precio actual 1.312,50 €, caro: por encima del valor ponderado) · **experimental; no apto para dinero real** — la ficha no declara la aptitud de uso, es anterior a ese bloque: no se presume ninguna.
+
+== S_EmpresaX
+   ficha: estado concluido · cubo Vigilar · acción esperar · precio_objetivo 18.11562878884521 · plantilla V6.3 · cierre {'auditoria': 'APROBADO', 'material_auditado': 'ef245afbbeb15991'}
+   estado_pipeline: estado concluido · paso 14 · fin 2026-11-18T09:58:02 · auditoría APROBADO
+   causa_si_no_concluido: null
+   fundamento: no procede (conclusión no favorable)
+   aptitud_de_uso en la ficha: False · verificacion_entradas: apto_por_entradas=False · no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/S_EmpresaX/hoja_resumen.md · 3 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · no firme: la zona cambia entre el 8 y el 10 % (8 %: vigilar: entre el precio
+   hoja, línea de veredicto: **Veredicto del personaje** — concluido · cubo **Vigilar** · acción **esperar** · precio de Sí **18,12 €** (precio actual 22,00 €, caro: por encima del valor ponderado) · **experimental; no apto para dinero real** — la ficha no declara la aptitud de uso, es anterior a ese bloque: no se presume ninguna.
+
+== S_EmpresaX_sobrevive
+   ficha: estado concluido · cubo Sí · acción comprar · precio_objetivo None · plantilla V6.3 · cierre {'auditoria': 'APROBADO', 'material_auditado': '22432083b703892f'}
+   estado_pipeline: estado concluido · paso 14 · fin 2026-11-18T09:52:52 · auditoría APROBADO
+   causa_si_no_concluido: null
+   fundamento: comprobación conjunta superada
+   aptitud_de_uso en la ficha: False · verificacion_entradas: apto_por_entradas=False · no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/S_EmpresaX_sobrevive/hoja_resumen.md · 3 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (bajo el MALO: por d
+   hoja, línea de veredicto: **Veredicto del personaje** — concluido · cubo **Sí** · acción **comprar** · precio de Sí **18,12 €** (precio actual 8,00 €, bajo el MALO: por debajo del valor del escenario MALO) · **experimental; no apto para dinero real** — la ficha no declara la aptitud de uso, es anterior a ese bloque: no se presume ninguna.
+
+== S_EmpresaX_favorable
+   ficha: estado pendiente_de_investigacion · cubo Vigilar · acción None · precio_objetivo None · plantilla V6.3 · cierre {'auditoria': 'APROBADO', 'material_auditado': '65a6b06ffd9674db'}
+   estado_pipeline: estado pendiente_de_investigacion · paso 14 · fin 2026-11-18T09:53:43 · auditoría APROBADO
+   causa_si_no_concluido: {"tipo": "incertidumbre_no_acotada", "detalle": "crecimiento_1_5·MALO", "comprobacion": null, "categoria": null}
+   fundamento: pendiente de investigación
+   aptitud_de_uso en la ficha: False · verificacion_entradas: apto_por_entradas=False · no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/S_EmpresaX_favorable/hoja_resumen.md · 3 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · no firme: la zona cambia entre el 8 y el 10 % (8 %: bajo el MALO: 
+   hoja, línea de veredicto: **Veredicto del personaje** — pendiente de investigacion · cubo **Vigilar** · acción **sin acción (estado pendiente de investigacion)** · precio de Sí **18,12 €** (precio actual 16,00 €, cumple: en el precio de Sí o por debajo) · **experimental; no apto para dinero real** — la ficha no declara la aptitud de uso, es anterior a es
+
+== S_EmpresaX_sin_base
+   ficha: estado pendiente_de_investigacion · cubo Vigilar · acción None · precio_objetivo None · plantilla V6.3 · cierre {'auditoria': 'APROBADO', 'material_auditado': 'e648a36fe290a653'}
+   estado_pipeline: estado pendiente_de_investigacion · paso 14 · fin 2026-11-18T09:55:20 · auditoría APROBADO
+   causa_si_no_concluido: {"tipo": "incertidumbre_no_acotada", "detalle": "crecimiento_1_5·MALO", "comprobacion": null, "categoria": null}
+   fundamento: pendiente de investigación
+   aptitud_de_uso en la ficha: False · verificacion_entradas: apto_por_entradas=False · no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/S_EmpresaX_sin_base/hoja_resumen.md · 3 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · no firme: la zona cambia entre el 8 y el 10 % (8 %: bajo el MALO: p
+   hoja, línea de veredicto: **Veredicto del personaje** — pendiente de investigacion · cubo **Vigilar** · acción **sin acción (estado pendiente de investigacion)** · precio de Sí **18,12 €** (precio actual 16,00 €, cumple: en el precio de Sí o por debajo) · **experimental; no apto para dinero real** — la ficha no declara la aptitud de uso, es anterior a es
+
+== S_EmpresaX_sin_C34
+   ficha: estado pendiente_de_datos · cubo Vigilar · acción None · precio_objetivo None · plantilla V6.3 · cierre {'auditoria': 'APROBADO', 'material_auditado': '5f1a019216356e10'}
+   estado_pipeline: estado pendiente_de_datos · paso 14 · fin 2026-11-18T09:54:32 · auditoría APROBADO
+   causa_si_no_concluido: {"tipo": "falta_de_datos", "detalle": "Análisis!C34: sin la liquidez no puedo descartar que la deuda apriete (sintético)", "comprobacion": null, "categoria": null}
+   fundamento: pendiente de datos
+   aptitud_de_uso en la ficha: False · verificacion_entradas: apto_por_entradas=False · no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/S_EmpresaX_sin_C34/hoja_resumen.md · 3 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · no firme: la zona cambia entre el 8 y el 10 % (8 %: bajo el MALO: po
+   hoja, línea de veredicto: **Veredicto del personaje** — pendiente de datos · cubo **Vigilar** · acción **sin acción (estado pendiente de datos)** · precio de Sí **18,12 €** (precio actual 16,00 €, cumple: en el precio de Sí o por debajo) · **experimental; no apto para dinero real** — la ficha no declara la aptitud de uso, es anterior a ese bloque: no se 
+
+== S_EmpresaX_repetir
+   ficha: estado no_entregable · cubo None · acción None · precio_objetivo None · plantilla V6.3 · cierre None
+   estado_pipeline: estado no_entregable · paso 13 · fin None · auditoría REPETIR
+   causa_si_no_concluido: {"tipo": "fallo_de_implementacion", "detalle": "auditoría en REPETIR tras agotar las correcciones (nunca se aprueba por agotamiento)", "comprobacion": null, "categoria": null}
+   fundamento: comprobación conjunta superada
+   aptitud_de_uso en la ficha: False · verificacion_entradas: apto_por_entradas=False · no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)
+   aprobaciones_retiradas.json: False · cierre_vigente.json: False
+   hoja_resumen.py: EXPEDIENTE NO CERRADO O INCOMPLETO: el pipeline no ha terminado (estado_pipeline.json sin «fin» o sin estado_analisis)
+
+== S_EmpresaX_limite
+   ficha: estado modelo_no_aplicable · cubo None · acción None · precio_objetivo None · plantilla V6.3 · cierre None
+   estado_pipeline: estado modelo_no_aplicable · paso 6 · fin None · auditoría None
+   causa_si_no_concluido: {"tipo": "limite_del_modelo", "detalle": "otro método (sintético)", "comprobacion": "L3", "categoria": "límite del modelo"}
+   fundamento: None
+   aptitud_de_uso en la ficha: False · verificacion_entradas: apto_por_entradas=False · no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)
+   aprobaciones_retiradas.json: False · cierre_vigente.json: False
+   hoja_resumen.py: EXPEDIENTE NO CERRADO O INCOMPLETO: faltan archivos del cierre: precio.json, resultados.json, fase_c.json
+
+== V631_P6_cerrado
+   ficha: estado concluido · cubo Vigilar · acción esperar · precio_objetivo 19.614145555799055 · plantilla V6.3.1 F1 · cierre {'auditoria': 'APROBADO', 'material_auditado': '1c6a1562c0776036'}
+   estado_pipeline: estado concluido · paso 14 · fin 2026-11-18T10:00:40 · auditoría APROBADO
+   causa_si_no_concluido: null
+   fundamento: no procede (conclusión no favorable)
+   aptitud_de_uso en la ficha: False · verificacion_entradas: apto_por_entradas=False · no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)
+   motor_a_f1: utilizable_para_conclusion True · perímetro A1_sin_ROU · bloquean [] · avisos ['V-F1k (salto del terminal)', 'V-F1f']
+   aprobaciones_retiradas.json: False · cierre_vigente.json: True
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/V631_P6_cerrado/hoja_resumen.md · 3 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · no firme: la zona cambia entre el 8 y el 10 % (8 %: cumple: en el preci
+   hoja, línea de veredicto: **Veredicto del personaje** — concluido · cubo **Vigilar** · acción **esperar** · precio de Sí **19,61 €** (precio actual 22,00 €, caro: por encima del valor ponderado) · **experimental; no apto para dinero real** — la ficha no declara la aptitud de uso, es anterior a ese bloque: no se presume ninguna.
+
+== V631_P8_f1_bloquea
+   ficha: estado no_entregable · cubo None · acción None · precio_objetivo None · plantilla V6.3.1 F1 · cierre None
+   estado_pipeline: estado no_entregable · paso 7 · fin 2026-11-18T10:00:40 · auditoría None
+   causa_si_no_concluido: {"tipo": "limite_del_modelo", "detalle": "motor A · F1 (motor_a_f1_resultado.md): el resultado del motor A no se usa para una conclusión · F1-LIBRO MODELO NO APLICABLE: el libro V6.3.1 F1 no calcula lo declarado (A1_sin_ROU; N1 y los términos explícitos no están en el libro): D&A de derec", "comprobacion": "F1", "categoria": "límite del modelo"}
+   fundamento: no procede (conclusión no favorable)
+   aptitud_de_uso en la ficha: False · verificacion_entradas: apto_por_entradas=False · no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)
+   motor_a_f1: utilizable_para_conclusion False · perímetro A1_sin_ROU · bloquean ['F1-LIBRO'] · avisos ['V-F1f']
+   aprobaciones_retiradas.json: True · cierre_vigente.json: False
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/V631_P8_f1_bloquea/hoja_resumen.md · 3 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: NO · no se puede decir: falta la zona en alguna de las tasas del 8, 9 o 1
+   hoja, línea de veredicto: **Veredicto del personaje** — no entregable · cubo **—** · acción **sin acción (estado no entregable)** · precio de Sí **19,61 €** (precio actual 22,00 €, caro: por encima del valor ponderado) · **experimental; no apto para dinero real** — la ficha no declara la aptitud de uso, es anterior a ese bloque: no se presume ninguna.
+
+== V631_P10_desde12
+   ficha: estado no_entregable · cubo None · acción None · precio_objetivo None · plantilla V6.3.1 F1 · cierre None
+   estado_pipeline: estado no_entregable · paso 12 · fin 2026-11-18T10:00:40 · auditoría None
+   causa_si_no_concluido: {"tipo": "limite_del_modelo", "detalle": "motor A · F1 (motor_a_f1_resultado.md): el resultado del motor A no se usa para una conclusión · F1-LIBRO MODELO NO APLICABLE: el libro V6.3.1 F1 no calcula lo declarado (A1_sin_ROU; N1 y los términos explícitos no están en el libro): D&A de derec", "comprobacion": "F1", "categoria": "límite del modelo"}
+   fundamento: no procede (conclusión no favorable)
+   aptitud_de_uso en la ficha: False · verificacion_entradas: apto_por_entradas=False · no hay verificacion_entradas.json: ninguna entrada financiera está verificada (un Excel evaluado anterior no acredita nada)
+   motor_a_f1: utilizable_para_conclusion False · perímetro A1_sin_ROU · bloquean ['F1-LIBRO'] · avisos ['V-F1k (salto del terminal)', 'V-F1f']
+   aprobaciones_retiradas.json: True · cierre_vigente.json: False
+   hoja_resumen.py: OK: /tmp/claude-0/revision_hoja/exp/V631_P10_desde12/hoja_resumen.md · 3 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · no firme: la zona cambia entre el 8 y el 10 % (8 %: cumple: en el prec
+   hoja, línea de veredicto: **Veredicto del personaje** — no entregable · cubo **—** · acción **sin acción (estado no entregable)** · precio de Sí **19,61 €** (precio actual 22,00 €, caro: por encima del valor ponderado) · **experimental; no apto para dinero real** — la ficha no declara la aptitud de uso, es anterior a ese bloque: no se presume ninguna.

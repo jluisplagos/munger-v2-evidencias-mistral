@@ -1,0 +1,33 @@
+### A7/A6 · Vidrala 4.14 (copia completa del expediente, con cierre_vigente.json y auditoría APROBADO)
+1) antes de generar la hoja:
+   vigencia oficial (cierre_v2.motivo_vigencia): None
+2) hoja generada DENTRO del expediente:
+OK: /tmp/claude-0/revision_hoja/full/A7/Vidrala/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el of
+   vigencia oficial (cierre_v2.motivo_vigencia): None
+HOJA VIGENTE: lee la ficha e1ce40400a1b24cd… y el material actual del expediente
+3) se altera fase_c.json (material auditado: cambiaria_de_cubo.a_no = «Nada me haría pasar a No.»):
+   vigencia oficial (cierre_v2.motivo_vigencia): el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+   hoja_resumen.py --comprobar (hoja anterior):
+HOJA DESACTUALIZADA: fase_c.json cambió. Regenerarla: hoja_resumen.py /tmp/claude-0/revision_hoja/full/A7/Vidrala
+   rc=4
+   hoja_resumen.py (generar de nuevo con el material alterado):
+OK: /tmp/claude-0/revision_hoja/full/A7/Vidrala/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el of
+   rc=0
+17:- Pasaría a **No**: Nada me haría pasar a No.
+HOJA VIGENTE: lee la ficha e1ce40400a1b24cd… y el material actual del expediente
+   rc=0
+4) la vía oficial retira la aprobación (cierre_v2.asegurar_vigencia):
+   vigencia oficial (cierre_v2.motivo_vigencia): el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+   asegurar_vigencia → el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva | archivado en: historial_cierres/01_7ad2b7ae3c04b02a
+   quedan en el expediente:
+aprobaciones_retiradas.json
+hoja_resumen.json
+hoja_resumen.md
+   primera línea de veredicto de la hoja huérfana:
+**Veredicto del personaje** — concluido · cubo **Vigilar** · acción **esperar** · precio de Sí **56,00 €** (precio actual 90,10 €, caro: por encima del valor ponderado) · **experimental; n
+   --comprobar:
+HOJA DESACTUALIZADA: ficha.json ya no está; informe.md ya no está; estado_pipeline.json cambió; cierre_vigente.json ya no está. Regenerarla: hoja_resumen.py /tmp/claude-0/revision_hoja/full/A7/Vidrala
+   rc=4
+   generar:
+EXPEDIENTE NO CERRADO O INCOMPLETO: faltan archivos del cierre: ficha.json, informe.md
+   rc=3

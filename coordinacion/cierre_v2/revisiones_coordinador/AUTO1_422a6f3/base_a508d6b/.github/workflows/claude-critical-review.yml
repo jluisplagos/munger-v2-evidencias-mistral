@@ -1,0 +1,55 @@
+name: Auditoria critica Claude API
+on:
+  push:
+    branches: [automatizacion/coordinacion-api-v1]
+    paths:
+      - automation/coordination/critical_review.py
+      - automation/coordination/test_critical_review.py
+      - .github/workflows/claude-critical-review.yml
+permissions:
+  contents: read
+concurrency:
+  group: munger-audit-pilot-code-001
+  cancel-in-progress: false
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: python3 -m unittest discover -s automation/claude_review -p test_pilot.py -v
+      - run: python3 -m unittest discover -s automation/coordination -p test_critical_review.py -v
+  review:
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Auditoria documental acotada
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: >-
+          python3 automation/coordination/critical_review.py
+          --code-sha "$GITHUB_SHA"
+          --output "$RUNNER_TEMP/munger-critical-review"
+          --execute-api
+      - name: Resumen
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/munger-critical-review/report.md" ]; then
+            cat "$RUNNER_TEMP/munger-critical-review/report.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: munger-critical-review-${{ github.run_id }}
+          path: ${{ runner.temp }}/munger-critical-review/
+          if-no-files-found: warn
+          retention-days: 30

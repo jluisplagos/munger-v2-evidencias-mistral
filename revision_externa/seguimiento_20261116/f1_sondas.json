@@ -1,0 +1,412 @@
+{
+  "naturaleza": "sondas sintéticas del revisor; importes ficticios; no son datos de Elis ni una ejecución del producto",
+  "sondas": [
+    {
+      "sonda": "S1a_termino_explicito_y_ancla_de_E4",
+      "bloque": "S1",
+      "descripcion": "`tratamiento_transicion = termino_explicito`: R = 20, término de 7 en los años 1–5. El ancla de E4 con D_X = R lleva los 7 de transición de la ventana en el denominador: 5 ÷ (32 − 20) = 5/12. Con crecimiento, ΔV/S2C vuelve a cobrarla.",
+      "D_X_que_calibra_f": 20,
+      "f": 0.02,
+      "ancla_S2C": 0.416667,
+      "g": 0.05,
+      "motor": {
+        "año_1": 52.4,
+        "año_5": 65.201071,
+        "año_6": 75.811125,
+        "año_10": 92.148896,
+        "año_11": 96.756341
+      },
+      "caja": {
+        "año_1": 59.4,
+        "año_5": 73.709615,
+        "año_6": 84.745096,
+        "año_10": 103.008194,
+        "año_11": 108.158603
+      },
+      "motor_menos_caja": {
+        "año_1": -7,
+        "año_5": -8.508544,
+        "año_6": -8.933971,
+        "año_10": -10.859298,
+        "año_11": -11.402262
+      },
+      "esperado": "cobra de más",
+      "obtenido": "cobra de más",
+      "ok": true
+    },
+    {
+      "sonda": "S1b_termino_explicito_y_ancla_sin_la_transicion",
+      "bloque": "S1",
+      "descripcion": "Lo mismo, sacando la transición del denominador del ancla: 5 ÷ (32 − 20 − 7) = 1.",
+      "D_X_que_calibra_f": 20,
+      "f": 0.02,
+      "ancla_S2C": 1,
+      "g": 0.05,
+      "motor": {
+        "año_1": 59.4,
+        "año_5": 73.709615,
+        "año_6": 84.745096,
+        "año_10": 103.008194,
+        "año_11": 108.158603
+      },
+      "caja": {
+        "año_1": 59.4,
+        "año_5": 73.709615,
+        "año_6": 84.745096,
+        "año_10": 103.008194,
+        "año_11": 108.158603
+      },
+      "motor_menos_caja": {
+        "año_1": 0,
+        "año_5": 0,
+        "año_6": 0,
+        "año_10": 0,
+        "año_11": 0
+      },
+      "esperado": "coherente",
+      "obtenido": "coherente",
+      "ok": true
+    },
+    {
+      "sonda": "S1c_como_S1a_a_crecimiento_cero",
+      "bloque": "S1",
+      "descripcion": "S1a a crecimiento cero: coherente. La prueba a crecimiento cero no detecta el doble cargo.",
+      "D_X_que_calibra_f": 20,
+      "f": 0.02,
+      "ancla_S2C": 0.416667,
+      "g": 0,
+      "motor": {
+        "año_1": 61,
+        "año_5": 61,
+        "año_6": 68,
+        "año_10": 68,
+        "año_11": 68
+      },
+      "caja": {
+        "año_1": 61,
+        "año_5": 61,
+        "año_6": 68,
+        "año_10": 68,
+        "año_11": 68
+      },
+      "motor_menos_caja": {
+        "año_1": 0,
+        "año_5": 0,
+        "año_6": 0,
+        "año_10": 0,
+        "año_11": 0
+      },
+      "esperado": "coherente",
+      "obtenido": "coherente",
+      "ok": true
+    },
+    {
+      "sonda": "S1d_permanente_en_R_y_ancla_de_E4",
+      "bloque": "S1",
+      "descripcion": "`en_R` con una transición permanente que no crece con las ventas (7 al año): D_X = 27 y el ancla de E4 la excluye sola (5 ÷ (32 − 27) = 1). f la escala con las ventas: con crecimiento cobra de más 7·(V_t/100 − 1).",
+      "D_X_que_calibra_f": 27,
+      "f": 0.09,
+      "ancla_S2C": 1,
+      "g": 0.05,
+      "motor": {
+        "año_1": 59.05,
+        "año_5": 71.775644,
+        "año_6": 75.364426,
+        "año_10": 91.605931,
+        "año_11": 96.186228
+      },
+      "caja": {
+        "año_1": 59.4,
+        "año_5": 73.709615,
+        "año_6": 77.745096,
+        "año_10": 96.008194,
+        "año_11": 101.158603
+      },
+      "motor_menos_caja": {
+        "año_1": -0.35,
+        "año_5": -1.933971,
+        "año_6": -2.380669,
+        "año_10": -4.402262,
+        "año_11": -4.972376
+      },
+      "esperado": "cobra de más",
+      "obtenido": "cobra de más",
+      "ok": true
+    },
+    {
+      "sonda": "S1e_permanente_en_R_a_crecimiento_cero",
+      "bloque": "S1",
+      "descripcion": "S1d a crecimiento cero: coherente.",
+      "D_X_que_calibra_f": 27,
+      "f": 0.09,
+      "ancla_S2C": 1,
+      "g": 0,
+      "motor": {
+        "año_1": 61,
+        "año_5": 61,
+        "año_6": 61,
+        "año_10": 61,
+        "año_11": 61
+      },
+      "caja": {
+        "año_1": 61,
+        "año_5": 61,
+        "año_6": 61,
+        "año_10": 61,
+        "año_11": 61
+      },
+      "motor_menos_caja": {
+        "año_1": 0,
+        "año_5": 0,
+        "año_6": 0,
+        "año_10": 0,
+        "año_11": 0
+      },
+      "esperado": "coherente",
+      "obtenido": "coherente",
+      "ok": true
+    },
+    {
+      "sonda": "S1f_crecimiento_cuando_amplia_capacidad",
+      "bloque": "S1",
+      "descripcion": "`crecimiento` cuando de verdad amplía capacidad: cada euro de ventas nuevas pide 1 de inversión propia y 0,4 de transición. Ventana: capex 27 = 20 + 5 + 2. El ancla de E4 (5 ÷ 7) la cobra una vez.",
+      "D_X_que_calibra_f": 20,
+      "f": 0.02,
+      "ancla_S2C": 0.714286,
+      "g": 0.05,
+      "motor": {
+        "año_1": 64.4,
+        "año_5": 78.278603,
+        "año_6": 82.192533,
+        "año_10": 99.905537,
+        "año_11": 104.900814
+      },
+      "caja": {
+        "año_1": 64.4,
+        "año_5": 78.278603,
+        "año_6": 82.192533,
+        "año_10": 99.905537,
+        "año_11": 104.900814
+      },
+      "motor_menos_caja": {
+        "año_1": 0,
+        "año_5": 0,
+        "año_6": 0,
+        "año_10": 0,
+        "año_11": 0
+      },
+      "esperado": "coherente",
+      "obtenido": "coherente",
+      "ok": true
+    },
+    {
+      "sonda": "S2a_termino_explicito_y_ancla_de_E4",
+      "bloque": "S2",
+      "descripcion": "`reposicion_con_importe` como término explícito: R = 20. El ancla de E4 con D_X = R lleva las 9 de la ventana en el denominador: 5 ÷ (25 − 20 + 9) = 5/14. Con crecimiento se cobran dos veces. V-F1j solo nombra «en R y en el ancla».",
+      "D_X_que_calibra_f": 20,
+      "f": 0.02,
+      "ancla_S2C": 0.357143,
+      "g": 0.05,
+      "motor": {
+        "año_1": 47.95,
+        "año_5": 58.283525,
+        "año_6": 61.197701,
+        "año_10": 74.386188,
+        "año_11": 78.105497
+      },
+      "caja": {
+        "año_1": 56.95,
+        "año_5": 69.223081,
+        "año_6": 72.684235,
+        "año_10": 88.348142,
+        "año_11": 92.765549
+      },
+      "motor_menos_caja": {
+        "año_1": -9,
+        "año_5": -10.939556,
+        "año_6": -11.486534,
+        "año_10": -13.961954,
+        "año_11": -14.660052
+      },
+      "esperado": "cobra de más",
+      "obtenido": "cobra de más",
+      "ok": true
+    },
+    {
+      "sonda": "S2b_termino_explicito_y_ancla_sin_ellas",
+      "bloque": "S2",
+      "descripcion": "Lo mismo, con el ancla sin ellas: 5 ÷ (25 − 20 + 9 − 9) = 1.",
+      "D_X_que_calibra_f": 20,
+      "f": 0.02,
+      "ancla_S2C": 1,
+      "g": 0.05,
+      "motor": {
+        "año_1": 56.95,
+        "año_5": 69.223081,
+        "año_6": 72.684235,
+        "año_10": 88.348142,
+        "año_11": 92.765549
+      },
+      "caja": {
+        "año_1": 56.95,
+        "año_5": 69.223081,
+        "año_6": 72.684235,
+        "año_10": 88.348142,
+        "año_11": 92.765549
+      },
+      "motor_menos_caja": {
+        "año_1": 0,
+        "año_5": 0,
+        "año_6": 0,
+        "año_10": 0,
+        "año_11": 0
+      },
+      "esperado": "coherente",
+      "obtenido": "coherente",
+      "ok": true
+    },
+    {
+      "sonda": "S2c_en_R_y_ancla_de_E4",
+      "bloque": "S2",
+      "descripcion": "R = 29 (R_propia 20 + R_compras 9): la fórmula de E4 con D_X = R las excluye sola, 5 ÷ (25 − 29 + 9) = 1.",
+      "D_X_que_calibra_f": 29,
+      "f": 0.11,
+      "ancla_S2C": 1,
+      "g": 0.05,
+      "motor": {
+        "año_1": 56.95,
+        "año_5": 69.223081,
+        "año_6": 72.684235,
+        "año_10": 88.348142,
+        "año_11": 92.765549
+      },
+      "caja": {
+        "año_1": 56.95,
+        "año_5": 69.223081,
+        "año_6": 72.684235,
+        "año_10": 88.348142,
+        "año_11": 92.765549
+      },
+      "motor_menos_caja": {
+        "año_1": 0,
+        "año_5": 0,
+        "año_6": 0,
+        "año_10": 0,
+        "año_11": 0
+      },
+      "esperado": "coherente",
+      "obtenido": "coherente",
+      "ok": true
+    },
+    {
+      "sonda": "S2d_hipotesis_4b_con_compras_pequeñas_necesarias",
+      "bloque": "S2",
+      "descripcion": "Hipótesis (4b) cuando hacen falta compras pequeñas del 3 % de las ventas para mantenerlas. Con la definición publicada esas compras cuentan dentro del crecimiento «orgánico», que saldría 0 % y no −3 %. Tratadas como crecimiento, a crecimiento cero el motor no las cobra.",
+      "D_X_que_calibra_f": 20,
+      "f": 0.02,
+      "ancla_S2C": 1,
+      "g": 0,
+      "motor": {
+        "año_1": 68,
+        "año_5": 68,
+        "año_6": 68,
+        "año_10": 68,
+        "año_11": 68
+      },
+      "caja": {
+        "año_1": 65,
+        "año_5": 65,
+        "año_6": 65,
+        "año_10": 65,
+        "año_11": 65
+      },
+      "motor_menos_caja": {
+        "año_1": 3,
+        "año_5": 3,
+        "año_6": 3,
+        "año_10": 3,
+        "año_11": 3
+      },
+      "esperado": "cobra de menos",
+      "obtenido": "cobra de menos",
+      "ok": true
+    }
+  ],
+  "S3_regla_N1_con_impuestos": {
+    "τ de proyección = media de la ventana": {
+      "flujo sostenible del escenario": 52.5,
+      "sin normalizar": 54.639344,
+      "N1, no deducible (gasto sin cambios, tipo recalculado)": 52.5,
+      "N1, tipo fijo (fila 10 sin cambios)": 52.5,
+      "deducir la partida entera": 45.639344,
+      "errores (motor − caja)": {
+        "sin normalizar": 2.139344,
+        "no deducible": 0,
+        "tipo fijo": 0,
+        "deducir la partida": -6.860656
+      }
+    },
+    "τ de proyección = media de cinco años (dos años anteriores al 25 %)": {
+      "flujo sostenible del escenario": 52.5,
+      "sin normalizar": 55.032787,
+      "N1, no deducible (gasto sin cambios, tipo recalculado)": 52.5,
+      "N1, tipo fijo (fila 10 sin cambios)": 52.893443,
+      "deducir la partida entera": 46.032787,
+      "errores (motor − caja)": {
+        "sin normalizar": 2.532787,
+        "no deducible": 0,
+        "tipo fijo": 0.393443,
+        "deducir la partida": -6.467213
+      }
+    },
+    "τ de proyección = media de cinco años (dos años anteriores al 31 %)": {
+      "flujo sostenible del escenario": 52.5,
+      "sin normalizar": 53.112787,
+      "N1, no deducible (gasto sin cambios, tipo recalculado)": 50.58,
+      "N1, tipo fijo (fila 10 sin cambios)": 50.973443,
+      "deducir la partida entera": 44.112787,
+      "errores (motor − caja)": {
+        "sin normalizar": 0.612787,
+        "no deducible": -1.92,
+        "tipo fijo": -1.526557,
+        "deducir la partida": -8.387213
+      }
+    }
+  },
+  "S4_ROIC_del_año_11": {
+    "(1+g∞)·m·(1−τ)·S2C (condición de la propuesta)": {
+      "ROIC": 0.714,
+      "inversión del año 11": 2.437989,
+      "ΔV_11/S2C": 2.437989,
+      "cociente": 1,
+      "año 11 del motor − caja": 0
+    },
+    "m·(1−τ)·S2C (Convenciones §3 y Diagnóstico V6, bloque 10)": {
+      "ROIC": 0.7,
+      "inversión del año 11": 2.486749,
+      "ΔV_11/S2C": 2.437989,
+      "cociente": 1.02,
+      "año 11 del motor − caja": -0.04876
+    }
+  },
+  "S5_peso_del_arrendamiento": {
+    "A0 (D_X = amortización total)": {
+      "f": 0.11,
+      "flujo sin crecimiento": 59,
+      "con el peso del último año en los pagos": -1,
+      "con el peso del último año en los pagos y en la ROU que devuelve f": -1,
+      "caja con los pagos del último año": 68
+    },
+    "A1/A2 (D_X sin la ROU)": {
+      "f": 0.02,
+      "flujo sin crecimiento": 68,
+      "con el peso del último año en los pagos": -1,
+      "con el peso del último año en los pagos y en la ROU que devuelve f": 0,
+      "caja con los pagos del último año": 68
+    }
+  },
+  "resumen": {
+    "sondas_de_flujo": 10,
+    "errores": []
+  }
+}

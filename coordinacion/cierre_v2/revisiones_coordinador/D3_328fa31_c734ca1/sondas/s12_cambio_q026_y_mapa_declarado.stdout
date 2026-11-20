@@ -1,0 +1,83 @@
+{
+ "alcance": "stubs; no son resultados del producto",
+ "objeto": "c734ca1",
+ "a_validacion_del_CAMBIO": {
+  "a0_control_CAMBIO_publicado": {
+   "exit": 1,
+   "estado": "COMPONENTE_FALLA",
+   "errores": [],
+   "producto_llamado": true
+  },
+  "a1_C24_valor_85": {
+   "exit": 2,
+   "estado": "ERROR_ESPECIFICACION",
+   "errores": [
+    "CAMBIO no coherente con el banco: analisis.C24.valor=85.0 != 90 (banco: caja 95->90)"
+   ],
+   "producto_llamado": false
+  },
+  "a2_deuda_neta_resultado_215": {
+   "exit": 2,
+   "estado": "ERROR_ESPECIFICACION",
+   "errores": [
+    "CAMBIO no coherente con el banco: derivados_esperados.deuda_neta={'operandos': [300, 90], 'op': 'op0 - op1', 'resultado': 215, 'fuente': 'fixtures/f5_"
+   ],
+   "producto_llamado": false
+  },
+  "a3_operandos_250_90": {
+   "exit": 2,
+   "estado": "ERROR_ESPECIFICACION",
+   "errores": [
+    "CAMBIO no coherente con el banco: derivados_esperados.deuda_neta={'operandos': [250, 90], 'op': 'op0 - op1', 'resultado': 210, 'fuente': 'fixtures/f5_"
+   ],
+   "producto_llamado": false
+  },
+  "a4_cita_sin_la_linea_del_fixture": {
+   "exit": 2,
+   "estado": "ERROR_ESPECIFICACION",
+   "errores": [
+    "CAMBIO no coherente con el banco: la cita de C24.fuente no contiene la línea literal del fixture f5_026_nota.txt"
+   ],
+   "producto_llamado": false
+  },
+  "a5_sin_bloque_evidencia": {
+   "exit": 2,
+   "estado": "ERROR_ESPECIFICACION",
+   "errores": [
+    "CAMBIO no coherente con el banco: falta el bloque evidencia del CAMBIO"
+   ],
+   "producto_llamado": false
+  },
+  "a6_sin_derivados_esperados": {
+   "exit": 2,
+   "estado": "ERROR_ESPECIFICACION",
+   "errores": [
+    "CAMBIO no coherente con el banco: derivados_esperados.deuda_neta={} != esperado del banco {'unidad': 'millones de EUR', 'operandos': [300, 90], 'opera"
+   ],
+   "producto_llamado": false
+  },
+  "a7_texto_dice_deuda_999_pero_operandos_300_90": {
+   "exit": 1,
+   "estado": "COMPONENTE_FALLA",
+   "errores": [],
+   "producto_llamado": true
+  },
+  "nota": "a1-a6 deben dar exit 2 sin llamar al producto; a7 (texto de evidencia con otra deuda) pasa: la deuda 300 solo se valida como operando declarado en derivados_esperados, bloque que el producto no lee (cambiar_base.py no lo usa)"
+ },
+ "b_MAPA_declarado": {
+  "exit": 0,
+  "salida": "tados_qwen/ejecucion_d/MAPA_CRITERIOS_BANCO.csv: 109 criterios del banco · con aserción: 56 · sin aserción: 53",
+  "Q1-028#0 (caso sin especificación ni evidencia)": [
+   "C9",
+   "asercion",
+   "NO_EJECUTADO"
+  ],
+  "Q1-027#2 (C4 es no_discriminante)": [
+   "C4",
+   "asercion"
+  ],
+  "con_asercion_publicado": 54,
+  "con_asercion_tras_declarar_dos_filas": 56,
+  "veredicto": "el recuento «con aserción» es un dato declarado en adaptaciones.json; el generador no lo contrasta con especificaciones ni resultados"
+ }
+}

@@ -1,0 +1,88 @@
+L3: CLAUDE.md:31 [3149128:CLAUDE.md]
+    31| La revisión debe hacerse por un agente distinto del autor del cambio.
+L5: munger_v2_r1/CONTINUIDAD.md:143 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    143|    Con unos 4,5 GB libres al empezar los controles, la prueba de traspaso se quedó sin disco (I18 e I21). Conviene tener al menos 7 GB libres después de descomprimir. Si falta espacio, terminada la verificación se pueden borrar los `*.xlsx` y `vigencia/` de `p
+L5: personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:76-77 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    76|     shutil.copytree(PV2, os.path.join(raiz, "personaje_v2"), ignore=lambda d, fs: [f for f in fs if f in ("empresas_v2", ".lo_perfil", "__pycache__")
+    77|                                                                                      or (os.path.basename(d) == "empresas_v2_correcciones" and f != "2026-11_Vidrala_ensayo_4_6_1")])
+L5: EVID/coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md:197 [ef36ab1:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    197| - **Hecho:** `comprobar_entrega_4_8_1.py:76-77` copia `personaje_v2/` excluyendo solo `empresas_v2`, `.lo_perfil` y `__pycache__`, así que **copia `pruebas/_v64/`**. CONTINUIDAD §2.5 dice «los controles no recorren `_v64/`». Para el 4.8.1 es inexacto en cuanto
+L5: EVID/coordinacion/cierre_v2/traspaso/revision_20261117/MEJORAS_MANUAL.md:8 [ef36ab1:coordinacion/cierre_v2/traspaso/revision_20261117/MEJORAS_MANUAL.md]
+    8|    - Corregir CONTINUIDAD §2.5, que dice que los controles no recorren `_v64/`. El 4.8.1 lo copia (`comprobar_entrega_4_8_1.py:76-77`) y por eso se quedó sin espacio.
+L13: munger_v2_r1/CONTINUIDAD.md:143 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    143|    Con unos 4,5 GB libres al empezar los controles, la prueba de traspaso se quedó sin disco (I18 e I21). Conviene tener al menos 7 GB libres después de descomprimir. Si falta espacio, terminada la verificación se pueden borrar los `*.xlsx` y `vigencia/` de `p
+L27: …/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:73-77 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    73| def arbol(nombre, codigo_4_8=False, fechas_renovadas=False):
+    74|     """Árbol temporal con personaje_v2 (sin los originales ni los expedientes salvo el de la 4.6.1) y enlaces a v6 y al kit."""
+    75|     raiz = os.path.join(TMP, nombre, "munger_v2_r1")
+    76|     shutil.copytree(PV2, os.path.join(raiz, "personaje_v2"), ignore=lambda d, fs: [f for f in fs if f in ("empresas_v2", ".lo_perfil", "__pycache__")
+    77|                                                                                      or (os.path.basename(d) == "empresas_v2_correcciones" and f != "2026-11_Vidrala_ensayo_4_6_1")])
+L27: …/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:76-77 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    76|     shutil.copytree(PV2, os.path.join(raiz, "personaje_v2"), ignore=lambda d, fs: [f for f in fs if f in ("empresas_v2", ".lo_perfil", "__pycache__")
+    77|                                                                                      or (os.path.basename(d) == "empresas_v2_correcciones" and f != "2026-11_Vidrala_ensayo_4_6_1")])
+L28: comprobar_entrega_4_8_1.py:38 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    38| TMP = tempfile.mkdtemp(prefix="control481_")
+L28: comprobar_entrega_4_8_1.py:184 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    184|     shutil.rmtree(TMP, ignore_errors=True)
+L28: comprobar_entrega_4_8_1.py:109 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    109|     a48 = arbol("codigo_4_8", codigo_4_8=True)
+L28: comprobar_entrega_4_8_1.py:125 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    125|         ar = arbol(f"estados_renovadas_{'48' if cod48 else '481'}", codigo_4_8=cod48, fechas_renovadas=True)
+L28: comprobar_entrega_4_8_1.py:130 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    130|     mut = arbol("mutaciones")
+L29: REVISION_TRASPASO.md:197 [ef36ab1:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    197| - **Hecho:** `comprobar_entrega_4_8_1.py:76-77` copia `personaje_v2/` excluyendo solo `empresas_v2`, `.lo_perfil` y `__pycache__`, así que **copia `pruebas/_v64/`**. CONTINUIDAD §2.5 dice «los controles no recorren `_v64/`». Para el 4.8.1 es inexacto en cuanto
+L30: EVID/coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso10_controles_historicos/resumen.md:17 [ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso10_controles_historicos/resumen.md]
+    17| | 4_8_1_comprobar_entrega | 1 | shutil.Error: [('<traspaso>/copia_limpia_1/munger_v2_r1/personaje_v2/pruebas/_v64/vigencia/r1_roto_fase_a_json/piloto/Vidrala/texto/CF_2019.txt', '/tmp/control481_qrg3x6vo/mutaciones/munger_v2_r1/personaje_v2/pruebas/_v64/vigenc
+L31: …/registro/paso10b_4_8_1_reintento.txt:38 [ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso10b_4_8_1_reintento.txt]
+    38| RESULTADO: 25 de 30 comprobaciones cumplen.
+L31: …/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/resultados/LEEME_CONTROLES_HISTORICOS_4_14.md:36 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/resultados/LEEME_CONTROLES_HISTORICOS_4_14.md]
+    36| - la 4.8.1, 25 de 30;
+L31: REVISION_TRASPASO.md:194-196 [ef36ab1:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    194| - **4.8.1:**
+    195|   - el primer intento falló por `[Errno 28]` al copiar el árbol a un temporal;
+    196|   - el reintento, tras la limpieza de CONTINUIDAD §2.5, da 25/30, igual que el árbol 4.14. Solo difiere el detalle (`test_cierre_v2.py`).
+L32: munger_v2_r1/CONTINUIDAD.md:143 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    143|    Con unos 4,5 GB libres al empezar los controles, la prueba de traspaso se quedó sin disco (I18 e I21). Conviene tener al menos 7 GB libres después de descomprimir. Si falta espacio, terminada la verificación se pueden borrar los `*.xlsx` y `vigencia/` de `p
+L32: munger_v2_r1/CONTINUIDAD.md:384-386 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    384| 10. (4.14) **Limpiezas** (autorización de la persona responsable, 14-nov-2026): se pueden eliminar sin preguntar temporales y copias de pruebas reproducibles, con estas condiciones:
+    385|     - ninguna ejecución las usa;
+    386|     - se conservan el código exacto, las evidencias y los archivos únicos;
+L35: comprobar_entrega_4_11.py:87 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_11/scripts/comprobar_entrega_4_11.py]
+    87|         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+L35: comprobar_entrega_4_12.py:91 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/scripts/comprobar_entrega_4_12.py]
+    91|         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+L35: comprobar_entrega_4_13.py:107 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/comprobar_entrega_4_13.py]
+    107|         ds[:] = [d for d in ds if d not in ("__pycache__", ".lo_perfil", "_v64")]
+L36: EVID/coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md:34 [ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md]
+    34| | 10b | Limpieza según `CONTINUIDAD.md` §2.5: `find …/pruebas/_v64 -name '*.xlsx' -not -path '…/vigencia/*' -delete; rm -rf …/_v64/vigencia`, y borrado del ZIP local ya verificado. Rutas en `registro/paso10_limpieza_rutas.txt`. Después, `flock -x … python3 -I 
+L40: REVISION_TRASPASO.md:67-68 [ef36ab1:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    67| | 10 | I | **R** | **R** | EXIT=0, 09:38:05–10:05:57, 19 salidas y resumen. Los «8,4 GB libres» no tienen registro (no hay `df`) |
+    68| | 10b | — | — | **R** | Reintento 25/30 y limpieza (`paso10_limpieza_rutas.txt`). Ni los «13 GB», ni las horas, ni el código tienen registro |
+L42: munger_v2_r1/CONTINUIDAD.md:143 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    143|    Con unos 4,5 GB libres al empezar los controles, la prueba de traspaso se quedó sin disco (I18 e I21). Conviene tener al menos 7 GB libres después de descomprimir. Si falta espacio, terminada la verificación se pueden borrar los `*.xlsx` y `vigencia/` de `p
+L52: INFORME_TRASPASO.md:33 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/traspaso/INFORME_TRASPASO.md]
+    33| | Resumen | 45/45 |
+L52: INFORME_TRASPASO.md:34 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/traspaso/INFORME_TRASPASO.md]
+    34| | Cierre | 55/55 |
+L52: INFORME_TRASPASO.md:78 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/traspaso/INFORME_TRASPASO.md]
+    78|    - dice que las auditorías de los expedientes de decisiones están «en curso»;
+L52: …/registro/paso10b_4_8_1_reintento.txt:38 [ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso10b_4_8_1_reintento.txt]
+    38| RESULTADO: 25 de 30 comprobaciones cumplen.
+L52: REVISION_TRASPASO.md:207 [ef36ab1:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md]
+    207| | 1 | **A-6** Disco | **Alta** | Sí | §3.1 del manual (7 GB) y N-05. El fallo se produjo con unos 8,4 GB libres (autodeclarado). Es recurrente: I17 (4.14, controles), I18/I21 (traspaso 4.14) y ahora aquí. **Añadido:** CONTINUIDAD §2.5 afirma que «los controles
+L64: CAMBIOS_ARCHIVOS.txt:81 [3149128:munger_v2_r1/CAMBIOS_ARCHIVOS.txt]
+    81| 56e37708c24cf6bc06d721277aff1912cacbf3a730e64d18a72324153c40a27a  CONTINUIDAD.md
+L64: munger_v2_r1/CAMBIOS_ARCHIVOS.txt:1 [3149128:munger_v2_r1/CAMBIOS_ARCHIVOS.txt]
+    1| # Archivos cambiados respecto a la base (munger_v2_paquete.zip, SHA-256 61c70800…6af87d). 4.15 · hito 2 + corrección documental de la guía del recorrido y de CONTINUIDAD (programa de cierre v2; sin cambios de código), generado el 2026-11-17 por personaje_v2/em
+L66: …/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py:177-180 [3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entrega_4_8_1.py]
+    177|     ver, cont, prm = (leer(os.path.join(RAIZ, x)) for x in ("VERSION", "CONTINUIDAD.md", "PROMPT_NUEVA_VENTANA.md"))
+    178|     zipn = "munger_v2_r1_entrega4.8.1_auditorias_y_reinversion.zip"
+    179|     comprobar("constata", "VERSION, CONTINUIDAD.md y PROMPT_NUEVA_VENTANA.md describen la 4.8.1: versión, ZIP, batería de solicitudes de auditoría de 55 y este control",
+    180|               ver.startswith("munger_v2 · r1 · entrega 4.8.1") and zipn in cont and zipn in prm and "55/55" in prm and "comprobar_entrega_4_8_1.py" in cont and "comprobar_entrega_4_8_1.py" in prm)
+L72: munger_v2_r1/CONTINUIDAD.md:115 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    115| 2. Desde la raíz `munger_v2_r1/`, ejecutar **una sola vez** `bash verificar_paquete.sh completa`. Tarda unos 25–45 minutos (40 en la copia limpia de la 4.13 y 36 en la prueba de traspaso de la 4.14) y ejecuta en secuencia:
+L73: munger_v2_r1/CONTINUIDAD.md:151 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    151|    - los prompts de `prompts_generados/` y varios JSON llevan las rutas absolutas del entorno que los produjo. Se relanza primero el pipeline con el mismo comando, que regenera los prompts con las rutas actuales: sale con código 10 sin hacer nada más. Las plan
+L73: munger_v2_r1/CONTINUIDAD.md:152 [3149128:munger_v2_r1/CONTINUIDAD.md]
+    152|    - si un archivo de `cierre_v2.MATERIAL_FIJO` cambió o apareció después de fijar el material, la solicitud pendiente está caducada. Desde el hito 2 de la 4.15, el pipeline lo detecta al relanzarlo (sin `--desde`), lo registra en `relevos_caducados`, repite e

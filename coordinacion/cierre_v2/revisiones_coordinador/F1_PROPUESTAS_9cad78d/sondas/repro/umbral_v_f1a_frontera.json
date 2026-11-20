@@ -1,0 +1,1188 @@
+{
+  "naturaleza": "casos de frontera con importes ficticios; no adopta ningún umbral ni cambia la especificación",
+  "opciones": {
+    "U0": "sin umbral (vigente)",
+    "UP01": "propuesta: e ≤ 0,1 % del FCF base",
+    "UR": "resolución: X ≤ cota de redondeo del FCF base",
+    "UP1": "política: e ≤ 1 % del FCF base",
+    "UP5": "política: e ≤ 5 % del FCF base",
+    "UV1": "versión 1: ρ < 0,5 % de las ventas"
+  },
+  "casos": [
+    {
+      "caso": "F01",
+      "descripcion": "sin arrendamientos (los dos a cero)",
+      "X_exceso_medio": 0.0,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.0,
+      "rho_sobre_las_ventas_pct": 0.0,
+      "estado": {
+        "U0": "A0 admisible",
+        "UP01": "A0 admisible",
+        "UR": "A0 admisible",
+        "UP1": "A0 admisible",
+        "UP5": "A0 admisible",
+        "UV1": "A0 admisible"
+      },
+      "motivo": {
+        "U0": "sin arrendamientos",
+        "UP01": "sin arrendamientos",
+        "UR": "sin arrendamientos",
+        "UP1": "sin arrendamientos",
+        "UP5": "sin arrendamientos",
+        "UV1": "sin arrendamientos"
+      },
+      "esperado": {
+        "U0": "A0 admisible",
+        "UP01": "A0 admisible",
+        "UR": "A0 admisible",
+        "UP1": "A0 admisible",
+        "UP5": "A0 admisible",
+        "UV1": "A0 admisible"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F02",
+      "descripcion": "solo C49 positivo",
+      "X_exceso_medio": 0.0,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.0,
+      "rho_sobre_las_ventas_pct": 0.0,
+      "estado": {
+        "U0": "V-F1m BLOQUEA",
+        "UP01": "V-F1m BLOQUEA",
+        "UR": "V-F1m BLOQUEA",
+        "UP1": "V-F1m BLOQUEA",
+        "UP5": "V-F1m BLOQUEA",
+        "UV1": "V-F1m BLOQUEA"
+      },
+      "motivo": {
+        "U0": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo",
+        "UP01": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo",
+        "UR": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo",
+        "UP1": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo",
+        "UP5": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo",
+        "UV1": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo"
+      },
+      "esperado": {
+        "U0": "V-F1m BLOQUEA",
+        "UP01": "V-F1m BLOQUEA",
+        "UR": "V-F1m BLOQUEA",
+        "UP1": "V-F1m BLOQUEA",
+        "UP5": "V-F1m BLOQUEA",
+        "UV1": "V-F1m BLOQUEA"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F03",
+      "descripcion": "solo D&A ROU positiva",
+      "X_exceso_medio": 0.3,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.3,
+      "rho_sobre_las_ventas_pct": 0.03,
+      "estado": {
+        "U0": "V-F1m BLOQUEA",
+        "UP01": "V-F1m BLOQUEA",
+        "UR": "V-F1m BLOQUEA",
+        "UP1": "V-F1m BLOQUEA",
+        "UP5": "V-F1m BLOQUEA",
+        "UV1": "V-F1m BLOQUEA"
+      },
+      "motivo": {
+        "U0": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo",
+        "UP01": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo",
+        "UR": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo",
+        "UP1": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo",
+        "UP5": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo",
+        "UV1": "solo uno de D&A ROU y C49 es positivo: fuera del dominio de A0; no se afirma doble cómputo"
+      },
+      "esperado": {
+        "U0": "V-F1m BLOQUEA",
+        "UP01": "V-F1m BLOQUEA",
+        "UR": "V-F1m BLOQUEA",
+        "UP1": "V-F1m BLOQUEA",
+        "UP5": "V-F1m BLOQUEA",
+        "UV1": "V-F1m BLOQUEA"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F04",
+      "descripcion": "fila de D&A ROU vacía en un año, con C49 positivo",
+      "X_exceso_medio": null,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": null,
+      "rho_sobre_las_ventas_pct": null,
+      "estado": {
+        "U0": "V-F1b BLOQUEA",
+        "UP01": "V-F1b BLOQUEA",
+        "UR": "V-F1b BLOQUEA",
+        "UP1": "V-F1b BLOQUEA",
+        "UP5": "V-F1b BLOQUEA",
+        "UV1": "V-F1b BLOQUEA"
+      },
+      "motivo": {
+        "U0": "fila de D&A ROU vacía en algún año de la ventana: vacío no es cero",
+        "UP01": "fila de D&A ROU vacía en algún año de la ventana: vacío no es cero",
+        "UR": "fila de D&A ROU vacía en algún año de la ventana: vacío no es cero",
+        "UP1": "fila de D&A ROU vacía en algún año de la ventana: vacío no es cero",
+        "UP5": "fila de D&A ROU vacía en algún año de la ventana: vacío no es cero",
+        "UV1": "fila de D&A ROU vacía en algún año de la ventana: vacío no es cero"
+      },
+      "esperado": {
+        "U0": "V-F1b BLOQUEA",
+        "UP01": "V-F1b BLOQUEA",
+        "UR": "V-F1b BLOQUEA",
+        "UP1": "V-F1b BLOQUEA",
+        "UP5": "V-F1b BLOQUEA",
+        "UV1": "V-F1b BLOQUEA"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F05",
+      "descripcion": "D&A ROU negativa en un año",
+      "X_exceso_medio": 0.166667,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.1667,
+      "rho_sobre_las_ventas_pct": 0.0167,
+      "estado": {
+        "U0": "V-F1e BLOQUEA",
+        "UP01": "V-F1e BLOQUEA",
+        "UR": "V-F1e BLOQUEA",
+        "UP1": "V-F1e BLOQUEA",
+        "UP5": "V-F1e BLOQUEA",
+        "UV1": "V-F1e BLOQUEA"
+      },
+      "motivo": {
+        "U0": "magnitud negativa: invariantes de E1",
+        "UP01": "magnitud negativa: invariantes de E1",
+        "UR": "magnitud negativa: invariantes de E1",
+        "UP1": "magnitud negativa: invariantes de E1",
+        "UP5": "magnitud negativa: invariantes de E1",
+        "UV1": "magnitud negativa: invariantes de E1"
+      },
+      "esperado": {
+        "U0": "V-F1e BLOQUEA",
+        "UP01": "V-F1e BLOQUEA",
+        "UR": "V-F1e BLOQUEA",
+        "UP1": "V-F1e BLOQUEA",
+        "UP5": "V-F1e BLOQUEA",
+        "UV1": "V-F1e BLOQUEA"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F06",
+      "descripcion": "arrendamientos grandes con el perímetro A1_sin_ROU",
+      "X_exceso_medio": 50.0,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 50.0,
+      "rho_sobre_las_ventas_pct": 5.0,
+      "estado": {
+        "U0": "no aplica",
+        "UP01": "no aplica",
+        "UR": "no aplica",
+        "UP1": "no aplica",
+        "UP5": "no aplica",
+        "UV1": "no aplica"
+      },
+      "motivo": {
+        "U0": "V-F1a solo se evalúa en el motor A con el perímetro A0_total",
+        "UP01": "V-F1a solo se evalúa en el motor A con el perímetro A0_total",
+        "UR": "V-F1a solo se evalúa en el motor A con el perímetro A0_total",
+        "UP1": "V-F1a solo se evalúa en el motor A con el perímetro A0_total",
+        "UP5": "V-F1a solo se evalúa en el motor A con el perímetro A0_total",
+        "UV1": "V-F1a solo se evalúa en el motor A con el perímetro A0_total"
+      },
+      "esperado": {
+        "U0": "no aplica",
+        "UP01": "no aplica",
+        "UR": "no aplica",
+        "UP1": "no aplica",
+        "UP5": "no aplica",
+        "UV1": "no aplica"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F07",
+      "descripcion": "frontera del uno por mil, igualdad: X = 0,3 y FCF base 300",
+      "X_exceso_medio": 0.3,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.1,
+      "rho_sobre_las_ventas_pct": 0.01,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e ≤ u",
+        "UR": "X > B",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F08",
+      "descripcion": "justo por encima del uno por mil: e = 0,1111 %",
+      "X_exceso_medio": 0.333333,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.1111,
+      "rho_sobre_las_ventas_pct": 0.0111,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X > B",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F09",
+      "descripcion": "justo por debajo del uno por mil: e = 0,0889 %",
+      "X_exceso_medio": 0.266667,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.0889,
+      "rho_sobre_las_ventas_pct": 0.0089,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e ≤ u",
+        "UR": "X > B",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F10",
+      "descripcion": "uno por mil, igualdad exacta que la coma flotante no ve: 0,1 + 0,2 + 0,3 y FCF base 200",
+      "X_exceso_medio": 0.2,
+      "B_cota_de_redondeo_del_FCF_base": 0.025,
+      "e_sobre_el_FCF_base_pct": 0.1,
+      "rho_sobre_las_ventas_pct": 0.01,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e ≤ u",
+        "UR": "X > B",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F11",
+      "descripcion": "resolución, por debajo: X = 0,2333 < B = 0,25 (e = 0,2333 %)",
+      "X_exceso_medio": 0.233333,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.2333,
+      "rho_sobre_las_ventas_pct": 0.0233,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X ≤ B: el exceso no supera la cota de redondeo del FCF base",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F12",
+      "descripcion": "resolución, igualdad: X = B = 0,25 (ventana de dos años)",
+      "X_exceso_medio": 0.25,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.25,
+      "rho_sobre_las_ventas_pct": 0.025,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X ≤ B: el exceso no supera la cota de redondeo del FCF base",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F13",
+      "descripcion": "resolución, justo por encima: X = 0,2667 > B = 0,25",
+      "X_exceso_medio": 0.266667,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.2667,
+      "rho_sobre_las_ventas_pct": 0.0267,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X > B",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F14",
+      "descripcion": "frontera del 1 %, igualdad",
+      "X_exceso_medio": 1.0,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 1.0,
+      "rho_sobre_las_ventas_pct": 0.1,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X > B",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F15",
+      "descripcion": "justo por encima del 1 %: e = 1,001 %",
+      "X_exceso_medio": 1.001,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 1.001,
+      "rho_sobre_las_ventas_pct": 0.1001,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X > B",
+        "UP1": "e > u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F16",
+      "descripcion": "frontera del 5 % del FCF base y del 0,5 % de las ventas a la vez (igualdad en las dos)",
+      "X_exceso_medio": 5.0,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 5.0,
+      "rho_sobre_las_ventas_pct": 0.5,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a BLOQUEA"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X > B",
+        "UP1": "e > u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ ≥ 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a BLOQUEA"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F17",
+      "descripcion": "margen estrecho: ρ = 0,4 % de las ventas y e = 20 % del FCF base",
+      "X_exceso_medio": 4.0,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 20.0,
+      "rho_sobre_las_ventas_pct": 0.4,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a BLOQUEA",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X > B",
+        "UP1": "e > u",
+        "UP5": "e > u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a BLOQUEA",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F18",
+      "descripcion": "margen ancho: ρ = 0,6 % de las ventas y e = 2 % del FCF base",
+      "X_exceso_medio": 6.0,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 2.0,
+      "rho_sobre_las_ventas_pct": 0.6,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a BLOQUEA"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X > B",
+        "UP1": "e > u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ ≥ 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a BLOQUEA"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F19",
+      "descripcion": "FCF base cero con arrendamiento al nivel del redondeo",
+      "X_exceso_medio": 0.2,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": null,
+      "rho_sobre_las_ventas_pct": 0.02,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a BLOQUEA",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "FCF base no positivo: la medida no está definida y no hay exención",
+        "UR": "X ≤ B: el exceso no supera la cota de redondeo del FCF base",
+        "UP1": "FCF base no positivo: la medida no está definida y no hay exención",
+        "UP5": "FCF base no positivo: la medida no está definida y no hay exención",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a BLOQUEA",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F20",
+      "descripcion": "FCF base negativo con ρ = 0,2 % de las ventas",
+      "X_exceso_medio": 2.0,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": null,
+      "rho_sobre_las_ventas_pct": 0.2,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a BLOQUEA",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "FCF base no positivo: la medida no está definida y no hay exención",
+        "UR": "X > B",
+        "UP1": "FCF base no positivo: la medida no está definida y no hay exención",
+        "UP5": "FCF base no positivo: la medida no está definida y no hay exención",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a BLOQUEA",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F21",
+      "descripcion": "el caso F07 en miles, con la misma precisión impresa (centenas de millar): mismo resultado",
+      "X_exceso_medio": 300.0,
+      "B_cota_de_redondeo_del_FCF_base": 250.0,
+      "e_sobre_el_FCF_base_pct": 0.1,
+      "rho_sobre_las_ventas_pct": 0.01,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e ≤ u",
+        "UR": "X > B",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F22",
+      "descripcion": "el caso F11 en miles, con la misma precisión impresa: mismo resultado",
+      "X_exceso_medio": 233.333333,
+      "B_cota_de_redondeo_del_FCF_base": 250.0,
+      "e_sobre_el_FCF_base_pct": 0.2333,
+      "rho_sobre_las_ventas_pct": 0.0233,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X ≤ B: el exceso no supera la cota de redondeo del FCF base",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F23",
+      "descripcion": "los importes de F22 con el millar impreso: la resolución depende de la precisión de la fuente; el porcentaje, no",
+      "X_exceso_medio": 233.333333,
+      "B_cota_de_redondeo_del_FCF_base": 2.5,
+      "e_sobre_el_FCF_base_pct": 0.2333,
+      "rho_sobre_las_ventas_pct": 0.0233,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X > B",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F24",
+      "descripcion": "coeficientes que se anulan: el principal entra y sale y no cuenta en la cota (B = 0,25, no 0,35)",
+      "X_exceso_medio": 0.3,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.3,
+      "rho_sobre_las_ventas_pct": 0.03,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X > B",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F25",
+      "descripcion": "un año de la ventana con D&A ROU cero y media positiva (e = 0,0667 %)",
+      "X_exceso_medio": 0.2,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.0667,
+      "rho_sobre_las_ventas_pct": 0.0067,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e ≤ u",
+        "UR": "X ≤ B: el exceso no supera la cota de redondeo del FCF base",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F26",
+      "descripcion": "baja precisión de la fuente: FCF base 3,0 y D&A ROU 0,2 (dos unidades de la última cifra; e = 6,67 %)",
+      "X_exceso_medio": 0.2,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 6.6667,
+      "rho_sobre_las_ventas_pct": 0.6667,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a BLOQUEA",
+        "UV1": "V-F1a BLOQUEA"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X ≤ B: el exceso no supera la cota de redondeo del FCF base",
+        "UP1": "e > u",
+        "UP5": "e > u",
+        "UV1": "ρ ≥ 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a BLOQUEA",
+        "UV1": "V-F1a BLOQUEA"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F27",
+      "descripcion": "caso T5 de la especificación (arrendamiento material): ROU 10, FCF verdadero 68",
+      "X_exceso_medio": 10.0,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 14.7059,
+      "rho_sobre_las_ventas_pct": 2.5,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a BLOQUEA",
+        "UV1": "V-F1a BLOQUEA"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X > B",
+        "UP1": "e > u",
+        "UP5": "e > u",
+        "UV1": "ρ ≥ 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a BLOQUEA",
+        "UP5": "V-F1a BLOQUEA",
+        "UV1": "V-F1a BLOQUEA"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F28",
+      "descripcion": "caso T5 con arrendamiento mínimo: ROU 0,2, FCF verdadero 79,76 (e = 0,2508 %)",
+      "X_exceso_medio": 0.2,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": 0.2508,
+      "rho_sobre_las_ventas_pct": 0.05,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e > u",
+        "UR": "X ≤ B: el exceso no supera la cota de redondeo del FCF base",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a BLOQUEA",
+        "UR": "V-F1a AVISO",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F29",
+      "descripcion": "caso T5 con arrendamiento ínfimo: ROU 0,05, FCF verdadero 79,94 (e = 0,0625 %)",
+      "X_exceso_medio": 0.05,
+      "B_cota_de_redondeo_del_FCF_base": 0.025,
+      "e_sobre_el_FCF_base_pct": 0.0625,
+      "rho_sobre_las_ventas_pct": 0.0125,
+      "estado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "motivo": {
+        "U0": "sin umbral: bloquea con cualquier importe",
+        "UP01": "e ≤ u",
+        "UR": "X > B",
+        "UP1": "e ≤ u",
+        "UP5": "e ≤ u",
+        "UV1": "ρ < 0,5 % de las ventas"
+      },
+      "esperado": {
+        "U0": "V-F1a BLOQUEA",
+        "UP01": "V-F1a AVISO",
+        "UR": "V-F1a BLOQUEA",
+        "UP1": "V-F1a AVISO",
+        "UP5": "V-F1a AVISO",
+        "UV1": "V-F1a AVISO"
+      },
+      "ok": true
+    },
+    {
+      "caso": "F30",
+      "descripcion": "motor B",
+      "X_exceso_medio": null,
+      "B_cota_de_redondeo_del_FCF_base": 0.25,
+      "e_sobre_el_FCF_base_pct": null,
+      "rho_sobre_las_ventas_pct": null,
+      "estado": {
+        "U0": "no aplica",
+        "UP01": "no aplica",
+        "UR": "no aplica",
+        "UP1": "no aplica",
+        "UP5": "no aplica",
+        "UV1": "no aplica"
+      },
+      "motivo": {
+        "U0": "V-F1a solo se evalúa en el motor A con el perímetro A0_total",
+        "UP01": "V-F1a solo se evalúa en el motor A con el perímetro A0_total",
+        "UR": "V-F1a solo se evalúa en el motor A con el perímetro A0_total",
+        "UP1": "V-F1a solo se evalúa en el motor A con el perímetro A0_total",
+        "UP5": "V-F1a solo se evalúa en el motor A con el perímetro A0_total",
+        "UV1": "V-F1a solo se evalúa en el motor A con el perímetro A0_total"
+      },
+      "esperado": {
+        "U0": "no aplica",
+        "UP01": "no aplica",
+        "UR": "no aplica",
+        "UP1": "no aplica",
+        "UP5": "no aplica",
+        "UV1": "no aplica"
+      },
+      "ok": true
+    }
+  ],
+  "comprobaciones_directas": [
+    {
+      "comprobacion": "cota con cinco cifras de un decimal = 0,25",
+      "ok": true
+    },
+    {
+      "comprobacion": "cota con una cifra que entra y sale (coeficiente neto cero) = 0,25",
+      "ok": true
+    },
+    {
+      "comprobacion": "cota en miles con precisión de centenas de millar = 250",
+      "ok": true
+    },
+    {
+      "comprobacion": "coma flotante: (0.1 + 0.2 + 0.3) / 3 / 200 > 0.001 (por eso la comparación es exacta)",
+      "ok": true
+    },
+    {
+      "comprobacion": "exacto: (0,1 + 0,2 + 0,3) / 3 / 200 = 0,1 %",
+      "ok": true
+    },
+    {
+      "comprobacion": "T5: FCF verdadero 68, A1 = 68, A0 = 58; el exceso es la D&A ROU",
+      "ok": true
+    },
+    {
+      "comprobacion": "T5: f_A0 − f_A1 = ρ = D&A ROU ÷ ventas",
+      "ok": true
+    },
+    {
+      "comprobacion": "T5 con arrendamiento mínimo: FCF verdadero 79,76; A0 da 79,56 (0,2 de menos)",
+      "ok": true
+    },
+    {
+      "comprobacion": "T5 con arrendamiento ínfimo: FCF verdadero 79,94; A0 da 79,89 (0,05 de menos, lo que el AVISO de la propuesta toleraría)",
+      "ok": true
+    },
+    {
+      "comprobacion": "FCF base cero o negativo: el motivo mostrado es que la medida no está definida",
+      "ok": true
+    },
+    {
+      "comprobacion": "vigente (sin umbral), D&A ROU positiva y C49 positivo: V-F1a BLOQUEA",
+      "ok": true
+    },
+    {
+      "comprobacion": "vigente (sin umbral), D&A ROU cero y C49 cero: A0 admisible",
+      "ok": true
+    },
+    {
+      "comprobacion": "vigente (sin umbral), D&A ROU positiva y C49 cero: V-F1m BLOQUEA",
+      "ok": true
+    },
+    {
+      "comprobacion": "vigente (sin umbral), D&A ROU cero y C49 positivo: V-F1m BLOQUEA",
+      "ok": true
+    }
+  ],
+  "variantes_erroneas": {
+    "frontera estricta en el umbral sobre el FCF base": {
+      "casos_que_fallan": [
+        "F07",
+        "F10",
+        "F14",
+        "F16",
+        "F21"
+      ],
+      "comprobaciones_directas_que_fallan": [],
+      "detectada": true
+    },
+    "frontera estricta en la resolución": {
+      "casos_que_fallan": [
+        "F12"
+      ],
+      "comprobaciones_directas_que_fallan": [],
+      "detectada": true
+    },
+    "frontera de la versión 1 al revés": {
+      "casos_que_fallan": [
+        "F16"
+      ],
+      "comprobaciones_directas_que_fallan": [],
+      "detectada": true
+    },
+    "sin la guarda del FCF base no positivo": {
+      "casos_que_fallan": [],
+      "comprobaciones_directas_que_fallan": [
+        "FCF base cero o negativo: el motivo mostrado es que la medida no está definida"
+      ],
+      "detectada": true
+    },
+    "coeficientes sin compensar": {
+      "casos_que_fallan": [
+        "F24"
+      ],
+      "comprobaciones_directas_que_fallan": [
+        "cota con una cifra que entra y sale (coeficiente neto cero) = 0,25"
+      ],
+      "detectada": true
+    },
+    "dominio de A0 con «y» en lugar de «o»": {
+      "casos_que_fallan": [
+        "F02",
+        "F03"
+      ],
+      "comprobaciones_directas_que_fallan": [
+        "vigente (sin umbral), D&A ROU positiva y C49 cero: V-F1m BLOQUEA",
+        "vigente (sin umbral), D&A ROU cero y C49 positivo: V-F1m BLOQUEA"
+      ],
+      "detectada": true
+    }
+  },
+  "medio_punto_de_ventas_sobre_el_flujo": [
+    {
+      "FCF_base_sobre_ventas_pct": 2,
+      "medio_punto_de_ventas_sobre_el_FCF_base_pct": 25.0,
+      "uno_por_mil_del_FCF_base_sobre_las_ventas_pct": 0.002
+    },
+    {
+      "FCF_base_sobre_ventas_pct": 5,
+      "medio_punto_de_ventas_sobre_el_FCF_base_pct": 10.0,
+      "uno_por_mil_del_FCF_base_sobre_las_ventas_pct": 0.005
+    },
+    {
+      "FCF_base_sobre_ventas_pct": 10,
+      "medio_punto_de_ventas_sobre_el_FCF_base_pct": 5.0,
+      "uno_por_mil_del_FCF_base_sobre_las_ventas_pct": 0.01
+    },
+    {
+      "FCF_base_sobre_ventas_pct": 20,
+      "medio_punto_de_ventas_sobre_el_FCF_base_pct": 2.5,
+      "uno_por_mil_del_FCF_base_sobre_las_ventas_pct": 0.02
+    },
+    {
+      "FCF_base_sobre_ventas_pct": 30,
+      "medio_punto_de_ventas_sobre_el_FCF_base_pct": 1.67,
+      "uno_por_mil_del_FCF_base_sobre_las_ventas_pct": 0.03
+    }
+  ],
+  "elis_informativo": {
+    "nota": "solo información, con cifras verificadas; no es criterio para elegir ningún umbral. Por la decisión (1a), Elis no usa A0_total",
+    "X_D&A_ROU_media_2023_25": 132.5,
+    "FCF_base_registrado": 307.933,
+    "e_sobre_el_FCF_base_pct": 43.03,
+    "rho_sobre_las_ventas_pct": 2.9057,
+    "B_cota_de_redondeo_del_FCF_base": 0.25,
+    "X_sobre_B": 530.0,
+    "estado_con_A0_total": {
+      "U0": "V-F1a BLOQUEA",
+      "UP01": "V-F1a BLOQUEA",
+      "UR": "V-F1a BLOQUEA",
+      "UP1": "V-F1a BLOQUEA",
+      "UP5": "V-F1a BLOQUEA",
+      "UV1": "V-F1a BLOQUEA"
+    },
+    "estado_con_el_perimetro_de_(1a)": "no aplica",
+    "referencias_de_tamaño": {
+      "cota_de_redondeo_del_FCF_base_pct": 0.081,
+      "residuo_del_interes_de_arrendamiento_en_C48 (informe §5.4)": {
+        "importe": 0.133,
+        "pct_del_FCF_base": 0.043
+      },
+      "alcance_de_N1_en_2022_25 (opción B del alcance)": {
+        "importe": -0.302,
+        "pct_del_FCF_base": 0.098
+      },
+      "alcance_de_N1_en_2021_25_sin_efecto_fiscal (opción A del alcance)": {
+        "importe": 0.416,
+        "pct_del_FCF_base": 0.135
+      },
+      "actualizacion_del_earnout": {
+        "importe": -0.79,
+        "pct_del_FCF_base": 0.257
+      }
+    }
+  },
+  "resumen": {
+    "casos": 30,
+    "casos_con_su_estado_esperado": 30,
+    "comprobaciones_directas": 14,
+    "directas_ok": 14,
+    "variantes_erroneas": 6,
+    "variantes_detectadas": 6,
+    "errores": []
+  }
+}

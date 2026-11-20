@@ -1,0 +1,13 @@
+SIN RECÁLCULO (simulado): la hoja NO lo detecta → [(0.07, 757.05, 'caro'), (0.08, 757.05, 'caro'), (0.09, 757.05, 'caro'), (0.1, 757.05, 'caro'), (0.11, 757.05, 'caro')]
+   reproduce el oficial al 9 %: True · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor ponderado)
+tasa heredada 0.085: rótulo de la fila «8 % (heredada)» · frase «El 8 % es provisional»
+tasa heredada 0.095: rótulo de la fila «10 % (heredada)» · frase «El 10 % es provisional»
+tasa heredada 0.075: rótulo de la fila «8 % (heredada)» · frase «El 8 % es provisional»
+tasa heredada 0.1: rótulo de la fila «10 % (heredada)» · frase «El 10 % es provisional»
+tasa heredada 0.12: rótulo de la fila «12 % (heredada)» · frase «El 12 % es provisional»
+(None, 'no se puede decir: falta la zona en alguna de las tasas del 8, 9 o 10 %')
+(True, 'firme: la zona no cambia entre el 8 y el 10 % (cumple: en el precio de Sí o por debajo)') ← heredada 12 % «caro», pero «firme: cumple»
+('experimental; no apto para dinero real', 'la ficha no declara la aptitud de uso, es anterior a ese bloque: no se presume ninguna', None)
+('la ficha declara apto para dinero real', 'según la ficha, aptitud_de_uso; esta hoja no lo evalúa', {'apto_para_dinero_real': True})
+('definitivo; no apto para dinero real', 'según la ficha, aptitud_de_uso de la entrega 5.0', {'caracter': 'definitivo', 'version': '5.0'})
+('experimental; no apto para dinero real', 'la ficha no declara la aptitud de uso, es anterior a ese bloque: no se presume ninguna', None)

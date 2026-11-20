@@ -1,0 +1,38 @@
+NO CUMPLE · [constata] VERSION dice entrega 4.8
+CUMPLE   · [constata] el manifiesto de la 4.7.1 conservado es el de su paquete (1.454 archivos)
+NO CUMPLE · [constata] el código 4.7.1 reconstruido (pipeline.py, ficha.py) tiene las huellas del manifiesto 4.7.1, y el resto del código del cierre no cambió
+CUMPLE   · [reejecuta] reproducción con el código 4.7.1: X-a y X-c incoherentes, salida idéntica a la de referencia · RESULTADO: X-A incoherente · X-C incoherente
+CUMPLE   · [reejecuta] reproducción con el código 4.8: X-a y X-c coherentes en la primera ejecución, salida idéntica a la de referencia · RESULTADO: X-A coherente · X-C coherente
+CUMPLE   · [reejecuta] batería de estados con el código 4.8: 28/28 · 28/28 pruebas de coherencia de estados PASAN
+CUMPLE   · [reejecuta] batería de estados con el código 4.7.1: 17/28, con las mismas 11 pruebas fallidas que la referencia (X-a, incluida la vía del código 5; X-c, incluida la subsanación con el diagnóstico anterior) · 11 fallan
+CUMPLE   · [recalcula] la regla H2 (Pipeline.veredicto_auditoria) es idéntica a la de la 4.7.1
+CUMPLE   · [constata] verificar_paquete.sh completa ejecuta la batería de estados como obligatoria (al menos 28 pruebas), antes del bloque del resumen
+CUMPLE   · [constata] verificar_paquete.sh conserva las baterías del resumen (≥ 45) y de cierre (≥ 55)
+CUMPLE   · [constata] el Anexo D describe X-a, X-c y las precisiones de X-d
+CUMPLE   · [reejecuta] analisis_pm1.py (en un temporal): réplica 4.7.1 idéntica, 94 datos de evidencia reproducidos y controles cumplidos · RESULTADO: todos los controles cumplen
+CUMPLE   · [reejecuta] las salidas pm1_* regeneradas en el temporal son idénticas byte a byte a las del paquete y a sus huellas del manifiesto (las 7 pm1_*) · 7 archivos
+CUMPLE   · [recalcula] REF reproduce T1·M1·R1 de la 4.7.1 (ponderado 69,2447; precio de Sí 64,2622)
+CUMPLE   · [recalcula] X41 reproduce exactamente (4 decimales) la sensibilidad de la 4.7.1 «+41,8 % todos los escenarios» · 48.6082 / 44.0094
+CUMPLE   · [recalcula] λ recalculado: (12 años, 2 %) = 1,112; (12, 3 %) = 1,170; (16, 3 %) = 1,237; balance 1 + π·VNC/dotación = 1,192 (2 %); central 1,15 y rango 1,10–1,25
+CUMPLE   · [recalcula] ciclo del Reino Unido 2018–2025 recalculado desde la tabla de segmentos = 1,095
+CUMPLE   · [recalcula] P1, MALO, año 1: reposición adicional = 0,15 × (132,948 − 4,492) = 19,2684 con inversión fija neta 0
+CUMPLE   · [recalcula] P5, NORMAL, año 1: adicional = exceso medio 2021–2025 sobre la amortización que se repone (47,7588) − inversión fija neta del modelo
+CUMPLE   · [recalcula] P3, MALO, año 10: la inversión que recupera capacidad no rebaja el adicional de reposición (Z-c): adicional = 0,15 × (D&A − cartera)
+CUMPLE   · [recalcula] identidad FCF = NOPAT + D&A − inversión bruta de caja − Δcirculante (+ escudo de la ola) en todas las filas de los años 1–10
+CUMPLE   · [recalcula] doble cómputo de X41 en el NORMAL recalculado = Σ min(0,418 × D&A, inversión fija neta) ≈ 309
+CUMPLE   · [recalcula] X-e: depreciación de derechos de uso 2025 = 6.760 en el PDF español (p. 58) y en el texto inglés; 2024 = 4.768
+CUMPLE   · [constata] fuentes externas: cada una con URL, fecha y marca de posterior a la base; las oficiales con huella SHA-256 y página de cada cita
+CUMPLE   · [constata] decisiones: ningún campo humano relleno (decision, fecha, confirmado_por vacíos)
+NO CUMPLE · [constata] respecto a la 4.7.1 solo cambian los archivos declarados; ninguno desaparece · ['personaje_v2/esquema/fase_c.esquema.json', 'personaje_v2/esquema/ficha.esquema.json', 'personaje_v2/prompts/fase_a.md', 'personaje_v2/prompts/fase_b.md', 'personaje_v2/prompts/fase_c_turno1.md']
+CUMPLE   · [constata] los 489 originales de personaje_v2/empresas_v2/ conservan su huella
+CUMPLE   · [constata] los expedientes de correcciones anteriores (4.4 a 4.7.1) conservan su huella en los archivos reales · 640 + 489 archivos
+NO CUMPLE · [constata] ningún archivo añadido en los originales ni en los expedientes anteriores (ni en el manifiesto ni en el disco) · ['personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10/ACLARACION_PN1_4_10.md', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10/ESPECIFICACION_INTEGRACION_4_10.md', 'personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_10/INFORME_CORRECCIONES_TECNICAS_4_10.md']
+CUMPLE   · [reejecuta] control de integración del verificador de la 4.6.1: 13 de 13 y salida idéntica a la de referencia · RESULTADO: 13 de 13 comprobaciones cumplen.
+CUMPLE   · [reejecuta] control de integración del verificador de la 4.7.1: 13 de 13 y salida idéntica a la de referencia · RESULTADO: 13 de 13 comprobaciones cumplen.
+CUMPLE   · [reejecuta] control de integración del verificador de la 4.8: 13 de 13 y salida idéntica a la de referencia · RESULTADO: 13 de 13 comprobaciones cumplen.
+CUMPLE   · [constata] registro humano P1 intacto (b4e47afc…c445a4)
+CUMPLE   · [constata] existe CIERRE_TECNICO_4_8.md
+CUMPLE   · [constata] existe INFORME_PM1.md
+CUMPLE   · [constata] existe REGISTRO_ENTREGA_4.8.md
+
+RESULTADO: 32 de 36 comprobaciones cumplen.

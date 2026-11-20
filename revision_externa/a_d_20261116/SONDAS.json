@@ -1,0 +1,64 @@
+{
+  "alcance": "sondas de auxiliares, no aceptación completa del personaje",
+  "manifiestos": {
+    "A": {
+      "coinciden": 50,
+      "fallos": []
+    },
+    "D": {
+      "coinciden": 174,
+      "fallos": [
+        "./scripts/__pycache__/generar_bloque2.cpython-312.pyc",
+        "./scripts/__pycache__/lib_arnes.cpython-312.pyc"
+      ]
+    }
+  },
+  "A_sondas": {
+    "euros_no_miles": [
+      "CONFLICTO",
+      "la pagina declara escala 'Amounts in euros' (euros, no miles); no acredita miles de euros ni escala 0,001"
+    ],
+    "escala_erronea_con_cabecera": [
+      "OK",
+      "unidad en miles acreditada en la cabecera del documento (primeras paginas); no se repite en la pagina de nota"
+    ],
+    "columna_equivocada_aceptada": [
+      "OK",
+      "posicion 0 de 2 valores -> columna 2025 (linea de columnas ['2025', '2024']); declarado ['2024', '2025']"
+    ],
+    "reexpresion_toma_otra_columna": [
+      "OK",
+      "comparativo 2024 igual al original en CF_2024.txt (misma fila y valor): no reexpresado"
+    ],
+    "contradiccion_reexpresion_devuelve_ok": [
+      "OK",
+      "reexpresado confirmado y declarado: el original CF_2024.txt imprime ['10000', '8000'] y el comparativo cita 9000"
+    ]
+  },
+  "D_matriz_sin_evidencias": {
+    "exit": 0,
+    "carpeta_evidencias_existe": false,
+    "filas": 36,
+    "veredictos": {
+      "CUMPLE": 29,
+      "sin veredicto (no ejecutado)": 3,
+      "NO_OBSERVABLE": 1,
+      "DECISION_PENDIENTE": 3
+    }
+  },
+  "D_arnes_sin_scripts_producto": {
+    "exit_arnes": 0,
+    "stdout_arnes": "OK Q1-001 · pasos=8 · evidencias en /tmp/tmpa_hsgmia/d/evidencias/Q1-001",
+    "exits_comandos": [
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "D_inventario": {
+    "especificaciones": 27,
+    "resultados_por_caso": 27
+  }
+}

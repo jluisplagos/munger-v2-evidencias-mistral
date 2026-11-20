@@ -1,0 +1,88 @@
+E1 · elis_motor_A reanudado sin opciones · exención: None · exigido: True
+--- E1 · elis_motor_A reanudado sin opciones
+{
+ "codigo": 0,
+ "ultimas_lineas": [
+  "estado final: pendiente_de_datos · paso 12 · causa: falta_de_datos: motor A · F1 (motor_a_f1_resultado.md): el resultado del motor A no se usa para una conclusión · F1-NORMA INCOMPLETO: norma contable sin dec · continuar desde el paso 2 (ver diagnostico.md)"
+ ],
+ "estado": "pendiente_de_datos",
+ "paso": 12,
+ "auditoria": null,
+ "motor_en_estado": "A",
+ "ficha_oficial": {
+  "estado": "pendiente_de_datos",
+  "cubo": "Vigilar",
+  "accion": null,
+  "cierre": null,
+  "escalera": {
+   "zona": "caro",
+   "precio_si": 6.556340324610303,
+   "ponderado": 7.17350245848518
+  },
+  "bloque_f1": {
+   "utilizable_para_conclusion": false,
+   "vigencia": {
+    "exigido": true,
+    "exento": null,
+    "vigente": true,
+    "utilizable": false,
+    "motivo": "DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a, F1-NORMA, F1-PERIMETRO, V-F1b, V-F1g, V-F1h, V-F1i, V-F1j, V-F1k"
+   }
+  }
+ },
+ "informe_estado": "**Estado `pendiente_de_datos` · cubo Vigilar · acción ninguna** · precio 24.18 EUR · zona caro · precio de Sí 6.56 · precio esc. MALO 5.01 · ponderado 7.17 · **con datos ",
+ "vigencia_f1": {
+  "motor": "A",
+  "exento": null,
+  "exigido": true,
+  "vigente": true,
+  "utilizable": false,
+  "motivo": "DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a, F1-NORMA, F1-PERIMETRO, V-F1b, V-F1g, V-F1h, V-F1i, V-F1j, V-F1k"
+ },
+ "historial": [
+  "2026-11-18T00:04:52 · paso 12 · motor A · F1: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a, F1-NORMA, F1-PERIMETRO, V-F1b, V-F1g, V-F1h, V-F1i, V-F1j, V-F1k",
+  "e-hace-falta la declaración F1 (motor_a_f1.json) y los datos o decisiones que piden las guardas (R: M1, M2, M6; compras; transición) --desde-paso 2 → 0 · diagnóstico escrito: pendiente_de_datos · falta_de_datos · paso 12",
+  "paso 12 · FIN · estado pendiente_de_datos · falta_de_datos: motor A · F1 (motor_a_f1_resultado.md): el resultado del motor A no se usa para una conclusión · F1-NORMA INCOMPLETO: norma contable sin declarar en la declarac"
+ ]
+}
+E2 · elis_motor_A con --reiniciar --desde 13 · exención: None · exigido: True
+--- E2 · elis_motor_A con --reiniciar --desde 13
+{
+ "codigo": 0,
+ "ultimas_lineas": [
+  "ESPERANDO: verificacion → auditoria.md (solicitud SA-59eb7792ee1e938d) (ver ESPERANDO.md y prompts_generados/)",
+  "estado final: no_entregable · paso 14 · causa: fallo_de_implementacion: ficha.json no cumple su esquema (criterio 7 †; estado previsto: concluido): INVÁLIDO · ficha.json contra ficha.esquema.json · continuar desde el paso 13 (ver diagnostico.md)"
+ ],
+ "estado": "no_entregable",
+ "paso": 14,
+ "auditoria": null,
+ "motor_en_estado": null,
+ "ficha_oficial": {
+  "estado": "no_entregable",
+  "cubo": null,
+  "accion": null,
+  "cierre": null,
+  "escalera": {
+   "zona": "caro",
+   "precio_si": 6.556340324610303,
+   "ponderado": 7.17350245848518
+  },
+  "bloque_f1": null
+ },
+ "informe_estado": "**Estado `no_entregable` · cubo Vigilar · acción ninguna** · precio 24.18 EUR · zona caro · precio de Sí 6.56 · precio esc. MALO 5.01 · ponderado 7.17 · **con datos de et",
+ "vigencia_f1": {
+  "motor": null,
+  "exento": null,
+  "exigido": false,
+  "vigente": null,
+  "utilizable": null,
+  "motivo": "el motor no es el A"
+ },
+ "historial": [
+  "2026-11-18T00:05:11 · paso 14 · FIN · estado no_entregable · fallo_de_implementacion: ficha.json no cumple su esquema (estado previsto: concluido); ver diagnostico.md"
+ ]
+}
+
+real	0m27.162s
+user	0m25.388s
+sys	0m5.418s

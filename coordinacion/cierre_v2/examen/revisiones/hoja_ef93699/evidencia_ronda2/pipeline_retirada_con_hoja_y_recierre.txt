@@ -1,0 +1,43 @@
+######## C · retirada oficial por la llamada normal del pipeline (sin opciones) con la hoja dentro, y cierre nuevo después
+C0 cierre: 0 | estado concluido · paso 14 · fin 2026-11-18T14:27:10 · fin_anterior None · auditoría APROBADO · ficha concluido/esperar/cierre True · cierre_vigente True · hoja en el expediente [] · historial_hojas_resumen [] · historial_cierres [] · retiradas anotadas 0 · vigencia oficial: sin objeción
+C1 hoja (contenido mínimo desactivado): (0, 'OK: /tmp/claude-0/revision_hoja_r2/relanz_C/C/EmpresaX/hoja_resumen.md · VIGENTE · concluye · 7 frases con origen · tasas 8 %, 9 %, 10 % · reproduce precio.json a 9 %: sí') | --comprobar: 0 (HOJA VIGENTE: lee la ficha d157aa5b64715669…, el análisis oficial es vigente y la página no se ha editado)
+   auditorías que reconoce la vía oficial en el expediente: con hoja 2 · control 2
+C2 material auditado cambiado (salto de línea al final de fase_c.json) en el expediente y en el control
+   con hoja: estado concluido · paso 14 · fin 2026-11-18T14:27:10 · fin_anterior None · auditoría APROBADO · ficha concluido/esperar/cierre True · cierre_vigente True · hoja en el expediente ['hoja_resumen.json', 'hoja_resumen.md'] · historial_hojas_resumen [] · historial_cierres [] · retiradas anotadas 0 · vigencia oficial: el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+   --comprobar antes de llamar al pipeline: 4 (HOJA NO VIGENTE: el análisis oficial no está vigente: el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión )
+C3 pipeline.py EXP (sin opciones) con la hoja dentro: código 10
+      SALIDAS OFICIALES ARCHIVADAS (historial_cierres/01_2cb2a116f80cb269): el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+      [paso 13] solicitud de auditoría SA-a1abe6f0c50492f5 registrada para el material ac393c04c6a2d461
+      ESPERANDO: verificacion → auditoria.md (solicitud SA-a1abe6f0c50492f5); auditoria.md es una auditoría ya usada (su huella SHA-256 es la de una respuesta anterior): no responde a la solicitud vigente (ver ESPERANDO.md y prompts_gen
+    estado None · paso 13 · fin 2026-11-18T14:27:10 · fin_anterior None · auditoría None · ficha None/None/cierre False · cierre_vigente False · hoja en el expediente [] · historial_hojas_resumen [] · historial_cierres ['01_2cb2a116f80cb269'] · retiradas anotadas 1 · vigencia oficial: sin objeción
+    archivo de la retirada:
+      01_2cb2a116f80cb269: ['HOJA_RESUMEN_NO_VIGENTE.json', 'RETIRADA.json', 'auditoria_en_el_momento_de_la_retirada.md', 'cierre_vigente.json', 'ficha.json', 'hoja_resumen.NO_VIGENTE.json', 'hoja_resumen.NO_VIGENTE.md', 'informe.md', 'rastro_previo'] · RETIRADA.json → hoja_resumen_no_vigente = ['hoja_resumen.NO_VIGENTE.md', 'hoja_resumen.NO_VIGENTE.json']
+            HOJA_RESUMEN_NO_VIGENTE.json: {"archivada": "2026-11-18T14:27:20", "motivo": "el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva", "archivos": ["hoja_resumen.NO_VIGENTE.md", "hoja_resumen.NO_VIGENTE.json"], "nota": "hoja resumen (material de estudio, no oficial) del cierre que dejó de valer: NO VIGENTE; no s
+    --comprobar: 4 (SIN HOJA: no hay hoja_resumen.md y hoja_resumen.json en /tmp/claude-0/revision_hoja_r2/relanz_C/C/EmpresaX)
+    hoja_resumen.py (generar): código 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: faltan archivos del cierre (si se retiró la aprobación, la hoja anterior no vale): ficha.json, informe.md
+C3 control (sin hoja): código 10
+      SALIDAS OFICIALES ARCHIVADAS (historial_cierres/01_2cb2a116f80cb269): el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+      [paso 13] solicitud de auditoría SA-96e7d02b0a12832a registrada para el material ac393c04c6a2d461
+      ESPERANDO: verificacion → auditoria.md (solicitud SA-96e7d02b0a12832a); auditoria.md es una auditoría ya usada (su huella SHA-256 es la de una respuesta anterior): no responde a la solicitud vigente (ver ESPERANDO.md y prompts_gen
+    estado None · paso 13 · fin 2026-11-18T14:27:10 · fin_anterior None · auditoría None · ficha None/None/cierre False · cierre_vigente False · hoja en el expediente [] · historial_hojas_resumen [] · historial_cierres ['01_2cb2a116f80cb269'] · retiradas anotadas 1 · vigencia oficial: sin objeción
+    archivo de la retirada:
+      01_2cb2a116f80cb269: ['RETIRADA.json', 'auditoria_en_el_momento_de_la_retirada.md', 'cierre_vigente.json', 'ficha.json', 'informe.md', 'rastro_previo'] · RETIRADA.json → hoja_resumen_no_vigente = None
+   misma salida del pipeline salvo nombres de carpeta: ver arriba
+C4 «--desde 13» (auditoría nueva del material nuevo y cierre): (10, 0)
+      ESPERANDO: verificacion → auditoria.md (solicitud SA-a1abe6f0c50492f5); auditoria.md es una auditoría ya usada (su huella SHA-256 es la de una respuesta anterior): no responde a la solicitud vigente (
+    estado concluido · paso 14 · fin 2026-11-18T14:27:21 · fin_anterior 2026-11-18T14:27:10 · auditoría APROBADO · ficha concluido/esperar/cierre True · cierre_vigente True · hoja en el expediente [] · historial_hojas_resumen [] · historial_cierres ['01_2cb2a116f80cb269'] · retiradas anotadas 1 · vigencia oficial: sin objeción
+C4 control: (10, 0)
+    estado concluido · paso 14 · fin 2026-11-18T14:27:22 · fin_anterior 2026-11-18T14:27:10 · auditoría APROBADO · ficha concluido/esperar/cierre True · cierre_vigente True · hoja en el expediente [] · historial_hojas_resumen [] · historial_cierres ['01_2cb2a116f80cb269'] · retiradas anotadas 1 · vigencia oficial: sin objeción
+   ficha con hoja = ficha del control (sin huellas, cierre ni fecha): True · estados: concluido concluido
+   auditorías que reconoce la vía oficial: con hoja 2 · control 2
+C5 hoja nueva tras el cierre nuevo: (0, 'OK: /tmp/claude-0/revision_hoja_r2/relanz_C/C/EmpresaX/hoja_resumen.md · VIGENTE · concluye · 7 frases con origen · tasas 8 %, 9 %, 10 % · reproduce precio.json a 9 %: sí') | --comprobar: 0 (HOJA VIGENTE: lee la ficha ff94527291c4bfb4…, el análisis oficial es vigente y la página no se ha editado)
+C6 pipeline sin opciones con el cierre nuevo y la hoja nueva: código 0 · estado final: concluido · paso 14
+    estado concluido · paso 14 · fin 2026-11-18T14:27:21 · fin_anterior 2026-11-18T14:27:10 · auditoría APROBADO · ficha concluido/esperar/cierre True · cierre_vigente True · hoja en el expediente ['hoja_resumen.json', 'hoja_resumen.md'] · historial_hojas_resumen [] · historial_cierres ['01_2cb2a116f80cb269'] · retiradas anotadas 1 · vigencia oficial: sin objeción
+    archivo de la retirada (sigue intacto):
+      01_2cb2a116f80cb269: ['HOJA_RESUMEN_NO_VIGENTE.json', 'RETIRADA.json', 'auditoria_en_el_momento_de_la_retirada.md', 'cierre_vigente.json', 'ficha.json', 'hoja_resumen.NO_VIGENTE.json', 'hoja_resumen.NO_VIGENTE.md', 'informe.md', 'rastro_previo'] · RETIRADA.json → hoja_resumen_no_vigente = ['hoja_resumen.NO_VIGENTE.md', 'hoja_resumen.NO_VIGENTE.json']
+            HOJA_RESUMEN_NO_VIGENTE.json: {"archivada": "2026-11-18T14:27:20", "motivo": "el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva", "archivos": ["hoja_resumen.NO_VIGENTE.md", "hoja_resumen.NO_VIGENTE.json"], "nota": "hoja resumen (material de estudio, no oficial) del cierre que dejó de valer: NO VIGENTE; no s
+
+real	1m20.602s
+user	1m5.646s
+sys	0m14.955s
+rc=0

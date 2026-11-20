@@ -1,0 +1,13 @@
+$ python3 -I diffcases.py  # compara recibido/ y banco_revisado/ en 4745f38, Q1-001..006
+Q1-001 campos distintos recibido->revisado: []
+Q1-002 campos distintos recibido->revisado: ['archivos_sinteticos', 'precondiciones']
+  RECIBIDO archivos_sinteticos [{"ruta": "fixtures/f1_002_registro.json", "formato": "JSON", "contenido_breve": "N/A de conversión con motivo y nota; hipótesis de crecimiento 2% con fundamento, alternativas y límites, publicada=false."}]
+  REVISADO archivos_sinteticos [{"ruta": "fixtures/f1_002_registro.json", "formato": "JSON", "contenido_breve": "Nota 2 sintética completa como evidencia examinable en nota_soporte; N/A de conversión con motivo; hipótesis de crecimiento 2% con fundamento, alternativas y límites, publicada=false."}]
+  RECIBIDO precondiciones "Expediente ES-1 con registro de N/A justificado e hipótesis explícita (fixture JSON)."
+  REVISADO precondiciones "Expediente ES-1: el fixture incluye el texto de la Nota 2 sintética examinable que justifica el N/A y una hipótesis explícita. El registro no sustituye el examen de esa nota."
+Q1-003 campos distintos recibido->revisado: []
+Q1-004 campos distintos recibido->revisado: []
+Q1-005 campos distintos recibido->revisado: []
+Q1-006 campos distintos recibido->revisado: ['criterios_observables']
+  RECIBIDO criterios_observables ["La fila de minoritarios queda como ausencia/pendiente de fuente, no como cero comprobado.", "La contradicción entre Excel y documento queda registrada como incidencia.", "La conclusión que usa minoritarios no se presenta como apta mientras no se resuelva; el resto del contraste continúa."]
+  REVISADO criterios_observables ["La fila de minoritarios queda como ausencia/pendiente de fuente, no como cero comprobado.", "La falta de fuente para el cero del Excel queda registrada como incidencia. La ausencia de una línea en la nota no se presenta por sí sola como prueba de contradicción ni de valor distinto de cero.", "La conclusión que usa minoritarios no se presenta como apta mientras no se resuelva; el resto del contraste continúa."]

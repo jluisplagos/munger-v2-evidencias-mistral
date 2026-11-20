@@ -1,0 +1,169 @@
+
+== A · R1-1 · exigencia de F1 con el motor B
+  A0 · libro REAL recalculado por LibreOffice (examen, Zoetis: recalc/Zoetis_v63_datos.xlsx): LibroV63.leer(L4) = '1165' · _l4_del_libro = 'US GAAP' · norma_del_expediente(libro) = ('US_GAAP', True)
+  expediente                                                 exigido_puente  vigencia(motor B)
+  4.15 · L4 = «US GAAP»                                                True  exigido True · vigente False · utilizable False · sin evaluación F1 (motor_a_f1_resultado.json)
+  4.15 · L4 = «IFRS»                                                  False  exigido False · vigente None · utilizable None · el motor no es el A
+  4.15 · L4 = «IFRS (adoptadas por la Unión Europea)»                 False  exigido False · vigente None · utilizable None · el motor no es el A
+  4.15 · L4 = «Otro»                                                   True  exigido True · vigente False · utilizable False · sin evaluación F1 (motor_a_f1_resultado.json)
+  4.15 · L4 = «U.S. GAAP»                                              True  exigido True · vigente False · utilizable False · sin evaluación F1 (motor_a_f1_resultado.json)
+  4.15 · L4 vacío                                                      True  exigido True · vigente False · utilizable False · sin evaluación F1 (motor_a_f1_resultado.json)
+  4.15 · sin libro evaluado                                            True  exigido True · vigente False · utilizable False · sin evaluación F1 (motor_a_f1_resultado.json)
+  anterior a la 4.15 · L4 = «US GAAP»                                  True  exigido True · vigente False · utilizable False · sin evaluación F1 (motor_a_f1_resultado.json)
+  anterior a la 4.15 · L4 = «Otro»                                    False  exigido False · vigente None · utilizable None · el motor no es el A
+  anterior a la 4.15 · L4 vacío                                       False  exigido False · vigente None · utilizable None · el motor no es el A
+  anterior a la 4.15 · sin libro                                      False  exigido False · vigente None · utilizable None · el motor no es el A
+  anterior a la 4.15 · L4 = «IFRS»                                    False  exigido False · vigente None · utilizable None · el motor no es el A
+  empresa inventada (exenta) · L4 = «US GAAP»                         False  exigido False · vigente None · utilizable None · el motor no es el A
+  4.15 · L4 = «IFRS» y la declaración dice US_GAAP                     True
+  motor B · L4 «US GAAP» · sin declaración ({})                      aplica True · utilizable False · bloquean ['F1-NORMA', 'F1-US-DESGLOSE'] · DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA, F1-US-DESGLOSE
+  motor B · L4 «US GAAP» · declaración NIIF                          aplica True · utilizable False · bloquean ['F1-NORMA', 'F1-US-DESGLOSE'] · DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA, F1-US-DESGLOSE
+  motor B · L4 «Otro» · declaración NIIF · expediente 4.15           aplica True · utilizable False · bloquean ['F1-NORMA'] · DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA
+  motor B · L4 «Otro» · declaración NIIF · expediente anterior       aplica False · utilizable None · bloquean [] · el libro usa el motor 'B': F1 solo afecta al motor A (T11)
+  motor B · L4 vacío · sin declaración · expediente 4.15             aplica True · utilizable False · bloquean ['F1-NORMA'] · DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA
+  motor B · L4 «IFRS» · declaración NIIF · expediente 4.15           aplica False · utilizable None · bloquean [] · el libro usa el motor 'B': F1 solo afecta al motor A (T11)
+
+== B · R1-3 · los tres caminos de la ronda 1 (ubicación FALSA con cita REAL) contra el contraste de la ronda 2 · caja correcta 68
+  B-i   · pasivo dentro de la fila 14 (línea «Operating lease liabilities» sumada), declarado «fuera» citándola:
+          utilizable False · sin condición · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:contrastada/pas:contradicha] · K3b una vez (no contrastado)
+          F1-US-FILAS: BLOQUEA·DATOS INVÁLIDOS: la declaración contradice al expediente: la variación del pasivo está declarada fuera de las filas 8 y 14, pero la línea citada está entre las que la fase 1 sumó en la fila 14 (AR_2021.json, lado «actual»: «operating lease liabili
+  B-i2  · lo mismo SIN fase1_partes:
+          utilizable True · CONDICIONADA (F1-US-FILAS) cota [-12.0, 12.0] · flujo capa 78.0 · flujo del libro 78.0 · error +10.0 · bloquean [] · contraste [am:sin_contrastar/pas:sin_contrastar] · K3b una vez (no contrastado)
+  B-i3  · lo mismo con fase1_partes y la fuente fuera de texto/ (las etiquetas no se pueden reconstruir):
+          utilizable False · CONDICIONADA (F1-US-FILAS) cota [0, 12.0] · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:sin_contrastar/pas:contradicha] · K3b una vez (no contrastado)
+  B-i4  · la línea sumada es la mezclada de Nike (dos renglones); se declara «fuera» citando «accrued liabilities, operating lease»:
+          utilizable False · sin condición · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:contrastada/pas:contradicha] · K3b una vez (no contrastado)
+  B-i5  · la línea del pasivo falta en el lado «actual» de AR_2025 (sigue en los «anterior») y «anio» es texto:
+          utilizable False · sin condición · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:contrastada/pas:contradicha] · K3b una vez (no contrastado)
+  B-ii  · D&A sin amortización del derecho de uso; declarada «fila_8» (10) con la cita genérica «Depreciation and amortization»:
+          utilizable False · sin condición · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:insuficiente/pas:contrastada] · K3b una vez (no contrastado)
+          F1-US-FILAS: BLOQUEA·INCOMPLETO: arrendamientos_us_gaap.operativos.amortizacion_rou: la cita 'Depreciation and amortization' no nombra el arrendamiento ni el derecho de uso (o es información complementaria del estado de flujos): quie
+  B-ii2 · lo mismo citando una frase de las notas (página 1) que sí nombra el derecho de uso:
+          utilizable True · CONDICIONADA (F1-US-FILAS) cota [-10.0, 0] · flujo capa 78.0 · flujo del libro 78.0 · error +10.0 · bloquean [] · contraste [am:sin_contrastar/pas:contrastada] · K3b una vez (no contrastado)
+  B-ii3 · la amortización es una línea propia NO sumada («Non-cash lease expense») y se declara «fila_8» citándola:
+          utilizable False · sin condición · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:contradicha/pas:contrastada] · K3b una vez (no contrastado)
+  B-iii · solo el pasivo dentro de la fila 14; declarados los dos «fila_14», la amortización con la cita de la línea del pasivo:
+          utilizable False · sin condición · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:insuficiente/pas:contrastada] · K3b una vez (no contrastado)
+  B-iii2· lo mismo citando para la amortización su línea propia no sumada («Non-cash lease expense»):
+          utilizable False · sin condición · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:contradicha/pas:contrastada] · K3b una vez (no contrastado)
+  B-iii3· lo mismo SIN fase1_partes (D-US2 bis exige las dos líneas comprobadas):
+          utilizable False · sin condición · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:sin_contrastar/pas:sin_contrastar] · K3b una vez (no contrastado)
+
+== C · líneas que nombran el arrendamiento y NO son un tramo (deterioro del derecho de uso, resultado por cancelación)
+   Verdad: ninguna línea publica los tramos; la variación del pasivo (10) está dentro de «Accrued and other liabilities» (fila 14) → el libro da 78; correcto 68.
+  C1 · VERAZ: los dos «no_publicada»; el estado de flujos lleva «Impairment of operating lease right-of-use assets» (no sumada):
+       utilizable False · CONDICIONADA (D-US1) cota [-12.0, 12.0] · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-SERIES'] · contraste [am:hipotesis_D_US1/pas:hipotesis_D_US1] · K3b una vez (no contrastado)
+       F1-SERIES: BLOQUEA·DATOS INVÁLIDOS: arrendamientos_us_gaap.operativos.amortizacion_rou: «no_publicada», pero la página 2 de '10-K sintético' muestra una línea del arrendamiento operativo ('Impairment of operating lease right-of-use assets    19    20    21'): donde la empresa publica la línea ma
+  C1c· (control) lo mismo sin esa línea: utilizable True · CONDICIONADA (D-US1) cota [-12.0, 12.0] · flujo capa 78.0 · flujo del libro 78.0 · error +10.0 · bloquean [] · contraste [am:hipotesis_D_US1/pas:hipotesis_D_US1] · K3b una vez (no contrastado)
+  C2 · amortización declarada «fuera» citando la línea de DETERIORO; pasivo «no_publicada»:
+       utilizable True · CONDICIONADA (D-US1) cota [-12.0, 0] · flujo capa 78.0 · flujo del libro 78.0 · error +10.0 · bloquean [] · contraste [am:contrastada/pas:hipotesis_D_US1] · K3b una vez (no contrastado)
+  C3 · los dos «fuera» citando «Impairment of operating lease right-of-use assets» y «Gain on termination of operating lease liabilities»:
+       utilizable True · sin condición · flujo capa 78.0 · flujo del libro 78.0 · error +10.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       rótulo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+  C4 · los dos «fuera» citando la misma línea genérica «Loss on lease termination»:
+       utilizable True · sin condición · flujo capa 78.0 · flujo del libro 78.0 · error +10.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+  C5 · la amortización (10) está dentro de una D&A que no la nombra (30; capex 30) y se declara «fuera» con la línea de deterioro (correcto: 78):
+       utilizable True · sin condición · flujo capa 68.0 · flujo del libro 68.0 · error -10.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+  C6 · etiquetas habituales que NO son un tramo (las escribo yo): ¿qué lado les asigna la capa (_lados) y valdrían como cita de «fuera»?
+       'Impairment of operating lease right-of-use assets'                            lados ['activo']
+       'Impairment of long-lived assets and operating lease right-of-use assets'      lados ['activo']
+       'Loss on lease termination'                                                    lados ['activo', 'pasivo']
+       'Gain on lease modification'                                                   lados ['activo', 'pasivo']
+       'Gain on termination of operating lease liabilities'                           lados ['pasivo']
+       'Lease termination costs'                                                      lados ['activo', 'pasivo']
+       'Deferred rent'                                                                lados —
+       'Sale-leaseback gain'                                                          lados —
+       'Gain on sale-leaseback transactions'                                          lados —
+       'Lease incentives received'                                                    lados ['activo', 'pasivo']
+       'Tenant improvement allowances'                                                lados —
+       'Amortization of lease incentives'                                             lados ['activo']
+       'Operating lease abandonment charges'                                          lados ['activo', 'pasivo']
+       'Lease exit costs'                                                             lados ['activo', 'pasivo']
+
+== D · importes de lo que está dentro de una fila (la ubicación se contrasta; el importe no)
+  D1 · VERAZ: pasivo dentro de la fila 14 (línea propia sumada, 10 al año), declarado con su importe 10:
+       utilizable False · sin condición · flujo capa 68.0 · flujo del libro 78.0 · bloquean ['F1-LIBRO'] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       F1-LIBRO: BLOQUEA·MODELO NO APLICABLE: el libro V6.3.1 F1 no calcula lo declarado (A2_propio, partida del arrendamiento operativo retirada del circulante (US GAAP; LÍMITE DECLARADO: ningún libro la retira; la salida es corregir la fila 14 
+  D2 · la misma línea, contrastada, con importe declarado 0 (cifra «0» citada en una página):
+       utilizable True · sin condición · flujo capa 78.0 · flujo del libro 78.0 · error +10.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       retirado del circulante medio: 0.0 · F1-US-SIM: no salta · F1-LIBRO: no salta
+       rótulo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+       fase1_partes/AR_2025.json, línea sumada en la fila 14: 'Operating lease liabilities' · impreso '28' (≠ 0 declarado; la capa no lo compara)
+  D2b· lo mismo SIN fase1_partes: utilizable True · CONDICIONADA (F1-US-FILAS) cota [0, 12.0] · flujo capa 78.0 · flujo del libro 78.0 · error +10.0 · bloquean [] · contraste [am:sin_contrastar/pas:sin_contrastar] · K3b una vez (no contrastado)
+  D3 · amortización dentro de la fila 8 (verdad: 10 de 30; la línea lo nombra → contrastada) con importe declarado 15:
+       utilizable True · sin condición · flujo capa 73.0 · flujo del libro 73.0 · error +5.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+  D4 · D-US2 bis: los dos dentro (pagos 17, coste 12 → la fila 14 lleva +5), con la línea neta declarada a 0:
+       utilizable True · sin condición · flujo capa 73.0 · flujo del libro 73.0 · error +5.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       texto: D-US2 bis: el alquiler operativo va mezclado en las líneas del circulante; se publica el valor de la hoja, que cuenta el coste contable; contando los pagos, el flujo sin crecimiento cambiaría en +0.000 mm (+0.00 %)
+
+== E · interpretación 8 · amortización del derecho de uso FINANCIERO «dentro de la fila 8» por omisión (no se contrasta)
+   Empresa: principal financiero 5 en C49 y en la fila 17; FCF base 63 + … caja correcta 68 si la D&A (20) NO lleva la amortización financiera (5).
+  E1 · la D&A (20, «Depreciation and amortization») no lleva esa amortización; se declara da_rou = 5 (por omisión, dentro de la fila 8):
+       utilizable True · sin condición · flujo capa 73.0 · flujo del libro 73.0 · error +5.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       K3b fundamento: contrastado con las líneas que la fase 1 sumó en las filas 8 y 14 · F1-US-FILAS: no salta
+  E2 · lo mismo, y el estado de flujos lleva la línea propia «Amortization of finance lease right-of-use assets», que la fase 1 NO sumó en la fila 8:
+       utilizable True · sin condición · flujo capa 73.0 · flujo del libro 73.0 · error +5.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+  E3 · (control) declarada «fuera_de_la_fila_8» con esa línea: utilizable True · sin condición · flujo capa 68.0 · flujo del libro 68.0 · error +0.0 · bloquean [] · contraste [am:contrastada/pas:contrastada/fin:contrastada] · K3b una vez (contrastado)
+  E4 · (control) la D&A (25) la lleva y su línea lo dice: utilizable True · sin condición · flujo capa 68.0 · flujo del libro 68.0 · error +0.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+
+== F · D-US2 bis · los dos tramos dentro de la fila 14: se publica el valor de la hoja (coste) y se enseña cuánto cambiaría contando los pagos
+   Pagos 13, coste 12: la fila 14 lleva pagos − coste = +1. La hoja da 68 + 1 = 69 (cuenta el coste); contando los pagos, 68.
+  F1 · dos líneas PROPIAS sumadas en la fila 14 (interpretación 1):
+       utilizable True · sin condición · flujo capa 69.0 · flujo del libro 69.0 · error +1.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       texto: D-US2 bis: el alquiler operativo va mezclado en las líneas del circulante; se publica el valor de la hoja, que cuenta el coste contable; contando los pagos, el flujo sin crecimiento cambiaría en -1.000 mm (-1.45 %)
+       base: coste contable: el valor de la hoja (D-US2 bis) · dos líneas comprobadas: True · F1-US-BASE: AVISO·AVISO: D-US2 bis: el alquiler operativo va mezclado en las líneas d
+  F2 · líneas MEZCLADAS y partidas en dos renglones (caso Nike):
+       utilizable True · sin condición · flujo capa 69.0 · flujo del libro 69.0 · error +1.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+  F3 · lo mismo con la fuente fuera de texto/ (la fase 1 solo guardó el segundo renglón): utilizable True · sin condición · flujo capa 69.0 · flujo del libro 69.0 · error +1.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+  F4 · lo mismo SIN fase1_partes (interpretación 2: bloquea): utilizable False · sin condición · flujo capa 69.0 · flujo del libro 69.0 · bloquean ['F1-US-FILAS'] · contraste [am:sin_contrastar/pas:sin_contrastar] · K3b una vez (no contrastado)
+       F1-US-FILAS: BLOQUEA·INCOMPLETO: D-US2 bis: con los dos tramos dentro de la fila 14 se publica el valor de la hoja solo si el expediente muestra las dos líneas (la del activo y la del pasivo) entre las sumadas en la fila 14; no se ha
+  F5 · coste publicado no comparable con los pagos y sin línea neta: «cuánto cambiaría» no se puede calcular:
+       utilizable True · sin condición · flujo capa 69.0 · flujo del libro 69.0 · error +1.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       texto: D-US2 bis: el alquiler operativo va mezclado en las líneas del circulante; se publica el valor de la hoja, que cuenta el coste contable; cuánto cambiaría contando los pagos NO se puede calcular (el coste publicado no es comparable con los pagos y no hay línea 
+  F6 · una sola línea neta «Operating leases, net» sumada en la fila 14 vale por las dos:
+       utilizable True · sin condición · flujo capa 69.0 · flujo del libro 69.0 · error +1.0 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+  F7 · diferencia grande (pagos 12, coste 42: la hoja da 38 y contando los pagos 68): ¿se publica igual, sin condición?
+       utilizable False · sin condición · flujo capa 38.0 · flujo del libro 38.0 · bloquean ['F1-K3c'] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       texto: D-US2 bis: el alquiler operativo va mezclado en las líneas del circulante; se publica el valor de la hoja, que cuenta el coste contable; contando los pagos, el flujo sin crecimiento cambiaría en +30.000 mm (+78.95 %)
+
+== G · D-WM con las cifras de Waste Management (10-K 2025, nota 7): caja pagada 60/90/101 y gasto total 58/73/96 (2023/2024/2025)
+  G1 · utilizable True · CONDICIONADA (D-US1 + D-WM) cota [-139.0, 131.0] · flujo capa 2290.0 · error +0.0 · bloquean [] · contraste [am:hipotesis_D_US1/pas:hipotesis_D_US1] · K3b una vez (no contrastado)
+       diferencia estimada: caja − gasto = 8.0 mm al año · % de CFO − capex medio: 0.349
+       texto de la condición: del flujo de explotación, fuera de las filas 8 y 14 · hipótesis D-WM (no es un dato): la empresa no desglosa sus arrendamientos financieros; se tratan como deuda y activos propios (su amortización queda dentro de la propia y sus pagos no se restan de la caja base); diferencia estimada, caja pagada − gasto total: +8.000 mm al año
+       resumen de la cota: cota: el flujo sin crecimiento podría cambiar entre -139.000 y +131.000 mm (-6.1 % y +5.7 %)
+       ¿el .md del resultado enseña la diferencia de D-WM?: True
+  G2 · «no_publicado» en una empresa cuya Historia lleva 5 de principal en la fila 17 (lo publica) y C49 = 0: utilizable False · CONDICIONADA (D-WM) cota [0, 0] · flujo capa 68.0 · flujo del libro 68.0 · bloquean ['F1-K3a'] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       F1-K3a: BLOQUEA·DATOS INVÁLIDOS: caja base por dos vías: componente C49: +5.000000 en la caja base frente a la fila 35, explicado +0.000000; diferencia total sin explicar: +5.000000
+
+== H · F1-US-C49 · diferencia «explicada» en conciliacion_fcf_base (ronda 2, R1-13)
+   Principal financiero publicado 10 al año y C49 = 0,01: la caja base (67,99) casi no lo resta. Con el principal restado sería 58 → flujo correcto 58.
+  H1 · sin explicación: utilizable False · sin condición · flujo capa 67.99 · flujo del libro 67.99 · bloquean ['F1-K3a', 'F1-US-C49'] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       F1-US-C49: BLOQUEA·DATOS INVÁLIDOS: C49 = 0.01 no alcanza el principal publicado de los arrendamientos financieros (10.0 de media en la ventana): la diferencia (9.99), mayor que el redondeo de C49 (±0.005), se pagó en financiación y no 
+  H2 · con una partida declarada (componente C49, +9,99): utilizable True · sin condición · flujo capa 67.99 · flujo del libro 67.99 · error +9.99 · bloquean [] · contraste [am:contrastada/pas:contrastada] · K3b una vez (contrastado)
+       F1-US-C49: AVISO·AVISO: C49 = 0.01 difiere en -9.99 del principal publicado de los arrendamientos financieros (10.0 de media en la ventana); la diferencia está explicada por una partida declarada en conciliacion_fcf_base (+9.99, componente C49): compruébese que no son pagos de arrend
+       F1-K3a: no salta
+
+== I · «Otro» y valores fuera de la lista en Control maestro L4
+  motor A · L4 = 'Otro'       · declaración NIIF: utilizable False · estado pendiente_de_datos · bloquean ['F1-NORMA', 'V-F1b'] · BLOQUEA·DATOS INVÁLIDOS: el libro dice 'Otro' en Control maestro L4, que no es un valor reconocido de la norma (lista cerrada de valore
+  motor A · L4 = 'U.S. GAAP'  · declaración NIIF: utilizable False · estado pendiente_de_datos · bloquean ['F1-NORMA', 'V-F1b'] · BLOQUEA·DATOS INVÁLIDOS: el libro dice 'U.S. GAAP' en Control maestro L4, que no es un valor reconocido de la norma (lista cerrada de v
+  motor A · L4 = ''           · declaración NIIF: utilizable False · estado pendiente_de_datos · bloquean ['F1-NORMA', 'V-F1b'] · BLOQUEA·INCOMPLETO: el libro no declara la norma contable (Control maestro L4)
+  motor A · L4 = 'IFRS (EU)'  · declaración NIIF: utilizable False · estado pendiente_de_datos · bloquean ['F1-NORMA', 'V-F1b'] · BLOQUEA·DATOS INVÁLIDOS: el libro dice 'IFRS (EU)' en Control maestro L4, que no es un valor reconocido de la norma (lista cerrada de v
+  motor A · L4 = 'JGAAP'      · declaración NIIF: utilizable False · estado pendiente_de_datos · bloquean ['F1-NORMA', 'V-F1b'] · BLOQUEA·DATOS INVÁLIDOS: el libro dice 'JGAAP' en Control maestro L4, que no es un valor reconocido de la norma (lista cerrada de valor
+  fase 1 · norma_contable = 'Otro': paso 2 → admitida
+  fase 1 · norma_contable = 'U.S. GAAP': paso 2 → pendiente_de_datos
+  fase 1 · norma_contable = 'IFRS (EU)': paso 2 → pendiente_de_datos
+
+== J · medias
+  J1 · R1-6 · los dos «no_publicada» y la página lleva «Operating lease liabilities» (sumada en la fila 14): utilizable False · CONDICIONADA (D-US1) cota [-12.0, 12.0] · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:hipotesis_D_US1/pas:contradicha] · K3b una vez (no contrastado)
+  J1b· lo mismo con la etiqueta del balance en «fila» y como cita de existencia (N2 y N3 de la ronda 1): utilizable False · CONDICIONADA (D-US1) cota [-12.0, 12.0] · flujo capa 78.0 · flujo del libro 78.0 · bloquean ['F1-US-FILAS'] · contraste [am:hipotesis_D_US1/pas:contradicha] · K3b una vez (no contrastado)
+  J1c· «no_publicada» citando la página 1 (notas), no la del estado de flujos: utilizable False · CONDICIONADA (D-US1) cota [-12.0, 12.0] · flujo capa 68.0 · bloquean ['F1-SERIES'] · contraste [am:hipotesis_D_US1/pas:hipotesis_D_US1] · K3b una vez (no contrastado)
+       F1-SERIES: BLOQUEA·INCOMPLETO: arrendamientos_us_gaap.operativos.amortizacion_rou: «no_publicada», pero la página 1 de '10-K sintético' no es la del estado de flujos que usó la fase 1 (no lleva sus lín
+  J1d· «no_publicada» y la fila 14 suma «Other assets and liabilities, including operating leases»: utilizable False · CONDICIONADA (D-US1) cota [-12.0, 12.0] · flujo capa 68.0 · bloquean ['F1-US-FILAS'] · contraste [am:hipotesis_D_US1/pas:hipotesis_D_US1] · K3b una vez (no contrastado)
+       BLOQUEA·DATOS INVÁLIDOS: la declaración contradice al expediente: la fila 14 del expediente suma una línea que nombra el arrendamiento (AR_2022.json, lado «anterior»: «other assets and liabilitie
+  J2 · R1-7 · coste publicado 293 frente a pagos 131, declarado «no comparable»: diferencia calculada: None · nota: el coste publicado no tiene el mismo perímetro que los pagos (declarado): la diferencia coste − pagos no se calcula
+       cota: cota: el flujo sin crecimiento podría cambiar entre -131.000 y +293.000 mm (-5.7 % y +12.8 %)
+  J3 · R1-8 · resumen de la cota (con palancas): cota: el flujo sin crecimiento podría cambiar entre -12.000 y +12.000 mm (-17.6 % y +17.6 %); el valor presente de los flujos en el escenario NORMAL, entre -23.2 % y +23.2 %
+       ¿está en el .md del resultado?: True
+  J4 · R1-9 · motor B, la D&A lleva la amortización operativa: utilizable True · F1-US-ANCLA: AVISO·AVISO: con el motor B, F1 solo evalúa el puente de deuda: no examina en qué líneas del estado de flujos están la amortización del derecho de uso y la variación del pasivo del arrendamiento operativo. Si la D&A (fila 8) o el circulante (fila 14) las llevan, el ancla de S2C (Historia C53 = vacía) y el ROIC histórico del libro (filas 32–3
+       rótulo: motor B utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+  J5 · R1-15 · con hipótesis D-US1: K3b «una vez» · contrastado False · conforme None · según la hipótesis D-US1 (no es un dato ni una comprobación independiente)

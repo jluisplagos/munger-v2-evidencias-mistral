@@ -1,0 +1,91 @@
+PASA  · frases: no corta en «p. 104», «EE. UU.» ni iniciales; corta ante «2)»
+PASA  · limpiar: quita corchetes de fuente y referencias a celdas, conserva cifras y paréntesis con contenido
+PASA  · limpiar: un elemento de referencia dentro de una parte se quita («(9,4 %, Historia C33:D33)» → «(9,4 %)»)
+PASA  · limpiar: conserva las citas de Munger y los paréntesis con valores («(C33 = −1,35)», «(p(MALO) a 0,3)»)
+PASA  · limpiar: quita el ordinal inicial «1)»
+PASA  · H6 · limpiar: «(Historia filas 29 y 33)» es una referencia y se quita
+PASA  · H12 · una tasa no entera no se redondea a la de al lado (0,085 → «8,5 %»; 0,09 → «9 %»)
+PASA  · H5 · la tesis y la tesis inversa se muestran ENTERAS (también la salvedad «Pero…» y el riesgo concreto)
+PASA  · verificar_origen_frases: una frase con una cifra añadida, un campo inexistente o un índice fuera de rango se rechazan
+PASA  · H5 · contenido mínimo: «a No» con «…», tesis vacía o menos de tres predicciones con fecha y probabilidad → faltas
+PASA  · H10 · un «recálculo» que no recalcula (mismas cifras con cualquier tasa) se detecta
+PASA  · H1 · pendiente_de_investigacion con el precio por debajo del precio de Sí: «Sin conclusión de compra», sin precio de compra y con la causa
+PASA  · H1 · «No · descartar» con zona favorable: la conclusión es «La descarta» y no hay precio de compra
+PASA  · H1 · objetivo bloqueado: la ficha no da precio de compra y la cifra de la hoja de cálculo se presenta como tal, con el motivo
+PASA  · H1/H3 · ficha concluido con motor_a_f1 no utilizable: sin conclusión y sin precio de compra
+PASA  · H3 · aptitud: dice «no vale para decidir con dinero real», «datos de entrada verificados: no» y F1; nunca afirma «apto para dinero real» · **¿Sirve para decidir con dinero real?** No. **Experimental: no vale para decidir con dinero real.** / - Datos de entrada verificados contra sus fuentes: **no** (0 de 309 datos comprobados); ninguna ent
+PASA  · H3 · sin ningún bloque de aptitud: «la ficha no dice nada sobre la aptitud; no se presume ninguna» (sin «es anterior a ese bloque»)
+PASA  · V6.3 Vidrala 4.10.1 (cierre vigente): la hoja sale (código 0) · de-0/revision_hoja_r2/tmp/test_hoja_zgxdban7/V6.3_Vidrala_4_10_1/Vidrala/hoja_resumen.md · VIGENTE · concluye · 16 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce precio.json a 9 %: sí
+PASA  · V6.3: no cambia ningún archivo del expediente; solo añade la hoja (y nada de copias temporales)
+PASA  · V6.3: el veredicto de la hoja es el de la ficha (estado, cubo, acción, precio de compra = decision.precio_objetivo)
+PASA  · H1 · V6.3: «Qué concluye: No comprar ahora; esperar a mejor precio» y «a 66,52 € por acción o menos»
+PASA  · H6 · cabecera llana: «Resumen para estudiar. No es una recomendación de compra ni un documento oficial» y la fecha de la hoja
+PASA  · H3 · V6.3 sin bloques de aptitud: «no vale para decidir con dinero real», «no se presume ninguna» y ninguna frase «es anterior a ese bloque»
+PASA  · H5 · V6.3: la tesis y la tesis inversa están enteras (todas sus frases), cada una en la página · 5 + 6 frases
+PASA  · ninguna frase del personaje carece de origen (frase exacta de fase_c.json, limpieza reproducible, sin cifras nuevas)
+PASA  · V6.3: --verificar-origen comprueba el origen (código 0) · ORIGEN COMPROBADO: 16 frases
+PASA  · V6.3: una frase inventada en la traza se detecta (--verificar-origen, código 4) · % cada año desde' | frase que no está en hoja_resumen.md: 'Rinde por encima de su capital, con un ROIC de al menos el 1'
+PASA  · H6 · rótulos llanos: «Lo descartaría si…», «Lo compraría si…», «Lo dejaría por demasiado difícil si…», «Bajaría/Subiría el precio de Sí si…»
+PASA  · V6.3: tasas 7, 8, 9, 10 y 11 %, cada copia con su r leída en Análisis!C56 tras el recálculo
+PASA  · V6.3: al 9 % la copia reproduce EXACTAMENTE el precio de Sí de precio.json (y ponderado, zona, V, crecimiento implícito)
+PASA  · V6.3: el precio de Sí y el ponderado bajan al subir la tasa, y el crecimiento que exige el precio sube
+PASA  · V6.3: cada fila cuadra con la regla de la escalera (P* con k = 3.0) y su zona
+PASA  · V6.3: al 10 % las cifras coinciden con el libro recalculado de forma independiente (B78:D78, C83, C86) · [48.0255513697862, 63.3956741276113, 74.3522908147668] vs [48.0255513697862, 63.3956741276113, 74.3522908147668]
+PASA  · V6.3: la tabla muestra las cifras redondeadas de cada fila y rotula la tasa del análisis
+PASA  · H12 · sin «Conclusión firme»: «Frente a la tasa, el resultado no cambia/cambia … no dice que el análisis sea seguro»
+PASA  · H7 · avisos junto a la tabla: la zona no es la conclusión, el escenario malo no es un suelo, regla experimental k = 3, lo demás se deja quieto
+PASA  · H7 · motor B: la tabla dice con qué tasa descuenta la hoja de cálculo en cada fila
+PASA  · H8 · «Precio usado en el análisis: 90,10 € (31 de diciembre de 2025)» con aviso de que no es el de hoy (más de 90 días antes del análisis)
+PASA  · H6 · glosario con los términos de la página (precio de Sí, tasa, ROIC…) y sin referencias «Análisis!C56» ni «fase_c.json» antes del pie
+PASA  · V6.3: tres predicciones de Palancas A38:C40 (fase C) con fecha y probabilidad, iguales a las de la ficha
+PASA  · V6.3: la hoja no parece una auditoría (sin «Material auditado», H2 no la aprueba) ni tiene línea «Veredicto:»
+PASA  · V6.3: --comprobar da la hoja por vigente (código 0) · HOJA VIGENTE: lee la ficha f2e2d74cd5b7d425…, el análisis oficial es vigente y la página no se ha editado
+PASA  · H9 · una edición a mano de hoja_resumen.md se detecta (--comprobar y --verificar-origen, código 4) · de hoja_resumen.json). Retirar la hoja y regenerarla. / FRASES SIN ORIGEN: hoja_resumen.md se editó después de generarla (su huella no es la de hoja_resumen.json)
+PASA  · H4 · --comprobar falla (código 4) si la hoja registra que no reproducía el precio de Sí de precio.json · HOJA NO VÁLIDA: a la tasa del análisis no reproducía el precio de Sí de precio.json. Retirar la hoja.
+PASA  · H4 · código 5 (no reproduce el precio de Sí): no queda hoja_resumen.md y la anterior se aparta como NO_VIGENTE · 5 GENTE.json): LA SENSIBILIDAD NO REPRODUCE EL PRECIO DE SÍ DE precio.json (no se escribe hoja): {"precio_si": [1.0, 2.0]}
+PASA  · H4 · después de un código 5, --comprobar no encuentra hoja vigente (código 4)
+PASA  · H4 · código 4 (frase sin origen): no se escribe hoja · 4 FRASES SIN ORIGEN (no se escribe hoja): frase sin origen (simulada)
+PASA  · H5 · contenido mínimo incumplido: código 4 y no se escribe hoja · 4 CONTENIDO MÍNIMO INCUMPLIDO (no se escribe hoja): la tesis está vacía (simulado)
+PASA  · (control) restaurada la hoja buena, --comprobar vuelve a darla por vigente · VIGENTE: lee la ficha f2e2d74cd5b7d425…, el análisis oficial es vigente y la página no se ha editado
+PASA  · H2 · si la ficha cambia, --comprobar dice que la hoja ya no vale (código 4) · s la del cierre vigente (cierre_vigente.json → ficha_sha256). Retirar la hoja: ya no resume un análisis oficial vigente.
+PASA  · H2/H4 · con una ficha que no es la del cierre no se genera hoja (código 3) y la anterior se aparta como NO_VIGENTE · O_VIGENTE.json): EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: ficha.json no es la del cierre vigente (cierre_vigente.json → ficha_sha256)
+PASA  · H2 · fase_c.json cambiado después de la auditoría: --comprobar → 4 y la hoja no se genera (código 3, «el material cambió») · IGENTE.json): EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el análisis oficial no está vigente: el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+PASA  · H2 · retirada oficial de la aprobación (asegurar_vigencia): la hoja se archiva con el antecedente como NO VIGENTE y sale del expediente · el material cambió después de la auditoría (fase_c.json): la aprobación no vale  · historial_cierres/01_e60b272b654aeece
+PASA  · H2 · restaurar fase_c.json no reactiva la aprobación retirada: la hoja no se genera (código 3) · CERRADO, NO VIGENTE O INCOMPLETO: faltan archivos del cierre (si se retiró la aprobación, la hoja anterior no vale): ficha.json, informe.md
+PASA  · H2 · A4: sin cierre_vigente.json la hoja no se genera (código 3) · INCOMPLETO: el análisis oficial no está vigente: no hay cierre_vigente.json: la ficha oficial no está ligada a ninguna aprobación registrada
+PASA  · H13 · un JSON truncado del expediente da código 3 con mensaje, sin traza de Python · RRADO, NO VIGENTE O INCOMPLETO: estado_pipeline.json no se puede leer como JSON (JSONDecodeError: Expecting value: line 1 column 1 (char 0))
+PASA  · H2/H5 · fase_c.json = {}: no hay hoja (código 3: material cambiado), nunca una hoja vacía con «OK» · l no está vigente: el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+PASA  · H11 · con el cerrojo ocupado (p. ej., lanzada dentro de flock), la hoja no se queda esperando: código 6 con mensaje claro y sin hoja · te programa se lanzó dentro de «flock» del mismo cerrojo, se espera a sí mismo: lanzarlo sin flock (toma el cerrojo en cada recálculo) o con --cerrojo-ya-tomado
+PASA  · V6.4 Vidrala 4.14: la hoja sale (código 0) · est_hoja_zgxdban7/V6.4_Vidrala_4_14/Vidrala/hoja_resumen.md · VIGENTE · concluye · 18 frases con origen · tasas 8 %, 9 %, 10 % · reproduce precio.json a 9 %: sí
+PASA  · H1 · objetivo condicionado: «Es un precio provisional: el objetivo está condicionado», con la condición de la ficha en las salvedades
+PASA  · H1 · Vidrala 4.14: se copian el fundamento y el alcance de la ficha y la marca «con datos de etapa 1 incompletos»
+PASA  · H3 · V6.4 con aptitud_de_uso: cita la evaluación de la entrega y no afirma «apto para dinero real»
+PASA  · H12 · las tasas vecinas de la del análisis (8 % y 10 %) se calculan siempre para decir si el resultado cambia con la tasa
+PASA  · H7 · Vidrala 4.14 al 8 %: la fila avisa de que la tasa queda por debajo de la mínima de la hoja (8,2 %) · amente la de la primera columna: la hoja de cálculo la ajusta (última columna). / - Dónde queda el precio frente a esos valores **no es la conclusión**: no mide el riesgo ni el fundamento. / - El escenario malo **no es un suelo** de valor ni la pérdida máxima posible. / - El precio de Sí sale de una **regla experimental** (k = 3): la ganancia esperada debe ser al menos el triple de la pérdida esperada.
+PASA  · V6.4.1 Viscofan 4.14: la hoja sale (código 0) · zgxdban7/V6.4.1_Viscofan_4_14/Viscofan/hoja_resumen.md · VIGENTE · concluye · 18 frases con origen · tasas 7 %, 8 %, 9 %, 10 % · reproduce precio.json a 9 %: sí
+PASA  · H7 · aviso A2: «la hoja de cálculo avisa de que el 9 % queda por debajo de su tasa mínima de referencia (9,5 %)»
+PASA  · H7 · la fila del 7 % lleva el aviso «por debajo de la mínima» y la tasa con que descuenta el motor B
+PASA  · Elis 4.14 (pendiente_de_datos, cierre vigente): la hoja sale (código 0) · tmp/test_hoja_zgxdban7/Elis_4_14/Elis/hoja_resumen.md · VIGENTE · sin conclusión · 18 frases con origen · tasas 8 %, 9 %, 10 % · reproduce precio.json a 9 %: sí
+PASA  · H1 · sin conclusión: «Sin conclusión: falta un dato», el motivo de la ficha y «la ficha no da precio de compra»
+PASA  · H1 · Elis: el 7,30 € de la hoja de cálculo no aparece como precio de compra («a 7,30 € por acción o menos») y se dice por qué
+PASA  · H1 · Elis: la tabla se presenta como «lectura de la hoja de cálculo, no una conclusión», sin «firme» ni «oficial» en la comprobación
+PASA  · H12 · el crecimiento «no utilizable» se explica («no se puede calcular»)
+PASA  · Vidrala 4.13 bloqueo: la hoja sale (código 0) · zgxdban7/Vidrala_4_13_bloqueo/Vidrala/hoja_resumen.md · VIGENTE · sin conclusión · 20 frases con origen · tasas 8 %, 9 %, 10 % · reproduce precio.json a 9 %: sí
+PASA  · H1 · objetivo bloqueado: sin conclusión, «la ficha no da precio de compra … la ficha dice que el objetivo está bloqueado», sin «56,02 € por acción o menos»
+PASA  · H2 · Hermès (no vigente para la vía oficial): la hoja no se genera (código 3, «no está vigente») · e.json → auditoria_respuesta ni cierre_vigente.json la registran): no se atribuye la aprobación al auditoria.md actual; hace falta una auditoría nueva (paso 13)
+PASA  · H2 · --antecedente: la hoja sale rotulada arriba «NO VIGENTE · ANTECEDENTE» y --comprobar nunca la da por vigente (código 4) · de auditoría aprobada (ni estado_pipeline.json → auditoria_respuesta ni cierre_vigente.json la registran): no se atribuye la aprobación al auditoria.md actual; hace falta una auditoría nueva (paso 13)
+PASA  · F1 · la empresa sintética V6.3.1 F1 se cierra con el pipeline real (concluido, cierre vigente) · código 0 · concluido
+PASA  · H5 · los textos sintéticos (tesis inversa y «a No» casi vacíos) no dan hoja: código 4 por contenido mínimo, sin hoja_resumen.md · ; la tesis inversa (Análisis!B102) está vacía o no dice nada (menos de 6 palabras); «qué me haría pasar a No» (cambiaria_de_cubo.a_no) está vacío o no dice nada
+PASA  · H3 · V6.3.1 F1: la hoja dice «Datos de entrada verificados contra sus fuentes: no» (verificacion_entradas) y la línea «Motor A · F1»
+PASA  · F1 · (preparación) hoja escrita sobre el cierre V6.3.1 F1 y vigente · 0 n7/sint631/EmpresaX_V631/hoja_resumen.md · VIGENTE · concluye · 7 frases con origen · tasas 8 %, 9 %, 10 % · reproduce precio.json a 9 %: sí
+PASA  · H2 · F1 cambiada después del cierre: --comprobar ya no da la hoja por vigente (código 4) · s de la auditoría (motor_a_f1.json): la aprobación no vale para la versión nueva. Retirar la hoja: ya no resume un análisis oficial vigente.
+PASA  · H2 · decisión del coordinador: al relanzar el pipeline (--desde 12) la hoja anterior se archiva como NO VIGENTE y «fin» deja de estar · estado no_entregable · fin None · fin_anterior 2026-11-18T14:08:19 · ['01_relanzamiento_20261118T140837']
+PASA  · H2 · P10: con F1 bloqueando tras el relanzamiento no hay hoja (código 3) · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el pipeline no ha terminado (estado_pipeline.json sin «fin» o sin estado_analisis)
+PASA  · los expedientes originales del paquete no cambian
+PASA  · nada cambia en empresas_v2, empresas_v2_correcciones ni pruebas/sintetico del paquete (git status vacío)
+85/85 pruebas de la hoja resumen PASAN
+
+real	4m44.647s
+user	2m23.713s
+sys	0m33.734s
+rc=0

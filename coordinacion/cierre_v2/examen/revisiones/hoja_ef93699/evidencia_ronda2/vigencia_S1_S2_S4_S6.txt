@@ -1,0 +1,35 @@
+### S1 · A1/A6: fase_c.json alterado después de la auditoría, con hoja vigente dentro
+   vigencia oficial (cierre_v2.motivo_vigencia): el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+   --comprobar: HOJA NO VIGENTE: el análisis oficial no está vigente: el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva. Retirar la hoja: ya no resume un análisis oficial vigente. (código 0)
+   generar: código 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el análisis oficial no está vigente: el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva HOJA ANTERIOR APARTADA COMO NO VIGENTE (hoja_resumen.NO_VIGENTE.md, hoja_resumen.NO_VIGENTE.json): EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el análisis oficial no está vigente: el material cambió después de la auditoría (fase_c.json): la aprobació 
+   archivos hoja_resumen.md/.json en el expediente: 0 · apartados: hoja_resumen.NO_VIGENTE.json hoja_resumen.NO_VIGENTE.md 
+   --comprobar: SIN HOJA: no hay hoja_resumen.md y hoja_resumen.json en /tmp/claude-0/revision_hoja_r2/rep/S1/Vidrala (código 0)
+   con los apartados dentro, la vía oficial:
+   vigencia oficial (cierre_v2.motivo_vigencia): el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+   asegurar_vigencia → el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva | archivado en: historial_cierres/01_7ad2b7ae3c04b02a
+   contenido del archivo: ['RETIRADA.json', 'auditoria_en_el_momento_de_la_retirada.md', 'cierre_vigente.json', 'ficha.json', 'informe.md', 'rastro_previo']
+   RETIRADA.json → claves: ['aprobacion_retirada', 'archivos', 'estado_que_presentaba', 'material_actual', 'material_auditado_en_la_aprobacion', 'motivo', 'nota', 'rastro_previo', 'retirada'] · hoja_resumen_no_vigente: None
+   tras la retirada oficial: hojas en el expediente: 0 · generar: EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: faltan archivos del cierre (si se retiró la aprobación, la hoja anterior no vale): ficha.json, informe.md
+
+### S2 · retirada oficial con la hoja vigente todavía en el expediente (decisión del coordinador)
+   antes: hojas en el expediente: 2
+   vigencia oficial (cierre_v2.motivo_vigencia): el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+   asegurar_vigencia → el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva | archivado en: historial_cierres/01_7ad2b7ae3c04b02a
+   contenido del archivo: ['HOJA_RESUMEN_NO_VIGENTE.json', 'RETIRADA.json', 'auditoria_en_el_momento_de_la_retirada.md', 'cierre_vigente.json', 'ficha.json', 'hoja_resumen.NO_VIGENTE.json', 'hoja_resumen.NO_VIGENTE.md', 'informe.md', 'rastro_previo']
+   RETIRADA.json → claves: ['aprobacion_retirada', 'archivos', 'estado_que_presentaba', 'hoja_resumen_no_vigente', 'material_actual', 'material_auditado_en_la_aprobacion', 'motivo', 'nota', 'rastro_previo', 'retirada'] · hoja_resumen_no_vigente: ['hoja_resumen.NO_VIGENTE.md', 'hoja_resumen.NO_VIGENTE.json']
+   HOJA_RESUMEN_NO_VIGENTE.json: {"archivada": "2026-11-18T12:48:09", "motivo": "el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva", "archivos": ["hoja_resumen.NO_VIGENTE.md", "hoja_resumen.NO_VIGENTE.json"], "nota": "hoja resumen (material de estudio, no oficial) del cierre que dejó de valer: NO VIGENTE; no s
+   después: hojas en el expediente: 0 · quedan salidas oficiales: · aprobaciones_retiradas.json: 1
+   --comprobar: SIN HOJA: no hay hoja_resumen.md y hoja_resumen.json en /tmp/claude-0/revision_hoja_r2/rep/S2/Vidrala (código 0)
+   primera línea de la hoja archivada: # Vidrala, S.A. · resumen para estudiar
+   restauro a mano ficha, informe, cierre_vigente y el fase_c original (intento de reactivar):
+   vigencia oficial (cierre_v2.motivo_vigencia): el pipeline no registró una auditoría APROBADO válida (auditoria = None)
+   --comprobar (hoja restaurada): HOJA NO VIGENTE: el pipeline no ha terminado (estado_pipeline.json sin «fin» o sin estado_analisis). Retirar la hoja: ya no resume un análisis oficial vigente. (código 0)
+   generar: código 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el pipeline no ha terminado (estado_pipeline.json sin «fin» o sin estado_analisis)
+
+### S4 · A2: precio.json alterado (precio 90,10 → 50,00; zona → cumple_regla_k)
+   generar: código 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el análisis oficial no está vigente: el material cambió después de la auditoría (precio.json): la aprobación no vale para la versión nueva HOJA ANTERIOR APARTADA COMO NO VIGENTE (hoja_resumen.NO_VIGENTE.md, hoja_resumen.NO_VIGENTE.json): EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el análisis oficial no está vigente: el material cambió después de la auditoría (precio.json): la  
+   hojas en el expediente: 0 · apartados: hoja_resumen.NO_VIGENTE.json hoja_resumen.NO_VIGENTE.md  · --comprobar: SIN HOJA: no hay hoja_resumen.md y hoja_resumen.json en /tmp/claude-0/revision_h (código 0)
+
+### S6 · H9: hoja_resumen.md editada a mano (conclusión cambiada a «Compraría…»)
+   --comprobar: HOJA EDITADA: hoja_resumen.md no es la página que se generó (su huella no es la de hoja_resumen.json). Retirar la hoja y regenerarla. (código 0)
+   --verificar-origen: FRASES SIN ORIGEN: hoja_resumen.md se editó después de generarla (su huella no es la de hoja_resumen.json) (código 0)

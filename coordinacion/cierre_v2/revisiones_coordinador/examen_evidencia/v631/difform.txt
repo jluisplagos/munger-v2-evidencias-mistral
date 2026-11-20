@@ -1,0 +1,127 @@
+hojas True
+Panel!A1
+  V63 : ="  DCF V6.3 · ANÁLISIS Y FILTRO   |   "&IF(Análisis!$B$3="","(empresa sin nombre)",Análisis!$B$3)&IF(Análisis!$D$3="",""," · "&Análisis!$D$3)
+  V631: ="  DCF V6.3.1 F1 · ANÁLISIS Y FILTRO   |   "&IF(Análisis!$B$3="","(empresa sin nombre)",Análisis!$B$3)&IF(Análisis!$D$3="",""," · "&Análisis!$D$3)
+Análisis!A1
+  V63 :   HOJA DE EVALUACIÓN DE EMPRESAS — V6.3 · Checklist + calidad financiera + valoración por palancas (Damodaran) con criterio Munger
+  V631:   HOJA DE EVALUACIÓN DE EMPRESAS — V6.3.1 F1 · Checklist + calidad financiera + valoración por palancas (Damodaran) con criterio Munger
+Historia!C30
+  V63 : =IF(AND(ISNUMBER(C12),ISNUMBER(C8)),C12-C8+N(C14),"")
+  V631: =IF(AND(ISNUMBER(C12),ISNUMBER(C88)),C12-C88+N(C14),"")
+Historia!D30
+  V63 : =IF(AND(ISNUMBER(D12),ISNUMBER(D8)),D12-D8+N(D14),"")
+  V631: =IF(AND(ISNUMBER(D12),ISNUMBER(D88)),D12-D88+N(D14),"")
+Historia!E30
+  V63 : =IF(AND(ISNUMBER(E12),ISNUMBER(E8)),E12-E8+N(E14),"")
+  V631: =IF(AND(ISNUMBER(E12),ISNUMBER(E88)),E12-E88+N(E14),"")
+Historia!F30
+  V63 : =IF(AND(ISNUMBER(F12),ISNUMBER(F8)),F12-F8+N(F14),"")
+  V631: =IF(AND(ISNUMBER(F12),ISNUMBER(F88)),F12-F88+N(F14),"")
+Historia!G30
+  V63 : =IF(AND(ISNUMBER(G12),ISNUMBER(G8)),G12-G8+N(G14),"")
+  V631: =IF(AND(ISNUMBER(G12),ISNUMBER(G88)),G12-G88+N(G14),"")
+Historia!H30
+  V63 : =IF(AND(ISNUMBER(H12),ISNUMBER(H8)),H12-H8+N(H14),"")
+  V631: =IF(AND(ISNUMBER(H12),ISNUMBER(H88)),H12-H88+N(H14),"")
+Historia!I30
+  V63 : =IF(AND(ISNUMBER(I12),ISNUMBER(I8)),I12-I8+N(I14),"")
+  V631: =IF(AND(ISNUMBER(I12),ISNUMBER(I88)),I12-I88+N(I14),"")
+Historia!J30
+  V63 : =IF(AND(ISNUMBER(J12),ISNUMBER(J8)),J12-J8+N(J14),"")
+  V631: =IF(AND(ISNUMBER(J12),ISNUMBER(J88)),J12-J88+N(J14),"")
+Historia!K30
+  V63 : =IF(AND(ISNUMBER(K12),ISNUMBER(K8)),K12-K8+N(K14),"")
+  V631: =IF(AND(ISNUMBER(K12),ISNUMBER(K88)),K12-K88+N(K14),"")
+Historia!L30
+  V63 : =IF(AND(ISNUMBER(L12),ISNUMBER(L8)),L12-L8+N(L14),"")
+  V631: =IF(AND(ISNUMBER(L12),ISNUMBER(L88)),L12-L88+N(L14),"")
+Historia!C53
+  V63 : =IF(AND(ISNUMBER(L6),ISNUMBER(G6),COUNT(H31:L31)>=3),IF(SUM(H31:L31)>0,(L6-G6)/SUM(H31:L31),""),"")
+  V631: =IF($C$89="A0_total",IF(AND(ISNUMBER(L6),ISNUMBER(G6),COUNT(H31:L31)>=3),IF(SUM(H31:L31)>0,(L6-G6)/SUM(H31:L31),""),""),IF(COUNT($H$31:$L$31)<5,"",IF(AND(ISNUMBER(L6),ISNUMBER(G6),COUNT(H31:L31)>=3),IF(SUM(H31:L31)>0,(L6-G6)/SUM(H31:L31),""),"")))
+Historia!C58
+  V63 : =IF(OR(NOT(ISNUMBER($C$70)),NOT(ISNUMBER($C$57)),$C$57<1,$C$43<$C$57,SUMPRODUCT(--($C$6:$L$14<>""),--NOT(ISNUMBER($C$6:$L$14)))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$6:$L$6=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$7:$L$7=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$8:$L$8=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$10:$L$10=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$12:$L$12=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$14:$L$14=""))>0),"",IF(SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),$C$6:$L$6)<=0,"",((SUMPRODUCT(--(COLUMN($C$
+  V631: =IF($C$89="A0_total",IF(OR(NOT(ISNUMBER($C$70)),NOT(ISNUMBER($C$57)),$C$57<1,$C$43<$C$57,SUMPRODUCT(--($C$6:$L$14<>""),--NOT(ISNUMBER($C$6:$L$14)))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$6:$L$6=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$7:$L$7=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$8:$L$8=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$10:$L$10=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$12:$L$12=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$14:$L$14=""))>0),"",IF(SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),$C$6:$L$6)<=0,"",((SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),$C$7:$L$7,1-$C$10:$L$10)-SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),$C$12:$L$12-$C$8:$L$8+$C$14:$L$14))/$C$57-$C$70)/(SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),$C$6:$L$6)/$C$57))),IF(OR(NOT(ISNUMBER($C$70)),NOT(ISNUMBER($C$57)),$C$57<1,$C$43<$C$57,SUMPRODUCT(--($C$6:$L$14<>""),--NOT(ISNUMBER($C$6:$L$14)))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$6:$L$6=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$7:$L$7=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$8:$L$8=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$88:$L$88=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$10:$L$10=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$12:$L$12=""))>0,SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),--($C$14:$L$14=""))>0),"",IF(SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),$C$6:$L$6)<=0,"",((SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),$C
+Historia!C76
+  V63 : =IF(NOT(ISNUMBER($C$58)),"",SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),$C$12:$L$12-$C$8:$L$8+$C$14:$L$14)/$C$57)
+  V631: =IF($C$89="A0_total",IF(NOT(ISNUMBER($C$58)),"",SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),$C$12:$L$12-$C$8:$L$8+$C$14:$L$14)/$C$57),IF(NOT(ISNUMBER($C$58)),"",SUMPRODUCT(--(COLUMN($C$6:$L$6)>12-$C$57),$C$30:$L$30)/$C$57))
+Historia!A84
+  V63 : None
+  V631:   PERÍMETRO F1 DE LA REINVERSIÓN · motor A (V6.3.1 F1): qué amortización tratan f y el ancla de S2C como reposición
+Historia!A85
+  V63 : None
+  V631: Perímetro de la reinversión (vacío = A0_total, el de la V6.3)
+Historia!B85
+  V63 : None
+  V631: Lo declara la persona (motor_a_f1.json)
+Historia!D85
+  V63 : None
+  V631: A0_total · A1_sin_ROU (sin la D&A de derechos de uso) · A2_propio (sin la D&A de derechos de uso ni la PPA)
+Historia!A86
+  V63 : None
+  V631: Amortización de derechos de uso (D&A ROU, NIIF 16), dentro de la fila 8
+Historia!B86
+  V63 : None
+  V631: Nota de derechos de uso · vacío = desconocido
+Historia!A87
+  V63 : None
+  V631: Amortización de intangibles de combinaciones (PPA), dentro de la fila 8
+Historia!B87
+  V63 : None
+  V631: Nota de intangibles · vacío = desconocido
+Historia!A88
+  V63 : None
+  V631: D_X · amortización que f y el ancla tratan como reposición (perímetro efectivo)
+Historia!B88
+  V63 : None
+  V631: Calculada (no tocar)
+Historia!C88
+  V63 : None
+  V631: =IF($C$89="A0_total",IF(ISNUMBER(C8),C8,""),IF($C$89="A1_sin_ROU",IF(AND(ISNUMBER(C8),ISNUMBER(C86)),C8-C86,""),IF($C$89="A2_propio",IF(AND(ISNUMBER(C8),ISNUMBER(C86),ISNUMBER(C87)),C8-C86-C87,""),"")))
+Historia!D88
+  V63 : None
+  V631: =IF($C$89="A0_total",IF(ISNUMBER(D8),D8,""),IF($C$89="A1_sin_ROU",IF(AND(ISNUMBER(D8),ISNUMBER(D86)),D8-D86,""),IF($C$89="A2_propio",IF(AND(ISNUMBER(D8),ISNUMBER(D86),ISNUMBER(D87)),D8-D86-D87,""),"")))
+Historia!E88
+  V63 : None
+  V631: =IF($C$89="A0_total",IF(ISNUMBER(E8),E8,""),IF($C$89="A1_sin_ROU",IF(AND(ISNUMBER(E8),ISNUMBER(E86)),E8-E86,""),IF($C$89="A2_propio",IF(AND(ISNUMBER(E8),ISNUMBER(E86),ISNUMBER(E87)),E8-E86-E87,""),"")))
+Historia!F88
+  V63 : None
+  V631: =IF($C$89="A0_total",IF(ISNUMBER(F8),F8,""),IF($C$89="A1_sin_ROU",IF(AND(ISNUMBER(F8),ISNUMBER(F86)),F8-F86,""),IF($C$89="A2_propio",IF(AND(ISNUMBER(F8),ISNUMBER(F86),ISNUMBER(F87)),F8-F86-F87,""),"")))
+Historia!G88
+  V63 : None
+  V631: =IF($C$89="A0_total",IF(ISNUMBER(G8),G8,""),IF($C$89="A1_sin_ROU",IF(AND(ISNUMBER(G8),ISNUMBER(G86)),G8-G86,""),IF($C$89="A2_propio",IF(AND(ISNUMBER(G8),ISNUMBER(G86),ISNUMBER(G87)),G8-G86-G87,""),"")))
+Historia!H88
+  V63 : None
+  V631: =IF($C$89="A0_total",IF(ISNUMBER(H8),H8,""),IF($C$89="A1_sin_ROU",IF(AND(ISNUMBER(H8),ISNUMBER(H86)),H8-H86,""),IF($C$89="A2_propio",IF(AND(ISNUMBER(H8),ISNUMBER(H86),ISNUMBER(H87)),H8-H86-H87,""),"")))
+Historia!I88
+  V63 : None
+  V631: =IF($C$89="A0_total",IF(ISNUMBER(I8),I8,""),IF($C$89="A1_sin_ROU",IF(AND(ISNUMBER(I8),ISNUMBER(I86)),I8-I86,""),IF($C$89="A2_propio",IF(AND(ISNUMBER(I8),ISNUMBER(I86),ISNUMBER(I87)),I8-I86-I87,""),"")))
+Historia!J88
+  V63 : None
+  V631: =IF($C$89="A0_total",IF(ISNUMBER(J8),J8,""),IF($C$89="A1_sin_ROU",IF(AND(ISNUMBER(J8),ISNUMBER(J86)),J8-J86,""),IF($C$89="A2_propio",IF(AND(ISNUMBER(J8),ISNUMBER(J86),ISNUMBER(J87)),J8-J86-J87,""),"")))
+Historia!K88
+  V63 : None
+  V631: =IF($C$89="A0_total",IF(ISNUMBER(K8),K8,""),IF($C$89="A1_sin_ROU",IF(AND(ISNUMBER(K8),ISNUMBER(K86)),K8-K86,""),IF($C$89="A2_propio",IF(AND(ISNUMBER(K8),ISNUMBER(K86),ISNUMBER(K87)),K8-K86-K87,""),"")))
+Historia!L88
+  V63 : None
+  V631: =IF($C$89="A0_total",IF(ISNUMBER(L8),L8,""),IF($C$89="A1_sin_ROU",IF(AND(ISNUMBER(L8),ISNUMBER(L86)),L8-L86,""),IF($C$89="A2_propio",IF(AND(ISNUMBER(L8),ISNUMBER(L86),ISNUMBER(L87)),L8-L86-L87,""),"")))
+Historia!A89
+  V63 : None
+  V631: Perímetro efectivo
+Historia!B89
+  V63 : None
+  V631: Calculado (no tocar)
+Historia!C89
+  V63 : None
+  V631: =IF(OR($C$85="",$C$85="A0_total"),"A0_total",IF(OR($C$85="A1_sin_ROU",$C$85="A2_propio"),$C$85,"no reconocido"))
+Historia!A90
+  V63 : None
+  V631: Con A0_total (o C85 vacío) la hoja calcula exactamente como la V6.3. Con A1_sin_ROU o A2_propio, la fila 30 (y con ella la 31), f (C58), su conciliación (C76) y el ancla de S2C (C53) usan D_X en lugar de la D&A total; el terminal usa la misma f. Las series publicadas (fila 8, FCF base, Análisis C46–C52) no cambian. Vacío no es cero: con A1/A2, una D&A de derechos de uso o una PPA vacía en la ventana deja f vacía (Motor V05). R estimada (A3), N1 y los términos explícitos no están en el libro.
+Guía V6!A1
+  V63 :   GUÍA V6.3 · cómo funciona la hoja y por qué
+  V631:   GUÍA V6.3.1 F1 · cómo funciona la hoja y por qué
+Control maestro!A3
+  V63 : Versión V6.3 (30-oct-2026, cobertura completa de evidencias) · ausencias ≠ cero · control de evidencias de datos e hipótesis por motor · dominios económicos · conciliación de f con efecto en el estado · verificador externo contra referencia aprobada. Detalle: Informe_V6_3.md
+  V631: Versión V6.3.1 F1 (18-nov-2026, F1-IMPL: perímetro F1 de la reinversión del motor A, Historia C85:L89; sobre la V6.3 del 30-oct-2026, cobertura completa de evidencias) · ausencias ≠ cero · control de evidencias de datos e hipótesis por motor · dominios económicos · conciliación de f con efecto en el estado · verificador externo contra referencia aprobada. Detalle: Informe_V6_3.md
+Motor!E205
+  V63 : =IF(C205,IF(Historia!$C$57="","INC|Falta Historia C57 (años de la media del FCF base)",IF(NOT(ISNUMBER(Historia!$C$57)),"INV|Historia C57 no es un número",IF(Historia!$C$57<>INT(Historia!$C$57),"INV|Historia C57 ("&Historia!$C$57&") debe ser un número entero de ejercicios",IF(COUNT(Historia!$C$6:$L$6)=0,"",IF(OR(Historia!$C$57<1,Historia!$C$57>COUNT(Historia!$C$6:$L$6)),"INV|Historia C57 ("&Historia!$C$57&") fuera de rango: entre 1 y los ejercicios con ventas ("&COUNT(Historia!$C$6:$L$6)&")",IF(SUMPRODUCT(--(COLUMN(Historia!$C$6:$L$6)>12-Historia!$C$57),--(Historia!$C$6:$L$6=""))>0,"INC|Motor 
+  V631: =IF(C205,IF(Historia!$C$57="","INC|Falta Historia C57 (años de la media del FCF base)",IF(NOT(ISNUMBER(Historia!$C$57)),"INV|Historia C57 no es un número",IF(Historia!$C$57<>INT(Historia!$C$57),"INV|Historia C57 ("&Historia!$C$57&") debe ser un número entero de ejercicios",IF(COUNT(Historia!$C$6:$L$6)=0,"",IF(OR(Historia!$C$57<1,Historia!$C$57>COUNT(Historia!$C$6:$L$6)),"INV|Historia C57 ("&Historia!$C$57&") fuera de rango: entre 1 y los ejercicios con ventas ("&COUNT(Historia!$C$6:$L$6)&")",IF(SUMPRODUCT(--(COLUMN(Historia!$C$6:$L$6)>12-Historia!$C$57),--(Historia!$C$6:$L$6=""))>0,"INC|Motor A: faltan ventas (fila 6) en algún año de la ventana que calibra f (Historia, últimos "&Historia!$C$57&" ejercicios); un hueco no vale cero",IF(SUMPRODUCT(--(COLUMN(Historia!$C$6:$L$6)>12-Historia!$C$57),--(Historia!$C$7:$L$7=""))>0,"INC|Motor A: faltan resultado operativo EBIT (fila 7) en algún año de la ventana que calibra f (Historia, últimos "&Historia!$C$57&" ejercicios); un hueco no vale cero",IF(SUMPRODUCT(--(COLUMN(Historia!$C$6:$L$6)>12-Historia!$C$57),--(Historia!$C$8:$L$8=""))>0,"INC|Motor A: faltan amortizaciones D&A (fila 8) en algún año de la ventana que calibra f (Historia, últimos "&Historia!$C$57&" ejercicios); un hueco no vale cero",IF(SUMPRODUCT(--(COLUMN(Historia!$C$6:$L$6)>12-Historia!$C$57),--(Historia!$C$10:$L$10=""))>0,"INC|Motor A: faltan tipo impositivo efectivo (fila 10) en algún año de la ventana que calibra f (Historia, últimos "&Historia!$C$57&" ejercicios);

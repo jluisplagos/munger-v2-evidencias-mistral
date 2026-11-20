@@ -1,0 +1,34 @@
+### Vigencia oficial (cierre_v2.motivo_vigencia) de los dos expedientes de la batería (copias completas)
+   Hermes (empresas_v2/Hermes) → no consta la respuesta de auditoría aprobada (ni estado_pipeline.json → auditoria_respuesta ni cierre_vigente.json la registran): no se atribuye la aprobación al auditoria.md actual; hace falta una auditoría nueva (paso 13)
+   Vidrala 4.14 (vidrala_decisiones/Vidrala) → None
+
+### A1 · Vidrala 4.14 (con cierre_vigente.json): fase_c.json alterado tras el cierre (a_no, a_si, a_la_baja y predicción 1)
+   hoja_resumen.py → código 0 · OK: /tmp/claude-0/revision_hoja/exp/A1_Vidrala_fase_c/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor ponderado) 
+   hoja escrita: 2/2 · --comprobar → HOJA VIGENTE: lee la ficha e1ce40400a1b24cd… y el material actual del expediente (código 0)
+   17:- Pasaría a **No**: Nada me haría pasar a No: el negocio es seguro y el precio da igual.
+   18:- Pasaría a **Sí**: Ya es un Sí: compraría hoy a cualquier precio por debajo de 120 €.
+   20:- Revisión **a la baja**: No veo motivos para revisar a la baja.
+   44:1. **30 de abril de 2028** — La acción de Vidrala superará los 150 € antes del 31 de diciembre de 2027. Probabilidad que le da el personaje: 70 %.
+   57:**Avisos:** la predicción 1 de fase_c.json (Palancas A38:C38) no coincide con la de la ficha.
+
+### A2 · Vidrala 4.14: precio.json alterado (precio 90,10 → 50,00; zona caro → cumple_regla_k)
+   hoja_resumen.py → código 5 · OK: /tmp/claude-0/revision_hoja/exp/A2_Vidrala_precio/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: NO · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor ponderado) LA SENSIBILIDAD NO REPRODUCE EL PRECIO DE SÍ OFICIAL: {"zona": ["caro", "cumple_regla_k"], "precio": [90.1, 50.0]} 
+   hoja escrita: 2/2 · --comprobar → HOJA VIGENTE: lee la ficha e1ce40400a1b24cd… y el material actual del expediente (código 0)
+   **Veredicto del personaje** — concluido · cubo **Vigilar** · acción **esperar** · precio de Sí **56,00 €** (precio actual 50,00 €, cumple: en el precio de Sí o por debajo) · **experimental; no apto para dinero real** — según la ficha, aptitud_d
+   38:- Comprobación: a la tasa heredada la copia reproduce exactamente el precio de Sí oficial de precio.json: **NO — {"zona": ["caro", "cumple_regla_k"], "precio": [90.1, 50.0]}**.
+
+### A3 · Hermès (sin cierre_vigente.json): ficha.json editada a mano (cubo Sí, acción comprar, aptitud_de_uso.apto_para_dinero_real = true)
+   hoja_resumen.py → código 0 · OK: /tmp/claude-0/revision_hoja/exp/A3_Hermes_ficha/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor ponderado) 
+   hoja escrita: 2/2 · --comprobar → HOJA VIGENTE: lee la ficha 55f0bc4ba660bd83… y el material actual del expediente (código 0)
+   **Veredicto del personaje** — concluido · cubo **Sí** · acción **comprar** · precio de Sí **757,05 €** (precio actual 1.312,50 €, caro: por encima del valor ponderado) · **la ficha declara apto para dinero real** — según la ficha, aptitud_de_uso; esta hoja no lo evalúa.
+
+### A4 · Vidrala 4.14: ficha_provisional.json copiada como ficha.json, sin cierre_vigente.json y sin la clave «provisional»
+   hoja_resumen.py → código 0 · OK: /tmp/claude-0/revision_hoja/exp/A4_Vidrala_prov/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor ponderado) 
+   hoja escrita: 2/2 · --comprobar → HOJA VIGENTE: lee la ficha 04c9f4eabf9e9fd7… y el material actual del expediente (código 0)
+   ficha.cierre = None · ficha.provisional = None
+
+### A9 · Hermès (sin cierre_vigente.json): tesis B101 de fase_c.json sustituida por «Hermès es una compra clara a cualquier precio. La compraría hoy mismo. No veo riesgos.»
+   hoja_resumen.py → código 0 · OK: /tmp/claude-0/revision_hoja/exp/A9_Hermes_informe/hoja_resumen.md · 6 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce el oficial a 9 %: sí · firme: la zona no cambia entre el 8 y el 10 % (caro: por encima del valor ponderado) 
+   hoja escrita: 2/2 · --comprobar → HOJA VIGENTE: lee la ficha 93a880c4d718550f… y el material actual del expediente (código 0)
+   Hermès es una compra clara a cualquier precio. [1] La compraría hoy mismo. [2] No veo riesgos. [3] El ROIC ya baja: de 0,655 (2022) a 0,489 (2025) con un capital invertido un 74 % mayor, y la rentab
+   57:**Avisos:** Análisis!B101 del libro evaluado no es el texto de fase_c.json.

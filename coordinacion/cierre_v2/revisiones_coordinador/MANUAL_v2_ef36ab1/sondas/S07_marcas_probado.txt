@@ -1,0 +1,196 @@
+$ git -C <aux> show ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/INFORME_TRASPASO.md | sed -n '10p;18p;23,38p' | cut -c1-330
+**Entorno (hechos):** Python 3.13.18, LibreOffice 24.2.7.2, pdftotext 24.02.0, openpyxl 3.1.5, Bash 5.2.21 y `gh` autenticado. `HOME=/root`. Bloqueo de LibreOffice: `<e_work>/libreoffice.lock`, con `flock -x`. **No se han modificado repositorios remotos**: ni commit, ni push, ni subidas. Tampoco se han cambiado credenciales.
+Raíces: `MAIN` = `<traspaso>/munger-v2` (clon de `main`, `d69d483`) · `CAND` = worktree `…/candidata` · `CL1` = copia limpia `…/copia_limpia_1/munger_v2_r1` · `CR` = copia para relevos `…/copia_relevo/munger_v2_r1` · `E414` = `personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14`.
+| 2a | `gh release download base-4.14 --repo jluisplagos/munger-v2 --pattern munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip --dir .downloads` (MAIN) | 1 | 403: «GitHub GraphQL is not available from Claude Code sessions» | Sí: el manual prevé que falle |
+| 2b | `gh api -H "Accept: application/octet-stream" repos/jluisplagos/munger-v2/releases/assets/750814858 > .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip` (MAIN) y después `stat -c '%s %n'` y `sha256sum` | 0 / 0 | 1130912246 bytes; SHA-256 `bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e
+| 3 | `python3 tools/base_414.py materialize --source .downloads/…zip` y `python3 tools/base_414.py verify --report docs/VERIFICACION_BASE_COMPLETA_LOCAL.json` (MAIN) | 0 / 0 | «Archivos recuperados: 1008»; `verified 6798 · expected 6798 · missing 0 · changed 0 · complete true` | **Sí**. Se usó `python3` en lugar de `p
+| 4 | `git worktree add ../candidata integracion/candidata-cierre-v2` (MAIN) | 0 | HEAD `957af652cdc3bef3d67e8623c9572138bac685e9`; `VERSION` «4.15 · hito 2»; `origin/integracion/candidata-cierre-v2` = 957af65 | **Sí**. El comando **[NO DOCUMENTADO]**: se improvisó un worktree, como en las pruebas de la candidata |
+| 5 | `python3 -I scripts_receptor/copiar_binarios.py munger-v2 candidata registro/paso5_copia_binarios.json` (script propio, **improvisado**) | 0 | `copiados 1008 · existentes_iguales 0 · distintos 0 · fallos 0`. Después, `git status` en CAND da 83 JSON sin seguimiento y ningún cambio versionado | **Sí**. Procedimiento **
+| 6 | Revisión del propio registro de comandos | — | `base_414.py` solo se ejecutó en MAIN. En CAND, ninguna orden. `git diff` vacío en MAIN y CAND | **Sí** |
+| 7 | `mkdir copia_limpia_1 && cp -a candidata/munger_v2_r1 copia_limpia_1/` | 0 | 0 `__pycache__` y 0 `.lo_perfil`; 1,5 GB | Sí. El comando **[NO DOCUMENTADO]** (N-03): `cp -a`, improvisado |
+| 7b | Contraste independiente de CAND con `munger_v2_r1/MANIFIESTO_SHA256.txt`, en Python propio con la misma lógica que `verificar_paquete.sh` (**improvisado**, N-02) | 0 | 7762 en el manifiesto · 0 modificados · 0 ausentes · 0 de más | **Sí** |
+| 8 | `flock -x <e_work>/libreoffice.lock bash verificar_paquete.sh completa` (CL1) | **0** | **RESULTADO GLOBAL: PASA**. Recuentos: 7762·0·0·0; entorno, PASA; piloto, 35 CUMPLEN; 114/114; 30/30 (faltan 0, nuevas 0); 59/59; 27/27; 33/33; 190/190; 62/62; 5/5; 199/199; 78/78; 103/103; 55/55; 28/28; 45/45; 55/55. De 08:44:07 a 0
+| 9 | `flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/scripts/comprobar_entrega_4_14.py` (CL1, después del 8) | 1 | **29/35**. Las seis FALLA son las esperadas: tres verificaciones de entradas, «0 de 321/311/292», y tres fechas de archivo. El `diff` con `PRUE
+| 10 | `flock -x … python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py <traspaso>/registro/paso10_controles_historicos` (CL1). El comando sale del LEEME de la 4.14, no del manual. Carpeta de salida fuera del árbol, por decisión propia | 0 (el script) | De 09:38
+| 10b | Limpieza según `CONTINUIDAD.md` §2.5: `find …/pruebas/_v64 -name '*.xlsx' -not -path '…/vigencia/*' -delete; rm -rf …/_v64/vigencia`, y borrado del ZIP local ya verificado. Rutas en `registro/paso10_limpieza_rutas.txt`. Después, `flock -x … python3 -I -B …/2026-11_Vidrala_ensayo_4_8_1/scripts/comprobar_entre
+| 11 | Lectura de los `estado_pipeline.json` (`esperando`) de CAND | — | En `E414`: `elis_motor_A/Elis`, paso 13; `viscofan/Viscofan`, paso 13; `vidrala/Vidrala`, paso 13; `vidrala_decisiones_INVALIDO…/Vidrala`, paso 6. Los tres finales (`*_decisiones`) están en el paso 14. Hay más esperas que no menciona el manual: copias
+| 12 | `cp -a elis_motor_A elis_motor_A_relevo_receptor` (CR/E414; `diff -r`, diferencia 0) y después `flock -x … python3 personaje_v2/scripts/pipeline.py personaje_v2/…/elis_motor_A_relevo_receptor/Elis --config personaje_v2/config_v2.json` (CR) | **10** | Prompts regenerados con las rutas actuales: las 6 rutas `/home/clau
+| 13 | `cp -a` del estado anterior a `…_p13`; con la auditoría pedida (`SA-4bb…`), se añade una línea a `informe_provisional.md` (archivo del material) y se relanza el mismo comando **sin `--desde`** | **10** | `relevos_caducados` con fijado `4d9ee9b6…`, vigente `88ccc612…` y cambiado `informe_provisional.md`; paso 12
+| 14 | Lo mismo en `…_h9`, cambiando `fase_c.md`, una salida de una fase anterior | **10** | Vuelve al **paso 12**: cambiado `fase_c.md`; solicitud `SA-cfb141cb0d97496c` (material `af6dd549…`). El `fase_c.md` cambiado **queda dentro del material refijado** y no se repiten los pasos que consumen la fase C. *Interpretación:* 
+[código 0]
+
+$ git -C <aux> show ef36ab1:coordinacion/cierre_v2/traspaso/revision_20261117/REVISION_TRASPASO.md | sed -n '30p;54,75p' | cut -c1-260
+  1. El registro no conserva una transcripción de comandos ni la mayoría de los códigos de salida. Los pasos 1–7, 11 y parte de 9, 10b y 12–14 son autodeclarados.
+| # | Comando | Código | Resultado | Observación del revisor |
+|---|---|---|---|---|
+| 1 | — | n/a | I | Los prefijos del §13 del manual coinciden con `957af65` (hecho: comprobados 15 aquí). El informe dice que comprobó 10 |
+| 2a | — | — | — | El 403 de `gh release download` no se conserva |
+| 2b | — | — | I | La huella `bb51942c…` solo está en el informe. `materialize` funcionó con ese ZIP |
+| 3 | — | I | **R** | `paso3_*.log`: 1008 recuperados; 6798/6798, `complete: true`. Por `tools/base_414.py:163`, eso implica código 0 |
+| 4 | — | — | I | El HEAD `957af65` no tiene registro propio. Lo apoyan la línea `VERSION` del log del paso 8 y el manifiesto (7762, PASA) |
+| 5 | — (script **R**) | I | **R** | Se publica `copiar_binarios.py`, que es correcto: no sobrescribe y comprueba la huella antes y después. `paso5_copia_binarios.json`: 1008·0·0·0. El conjunto de rutas es idéntico al de `copia_binarios_candidata.json` 
+| 6 | — | n/a | — | No verificable: no hay transcripción de comandos (ver A-13) |
+| 7 | — | — | — | Ni la copia ni «0 `__pycache__`, 1,5 GB» tienen registro |
+| 7b | — | — | — | El script improvisado del manifiesto **no se conserva**, a diferencia del del paso 5 |
+| 8 | I | **R** | **R** | `paso8_exit.txt` EXIT=0; inicio 08:44:07 y fin 09:37:27; log completo. El uso de `flock` no queda registrado |
+| 9 | — | — | **R** | 29/35 en el log. Ni el código 1 ni los tiempos (09:37:42–53) tienen registro |
+| 10 | I | **R** | **R** | EXIT=0, 09:38:05–10:05:57, 19 salidas y resumen. Los «8,4 GB libres» no tienen registro (no hay `df`) |
+| 10b | — | — | **R** | Reintento 25/30 y limpieza (`paso10_limpieza_rutas.txt`). Ni los «13 GB», ni las horas, ni el código tienen registro |
+| 11 | — | n/a | — | Sin registro. Comprobado aquí en el árbol: 13 `estado_pipeline.json` en espera, y la lista del informe es coherente |
+| 12 | — | — | **R** | `paso12_pipeline_01.txt` y `relevo_copia_base/` lo respaldan, y el prompt tiene 6 rutas `<traspaso>`. El código 10 no se registra (la salida «ESPERANDO» es coherente con 10). Hay huellas «antes» (126) pero no «después», ni sa
+| 13 | — | — | **R** | `paso_p13_pipeline.txt` y `relevo_copia_p13/`. No consta la línea añadida ni el código |
+| 14 | — | — | **R** | `paso_h9_pipeline.txt` y `relevo_copia_h9/`. Igual que el 13 |
+| 15–16 | n/a | n/a | coherente | En el registro no hay ningún `auditoria.md`: `auditoria: null` y todas las solicitudes «pendiente» o «sustituida», con veredicto nulo |
+| 17 | n/a | n/a | **R** (ficha) | `ficha_provisional.json` tiene `apto_por_entradas: false`, `apto_para_dinero_real: false`, 0 de 292, `modo: registrada`, `declarado_en: null` y `aplicada_en_paso_2: null`. La «línea 9 del informe» no se puede comprobar: `i
+| 18 | n/a | n/a | coherente | No hay ninguna configuración económica en el registro |
+[código 0]
+
+$ for f in paso8_exit paso8_inicio paso8_fin paso10_exit paso10_inicio paso10_fin; do echo "$f: $(git -C <aux> show ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/$f.txt)"; done
+paso8_exit: EXIT=0
+paso8_inicio: 2026-11-17T08:44:07Z
+paso8_fin: 2026-11-17T09:37:27Z
+paso10_exit: EXIT=0
+paso10_inicio: 2026-11-17T09:38:05Z
+paso10_fin: 2026-11-17T10:05:57Z
+[código 0]
+
+$ git -C <aux> show ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso5_copia_binarios.json | head -8
+{
+ "resumen": {
+  "copiados": 1008,
+  "existentes_iguales": 0,
+  "distintos": 0,
+  "fallos": 0
+ },
+ "copiados": [
+[código 0]
+
+$ git -C <aux> show ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso12_pipeline_01.txt
+[paso 13] relevo caducado: el material fijado 9e1a725d6432f548 ya no es el vigente 72f855cf59b252fb (cambian: verificacion_entradas.json); se repite la verificación (paso 12) y se pide una auditoría nueva del material vigente
+[paso 12] verificación de las entradas financieras: 0 de 292 celdas del universo comprobadas · apta por entradas: no (0 de 292 celdas del universo comprobadas (0 de 193 de cálculo y 0 de 99 de juicio; +135 datos de origen auxiliares); 0 lecturas externas sin bytes; 4 entradas del FCF base no reproducibles; 0 datos tr)
+[paso 13] solicitud de auditoría SA-4bb1526435a31a51 registrada para el material 4d9ee9b6e4b4bd09 (sustituye a SA-ed5561eac1cc5897)
+ESPERANDO: verificacion → auditoria.md (solicitud SA-4bb1526435a31a51) (ver ESPERANDO.md y prompts_generados/)
+[código 0]
+
+$ git -C <aux> show ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso_h9_pipeline.txt
+[paso 13] relevo caducado: el material fijado 4d9ee9b6e4b4bd09 ya no es el vigente f3e1a1c00aa66553 (cambian: fase_c.md); se repite la verificación (paso 12) y se pide una auditoría nueva del material vigente
+[paso 12] verificación de las entradas financieras: 0 de 292 celdas del universo comprobadas · apta por entradas: no (0 de 292 celdas del universo comprobadas (0 de 193 de cálculo y 0 de 99 de juicio; +135 datos de origen auxiliares); 0 lecturas externas sin bytes; 4 entradas del FCF base no reproducibles; 0 datos tr)
+[paso 13] solicitud de auditoría SA-cfb141cb0d97496c registrada para el material af6dd549a8496c72 (sustituye a SA-4bb1526435a31a51)
+ESPERANDO: verificacion → auditoria.md (solicitud SA-cfb141cb0d97496c) (ver ESPERANDO.md y prompts_generados/)
+[código 0]
+
+$ git -C <aux> show ef36ab1:coordinacion/cierre_v2/traspaso/resultado_20261117/registro/paso10_limpieza_rutas.txt | wc -l
+776
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh F1PREP/log_base414.txt
+     1	### 2026-11-15T17:23:13+00:00 cwd=<home>/e_work/wt_main414 HEAD=d69d4837f0e99ce30f38d3461f15cceee9a58730
+     2	$ python3 -I tools/base_414.py materialize --source <home>/e_work/dl_base414/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+     3	Archivos recuperados: 1008
+     4	{
+     5	  "scope": "full_baseline",
+     6	  "verified": 6798,
+     7	  "expected": 6798,
+     8	  "missing": 0,
+     9	  "changed": 0,
+    10	  "complete": true
+    11	}
+    12	[codigo_salida_materialize=0]
+    13	### 2026-11-15T17:23:32+00:00
+    14	$ python3 -I tools/base_414.py verify --report <home>/e_work/inventario/VERIFICACION_BASE_COMPLETA_LOCAL_414.json
+    15	{
+    16	  "scope": "full_baseline",
+    17	  "verified": 6798,
+    18	  "expected": 6798,
+    19	  "missing": 0,
+    20	  "changed": 0,
+    21	  "complete": true
+    22	}
+    23	[codigo_salida_verify=0]
+[código 0]
+
+$ git -C <candidata> show 03e7851:docs/validacion_economica_paralela/frente_E_F1_elis/evidencias/preparacion/preparacion.json | python3 -I -c 'import json,sys; d=json.load(sys.stdin); print(json.dumps({k:d[k] for k in ("paso2_descarga","paso4_worktree_B")},ensure_ascii=False,indent=1))'
+{
+ "paso2_descarga": {
+  "comando_indicado": "gh release download base-4.14 --repo jluisplagos/munger-v2 --pattern munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip --dir <home>/e_work/dl_base414",
+  "resultado_comando_indicado": "4 intentos, codigo 1 en todos: «non-200 OK status code: 403 Forbidden ... GitHub GraphQL is not available from Claude Code sessions; use the REST API». Logs: inventario/log_descarga_intento1..4.txt. Estado del proxy consultado (enabled, sin fallos de relay).",
+  "alternativa_usada": "API REST del mismo asset: gh api repos/jluisplagos/munger-v2/releases/tags/base-4.14 (asset id 750814858, size 1130912246, digest sha256:bb51942c...) y gh api -H \"Accept: application/octet-stream\" repos/jluisplagos/munger-v2/releases/assets/750814858 > dl_base414/<zip>",
+  "codigo_salida_alternativa": 0,
+  "intentos_alternativa": 1,
+  "bytes": 1130912246,
+  "bytes_esperados": 1130912246,
+  "sha256": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+  "sha256_esperado": "bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e",
+  "estado": "OK (por API REST; el comando gh release download falla por GraphQL bloqueado)"
+ },
+ "paso4_worktree_B": {
+  "comando": "git worktree add --detach <home>/e_work/wt_hito415 059f4f68dca7acf465b5f5b21de2dede84c885ff",
+  "codigo_salida": 0,
+  "HEAD": "059f4f68dca7acf465b5f5b21de2dede84c885ff",
+  "copia_binarios": {
+   "script": "scripts/copiar_binarios_a_b.py (shutil.copy2: bytes y marcas de tiempo; SHA-256 y tamaño comprobados tras copiar contra baselines/4.14.json)",
+   "recuento": {
+    "copiados": 1008,
+    "existentes_iguales": 0,
+    "existentes_distintos": 0,
+    "origen_ausente_o_distinto": 0,
+    "fallo_tras_copia": 0,
+    "release_asset_en_baseline": 1008
+   },
+   "existentes_distintos": [],
+   "detalle": "inventario/copia_binarios_A_a_B.json"
+  },
+  "manifiesto_B": {
+   "primera_linea": "# MANIFIESTO SHA-256 · munger_v2_r1 · 4.15 · hito 1 · 7004 archivos (todos salvo este). Formato: «huella  ruta».",
+   "formato": "línea 1 = cabecera (comentario); resto «huella  ruta» -> se usó tail -n +2 sin adaptación",
+   "comando": "tail -n +2 MANIFIESTO_SHA256.txt | sha256sum -c --quiet (y una segunda pasada sin --quiet para contar OK)",
+   "codigo_salida": 0,
+   "entradas": 7004,
+   "OK": 7004,
+   "FAILED": 0,
+   "ausentes": 0,
+   "presentes_fuera_del_manifiesto": [],
+   "listas": [
+    "inventario/B_rutas_manifiesto.txt",
+    "inventario/B_rutas_presentes.txt",
+    "inventario/B_presentes_fuera_manifiesto.txt",
+    "inventario/B_manifiesto_ausentes.txt"
+   ],
+   "tools_base_414_ejecutado_en_B": false
+  },
+  "archivos_versionados_modificados_en_B": 0,
+  "estado": "OK"
+ }
+}
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh F1PREP/scripts/copiar_binarios_a_b.py 36-41
+[F1PREP/scripts/copiar_binarios_a_b.py:] 36	    else:
+[F1PREP/scripts/copiar_binarios_a_b.py:] 37	        res['fallo_tras_copia'].append(rel)
+[F1PREP/scripts/copiar_binarios_a_b.py:] 38	res['recuento'] = {k: len(v) for k, v in res.items() if isinstance(v, list)}
+[F1PREP/scripts/copiar_binarios_a_b.py:] 39	res['recuento']['release_asset_en_baseline'] = len(assets)
+[F1PREP/scripts/copiar_binarios_a_b.py:] 40	json.dump(res, open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+[F1PREP/scripts/copiar_binarios_a_b.py:] 41	print(json.dumps(res['recuento'], ensure_ascii=False))
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh TRASP/scripts_receptor/copiar_binarios.py 7-7
+[TRASP/scripts_receptor/copiar_binarios.py:] 7	Uso: python3 -I copiar_binarios.py <raiz_main> <raiz_candidata> <informe.json>
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh TRASP/scripts_receptor/copiar_binarios.py 49-52
+[TRASP/scripts_receptor/copiar_binarios.py:] 49	    resumen = {k: len(v) for k, v in res.items()}
+[TRASP/scripts_receptor/copiar_binarios.py:] 50	    out.write_text(json.dumps({"resumen": resumen, **res}, ensure_ascii=False, indent=1))
+[TRASP/scripts_receptor/copiar_binarios.py:] 51	    print(json.dumps(resumen))
+[TRASP/scripts_receptor/copiar_binarios.py:] 52	    return 0 if resumen["fallos"] == 0 and resumen["distintos"] == 0 else 1
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh PRUEBAS/README.md 18-24 | cut -c1-260
+[PRUEBAS/README.md:] 18	| Paso | Comando | Resultado | Registro |
+[PRUEBAS/README.md:] 19	|---|---|---|---|
+[PRUEBAS/README.md:] 20	| Primer intento | `bash verificar_paquete.sh completa` | Interrumpido por un reinicio del contenedor durante `test_integracion_v64.py`. Todo lo anterior pasa. No se reutilizó la carpeta | `verificar_paquete_completa_interrumpido.log` 
+[PRUEBAS/README.md:] 21	| Segundo intento, en una copia nueva (22:18–23:18 UTC) | `flock -x … bash verificar_paquete.sh completa` | **Código 0. RESULTADO GLOBAL: PASA.**<br>- Manifiesto, entorno y piloto: PASA.<br>- 114/114 y 30/30.<br>- 59/59, 27/27 y 33
+[PRUEBAS/README.md:] 22	| Control 4.14 sobre la misma copia, después | `python3 -I -B …/comprobar_entrega_4_14.py` | Código 1. **29/35**, lo esperado sobre un clon Git (CONTINUIDAD.md §2.3). Las 6 FALLA son las documentadas:<br>- las 3 verificaciones de e
+[PRUEBAS/README.md:] 23	
+[PRUEBAS/README.md:] 24	**No se han ejecutado** los controles de las entregas anteriores a la 4.14 (`LEEME_CONTROLES_HISTORICOS_4_14.md`).
+[código 0]
+

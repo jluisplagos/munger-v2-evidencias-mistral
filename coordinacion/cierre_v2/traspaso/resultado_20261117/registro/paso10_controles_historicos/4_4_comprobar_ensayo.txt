@@ -1,0 +1,97 @@
+EXPEDIENTE DE ENSAYO DE VIDRALA · entrega 4.4 · comprobaciones de solo lectura
+====================================================================================================
+
+1. HUELLAS DE LAS FUENTES
+  [CUMPLE] 2016: 1279_en-2016_consolidated_financial_information.pdf · SHA-256 53849fe52385…
+  [CUMPLE] 2017: 1285_en-2017_consolidated_financial_information.pdf · SHA-256 da068c8b2864…
+  [CUMPLE] 2018: 1291_en-2018_consolidated_financial_information.pdf · SHA-256 907687f9e3f0…
+  [CUMPLE] 2019: 1297_en-2019_consolidated_financial_information.pdf · SHA-256 9c38b260482b…
+  [CUMPLE] 2020: 1304_en-2020_consolidated_financial_information.pdf · SHA-256 35264bc72362…
+  [CUMPLE] 2021: 1413_en-2021_consolidated_financial_information.pdf · SHA-256 2b966a418861…
+  [CUMPLE] 2022: 1668_en-2022_consolidated_financial_information.pdf · SHA-256 180b3608c7e9…
+  2023: contrastes/vidrala_2023_arrendamientos/fuentes/en_1831_descarga_2026-11-08/1831_en-2023_consolidated_financial_information.pdf (conservado en una entrega anterior) · SHA-256 8f88818c624b…
+  2024: contrastes/vidrala_2023_arrendamientos/fuentes/en_2145_descarga_2026-11-08/2145_en-2024_consolidated_financial_information.pdf (conservado en una entrega anterior) · SHA-256 c2d4c12ea89a…
+  2025: contrastes/piloto_Vidrala_2025/fuentes/en_2355_descarga_2026-11-08/2355_en-2025_consolidated_financial_information.pdf (conservado en una entrega anterior) · SHA-256 c548c2fac041…
+  [CUMPLE] OIR del dividendo a cuenta (vidrala.com, doc. 2275) · SHA-256 cbaff23e…
+  [CUMPLE] OIR de la liberada 2026 (CNMV, documento {5b51ba57…}) · SHA-256 3259cf30…
+
+2. TEXTOS DE texto/ REPRODUCIBLES DESDE LOS PDF
+  [CUMPLE] pdf_a_texto.py convierte los diez PDF sin avisos · código 0
+  [CUMPLE] texto/CF_2016.txt idéntico a la conversión del PDF · 159c8b0009ec…
+  [CUMPLE] texto/CF_2017.txt idéntico a la conversión del PDF · 60c948af1de8…
+  [CUMPLE] texto/CF_2018.txt idéntico a la conversión del PDF · 81982ba0a7e9…
+  [CUMPLE] texto/CF_2019.txt idéntico a la conversión del PDF · 4c0f4a6ebd86…
+  [CUMPLE] texto/CF_2020.txt idéntico a la conversión del PDF · 16c5c014909b…
+  [CUMPLE] texto/CF_2021.txt idéntico a la conversión del PDF · b6450872e4cb…
+  [CUMPLE] texto/CF_2022.txt idéntico a la conversión del PDF · 590142c8c5f0…
+  [CUMPLE] texto/CF_2023.txt idéntico a la conversión del PDF · 8fbc85ec5aa7…
+  [CUMPLE] texto/CF_2024.txt idéntico a la conversión del PDF · fd37a10ecd59…
+  [CUMPLE] texto/CF_2025.txt idéntico a la conversión del PDF · ebfe0f35db7e…
+  [CUMPLE] CF_2023.txt idéntico al texto nuevo de la entrega anterior (CF_2023_EXTRACCION_NUEVA.txt)
+  [CUMPLE] CF_2024.txt idéntico al texto nuevo de la entrega anterior (CF_2024_EXTRACCION_NUEVA.txt)
+  [CUMPLE] CF_2025.txt idéntico al texto nuevo de la entrega anterior (CF_2025_EXTRACCION_NUEVA.txt)
+
+3. VERSIONES NUEVAS DE fase1_partes/AR_*.json FRENTE A LAS ORIGINALES
+  [CUMPLE] 39 «cita» añadidas a ceros heredados (re-extracción solo de esas partidas) · 39
+  [CUMPLE] 2 páginas de D&A de AR_2024.json corregidas 4 → 7 (P8, tipo A, sin tocar importes) · 2
+  [CUMPLE] Ninguna otra diferencia (importes, líneas, signos, notas)
+
+4. comprobar-anio DE LOS DIEZ AÑOS (expediente de ensayo)
+  [CUMPLE] 2016: OK · 5 ceros PENDIENTES
+  [CUMPLE] 2017: OK · 3 ceros PENDIENTES
+  [CUMPLE] 2018: OK · 5 ceros PENDIENTES
+  [CUMPLE] 2019: OK · 4 ceros PENDIENTES
+  [CUMPLE] 2020: OK · 4 ceros PENDIENTES
+  [CUMPLE] 2021: OK · 4 ceros PENDIENTES
+  [CUMPLE] 2022: OK · 4 ceros PENDIENTES
+  [CUMPLE] 2023: OK · 3 ceros PENDIENTES
+  [CUMPLE] 2024: OK · 3 ceros PENDIENTES
+  [CUMPLE] 2025: OK · 3 ceros PENDIENTES
+  [CUMPLE] 38 ceros PENDIENTES de verificación en total (39 ceros con cita; el de adquisiciones de 2023 no se usa porque hay cifra) · 38
+
+5. ESTADO DEL EXPEDIENTE DE ENSAYO
+  [CUMPLE] No hay fase1_v63.json: el paso 2 del pipeline lo generará con construir
+  [CUMPLE] fase1_decisiones.json idéntico al original (registro humano; sin P1)
+  [CUMPLE] fase1_fuentes.json idéntico al original
+  [CUMPLE] fase1_metadatos.json idéntico al original
+  [CUMPLE] fase1_listas.md idéntico al original
+  [CUMPLE] etapa1/ idéntico al original
+  [CUMPLE] Pipeline detenido en el paso 2 sin estado final (pasos 0 y 1 ejecutados)
+  [CUMPLE] Libro base (migración de la etapa 1) idéntico celda a celda al original · 0 diferencias
+
+6. construir EN UNA COPIA TEMPORAL (sin P1)
+  [CUMPLE] construir termina con código 0 · fase1_v63.json escrito (10 años, 26 diferencias con el comparativo, 38 ceros pendientes de verificación, 0 confirmados por decisión humana; ver historia_revisio
+  [CUMPLE] Historia: mismos años y mismos valores que la original en las 22 partidas
+  [CUMPLE] Metadatos (precio, acciones, capitalización, fecha) iguales a los originales
+
+7. construir CON UNA DECISIÓN SIMULADA DE P1 (prueba del mecanismo; no es un registro humano)
+  [CUMPLE] Con la decisión simulada solo cambia el circulante de 2024 · [('circulante', 8)]
+  [CUMPLE] Circulante de 2024: −127,84 → 84,994
+  [CUMPLE] La propuesta de fase1_decisiones.json solo añade circulante_lineas 2024 = 84,994 (fecha y persona vacías, para la persona)
+
+8. DIVIDENDO A CUENTA Y LIBERADA DE 2026 (hechos citados)
+  [CUMPLE] OIR 2275: «en su reunión celebrada el 17 de diciembre de 2025»
+  [CUMPLE] OIR 2275: «1,2318 euros brutos por acción»
+  [CUMPLE] OIR 2275: «Last trading date: 10 de febrero de 2026»
+  [CUMPLE] OIR 2275: «Ex-date: 11 de febrero de 2026»
+  [CUMPLE] OIR 2275: «Record date: 12 de febrero de 2026»
+  [CUMPLE] OIR 2275: «Fecha de desembolso: 13 de febrero de 2026»
+  [CUMPLE] OIR 2275: «Llodio, 18 de diciembre de 2025»
+  [CUMPLE] OIR de la CNMV: «29 de octubre de 2026: Inicio del periodo de negociación de los derechos de asignación gra»
+  [CUMPLE] OIR de la CNMV: «11 de noviembre de 2026: Fin del periodo de negociación de los derechos de asignación grat»
+  [CUMPLE] OIR de la CNMV: «existen en circulación TREINTA Y CINCO MILLONES DOSCIENTAS SEIS MIL DOSCIENTAS CINCUENTA Y»
+  [CUMPLE] OIR de la CNMV: «(1.760.312) nuevas acciones»
+  [CUMPLE] OIR de la CNMV: «Llodio, 20 de octubre de 2026»
+  [CUMPLE] OIR de la CNMV: «una vez finalice el período de asignación gratuita, formalice contablemente»
+  [CUMPLE] OIR de la CNMV: «desde la fecha de inscripción en los registros contables de Iberclear»
+  [CUMPLE] EN25 p.70: «Dividends to shareholders (Note 15) 43,338 37,547» dentro de proveedores y otras cuentas a pagar
+  [CUMPLE] EN25 p.67: «Dividends payables (Note 17) 37,547 (37,547) - 43,338 43,338» en la conciliación NIC 7
+  [CUMPLE] EN25 p.64: el consejo del 19-dic-2025 aprobó el dividendo (el OIR dice 17-dic: discrepancia documental de fecha)
+  [CUMPLE] EN25 p.3: el dividendo a cuenta (43,338) reduce el patrimonio a 31-dic-2025
+  [CUMPLE] ESEF (español): «El Consejo de Administración de la Sociedad dominante de fecha 19 de diciembre de 2025»
+  [CUMPLE] 43.338.244,48 € ÷ 1,2318 €/acción ≈ 35.182.858 acciones = emitidas (35.206.258) − autocartera a 31-dic-2025 (23.400) · 35,182,858.0
+
+9. ORIGINALES INTACTOS
+  [CUMPLE] Los 83 archivos de empresas_v2/Vidrala/ conservan su huella del manifiesto
+
+RESULTADO: 72 de 72 comprobaciones cumplen.

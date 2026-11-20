@@ -1,0 +1,50 @@
+== E-R1: afirmaciones positivas de 'concepto monetario'/'flujo operativo' para el +25,7 (solo deben quedar menciones de retirada)
+./LECTURA_FUENTES.jsonl:54:2), SEPARADA de la linea de bajas +25,7: el +25,7 NO es un 'concepto monetario' en esa nota (correccion E-R1 de la afi
+./RESUMEN_PARA_INTEGRADOR.md:7:- **E-R1 N2:** retirada la afirmación falsa («concepto monetario / sección operativa»). +25,7 va en l�
+./scripts/lectura_bloque2.py:15:- N2: retirada la afirmacion falsa de 'concepto monetario / seccion operativa'; dos medidas
+./scripts/lectura_bloque2.py:212:2), SEPARADA de la linea de bajas +25,7: el +25,7 NO es un 'concepto monetario' en esa nota (correccion E-R1 de la afi
+./scripts/lectura_bloque2.py:268:    "N2": "E-R1: retirada la afirmacion falsa de 'concepto monetario / seccion operativa'; +25,7 va en linea
+./PREGUNTAS_Y_RESULTADOS.csv:5:2), SEPARADA de la linea de bajas +25,7: el +25,7 NO es un 'concepto monetario' en esa nota (correccion E-R1 de la afi
+./PREGUNTAS_Y_RESULTADOS.csv:5:s en esta busqueda","E-R1: retirada la afirmacion falsa de 'concepto monetario / seccion operativa'; +25,7 va en linea
+./HALLAZGOS_ELIS.md:29:ich monetary items **(28,2)**» — el +25,7 **no** es un «concepto monetario» en esa nota; figura además como «of
+./RESPUESTA_REVISION_E1.md:11:Hecho:** retirada la afirmación falsa de que el +25,7 es «concepto monetario» de la «sección operativa». En la n
+== E-R7: frases absolutas (grep del autor y grep ampliado)
+-- grep del autor (no publicad|sin publicar) fuera de scripts:
+./ENTREGA.json:37:E-R7": "CERRADO - sin frases absolutas 'no publicado'; siempre 'no localizado en esta busqu
+./RESPUESTA_REVISION_E1.md:47:- Eliminados «no publicada» / «sigue sin publicarse» de ENTREGA.json, RESUMEN, HALLAZGOS, 
+./RESPUESTA_REVISION_E1.md:48:- **Prueba:** `grep -rniE "no publicad|sin publicar"` sobre los textos de evidencia regener
+-- ampliado (ningun[ao]? .* publicad|sin cifra publicada|No publica):
+./LECTURA_FUENTES.jsonl:30:e siguen a nivel de Comite Ejecutivo en todas las regiones; sin cifra publicada", "no_demuestra": "No publica la tasa d
+./PREGUNTAS_Y_RESULTADOS.csv:3:n' y 'lower churn' en la presentacion S1-2026 (§6.1 l491); ninguna tasa ni importe publicado,"politica PPA 85,7 al año (28% del FCF
+./PREGUNTAS_Y_RESULTADOS.csv:3:e siguen a nivel de Comite Ejecutivo en todas las regiones; sin cifra publicada | Presentacion FY2024 p.5: 'customer re
+== E-R8: 'este commit' en f00c5dd (ambiguo: 23718fb o f00c5dd)
+./PUNTO_DE_RECUPERACION.md:12:- **Bloque 5 cerrado (relevo, este commit): checkpoint de recuperación
+./PUNTO_DE_RECUPERACION.md:24:- Relevo (bloque 5, este commit): checkpoint de recuperación
+./PUNTO_DE_RECUPERACION.md:28:del coordinador Claude** sobre `RESPUESTA_REVISION_E1.md` y este commit, registrada en el control (`c
+./PUNTO_DE_RECUPERACION.md:32:1. Revisión del coordinador sobre el bloque 4 (este commit).
+./ENTREGA.json:6:801f8c4f6a4dc5cabd4540248390cf113d0 (revisada externamente; este commit responde E-R1..E-R9)",
+./ENTREGA.json:25:    "Bloque 4 (este commit): respuesta E-R1..E-R9 - N2 c
+./ENTREGA.json:38: con HEAD remoto anotado en ejecucion (57b34a6); 'Bloque 2 (este commit)' eliminado",
+./ENTREGA.json:121:ion del coordinador Claude sobre RESPUESTA_REVISION_E1.md y este commit, registrada en el control (co
+./ENTREGA.json:131:por el coordinador (Claude) de la respuesta E-R1..E-R9 y de este commit",
+./CHECKPOINT_RELEVO.md:8:`) y por tanto no publicables: el manifiesto se regenera en este commit solo con archivos publicados 
+./RESPUESTA_REVISION_E1.md:52:cción); ya no se cita `ff0c60cd` como vigente. «Bloque 2 (este commit)» eliminado de ENTREGA.json.
+-- ENTREGA.json menciona f00c5dd / CHECKPOINT_RELEVO: 0
+-- menciones a la Release fuentes-elis-e-20261117: 0; archivos con PROVISIONAL: 44
+-- erratas de nombre:       6 Warts cherei 
+== E-R5: afirmaciones de hallazgo fuera de la cita registrada (presentes en la pagina/extracto, no en la cita)
+[3] fy2025_comunicado_en p6: hallazgo dice «lino» -> en hallazgo: True; cita registrada: «net capex were stable compared to 2024 and stood at 18.2% as a percent»
+[4] fy2025_presentacion_en p29: hallazgo dice «FCF 358,6» -> en hallazgo: True; cita registrada: «Net capex (874.7) (876.0)»
+[20] factsheet2026 p1: hallazgo dice «37%» -> en hallazgo: True; cita registrada: «4-year contracts: Monthly fixed fee»
+[23] q3_2026_revenue p3: hallazgo dice «disciplina de precios» -> en hallazgo: True; cita registrada: «takes a selective approach to acquiring new customers»
+[24] urd2025 p313: hallazgo dice «efecto divisa» -> en hallazgo: True; cita registrada: «revenue of more than €5.0 million in France and €3.0 million in other »
+  fy2025_comunicado_en p6 «linen.investment»: en pagina=1 en extracto=1
+  fy2025_presentacion_en p29 «358.6»: en pagina=1 en extracto=1
+  factsheet2026 p1 «37%»: en pagina=1 en extracto=1
+  q3_2026_revenue p3 «pricing.discipline»: en pagina=1 en extracto=1
+== E-R4: H1-2026 19,5% rotulado «nuevo»; ¿esta en la base 4.14?
+./PUNTO_DE_RECUPERACION.md:16: 2025 de la base p.311–312; H1-2026 19,5% nuevo) pero **s
+./PREGUNTAS_Y_RESULTADOS.csv:2:RD2025 de la base, p.311-312; H1-2026 19,5% nuevo) pero SIN
+./PREGUNTAS_Y_RESULTADOS.csv:2:RD2025 de la base, p.311-312; H1-2026 19,5% nuevo) pero SIN
+huella del informe semestral 2026 EN de la base: 3919657f7318c469…
+  base p.10: ratio stood at 19.5% in H1 2026 (versus 18.4% in H1 2025), reflecting the ramp up of major industrial investment projects during the half

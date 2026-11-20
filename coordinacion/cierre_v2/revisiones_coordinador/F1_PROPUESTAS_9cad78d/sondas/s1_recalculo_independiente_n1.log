@@ -1,0 +1,73 @@
+== 0. Libro
+ tipos: 0.3310 / 0.2823 / 0.2963 / 0.2754 / 0.2560 | τ5 = 0.2882 (libro 0.2882 )
+ F0 = 248.496395 | año 11: {'MALO': 128.3293, 'NORMAL': 208.4821, 'BUENO': 264.9833} | libro BF6..8: {'MALO': 128.3293, 'NORMAL': 208.4821, 'BUENO': 264.9833}
+
+== 1. Escenarios (τ redondeado a 4 decimales, como la fila 10)
+ C · N1 2023–25
+   tipos 0.3310 / 0.2823 / 0.2619 / 0.2806 / 0.2559 | τ5 0.28234 | f 0.044900433 | m0 0.131379
+   frente al libro: -11.605 · -15.433 / -18.609 / -19.976   | frente a C: +0.000 · +0.000 / +0.000 / +0.000
+ B · N1 2022–25
+   tipos 0.3310 / 0.2847 / 0.2619 / 0.2806 / 0.2559 | τ5 0.28282 | f 0.044900433 | m0 0.131379
+   frente al libro: -11.908 · -15.681 / -18.948 / -20.371   | frente a C: -0.302 · -0.248 / -0.339 / -0.395
+ A′ · N1 2021–25, 2021 gravado al 28,41 %
+   tipos 0.3302 / 0.2847 / 0.2619 / 0.2806 / 0.2559 | τ5 0.28266 | f 0.044900433 | m0 0.131379
+   frente al libro: -11.807 · -15.599 / -18.835 / -20.240   | frente a C: -0.202 · -0.165 / -0.226 / -0.264
+ A · N1 2021–25, sin efecto fiscal
+   tipos 0.3253 / 0.2847 / 0.2619 / 0.2806 / 0.2559 | τ5 0.28168 | f 0.044900433 | m0 0.131379
+   frente al libro: -11.190 · -15.093 / -18.142 / -19.433   | frente a C: +0.416 · +0.341 / +0.466 / +0.543
+ desc. · 2023–25 + 2021 sin efecto fiscal
+   tipos 0.3253 / 0.2823 / 0.2619 / 0.2806 / 0.2559 | τ5 0.28120 | f 0.044900433 | m0 0.131379
+   frente al libro: -10.887 · -14.845 / -17.803 / -19.037   | frente a C: +0.718 · +0.588 / +0.806 / +0.939
+ sens. B · 2022 tributa lo que la línea 0,5 no cubre
+   tipos 0.3310 / 0.2843 / 0.2619 / 0.2806 / 0.2559 | τ5 0.28274 | f 0.044900433 | m0 0.131379
+   frente al libro: -11.858 · -15.640 / -18.891 / -20.305   | frente a C: -0.252 · -0.206 / -0.283 / -0.329
+ C + actualización
+   tipos 0.3310 / 0.2823 / 0.2544 / 0.2772 / 0.2556 | τ5 0.28010 | f 0.045359475 | m0 0.131379
+   frente al libro: -12.396 · -16.910 / -20.270 / -21.668   | frente a C: -0.790 · -1.476 / -1.661 / -1.692
+ B + actualización
+   tipos 0.3310 / 0.2847 / 0.2544 / 0.2772 / 0.2556 | τ5 0.28058 | f 0.045359475 | m0 0.131379
+   frente al libro: -12.698 · -17.157 / -20.609 / -22.064   | frente a C: -1.093 · -1.724 / -2.000 / -2.088
+
+== 2. Fórmula cerrada de la variación de alcance (solo cambia τ5): ΔF0 = −V0·m0·Δτ5; Δaño11 = −V10(1+g∞)·m_obj·(1−g∞/ROIC)·Δτ5
+ B · N1 2022–25: Δτ5 = +0.000480 → ΔF0 = -0.302; Δaño 11 NORMAL = -0.339
+ A′ · N1 2021–25, 2021 gravado al 28,41 %: Δτ5 = +0.000320 → ΔF0 = -0.202; Δaño 11 NORMAL = -0.226
+ A · N1 2021–25, sin efecto fiscal: Δτ5 = -0.000660 → ΔF0 = +0.416; Δaño 11 NORMAL = +0.466
+
+== 3. Las cifras que pide comprobar el encargo
+ OK  B frente al libro, flujo sin crecimiento: -11.9080 (documento -11.908)
+ OK  B frente al libro, año 11 NORMAL: -18.9479 (documento -18.948)
+ OK  B frente a C, flujo sin crecimiento: -0.3025 (documento -0.302)
+ OK  B frente a C, año 11 NORMAL: -0.3392 (documento -0.339)
+ OK  A frente al libro, flujo sin crecimiento: -11.1895 (documento -11.190)
+ OK  A frente al libro, año 11 NORMAL: -18.1422 (documento -18.142)
+ OK  A frente a C, flujo: +0.4159 (documento +0.416)
+ OK  A frente a C, año 11 NORMAL: +0.4665 (documento +0.466)
+ OK  A′ frente a C, flujo: -0.2017 (documento -0.202)
+ OK  A′ frente a C, año 11 NORMAL: -0.2262 (documento -0.226)
+ OK  C frente al libro, flujo: -11.6055 (documento -11.605)
+ OK  C frente al libro, año 11 NORMAL: -18.6087 (documento -18.609)
+ OK  actualización (C+act − C), flujo: -0.7903 (documento -0.790)
+ OK  actualización (C+act − C), año 11 NORMAL: -1.6612 (documento -1.661)
+ OK  C + actualización frente al libro, flujo: -12.3957 (documento -12.396)
+ OK  C + actualización frente al libro, año 11 NORMAL: -20.2698 (documento -20.270)
+ OK  B + actualización frente al libro, flujo: -12.6982 (documento -12.698)
+ OK  B + actualización frente al libro, año 11 NORMAL: -20.6091 (documento -20.609)
+
+== 4. Sensibilidad al redondeo de la fila 10 (tipo exacto en lugar de 4 decimales)
+ B · N1 2022–25: frente a C con tipos exactos -0.305 · año 11 NORMAL -0.342
+ A′ · N1 2021–25, 2021 gravado al 28,41 %: frente a C con tipos exactos -0.203 · año 11 NORMAL -0.228
+ A · N1 2021–25, sin efecto fiscal: frente a C con tipos exactos +0.414 · año 11 NORMAL +0.464
+ C + actualización: frente a C con tipos exactos -0.795 · año 11 NORMAL -1.671
+
+== 5. Tamaño relativo (sobre el FCF base 307,933)
+ B · N1 2022–25: 0.098 % del FCF base
+ A′ · N1 2021–25, 2021 gravado al 28,41 %: 0.065 % del FCF base
+ A · N1 2021–25, sin efecto fiscal: 0.135 % del FCF base
+ C + actualización: 0.257 % del FCF base
+ B frente a A (lo que de verdad separa a las opciones: el tratamiento fiscal de 2021): -0.718 = 0.233 % del FCF base
+ B frente a A′: -0.101
+
+== 6. Invariantes conservados
+ FCF base del libro (Historia!C70) = 307.933 | C48 = 108 | C49 = 128.1 | C52 = 307.933
+
+RESULTADO: todas las cifras reproducidas

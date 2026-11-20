@@ -1,0 +1,120 @@
+# Capa F1 de 15c4ccf (viejo) frente a 5a525e0 (nuevo) sobre COPIAS de los expedientes (motor_a_f1.py evaluar … --salida <copia>)
+# Claves: guardas por id; se ignoran version, fecha y declaracion_ruta. Libros: recalc/<E>_v63_evaluada.xlsx de cada copia.
+
+== zoetis_t1c
+  viejo: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-LIBRO, F1-REPLICA rc=5 
+  nuevo: motor A utilizable para una conclusión CONDICIONADA según F1 · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14 · cota: el flujo sin crecimiento podría cambiar entre -64.231 y +63.537 mm (-2.6 %
+  claves solo en viejo: 1; solo en nuevo: 6; valores distintos: 136
+   - viejo: /libro_v631_f1/motivos[0] = flujos del Motor distintos de los de la capa en 12 celdas (Motor!AU6, Motor!AV6, Motor!AW6, Motor!AX6)
+   + nuevo: /entradas_registradas/base del margen de partida (Palancas!C8) = Media del ciclo
+   + nuevo: /entradas_registradas/m0 del libro: celda = Historia!C49
+   + nuevo: /replica_del_libro/base_del_margen = Media del ciclo
+   + nuevo: /replica_del_libro/m0 = 0.340556331360566
+   + nuevo: /replica_del_libro/m0_celda = Historia!C49
+   + nuevo: /replica_del_libro/m0_del_libro = 0.340556331360566
+   ≠ /bloquea : True → False
+   ≠ /calculo_perimetro_declarado/K3/flujo_sin_crecimiento : 2771.10133425 → 2484.631379479
+   ≠ /calculo_perimetro_declarado/K3/lineas[1]/mm : 168.329767 → -118.140188
+   ≠ /calculo_perimetro_declarado/K3/lineas[1]/partida : + nivel del EBIT del año base frente a la media de la ventana, al τ de proyección → + nivel del EBIT de partida (margen medio del ciclo, Historia C49, × ventas del año base; Palancas C8 «Media del ciclo») frente a la media de la venta
+   ≠ /calculo_perimetro_declarado/K3/suma_de_partidas : 2771.10133425 → 2484.631379479
+   ≠ /calculo_perimetro_declarado/escenarios/BUENO/anios_1_10[0] : 2296.929381272706 → 2051.7110999888
+   ≠ /calculo_perimetro_declarado/escenarios/BUENO/anios_1_10[1] : 2451.873258340545 → 2255.08558761021
+   ≠ /calculo_perimetro_declarado/escenarios/BUENO/anios_1_10[2] : 2617.254324229646 → 2476.879119108674
+   ≠ /calculo_perimetro_declarado/escenarios/BUENO/anios_1_10[3] : 2793.774560377352 → 2718.673825637632
+   ≠ /calculo_perimetro_declarado/escenarios/MALO/anios_1_10[0] : 2682.658580650193 → 2453.482616833458
+   ≠ /calculo_perimetro_declarado/escenarios/MALO/anios_1_10[1] : 2594.215827050193 → 2422.333854187641
+   ≠ /calculo_perimetro_declarado/escenarios/MALO/anios_1_10[2] : 2505.773073450192 → 2391.185091541825
+   ≠ /calculo_perimetro_declarado/escenarios/MALO/anios_1_10[3] : 2417.330319850193 → 2360.036328896009
+   ≠ /calculo_perimetro_declarado/escenarios/NORMAL/anios_1_10[0] : 2409.420073993949 → 2172.222951443629
+   ≠ /calculo_perimetro_declarado/escenarios/NORMAL/anios_1_10[1] : 2447.704120135313 → 2263.579853755626
+   ≠ /calculo_perimetro_declarado/escenarios/NORMAL/anios_1_10[2] : 2485.716509915929 → 2358.670766113945
+   ≠ /calculo_perimetro_declarado/escenarios/NORMAL/anios_1_10[3] : 2523.391329434022 → 2457.645157016495
+   ≠ /calculo_perimetro_declarado/flujo_sin_crecimiento : 2771.10133425 → 2484.631379479
+   ≠ /calculo_perimetro_declarado/m0 : 0.37836695891 → 0.340556331361
+   ≠ /condicionada/cota/flujo_sin_crecimiento_con_la_hipotesis : 2771.101334 → 2484.631379
+   ≠ /condicionada/cota/resumen/flujo_sin_crecimiento_%[0] : -2.318 → -2.585
+   ≠ /condicionada/cota/resumen/flujo_sin_crecimiento_%[1] : 2.293 → 2.557
+   ≠ /condicionada/cota/resumen/texto : cota: el flujo sin crecimiento podría cambiar entre -64.231 y +63.537 mm (-2.3 % y +2.3 %); el valor presente de los flujos en el escenario NORMAL, en → cota: el flujo sin crecimiento podría cambiar entre -64.231 y +63.537 mm (-2.6 % y +2.6 %); el valor presente de los flujos en el escenario NORMAL, en
+   ≠ /condicionada/cota/resumen/valor_presente_NORMAL_%[0] : -3.09 → -3.13
+   ≠ /condicionada/cota/resumen/valor_presente_NORMAL_%[1] : 3.05 → 3.1
+   ≠ /condicionada/cota/si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 14 (se contaría dos veces): como máximo, el coste lineal/por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)/BUENO/variacion_maxima_% : 3.01 → 3.04
+   ≠ /condicionada/cota/si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 14 (se contaría dos veces): como máximo, el coste lineal/por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)/MALO/variacion_maxima_% : 2.83 → 2.88
+   ≠ /condicionada/cota/si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 14 (se contaría dos veces): como máximo, el coste lineal/por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)/NORMAL/variacion_maxima_% : 3.05 → 3.1
+   ≠ /condicionada/cota/si la amortización del derecho de uso estuviera dentro de la fila 8, o sola dentro de la fila 14 (se contaría dos veces): como máximo, el coste lineal/variacion_maxima_del_flujo_sin_crecimiento_% : 2.293 → 2.557
+   ≠ /condicionada/cota/si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos/por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)/BUENO/variacion_maxima_% : -3.04 → -3.08
+   ≠ /condicionada/cota/si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos/por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)/MALO/variacion_maxima_% : -2.86 → -2.91
+   ≠ /condicionada/cota/si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos/por_escenario (valor presente de los flujos a la r del libro, sin exceso de caja ni quiebra)/NORMAL/variacion_maxima_% : -3.09 → -3.13
+   ≠ /condicionada/cota/si la variación del pasivo estuviera sola dentro de la fila 14 (el alquiler se omitiría): como máximo, los pagos/variacion_maxima_del_flujo_sin_crecimiento_% : -2.318 → -2.585
+   ≠ /diagnostico_por_perimetro/A0_total/K3/flujo_sin_crecimiento : 2623.890126563 → 2337.420171792
+   ≠ /diagnostico_por_perimetro/A0_total/K3/lineas[1]/mm : 168.329767 → -118.140188
+   ≠ /diagnostico_por_perimetro/A0_total/K3/lineas[1]/partida : + nivel del EBIT del año base frente a la media de la ventana, al τ de proyección → + nivel del EBIT de partida (margen medio del ciclo, Historia C49, × ventas del año base; Palancas C8 «Media del ciclo») frente a la media de la venta
+   ≠ /diagnostico_por_perimetro/A0_total/K3/suma_de_partidas : 2623.890126563 → 2337.420171792
+   ≠ /diagnostico_por_perimetro/A0_total/escenarios/BUENO/anios_1_10[0] : 2139.413389047672 → 1894.195107763766
+   ≠ /diagnostico_por_perimetro/A0_total/escenarios/BUENO/anios_1_10[1] : 2283.331146659759 → 2086.543475929424
+   ≠ /diagnostico_por_perimetro/A0_total/escenarios/BUENO/anios_1_10[2] : 2436.914264731205 → 2296.539059610232
+   … 96 más
+
+== ahold_f3
+  viejo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real) rc=0 
+  nuevo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real) rc=0 
+  claves solo en viejo: 0; solo en nuevo: 6; valores distintos: 1
+   + nuevo: /entradas_registradas/base del margen de partida (Palancas!C8) = Último año
+   + nuevo: /entradas_registradas/m0 del libro: celda = Historia!C48
+   + nuevo: /replica_del_libro/base_del_margen = Último año
+   + nuevo: /replica_del_libro/m0 = 0.038353257103257
+   + nuevo: /replica_del_libro/m0_celda = Historia!C48
+   + nuevo: /replica_del_libro/m0_del_libro = 0.038353257103257
+   ≠ /guardas[F1-REPLICA]/detalle : la réplica A0 reproduce el libro (f, τ, m0, ancla y flujos): la capa F1 y el libro son el mismo motor → la réplica A0 reproduce el libro (f, τ, m0 = Historia!C48, ancla y flujos): la capa F1 y el libro son el mismo motor
+
+== jumbo_e
+  viejo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real) rc=0 
+  nuevo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real) rc=0 
+  claves solo en viejo: 0; solo en nuevo: 6; valores distintos: 1
+   + nuevo: /entradas_registradas/base del margen de partida (Palancas!C8) = Último año
+   + nuevo: /entradas_registradas/m0 del libro: celda = Historia!C48
+   + nuevo: /replica_del_libro/base_del_margen = Último año
+   + nuevo: /replica_del_libro/m0 = 0.318366268020045
+   + nuevo: /replica_del_libro/m0_celda = Historia!C48
+   + nuevo: /replica_del_libro/m0_del_libro = 0.318366268020045
+   ≠ /guardas[F1-REPLICA]/detalle : la réplica A0 reproduce el libro (f, τ, m0, ancla y flujos): la capa F1 y el libro son el mismo motor → la réplica A0 reproduce el libro (f, τ, m0 = Historia!C48, ancla y flujos): la capa F1 y el libro son el mismo motor
+
+== jumbo_f_heredado
+  viejo: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a rc=3 
+  nuevo: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a rc=3 
+  claves solo en viejo: 0; solo en nuevo: 6; valores distintos: 1
+   + nuevo: /entradas_registradas/base del margen de partida (Palancas!C8) = Último año
+   + nuevo: /entradas_registradas/m0 del libro: celda = Historia!C48
+   + nuevo: /replica_del_libro/base_del_margen = Último año
+   + nuevo: /replica_del_libro/m0 = 0.318366268020045
+   + nuevo: /replica_del_libro/m0_celda = Historia!C48
+   + nuevo: /replica_del_libro/m0_del_libro = 0.318366268020045
+   ≠ /guardas[F1-REPLICA]/detalle : la réplica A0 reproduce el libro (f, τ, m0, ancla y flujos): la capa F1 y el libro son el mismo motor → la réplica A0 reproduce el libro (f, τ, m0 = Historia!C48, ancla y flujos): la capa F1 y el libro son el mismo motor
+
+== elis_f1
+  viejo: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-LIBRO, F1-PARAM, F1-PERIMETRO, V-F1d, V-F1g, V-F1i, V-F1j, V-F1k, V-F1l rc=3 
+  nuevo: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-LIBRO, F1-PARAM, F1-PERIMETRO, V-F1d, V-F1g, V-F1i, V-F1j, V-F1k, V-F1l rc=3 
+  claves solo en viejo: 0; solo en nuevo: 6; valores distintos: 1
+   + nuevo: /entradas_registradas/base del margen de partida (Palancas!C8) = Último año
+   + nuevo: /entradas_registradas/m0 del libro: celda = Historia!C48
+   + nuevo: /replica_del_libro/base_del_margen = Último año
+   + nuevo: /replica_del_libro/m0 = 0.131337558372248
+   + nuevo: /replica_del_libro/m0_celda = Historia!C48
+   + nuevo: /replica_del_libro/m0_del_libro = 0.131337558372248
+   ≠ /guardas[F1-REPLICA]/detalle : la réplica A0 reproduce el libro (f, τ, m0, ancla y flujos): la capa F1 y el libro son el mismo motor → la réplica A0 reproduce el libro (f, τ, m0 = Historia!C48, ancla y flujos): la capa F1 y el libro son el mismo motor
+
+== ahold_f2
+  viejo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real) rc=0 
+  nuevo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real) rc=0 
+  claves solo en viejo: 0; solo en nuevo: 6; valores distintos: 1
+   + nuevo: /entradas_registradas/base del margen de partida (Palancas!C8) = Último año
+   + nuevo: /entradas_registradas/m0 del libro: celda = Historia!C48
+   + nuevo: /replica_del_libro/base_del_margen = Último año
+   + nuevo: /replica_del_libro/m0 = 0.038353257103257
+   + nuevo: /replica_del_libro/m0_celda = Historia!C48
+   + nuevo: /replica_del_libro/m0_del_libro = 0.038353257103257
+   ≠ /guardas[F1-REPLICA]/detalle : la réplica A0 reproduce el libro (f, τ, m0, ancla y flujos): la capa F1 y el libro son el mismo motor → la réplica A0 reproduce el libro (f, τ, m0 = Historia!C48, ancla y flujos): la capa F1 y el libro son el mismo motor
+
+== zoetis_t1b
+  viejo: DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA, F1-US-DESGLOSE rc=3 
+  nuevo: DIAGNÓSTICO F1 · el resultado del motor B no se usa para una conclusión: F1-NORMA, F1-US-DESGLOSE rc=3 
+  claves solo en viejo: 0; solo en nuevo: 0; valores distintos: 0

@@ -1,0 +1,63 @@
+== versión
+munger_v2 · r1 · entrega 4.15 · F1-IMPL (motor A con el perímetro F1 de las decisiones económicas del 17-nov-2026: capa personaje_v2/scripts/motor_a_f1.py con las mismas ecuaciones que la V6.3, guardas V-F1a…m y F1-*, comprobación K3 y ganchos en los pasos 7 y 12 del pipeline, la ficha y el informe; la plantilla V6.3 no cambia y sigue calculando A0, así que con otro perímetro la conclusión del motor A queda bloqueada (F1-LIBRO); Elis sigue en pendiente_de_datos; US GAAP bloquea como límite declarado; sin revisión independiente todavía; aptitud: uso supervisado experimental, no apto para decisiones con dinero real) · 2026-11-17 · sobre la candidata integracion/candidata-cierre-v2 @ b129b36, que era: munger_v2 · r1 · entrega 4.15 · hito 2 (corrección técnica tras la revisión externa del hito 1: R415-SIGNO —la cifra publicada se contrasta con su signo, leída en la línea de la página; la transformación justificada sigue valiendo—, límites U1–U7 de la cuarta revisión, aptitud por entradas y modo de la entrada efectiva en las salidas de todas las plantillas (I20), relevo caducado (I19), prueba de H-P1/X2 y empaquetado sin doble clasificación del manifiesto; C48 de Elis sigue en 108,0 con la conversión de los pagos declarada; seis revisiones independientes y dos comprobaciones dirigidas (séptima, con sus correcciones X1, X2 y X5, y octava, conforme en el código); sin regenerar expedientes ni F1, que se concilia en otra tarea; aptitud: uso supervisado experimental, no apto para decisiones con dinero real; sobre la 4.15 · hito 1, rama revision/4.15-hito1, y la entrega 4.14, ZIP SHA-256 bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e) · 2026-11-16 · base SHA-256 61c70800d0faa7c4a98888b7413820ec8041153e53484c32b0c549b26b6af87d
+== manifiesto (MANIFIESTO_SHA256.txt)
+8052 archivos en el manifiesto · modificados 0 · ausentes 0 · de más 0
+RESULTADO manifiesto: PASA
+== entorno (personaje_v2/scripts/comprobar_entorno.sh)
+autotest precio_de_si: PASA (5 casos + propiedades)
+RESULTADO entorno: PASA
+== contraste del piloto Vidrala 2025 (solo lectura; salida idéntica a la de referencia)
+35 comprobaciones CUMPLEN · salida idéntica a resultados/contraste_salida.txt
+RESULTADO piloto: PASA
+== pruebas de la reparación
+== test_comprobadores.py
+114/114 comprobaciones PASAN
+RESULTADO: PASA
+== batería de vigencia H5 (personaje_v2/pruebas/test_vigencia_h5.py; obligatoria en «completa»; reparación 4.13.1)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería del juicio sobre el objetivo (personaje_v2/pruebas/test_juicio_objetivo_414.py; obligatoria en «completa»; contrato 4.14)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería de la verificación de las entradas (personaje_v2/pruebas/test_verificacion_entradas_414.py; obligatoria en «completa»; requisito de cierre 4.14)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería de la corrección de la verificación de las entradas (personaje_v2/pruebas/test_verificacion_entradas_415.py; obligatoria en «completa»; encargo correctivo 4.15: R1–R3, I13, I8 e I9)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería de la entrada efectiva del FCF base (personaje_v2/pruebas/test_entrada_efectiva_415.py; obligatoria en «completa»; encargo correctivo 4.15: C48 de Elis)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería del relevo caducado (personaje_v2/pruebas/test_relevo_i19_415.py; obligatoria en «completa»; 4.15, hito 2: I19)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería del motor A con el perímetro F1 (personaje_v2/pruebas/test_motor_a_f1.py; obligatoria en «completa»; 4.15, F1-IMPL: decisiones F1 del 17-nov-2026)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== prueba del gancho F1 del pipeline (personaje_v2/…/f1_impl/scripts/prueba_pipeline_f1.py; obligatoria en «completa»; LibreOffice; 4.15, F1-IMPL, revisión H7)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== pruebas de la plantilla V6.3.1 F1 sin LibreOffice (personaje_v2/pruebas/test_v631_f1.py; obligatoria en «completa»; examen, condición de la revisión de la V6.3.1)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== estructura de la plantilla V6.3.1 F1 (v6/v631_f1/scripts/probar_v631_f1.py estructura; obligatoria en «completa»)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== V6.3.1 F1 en A0 idéntica a la V6.3 (probar_v631_f1.py a0; obligatoria en «completa»; LibreOffice)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== V6.3.1 F1 con los perímetros F1 (probar_v631_f1.py f1; obligatoria en «completa»; LibreOffice)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== V6.3.1 F1 en el pipeline (v6/v631_f1/scripts/prueba_pipeline_v631.py; obligatoria en «completa»; LibreOffice)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería de la integración V6.4 experimental (personaje_v2/pruebas/test_integracion_v64.py; obligatoria en «completa»; encargos 4.11, 4.12 y 4.13)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería de trazabilidad de la 4.10 (personaje_v2/pruebas/test_trazabilidad_v2.py; obligatoria en «completa»; BOM, marcadores de cierre y libro final)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería de integridad de la auditoría vigente (personaje_v2/pruebas/test_integridad_auditoria_v2.py; obligatoria en «completa»; reparación 4.9, R-V1)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería de solicitudes de auditoría (personaje_v2/pruebas/test_auditorias_v2.py; obligatoria en «completa»; reparación 4.8.1, R-T1)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería de la hoja resumen en lenguaje llano (personaje_v2/pruebas/test_hoja_resumen.py; obligatoria en «completa»; examen, ronda 1 de su revisión crítica; LibreOffice)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería de coherencia de estados (personaje_v2/pruebas/test_estados_v2.py; obligatoria en «completa»; reparación 4.8, X-a y X-c)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería del resumen (personaje_v2/pruebas/test_resumen_v2.py; obligatoria en «completa»; reparación 4.7)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+== batería de cierre (personaje_v2/pruebas/test_cierre_v2.py; obligatoria en «completa»; reparaciones 4.6 y 4.6.1)
+omitida en el modo rápido (solo se ejecuta, y es obligatoria, en «completa»)
+RESULTADO GLOBAL: PASA
+
+real	3m1.192s
+user	1m37.583s
+sys	0m12.662s
+rc=0

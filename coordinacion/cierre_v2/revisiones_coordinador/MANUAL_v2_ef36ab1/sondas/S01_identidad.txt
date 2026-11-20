@@ -1,0 +1,54 @@
+$ git -C <aux> rev-parse ef36ab1 HEAD
+ef36ab18ff485e40dbb727b1b95eb177e5346683
+b257dfd790b2851fc5f5b614fbaea48a8742f918
+[código 0]
+
+$ git -C <candidata> rev-parse HEAD
+31491289a9a13a670dd563c1b2df85dad54eb74a
+[código 0]
+
+$ git -C <aux> show --stat --format='%H %s' ef36ab1
+ef36ab18ff485e40dbb727b1b95eb177e5346683 G-MANUAL v2: operating manual for candidate 3149128 with the handover improvements, change table and CONTINUIDAD 2.5 proposal (unreviewed)
+
+ .../cierre_v2/manual/CAMBIOS_FRENTE_A_957af65.md   |  54 ++
+ .../cierre_v2/manual/MANIFIESTO_SHA256.txt         |   3 +
+ .../cierre_v2/manual/MANUAL_OPERATIVO_3149128.md   | 705 +++++++++++++++++++++
+ .../cierre_v2/manual/PROPUESTA_CONTINUIDAD_2_5.md  |  73 +++
+ 4 files changed, 835 insertions(+)
+[código 0]
+
+$ git -C <aux> diff --stat 6889b02 ef36ab1
+ .../cierre_v2/manual/CAMBIOS_FRENTE_A_957af65.md   |  54 ++
+ .../cierre_v2/manual/MANIFIESTO_SHA256.txt         |   3 +
+ .../cierre_v2/manual/MANUAL_OPERATIVO_3149128.md   | 705 +++++++++++++++++++++
+ .../cierre_v2/manual/PROPUESTA_CONTINUIDAD_2_5.md  |  73 +++
+ 4 files changed, 835 insertions(+)
+[código 0]
+
+$ git -C <aux> show ef36ab1:coordinacion/cierre_v2/manual/MANIFIESTO_SHA256.txt
+cc19014f917ac79a5291c45062ae66ee2a5e05fef92305e133f1fcd6acf382bf  CAMBIOS_FRENTE_A_957af65.md
+88e69671141b585d8bdfcb5e2e5ba8221463c37fbe1032f4e763680b93814425  CONTRADICCIONES_GUIA.md
+894caa2e1f16114b8d8907b4fed4390e9afed162a72375af3e7f01053211c38a  MANUAL_OPERATIVO_3149128.md
+6ed65dce0753ed4a298e451d0f25979843214a0bb35cc58f722eaef0c888aeb9  MANUAL_OPERATIVO_957af65.md
+38cc5c0b9862d14c17e49253018a8aa719efd837821ca0c5a80cca84043db744  PROPUESTA_CONTINUIDAD_2_5.md
+[código 0]
+
+$ for f in MANUAL_OPERATIVO_3149128.md CAMBIOS_FRENTE_A_957af65.md PROPUESTA_CONTINUIDAD_2_5.md MANUAL_OPERATIVO_957af65.md; do git -C <aux> show ef36ab1:coordinacion/cierre_v2/manual/$f | sha256sum | sed "s|-|$f|"; done
+894caa2e1f16114b8d8907b4fed4390e9afed162a72375af3e7f01053211c38a  MANUAL_OPERATIVO_3149128.md
+cc19014f917ac79a5291c45062ae66ee2a5e05fef92305e133f1fcd6acf382bf  CAMBIOS_FRENTE_A_957af65.md
+38cc5c0b9862d14c17e49253018a8aa719efd837821ca0c5a80cca84043db744  PROPUESTA_CONTINUIDAD_2_5.md
+6ed65dce0753ed4a298e451d0f25979843214a0bb35cc58f722eaef0c888aeb9  MANUAL_OPERATIVO_957af65.md
+[código 0]
+
+$ git -C <candidata> diff --stat 957af65 3149128
+ munger_v2_r1/CAMBIOS_ARCHIVOS.txt                  | 12 +++---
+ munger_v2_r1/CONTINUIDAD.md                        | 31 +++++++++-------
+ munger_v2_r1/MANIFIESTO_SHA256.txt                 |  8 ++--
+ .../personaje_v2/GUIA_RECORRIDO_SUPERVISADO.md     | 43 ++++++++++++++++++----
+ 4 files changed, 64 insertions(+), 30 deletions(-)
+[código 0]
+
+$ git -C <candidata> status --short | wc -l
+0
+[código 0]
+

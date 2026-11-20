@@ -1,0 +1,50 @@
+# S04_M3_marcas_traspaso.txt · 2026-11-17T14:00:58Z
+líneas con «probado en el traspaso»:
+20
+de ellas sin «autodeclarado»:
+0
+12:  - **«comando probado en el traspaso del 17-nov» *(autodeclarado)***: lo ejecutó el receptor de T-TRASPASO sobre `957af65`. El registro no conserv
+88:- **Forma del comando.** Toda orden que pueda arrancar LibreOffice va precedida de `flock -x <e_work>/libreoffice.lock`. Comandos con esa forma probad
+93:  «comando probado en el traspaso del 17-nov» *(autodeclarado)*: son los pasos 8 y 9 (`TRASP/INFORME_TRASPASO.md:31-32`); el uso de `flock` no queda
+168:     - En el traspaso: «comando probado en el traspaso del 17-nov» *(autodeclarado)*; el código 1 y el 403 solo constan en el informe (`TRASP/INFOR
+174:     «comando probado en el traspaso del 17-nov» *(autodeclarado)*. El informe da «0 / 0» para tres órdenes juntas (esta descarga, `stat` y `sha2
+181:   «comando probado en el traspaso del 17-nov» *(autodeclarado)*: **0 en conjunto con la descarga**, porque el «0 / 0» de `TRASP/INFORME_TRASPASO.
+194:     «comando probado en la preparación F1 del 15-nov», códigos 0/0 (`F1PREP/log_base414.txt:2`, `:12`, `:14`, `:23`). El traspaso usó la variant
+202:   «comando probado en el traspaso del 17-nov» *(autodeclarado)*: el comando, el código 0 y el HEAD solo constan en el informe (`TRASP/INFORME_TRAS
+210:   - «comando probado en el traspaso del 17-nov» *(autodeclarado)*: el comando y el código 0 solo constan en el informe (`TRASP/INFORME_TRASPASO.md
+236:  «comando probado en el traspaso del 17-nov» *(autodeclarado)*: el comando, el código 0 y «0 `__pycache__` y 0 `.lo_perfil`» solo constan en el 
+241:  «comando probado en el traspaso del 17-nov» *(autodeclarado)*: el uso de `flock` no queda registrado (`REVT/REVISION_TRASPASO.md:65`). El código 
+286:  «comando probado en el traspaso del 17-nov» *(autodeclarado)*: ni el comando ni el código 1 constan en el registro; el resultado, 29/35, sí (`RE
+299:  - Con el bloqueo y la carpeta fuera del árbol: «comando probado en el traspaso del 17-nov» *(autodeclarado)*: el informe lo abrevia como `flock -
+335:    «comando probado en el traspaso del 17-nov» *(autodeclarado)*: el informe lo abrevia con «…» (`TRASP/INFORME_TRASPASO.md:34`); el código 1 
+352:  «comando probado en el traspaso del 17-nov» *(autodeclarado)*: el informe da las dos órdenes juntas, con `;`, y abrevia las rutas con «…» (`T
+401:- Comandos por plantilla. La selección es siempre explícita (`PV2/GUIA_RECORRIDO_SUPERVISADO.md:41`, `:127-129`). Marcas: las dos primeras líneas s
+505:  «comando probado en el traspaso del 17-nov» *(autodeclarado)*: el informe abrevia la ruta con «…» (`TRASP/INFORME_TRASPASO.md:36`); el código
+636:| N-01 | Copia de los 1008 binarios y qué hacer si uno difiere | **Comando dado** (probado en el traspaso, autodeclarado, §4.2.6). Qué hacer si uno
+638:| N-03 | Copia limpia | **Comando dado** (probado en el traspaso, autodeclarado) | §5.1 |
+646:| N-11 | Clonado y huella del ZIP | Huella: **dada** (probada en el traspaso, autodeclarado). Clonado: sin documentar | §4.2.1, §4.2.3 |
+
+## REVT/REVISION_TRASPASO.md:30 y :54-75
+  1. El registro no conserva una transcripción de comandos ni la mayoría de los códigos de salida. Los pasos 1–7, 11 y parte de 9, 10b y 12–14 son autodeclarados.
+| # | Comando | Código | Resultado | Observación del revisor |
+|---|---|---|---|---|
+| 1 | — | n/a | I | Los prefijos del §13 del manual coinciden con `957af65` (hecho: comprobados 15 aquí). El informe dice que comprobó 10 |
+| 2a | — | — | — | El 403 de `gh release download` no se conserva |
+| 2b | — | — | I | La huella `bb51942c…` solo está en el informe. `materialize` funcionó con ese ZIP |
+| 3 | — | I | **R** | `paso3_*.log`: 1008 recuperados; 6798/6798, `complete: true`. Por `tools/base_414.py:163`, eso implica código 0 |
+| 4 | — | — | I | El HEAD `957af65` no tiene registro propio. Lo apoyan la línea `VERSION` del log del paso 8 y el manifiesto (7762, PASA) |
+| 5 | — (script **R**) | I | **R** | Se publica `copiar_binarios.py`, que es correcto: no sobrescribe y comprueba la huella antes y después. `paso5_copia_binarios.json`: 1008·0·0·0. El conjunto de rutas es idéntic
+| 6 | — | n/a | — | No verificable: no hay transcripción de comandos (ver A-13) |
+| 7 | — | — | — | Ni la copia ni «0 `__pycache__`, 1,5 GB» tienen registro |
+| 7b | — | — | — | El script improvisado del manifiesto **no se conserva**, a diferencia del del paso 5 |
+| 8 | I | **R** | **R** | `paso8_exit.txt` EXIT=0; inicio 08:44:07 y fin 09:37:27; log completo. El uso de `flock` no queda registrado |
+| 9 | — | — | **R** | 29/35 en el log. Ni el código 1 ni los tiempos (09:37:42–53) tienen registro |
+| 10 | I | **R** | **R** | EXIT=0, 09:38:05–10:05:57, 19 salidas y resumen. Los «8,4 GB libres» no tienen registro (no hay `df`) |
+| 10b | — | — | **R** | Reintento 25/30 y limpieza (`paso10_limpieza_rutas.txt`). Ni los «13 GB», ni las horas, ni el código tienen registro |
+| 11 | — | n/a | — | Sin registro. Comprobado aquí en el árbol: 13 `estado_pipeline.json` en espera, y la lista del informe es coherente |
+| 12 | — | — | **R** | `paso12_pipeline_01.txt` y `relevo_copia_base/` lo respaldan, y el prompt tiene 6 rutas `<traspaso>`. El código 10 no se registra (la salida «ESPERANDO» es coherente con 10). Hay huellas «a
+| 13 | — | — | **R** | `paso_p13_pipeline.txt` y `relevo_copia_p13/`. No consta la línea añadida ni el código |
+| 14 | — | — | **R** | `paso_h9_pipeline.txt` y `relevo_copia_h9/`. Igual que el 13 |
+| 15–16 | n/a | n/a | coherente | En el registro no hay ningún `auditoria.md`: `auditoria: null` y todas las solicitudes «pendiente» o «sustituida», con veredicto nulo |
+| 17 | n/a | n/a | **R** (ficha) | `ficha_provisional.json` tiene `apto_por_entradas: false`, `apto_para_dinero_real: false`, 0 de 292, `modo: registrada`, `declarado_en: null` y `aplicada_en_paso_2: null`. La «línea 9
+| 18 | n/a | n/a | coherente | No hay ninguna configuración económica en el registro |

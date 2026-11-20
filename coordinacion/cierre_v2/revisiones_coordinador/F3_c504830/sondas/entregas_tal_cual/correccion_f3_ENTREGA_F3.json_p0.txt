@@ -1,0 +1,11 @@
+COMANDO (sha256 c480eac07fce5af9a6770b56244852d3b8be6b2674f7c2244cb6ef079d61b63d):
+unzip -p "$ZIP_414" 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/documentacion_cierre_4_14/descargas_bat/descargar_fuentes_ahold.bat' | sha256sum && python3 -I resultados_cierre/alcance_real/preparacion_b3_c1/scripts/inventario_desde_zip.py "$ZIP_414" /tmp/inv3.csv /tmp/huellas3.csv && cmp /tmp/inv3.csv resultados_cierre/alcance_real/preparacion_b3_c1/INVENTARIO_Y_HUECOS.csv
+
+EXIT: 0
+--- STDOUT ---
+04feebd409754a91e509dfde1e8dd63a1e8534695d05cb75fffca6a97bd53d88  -
+/tmp/inv3.csv: 131 recursos + 4 .bat; 6799 archivos en el ZIP (6476 dentro, 323 fuera declarado)
+/tmp/huellas3.csv: 71 PDF con SHA-256 completo + release bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e
+
+--- STDERR ---
+

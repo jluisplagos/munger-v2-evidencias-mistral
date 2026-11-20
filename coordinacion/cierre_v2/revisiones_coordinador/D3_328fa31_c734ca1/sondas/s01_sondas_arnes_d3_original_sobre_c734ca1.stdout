@@ -1,0 +1,332 @@
+{
+ "alcance": "sondas con candidata falsa (stubs); no son resultados del producto Munger",
+ "objeto": "d032691 (resultados_qwen/ejecucion_d)",
+ "R1_arnes": {
+  "P3va_copiar_artefacto_../../Q1-036": {
+   "exit": 1,
+   "estado": "ERROR",
+   "criterios": [
+    [
+     "C1",
+     "FALLA_COMPONENTE"
+    ]
+   ],
+   "veredicto": "CERRADO"
+  },
+  "P3vb_guardar_../Q1-036": {
+   "exit": 1,
+   "estado": "ERROR",
+   "contenido_Q1-036_tras_la_ejecucion": "EVIDENCIA ORIGINAL DE Q1-036",
+   "veredicto": "CERRADO"
+  },
+  "N1a_escribir_fuente_nombre_../../../Q1-036 (nueva)": {
+   "exit": 1,
+   "estado": "ERROR",
+   "registro_de_Q1-036_tras_la_ejecucion": "{\"original\": \"Q1-036\"}",
+   "veredicto": "CERRADO"
+  },
+  "N1b_copiar_artefacto_ruta_absoluta (nueva)": {
+   "exit": 1,
+   "estado": "ERROR",
+   "criterios": [
+    [
+     "C1",
+     "FALLA_COMPONENTE"
+    ]
+   ],
+   "veredicto": "CERRADO"
+  },
+  "P1v_asercion_sobre_ejecucion.log": {
+   "exit": 1,
+   "estado": "ERROR",
+   "criterios": [
+    [
+     "C1",
+     "FALLA_COMPONENTE"
+    ],
+    [
+     "C2",
+     "FALLA_COMPONENTE"
+    ]
+   ],
+   "veredicto": "CERRADO"
+  },
+  "N3_asercion_run:_sobre_fuente_escrita_por_el_arnes (nueva)": {
+   "exit": 1,
+   "estado": "ERROR",
+   "criterios": [
+    [
+     "C1",
+     "FALLA_COMPONENTE"
+    ],
+    [
+     "C2",
+     "FALLA_COMPONENTE"
+    ]
+   ],
+   "veredicto": "CERRADO"
+  },
+  "P9w_id_punto": {
+   "exit": 2,
+   "Q1-001_sobrevive": true,
+   "veredicto": "CERRADO"
+  },
+  "N4_id_../fuera (nueva)": {
+   "exit": 2,
+   "ajeno_sobrevive": true,
+   "veredicto": "CERRADO"
+  },
+  "N4b_id_vacio (nueva)": {
+   "exit": 2,
+   "Q1-002_sobrevive": true,
+   "veredicto": "CERRADO"
+  },
+  "P8va_skip_worktree": {
+   "exit": 2,
+   "estado": "ERROR_ENTORNO",
+   "candidata_no_rastreadas": 0,
+   "git_status": "",
+   "salida_alterada_en_log": false,
+   "veredicto": "CERRADO"
+  },
+  "P8vb_no_rastreado_en_scripts": {
+   "exit": 2,
+   "estado": "ERROR_ENTORNO",
+   "candidata_no_rastreadas": 1,
+   "git_status": "?? munger_v2_r1/personaje_v2/scripts/override.txt",
+   "salida_alterada_en_log": false,
+   "veredicto": "CERRADO"
+  },
+  "N5a_assume_unchanged (nueva)": {
+   "exit": 2,
+   "estado": "ERROR_ENTORNO",
+   "candidata_no_rastreadas": 0,
+   "git_status": "",
+   "salida_alterada_en_log": false,
+   "veredicto": "CERRADO"
+  },
+  "N5b_no_rastreado_oculto_por_.git/info/exclude (nueva)": {
+   "exit": 2,
+   "estado": "ERROR_ENTORNO",
+   "candidata_no_rastreadas": 0,
+   "git_status": "",
+   "salida_alterada_en_log": false,
+   "veredicto": "CERRADO"
+  }
+ },
+ "R1_matriz": {
+  "exit": {
+   "generar_matriz.py": 0
+  },
+  "M2_resultado_de_4_campos_Q1-001": {
+   "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+   "veredicto_componente": ""
+  },
+  "N2a_salida_del_producto_vaciada_Q1-003 (nueva)": {
+   "archivos_alterados": [
+    "01_comprobar_dato_ausente.json",
+    "02_comprobar_cero_no_publicado.json"
+   ],
+   "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+   "veredicto_componente": ""
+  },
+  "N2b_otra_candidata_otro_banco_harness_2.0_Q1-004 (nueva)": {
+   "estado_ejecucion": "ERROR (COMPONENTE_OK)",
+   "veredicto_componente": ""
+  },
+  "M3_Q1-026_ERROR_ENTORNO": {
+   "estado_ejecucion": "BLOQUEO_ENTORNO",
+   "veredicto_componente": ""
+  }
+ },
+ "R1_ejecutar_todo_y_M2": {
+  "ejecutar_caso_exit": 1,
+  "resultado_tras_reejecutar": "COMPONENTE_FALLA",
+  "fila_Q1-001": {
+   "estado_ejecucion": "ERROR (COMPONENTE_FALLA)",
+   "veredicto_componente": ""
+  },
+  "conclusion": "dentro del flujo ejecutar_todo.sh el resultado forjado se sustituye; generar_matriz.py por separado lo sigue aceptando (M2)"
+ },
+ "R2": {
+  "q027": {
+   "C1.0": {
+    "vacio": false,
+    "estado_previo": true,
+    "evidencia_publicada": true
+   },
+   "C1.1": {
+    "vacio": false,
+    "estado_previo": false,
+    "evidencia_publicada": true
+   },
+   "C2.0": {
+    "vacio": false,
+    "estado_previo": false,
+    "evidencia_publicada": true
+   },
+   "C2.1": {
+    "vacio": false,
+    "estado_previo": false,
+    "evidencia_publicada": true
+   },
+   "C3.0": {
+    "vacio": false,
+    "estado_previo": false,
+    "evidencia_publicada": true
+   },
+   "C4.0": {
+    "vacio": false,
+    "estado_previo": true,
+    "evidencia_publicada": true
+   },
+   "C4.1": {
+    "vacio": false,
+    "estado_previo": true,
+    "evidencia_publicada": true
+   }
+  },
+  "q034": {
+   "C1.0": {
+    "estado_previo_solo_registro_del_arnes": false
+   },
+   "C1.1": {
+    "estado_previo_solo_registro_del_arnes": false
+   },
+   "C2.0": {
+    "estado_previo_solo_registro_del_arnes": false
+   },
+   "C2.1": {
+    "estado_previo_solo_registro_del_arnes": false
+   }
+  },
+  "Q1-027_no_discriminan_frente_al_estado_previo": [
+   "C1.0",
+   "C4.0",
+   "C4.1"
+  ],
+  "Q1-034_pasan_sin_ninguna_salida_del_producto": [],
+  "prueba15_reproducida": {
+   "aserciones": 84,
+   "pasan_en_vacio": []
+  },
+  "prueba15_detecta_Q1-027_C4": false,
+  "Q1-034_con_producto_de_eco": {
+   "exit": 1,
+   "estado": "COMPONENTE_FALLA",
+   "criterios": [
+    [
+     "C1",
+     "FALLA_COMPONENTE"
+    ],
+    [
+     "C2",
+     "CUMPLE_COMPONENTE"
+    ]
+   ],
+   "clase_final_de_aux:litigio_cuando_se_evalua_C1": "dato_publicado",
+   "texto_de_C1": "el rango 0-200 queda como hipotesis pendiente en la salida del producto (no comprobada, no dato): se evalua sobre el estado de su paso (01), no sobre el registro escrito por el arnes"
+  },
+  "P7c_stderr_real": {
+   "exit": 0,
+   "estado": "COMPONENTE_OK",
+   "criterios": [
+    [
+     "C1",
+     "CUMPLE_COMPONENTE"
+    ]
+   ],
+   "otros_errores_primera_linea": "fase1_historia.py construir falló: ipal: «cero» sin «cita» literal de la página 12"
+  },
+  "P7v_ajeno_con_lineas_antiguas": {
+   "exit": 1,
+   "estado": "COMPONENTE_FALLA",
+   "criterios": [
+    [
+     "C1",
+     "FALLA_COMPONENTE"
+    ]
+   ],
+   "otros_errores_primera_linea": "ERROR: CAMBIO mal formado: clave 'version_formato' no admitida"
+  },
+  "P7v2_CAMBIO_invalido_mas_lineas_reales (nueva)": {
+   "exit": 1,
+   "estado": "COMPONENTE_FALLA",
+   "criterios": [
+    [
+     "C1",
+     "FALLA_COMPONENTE"
+    ]
+   ],
+   "otros_errores_primera_linea": "ERROR: CAMBIO inválido: analisis.C24.valor no coincide con la evidencia declarada"
+  }
+ },
+ "R3_reevaluacion_publicada": {
+  "difieren": [
+   "Q1-027 C4"
+  ],
+  "no_reevaluables_run:": [],
+  "n_coinciden": 55
+ },
+ "R4_relevo": {
+  "exits": {
+   "generar_matriz.py": 0,
+   "generar_correspondencia.py": 0,
+   "generar_relevo.py": 0
+  },
+  "Q1-005_tras_pasar_a_COMPONENTE_FALLA": {
+   "estado": "ERROR (COMPONENTE_FALLA)",
+   "falta": [
+    {
+     "qué": "revisión externa por otro contexto",
+     "quién": "coordinador (Claude)",
+     "necesita": "diff + reproducción de lo afectado"
+    }
+   ]
+  },
+  "publicado_textos_de_falta_mas_repetidos": [
+   [
+    29,
+    "recorrido del personaje con agente real (entrada_usuario pegada, pasos 5/6/8/10/13 con los"
+   ],
+   [
+    2,
+    "decisión de política del responsable (Q1-030 caducidad temporal; Q1-035 validación de moto"
+   ],
+   [
+    2,
+    "fase A/objetivo con agente real sobre fase1_v63.json (precio histórico 14,20 EUR etiquetad"
+   ]
+  ],
+  "publicado_claves_de_paquete": [
+   "archivos_sinteticos",
+   "caso",
+   "comando_relevo",
+   "control_banco",
+   "criterios_banco",
+   "criterios_evaluados",
+   "entrada_usuario",
+   "esperado_numerico",
+   "estado_ejecucion",
+   "evidencia_componente",
+   "falta_para_caso_completo",
+   "familia",
+   "motivo_sin_comando",
+   "naturaleza",
+   "paquete_runtime",
+   "precondiciones_simuladas",
+   "veredicto_caso",
+   "veredicto_componente"
+  ],
+  "publicado_Q1-028_Q1-032": {
+   "Q1-028": {
+    "comando_relevo": null,
+    "paso_de_agente": true
+   },
+   "Q1-032": {
+    "comando_relevo": null,
+    "paso_de_agente": false
+   }
+  }
+ }
+}

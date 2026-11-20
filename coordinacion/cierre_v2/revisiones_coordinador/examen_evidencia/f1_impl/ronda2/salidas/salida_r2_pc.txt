@@ -1,0 +1,126 @@
+   [sonda] la declaración pasa a A2_propio mientras se espera a la fase C
+--- PC2-1 · F1 pasa en el paso 7; la declaración cambia antes del paso 12
+{
+ "codigo": 0,
+ "ultima_linea": [
+  "estado final: no_entregable · paso 12 · causa: limite_del_modelo: motor A · F1 (motor_a_f1_resultado.md): el resultado del motor A no se usa para una conclusión · F1-LIBRO MODELO NO APLICABLE: LÍMITE DECLAR · continuar desde el paso 2 (ver diagnostico.md)"
+ ],
+ "estado": "no_entregable",
+ "paso": 12,
+ "auditoria": null,
+ "motor_en_estado": "A",
+ "ficha_oficial": {
+  "estado": "no_entregable",
+  "cubo": null,
+  "accion": null,
+  "cierre": null,
+  "bloque_f1": {
+   "utilizable": false,
+   "bloquean": [
+    "F1-LIBRO"
+   ],
+   "vigente": true
+  }
+ },
+ "vigencia_f1": {
+  "motor": "A",
+  "exigido": true,
+  "vigente": true,
+  "utilizable": false
+ }
+}
+--- PC2-2 · --desde 13 tras el bloqueo del paso 12
+{
+ "codigo": 0,
+ "ultima_linea": [
+  "estado final: no_entregable · paso 13 · causa: limite_del_modelo: motor A · F1 (motor_a_f1_resultado.md): el resultado del motor A no se usa para una conclusión · DIAGNÓSTICO F1 · el resultado del motor A n · continuar desde el paso 2 (ver diagnostico.md)"
+ ],
+ "estado": "no_entregable",
+ "paso": 13,
+ "auditoria": null,
+ "motor_en_estado": "A",
+ "ficha_oficial": {
+  "estado": "no_entregable",
+  "cubo": null,
+  "accion": null,
+  "cierre": null,
+  "bloque_f1": {
+   "utilizable": false,
+   "bloquean": [
+    "F1-LIBRO"
+   ],
+   "vigente": true
+  }
+ },
+ "vigencia_f1": {
+  "motor": "A",
+  "exigido": true,
+  "vigente": true,
+  "utilizable": false
+ }
+}
+--- PC2-3 · --reiniciar --desde 13 (el resultado F1 bloqueante sigue en la carpeta)
+{
+ "codigo": 0,
+ "ultima_linea": [
+  "estado final: no_entregable · paso 13 · causa: limite_del_modelo: motor A · F1 (motor_a_f1_resultado.md): el resultado del motor A no se usa para una conclusión · DIAGNÓSTICO F1 · el resultado del motor A n · continuar desde el paso 2 (ver diagnostico.md)"
+ ],
+ "estado": "no_entregable",
+ "paso": 13,
+ "auditoria": null,
+ "motor_en_estado": null,
+ "ficha_oficial": {
+  "estado": "no_entregable",
+  "cubo": null,
+  "accion": null,
+  "cierre": null,
+  "bloque_f1": {
+   "utilizable": false,
+   "bloquean": [
+    "F1-LIBRO"
+   ],
+   "vigente": true
+  }
+ },
+ "vigencia_f1": {
+  "motor": "A",
+  "exigido": true,
+  "vigente": true,
+  "utilizable": false
+ }
+}
+--- PC2-4 · --reiniciar --desde 13 tras borrar motor_a_f1_resultado.json (la declaración bloqueante sigue en la carpeta)
+{
+ "codigo": 0,
+ "ultima_linea": [
+  "estado final: concluido · paso 14"
+ ],
+ "estado": "concluido",
+ "paso": 14,
+ "auditoria": "APROBADO",
+ "motor_en_estado": null,
+ "ficha_oficial": {
+  "estado": "concluido",
+  "cubo": "Sí",
+  "accion": "comprar",
+  "cierre": {
+   "auditoria": "APROBADO",
+   "material_auditado": "93abe171416b540a"
+  },
+  "bloque_f1": {
+   "utilizable": false,
+   "bloquean": [],
+   "vigente": null
+  }
+ },
+ "vigencia_f1": {
+  "motor": null,
+  "exigido": false,
+  "vigente": null,
+  "utilizable": null
+ }
+}
+
+real	0m52.151s
+user	0m47.041s
+sys	0m9.023s

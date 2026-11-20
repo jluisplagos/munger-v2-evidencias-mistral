@@ -1,0 +1,18 @@
+2025 caja adquirida  {'TOTAL': '18.2', 'Bodensee': '0.4', 'Bugaderia': '3.4', 'Larosé': '3.0', 'Acquaflash': '0.1', 'JP Muller': '3.4', 'Adrett': '3.0', 'Lavartex': '0', 'Other': '4.9'} | suma columnas 18.2 vs total 18.2
+2025 desembolsos     {'TOTAL': '-112.6', 'Bodensee': '-9.3', 'Bugaderia': '-16.6', 'Larosé': '-13.2', 'Acquaflash': '-7.1', 'JP Muller': '-15.1', 'Adrett': '-12.7', 'Lavartex': '0', 'Other': '-38.5'} | suma columnas -112.5 vs total -112.6
+2025 earnouts        {'TOTAL': '-23.3', 'Bodensee': '0.0', 'Bugaderia': '0.0', 'Larosé': '0.0', 'Acquaflash': '0.0', 'JP Muller': '0.0', 'Adrett': '0.0', 'Lavartex': '-19.7', 'Other': '-3.6'} | suma columnas -23.3 vs total -23.3
+2025 NET CASH FLOW   {'TOTAL': '-117.6', 'Bodensee': '-8.9', 'Bugaderia': '-13.2', 'Larosé': '-10.2', 'Acquaflash': '-7.0', 'JP Muller': '-11.8', 'Adrett': '-9.7', 'Lavartex': '-19.7', 'Other': '-37.3'} | suma columnas -117.8 vs total -117.6
+seis importantes 2025 (Bodensee..Adrett) = 60.8
+Lavartex: desembolso 0 earnout -19.7 neto -19.7
+Other: neto -37.3 de ello earnouts -3.6
+Other sin earnouts (caja adquirida + desembolso) = -33.6
+suma columnas NET = 117.8 impreso 117.6 diferencia 0.2
+check filas: caja+desemb+earn por columna == neto -> [Decimal('-0.1'), Decimal('0.0'), Decimal('0.0'), Decimal('0.0'), Decimal('0.0'), Decimal('0.1'), Decimal('0.0'), Decimal('0.0'), Decimal('0.1')]
+earnouts 2025: total -23.3 = Lavartex -19.7 + Other -3.6
+p.341 contiene 'Carsan, which had €9.7 million in revenue in 2024': True
+p.341 contiene 'Ernst, which had €19.0 million in revenue in 2024': True
+p.341 contiene 'acquisition of 100% of Wäscherei Ernst': True
+p.341 contiene 'November 28, 2024: acquisition of 100% of Carsan': True
+2024 NET CASH FLOW {'TOTAL': '-183.3', 'Moderna': '-35.4', 'Wasned': '-8.3', 'Wonway': '-5.7', 'Carsan': '-8.1', 'Ernst': '-20.6', 'Lavartex': '-83.2', 'Other': '-22.0'} | suma -183.3 vs -183.3
+2024 earnouts {'TOTAL': '-93.9', 'Moderna': '0.0', 'Wasned': '0.0', 'Wonway': '0.0', 'Carsan': '0.0', 'Ernst': '0.0', 'Lavartex': '-83.2', 'Other': '-10.7'}
+RESULTADO s09: E2-D1 verificado en p.341/p.342

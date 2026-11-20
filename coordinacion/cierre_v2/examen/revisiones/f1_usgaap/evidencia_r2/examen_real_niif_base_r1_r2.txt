@@ -1,0 +1,31 @@
+Declaraciones F1 REALES del examen (NIIF), evaluadas sobre su libro recalculado con los tres códigos (solo lectura)
+
+ahold_f1/Ahold · norma NIIF · libro Ahold_v63_evaluada.xlsx · ronda 2: utilizable True · estado None · bloquean []
+   base 1694f08 ↔ ronda 2: idéntico (todo el resultado salvo versión y fecha)
+   ronda 1 34b68fc ↔ ronda 2: idéntico (todo el resultado salvo versión y fecha)
+
+ahold_f2/Ahold · norma NIIF · libro Ahold_v63_evaluada.xlsx · ronda 2: utilizable True · estado None · bloquean []
+   base 1694f08 ↔ ronda 2: idéntico (todo el resultado salvo versión y fecha)
+   ronda 1 34b68fc ↔ ronda 2: idéntico (todo el resultado salvo versión y fecha)
+
+ahold_v631/Ahold · norma NIIF · libro Ahold_v63_datos.xlsx · ronda 2: utilizable False · estado no_entregable · limite_del_modelo · bloquean ['F1-LIBRO']
+   base 1694f08 ↔ ronda 2: idéntico (todo el resultado salvo versión y fecha)
+   ronda 1 34b68fc ↔ ronda 2: idéntico (todo el resultado salvo versión y fecha)
+
+elis_f1/Elis · norma NIIF · libro Elis_v63_evaluada.xlsx · ronda 2: utilizable False · estado pendiente_de_datos · bloquean ['F1-LIBRO', 'F1-PARAM', 'F1-PERIMETRO', 'V-F1d', 'V-F1g', 'V-F1i', 'V-F1j', 'V-F1k', 'V-F1l']
+   base 1694f08 ↔ ronda 2: idéntico (todo el resultado salvo versión y fecha)
+   ronda 1 34b68fc ↔ ronda 2: idéntico (todo el resultado salvo versión y fecha)
+
+jumbo_d/Jumbo · norma NIIF · libro Jumbo_v63_datos.xlsx · ronda 2: utilizable False · estado pendiente_de_datos · bloquean ['F1-DECLARACION']
+   base 1694f08 ↔ ronda 2: DISTINTO en 78 campos · antes bloqueaban ['F1-SERIES'] · utilizable antes False
+        /guardas[0]/clase: None  →  datos
+        /guardas[0]/decision: generalidad  →  —
+        /guardas[0]/detalle: NIIF declarada; libro: IFRS  →  declaración mal formada: series.pagos_arrendamiento_sin_declarar no es un objeto por año (str)
+        /guardas[0]/efecto: None  →  DATOS INVÁLIDOS
+        /guardas[0]/id: F1-NORMA  →  F1-DECLARACION
+   ronda 1 34b68fc ↔ ronda 2: DISTINTO en 78 campos · antes bloqueaban ['F1-SERIES'] · utilizable antes False
+        /guardas[0]/clase: None  →  datos
+        /guardas[0]/decision: generalidad  →  —
+        /guardas[0]/detalle: NIIF declarada; libro: IFRS  →  declaración mal formada: series.pagos_arrendamiento_sin_declarar no es un objeto por año (str)
+        /guardas[0]/efecto: None  →  DATOS INVÁLIDOS
+        /guardas[0]/id: F1-NORMA  →  F1-DECLARACION

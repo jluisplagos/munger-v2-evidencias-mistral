@@ -1,0 +1,33 @@
+### S5 · fecha del precio alterada en fase1_metadatos.json (31-dic-2025 → 13-nov-2026), que no es material auditado
+   generar → código 0 · OK: /tmp/claude-0/revision_hoja_r2/rep/S5/Vidrala/hoja_resumen.md · VIGENTE · concluye · 18 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce precio.json a 9 %: sí 
+   9:- **Precio usado en el análisis:** 90,10 € (13 de noviembre de 2026): más caro que el valor medio de los tres escenarios. No es el precio de hoy.
+   77:- Precio usado en el análisis: 13 de noviembre de 2026.
+   --comprobar → código 0 · HOJA VIGENTE: lee la ficha e1ce40400a1b24cd…, el análisis oficial es vigente y la página no se ha editado 
+
+### S3 · hoja escrita fuera del expediente (--salida) y retirada oficial después (límite declarado por el autor)
+   generar con --salida → código 0 · OK: /tmp/claude-0/revision_hoja_r2/rep/S3_fuera/hoja_resumen.md · VIGENTE · concluye · 18 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce precio.json a 9 %: sí 
+   --comprobar --salida → código 0 · HOJA VIGENTE: lee la ficha e1ce40400a1b24cd…, el análisis oficial es vigente y la página no se ha editado 
+   vigencia oficial (cierre_v2.motivo_vigencia): el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva
+   asegurar_vigencia → el material cambió después de la auditoría (fase_c.json): la aprobación no vale para la versión nueva | archivado en: historial_cierres/01_7ad2b7ae3c04b02a
+   contenido del archivo: ['RETIRADA.json', 'auditoria_en_el_momento_de_la_retirada.md', 'cierre_vigente.json', 'ficha.json', 'informe.md', 'rastro_previo']
+Traceback (most recent call last):
+  File "/tmp/claude-0/revision_hoja_r2/herr/vig.py", line 12, in <module>
+    print('   RETIRADA.json → claves:', sorted(r), '· hoja_resumen_no_vigente:', r.get('hoja_resumen_no_vigente'))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+   la hoja de fuera sigue ahí: hoja_resumen.json hoja_resumen.md · --comprobar --salida → código 4 · HOJA NO VIGENTE: faltan archivos del cierre (si se retiró la aprobación, la hoja anterior no vale): ficha.json, informe.md. Retirar la hoja: ya no resume un análisis oficial vigente. 
+
+### S7 · --antecedente sobre Hermès (no vigente para la vía oficial)
+   generar sin --antecedente → código 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el análisis oficial no está vigente: no consta la respuesta de auditoría aprobada (ni estado_pipeline.json → auditoria_respuesta ni cierre_vigente.json la registran): no se atri 
+   generar con --antecedente → código 0 · OK: /tmp/claude-0/revision_hoja_r2/rep/S7/Hermes/hoja_resumen.md · NO VIGENTE (antecedente) · sin conclusión · 21 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce precio.json a 9 %: sí 
+   > **NO VIGENTE · ANTECEDENTE.** El sistema oficial no da por vigente este análisis: no consta la respuesta de auditoría aprobada (ni estado_pipeline.json → auditoria_respuesta ni cierre_vigente.json la registran): no se atribuye la aprobación al auditoria.md actual; hace falta una auditoría nueva (paso 13) Esta hoja solo 
+   --comprobar → código 4 · HOJA NO VIGENTE (antecedente): no consta la respuesta de auditoría aprobada (ni estado_pipeline.json → auditoria_respuesta ni cierre_vigente.json la registran): no se atribuye la aprobación al auditoria.md actual; hace falta u 
+
+### Elis 4.14 regenerada (la primera se generó mientras otro proceso mío pudo usar LibreOffice sin cerrojo)
+   generar → código 0 · OK: /tmp/claude-0/revision_hoja_r2/exp/Elis_414/Elis/hoja_resumen.md · VIGENTE · sin conclusión · 18 frases con origen · tasas 7 %, 8 %, 9 %, 10 %, 11 % · reproduce precio.json a 9 %: sí 
+   filas de la sensibilidad idénticas a las de la primera generación: True
+### S5b · fecha del precio alterada en fase1_metadatos.json DESPUÉS de generar la hoja (Vidrala 4.14, copia; se restaura al acabar)
+   antes de tocar: código 0 · HOJA VIGENTE: lee la ficha e1ce40400a1b24cd…, el análisis oficial es vigente y la página no se ha editado
+   archivo cambiado: sí
+   --comprobar con el archivo cambiado: código 4 · HOJA DESACTUALIZADA: fase1_metadatos.json cambió. Retirarla y, si el análisis oficial es vigente, regenerarla: hoja_resumen.py /tmp/claude-0/revision_hoja_r2/exp/Vidrala_414/Vidrala
+   restaurado (8f74860813a12166 = 8f74860813a12166): código 0 · HOJA VIGENTE: lee la ficha e1ce40400a1b24cd…, el análisis oficial es vigente y la página no se ha editado

@@ -1,0 +1,13 @@
+$ python3 -I <home>/rev_manual_v2/sondas/herramientas/citas.py <tmp>/m/CAMBIOS_FRENTE_A_957af65.md <home>/rev_manual_v2/sondas/S03_citas_cambios_detalle.txt
+problemas 2
+[código 0]
+
+$ python3 -I <home>/rev_manual_v2/sondas/herramientas/citas.py <tmp>/m/PROPUESTA_CONTINUIDAD_2_5.md <home>/rev_manual_v2/sondas/S03_citas_propuesta_detalle.txt
+problemas 0
+[código 0]
+
+$ grep -E 'NO EXISTE|FUERA|AMBIG' <home>/rev_manual_v2/sondas/S03_citas_*_detalle.txt | cut -c1-200
+<home>/rev_manual_v2/sondas/S03_citas_cambios_detalle.txt:L18: 4_11_comprobar_entrega.txt:12 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_
+<home>/rev_manual_v2/sondas/S03_citas_cambios_detalle.txt:L18: 4_12_comprobar_entrega.txt:14 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_
+[código 0]
+

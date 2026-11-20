@@ -1,0 +1,23 @@
+## ENTREGA_B3_C1 pruebas[0] (solo /tmp -> <rev_F2>/sondas/c761cc8_comandos/tmp)
+<rev_F2>/sondas/c761cc8_comandos/tmp/inv_check.csv: 131 recursos, 6799 archivos en el ZIP
+<rev_F2>/sondas/c761cc8_comandos/tmp/huellas_check.csv: 71 PDF con SHA-256 completo + release bb51942cefb848e409a4828e3faeb70f94aa4d29af39cda6d90cd0a97cb7b93e
+exit=0
+## ENTREGA_B_PM1 pruebas[0] (git show en el repo local; /tmp -> sondas)
+<rev_F2>/sondas/c761cc8_comandos/tmp/fuentes_daa7478.csv: 29/29 PDF coinciden en bytes y SHA-256 con munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+RESULTADO: TODO COINCIDE
+exit=0
+SHA de FUENTES_CONSERVADAS en origin/mistral/m2-fundamento-pm1 (debe ser el de daa7478 0924feff…): 0924feffa16a4b43
+HEAD de esa rama: daa7478
+## ENTREGA_B_PM1 pruebas[2] tal cual (sin argumento) desde revisiones_b_pm1/
+IndexError: list index out of range
+exit=1
+## extractor @c761cc8 con la ruta por argumento (textos extraidos de <zip>)
+exit=0
+salida byte-identica a extraccion_independiente_out.txt
+## rutas /workspace en scripts .py/.sh @c761cc8
+resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py
+## /workspace en otros archivos @c761cc8
+resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py
+resultados_cierre/alcance_real/COMANDOS.md
+resultados_cierre/alcance_real/preparacion_b3_c1/ENTREGA_B3_C1.json
+resultados_cierre/alcance_real/correccion_f2/evidencias/d1_d2_inventario_y_huellas.txt

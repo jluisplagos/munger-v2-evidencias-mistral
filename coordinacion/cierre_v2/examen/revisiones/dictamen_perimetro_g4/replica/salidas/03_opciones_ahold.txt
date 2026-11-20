@@ -1,0 +1,38 @@
+Base: f = 0.000139708 · acciones 886.877259 · r 0.09 · p [0.2, 0.6, 0.2] · k 3.0 · precio 36.05 · C55 0.0878 · C18 del libro 'No'
+fase_b.json vigente (vuelta C→B): S2C (3.9, 5.4, 5.9) · ROIC LP (0.13, 0.15, 0.15)
+
+— Con las reglas del producto (G7 contra 2 × Historia!C55; G4 sin justificación posible si C18 ≠ Sí) —
+0 · libro recalculado (1.ª pasada de la fase B)            S2C 2.5/3.2/3.5  ROIC 0.08/0.09/0.09  V  28.01  37.48  44.28 · Sí  34.39 · pond  36.95 · vigilar        · gram. cód. 0: —
+1 · fase_b.json vigente (vuelta C→B)                       S2C 3.9/5.4/5.9  ROIC 0.13/0.15/0.15  V  28.87  41.96  51.41 · Sí  37.70 · pond  41.24 · cumple_regla_k · gram. cód. 1: G4 MALO✗; G4 NORMAL✗; G4 BUENO✗; G7 BUENO; G8 BUENO
+2 · S2C en A2; ROIC LP como en la 1.ª pasada               S2C 3.9/5.4/5.9  ROIC 0.08/0.09/0.09  V  28.23  39.71  47.55 · Sí  35.91 · pond  38.98 · vigilar        · gram. cód. 0: G8 NORMAL; G7 BUENO; G8 BUENO
+3 · S2C en A2; ROIC LP = r (referencia mecánica)           S2C 3.9/5.4/5.9  ROIC 0.09/0.09/0.09  V  28.41  39.71  47.55 · Sí  35.99 · pond  39.02 · vigilar        · gram. cód. 0: G8 NORMAL; G7 BUENO; G8 BUENO
+4 · S2C en A2; ROIC LP en el tope sin foso (r + 3)         S2C 3.9/5.4/5.9  ROIC 0.09/0.12/0.12  V  28.41  41.12  49.96 · Sí  36.94 · pond  40.35 · cumple_regla_k · gram. cód. 0: G7 BUENO; G8 BUENO
+4b · ídem con MALO 0,12                                    S2C 3.9/5.4/5.9  ROIC 0.12/0.12/0.12  V  28.79  41.12  49.96 · Sí  37.10 · pond  40.42 · cumple_regla_k · gram. cód. 0: G7 BUENO; G8 BUENO
+4c · referencias B.2 con el ROIC histórico en A2 (BUENO 0,12) S2C 3.9/5.4/5.9  ROIC 0.09/0.09/0.12  V  28.41  39.71  49.96 · Sí  36.33 · pond  39.50 · cumple_regla_k · gram. cód. 0: G8 NORMAL; G7 BUENO; G8 BUENO
+5 · como 1, pero con C18 = Sí (G4 justificable)            S2C 3.9/5.4/5.9  ROIC 0.13/0.15/0.15  V  28.87  41.96  51.41 · Sí  37.70 · pond  41.24 · cumple_regla_k · gram. cód. 0: G4 MALO; G4 NORMAL; G4 BUENO; G7 BUENO; G8 BUENO
+6 · solo ROIC LP de la vuelta, S2C de la 1.ª pasada        S2C 2.5/3.2/3.5  ROIC 0.13/0.15/0.15  V  28.66  39.74  48.14 · Sí  36.19 · pond  39.20 · cumple_regla_k · gram. cód. 1: G4 MALO✗; G8 MALO; G4 NORMAL✗; G4 BUENO✗
+7 · lo que midió la fase C: S2C 3,9/5,4/5,7                S2C 3.9/5.4/5.7  ROIC 0.08/0.09/0.09  V  28.23  39.71  47.38 · Sí  35.88 · pond  38.94 · vigilar        · gram. cód. 0: G8 NORMAL; G7 BUENO; G8 BUENO
+7b · fase C: S2C 3,9/5,4/5,7 y ROIC 0,13/0,15/0,15         S2C 3.9/5.4/5.7  ROIC 0.13/0.15/0.15  V  28.87  41.96  51.24 · Sí  37.68 · pond  41.20 · cumple_regla_k · gram. cód. 1: G4 MALO✗; G4 NORMAL✗; G4 BUENO✗; G7 BUENO; G8 BUENO
+
+— Con G7 medido en el perímetro del S2C (2 × ROIC propio 2021–2025 = 2 × 14,82 %) —
+1' · fase_b.json vigente                                   S2C 3.9/5.4/5.9  ROIC 0.13/0.15/0.15  V  28.87  41.96  51.41 · Sí  37.70 · pond  41.24 · cumple_regla_k · gram. cód. 1: G4 MALO✗; G4 NORMAL✗; G4 BUENO✗; G8 BUENO
+3' · S2C en A2; ROIC LP = r                                S2C 3.9/5.4/5.9  ROIC 0.09/0.09/0.09  V  28.41  39.71  47.55 · Sí  35.99 · pond  39.02 · vigilar        · gram. cód. 0: G8 NORMAL; G8 BUENO
+4' · S2C en A2; ROIC LP 0,09/0,12/0,12                     S2C 3.9/5.4/5.9  ROIC 0.09/0.12/0.12  V  28.41  41.12  49.96 · Sí  36.94 · pond  40.35 · cumple_regla_k · gram. cód. 0: G8 BUENO
+
+— Si la persona escalara la tolerancia de G4 por el apalancamiento del arrendamiento (r + 3 × capital total ÷ propio = r + 5,1) —
+8 · umbral 0,141: 0,13/0,14/0,14 (sin foso)                S2C 3.9/5.4/5.9  ROIC 0.13/0.14/0.14  V  28.87  41.72  51.00 · Sí  37.54 · pond  41.01 · cumple_regla_k · gram. cód. 0: G8 BUENO
+8b · umbral 0,141: fase_b.json vigente                     S2C 3.9/5.4/5.9  ROIC 0.13/0.15/0.15  V  28.87  41.96  51.41 · Sí  37.70 · pond  41.24 · cumple_regla_k · gram. cód. 1: G4 NORMAL✗; G4 BUENO✗; G8 BUENO
+
+— Cuánto vale cada pieza (precio de Sí frente al libro) —
+   solo S2C a A2                      precio de Sí 35.91 (+1.51 €; +4.4%) · ponderado 38.98 (+2.03) · vigilar
+   S2C a A2 y MALO de 0,08 a 0,09     precio de Sí 35.99 (+1.59 €; +4.6%) · ponderado 39.02 (+2.07) · vigilar
+   S2C a A2 y ROIC 0,09/0,12/0,12     precio de Sí 36.94 (+2.54 €; +7.4%) · ponderado 40.35 (+3.40) · cumple_regla_k
+   S2C a A2 y ROIC 0,13/0,15/0,15     precio de Sí 37.70 (+3.31 €; +9.6%) · ponderado 41.24 (+4.29) · cumple_regla_k
+
+— Sensibilidad que NO resuelve este dictamen: la f (conciliación propia del modelo A; K3 «+381») —
+   f del libro (0,00014)                                f = 0.00014 · palancas de la opción 3    Sí 35.99 · pond 39.02 · vigilar
+   f del libro (0,00014)                                f = 0.00014 · palancas de la vuelta C→B  Sí 37.70 · pond 41.24 · cumple_regla_k
+   sin la devolución fiscal belga de 2023 (367/3 al año) f = 0.00150 · palancas de la opción 3    Sí 34.01 · pond 36.92 · vigilar
+   sin la devolución fiscal belga de 2023 (367/3 al año) f = 0.00150 · palancas de la vuelta C→B  Sí 35.73 · pond 39.14 · vigilar
+   f solo con 2025 (0,00235)                            f = 0.00235 · palancas de la opción 3    Sí 32.77 · pond 35.61 · caro
+   f solo con 2025 (0,00235)                            f = 0.00235 · palancas de la vuelta C→B  Sí 34.48 · pond 37.83 · vigilar

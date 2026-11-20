@@ -1,0 +1,46 @@
+{
+ "id": "Q1-031",
+ "harness_version": "4.0",
+ "pasos": [
+  {
+   "op": "nuevo_expediente"
+  },
+  {
+   "op": "escribir_fuente",
+   "nombre": "f6_031_precio.txt",
+   "paginas": [
+    "precio histórico 14,20 EUR (31/12/2025); capitalización 710"
+   ]
+  },
+  {
+   "op": "copiar_artefacto",
+   "archivo": "fuentes_sinteticas/f6_031_precio.txt",
+   "guardar": "salida_precio.txt"
+  }
+ ],
+ "criterios": [
+  {
+   "id": "C1",
+   "texto": "la salida etiqueta el precio como histórico",
+   "afirma": [
+    {
+     "tipo": "texto_contiene",
+     "archivo": "salida_precio.txt",
+     "contiene": "precio histórico 14,20"
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "texto": "capitalización 710 documentada",
+   "afirma": [
+    {
+     "tipo": "texto_contiene",
+     "archivo": "salida_precio.txt",
+     "contiene": "710"
+    }
+   ]
+  }
+ ],
+ "descripcion": "SONDA DEL REVISOR A1 con el producto real: las aserciones leen solo lo que escribió el arnés"
+}

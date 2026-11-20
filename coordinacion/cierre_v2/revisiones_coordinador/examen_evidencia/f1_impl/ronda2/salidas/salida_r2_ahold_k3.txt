@@ -1,0 +1,19 @@
+A0_total · K3: {"identidad": true, "K3a_caja_base_dos_vias": true, "K3b_alquiler_contado": "dos veces", "K3c_reposicion_frente_a_su_caja": false, "conforme": false}
+   K3a_caja_base: {"C70": 1999.334, "media_fila_35": 1999.333333, "diferencia": 0.000667, "componentes": {"C46": 0.000333, "C47": 0.000333, "C48": 0.0, "C49": 0.0, "C50": 0.0, "C70": 0.0}, "explicado": {}, "residuo": 0.000667}
+   F1-K3a: salta=False  · caja base por dos vías: cada diferencia entre C70 y la fila 35 está explicada por una partida declarada
+   F1-K3b: salta=True BLOQUEA · alquiler contado dos veces en la proyección con el perímetro A0_total (debe contarse una vez)
+   F1-K3c: salta=True BLOQUEA · reinversión media de la ventana -1295.333 < 0 con ventas que no bajan: D_X devuelve más amortización de la que el capex repuso · sin justificación
+   F1-M-SIM: salta=False  · no salta
+   F1-ROU-HISTORIA: salta=False  · sin conflicto entre la ROU declarada y las filas 17 y 23 de la Historia
+   V-F1a: salta=True BLOQUEA · coste de arrendamiento contado dos veces en la proyección: D&A ROU de la ventana 4069.0 > 0 y C49 = 1834.0 > 0, con perímetro A0 (sin umbral adoptado:
+   reinversión media del perímetro declarado: -1295.333333333
+A1_sin_ROU · K3: {"identidad": true, "K3a_caja_base_dos_vias": true, "K3b_alquiler_contado": "una vez", "K3c_reposicion_frente_a_su_caja": true, "conforme": true}
+   K3a_caja_base: {"C70": 1999.334, "media_fila_35": 1999.333333, "diferencia": 0.000667, "componentes": {"C46": 0.000333, "C47": 0.000333, "C48": 0.0, "C49": 0.0, "C50": 0.0, "C70": 0.0}, "explicado": {}, "residuo": 0.000667}
+   F1-K3a: salta=False  · caja base por dos vías: cada diferencia entre C70 y la fila 35 está explicada por una partida declarada
+   F1-K3b: salta=False  · alquiler contado una vez
+   F1-K3c: salta=False  · reinversión media 61.000 ≥ 0 (o ventas a la baja)
+   F1-M-SIM: salta=False  · no salta
+   F1-ROU-HISTORIA: salta=False  · sin conflicto entre la ROU declarada y las filas 17 y 23 de la Historia
+   V-F1a: salta=False  · no aplica: el perímetro no es A0
+   reinversión media del perímetro declarado: 61.0
+arrendamientos_en_el_libro: True

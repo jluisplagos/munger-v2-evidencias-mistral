@@ -1,0 +1,34 @@
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh munger_v2_r1/CONTINUIDAD.md 138-143
+[munger_v2_r1/CONTINUIDAD.md:] 138	5. **Espacio en disco** (medido en la 4.14):
+[munger_v2_r1/CONTINUIDAD.md:] 139	   - la descompresión ocupa unos 1,9 GB;
+[munger_v2_r1/CONTINUIDAD.md:] 140	   - la verificación completa deja unos 1,7 GB en `personaje_v2/pruebas/_v64/`;
+[munger_v2_r1/CONTINUIDAD.md:] 141	   - el control de la 4.8.1 usa unos 2 GB temporales en `/tmp`.
+[munger_v2_r1/CONTINUIDAD.md:] 142	
+[munger_v2_r1/CONTINUIDAD.md:] 143	   Con unos 4,5 GB libres al empezar los controles, la prueba de traspaso se quedó sin disco (I18 e I21). Conviene tener al menos 7 GB libres después de descomprimir. Si falta espacio, terminada la verificación se pueden borrar los `*.xlsx` y `vigencia/` de `personaje_v2/pruebas/_v64/` (los controles no recorren `_v64/`), registrando las rutas (regla 11.10).
+[código 0]
+
+$ python3 -I <home>/rev_manual_v2/sondas/herramientas/sonda_literales.py
+scripts analizados 145 literales 13129
+frase1 actual aparece exactamente 1 vez/veces
+frase2 actual aparece exactamente 1 vez/veces
+cambios 1+2 : literales que aparecen o desaparecen = 0 []
+cambio 1 + variante 2 : literales que aparecen o desaparecen = 0 []
+957af65 -> 3149128 (CONTINUIDAD): literales que aparecen o desaparecen = 3 ['ambos', 'código: ', '2. Adjuntar `']
+literales presentes en CONTINUIDAD 3149128: 1207
+[código 0]
+
+$ git -C <candidata> grep -n -F -e '2. Adjuntar `' 3149128 -- 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/*/scripts/*.py' | cut -c1-200
+3149128:munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/actualizar_documentos_version_4_13.py:94:    c = sustituir(c, "2. Adjuntar `munger_v2_r1_entrega4.12_vali
+[código 0]
+
+$ git -C <candidata> show 3149128:munger_v2_r1/CAMBIOS_ARCHIVOS.txt | sed -n '1p;81p'
+# Archivos cambiados respecto a la base (munger_v2_paquete.zip, SHA-256 61c70800…6af87d). 4.15 · hito 2 + corrección documental de la guía del recorrido y de CONTINUIDAD (programa de cierre v2; sin cambios de código), generado el 2026-11-17 por personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/scripts/generar_cambios_y_manifiesto_4_15.py.
+56e37708c24cf6bc06d721277aff1912cacbf3a730e64d18a72324153c40a27a  CONTINUIDAD.md
+[código 0]
+
+$ <home>/rev_manual_v2/sondas/herramientas/cita.sh munger_v2_r1/CONTINUIDAD.md 384-386
+[munger_v2_r1/CONTINUIDAD.md:] 384	10. (4.14) **Limpiezas** (autorización de la persona responsable, 14-nov-2026): se pueden eliminar sin preguntar temporales y copias de pruebas reproducibles, con estas condiciones:
+[munger_v2_r1/CONTINUIDAD.md:] 385	    - ninguna ejecución las usa;
+[munger_v2_r1/CONTINUIDAD.md:] 386	    - se conservan el código exacto, las evidencias y los archivos únicos;
+[código 0]
+

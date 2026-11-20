@@ -1,0 +1,38 @@
+ENTREGA 4.8.1 · R-T1, R-F1 y R-F2 · controles (solo escriben en temporales)
+====================================================================================================
+1. CONSERVACIÓN
+NO CUMPLE · [recalcula] Frente al manifiesto de la 4.8 (1494 archivos) solo cambian los archivos declarados; ninguno desaparece; originales, expedientes anteriores y decisiones de la 4.7.1 y la 4.8 intactos · personaje_v2/esquema/fase_c.esquema.json, personaje_v2/esquema/ficha.esquema.json, personaje_v2/prompts/fase_a.md, personaje_v2/prompts/fase_b.md, personaje_v2/prompts/fase_c_turno1.md, personaje_v2/prompts/fase_c_turno2.md, personaje_v2/prompts/historia_anio.md, personaje_v2/pruebas/test_cierre_v2.py, personaje_v2/scripts/comprobacion_conjunta.py, personaje_v2/scripts/comprobar_entorno.sh, personaje_v2/scripts/comprobar_entrada_v63.py, personaje_v2/scripts/comprobar_gramatica.py, personaje_v2/scripts/config_v2.py, personaje_v2/scripts/escribir_v63.py, personaje_v2/scripts/fase1_historia.py, personaje_v2/scripts/ficha.py, personaje_v2/scripts/informe.py, personaje_v2/scripts/leer_resultados.py, personaje_v2/scripts/leer_v63.py, personaje_v2/scripts/migrar_v53_a_v63.py, personaje_v2/scripts/referencias_mecanicas.py, personaje_v2/scripts/rellenar_fase1_v63.py, personaje_v2/scripts/resumen.py, personaje_v2/scripts/verificar_todo.sh, personaje_v2/scripts/volcar_datos_v63.py
+CUMPLE   · [recalcula] El registro humano de P1 conserva su huella b4e47afc…c445a4
+CUMPLE   · [recalcula] La regla H2 (Pipeline.veredicto_auditoria) es idéntica a la de la 4.7.1 y la 4.8 · 9edf6252ca48c800
+CUMPLE   · [recalcula] Las copias del código de la 4.8 de reproduccion/codigo_4_8/ tienen las huellas del manifiesto de la 4.8
+2. R-T1 · SOLICITUDES DE AUDITORÍA
+NO CUMPLE · [reejecuta] Con el código de la 4.8, X-c + esquema restaurado + --desde 13 reutiliza la auditoría antigua con fechas UTC y renovadas (pide una nueva solo en CET): salida idéntica a la conservada · RESULTADO: la auditoría antigua se reutiliza en: utc, renovadas
+CUMPLE   · [reejecuta] Con el código actual, en los tres modos de fechas se pide una auditoría nueva (código 10, nada cerrado): salida idéntica a la conservada · RESULTADO: en los tres modos se pide una auditoría nueva
+CUMPLE   · [reejecuta] Batería de solicitudes de auditoría con el código actual: 55/55 y el mismo estado de cada prueba que la salida conservada · 55/55 pruebas de solicitudes de auditoría PASAN
+CUMPLE   · [reejecuta] La misma batería con el código de la 4.8 falla (la reparación no estaba): mismo estado de cada prueba que la reproducción conservada · 2/26 pruebas de solicitudes de auditoría PASAN
+CUMPLE   · [reejecuta] Batería de estados con el código actual y TODAS las fechas renovadas: 28/28 · 28/28 pruebas de coherencia de estados PASAN
+NO CUMPLE · [reejecuta] Batería de estados con el código de la 4.8 y TODAS las fechas renovadas: 27/28 (la subsanación de X-c reutilizaba la auditoría; es el 27/28 de la revisión externa) · 11/28 pruebas de coherencia de estados PASAN
+NO CUMPLE · [reejecuta] Mutaciones del código de R-T1: las 25 hacen fallar la batería (resultado igual al conservado) · AssertionError: ('M5 el cierre no compara la respuesta registrada', 'if (resp.ge
+CUMPLE   · [reejecuta] Control de integración del verificador 4.8.1 (bloque nuevo de solicitudes de auditoría): 13 de 13
+CUMPLE   · [reejecuta] Control de integración del verificador 4.8 (estados): 13 de 13
+CUMPLE   · [reejecuta] Control de integración del verificador 4.7.1 (resumen): 13 de 13
+CUMPLE   · [reejecuta] Control de integración del verificador 4.6.1 (cierre): 13 de 13
+CUMPLE   · [constata] verificar_paquete.sh: el bloque de solicitudes de auditoría (mínimo 55) va antes del de estados, que sigue antes del del resumen y del de cierre
+CUMPLE   · [constata] Anexo D y prompt de verificación piden la línea «Solicitud de auditoría: <id>» y declaran que las fechas no intervienen en el paso 13
+3. R-F1 Y R-F2 · REINVERSIÓN (modelo auxiliar)
+CUMPLE   · [reejecuta] analisis_reinversion_4_8_1.py: código 0 (réplica de la 4.8 idéntica, motor que reproduce la 4.8, identidades) y sus cinco salidas idénticas a las conservadas · 5/5 idénticas
+CUMPLE   · [recalcula] R-F2: las cuatro referencias externas del encargo se reproducen a 7 decimales (REF, X41, X41 con el mismo requisito y crédito, P5x0)
+CUMPLE   · [recalcula] R-F2: el crédito explica el 60,45 % de la caída de X41 y la convención terminal −2,0475 frente al contraste; la descomposición de Shapley cierra · 60.4480% · -2.0475
+CUMPLE   · [recalcula] R-F1: con cada requisito, la estructura del hueco da el valor más alto y la suma sin reestimar el más bajo (no se elige ninguna; el abanico se publica entero)
+CUMPLE   · [constata] Decisiones de la 4.8.1: campos humanos vacíos; D-N3b revisada sin estructura por defecto; P1s de la 4.8 retirado
+CUMPLE   · [constata] El informe retira las afirmaciones de la 4.8 sobre el doble cómputo y el mantenimiento cubierto, y deja P-M1 abierta
+4. DOCUMENTACIÓN DE LA ENTREGA
+NO CUMPLE · [constata] VERSION, CONTINUIDAD.md y PROMPT_NUEVA_VENTANA.md describen la 4.8.1: versión, ZIP, batería de solicitudes de auditoría de 55 y este control
+CUMPLE   · [constata] existe REGISTRO_ENTREGA_4.8.1.md
+CUMPLE   · [constata] existe INFORME_REINVERSION_4_8_1.md
+CUMPLE   · [constata] existe AUDITORIA_INTERNA_4_8_1.md
+CUMPLE   · [constata] existe AUDITORIA_INTERNA_4_8_1_vigencia.md
+CUMPLE   · [constata] existe AUDITORIA_INTERNA_4_8_1_tercera.md
+CUMPLE   · [constata] existe resultados/LEEME_BATERIAS_HISTORICAS.md
+Tipos de control: 12 reejecutan, 7 recalculan y 11 solo constatan lo conservado.
+RESULTADO: 25 de 30 comprobaciones cumplen.

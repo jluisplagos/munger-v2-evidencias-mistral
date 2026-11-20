@@ -1,0 +1,9 @@
+COMANDO (sha256 988b0a4f878784961f79e90624b1177c7e9d61d8bd2baba15d482bb246d6b972):
+unzip -oq "$ZIP_414" 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto/*' -d /tmp/insumos_m2 &&
+python3 -I resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_pm1.py /tmp/insumos_m2/munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto | cmp - resultados_cierre/alcance_real/revisiones_b_pm1/evidencias/extraccion_independiente_out.txt   # byte-identico, exit 0
+
+EXIT: 0
+--- STDOUT ---
+
+--- STDERR ---
+

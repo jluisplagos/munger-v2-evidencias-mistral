@@ -1,0 +1,5 @@
+  $ bash comprobar_entorno.sh → 0 · autotest precio_de_si: PASA (5 casos + propiedades)
+  $ python3 migrar_v53_a_v63.py Rational_evaluada.xlsx Plantilla_V6.3.xlsx Rational_rep_v63_base.xlsx → 0 · VEREDICTO: ÍNTEGRO · 0 fallos · 0 avisos
+  $ python3 rellenar_fase1_v63.py Rational_rep_v63_base.xlsx fase1_v63.json Rational_rep_v63_datos.xlsx → 0 · VEREDICTO: ÍNTEGRO · 0 fallos · 0 avisos
+  $ python3 comprobar_entrada_v63.py Rational_rep_v63_datos.xlsx Rational_rep → 0 · OK: 0 bloqueantes · 0 necesarios para LISTO·PROVISIONAL · 1 no bloqueantes · motores calculables: ['A', 'B', 'C']
+  $ python3 volcar_datos_v63.py Rational_rep_v63_datos.xlsx Rational_rep → 0 · OK: datos_v63.md (9575 palabras) y datos_v63.json en <copia>/munger_v2_r1/personaje_v2/empresas_v2/Rational_rep

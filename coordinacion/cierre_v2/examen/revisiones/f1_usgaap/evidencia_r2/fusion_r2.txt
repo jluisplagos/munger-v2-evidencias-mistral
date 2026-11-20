@@ -1,0 +1,12 @@
+motor_a_f1.py evaluado: /tmp/claude-0/-home-user/b9d62468-c45b-5fe5-8762-d58eebe9c95a/scratchpad/fusion_arbol/munger_v2_r1/personaje_v2/scripts/motor_a_f1.py
+¿lleva las dos ramas?: D-US2 bis sí · ceros sin dígitos sí
+
+== M1 · Zoetis real, principal de 2023 declarado «—» (fila «Financing cash flows – finance leases», página 89)
+   F1-SERIES · inválidas: [] · incompletas: [] · columna pendiente: 16
+   pendientes que nombran el cero: ["series.pagos_arr_financiero_principal.2023: sin encabezado de ejercicio alineado con el cero impreso '—' en la fila 'Financing cash flows – finance leases'"]
+   bloquean: ['F1-K3a', 'F1-LIBRO'] (F1-K3a: fila 17 de 2025 vacía en la fase 1 real; F1-LIBRO: el libro aún no lleva la declaración) · condicionada: D-US1
+
+== M2 · «Operating lease liabilities» (10 al año) sumada en la fila 14 y contrastada; importe declarado 0 con «cero_comprobado» (frase de las notas)
+   utilizable: True · condicionada: None · bloquean: [] · flujo 78.0 (correcto 68) · contraste {'amortizacion_rou': 'contrastada', 'variacion_pasivo': 'contrastada'} · K3b una vez (contrastado: True)
+   F1-SERIES · inválidas: [] · incompletas: [] · pendientes: ['series.da_ppa.2016: sin «fila» (etiqueta de la fila): columna y ejercicio sin comprobar', 'series.da_ppa.2017: sin «fila» (etiqueta de la fila): columna y ejercicio sin comprobar']
+   rótulo: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)

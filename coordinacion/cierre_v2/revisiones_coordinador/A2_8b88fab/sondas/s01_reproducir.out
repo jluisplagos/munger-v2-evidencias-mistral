@@ -1,0 +1,149 @@
+## python3 -I -B inventario.py 
+{"entradas": 677, "nuevas": 617, "lotes": 22, "fuentes": {"CONFORME": 21}, "huecos": 0, "catalogo_ok": true}
+
+exit=0
+## python3 -I -B verificar_fuentes.py 
+{"entradas_con_fuente": 467, "estados": {"COINCIDE_PROPUESTO": 467}, "observaciones_pagina": 123, "salidas": ["<rev_A2>/repro/resultados_m2/cobertura_vm/resultados/verificacion_fuentes.jsonl", "<rev_A2>/repro/resultados_m2/cobertura_vm/OBSERVACIONES.jsonl"]}
+
+exit=0
+## python3 -I -B verificar_contexto.py 
+{"entradas": 677, "estados_contextuales": {"PENDIENTE_CONTEXTUAL": 183, "NO_APLICA": 210, "REUTILIZADO_M1": 43, "REVISADO_CONTEXTUAL": 148, "CONFLICTO_CONTEXTUAL": 93}, "checks": {"columna:CONFLICTO": 79, "columna:NO_DECIDIBLE": 115, "columna:OK": 273, "fila:NO_DECIDIBLE": 1, "fila:OK": 466, "perimetro:NO_APLICA": 4, "perimetro:OK": 463, "reexpresion:CONFLICTO": 24, "reexpresion:NO_APLICA": 248, "reexpresion:NO_DECIDIBLE": 144, "reexpresion:OK": 51, "signo:NO_APLICA": 19, "signo:OK": 448, "unidad:OK": 467, "version:OK": 467}, "observaciones_pagina": 123}
+
+exit=0
+## python3 -I -B derivaciones.py 
+{"nodos": 101, "reutilizados": 14, "nuevos": 87, "estados": {"COINCIDE_PROPUESTO": 101}, "ciclos": 0}
+
+exit=0
+## python3 -I -B construir_cobertura.py 
+{"filas": 677, "estados_mecanicos": {"COINCIDE_PROPUESTO": 568, "DATO_AUSENTE": 6, "HIPOTESIS": 52, "NO_APLICABLE": 16, "CONVENCION": 35}, "estados_contextuales": {"PENDIENTE_CONTEXTUAL": 209, "REUTILIZADO_M1": 60, "CONFLICTO_CONTEXTUAL": 133, "REVISADO_CONTEXTUAL": 169, "NO_APLICA": 106}, "origen": {"M2_NUEVA": 617, "M1_REUTILIZADA": 60}, "salida": "<rev_A2>/repro/resultados_m2/cobertura_vm/COBERTURA_677.csv"}
+
+exit=0
+## python3 -I -B control_negativo.py 
+{"muestra": 54, "mutaciones": 218, "bilaterales_ok": true, "detectadas_por_contextual": 149, "detectadas_por_mecanico": 40, "resumen": {"bilateral: cabecera_miles_pero_escala_1|ctx=True|mec=False": 1, "bilateral: columna_correcta_valor_en_2024|ctx=True|mec=False": 1, "bilateral: columna_equivocada_valor_2025_en_col_2024|ctx=True|mec=False": 1, "bilateral: euros_en_pagina_vs_miles_declarados|ctx=True|mec=False": 1, "bilateral: metadato_anio_unidad_anio|ctx=True|mec=False": 1, "bilateral: miles_en_cabecera_escala_0001|ctx=True|mec=False": 1, "bilateral: miles_en_pagina_escala_0001|ctx=True|mec=False": 1, "bilateral: perimetro_consolidado_correcto|ctx=True|mec=False": 1, "bilateral: perimetro_individual_en_doc_consolidado|ctx=True|mec=False": 1, "bilateral: reexpresion_ambigua_no_localizada|ctx=False|mec=False": 1, "bilateral: reexpresion_confirmada_misma_fila_columna|ctx=True|mec=False": 1, "bilateral: reexpresion_igualdad_declarada_no_reexpresado|ctx=True|mec=False": 1, "bilateral: version_informe_correcto_en_pagina|ctx=True|mec=False": 1, "bilateral: version_informe_inexistente|ctx=True|mec=False": 1, "euros frente a miles (sonda del revisor)|ctx=True|mec=False": 1, "partida de otr
+exit=0
+## python3 -I -B control_cobertura.py 
+{"PASS": true, "violaciones": [], "recuentos": {"total": 677, "por_empresa": {"Vidrala": 347, "Viscofan": 330}, "por_clase": {"dato_publicado": 454, "derivado": 101, "dato_ausente": 6, "hipotesis": 52, "no_aplicable": 16, "convencion": 35, "cero_comprobado": 13}, "por_estado": {"COINCIDE_PROPUESTO": 568, "DATO_AUSENTE": 6, "HIPOTESIS": 52, "NO_APLICABLE": 16, "CONVENCION": 35}, "por_empresa_estado": {"Vidrala": {"COINCIDE_PROPUESTO": 294, "DATO_AUSENTE": 4, "HIPOTESIS": 27, "NO_APLICABLE": 5, "CONVENCION": 17}, "Viscofan": {"COINCIDE_PROPUESTO": 274, "NO_APLICABLE": 11, "DATO_AUSENTE": 2, "CONVENCION": 18, "HIPOTESIS": 25}}, "por_empresa_clase": {"Vidrala": {"dato_publicado": 233, "derivado": 56, "dato_ausente": 4, "hipotesis": 27, "no_aplicable": 5, "convencion": 17, "cero_comprobado": 5}, "Viscofan": {"dato_publicado": 221, "derivado": 45, "no_aplicable": 11, "cero_comprobado": 8, "dato_ausente": 2, "convencion": 18, "hipotesis": 25}}, "piloto_reutilizadas": 60, "nuevas": 617, "derivados_total": 101, "derivados_piloto": 14, "derivados_nuevos": 87, "por_estado_contextual": {"PENDIENTE_CONTEXTUAL": 209, "REUTILIZADO_M1": 60, "CONFLICTO_CONTEXTUAL": 133, "REVISADO_CONTEXTUAL": 169, 
+exit=0
+## python3 -I -B cola_pendientes.py 
+Traceback (most recent call last):
+  File "<rev_A2>/repro/resultados_m2/cobertura_vm/scripts/cola_pendientes.py", line 17, in <module>
+    import comun as C
+ModuleNotFoundError: No module named 'comun'
+
+exit=1
+## python3 -I -B resolver_bloque2.py 
+Traceback (most recent call last):
+  File "<rev_A2>/repro/resultados_m2/cobertura_vm/scripts/resolver_bloque2.py", line 26, in <module>
+    import comun as C
+ModuleNotFoundError: No module named 'comun'
+
+exit=1
+## revisar_lote L00..L21 ejecutado
+## python3 -I -B control_cobertura.py 
+{"PASS": true, "violaciones": [], "recuentos": {"total": 677, "por_empresa": {"Vidrala": 347, "Viscofan": 330}, "por_clase": {"dato_publicado": 454, "derivado": 101, "dato_ausente": 6, "hipotesis": 52, "no_aplicable": 16, "convencion": 35, "cero_comprobado": 13}, "por_estado": {"COINCIDE_PROPUESTO": 568, "DATO_AUSENTE": 6, "HIPOTESIS": 52, "NO_APLICABLE": 16, "CONVENCION": 35}, "por_empresa_estado": {"Vidrala": {"COINCIDE_PROPUESTO": 294, "DATO_AUSENTE": 4, "HIPOTESIS": 27, "NO_APLICABLE": 5, "CONVENCION": 17}, "Viscofan": {"COINCIDE_PROPUESTO": 274, "NO_APLICABLE": 11, "DATO_AUSENTE": 2, "CONVENCION": 18, "HIPOTESIS": 25}}, "por_empresa_clase": {"Vidrala": {"dato_publicado": 233, "derivado": 56, "dato_ausente": 4, "hipotesis": 27, "no_aplicable": 5, "convencion": 17, "cero_comprobado": 5}, "Viscofan": {"dato_publicado": 221, "derivado": 45, "no_aplicable": 11, "cero_comprobado": 8, "dato_ausente": 2, "convencion": 18, "hipotesis": 25}}, "piloto_reutilizadas": 60, "nuevas": 617, "derivados_total": 101, "derivados_piloto": 14, "derivados_nuevos": 87, "por_estado_contextual": {"PENDIENTE_CONTEXTUAL": 209, "REUTILIZADO_M1": 60, "CONFLICTO_CONTEXTUAL": 133, "REVISADO_CONTEXTUAL": 169, 
+exit=0
+## python3 -I -B asociacion_pdf.py 
+fontTools is required to fully parse the encoding of a CFF Type1 font in font dictionary {'/BaseFont': '/OVGHYT+Bliss2-Light', '/Encoding': IndirectObject(9587, 0, 140183822657296), '/FirstChar': 1, '/FontDescriptor': IndirectObject(9585, 0, 140183822657296), '/LastChar': 93, '/Subtype': '/Type1', '/Type': '/Font', '/Widths': [226, 607, 246, 491, 590, 750, 447, 586, 718, 216, 216, 647, 652, 534, 540, 468, 516, 506, 379, 242, 225, 507, 461, 347, 463, 425, 802, 791, 474, 320, 501, 302, 510, 466, 526, 410, 500, 504, 552, 468, 313, 496, 505, 313, 534, 447, 506, 548, 690, 439, 528, 547, 444, 382, 502, 504, 356, 428, 682, 673, 352, 236, 288, 900, 750, 536, 588, 226, 537, 516, 461, 225, 352, 195, 827, 216, 463, 546, 450, 340, 216, 800, 226, 715, 384, 384, 474, 506, 592, 592, 523, 505, 505]}, but is not installed. Consider installing fontTools if you encounter encoding problems.
+fontTools is required to fully parse the encoding of a CFF Type1 font in font dictionary {'/BaseFont': '/OVGHYT+Bliss2-Light', '/Encoding': IndirectObject(9587, 0, 140183822657296), '/FirstChar': 1, '/FontDescriptor': IndirectObject(9585, 0, 140183822657296), '/LastChar': 93, '/Subtype': '/Type1', '/Type': '/Font',
+exit=1
+## python3 -I -B generar_recuentos_doc.py 
+MAPA_REGENERACION.md actualizado (bloque generado)
+escrito <rev_A2>/repro/resultados_m2/cobertura_vm/resultados/RECUENTOS_VIGENTES.md
+
+exit=0
+## GIT_DIR=<clon> python3 -I -B generar_cambios_estado.py 9d676ce... a2_v4
+{
+ "base": "9d676cefdfeb3771a43414fcb93f430e9340fae0",
+ "nuevo": "arbol de trabajo",
+ "n_cambios_fuente": 230,
+ "n_cambios_csv": 286,
+ "transiciones_fuente": {
+  "PENDIENTE_CONTEXTUAL -> CONFLICTO_CONTEXTUAL": 16,
+  "PENDIENTE_CONTEXTUAL -> REVISADO_CONTEXTUAL": 2,
+  "REVISADO_CONTEXTUAL -> CONFLICTO_CONTEXTUAL": 77,
+  "REVISADO_CONTEXTUAL -> PENDIENTE_CONTEXTUAL": 135
+ },
+ "transiciones_csv": {
+  "PENDIENTE_CONTEXTUAL -> CONFLICTO_CONTEXTUAL": 23,
+  "PENDIENTE_CONTEXTUAL -> REVISADO_CONTEXTUAL": 2,
+  "REVISADO_CONTEXTUAL -> CONFLICTO_CONTEXTUAL": 110,
+  "REVISADO_CONTEXTUAL -> PENDIENTE_CONTEXTUAL": 151
+ },
+ "nota": "Lista generada por diff de estados contextuales; no sustituye cifras ni fuentes. Una entrada que pierde acreditacion queda PENDIENTE (o CONFLICTO si hay contradiccion documentada)."
+}
+escrito <rev_A2>/repro/resultados_m2/cobertura_vm/resultados/cambios_estado_a2_v4.json
+
+exit=0
+## python3 -I -B generar_manifiesto.py 
+62 archivos con huella en MANIFIESTO_SHA256.txt
+
+exit=0
+## comparacion sha256 publicado vs reproducido (archivos del manifiesto publicado)
+IGUAL  COBERTURA_677.csv
+IGUAL  COMANDOS.md
+IGUAL  DERIVADOS.json
+IGUAL  ENTREGA.json
+IGUAL  HALLAZGOS.md
+IGUAL  INVENTARIO.md
+DIFIERE MAPA_REGENERACION.md
+IGUAL  OBSERVACIONES.jsonl
+IGUAL  PUNTO_DE_RECUPERACION.md
+IGUAL  RESPUESTA_A2_CIERRE_V2.md
+IGUAL  RESPUESTA_A_D_20261116.md
+IGUAL  RESPUESTA_REVISION_EXTERNA.md
+IGUAL  RESPUESTA_SEGUIMIENTO_20261116.md
+IGUAL  RESUMEN_PARA_CLAUDE.md
+DIFIERE resultados/RECUENTOS_VIGENTES.md
+IGUAL  resultados/asociacion_pdf_texto.json
+IGUAL  resultados/cambios_estado_a2_v4.json
+IGUAL  resultados/cola_pendientes.json
+IGUAL  resultados/control_cobertura.json
+IGUAL  resultados/control_negativo.json
+DIFIERE resultados/inventario.json
+IGUAL  resultados/lotes/lote_L00.json
+IGUAL  resultados/lotes/lote_L01.json
+IGUAL  resultados/lotes/lote_L02.json
+IGUAL  resultados/lotes/lote_L03.json
+IGUAL  resultados/lotes/lote_L04.json
+IGUAL  resultados/lotes/lote_L05.json
+IGUAL  resultados/lotes/lote_L06.json
+IGUAL  resultados/lotes/lote_L07.json
+IGUAL  resultados/lotes/lote_L08.json
+IGUAL  resultados/lotes/lote_L09.json
+IGUAL  resultados/lotes/lote_L10.json
+IGUAL  resultados/lotes/lote_L11.json
+IGUAL  resultados/lotes/lote_L12.json
+IGUAL  resultados/lotes/lote_L13.json
+IGUAL  resultados/lotes/lote_L14.json
+IGUAL  resultados/lotes/lote_L15.json
+IGUAL  resultados/lotes/lote_L16.json
+IGUAL  resultados/lotes/lote_L17.json
+IGUAL  resultados/lotes/lote_L18.json
+IGUAL  resultados/lotes/lote_L19.json
+IGUAL  resultados/lotes/lote_L20.json
+IGUAL  resultados/lotes/lote_L21.json
+IGUAL  resultados/recuentos.json
+IGUAL  resultados/resoluciones_bloque2.json
+IGUAL  resultados/verificacion_contexto.jsonl
+IGUAL  resultados/verificacion_fuentes.jsonl
+IGUAL  scripts/asociacion_pdf.py
+IGUAL  scripts/cola_pendientes.py
+IGUAL  scripts/comun.py
+IGUAL  scripts/construir_cobertura.py
+IGUAL  scripts/control_cobertura.py
+IGUAL  scripts/control_negativo.py
+IGUAL  scripts/derivaciones.py
+IGUAL  scripts/generar_cambios_estado.py
+IGUAL  scripts/generar_manifiesto.py
+IGUAL  scripts/generar_recuentos_doc.py
+IGUAL  scripts/inventario.py
+IGUAL  scripts/resolver_bloque2.py
+IGUAL  scripts/revisar_lote.py
+IGUAL  scripts/verificar_contexto.py
+IGUAL  scripts/verificar_fuentes.py
+## archivos en REPRO que no estan en el manifiesto publicado
+MANIFIESTO_SHA256.txt
+
+real	2m7.839s
+user	2m5.192s
+sys	0m2.075s

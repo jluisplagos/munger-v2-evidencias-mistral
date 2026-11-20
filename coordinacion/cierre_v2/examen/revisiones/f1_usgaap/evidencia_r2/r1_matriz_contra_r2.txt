@@ -1,0 +1,152 @@
+
+===== SIN fase1_partes (F1-US-FILAS solo informa)
+verdad (amort., pasivo)    declarado (amort., pasivo)     resultado     flujo del libro   error  condicionada · cota · K3b / bloquean
+('fuera', 'fuera')         ('fuera', 'fuera')             bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fuera', 'fuera')         ('fuera', 'no_publicada')      UTILIZABLE             68.000    +0.0  COND          · cota [-12.0, 12.0] · — · K3b una vez · declaración veraz
+('fuera', 'fuera')         ('fuera', 'fila_14')           bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fuera', 'fuera')         ('no_publicada', 'fuera')      bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fuera', 'fuera')         ('no_publicada', 'no_publicada') UTILIZABLE             68.000    +0.0  COND          · cota [-12.0, 12.0] · — · K3b una vez · declaración veraz
+('fuera', 'fuera')         ('no_publicada', 'fila_14')    bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fuera', 'fuera')         ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fuera')         ('fila_8', 'no_publicada')     UTILIZABLE             78.000   +10.0  COND          · cota [-12.0, -10.0] · cubre · K3b una vez · DECLARACIÓN FALSA
+('fuera', 'fuera')         ('fila_8', 'fila_14')          bloquea                     —          ['F1-LIBRO']
+('fuera', 'fuera')         ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fuera', 'fuera')         ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO']
+('fuera', 'fuera')         ('fila_14', 'fila_14')         bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fila_14')       ('fuera', 'fuera')             bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fila_14')       ('fuera', 'no_publicada')      UTILIZABLE             78.000   +10.0  COND          · cota [-12.0, 12.0] · cubre · K3b una vez · declaración veraz
+('fuera', 'fila_14')       ('fuera', 'fila_14')           bloquea                     —          ['F1-LIBRO']  (declaración veraz)
+('fuera', 'fila_14')       ('no_publicada', 'fuera')      bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fila_14')       ('no_publicada', 'no_publicada') UTILIZABLE             78.000   +10.0  COND          · cota [-12.0, 12.0] · cubre · K3b una vez · declaración veraz
+('fuera', 'fila_14')       ('no_publicada', 'fila_14')    bloquea                     —          ['F1-LIBRO']  (declaración veraz)
+('fuera', 'fila_14')       ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fila_14')       ('fila_8', 'no_publicada')     UTILIZABLE             88.000   +20.0  COND          · cota [-12.0, -10.0] · NO CUBRE · K3b una vez · DECLARACIÓN FALSA
+('fuera', 'fila_14')       ('fila_8', 'fila_14')          bloquea                     —          ['F1-LIBRO']
+('fuera', 'fila_14')       ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fuera', 'fila_14')       ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO']
+('fuera', 'fila_14')       ('fila_14', 'fila_14')         bloquea                     —          ['F1-US-FILAS']
+('fila_8', 'fuera')        ('fuera', 'fuera')             bloquea                     —          ['F1-K3c', 'F1-US-FILAS']
+('fila_8', 'fuera')        ('fuera', 'no_publicada')      bloquea                     —          ['F1-K3c']
+('fila_8', 'fuera')        ('fuera', 'fila_14')           bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fila_8', 'fuera')        ('no_publicada', 'fuera')      bloquea                     —          ['F1-K3c', 'F1-US-FILAS']  (declaración veraz)
+('fila_8', 'fuera')        ('no_publicada', 'no_publicada') bloquea                     —          ['F1-K3c']  (declaración veraz)
+('fila_8', 'fuera')        ('no_publicada', 'fila_14')    bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fila_8', 'fuera')        ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fila_8', 'fuera')        ('fila_8', 'no_publicada')     UTILIZABLE             68.000    +0.0  COND          · cota [-12.0, -10.0] · — · K3b una vez · declaración veraz
+('fila_8', 'fuera')        ('fila_8', 'fila_14')          bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fila_8', 'fuera')        ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fila_8', 'fuera')        ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO']
+('fila_8', 'fuera')        ('fila_14', 'fila_14')         bloquea                     —          ['F1-K3c', 'F1-US-FILAS']
+('fila_8', 'fila_14')      ('fuera', 'fuera')             bloquea                     —          ['F1-US-FILAS']
+('fila_8', 'fila_14')      ('fuera', 'no_publicada')      UTILIZABLE             68.000    +0.0  COND          · cota [-12.0, 12.0] · — · K3b una vez · DECLARACIÓN FALSA
+('fila_8', 'fila_14')      ('fuera', 'fila_14')           bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fila_8', 'fila_14')      ('no_publicada', 'fuera')      bloquea                     —          ['F1-US-FILAS']
+('fila_8', 'fila_14')      ('no_publicada', 'no_publicada') UTILIZABLE             68.000    +0.0  COND          · cota [-12.0, 12.0] · — · K3b una vez · declaración veraz
+('fila_8', 'fila_14')      ('no_publicada', 'fila_14')    bloquea                     —          ['F1-K3c', 'F1-LIBRO']  (declaración veraz)
+('fila_8', 'fila_14')      ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']
+('fila_8', 'fila_14')      ('fila_8', 'no_publicada')     UTILIZABLE             78.000   +10.0  COND          · cota [-12.0, -10.0] · cubre · K3b una vez · declaración veraz
+('fila_8', 'fila_14')      ('fila_8', 'fila_14')          bloquea                     —          ['F1-LIBRO']  (declaración veraz)
+('fila_8', 'fila_14')      ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fila_8', 'fila_14')      ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO']
+('fila_8', 'fila_14')      ('fila_14', 'fila_14')         bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fuera')       ('fuera', 'fuera')             bloquea                     —          ['F1-K3c', 'F1-US-FILAS']
+('fila_14', 'fuera')       ('fuera', 'no_publicada')      bloquea                     —          ['F1-K3c']
+('fila_14', 'fuera')       ('fuera', 'fila_14')           bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fila_14', 'fuera')       ('no_publicada', 'fuera')      bloquea                     —          ['F1-K3c', 'F1-US-FILAS']  (declaración veraz)
+('fila_14', 'fuera')       ('no_publicada', 'no_publicada') bloquea                     —          ['F1-K3c']  (declaración veraz)
+('fila_14', 'fuera')       ('no_publicada', 'fila_14')    bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fila_14', 'fuera')       ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fuera')       ('fila_8', 'no_publicada')     UTILIZABLE             68.000    +0.0  COND          · cota [-12.0, -10.0] · — · K3b una vez · DECLARACIÓN FALSA
+('fila_14', 'fuera')       ('fila_8', 'fila_14')          bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fila_14', 'fuera')       ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']  (declaración veraz)
+('fila_14', 'fuera')       ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO']  (declaración veraz)
+('fila_14', 'fuera')       ('fila_14', 'fila_14')         bloquea                     —          ['F1-K3c', 'F1-US-FILAS']
+('fila_14', 'fila_14')     ('fuera', 'fuera')             bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fila_14')     ('fuera', 'no_publicada')      UTILIZABLE             68.000    +0.0  COND          · cota [-12.0, 12.0] · — · K3b una vez · DECLARACIÓN FALSA
+('fila_14', 'fila_14')     ('fuera', 'fila_14')           bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fila_14', 'fila_14')     ('no_publicada', 'fuera')      bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fila_14')     ('no_publicada', 'no_publicada') UTILIZABLE             68.000    +0.0  COND          · cota [-12.0, 12.0] · — · K3b una vez · declaración veraz
+('fila_14', 'fila_14')     ('no_publicada', 'fila_14')    bloquea                     —          ['F1-K3c', 'F1-LIBRO']  (declaración veraz)
+('fila_14', 'fila_14')     ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fila_14')     ('fila_8', 'no_publicada')     UTILIZABLE             78.000   +10.0  COND          · cota [-12.0, -10.0] · cubre · K3b una vez · DECLARACIÓN FALSA
+('fila_14', 'fila_14')     ('fila_8', 'fila_14')          bloquea                     —          ['F1-LIBRO']
+('fila_14', 'fila_14')     ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fila_14', 'fila_14')     ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO']  (declaración veraz)
+('fila_14', 'fila_14')     ('fila_14', 'fila_14')         bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+--- utilizables: 14 de 72 · utilizables con error en el flujo: 6 · de ellos sin condición ni cota: 0 · condicionados con el error fuera de la cota: 1
+
+===== CON fase1_partes (las líneas que de verdad están en las filas 8 y 14 nombran el arrendamiento)
+verdad (amort., pasivo)    declarado (amort., pasivo)     resultado     flujo del libro   error  condicionada · cota · K3b / bloquean
+('fuera', 'fuera')         ('fuera', 'fuera')             bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fuera', 'fuera')         ('fuera', 'no_publicada')      bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fuera', 'fuera')         ('fuera', 'fila_14')           bloquea                     —          ['F1-K3c', 'F1-LIBRO', 'F1-US-FILAS']
+('fuera', 'fuera')         ('no_publicada', 'fuera')      bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fuera', 'fuera')         ('no_publicada', 'no_publicada') bloquea                     —          ['F1-SERIES']  (declaración veraz)
+('fuera', 'fuera')         ('no_publicada', 'fila_14')    bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fuera', 'fuera')         ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fuera')         ('fila_8', 'no_publicada')     bloquea                     —          ['F1-SERIES']
+('fuera', 'fuera')         ('fila_8', 'fila_14')          bloquea                     —          ['F1-LIBRO']
+('fuera', 'fuera')         ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fuera', 'fuera')         ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO']
+('fuera', 'fuera')         ('fila_14', 'fila_14')         bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fila_14')       ('fuera', 'fuera')             bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fila_14')       ('fuera', 'no_publicada')      bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fuera', 'fila_14')       ('fuera', 'fila_14')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']  (declaración veraz)
+('fuera', 'fila_14')       ('no_publicada', 'fuera')      bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fila_14')       ('no_publicada', 'no_publicada') bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fuera', 'fila_14')       ('no_publicada', 'fila_14')    bloquea                     —          ['F1-LIBRO']  (declaración veraz)
+('fuera', 'fila_14')       ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fila_14')       ('fila_8', 'no_publicada')     bloquea                     —          ['F1-US-FILAS']
+('fuera', 'fila_14')       ('fila_8', 'fila_14')          bloquea                     —          ['F1-LIBRO']
+('fuera', 'fila_14')       ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fuera', 'fila_14')       ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fuera', 'fila_14')       ('fila_14', 'fila_14')         bloquea                     —          ['F1-US-FILAS']
+('fila_8', 'fuera')        ('fuera', 'fuera')             bloquea                     —          ['F1-K3c', 'F1-US-FILAS']
+('fila_8', 'fuera')        ('fuera', 'no_publicada')      bloquea                     —          ['F1-K3c', 'F1-US-FILAS']
+('fila_8', 'fuera')        ('fuera', 'fila_14')           bloquea                     —          ['F1-K3c', 'F1-LIBRO', 'F1-US-FILAS']
+('fila_8', 'fuera')        ('no_publicada', 'fuera')      bloquea                     —          ['F1-K3c', 'F1-US-FILAS']  (declaración veraz)
+('fila_8', 'fuera')        ('no_publicada', 'no_publicada') bloquea                     —          ['F1-K3c', 'F1-US-FILAS']  (declaración veraz)
+('fila_8', 'fuera')        ('no_publicada', 'fila_14')    bloquea                     —          ['F1-K3c', 'F1-LIBRO', 'F1-US-FILAS']
+('fila_8', 'fuera')        ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fila_8', 'fuera')        ('fila_8', 'no_publicada')     bloquea                     —          ['F1-SERIES']  (declaración veraz)
+('fila_8', 'fuera')        ('fila_8', 'fila_14')          bloquea                     —          ['F1-K3c', 'F1-LIBRO']
+('fila_8', 'fuera')        ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fila_8', 'fuera')        ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fila_8', 'fuera')        ('fila_14', 'fila_14')         bloquea                     —          ['F1-K3c', 'F1-US-FILAS']
+('fila_8', 'fila_14')      ('fuera', 'fuera')             bloquea                     —          ['F1-US-FILAS']
+('fila_8', 'fila_14')      ('fuera', 'no_publicada')      bloquea                     —          ['F1-US-FILAS']
+('fila_8', 'fila_14')      ('fuera', 'fila_14')           bloquea                     —          ['F1-K3c', 'F1-LIBRO', 'F1-US-FILAS']
+('fila_8', 'fila_14')      ('no_publicada', 'fuera')      bloquea                     —          ['F1-US-FILAS']
+('fila_8', 'fila_14')      ('no_publicada', 'no_publicada') bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fila_8', 'fila_14')      ('no_publicada', 'fila_14')    bloquea                     —          ['F1-K3c', 'F1-LIBRO', 'F1-US-FILAS']  (declaración veraz)
+('fila_8', 'fila_14')      ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']
+('fila_8', 'fila_14')      ('fila_8', 'no_publicada')     bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fila_8', 'fila_14')      ('fila_8', 'fila_14')          bloquea                     —          ['F1-LIBRO']  (declaración veraz)
+('fila_8', 'fila_14')      ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fila_8', 'fila_14')      ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fila_8', 'fila_14')      ('fila_14', 'fila_14')         bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fuera')       ('fuera', 'fuera')             bloquea                     —          ['F1-K3c', 'F1-US-FILAS']
+('fila_14', 'fuera')       ('fuera', 'no_publicada')      bloquea                     —          ['F1-K3c', 'F1-US-FILAS']
+('fila_14', 'fuera')       ('fuera', 'fila_14')           bloquea                     —          ['F1-K3c', 'F1-LIBRO', 'F1-US-FILAS']
+('fila_14', 'fuera')       ('no_publicada', 'fuera')      bloquea                     —          ['F1-K3c', 'F1-US-FILAS']  (declaración veraz)
+('fila_14', 'fuera')       ('no_publicada', 'no_publicada') bloquea                     —          ['F1-K3c', 'F1-US-FILAS']  (declaración veraz)
+('fila_14', 'fuera')       ('no_publicada', 'fila_14')    bloquea                     —          ['F1-K3c', 'F1-LIBRO', 'F1-US-FILAS']
+('fila_14', 'fuera')       ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fuera')       ('fila_8', 'no_publicada')     bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fuera')       ('fila_8', 'fila_14')          bloquea                     —          ['F1-K3c', 'F1-LIBRO', 'F1-US-FILAS']
+('fila_14', 'fuera')       ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']  (declaración veraz)
+('fila_14', 'fuera')       ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO']  (declaración veraz)
+('fila_14', 'fuera')       ('fila_14', 'fila_14')         bloquea                     —          ['F1-K3c', 'F1-US-FILAS']
+('fila_14', 'fila_14')     ('fuera', 'fuera')             bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fila_14')     ('fuera', 'no_publicada')      bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fila_14')     ('fuera', 'fila_14')           bloquea                     —          ['F1-K3c', 'F1-LIBRO', 'F1-US-FILAS']
+('fila_14', 'fila_14')     ('no_publicada', 'fuera')      bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fila_14')     ('no_publicada', 'no_publicada') bloquea                     —          ['F1-US-FILAS']  (declaración veraz)
+('fila_14', 'fila_14')     ('no_publicada', 'fila_14')    bloquea                     —          ['F1-K3c', 'F1-LIBRO', 'F1-US-FILAS']  (declaración veraz)
+('fila_14', 'fila_14')     ('fila_8', 'fuera')            bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fila_14')     ('fila_8', 'no_publicada')     bloquea                     —          ['F1-US-FILAS']
+('fila_14', 'fila_14')     ('fila_8', 'fila_14')          bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fila_14', 'fila_14')     ('fila_14', 'fuera')           bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']
+('fila_14', 'fila_14')     ('fila_14', 'no_publicada')    bloquea                     —          ['F1-LIBRO', 'F1-US-FILAS']  (declaración veraz)
+('fila_14', 'fila_14')     ('fila_14', 'fila_14')         UTILIZABLE             68.000    +0.0  sin condición · cota [] · — · K3b una vez · declaración veraz
+--- utilizables: 1 de 72 · utilizables con error en el flujo: 0 · de ellos sin condición ni cota: 0 · condicionados con el error fuera de la cota: 0

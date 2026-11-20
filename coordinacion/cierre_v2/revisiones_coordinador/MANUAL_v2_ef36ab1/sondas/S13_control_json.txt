@@ -1,0 +1,38 @@
+$ git -C <aux> show ef36ab1:coordinacion/cierre_v2/CONTROL.json | sed -n '31,32p;582p;754p;802p;809,810p;833p' | cut -c1-220
+    "head": "31491289a9a13a670dd563c1b2df85dad54eb74a",
+    "estado": "957af65 + G-DOCS (3149128; 4 archivos documentales revisados). Código sin cambios; manifiesto 7762/7762"
+      "revisor_propuesto": "Claude + receptor distinto",
+      "siguiente_accion": "Candidata con su primera integración (G-DOCS, 3149128): solo documentos; manifiesto 7762/7762. La verificación completa de 957af65 sigue valiendo para el código, que no ha cambiado; ninguna 
+      "siguiente_accion": "Ensayar cambio anterior y punto real de reanudación; no reintroducir límites I19/I20 ya corregidos.",
+      "id": "T-TRASPASO",
+      "tarea": "Traspaso sin historial y revisión de manual",
+      "siguiente_accion": "Aceptado con límites (sin pasos de agentes; el registro no guarda transcripción ni la mayoría de códigos; receptor de la misma familia de modelo). Pasos con agentes reales: runtime del coor
+[código 0]
+
+$ git -C <aux> show HEAD:coordinacion/cierre_v2/CONTROL.json | grep -n -E '"head": "3149128|"revisor_propuesto": "Claude \+ receptor distinto' 
+34:    "head": "31491289a9a13a670dd563c1b2df85dad54eb74a",
+589:      "revisor_propuesto": "Claude + receptor distinto",
+[código 0]
+
+$ git -C <aux> show HEAD:coordinacion/cierre_v2/CONTROL.json | python3 -I -c 'import json,sys; d=json.load(sys.stdin); t=[x for x in d["tareas"] if x["id"]=="G-MANUAL"][0] if "tareas" in d else None; print(json.dumps(t["solicitud_revision"],ensure_ascii=False,indent=1) if t else "(sin clave tareas)")'
+{
+ "estado": "LISTA",
+ "sha_autor": "ef36ab18ff485e40dbb727b1b95eb177e5346683",
+ "base_revisada": "31491289a9a13a670dd563c1b2df85dad54eb74a",
+ "diff_rutas": [
+  "coordinacion/cierre_v2/manual/MANUAL_OPERATIVO_3149128.md",
+  "coordinacion/cierre_v2/manual/CAMBIOS_FRENTE_A_957af65.md",
+  "coordinacion/cierre_v2/manual/PROPUESTA_CONTINUIDAD_2_5.md"
+ ],
+ "criterios": [
+  "Las siete mejoras de traspaso/revision_20261117/MEJORAS_MANUAL.md aplicadas con su fuente archivo:línea en 3149128 o en el control",
+  "Ningún comando inventado: cada uno marcado con dónde se probó (traspaso 17-nov o preparación F1 15-nov) o [NO DOCUMENTADO]",
+  "Controles históricos sobre 4.15: 4.10 (39/44, .PARTES.txt), 4.11 (33/38, entorno; 4.12 miembro a miembro CUMPLE), el resto «observado una vez, no fijado»",
+  "H9 abierto y sin procedimiento inventado; I19/I20 no reintroducidos; ninguna política económica",
+  "La propuesta de CONTINUIDAD §2.5 es exacta (frase actual, frase nueva, fuente) y no se aplica aquí"
+ ],
+ "revisor_asignado": "Subagente Claude, contexto distinto del autor (no hay sesión Mistral libre)",
+ "informe_revision": null
+}
+[código 0]
+

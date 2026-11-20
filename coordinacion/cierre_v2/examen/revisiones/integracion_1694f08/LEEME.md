@@ -1,0 +1,4 @@
+# Verificación del paquete integrado `examen/ahold-f1` @ 1694f08
+
+- **`verificar_paquete.sh completa`** (62 min, con flock): los **23 bloques de prueba PASAN**, incluidos F1-IMPL, el gancho F1 y los cinco bloques nuevos de la V6.3.1. El único bloque en FALLA es el del **manifiesto**, por 36 archivos «de más» del perfil de LibreOffice (`personaje_v2/.lo_perfil/`) que el coordinador copió por error a la copia de prueba desde su árbol de trabajo. No es un defecto del producto: es la copia la que no estaba limpia (`verif_examen_completa_1694f08.txt`).
+- **Repetición sobre una copia limpia de verdad** (sin `.lo_perfil` ni `__pycache__`), modo rápido, que incluye el manifiesto: **8049 archivos · modificados 0 · ausentes 0 · de más 0 · RESULTADO GLOBAL: PASA** (`verif_examen_rapida_1694f08.txt`).

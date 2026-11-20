@@ -1,0 +1,96 @@
+$ git show 267ad18:automation/coordination/QWEN_CONTRASTE.md | cat -n
+     1	# Contraste Mistral del banco Qwen solicitado por el usuario
+     2	
+     3	## Qué resuelve
+     4	
+     5	El usuario pregunta si los recorridos Qwen son fiables y si Mistral puede
+     6	repetirlos. El banco revisado 4745f38 es una propuesta de aceptación, ya revisada
+     7	estructuralmente: 36 casos, 17 esperados y 9 controles negativos. Eso no equivale
+     8	a cumplimiento del producto. Los recorridos completos siguen en 0/36.
+     9	
+    10	La repetición contra el producto espera el cierre de D3 del ejecutor y requiere
+    11	agentes, entradas, observables y artefactos reales sobre un SHA fijado. Ni usar
+    12	otro proveedor ni volver a generar respuestas del banco sustituye ese recorrido.
+    13	
+    14	## Trabajo de Mistral preparado
+    15	
+    16	Tarea qwen-bank-review-001: contraste documental de coherencia interna de los
+    17	36 casos, sus fixtures, el plan y los resultados esperados. Preserva las siete
+    18	correcciones del integrador; no reabre decisiones ni modifica el banco. No es
+    19	una revisión ciega: los esperados están visibles. No se incluye el contrato
+    20	primario completo ni el código del producto; se limita lo que puede concluir.
+    21	
+    22	Paquete fijo en requests/qwen-bank-review-001.json: 58 archivos del banco
+    23	@4745f3887f7fd86bb3052f5d5e32285862df18e3. Se comprobaron tamaño y hash Git de
+    24	los 58 originales, y los SHA-256 de las 57 entradas del manifiesto. Se conserva
+    25	el manifiesto original, excluido de su propio inventario. No se ejecuta el
+    26	Python de Qwen al verificar esa integridad.
+    27	
+    28	Una reserva create-only precede al CLI. Preflight con límite cero para resolver
+    29	el modelo efectivo sin generación; después, una sola generación, sin herramientas,
+    30	en directorio vacío y sin credenciales GitHub/Anthropic en el entorno del CLI.
+    31	Versión mistral-vibe 3.1.2. Se fija el modelo resuelto y el esfuerzo más alto que
+    32	anuncia su configuración entre max/high/medium/low/minimal/off. Se registra como
+    33	configurado, sin inventar observación directa del parámetro en el proveedor.
+    34	
+    35	Salida máxima 16384 tokens, un turno y 300 segundos; límites acumulados del CLI
+    36	120000 tokens / USD 1, que no son un techo de facturación previo a la llamada.
+    37	No se activa pago por uso. La imputación al plan no se presupone de un coste
+    38	reportado como cero. Un fallo conserva reserva y no se reintenta automáticamente.
+    39	
+    40	El informe exige 36 ids distintos y citas literales verificadas. Una validación
+    41	de formato no prueba que sus interpretaciones sean correctas. Estado de salida:
+    42	pendiente de aceptación por otro contexto; accepted=false, integrated=false,
+    43	product_executed=false y complete_product_cases=0. Si falla, se conserva el texto
+    44	visible recibido. Las pruebas con respuestas simuladas son del ejecutor, no son
+    45	resultados de los casos Qwen.
+    46	
+    47	## Recogida por el coordinador
+    48	
+    49	Rama automatizacion/claude-api-piloto-registro, carpeta
+    50	automation/coordination/reviews/qwen-bank-review-001/. Consultar resultado real,
+    51	modelo, esfuerzo, límites y consumo; no atribuir un resultado antes de publicarse.
+    52	ChatGPT examina las observaciones y Claude decide qué correcciones concretas
+    53	proceden. El banco original se conserva y ninguna política económica se adopta.
+    54	
+    55	La conexión Vibe sí se comprobó en vibe-auth-001: una respuesta correcta,
+    56	versión 3.1.2, una generación. Eso prueba conexión, no este trabajo ni el producto.
+    57	
+    58	Preparación inicial (4725f30, Actions 44079249084): falló al validar la configuración
+    59	completa de Vibe sin inicializar HarnessFilesManager. Ocurrió después de acreditar
+    60	preflight token_limit con cero uso/coste y antes de iniciar la generación. Se
+    61	conservó preparation_failure_44079249084.json y la reserva; no hubo respuesta de
+    62	revisión. Se corrige leyendo únicamente metadatos del catálogo exportado.
+    63	La reanudación explícita de la misma tarea exige esa evidencia exacta de cero
+    64	generaciones, el mismo SHA de paquete y una transición con SHA esperado. No borra
+    65	la reserva ni abre otra tarea para repetir una inferencia de consumo incierto.
+    66	
+    67	El intento completo sí generó después una vez (ed9d3c5, Actions 44080061002):
+    68	modelo configurado mistral-large-4-0, esfuerzo high, uso informado 42992 entrada /
+    69	16384 salida, 1024 entrada en caché. Terminó por límite de salida, sin texto
+    70	visible y sin revisión entregada. Coste CLI 0; imputación al plan no comprobada.
+    71	La reserva y el fallo se conservan; la tarea completa no se vuelve a ejecutar.
+    72	
+    73	Nuevo alcance por tandas: qwen-bank-group-01…06, seis casos cada una. La proyección
+    74	conserva las líneas originales de esos casos, todos sus fixtures íntegros, el plan
+    75	y el resumen. Declara expresamente la selección de líneas y conserva el hash del
+    76	paquete íntegro original. Las seis tandas cubren exactamente 36 ids sin solaparse.
+    77	Una generación máxima por tanda, 32768 tokens de salida, mismo esfuerzo alto
+    78	anunciado por el modelo y 300 segundos. Primero se activa solo la tanda 01; las
+    79	demás esperan un informe utilizable y comprobado. No cambia la clasificación del
+    80	banco ni cuenta como un recorrido del producto. Se preserva el consumo anterior.
+    81	
+    82	Tanda 01: Mistral entregó seis casos y cinco observaciones (12424 entrada / 11781
+    83	salida, 1024 caché; coste CLI 0, saldo aplicado no comprobado). El control original
+    84	rechazó una cita de Markdown que unía líneas. postprocessed_report.json conserva
+    85	el texto visible original y registra la cita recompuesta con los saltos literales
+    86	del archivo, su ubicación y la regla aplicada; cero inferencias añadidas. Los
+    87	caracteres permanecen iguales y no se permite cruzar párrafos ni corregir números.
+    88	
+    89	Siguiente contraste: qwen-peer-group-01, Claude Sonnet 5.5/high, entrada USD 2/MTok,
+    90	salida USD 10/MTok, máximo 16384 salida y reserva calculada <= USD 0,50. Fuentes
+    91	fijadas a un commit de la rama de registro y a la proyección exacta del banco;
+    92	rechaza casos incompletos, fuentes alteradas o atribuciones de pruebas del producto.
+    93	Sin herramientas, una llamada como máximo, streaming, sin reintentos; dictamen
+    94	documental pendiente de aceptación. No se activa esta llamada desde el chequeo
+    95	horario: forma parte de la prueba operativa solicitada de colaboración.

@@ -1,0 +1,66 @@
+$ python3 -I <home>/rev_manual_v2/sondas/herramientas/citas.py <tmp>/m/MANUAL_OPERATIVO_3149128.md <home>/rev_manual_v2/sondas/S02_citas_manual_detalle.txt
+problemas 24
+[código 0]
+
+$ grep -E 'NO EXISTE|FUERA|AMBIG|sin archivo' <home>/rev_manual_v2/sondas/S02_citas_manual_detalle.txt | cut -c1-160
+L240: …log:7-8 -> AMBIGUO ('AMBIG', 0, 0, [])
+L241: …log:10-11 -> AMBIGUO ('AMBIG', 0, 0, [])
+L242: …log:14 -> AMBIGUO ('AMBIG', 0, 0, [])
+L243: …log:16-19 -> AMBIGUO ('AMBIG', 0, 0, [])
+L245: :114 sin archivo previo
+L246: :133 sin archivo previo
+L247: :152 sin archivo previo
+L248: :171 sin archivo previo
+L249: :190 sin archivo previo
+L250: :209 sin archivo previo
+L251: :228 sin archivo previo
+L252: :247 sin archivo previo
+L253: :266 sin archivo previo
+L254: :285 sin archivo previo
+L255: :304 sin archivo previo
+L256: :323 sin archivo previo
+L257: …log:59 -> AMBIGUO ('AMBIG', 0, 0, [])
+L290: :38 sin archivo previo
+L291: :40 sin archivo previo
+L292: :15 sin archivo previo
+L293: :16 sin archivo previo
+L293: …/resumen.md:6 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_historic
+L294: :17 sin archivo previo
+L294: …/resumen.md:7 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_historic
+L295: :18 sin archivo previo
+L295: …/resumen.md:8 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_historic
+L296: :19 sin archivo previo
+L296: …/resumen.md:9 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_historic
+L297: :20 sin archivo previo
+L297: …/resumen.md:10 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L298: :25 sin archivo previo
+L298: …/resumen.md:11 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L299: :33 sin archivo previo
+L299: …/resumen.md:12 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L300: :30 sin archivo previo
+L300: …/resumen.md:13 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L301: :31 sin archivo previo
+L301: …/resumen.md:14 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L302: :32 sin archivo previo
+L302: …/resumen.md:15 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L303: :33 sin archivo previo
+L303: …/resumen.md:16 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L304: :36 sin archivo previo
+L304: …/resumen.md:17 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L305: :37 sin archivo previo
+L305: …/resumen.md:18 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L306: :39 sin archivo previo
+L306: …/resumen.md:20 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L307: :41 sin archivo previo
+L307: …/resumen.md:22 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L308: :43 sin archivo previo
+L308: …/resumen.md:23 -> AMBIGUO ('AMBIG', 4, 1, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_12/resultados/controles_histori
+L421: verificacion_entradas.json:448 -> AMBIGUO ('AMBIG', 7, 0, ['munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/elis_decisiones
+L421: entrada_efectiva.json:451 -> AMBIGUO ('AMBIG', 0, 0, [])
+L635: E415/hito2/HITO_2_4_15.md:375 -> FUERA DE RANGO (n=221)
+[código 0]
+
+$ grep -c '^L' <home>/rev_manual_v2/sondas/S02_citas_manual_detalle.txt
+603
+[código 0]
+

@@ -1,0 +1,37 @@
+EXPEDIENTE DEL ENSAYO DE VIDRALA · entrega 4.6.1 · vigencia de las salidas oficiales · controles de solo lectura
+====================================================================================================
+
+1. REFERENCIAS INTACTAS
+  [CUMPLE] Los 489 originales de personaje_v2/empresas_v2/ conservan su huella del manifiesto
+  [CUMPLE] Los 50 archivos de la 4.4 conservan su huella del manifiesto
+  [CUMPLE] Los 131 archivos de la 4.5 conservan su huella del manifiesto
+  [CUMPLE] Los 137 archivos de la 4.6 conservan su huella del manifiesto
+  [CUMPLE] Registro humano de P1 sin cambios (SHA-256 b4e47afc…c445a4)
+
+2. VIGENCIA DEL CIERRE ACTUAL
+  [CUMPLE] Pipeline concluido en el paso 14 con auditoría APROBADO del material fijado, que no ha cambiado · 74b94f8072dd58c1
+  [CUMPLE] cierre_v2.motivo_vigencia: las salidas oficiales son vigentes (ficha e informe registrados en cierre_vigente.json)
+  [CUMPLE] cierre_vigente.json: material, ficha, informe y auditoría actuales
+  [CUMPLE] ficha.json oficial con cierre {APROBADO, material fijado}
+  [CUMPLE] resumen_v2.csv: una sola fila activa, concluido / APROBADO
+
+3. CIERRE ANTERIOR ARCHIVADO (NO VIGENTE) Y SU HISTORIAL
+  [CUMPLE] historial_cierres/ con el cierre 4.6 archivado (01_74b94f8072dd58c1) y su RETIRADA.json · 01_74b94f8072dd58c1
+  [CUMPLE] la ficha y el informe archivados son exactamente los oficiales de la 4.6
+  [CUMPLE] la auditoría 4.6 se conserva sin cambios como antecedente
+  [CUMPLE] resumen_v2_historial.csv conserva la fila anterior concluido / APROBADO con su material y motivo de retirada
+  [CUMPLE] estado_pipeline.json registra la retirada en cierres_archivados
+
+4. MARCAS, ETIQUETAS Y AVISOS DE LA 4.6 CONSERVADOS EN LAS SALIDAS OFICIALES
+  [CUMPLE] marca «con datos de etapa 1 incompletos» con las causas exactas (ficha y sección 1)
+  [CUMPLE] C104 con la etiqueta de la tabla cerrada
+  [CUMPLE] aviso de alcance una vez en cada una de las secciones 1, 6 y 7 y en ficha.alcance
+
+5. COMPARACIÓN CON LA 4.6, REPRODUCCIÓN E INTEGRACIÓN EN EL VERIFICADOR
+  [CUMPLE] comparar_con_4_6.py: «RESULTADO: 32 de 32» y la salida conservada es idéntica
+  [CUMPLE] comprobar_integracion_verificador.py: «RESULTADO: 13 de 13» y la salida conservada es idéntica
+  [CUMPLE] reproducción con el código 4.6: el caso se reproduce en sus tres rutas
+  [CUMPLE] reproducción con el código 4.6.1: no se reproduce en ninguna
+  [CUMPLE] las pruebas de aceptación nuevas fallan con el código 4.6 (43/55: las 12 negativas en FALLA)
+
+RESULTADO: 23 de 23 comprobaciones cumplen.

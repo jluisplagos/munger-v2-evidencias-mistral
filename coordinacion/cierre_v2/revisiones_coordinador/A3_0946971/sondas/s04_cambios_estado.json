@@ -1,0 +1,366 @@
+{
+ "fuentes": {
+  "estados_8b88fab": {
+   "PENDIENTE_CONTEXTUAL": 183,
+   "NO_APLICA": 210,
+   "REUTILIZADO_M1": 43,
+   "REVISADO_CONTEXTUAL": 148,
+   "CONFLICTO_CONTEXTUAL": 93
+  },
+  "estados_0946971": {
+   "PENDIENTE_CONTEXTUAL": 233,
+   "NO_APLICA": 210,
+   "REVISADO_CONTEXTUAL": 176,
+   "CONFLICTO_CONTEXTUAL": 15,
+   "REUTILIZADO_M1": 43
+  },
+  "transiciones": {
+   "CONFLICTO_CONTEXTUAL->PENDIENTE_CONTEXTUAL": 51,
+   "CONFLICTO_CONTEXTUAL->REVISADO_CONTEXTUAL": 36,
+   "REVISADO_CONTEXTUAL->PENDIENTE_CONTEXTUAL": 26,
+   "PENDIENTE_CONTEXTUAL->REVISADO_CONTEXTUAL": 20,
+   "PENDIENTE_CONTEXTUAL->CONFLICTO_CONTEXTUAL": 7,
+   "REVISADO_CONTEXTUAL->CONFLICTO_CONTEXTUAL": 2
+  },
+  "n_cambian": 142,
+  "transiciones_por_dimension": {
+   "columna:CONFLICTO->OK": 79,
+   "reexpresion:NO_APLICA->NO_DECIDIBLE": 37,
+   "columna:NO_DECIDIBLE->OK": 20,
+   "reexpresion:CONFLICTO->NO_DECIDIBLE": 18,
+   "columna:OK->NO_DECIDIBLE": 11,
+   "reexpresion:OK->NO_DECIDIBLE": 10,
+   "reexpresion:NO_DECIDIBLE->NO_APLICA": 9,
+   "reexpresion:OK->CONFLICTO": 4,
+   "reexpresion:NO_DECIDIBLE->CONFLICTO": 4,
+   "columna:NO_DECIDIBLE->CONFLICTO": 2
+  },
+  "revisado_sin_todas_las_dimensiones": [],
+  "pierden_REVISADO_quedan_en": {
+   "CONFLICTO_CONTEXTUAL": 2,
+   "PENDIENTE_CONTEXTUAL": 26
+  }
+ },
+ "csv": {
+  "estados_8b88fab": {
+   "PENDIENTE_CONTEXTUAL": 209,
+   "REUTILIZADO_M1": 60,
+   "CONFLICTO_CONTEXTUAL": 133,
+   "REVISADO_CONTEXTUAL": 169,
+   "NO_APLICA": 106
+  },
+  "estados_0946971": {
+   "PENDIENTE_CONTEXTUAL": 283,
+   "REUTILIZADO_M1": 60,
+   "REVISADO_CONTEXTUAL": 209,
+   "CONFLICTO_CONTEXTUAL": 19,
+   "NO_APLICA": 106
+  },
+  "transiciones_por_clase": {
+   "CONFLICTO_CONTEXTUAL->PENDIENTE_CONTEXTUAL [dato_publicado]": 49,
+   "CONFLICTO_CONTEXTUAL->REVISADO_CONTEXTUAL [dato_publicado]": 36,
+   "REVISADO_CONTEXTUAL->PENDIENTE_CONTEXTUAL [dato_publicado]": 26,
+   "CONFLICTO_CONTEXTUAL->PENDIENTE_CONTEXTUAL [derivado]": 21,
+   "PENDIENTE_CONTEXTUAL->REVISADO_CONTEXTUAL [dato_publicado]": 20,
+   "CONFLICTO_CONTEXTUAL->REVISADO_CONTEXTUAL [derivado]": 16,
+   "PENDIENTE_CONTEXTUAL->CONFLICTO_CONTEXTUAL [dato_publicado]": 7,
+   "REVISADO_CONTEXTUAL->PENDIENTE_CONTEXTUAL [derivado]": 4,
+   "REVISADO_CONTEXTUAL->CONFLICTO_CONTEXTUAL [dato_publicado]": 2,
+   "CONFLICTO_CONTEXTUAL->PENDIENTE_CONTEXTUAL [cero_comprobado]": 2,
+   "PENDIENTE_CONTEXTUAL->CONFLICTO_CONTEXTUAL [derivado]": 1
+  },
+  "n_cambian": 184,
+  "otras_columnas_cambiadas": {
+   "limites_contextuales": 275,
+   "evidencia_contextual": 316
+  }
+ },
+ "conflictos_0946971": [
+  {
+   "empresa": "Vidrala",
+   "celda": "Historia!J6",
+   "antes": "PENDIENTE_CONTEXTUAL",
+   "antes_dims_conflicto": [],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"sí: 2023 reexpresado sin Vidrala Italia (el original CF_2023 p.4 daba 1,558,765)\") pero el original CF_2023.txt imprime 1,558,765 en la columna 2023 (fila 129) y el comparativo cita 1427473: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2024.txt",
+   "pagina": 4,
+   "cita": "Revenues 4 & 22 1,588,267 1,427,473",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "Historia!J7",
+   "antes": "REVISADO_CONTEXTUAL",
+   "antes_dims_conflicto": [],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original 289,838, CF_2023 p.4)\") pero el original CF_2023.txt imprime 289,838 en la columna 2023 (fila 139) y el comparativo cita 267508: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2024.txt",
+   "pagina": 4,
+   "cita": "Profit loss from operating activities 331,008 267,508",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "Historia!J8",
+   "antes": "PENDIENTE_CONTEXTUAL",
+   "antes_dims_conflicto": [],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original 97,865, CF_2023 p.7)\") pero el original CF_2023.txt imprime 97,865 en la columna 2023 (fila 261) y el comparativo cita 87210: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2024.txt",
+   "pagina": 7,
+   "cita": "Amortisation and depreciation 7&8 117,720 87,210",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "Historia!D25",
+   "antes": "PENDIENTE_CONTEXTUAL",
+   "antes_dims_conflicto": [],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"no\") pero el original CF_2017.txt imprime 2015 en la columna 2017 (fila 2179) y el comparativo cita 6352: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2018.txt",
+   "pagina": 66,
+   "cita": "At 31 December 2017 5,387 6,352 12,597 24,336",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "Historia!E25",
+   "antes": "PENDIENTE_CONTEXTUAL",
+   "antes_dims_conflicto": [],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"no\") pero el original CF_2018.txt imprime 2016 en la columna 2018 (fila 2216) y el comparativo cita 6021: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2019.txt",
+   "pagina": 70,
+   "cita": "At 31 December 2018 18,636 6,021 11,952 36,609",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "Historia!F25",
+   "antes": "CONFLICTO_CONTEXTUAL",
+   "antes_dims_conflicto": [
+    "reexpresion"
+   ],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"no\") pero el original CF_2019.txt imprime 2019 en la columna 2019 (fila 650) y el comparativo cita 6244: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2020.txt",
+   "pagina": 74,
+   "cita": "At 31 December 2019 21,951 6,244 7,063 35,258",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "Historia!G25",
+   "antes": "CONFLICTO_CONTEXTUAL",
+   "antes_dims_conflicto": [
+    "reexpresion"
+   ],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"no\") pero el original CF_2020.txt imprime 2020 en la columna 2020 (fila 679) y el comparativo cita 9071: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2021.txt",
+   "pagina": 62,
+   "cita": "At 31 December 2020 18,403 9,071 9,629 37,103",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "Historia!H25",
+   "antes": "CONFLICTO_CONTEXTUAL",
+   "antes_dims_conflicto": [
+    "reexpresion"
+   ],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"no\") pero el original CF_2021.txt imprime 2019 en la columna 2021 (fila 2824) y el comparativo cita 6342: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2022.txt",
+   "pagina": 65,
+   "cita": "At 31 December 2021 62,541 6,342 10,208 79,091",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "Configuración V6.4!B46",
+   "antes": "CONFLICTO_CONTEXTUAL",
+   "antes_dims_conflicto": [
+    "reexpresion"
+   ],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"no\") pero el original CF_2021.txt imprime (3.109) en la columna 2021 (fila 2405) y el comparativo cita 0: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2022.txt",
+   "pagina": 44,
+   "cita": "Additions (435) - (3.109) (546) - - (4,090)",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "Configuración V6.4!B47",
+   "antes": "CONFLICTO_CONTEXTUAL",
+   "antes_dims_conflicto": [
+    "reexpresion"
+   ],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"no (igual que CF_2022)\") pero el original CF_2022.txt imprime (3,034) en la columna 2022 (fila 2506) y el comparativo cita 0: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2023.txt",
+   "pagina": 47,
+   "cita": "Additions (361) - (3,034) (7) - - (3,402)",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "aux:bai_2023",
+   "antes": "REVISADO_CONTEXTUAL",
+   "antes_dims_conflicto": [],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4)\") pero el original CF_2023.txt imprime 287,493 en la columna 2023 (fila 150) y el comparativo cita 268649: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2024.txt",
+   "pagina": 4,
+   "cita": "Profit before income tax from continuing operations 303,218 268,649",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "aux:impuesto_2023",
+   "antes": "CONFLICTO_CONTEXTUAL",
+   "antes_dims_conflicto": [
+    "columna"
+   ],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493, CF_2023 p.4)\") pero el original CF_2023.txt imprime (54,098) en la columna 2023 (fila 152) y el comparativo cita -54813: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2024.txt",
+   "pagina": 4,
+   "cita": "Income tax expense 10 (64,968) (54,813)",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Vidrala",
+   "celda": "aux:ing_fin_2017",
+   "antes": "PENDIENTE_CONTEXTUAL",
+   "antes_dims_conflicto": [],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"no\") pero el original CF_2017.txt imprime 2017 en la columna 2017 (fila 3461) y el comparativo cita 1964: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2018.txt",
+   "pagina": 10,
+   "cita": "Finance income 25 3,491 1,964",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Viscofan",
+   "celda": "Palancas!C48",
+   "antes": "PENDIENTE_CONTEXTUAL",
+   "antes_dims_conflicto": [],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "columna": [
+     "CONFLICTO",
+     "el valor declarado EUR no esta en la fila ['2025', '2024', '2023', '2022', '2021'] (cabecera ['2025', '2024', '2023', '2022', '2021']); declarado ['2021']"
+    ]
+   },
+   "archivo": "texto/AR_2025.txt",
+   "pagina": 151,
+   "cita": "Share price € 2025 2024 2023 2022 2021",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Viscofan",
+   "celda": "Control maestro!H4",
+   "antes": "PENDIENTE_CONTEXTUAL",
+   "antes_dims_conflicto": [],
+   "ahora": "CONFLICTO_CONTEXTUAL",
+   "dims_conflicto": {
+    "columna": [
+     "CONFLICTO",
+     "el valor declarado EUR no esta en la fila ['2025', '2024'] (cabecera ['2025', '2024']); declarado ['2025']"
+    ]
+   },
+   "archivo": "texto/AR_2025.txt",
+   "pagina": 23,
+   "cita": "(Thousands of euros) Notes 2025 2024",
+   "reexpresado_decl": null
+  },
+  {
+   "empresa": "Viscofan",
+   "celda": "aux:CF2024_p9_pagos_acciones_2023",
+   "antes": "REUTILIZADO_M1",
+   "antes_dims_conflicto": [
+    "reexpresion"
+   ],
+   "ahora": "REUTILIZADO_M1",
+   "dims_conflicto": {
+    "reexpresion": [
+     "CONFLICTO",
+     "declara no reexpresado (\"no: comparativo de 2023 en las cuentas de 2024 (el que usó el modelo)\") pero el original CA_2023_es.txt imprime 1,581 en la columna 2023 (fila 2442) y el comparativo cita 2346: contradiccion explicita"
+    ]
+   },
+   "archivo": "texto/CF_2024.txt",
+   "pagina": 9,
+   "cita": "Share-based payment 2,001 2,346",
+   "reexpresado_decl": null
+  }
+ ]
+}

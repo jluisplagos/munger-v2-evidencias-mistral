@@ -1,0 +1,32 @@
+## N-D5a: descargar SIN PyMuPDF (python del sistema, sin fitz instalado)
+ModuleNotFoundError: No module named 'fitz'
+DEPENDENCIA AUSENTE: PyMuPDF (fitz) no instalado (E2-D5). Instala: pip install -r scripts/requirements.txt (pymupdf==2.1, pypdf==7.1.0)
+exit=3
+## N-D5a': lectura SIN PyMuPDF
+DEPENDENCIA AUSENTE: PyMuPDF (fitz) no instalado. Instala: pip install -r scripts/requirements.txt (pymupdf==2.1, pypdf==7.1.0)
+exit=3
+## N-D5b: segundo extractor SIN pypdf (módulo bloqueado con sys.modules)
+DEPENDENCIA AUSENTE: pypdf no instalado (E2-D5). Instala: pip install -r scripts/requirements.txt (pypdf==7.1.0)
+exit=3
+## N-D5c: inventario fuera de un clon git con 716cbd6
+DEPENDENCIA AUSENTE: 716cbd6794b7fcde8b3862c9d1e7acdaf516d262 (repositorio del producto (solo lectura)) no esta en este clon del auxiliar.
+Ejecuta: git fetch https://github.com/jluisplagos/munger-v2.git 716cbd6794b7fcde8b3862c9d1e7acdaf516d262
+exit=2
+## N-D4a: descarga con 1 PDF ausente
+h1_2026_comunicado_en 200 498753 5a84458c26fc5b06 pags 13
+FALLOS: q1_2025_revenue -> indice Git NO reescrito (E2-D4); solo .trabajo/elis_fuentes/INDICE_DESCARGAS.csv
+exit=1
+índice Git antes 74cbae82f6e989bf después 74cbae82f6e989bf
+## N-D4b: lectura tras ese fallo (sha256 vacío en .trabajo)
+AssertionError: E2-D4: q1_2025_revenue sin descarga valida (http='ERROR', sha256=''); no se puede leer sobre texto viejo
+exit=1
+## N-D4c: descarga correcta y luego PDF alterado en .trabajo/pdf
+descarga exit=0
+AssertionError: E2-D4: sha256 recalculado de factsheet2026.pdf (58e6973cbf87f40a...) != indice (ef17a28f4b95abcc...)
+exit=1
+## N-D4d: texto de .trabajo alterado (PDF intacto): ¿lo detecta la lectura?
+AssertionError: cita no verificada: factsheet2026 p1 /Workwear 37%/
+exit=1
+## N-D4e: modo ELIS_PDF_DIR registra http/url_final/fecha_descarga sintéticos
+{'id': 'urd2025', 'http': '200', 'content_type': 'application/pdf', 'url_final': 'https://fr.elis.com/sites/fr.elis.com/files/2026/04/30/Elis%20-%202025%20Universal%20Registration%20Document.pdf', 'fecha_descarga': '2026-11-17T13:55:10Z'}
+0

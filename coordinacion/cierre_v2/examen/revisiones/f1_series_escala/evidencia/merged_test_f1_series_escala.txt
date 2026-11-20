@@ -1,0 +1,57 @@
+PASA  · ESC · cifras impresas en euros con escala «unidades» y valor_fuente en millones → F1-SERIES no salta; 3 columnas comprobadas · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente del expediente con su huella; columna del
+PASA  · ESC · escala «miles»: «(1.234.567)» miles = −1.234,567 millones → no salta (la etiqueta «- Additions» con guion no estorba) · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente del expediente con su huella; columna del
+PASA  · ESC · escala «millones» explícita = sin escala (el comportamiento anterior): «(3)» es −3; la columna de 2024 no es la de «(3)» → inválida · series.da_rou.2024: la cifra '(3)' de la fila 'Glued marks' está en la columna de ['2023'], no en la de 2024; series.da_rou.2025: la cifra '(3)' de la fila 'Glued marks' está en la columna de ['2023']
+PASA  · ESC · sin escala, cifra en euros y valor_fuente en millones → DATOS INVÁLIDOS (como antes) · series.da_rou.2025: «valor_fuente» -9.199774 no es la cifra publicada '(9.199.774)' con su signo (R415-SIGNO, T9)
+PASA  · ESC · mutación: escala mal declarada («miles» para euros) → DATOS INVÁLIDOS en la escala del modelo · series.da_rou.2025: «valor_fuente» -9.199774 no es la cifra publicada '(9.199.774)' con su signo en la escala del modelo (impresa en miles) (R415-SIGNO, T9)
+PASA  · ESC · mutación: escala «millones» para una cifra en euros → DATOS INVÁLIDOS
+PASA  · ESC · mutación: valor_fuente en euros (no en la escala del modelo) con escala «unidades» → DATOS INVÁLIDOS
+PASA  · ESC · mutación: escala 'euros' no es uno de los tres valores → DATOS INVÁLIDOS · series.da_rou.2025: escala 'euros' no válida (se declara «unidades», «miles» o «millones»)
+PASA  · ESC · mutación: escala 'Unidades' no es uno de los tres valores → DATOS INVÁLIDOS · series.da_rou.2025: escala 'Unidades' no válida (se declara «unidades», «miles» o «millones»)
+PASA  · ESC · mutación: escala 'mil' no es uno de los tres valores → DATOS INVÁLIDOS · series.da_rou.2025: escala 'mil' no válida (se declara «unidades», «miles» o «millones»)
+PASA  · ESC · mutación: escala 1000 no es uno de los tres valores → DATOS INVÁLIDOS · series.da_rou.2025: escala 1000 no válida (se declara «unidades», «miles» o «millones»)
+PASA  · ESC · mutación: escala None no es uno de los tres valores → DATOS INVÁLIDOS · series.da_rou.2025: escala None no válida (se declara «unidades», «miles» o «millones»)
+PASA  · ESC · mutación: escala ['unidades'] no es uno de los tres valores → DATOS INVÁLIDOS · series.da_rou.2025: escala ['unidades'] no válida (se declara «unidades», «miles» o «millones»)
+PASA  · ESC · mutación: la cita no contiene la cifra impresa («(9.199.775)», coherente con valor_fuente) → DATOS INVÁLIDOS · series.da_rou.2025: la cifra '(9.199.775)' no está, como cifra completa, en la página 1 de 'AR2025'
+PASA  · ESC · mutación: «literal» con la cifra en millones y escala «unidades» → DATOS INVÁLIDOS (la conversión no la reproduce)
+PASA  · ESC · mutación: cifra de 2024 declarada como de 2025, con escala → DATOS INVÁLIDOS (columna de otro ejercicio) · series.da_rou.2025: la cifra '(8.660.374)' de la fila 'Depreciation of right-of-use assets' está en la columna de ['2024'], no en la de 2025
+PASA  · ESC · mutación: el signo publicado se cambia en valor_fuente con escala → DATOS INVÁLIDOS (R415-SIGNO) · series.da_rou.2025: la cifra '9.199.774' no está, como cifra completa, en la página 1 de 'AR2025'
+PASA  · ESC · mutación: página inexistente con escala → DATOS INVÁLIDOS
+PASA  · CC · cero_comprobado con motivo y cita literal en su página → F1-SERIES no salta; queda PENDIENTE de revisor (2) · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente del expediente con su huella; columna del
+PASA  · CC · la cita se compara sin distinguir espacios ni mayúsculas (la frase cruza dos líneas en la página) · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente d
+PASA  · CC · mutación: cero sin cita → INCOMPLETO
+PASA  · CC · mutación: cero sin motivo → INCOMPLETO
+PASA  · CC · mutación: la cita no está en la página indicada (es de la página 2, se cita la 1) → DATOS INVÁLIDOS
+PASA  · CC · mutación: cita inventada (no literal) → DATOS INVÁLIDOS
+PASA  · CC · mutación: la cita es un encabezado (no prueba la inexistencia) → DATOS INVÁLIDOS
+PASA  · CC · mutación: la cita es una cifra (un importe del software), no la prueba de una inexistencia → DATOS INVÁLIDOS · series.da_ppa.2025: la cita del cero contiene importes (1.234.567): una cifra no prueba una inexistencia (un cero impreso se declara en «literal»)
+PASA  · CC · mutación: cero_comprobado con valor_fuente 0,5 → DATOS INVÁLIDOS
+PASA  · CC · mutación: cero_comprobado con un «literal» → DATOS INVÁLIDOS
+PASA  · CC · mutación: cero_comprobado que no es {motivo, cita} → DATOS INVÁLIDOS
+PASA  · CC · mutación: página inexistente → DATOS INVÁLIDOS
+PASA  · CC · mutación: documento sin fuente registrada → INCOMPLETO
+PASA  · CC · mutación: huella de la fuente distinta → DATOS INVÁLIDOS
+PASA  · CC · mutación: escala no válida también en un cero → DATOS INVÁLIDOS
+PASA  · CI · «—», «–» y «nil» en la fila y en la columna de su ejercicio → F1-SERIES no salta; 3 columnas comprobadas · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente del expediente con su huella; columna del
+PASA  · CI · «—» entre dos cifras de otras columnas, en la de su ejercicio → no salta · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente del expediente con su huella; columna del
+PASA  · CI · «—» en la fila sin encabezado de ejercicio alineado (como el 10-K de Zoetis, R1-2) → PENDIENTE, no bloquea · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente del expediente con su huella; columna del
+PASA  · CI · mutación: «—» sin «fila» → INCOMPLETO (un guion suelto no prueba un cero)
+PASA  · CI · mutación: la fila declarada no tiene la marca → DATOS INVÁLIDOS
+PASA  · CI · mutación: la marca está en la columna de otro ejercicio (2024, declarada 2025) → DATOS INVÁLIDOS · series.da_ppa.2025: el cero impreso '—' de la fila 'Dash in 2024 only' está en la columna de ['2024'], no en la de 2025
+PASA  · CI · mutación: «—» declarado donde se imprime «–» (otra marca) → DATOS INVÁLIDOS (la marca impresa literal) · series.da_ppa.2024: el cero impreso '—' de la fila 'Amortisation of acquired intangibles' está en la columna de ['2025'], no en la de 2024
+PASA  · CI · mutación: el guion de la etiqueta («- Additions») no es un cero de la fila → DATOS INVÁLIDOS
+PASA  · CI · mutación: marcas pegadas a una cifra o a una palabra («—5», «x—») no son ceros → DATOS INVÁLIDOS
+PASA  · CI · mutación: «—» con valor_fuente 1,5 → DATOS INVÁLIDOS
+PASA  · CI · la fila identifica una sola línea: «Amortisation» la identifica y su «—» es de 2025 → no salta · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente d
+PASA  · CI · mutación: la fila está en varias líneas → INCOMPLETO · series.da_ppa.2025: la fila 'of' está en 2 líneas de la página (hace falta una): el cero impreso '—' no se puede situar
+PASA  · CI · mutación: «cero» no es una marca reconocida → DATOS INVÁLIDOS (no es una cifra)
+PASA  · LS · leer_serie: con escala válida la magnitud del modelo es signo × valor_fuente (9,199774 millones)
+PASA  · LS · leer_serie: escala no válida → problema (V-F1e, DATOS INVÁLIDOS) y el año no entra
+PASA  · LS · leer_serie: cero_comprobado entra como 0 (con valor_fuente 0 declarado)
+PASA  · LS · leer_serie: la escala se valida también en pagos_arrendamiento
+PASA  · ANT · un cero sin «literal» ni «cero_comprobado» sigue INCOMPLETO
+PASA  · ANT · «0» que no está impreso en la página sigue DATOS INVÁLIDOS
+PASA  · ANT · sin la carpeta del expediente las fuentes no se examinan → INCOMPLETO
+PASA  · ANT · un cero comprobado sin carpeta tampoco se acepta → INCOMPLETO
+PASA  · ANT · si otra guarda ya bloquea, F1-SERIES avisa (no cambia el estado)
+
+55/55 pruebas de F1-SERIES con escala y ceros PASAN

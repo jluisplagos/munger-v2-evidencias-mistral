@@ -1,0 +1,10 @@
+PASA  · Q1 · V6.3.2: plantilla_activa.json registra la V6.3.2 F1; el paso 2 escribió la normalización (C93, C94:L94 = 1 en 2021–2025) y C97 es «circulante_a_cero» · plantilla V6.3.2 F1 · C97 'circulante_a_cero'
+PASA  · Q1 · F1 no bloquea (F1-LIBRO, F1-CIRC, F1-K3c y F1-REPLICA no saltan), la capa aplica la normalización y el gancho corre en los pasos 7 y 12 · código 0 · estado concluido · paso 14 · bloquean []
+PASA  · Q1 · estado final concluido; la ficha lleva la plantilla V6.3.2 F1 y, en motor_a_f1, la normalización aplicada (años y caja base) · estado concluido · ficha concluido
+PASA  · Q1 · el informe dice el circulante normalizado y datos_v63.md da a las fases la nota de la normalización con lo excluido por año
+PASA  · Q1 · el resumen va a resumen_v2_v632_f1.csv (ni al de la V6.3 ni al de la V6.3.1) · ['resumen_v2_v632_f1.csv']
+PASA  · Q2 · V6.3.2 sin normalización: C97 «ninguna», concluido, sin bloque de normalización en el resultado ni en la ficha ni nota en datos_v63.md · código 0 · estado concluido · bloquean []
+PASA  · Q1/Q2 · con el circulante fuera de la caja base Y de la reinversión, f es la misma que con el circulante en las dos (solo cambia el redondeo de C46) · f Q1 0.009995140463282 · Q2 0.009997782158699
+PASA  · Q3 · la declaración con la normalización y la V6.3.1: el paso 7 termina en no_entregable · límite del modelo con F1-LIBRO (la V6.3.1 no la calcula) · estado no_entregable · paso 7 · ['F1-LIBRO: el libro V6.3.1 F1 no calcula lo declarado (A0_total, circulante normalizado (V-CIRC; LÍMITE DECLARADO: ni la V6.3 ni la']
+8/8 pruebas de la V6.3.2 F1 en el pipeline PASAN
+rc=0 · 122 s

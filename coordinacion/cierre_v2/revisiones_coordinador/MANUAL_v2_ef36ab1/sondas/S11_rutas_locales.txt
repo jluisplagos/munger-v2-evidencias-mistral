@@ -1,0 +1,15 @@
+$ for f in MANUAL_OPERATIVO_3149128.md CAMBIOS_FRENTE_A_957af65.md PROPUESTA_CONTINUIDAD_2_5.md; do echo "== $f"; grep -n -o -E '/home[^ `)]*|/tmp[^ `)]*|/root[^ `)]*|/workspace[^ `)]*|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}|HOME=[^ `]*' <tmp>/m/$f; done
+== MANUAL_OPERATIVO_3149128.md
+81:HOME=/root
+116:/tmp
+119:/tmp
+124:/tmp
+574:/tmp
+== CAMBIOS_FRENTE_A_957af65.md
+13:/tmp
+== PROPUESTA_CONTINUIDAD_2_5.md
+21:/tmp
+28:/tmp
+30:/tmp/control481_…
+[código 0]
+

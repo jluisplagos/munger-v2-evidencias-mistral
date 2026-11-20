@@ -1,0 +1,43 @@
+{
+  "empresa": "Jumbo S.A. (BELA, Euronext Athens) · expediente jumbo_g · fecha de análisis 2026-11-19",
+  "conclusion_atacada": {
+    "estado": "concluido (provisional hasta la auditoría)",
+    "cubo": "Sí",
+    "accion": "comprar",
+    "precio_si": 33.42
+  },
+  "objeciones": [
+    {
+      "id": "O1-tipo-impositivo",
+      "direccion": "baja",
+      "hecho": {
+        "archivo": "texto/jumbo-h1-2026-financial-results.txt",
+        "pagina": 40,
+        "cita": "Effective January 1, 2026, the standard corporate income tax (CIT) rate in Cyprus has increased to 15%."
+      },
+      "dato_ausente": null,
+      "cuanto_mueve": {
+        "cifra_o_rango": "Precio de Sí de 33,42 a 32,98 € (−0,44 €; −1,3 %) con t = 19,08 %; rango −0,39 € (t = 18,93 %, el de 2025) a −0,81 € (t = 19,97 %, el de H1 2026). NORMAL de 37,02 a 36,52 € (rango −0,43 a −0,91 €). Valor sin crecimiento de 28,17 a 27,82 €.",
+        "cuenta": "El motor usa t = 17,988 % (Historia!C52, media de 2021–2025: 17,67 / 17,42 / 17,94 / 17,98 / 18,93 %) en los diez años y en el terminal. Tipo de 2025: 74.796.711 ÷ 395.106.128 = 18,93 % [FY2025, PDF p. 148]. Tipo de 2026 estimado: impuesto de 2025 a tipos nominales 74.417.500 = 18,83 % del BAI [FY2025, PDF p. 180]; Chipre sube del 12,5 % al 15 % [H1 2026, PDF p. 40]: 2,5 % × 48.507.988 de BAI de Chipre [FY2025, PDF p. 175] = 1,21 mm, menos el impuesto complementario de Chipre que deja de aplicarse (641 miles [FY2025, PDF p. 180]) = +0,57 mm = +0,14 puntos; Bulgaria sigue con el complementario del 4–5 % [H1 2026, PDF p. 40]. t ≈ 18,93 + 0,14 = 19,08 %. El semestre lo confirma: 30.098.577 ÷ 150.751.401 = 19,97 % frente a 28.883.349 ÷ 146.065.493 = 19,77 % en H1 2025 [H1 2026, PDF p. 23]. Los años bajos de la media llevan más renta exenta (6,90 mm en 2024 frente a 2,03 mm en 2025 [FY2025, PDF p. 180]). Recalculado con una réplica del motor A que reproduce la hoja (26,12 / 37,02 / 44,52; P* 33,42; calc/motor.py y calc/objeciones_calc.py): con t = 0,1908, V = 25,79 / 36,52 / 43,92 y P* = (0,6 × 36,52 + 0,2 × 43,92 + 0,6 × 25,79) ÷ 1,4 = 32,98 €. Con t = 0,1893: 33,04 €; con t = 0,1997: 32,61 €. Valor sin crecimiento = [(1.232,9 × 0,3184 × (1 − 0,1908) + 5,24) ÷ 0,09 + 150] ÷ 134,366 = 27,82 €."
+      },
+      "por_que_cambia_la_conclusion": "Sola no cambia el cubo: el precio (27,28 €) queda un 17,3 % bajo el nuevo precio de Sí, frente al 18,4 %. Corrige un sesgo que toca los tres escenarios y el terminal a la vez (el NOPAT de todos los años está ≈ 1,3 % alto por un tipo medio anterior a la subida de Chipre) y deja el «el precio no paga nada por crecer» en el filo: el valor sin crecimiento queda solo un 2,0 % sobre el precio."
+    },
+    {
+      "id": "O2-margen-para-siempre",
+      "direccion": "baja",
+      "hecho": {
+        "archivo": "texto/jumbo-h1-2026-financial-results.txt",
+        "pagina": 14,
+        "cita": "represents a positive development towards creating a more level playing field, without, however, eliminating the long-term competitive pressure from international e-commerce platforms."
+      },
+      "dato_ausente": "La causa del salto de margen de 2021. La fase C dice que lo resolvería, en primer lugar, la cuenta de resultados y el margen bruto de los informes de 2016 a 2021; esos informes están en texto/ y no la dan. Solo muestran el salto en un año: margen bruto 52,17 % en 2016/17 [FY2016-17, PDF p. 8], 52,46 % [FY2017-18, PDF p. 10], 52,19 % [FY2018-19, PDF p. 10], 52,34 % en 2019 y 51,78 % en 2020 [FY2020, PDF p. 12], 55,66 % en 2021 [FY2021, PDF p. 11]; y gastos de distribución del 22,7 % de las ventas en 2019 (192,25 ÷ 847,94 [FY2020, PDF p. 50]) al 21,2 % en 2021 (176,64 ÷ 831,92 [FY2021, PDF p. 56]). Desde entonces el margen bruto cede: 55,61 % en 2024, 54,72 % en 2025 [FY2025, PDF p. 15] y 53,53 % en H1 2026 frente a 53,86 % [H1 2026, PDF p. 7].",
+      "cuanto_mueve": {
+        "cifra_o_rango": "Si el margen de 2021–2025 dura los diez años explícitos y el terminal vuelve al de 2016–2020 (26 %, el del MALO) en NORMAL y BUENO: NORMAL de 37,02 a 33,87 € (−3,15), BUENO de 44,52 a 40,12 € (−4,40), MALO sin cambio; precio de Sí de 33,42 a 31,44 € (−1,98 €; −5,9 %). Si el terminal vuelve solo a medio camino (28,75 %): 32,41 € (−1,01 €).",
+        "cuenta": "En el motor el terminal es FCF_11 = V_11 × m × (1 − t) × (1 − g ÷ ROIC) − f × V_11, dividido entre (r − g) y descontado diez años; pesa el 51 % del NORMAL y el 55 % del BUENO (resultados.json). El margen m del terminal es el del año 10 (0,315 y 0,32) y se cobra para siempre sobre toda la base; el ROIC a largo plazo solo afecta al capital nuevo. Con m del terminal = 0,26 y todo lo demás igual (calc/terminal.py, que con m sin cambiar reproduce 26,12 / 37,02 / 44,52): V = 26,12 / 33,87 / 40,12 y P* = (0,6 × 33,87 + 0,2 × 40,12 + 0,6 × 26,12) ÷ 1,4 = 31,44 €. Con 0,2875: V = 26,12 / 35,44 / 42,14 y P* = 32,41 €. Junto con O1 (t = 19,08 %): V = 25,79 / 33,41 / 39,58 y P* = 31,02 €."
+      },
+      "por_que_cambia_la_conclusion": "No cambia el cubo: el precio queda un 13,2 % bajo el precio de Sí (un 12,1 % sumando O1). Pero el 80 % de la probabilidad (NORMAL y BUENO) cobra para siempre, sobre toda la base, un margen que solo existe desde 2021, que apareció en un año sin causa en los informes, que ya cede y que la propia empresa ve bajo presión de largo plazo. La fase A lo leyó como «una ventaja de años, no de décadas» y puso C103 = No, y la fase C resolvió la contradicción con palabras; en números vale ≈ 2 € del precio de Sí."
+    }
+  ],
+  "sin_objeciones_validas": false,
+  "nota": "Ninguna objeción con hecho de texto/ lleva el precio de Sí por debajo de 27,28 €: las dos válidas, sumadas, lo bajan a ≈ 31,0 € y la zona sigue en cumple_regla_k. Para la dirección «baja» el resultado es que la conclusión aguanta. Es más robusta de lo que la fase C sugiere: con todas las palancas en el extremo bajo de los rangos que declara la fase B, P* = 29,50 € (calc/rangos.py); con el NORMAL al margen de 2016–2020 (26 %), 30,95 €; para cruzar el precio haría falta un margen NORMAL del 20,8 % (por debajo del mínimo de diez años, 24,8 %) o recortar 6,2 puntos el margen de los tres escenarios (calc/umbrales.py); una combinación adversa ilustrativa (O1 + O2, MALO sin crecimiento y con el 24,8 % de 2020, probabilidades 0,3/0,5/0,2) aún da 28,45 € (calc/descartes.py). Revisé y descarté: (1) la doble cuenta del flujo de H1 2026 (C76 parte de la caja de 30-jun-2026 y el año 1 cuenta 2026 entero: ≈ 71 mm, 0,53 € por acción [H1 2026, PDF p. 30]), porque la fecha de valoración implícita del motor (31-dic-2025: el año 1 se descuenta un año entero) frente a un precio de nov-2026 empuja en sentido contrario, ≈ +2,3 € netos en el NORMAL; no es mi dirección y no la cuento; (2) los intereses de la caja dentro de f: los ingresos financieros de H1 2026 (5,13 mm) no caen frente a H1 2025 (5,07 mm) [H1 2026, PDF p. 23]; (3) crecimiento, S2C, ROIC a largo plazo, g, profundidad y probabilidad del MALO y C76: cada uno, llevado a lo que permiten los hechos, mueve P* 1,7 € como mucho (crecimiento al mínimo de los rangos −1,72; p del MALO 0,3 −1,59; C76 = 0 −1,12; MALO al 24,8 % sin crecer −1,12; S2C −0,41). Lo que sí podría darle la vuelta queda fuera de mi encargo: la r del 9 % (por debajo de la r mínima de la hoja, 10,19 %) y la convención k = 3. Réplica del motor y cuentas en calc/."
+}

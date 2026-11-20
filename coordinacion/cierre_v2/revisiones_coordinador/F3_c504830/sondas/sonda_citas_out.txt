@@ -1,0 +1,308 @@
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:20  cita B6:169-170
+      build_v6.py:169: c62 = ['Sí', 'No · financiación cambia mucho', 'No · banco o aseguradora',
+      build_v6.py:170: 'No · este tipo de empresa requiere otro método']
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:21  cita B6:581-582
+      build_v6.py:581: out(D, f'{D_MOTOR}', '=IF(Análisis!$C$62="Sí","A",IF(Análisis!$C$62="No · financiación cambia mucho","B",'
+      build_v6.py:582: 'IF(OR(Análisis!$C$62="No · banco o aseguradora",Análisis!$C$62="No · banco, aseguradora o regulada"),"C",IF(Análisis!$C$62="","","—"))))', bold=True)
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:21  cita B6:1102-1103
+      build_v6.py:1102: ('V01', 'Motor elegido (Análisis C62)', '1', 'TRUE',
+      build_v6.py:1103: f'=IF({AN_}$C$62="","INC|Falta elegir el motor en Análisis C62",IF({MOTOR}="—","NOA|Análisis C62 dice que esta empresa requiere otro método",""))'),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:23  cita B6:588-590
+      build_v6.py:588: out(D, f'{D_COHER}', f'=IF(OR({PAL}!${C_ETAPA}="",{PAL}!${C_CASO}=""),"—",'
+      build_v6.py:589: f'IF(AND({PAL}!${C_CASO}="Financiera (banco o aseguradora)",{D_MOTOR}<>"C"),'
+      build_v6.py:590: '"⚠ REVISAR · financiera: usa el motor C en Análisis C62",'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:23  cita B6:1132-1133
+      build_v6.py:1132: ('V11', 'Tipo de empresa frente a motor (Palancas C6)', '1', 'TRUE',
+      build_v6.py:1133: f'=IF({PL_}${C_CASO}="","",IF(AND({PL_}${C_CASO}="Financiera (banco o aseguradora)",{isAB}),"NOA|Una financiera no puede valorarse con los motores A o
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:24  cita B6:426
+      build_v6.py:426: (6, 'Caso especial', 'Lista_Caso', 'Financiera → motor C. Cíclica → media del ciclo. Intangibles → I+D.'),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:31  cita B6:444-445
+      build_v6.py:444: (R_CREC, f'=IF({DG}!${D_MOTOR}="C","Crecimiento del patrimonio · años 1–5","Crecimiento de ventas · años 1–5")',
+      build_v6.py:445: PCT, f'=IF({DG}!${D_MOTOR}="C","",{HI}!$C$46)', sect_of('gq1'), sect_of('gmed'), sect_of('gq3'), (-0.10, 0.30)),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:31  cita B6:926
+      build_v6.py:926: M[f'{gc}{n}'] = f'=IF({ok},IF({gc}$3<=5,$E{n},$E{n}-($E{n}-$H{n})*({gc}$3-5)/5),"")'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:31  cita REL:143-144
+      relacion_entradas_materiales.py:143: dict(id=f"crec_{esc}", celda=f"Palancas!{col}14", fila=filas[0], tipo="hipótesis", motores="ABC",
+      relacion_entradas_materiales.py:144: cond="siempre", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="años 1–5"),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:32  cita B6:446-449
+      build_v6.py:446: (R_MARG, f'=IF({DG}!${D_MOTOR}="C","ROE objetivo (se alcanza en el año 5)","Margen operativo objetivo (año 5)")',
+      build_v6.py:447: PCT, f'=IF({DG}!${D_MOTOR}="C",{HI}!$C$56,{HI}!$C$49)',
+      build_v6.py:448: f'IF({DG}!${D_MOTOR}="C","",{sect_of("mq1")})', f'IF({DG}!${D_MOTOR}="C",{sect_of("roe")},{sect_of("mmed")})',
+      build_v6.py:449: f'IF({DG}!${D_MOTOR}="C","",{sect_of("mq3")})', (-0.10, 0.50)),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:32  cita B6:928
+      build_v6.py:928: M[f'{mc}{n}'] = f'=IF({ok},$D{n}+($F{n}-$D{n})*MIN({mc}$3,5)/5,"")'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:32  cita REL:145-146
+      relacion_entradas_materiales.py:145: dict(id=f"margen_{esc}", celda=f"Palancas!{col}15", fila=filas[1], tipo="hipótesis", motores="ABC",
+      relacion_entradas_materiales.py:146: cond="siempre (margen objetivo; ROE objetivo en C)", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="año 5 en adelante"),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:33  cita B6:450-452
+      build_v6.py:450: (R_S2C, f'=IF({DG}!${D_MOTOR}="C","Ventas por euro reinvertido · no se usa en el motor C",'
+      build_v6.py:451: '"Ventas por euro reinvertido (S2C)")',
+      build_v6.py:452: DEC2, f'=IF({DG}!${D_MOTOR}="C","",{HI}!$C$53)', None, None, None, (0, 5)),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:33  cita B6:971
+      build_v6.py:971: s2c = o.get('s2c', f'IF({MOTOR}="C",1,{PAL}!{col}{R_S2C})')
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:33  cita REL:147-148
+      relacion_entradas_materiales.py:147: dict(id=f"s2c_{esc}", celda=f"Palancas!{col}16", fila=filas[2], tipo="hipótesis", motores="AB",
+      relacion_entradas_materiales.py:148: cond="A y B (reinversión)", excel=AB, py=_motor_en("A", "B"), periodo="años 1–10"),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:34  cita B6:453
+      build_v6.py:453: (R_G, '="g para siempre (se escribe en Análisis B68:D68)"', PCT, None, '0.01', None, '0.03', (0, 0.04)),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:34  cita B6:479-480
+      build_v6.py:479: if r == R_G:
+      build_v6.py:480: out(P, f'{col}{r}', f'=IF(ISNUMBER(Análisis!{col}68),Análisis!{col}68,"")', fmt)
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:35  cita B6:454-456
+      build_v6.py:454: (R_ROIC, f'=IF({DG}!${D_MOTOR}="C","ROE a largo plazo (tras el año 10)","ROIC a largo plazo (tras el año 10)")',
+      build_v6.py:455: PCT, f'=IF({DG}!${D_MOTOR}="C",{HI}!$C$56,{HI}!$C$55)', None,
+      build_v6.py:456: f'IF({DG}!${D_MOTOR}="C",{sect_of("roe")},{sect_of("roic")})', None, (0, 0.50)),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:35  cita B6:932
+      build_v6.py:932: M[f'BF{n}'] = f'=IF({ok},IF($B{n}="C",AJ{n}*($I{n}-$H{n}),AJ{n}*(1+$H{n})*($F{n}*(1-$K{n})*(1-$H{n}/$I{n})-$L{n})),"")'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:35  cita REL:149-150
+      relacion_entradas_materiales.py:149: dict(id=f"roic_{esc}", celda=f"Palancas!{col}18", fila=filas[3], tipo="hipótesis", motores="ABC",
+      relacion_entradas_materiales.py:150: cond="siempre (rentabilidad terminal)", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="año 11 en adelante"),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:36  cita B6:972
+      build_v6.py:972: gi = o.get('ginf', f'Análisis!{col}68')
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:36  cita B6:1142-1145
+      build_v6.py:1142: ('V15', 'g para siempre (Análisis B68:D68)', '1', 'TRUE',
+      build_v6.py:1143: f'=IF(COUNTA({AN_}$B$68:$D$68)>COUNT({AN_}$B$68:$D$68),"INV|g para siempre no numérico en Análisis B68:D68",IF(COUNT({AN_}$B$68:$D$68)<3,"INC|Faltan c
+      build_v6.py:1144: f'"INV|g para siempre fuera de [−10 %, 10 %] (Análisis B68:D68)",IF(AND(COUNT($J$6:$J$8)=3,OR({AN_}$B$68>=$J$6,{AN_}$C$68>=$J$7,{AN_}$D$68>=$J$8)),'
+      build_v6.py:1145: f'"INV|g para siempre ≥ tasa de descuento del motor ("&FIXED(100*$J$7,1)&" %) en algún escenario",""))))'),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:36  cita REL:151-152
+      relacion_entradas_materiales.py:151: dict(id=f"g_{esc}", celda=f"Análisis!{col}68", fila=filas[4], tipo="hipótesis", motores="ABC",
+      relacion_entradas_materiales.py:152: cond="siempre (crecimiento terminal)", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="año 11 en adelante"),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:37  cita B6:507-509
+      build_v6.py:507: OPC = [(22, 'Probabilidad de quiebra en 10 años (vacío = 0)', PCT,
+      build_v6.py:508: 'Guía por rating (Damodaran): BBB ≈ 1,6 % a 5 años; BB ≈ 6,5 %; B ≈ 16,9 %.'),
+      build_v6.py:509: (23, 'Lo que recuperaría el accionista si quiebra (mm)', NUM, 'Casi siempre 0.'),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:37  cita B6:936
+      build_v6.py:936: M[f'BJ{n}'] = f'=IF({ok},(1-$N{n})*BI{n}+$N{n}*$O{n},"")'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:41  cita B6:282
+      build_v6.py:282: (9, 'Beneficio neto atribuible', 'Cuenta de resultados', NUM),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:42  cita B6:294
+      build_v6.py:294: (21, 'Patrimonio neto atribuible', 'Balance al cierre', NUM),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:43  cita B6:312
+      build_v6.py:312: (33, 'ROIC (EBIT × (1 − t) ÷ capital invertido)', PCT), (34, 'ROE (beneficio ÷ patrimonio)', PCT),
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:43  cita B6:328
+      build_v6.py:328: 34: f'=IF(AND(ISNUMBER({x}9),ISNUMBER({x}21),N({x}21)>0),{x}9/{x}21,"")',
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:44  cita TF:79
+      test_fill.py:79: B0, ROE0 = rows[2025][21], rows[2025][9] / rows[2025][21]
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:51  cita B6:927
+      build_v6.py:927: M[f'{lc}{n}'] = f'=IF({ok},{prevL}*(1+{gc}{n}),"")'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:51  cita B6:928
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:51  cita TF:93
+      test_fill.py:93: m = m0_ + (mT - m0_) * min(t, 5) / 5
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:52  cita B6:929-930
+      build_v6.py:929: M[f'{fc}{n}'] = (f'=IF({ok},IF($B{n}="C",{prevL}*{mc}{n}-({lc}{n}-{prevL}),'
+      build_v6.py:930: f'{lc}{n}*({mc}{n}*(1-$K{n})-$L{n})-({lc}{n}-{prevL})/$G{n}),"")')
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:52  cita TF:94-95
+      test_fill.py:94: if motor == 'C':
+      test_fill.py:95: flows.append(L[t - 1] * m - (L[t] - L[t - 1]))
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:52  cita B6:931
+      build_v6.py:931: M[f'BE{n}'] = f'=IF({ok},SUMPRODUCT(AU{n}:BD{n}/(1+$J{n})^$AU$3:$BD$3),"")'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:71  cita B6:932
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:71  cita TF:99-100
+      test_fill.py:99: if motor == 'C':
+      test_fill.py:100: f11 = L[10] * (roic - ginf)
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:71  cita B6:933
+      build_v6.py:933: M[f'BG{n}'] = f'=IF({ok},BF{n}/($J{n}-$H{n}),"")'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:72  cita B6:934
+      build_v6.py:934: M[f'BH{n}'] = f'=IF({ok},BG{n}/(1+$J{n})^10,"")'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:72  cita B6:935
+      build_v6.py:935: M[f'BI{n}'] = f'=IF({ok},BE{n}+BH{n}+$M{n},"")'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:73  cita B6:936
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:74  cita B6:937
+      build_v6.py:937: M[f'BK{n}'] = f'=IF(AND({ok},N($P{n})>0),BJ{n}/$P{n},"")'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:74  cita B6:964
+      build_v6.py:964: PQ, REC, SH = f'N({PAL}!${C_PQ})', f'N({PAL}!${C_REC})', 'Análisis!$C$55'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:76  cita B6:960-962
+      build_v6.py:960: TAU = f'IF({MOTOR}="C",0,N({DG}!${D_TAU}))'
+      build_v6.py:961: FUG = f'IF({MOTOR}="A",{DG}!${D_F},0)'
+      build_v6.py:962: ADJ = f'IF({MOTOR}="B",-N({DG}!${D_PAS}),IF({MOTOR}="A",N(Análisis!$C$76),0))'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:76  cita TF:86-88
+      test_fill.py:86: tau_ = 0 if motor == 'C' else tau
+      test_fill.py:87: f_ = f if motor == 'A' else 0
+      test_fill.py:88: adj = -claims if motor == 'B' else 0
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:77  cita B6:963
+      build_v6.py:963: DISC = f'IF({MOTOR}="B",{DG}!${D_ROP},Análisis!$C$56)'
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:77  cita B6:919-922
+      build_v6.py:919: M[f'BS{n}'] = (f'=AND(OR($B{n}="A",$B{n}="B",$B{n}="C"),ISNUMBER($C{n}),ISNUMBER($D{n}),ISNUMBER($E{n}),'
+      build_v6.py:920: f'ISNUMBER($F{n}),ISNUMBER($H{n}),ISNUMBER($I{n}),ISNUMBER($J{n}),ISNUMBER($K{n}),ISNUMBER($L{n}),'
+      build_v6.py:921: f'$J{n}>$H{n},$I{n}>0,$I{n}>$H{n},N($C{n})>0,OR($B{n}="C",AND(ISNUMBER($G{n}),N($G{n})>0))'
+      build_v6.py:922: f'{"," + extra_ok if extra_ok else ""})')
+preparacion_b3_c1/CONTRATO_C_PROPUESTA.md:88  cita P62:255-257
+      patch_v62_base.py:255: (AN, "E62", " El motor C es un modelo simplificado de patrimonio y ROE: sirve para ver si el "
+      patch_v62_base.py:256: "reparto y el crecimiento del patrimonio son coherentes, y NO valida la solvencia ni "
+      patch_v62_base.py:257: "el capital regulatorio de ningún banco o aseguradora."),
+preparacion_b3_c1/PROTOCOLO_CONGELADO.md:31  cita build_v6.py:169-170
+preparacion_b3_c1/PROTOCOLO_CONGELADO.md:31  cita build_v6.py:581-582
+preparacion_b3_c1/PROTOCOLO_CONGELADO.md:31  cita build_v6.py:1102
+      build_v6.py:1102: ('V01', 'Motor elegido (Análisis C62)', '1', 'TRUE',
+preparacion_b3_c1/PROTOCOLO_CONGELADO.md:32  cita B6:588-590
+preparacion_b3_c1/PROTOCOLO_CONGELADO.md:32  cita B6:1132-1133
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:17  cita B6:588-590
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:17  cita B6:1132-1133
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:17  cita build_v6.py:169-170
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:17  cita build_v6.py:581-582
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:17  cita build_v6.py:1102
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:18  cita build_v6.py:294
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:18  cita build_v6.py:379
+      build_v6.py:379: (59, 'Patrimonio neto del último año (B0)', '=IF(ISNUMBER(L21),L21,"")', NUM, 'Base del motor C.'),
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:19  cita B6:312
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:19  cita B6:328
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:19  cita build_v6.py:282
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:19  cita test_fill.py:79
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:20  cita build_v6.py:927-930
+      build_v6.py:927: M[f'{lc}{n}'] = f'=IF({ok},{prevL}*(1+{gc}{n}),"")'
+      build_v6.py:928: M[f'{mc}{n}'] = f'=IF({ok},$D{n}+($F{n}-$D{n})*MIN({mc}$3,5)/5,"")'
+      build_v6.py:929: M[f'{fc}{n}'] = (f'=IF({ok},IF($B{n}="C",{prevL}*{mc}{n}-({lc}{n}-{prevL}),'
+      build_v6.py:930: f'{lc}{n}*({mc}{n}*(1-$K{n})-$L{n})-({lc}{n}-{prevL})/$G{n}),"")')
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:20  cita test_fill.py:94-95
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:21  cita build_v6.py:937
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:21  cita build_v6.py:964
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:22  cita build_v6.py:960-963
+      build_v6.py:960: TAU = f'IF({MOTOR}="C",0,N({DG}!${D_TAU}))'
+      build_v6.py:961: FUG = f'IF({MOTOR}="A",{DG}!${D_F},0)'
+      build_v6.py:962: ADJ = f'IF({MOTOR}="B",-N({DG}!${D_PAS}),IF({MOTOR}="A",N(Análisis!$C$76),0))'
+      build_v6.py:963: DISC = f'IF({MOTOR}="B",{DG}!${D_ROP},Análisis!$C$56)'
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:23  cita build_v6.py:936
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:24  cita patch_v62_base.py:255-257
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:25  cita build_v6.py:444-456
+      build_v6.py:444: (R_CREC, f'=IF({DG}!${D_MOTOR}="C","Crecimiento del patrimonio · años 1–5","Crecimiento de ventas · años 1–5")',
+      build_v6.py:445: PCT, f'=IF({DG}!${D_MOTOR}="C","",{HI}!$C$46)', sect_of('gq1'), sect_of('gmed'), sect_of('gq3'), (-0.10, 0.30)),
+      build_v6.py:446: (R_MARG, f'=IF({DG}!${D_MOTOR}="C","ROE objetivo (se alcanza en el año 5)","Margen operativo objetivo (año 5)")',
+      build_v6.py:447: PCT, f'=IF({DG}!${D_MOTOR}="C",{HI}!$C$56,{HI}!$C$49)',
+      build_v6.py:448: f'IF({DG}!${D_MOTOR}="C","",{sect_of("mq1")})', f'IF({DG}!${D_MOTOR}="C",{sect_of("roe")},{sect_of("mmed")})',
+      build_v6.py:449: f'IF({DG}!${D_MOTOR}="C","",{sect_of("mq3")})', (-0.10, 0.50)),
+      build_v6.py:450: (R_S2C, f'=IF({DG}!${D_MOTOR}="C","Ventas por euro reinvertido · no se usa en el motor C",'
+      build_v6.py:451: '"Ventas por euro reinvertido (S2C)")',
+      build_v6.py:452: DEC2, f'=IF({DG}!${D_MOTOR}="C","",{HI}!$C$53)', None, None, None, (0, 5)),
+      build_v6.py:453: (R_G, '="g para siempre (se escribe en Análisis B68:D68)"', PCT, None, '0.01', None, '0.03', (0, 0.04)),
+      build_v6.py:454: (R_ROIC, f'=IF({DG}!${D_MOTOR}="C","ROE a largo plazo (tras el año 10)","ROIC a largo plazo (tras el año 10)")',
+      build_v6.py:455: PCT, f'=IF({DG}!${D_MOTOR}="C",{HI}!$C$56,{HI}!$C$55)', None,
+      build_v6.py:456: f'IF({DG}!${D_MOTOR}="C",{sect_of("roe")},{sect_of("roic")})', None, (0, 0.50)),
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:25  cita build_v6.py:926
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:25  cita build_v6.py:971
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:25  cita relacion_entradas_materiales.py:143-152
+      relacion_entradas_materiales.py:143: dict(id=f"crec_{esc}", celda=f"Palancas!{col}14", fila=filas[0], tipo="hipótesis", motores="ABC",
+      relacion_entradas_materiales.py:144: cond="siempre", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="años 1–5"),
+      relacion_entradas_materiales.py:145: dict(id=f"margen_{esc}", celda=f"Palancas!{col}15", fila=filas[1], tipo="hipótesis", motores="ABC",
+      relacion_entradas_materiales.py:146: cond="siempre (margen objetivo; ROE objetivo en C)", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="año 5 en adelante"),
+      relacion_entradas_materiales.py:147: dict(id=f"s2c_{esc}", celda=f"Palancas!{col}16", fila=filas[2], tipo="hipótesis", motores="AB",
+      relacion_entradas_materiales.py:148: cond="A y B (reinversión)", excel=AB, py=_motor_en("A", "B"), periodo="años 1–10"),
+      relacion_entradas_materiales.py:149: dict(id=f"roic_{esc}", celda=f"Palancas!{col}18", fila=filas[3], tipo="hipótesis", motores="ABC",
+      relacion_entradas_materiales.py:150: cond="siempre (rentabilidad terminal)", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="año 11 en adelante"),
+      relacion_entradas_materiales.py:151: dict(id=f"g_{esc}", celda=f"Análisis!{col}68", fila=filas[4], tipo="hipótesis", motores="ABC",
+      relacion_entradas_materiales.py:152: cond="siempre (crecimiento terminal)", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="año 11 en adelante"),
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:26  cita build_v6.py:926-937
+      build_v6.py:926: M[f'{gc}{n}'] = f'=IF({ok},IF({gc}$3<=5,$E{n},$E{n}-($E{n}-$H{n})*({gc}$3-5)/5),"")'
+      build_v6.py:927: M[f'{lc}{n}'] = f'=IF({ok},{prevL}*(1+{gc}{n}),"")'
+      build_v6.py:928: M[f'{mc}{n}'] = f'=IF({ok},$D{n}+($F{n}-$D{n})*MIN({mc}$3,5)/5,"")'
+      build_v6.py:929: M[f'{fc}{n}'] = (f'=IF({ok},IF($B{n}="C",{prevL}*{mc}{n}-({lc}{n}-{prevL}),'
+      build_v6.py:930: f'{lc}{n}*({mc}{n}*(1-$K{n})-$L{n})-({lc}{n}-{prevL})/$G{n}),"")')
+      build_v6.py:931: M[f'BE{n}'] = f'=IF({ok},SUMPRODUCT(AU{n}:BD{n}/(1+$J{n})^$AU$3:$BD$3),"")'
+      build_v6.py:932: M[f'BF{n}'] = f'=IF({ok},IF($B{n}="C",AJ{n}*($I{n}-$H{n}),AJ{n}*(1+$H{n})*($F{n}*(1-$K{n})*(1-$H{n}/$I{n})-$L{n})),"")'
+      build_v6.py:933: M[f'BG{n}'] = f'=IF({ok},BF{n}/($J{n}-$H{n}),"")'
+      build_v6.py:934: M[f'BH{n}'] = f'=IF({ok},BG{n}/(1+$J{n})^10,"")'
+      build_v6.py:935: M[f'BI{n}'] = f'=IF({ok},BE{n}+BH{n}+$M{n},"")'
+      build_v6.py:936: M[f'BJ{n}'] = f'=IF({ok},(1-$N{n})*BI{n}+$N{n}*$O{n},"")'
+      build_v6.py:937: M[f'BK{n}'] = f'=IF(AND({ok},N($P{n})>0),BJ{n}/$P{n},"")'
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:26  cita test_fill.py:79
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:26  cita test_fill.py:84
+      test_fill.py:84: m0_ = ROE0 if motor == 'C' else m0
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:26  cita test_fill.py:86-88
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:26  cita test_fill.py:93-95
+      test_fill.py:93: m = m0_ + (mT - m0_) * min(t, 5) / 5
+      test_fill.py:94: if motor == 'C':
+      test_fill.py:95: flows.append(L[t - 1] * m - (L[t] - L[t - 1]))
+preparacion_b3_c1/MAPA_ENTRADAS.jsonl:26  cita test_fill.py:99-104
+      test_fill.py:99: if motor == 'C':
+      test_fill.py:100: f11 = L[10] * (roic - ginf)
+      test_fill.py:101: else:
+      test_fill.py:102: f11 = L[10] * (1 + ginf) * (mT * (1 - tau_) * (1 - ginf / roic) - f_)
+      test_fill.py:103: tv = f11 / (d - ginf) / (1 + d) ** 10
+      test_fill.py:104: return (pv + tv + adj) / 100
+correccion_f3/RESPUESTA_F3.md:20  cita build_v6.py:169-170
+correccion_f3/RESPUESTA_F3.md:24  cita B6:929-930
+correccion_f3/RESPUESTA_F3.md:24  cita test_fill.py:79
+correccion_f3/RESPUESTA_F3.md:24  cita test_fill.py:84
+correccion_f3/RESPUESTA_F3.md:24  cita test_fill.py:86-88
+correccion_f3/RESPUESTA_F3.md:24  cita test_fill.py:93-95
+correccion_f3/RESPUESTA_F3.md:24  cita test_fill.py:99-104
+correccion_f3/ENTREGA_F3.json:22  cita B6:929-930
+correccion_f2/RESPUESTA_F2.md:19  cita relacion_entradas_materiales.py:143-144
+correccion_f2/RESPUESTA_F2.md:19  cita build_v6.py:444
+      build_v6.py:444: (R_CREC, f'=IF({DG}!${D_MOTOR}="C","Crecimiento del patrimonio · años 1–5","Crecimiento de ventas · años 1–5")',
+correccion_f2/RESPUESTA_F2.md:19  cita build_v6.py:446
+      build_v6.py:446: (R_MARG, f'=IF({DG}!${D_MOTOR}="C","ROE objetivo (se alcanza en el año 5)","Margen operativo objetivo (año 5)")',
+correccion_f2/RESPUESTA_F2.md:19  cita build_v6.py:453
+correccion_f2/RESPUESTA_F2.md:19  cita build_v6.py:282
+correccion_f2/RESPUESTA_F2.md:19  cita test_fill.py:79
+correccion_f2/RESPUESTA_F2.md:19  cita build_v6.py:929-930
+correccion_f2/RESPUESTA_F2.md:19  cita test_fill.py:94-95
+correccion_f2/RESPUESTA_F2.md:19  cita build_v6.py:932-934
+      build_v6.py:932: M[f'BF{n}'] = f'=IF({ok},IF($B{n}="C",AJ{n}*($I{n}-$H{n}),AJ{n}*(1+$H{n})*($F{n}*(1-$K{n})*(1-$H{n}/$I{n})-$L{n})),"")'
+      build_v6.py:933: M[f'BG{n}'] = f'=IF({ok},BF{n}/($J{n}-$H{n}),"")'
+      build_v6.py:934: M[f'BH{n}'] = f'=IF({ok},BG{n}/(1+$J{n})^10,"")'
+correccion_f2/RESPUESTA_F2.md:19  cita test_fill.py:99-103
+      test_fill.py:99: if motor == 'C':
+      test_fill.py:100: f11 = L[10] * (roic - ginf)
+      test_fill.py:101: else:
+      test_fill.py:102: f11 = L[10] * (1 + ginf) * (mT * (1 - tau_) * (1 - ginf / roic) - f_)
+      test_fill.py:103: tv = f11 / (d - ginf) / (1 + d) ** 10
+correccion_f2/RESPUESTA_F2.md:19  cita build_v6.py:936
+correccion_f2/RESPUESTA_F2.md:19  cita build_v6.py:937
+correccion_f2/RESPUESTA_F2.md:22  cita patch_v62_base.py:255
+      patch_v62_base.py:255: (AN, "E62", " El motor C es un modelo simplificado de patrimonio y ROE: sirve para ver si el "
+COMANDOS.md:164  cita build_v6.py:147
+      build_v6.py:147: R_CREC, R_MARG, R_S2C, R_G, R_ROIC = 14, 15, 16, 17, 18
+COMANDOS.md:164  cita build_v6.py:282
+COMANDOS.md:164  cita build_v6.py:294
+COMANDOS.md:164  cita build_v6.py:312
+COMANDOS.md:164  cita build_v6.py:444-453
+      build_v6.py:444: (R_CREC, f'=IF({DG}!${D_MOTOR}="C","Crecimiento del patrimonio · años 1–5","Crecimiento de ventas · años 1–5")',
+      build_v6.py:445: PCT, f'=IF({DG}!${D_MOTOR}="C","",{HI}!$C$46)', sect_of('gq1'), sect_of('gmed'), sect_of('gq3'), (-0.10, 0.30)),
+      build_v6.py:446: (R_MARG, f'=IF({DG}!${D_MOTOR}="C","ROE objetivo (se alcanza en el año 5)","Margen operativo objetivo (año 5)")',
+      build_v6.py:447: PCT, f'=IF({DG}!${D_MOTOR}="C",{HI}!$C$56,{HI}!$C$49)',
+      build_v6.py:448: f'IF({DG}!${D_MOTOR}="C","",{sect_of("mq1")})', f'IF({DG}!${D_MOTOR}="C",{sect_of("roe")},{sect_of("mmed")})',
+      build_v6.py:449: f'IF({DG}!${D_MOTOR}="C","",{sect_of("mq3")})', (-0.10, 0.50)),
+      build_v6.py:450: (R_S2C, f'=IF({DG}!${D_MOTOR}="C","Ventas por euro reinvertido · no se usa en el motor C",'
+      build_v6.py:451: '"Ventas por euro reinvertido (S2C)")',
+      build_v6.py:452: DEC2, f'=IF({DG}!${D_MOTOR}="C","",{HI}!$C$53)', None, None, None, (0, 5)),
+      build_v6.py:453: (R_G, '="g para siempre (se escribe en Análisis B68:D68)"', PCT, None, '0.01', None, '0.03', (0, 0.04)),
+COMANDOS.md:164  cita build_v6.py:933-945
+      build_v6.py:933: M[f'BG{n}'] = f'=IF({ok},BF{n}/($J{n}-$H{n}),"")'
+      build_v6.py:934: M[f'BH{n}'] = f'=IF({ok},BG{n}/(1+$J{n})^10,"")'
+      build_v6.py:935: M[f'BI{n}'] = f'=IF({ok},BE{n}+BH{n}+$M{n},"")'
+      build_v6.py:936: M[f'BJ{n}'] = f'=IF({ok},(1-$N{n})*BI{n}+$N{n}*$O{n},"")'
+      build_v6.py:937: M[f'BK{n}'] = f'=IF(AND({ok},N($P{n})>0),BJ{n}/$P{n},"")'
+      build_v6.py:938: M[f'BL{n}'] = f'=IF({ok},IF($B{n}="C",$C{n}*$D{n}/$J{n},$C{n}*($D{n}*(1-$K{n})-$L{n})/$J{n})+$M{n},"")'
+      build_v6.py:939: M[f'BM{n}'] = f'=IF(AND({ok},N(AU{n})>0,N(BD{n})>0),(BD{n}/AU{n})^(1/9)-1,"")'
+      build_v6.py:940: M[f'BN{n}'] = f'=IF({ok},IF((BE{n}+BH{n})<>0,BH{n}/(BE{n}+BH{n}),""),"")'
+      build_v6.py:941: M[f'BO{n}'] = f'=IF(AND({ok},N($P{n})>0),BL{n}/$P{n},"")'
+      build_v6.py:942: M[f'BP{n}'] = (f'=IF({ok},IFERROR(IF($B{n}="C",(AA{n}-$C{n})/($C{n}*AK{n}),'
+      build_v6.py:943: f'((AA{n}-$C{n})/$G{n})/(AA{n}*AK{n}*(1-$K{n}))),""),"")')
+      build_v6.py:944: M[f'BQ{n}'] = f'=IF(AND({ok},$B{n}<>"C"),$F{n}*(1-$K{n})*$G{n},"")'
+      build_v6.py:945: M[f'BR{n}'] = f'=IF({ok},AJ{n},"")'
+COMANDOS.md:164  cita build_v6.py:1136-1147
+      build_v6.py:1136: ('V12', 'Crecimiento años 1–5 (Palancas B14:D14)', '1', 'TRUE',
+      build_v6.py:1137: f'=IF(COUNTA({PL_}$B${R_CREC}:$D${R_CREC})>COUNT({PL_}$B${R_CREC}:$D${R_CREC}),"INV|Crecimiento no numérico en Palancas B14:D14",IF(COUNT({PL_}$B${R_C
+      build_v6.py:1138: ('V13', 'Margen o ROE objetivo (Palancas B15:D15)', '1', 'TRUE',
+      build_v6.py:1139: f'=IF(COUNTA({PL_}$B${R_MARG}:$D${R_MARG})>COUNT({PL_}$B${R_MARG}:$D${R_MARG}),"INV|Margen o ROE objetivo no numérico en Palancas B15:D15",IF(COUNT({P
+      build_v6.py:1140: ('V14', 'Ventas por euro reinvertido (Palancas B16:D16) · motores A y B', '1', isAB,
+      build_v6.py:1141: f'=IF(COUNTA({PL_}$B${R_S2C}:$D${R_S2C})>COUNT({PL_}$B${R_S2C}:$D${R_S2C}),"INV|S2C no numérico en Palancas B16:D16 (con los motores A y B tiene que s
+      build_v6.py:1142: ('V15', 'g para siempre (Análisis B68:D68)', '1', 'TRUE',
+      build_v6.py:1143: f'=IF(COUNTA({AN_}$B$68:$D$68)>COUNT({AN_}$B$68:$D$68),"INV|g para siempre no numérico en Análisis B68:D68",IF(COUNT({AN_}$B$68:$D$68)<3,"INC|Faltan c
+      build_v6.py:1144: f'"INV|g para siempre fuera de [−10 %, 10 %] (Análisis B68:D68)",IF(AND(COUNT($J$6:$J$8)=3,OR({AN_}$B$68>=$J$6,{AN_}$C$68>=$J$7,{AN_}$D$68>=$J$8)),'
+      build_v6.py:1145: f'"INV|g para siempre ≥ tasa de descuento del motor ("&FIXED(100*$J$7,1)&" %) en algún escenario",""))))'),
+      build_v6.py:1146: ('V16', 'ROIC o ROE a largo plazo (Palancas B18:D18)', '1', 'TRUE',
+      build_v6.py:1147: f'=IF(COUNTA({PL_}$B${R_ROIC}:$D${R_ROIC})>COUNT({PL_}$B${R_ROIC}:$D${R_ROIC}),"INV|ROIC a largo plazo no numérico en Palancas B18:D18",IF(COUNT({PL_}
+COMANDOS.md:164  cita test_fill.py:79
+COMANDOS.md:164  cita test_fill.py:84
+COMANDOS.md:164  cita test_fill.py:93-99
+      test_fill.py:93: m = m0_ + (mT - m0_) * min(t, 5) / 5
+      test_fill.py:94: if motor == 'C':
+      test_fill.py:95: flows.append(L[t - 1] * m - (L[t] - L[t - 1]))
+      test_fill.py:96: else:
+      test_fill.py:97: flows.append(L[t] * (m * (1 - tau_) - f_) - (L[t] - L[t - 1]) / s2c)
+      test_fill.py:98: pv = sum(x / (1 + d) ** t for t, x in enumerate(flows, 1))
+      test_fill.py:99: if motor == 'C':
+COMANDOS.md:165  cita relacion_entradas_materiales.py:143-152
+COMANDOS.md:165  cita patch_v62_base.py:255
+correccion_f2/scripts/verificar_contrato_c.py:73  cita build_v6.py:936

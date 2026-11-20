@@ -1,0 +1,20 @@
+COMANDO (sha256 d60c27cdc785cf7dd99ab445cd84c6ba1d2b6827dff2adea27db5adc56d207c8):
+rm -rf /tmp/pm1_rerun && mkdir -p /tmp/pm1_rerun/.trabajo/insumos_m2 && git archive origin/mistral/m2-fundamento-pm1 resultados_m2 | tar -x -C /tmp/pm1_rerun && unzip -oq "$ZIP_414" 'munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/vidrala_decisiones/Vidrala/texto/*' -d /tmp/pm1_rerun/.trabajo/insumos_m2 && mv /tmp/pm1_rerun/.trabajo/insumos_m2/munger_v2_r1/personaje_v2 /tmp/pm1_rerun/.trabajo/insumos_m2/personaje_v2 && git show origin/mistral/m2-fundamento-pm1:resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv > /tmp/vidrala_daa7478.csv && cd /tmp/pm1_rerun && python3 -I resultados_m2/pm1/scripts/tablas_vidrala.py && cmp resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv /tmp/vidrala_daa7478.csv
+
+EXIT: 0
+--- STDOUT ---
+escrito resultados_m2/pm1/VIDRALA_REPOSICION_CAPACIDAD.csv
+2017 PPE 101154 BC 76170 | intangibles 156743 emision 3237 goodwill 150657
+2018 PPE 93148 BC - | intangibles 18623 emision 14645 goodwill 0
+2019 PPE 108645 BC - | intangibles 25694 emision 22147 goodwill 0
+2020 PPE 134263 BC - | intangibles 28666 emision 26558 goodwill 0
+2021 PPE 105877 BC - | intangibles 44810 emision 37359 goodwill 0
+2022 PPE 158234 BC - | intangibles 93759 emision 90780 goodwill 0
+2023 PPE 134472 BC 262679 | intangibles 100655 emision 93306 goodwill 0
+2024 PPE 171185 BC - | intangibles 48326 emision 40135 goodwill 0
+2025 PPE 177848 BC - | intangibles 45173 emision 37661 goodwill 0
+control negativo superado: las filas antiguas de 'PP&E' viven en la nota Intangible Assets y el extractor las rechaza
+recurring capex: recurring capex captured in the valuation models [CF_2019.txt p46 l2082-2082]
+
+--- STDERR ---
+

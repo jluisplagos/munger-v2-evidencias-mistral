@@ -1,0 +1,99 @@
+-- build_v6.py:146,153
+C_ETAPA, C_CASO, C_SECTOR, C_BASE, C_IDA, C_IDV = 'C5', 'C6', 'C7', 'C8', 'C9', 'C10'
+R_CREC, R_MARG, R_S2C, R_G, R_ROIC = 14, 15, 16, 17, 18
+C_PQ, C_REC, C_MKT = 'C22', 'C23', 'C24'
+C_FCFNAT, C_FCFNORM, C_FPRECIO, C_FACC, C_CAUSA, C_MONEDA = 'C43', 'C44', 'C45', 'C46', 'C47', 'C48'
+MONEDA_MODELO = "'Control maestro'!$H$4"
+RATIO_ADR = "'Control maestro'!$D$5"
+PAIS0, PRED0 = 28, 38
+D_MOTOR, D_COHER = 'C5', 'C6'
+-- build_v6.py:282p;294
+    (9, 'Beneficio neto atribuible', 'Cuenta de resultados', NUM),
+    (21, 'Patrimonio neto atribuible', 'Balance al cierre', NUM),
+-- build_v6.py:312
+    (33, 'ROIC (EBIT × (1 − t) ÷ capital invertido)', PCT), (34, 'ROE (beneficio ÷ patrimonio)', PCT),
+-- build_v6.py:444,453
+    (R_CREC, f'=IF({DG}!${D_MOTOR}="C","Crecimiento del patrimonio · años 1–5","Crecimiento de ventas · años 1–5")',
+     PCT, f'=IF({DG}!${D_MOTOR}="C","",{HI}!$C$46)', sect_of('gq1'), sect_of('gmed'), sect_of('gq3'), (-0.10, 0.30)),
+    (R_MARG, f'=IF({DG}!${D_MOTOR}="C","ROE objetivo (se alcanza en el año 5)","Margen operativo objetivo (año 5)")',
+     PCT, f'=IF({DG}!${D_MOTOR}="C",{HI}!$C$56,{HI}!$C$49)',
+     f'IF({DG}!${D_MOTOR}="C","",{sect_of("mq1")})', f'IF({DG}!${D_MOTOR}="C",{sect_of("roe")},{sect_of("mmed")})',
+     f'IF({DG}!${D_MOTOR}="C","",{sect_of("mq3")})', (-0.10, 0.50)),
+    (R_S2C, f'=IF({DG}!${D_MOTOR}="C","Ventas por euro reinvertido · no se usa en el motor C",'
+            '"Ventas por euro reinvertido (S2C)")',
+     DEC2, f'=IF({DG}!${D_MOTOR}="C","",{HI}!$C$53)', None, None, None, (0, 5)),
+    (R_G, '="g para siempre (se escribe en Análisis B68:D68)"', PCT, None, '0.01', None, '0.03', (0, 0.04)),
+-- build_v6.py:934,945
+    M[f'BH{n}'] = f'=IF({ok},BG{n}/(1+$J{n})^10,"")'
+    M[f'BI{n}'] = f'=IF({ok},BE{n}+BH{n}+$M{n},"")'
+    M[f'BJ{n}'] = f'=IF({ok},(1-$N{n})*BI{n}+$N{n}*$O{n},"")'
+    M[f'BK{n}'] = f'=IF(AND({ok},N($P{n})>0),BJ{n}/$P{n},"")'
+    M[f'BL{n}'] = f'=IF({ok},IF($B{n}="C",$C{n}*$D{n}/$J{n},$C{n}*($D{n}*(1-$K{n})-$L{n})/$J{n})+$M{n},"")'
+    M[f'BM{n}'] = f'=IF(AND({ok},N(AU{n})>0,N(BD{n})>0),(BD{n}/AU{n})^(1/9)-1,"")'
+    M[f'BN{n}'] = f'=IF({ok},IF((BE{n}+BH{n})<>0,BH{n}/(BE{n}+BH{n}),""),"")'
+    M[f'BO{n}'] = f'=IF(AND({ok},N($P{n})>0),BL{n}/$P{n},"")'
+    M[f'BP{n}'] = (f'=IF({ok},IFERROR(IF($B{n}="C",(AA{n}-$C{n})/($C{n}*AK{n}),'
+                   f'((AA{n}-$C{n})/$G{n})/(AA{n}*AK{n}*(1-$K{n}))),""),"")')
+    M[f'BQ{n}'] = f'=IF(AND({ok},$B{n}<>"C"),$F{n}*(1-$K{n})*$G{n},"")'
+    M[f'BR{n}'] = f'=IF({ok},AJ{n},"")'
+-- build_v6.py:966,970
+
+def put_scen(n, lab, col, dr=0.0, dg=0.0, ov=None):
+    o = ov or {}
+    g1 = o.get('g1', f'{PAL}!{col}{R_CREC}')
+    mT = o.get('mT', f'{PAL}!{col}{R_MARG}')
+-- build_v6.py:1136,1147
+ ('V12', 'Crecimiento años 1–5 (Palancas B14:D14)', '1', 'TRUE',
+  f'=IF(COUNTA({PL_}$B${R_CREC}:$D${R_CREC})>COUNT({PL_}$B${R_CREC}:$D${R_CREC}),"INV|Crecimiento no numérico en Palancas B14:D14",IF(COUNT({PL_}$B${R_CREC}:$D${R_CREC})
+ ('V13', 'Margen o ROE objetivo (Palancas B15:D15)', '1', 'TRUE',
+  f'=IF(COUNTA({PL_}$B${R_MARG}:$D${R_MARG})>COUNT({PL_}$B${R_MARG}:$D${R_MARG}),"INV|Margen o ROE objetivo no numérico en Palancas B15:D15",IF(COUNT({PL_}$B${R_MARG}:$D
+ ('V14', 'Ventas por euro reinvertido (Palancas B16:D16) · motores A y B', '1', isAB,
+  f'=IF(COUNTA({PL_}$B${R_S2C}:$D${R_S2C})>COUNT({PL_}$B${R_S2C}:$D${R_S2C}),"INV|S2C no numérico en Palancas B16:D16 (con los motores A y B tiene que ser un número > 0
+ ('V15', 'g para siempre (Análisis B68:D68)', '1', 'TRUE',
+  f'=IF(COUNTA({AN_}$B$68:$D$68)>COUNT({AN_}$B$68:$D$68),"INV|g para siempre no numérico en Análisis B68:D68",IF(COUNT({AN_}$B$68:$D$68)<3,"INC|Faltan crecimientos perp
+  f'"INV|g para siempre fuera de [−10 %, 10 %] (Análisis B68:D68)",IF(AND(COUNT($J$6:$J$8)=3,OR({AN_}$B$68>=$J$6,{AN_}$C$68>=$J$7,{AN_}$D$68>=$J$8)),'
+  f'"INV|g para siempre ≥ tasa de descuento del motor ("&FIXED(100*$J$7,1)&" %) en algún escenario",""))))'),
+ ('V16', 'ROIC o ROE a largo plazo (Palancas B18:D18)', '1', 'TRUE',
+  f'=IF(COUNTA({PL_}$B${R_ROIC}:$D${R_ROIC})>COUNT({PL_}$B${R_ROIC}:$D${R_ROIC}),"INV|ROIC a largo plazo no numérico en Palancas B18:D18",IF(COUNT({PL_}$B${R_ROIC}:$D${R
+-- test_fill.py:79
+B0, ROE0 = rows[2025][21], rows[2025][9] / rows[2025][21]
+-- test_fill.py:84,99
+    m0_ = ROE0 if motor == 'C' else m0
+    d = rop if motor == 'B' else r
+    tau_ = 0 if motor == 'C' else tau
+    f_ = f if motor == 'A' else 0
+    adj = -claims if motor == 'B' else 0
+    flows = []
+    for t in range(1, 11):
+        g = g1 if t <= 5 else g1 - (g1 - ginf) * (t - 5) / 5
+        L.append(L[-1] * (1 + g))
+        m = m0_ + (mT - m0_) * min(t, 5) / 5
+        if motor == 'C':
+            flows.append(L[t - 1] * m - (L[t] - L[t - 1]))
+        else:
+            flows.append(L[t] * (m * (1 - tau_) - f_) - (L[t] - L[t - 1]) / s2c)
+    pv = sum(x / (1 + d) ** t for t, x in enumerate(flows, 1))
+    if motor == 'C':
+-- relacion:143,152
+        dict(id=f"crec_{esc}", celda=f"Palancas!{col}14", fila=filas[0], tipo="hipótesis", motores="ABC",
+             cond="siempre", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="años 1–5"),
+        dict(id=f"margen_{esc}", celda=f"Palancas!{col}15", fila=filas[1], tipo="hipótesis", motores="ABC",
+             cond="siempre (margen objetivo; ROE objetivo en C)", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="año 5 en adelante"),
+        dict(id=f"s2c_{esc}", celda=f"Palancas!{col}16", fila=filas[2], tipo="hipótesis", motores="AB",
+             cond="A y B (reinversión)", excel=AB, py=_motor_en("A", "B"), periodo="años 1–10"),
+        dict(id=f"roic_{esc}", celda=f"Palancas!{col}18", fila=filas[3], tipo="hipótesis", motores="ABC",
+             cond="siempre (rentabilidad terminal)", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="año 11 en adelante"),
+        dict(id=f"g_{esc}", celda=f"Análisis!{col}68", fila=filas[4], tipo="hipótesis", motores="ABC",
+             cond="siempre (crecimiento terminal)", excel=TODOS, py=_motor_en("A", "B", "C"), periodo="año 11 en adelante"),
+-- patch_v62_base.py:255,257
+    (AN, "E62", " El motor C es un modelo simplificado de patrimonio y ROE: sirve para ver si el "
+                "reparto y el crecimiento del patrimonio son coherentes, y NO valida la solvencia ni "
+                "el capital regulatorio de ningún banco o aseguradora."),
+-- grep build_v6.py: 447:     PCT, f'=IF({DG}!${D_MOTOR}="C",{HI}!$C$56,{HI}!$C$49)',
+-- grep build_v6.py: 455:     PCT, f'=IF({DG}!${D_MOTOR}="C",{HI}!$C$56,{HI}!$C$55)', None,
+-- grep build_v6.py: 553:     'Fecha del dato de Análisis C55. Si difiere más de 90 días de la del precio, avisa.'),
+-- grep build_v6.py: 613:    (D_ROP, 'r operativa · motor B', f'=IF(AND(ISNUMBER(Análisis!$C$56),N({HI}!$C$64)=0),Análisis!$C$56,'
+-- grep build_v6.py: 614:     f'IF(AND(ISNUMBER(Análisis!$C$56),ISNUMBER(Análisis!$C$41),N(Análisis!$C$41)>0,ISNUMBER({HI}!$C$63),'
+-- grep build_v6.py: 615:     f'ISNUMBER({HI}!$C$64)),(Análisis!$C$56*Análisis!$C$41+{HI}!$C$63*(1-N(${D_TAU}))*{HI}!$C$64)'
+-- grep build_v6.py: 631:out(D, D_RVS, f'=IF(OR(${D_RMIN}="",NOT(ISNUMBER(Análisis!$C$56))),"—",IF(Análisis!$C$56>=${D_RMIN},'
+-- grep build_v6.py: 632:              f'"✓ PASA · r ≥ r mínima","⚠ REVISAR · tu r ("&FIXED(100*Análisis!$C$56,1)&" %) < r mínima ("'

@@ -1,0 +1,33 @@
+$ git grep -n -i -E "severity|severidad|media|menor|limite" 267ad18 -- automation/coordination/qwen_group_review.py automation/coordination/qwen_peer_review.py | head -40
+267ad18:automation/coordination/qwen_bank_review.py:44:severity (material/media/menor/limite), cases (lista de ids afectados), description,
+267ad18:automation/coordination/qwen_bank_review.py:168:        if set(f) != {'severity', 'cases', 'description', 'source_path', 'quote', 'recommendation'}:
+267ad18:automation/coordination/qwen_bank_review.py:170:        if f['severity'] not in ('material', 'media', 'menor', 'limite') or not f['cases'] or any(i not in expected_ids for i in f['cases']):
+$ git show 267ad18:automation/coordination/qwen_bank_review.py | cat -n | sed -n 30,55p
+    30	Esta revisión ve los resultados esperados: no es una prueba ciega.
+    31	Busca nuevas contradicciones internas entre cada caso, sus fixtures y el plan:
+    32	esperados equivocados, ambigüedad que impida evaluar, falsos positivos/negativos,
+    33	criterios no observables y huecos relevantes. No conviertas sugerencias en
+    34	requisitos. No se ha incluido el contrato primario completo ni el código del
+    35	producto: no afirmes haber comprobado conformidad con ellos. No adoptes política,
+    36	R, theta, lambda, k, probabilidades ni umbrales. Los datos son sintéticos de prueba.
+    37	Devuelve únicamente JSON, sin texto fuera, con estas claves exactas:
+    38	summary (texto), cases (36 objetos, uno por Q1-001..036), findings (máximo 8),
+    39	limits (lista no vacía). Cada objeto de cases tiene exactamente id, assessment,
+    40	reason, source_path, quote. assessment es COHERENTE_INTERNAMENTE, AMBIGUO,
+    41	INCONSISTENTE o NO_EVALUABLE_CON_FUENTES. source_path identifica un archivo del
+    42	paquete y quote es una cita literal corta pero significativa de ese archivo.
+    43	No llames CUMPLE a una revisión documental. Cada finding tiene exactamente
+    44	severity (material/media/menor/limite), cases (lista de ids afectados), description,
+    45	source_path, quote, recommendation. Prioriza hallazgos reales y no completes
+    46	cuotas. Un caso coherente internamente sigue sin ejecutarse en el producto.
+    47	'''
+    48	
+    49	
+    50	class Receipt(AuthReceipt):
+    51	    def __init__(self, http, sha):
+    52	        super().__init__(http, sha)
+    53	        self.base = f'/repos/{pilot.REPO}/contents/automation/coordination/reviews/{TASK}'
+    54	
+    55	    def claim_after_zero_generation(self, record, previous):
+
+$ git ls-tree -r --name-only 953af02 automation/coordination | grep -i -E "peer|group"

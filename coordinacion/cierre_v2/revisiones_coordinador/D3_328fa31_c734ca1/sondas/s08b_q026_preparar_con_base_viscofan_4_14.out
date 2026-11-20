@@ -1,0 +1,18 @@
+--- stdout ---
+# Cambio de base económica · Viscofan · base 2025-12-31
+
+Copia de prueba D (Q1-026): correccion de caja 95 -> 90 millones EUR por errata de v1 (f5_026_nota.txt); deuda financiera 300 millones EUR de la misma nota; deuda neta esperada 300-90=210.
+
+- Origen `<rev_D3>/trabajo/run_q026_base414/Q1-026/pruebas_d/Q1-026_origen` (sin cambios) → expediente nuevo `../../trabajo/run_q026_base414/Q1-026/pruebas_d/Q1-026_copia/Viscofan`; 107 archivos heredados en `antecedentes/heredados/` con inventario.
+- Etapa 1: original en `antecedentes/etapa1_original/Viscofan_evaluada.xlsx` (SHA-256 `d1eff52a61ee3ec9…`); copia de ensayo `305054f8f9709fb0…`, cambian xl/worksheets/sheet1.xml, xl/worksheets/sheet4.xml.
+- Valores de dato vaciados en la copia (los da la fase 1): Análisis!C24.
+- Evidencia activa reescrita (Control maestro): 3 celdas en 1 filas — Análisis!C24 (EMN). Los textos anteriores están en `antecedentes/evidencia_anterior.json`.
+- Entradas sustituidas en fase1_v63.json: C24 → 90.0
+- Correcciones de extracción en fase1_partes (antes de construir la Historia; originales en `antecedentes/fase1_partes_original/`): ninguna
+- Notas retiradas de los metadatos y de fase1_v63.json: 0 (`antecedentes/notas_retiradas.json`).
+- Fechas: ejecución 2026-11-17 (real) · base 2025-12-31 · precio 2026-11-03 · acciones 2025-12-31 · fuentes: AR 2025.
+- Configuración económica V6.4: no · alcance: sí.
+- Entradas `analisis` heredadas de los metadatos del origen que se conservan: C42 (se conserva del origen (prueba D: solo cambia C24)) · que se descartan: ninguna.
+- Entrada efectiva del FCF base: «estricta» (`entrada_efectiva.json`; expediente nuevo de la 4.15 (modo por defecto)).
+
+--- stderr ---

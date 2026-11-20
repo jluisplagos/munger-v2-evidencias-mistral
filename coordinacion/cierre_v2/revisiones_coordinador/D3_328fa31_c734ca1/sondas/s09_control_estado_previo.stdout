@@ -1,0 +1,58 @@
+{
+ "objeto": "c734ca1: especificaciones + evidencia publicada",
+ "estado_previo": "s09_estado_previo_plantilla_957af65.json",
+ "aserciones": 84,
+ "aserciones_sobre_comprobar": 72,
+ "aserciones_que_pasan_en_BASE": [
+  "Q1-002 C1.1 json_lista_no_contiene 02_comprobar_na_e_hipotesis.json",
+  "Q1-003 C2.1 json_lista_no_contiene 02_comprobar_cero_no_publicado.json",
+  "Q1-005 C1.1 json_lista_no_contiene 01_comprobar_derivado_origen_pendiente.json",
+  "Q1-015 C1.1 json_lista_no_contiene 01_comprobar_conflicto.json",
+  "Q1-017 C1.0 json_lista_no_contiene 02_comprobar_lectura_externa_declarada.json",
+  "Q1-017 C1.1 json_campo 02_comprobar_lectura_externa_declarada.json",
+  "Q1-019 C1.5 json_campo 02_comprobar_parcial_4_1.json",
+  "Q1-020 C2.0 json_lista_no_contiene 03_comprobar_tras_cambio_fundamento.json",
+  "Q1-025 C1.2 json_lista_no_contiene 03_comprobar_reutilizada.json",
+  "Q1-034 C1.1 json_lista_no_contiene 01_comprobar_rango_acotado.json",
+  "Q1-034 C2.1 json_lista_no_contiene 02_comprobar_punto_medio_rechazado.json",
+  "Q1-001 C2.1 json_lista_no_contiene 04_comprobar_control_dato_ausente.json",
+  "Q1-027 C2.1 json_lista_no_contiene 03_comprobar_tras_mutacion.json",
+  "Q1-027 C4.0 json_campo 02_comprobar_antes_mutacion.json",
+  "Q1-027 C4.1 json_campo 03_comprobar_tras_mutacion.json"
+ ],
+ "aserciones_que_pasan_en_PREV": [
+  "Q1-003 C2.1 json_lista_no_contiene 02_comprobar_cero_no_publicado.json",
+  "Q1-017 C1.0 json_lista_no_contiene 02_comprobar_lectura_externa_declarada.json",
+  "Q1-017 C1.1 json_campo 02_comprobar_lectura_externa_declarada.json",
+  "Q1-025 C1.1 json_lista_contiene 03_comprobar_reutilizada.json",
+  "Q1-025 C1.2 json_lista_no_contiene 03_comprobar_reutilizada.json",
+  "Q1-034 C2.1 json_lista_no_contiene 02_comprobar_punto_medio_rechazado.json",
+  "Q1-027 C4.1 json_campo 03_comprobar_tras_mutacion.json"
+ ],
+ "CRITERIOS_que_pasan_integros_en_el_estado_previo": [
+  {
+   "caso": "Q1-017",
+   "criterio": "C1",
+   "texto": "verificado declarado sin bytes conservados -> NO comprobado y apto false",
+   "pasa_integro_en": [
+    "su estado previo de referencia: 0→PREV, 1→PREV"
+   ],
+   "marcado_no_discriminante": false,
+   "cuenta_para_COMPONENTE_OK": true
+  },
+  {
+   "caso": "Q1-027",
+   "criterio": "C4",
+   "texto": "apto_por_entradas=false antes y despues: NO discriminante (ya era false antes por los errores de contrato del universo de 321 celdas); queda fuera del",
+   "pasa_integro_en": [
+    "su estado previo de referencia: 0→BASE, 1→PREV"
+   ],
+   "marcado_no_discriminante": true,
+   "cuenta_para_COMPONENTE_OK": false
+  }
+ ],
+ "CRITERIOS_no_discriminantes_SIN_MARCA_que_cuentan_como_CUMPLE": [
+  "Q1-017 C1 (pasa íntegro en su estado previo de referencia: 0→PREV, 1→PREV)"
+ ],
+ "prueba_34_del_autor": "copia a `prev` solo los archivos de pasos ANTERIORES al que produce el archivo leído (pruebas_arnes.py:449-456), así que el archivo leído nunca está y toda aserción falla por 'RUTA NO PERMITIDA': mal == [] siempre. Ver s05 (mutante B: Q1-027 C4 sin marca -> PASA igual)."
+}

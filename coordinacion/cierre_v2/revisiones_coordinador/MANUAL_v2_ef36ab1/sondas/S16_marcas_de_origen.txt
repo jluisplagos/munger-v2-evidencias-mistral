@@ -1,0 +1,90 @@
+$ grep -n -E "probado en el traspaso|probado en la preparación F1|literal de la fuente|NO DOCUMENTADO" <tmp>/m/MANUAL_OPERATIVO_3149128.md | cut -c1-230
+9:- **[NO DOCUMENTADO]** señala lo que el material no dice o un comando que nadie ha probado. **[CONTRADICCIÓN]** señala dos fuentes incompatibles. Los dos se recopilan en el §12.
+11:  - *literal de la fuente*: copiado del documento o del script del producto que se cita;
+12:  - **«comando probado en el traspaso del 17-nov»**: lo ejecutó el receptor de T-TRASPASO sobre `957af65`. Si el registro no lo conserva y solo consta en el informe, se añade *(autodeclarado)* (`REVT/REVISION_TRASPASO.md:54
+13:  - **«comando probado en la preparación F1 del 15-nov»**: lo ejecutó la preparación del frente E (F1), fuera del traspaso, con su comando y su código registrados (`F1PREP/preparacion.json`, `F1PREP/log_base414.txt`);
+14:  - **[NO DOCUMENTADO]**: propuesta de este borrador que no consta probada. No se ejecuta como si fuera un procedimiento validado.
+74:  - *Interpretación:* el receptor de T-TRASPASO no es un frente Mistral M2, así que para él rige `PROMPT_RECEPTOR.md`. Así lo hizo el receptor del 17-nov (`TRASP/INFORME_TRASPASO.md:88`). Un receptor que dude lo consulta al
+82:  - Hecho comprobado al escribir este borrador: en la máquina del coordinador el archivo existe en `<e_work>/libreoffice.lock`, y `<e_work>` es la raíz de trabajo de la preparación F1 (`F1PREP/PREPARACION.md:3`). Que sea el 
+88:  «comando probado en el traspaso del 17-nov». Los demás del §10 siguen la misma forma.
+93:  **[NO DOCUMENTADO]**: es la forma probada aplicada a la orden que ejecuta `comprobar_entorno.sh` (`PV2/scripts/comprobar_entorno.sh:7`), pero esta combinación no consta ejecutada.
+107:- Versiones registradas: Python 3.13.18, LibreOffice 24.2.7.2, pdftotext 24.02.0 y openpyxl 3.1.5, en las pruebas de la candidata (`PRUEBAS/README.md:4`) y en el traspaso, con Bash 5.2.21 (`TRASP/INFORME_TRASPASO.md:10`). Vers
+108:- Para los recorridos reales hace falta una sesión que pueda lanzar agentes nuevos de contexto separado. Si no puede, se declara que la auditoría no es independiente (`munger_v2_r1/CONTINUIDAD.md:153`). La capacidad se compr
+126:- **Espacio mínimo por la vía del repositorio: [NO DOCUMENTADO].** Ninguna fuente lo fija. Este manual no inventa una cifra. Lo que hay son los hechos de arriba: con 8,4 GB libres falló el 4.8.1 y con 13 GB pasó. El recept
+150:   - El comando de clonado **[NO DOCUMENTADO]**: el traspaso clonó `main` (`d69d483`) pero no registró la orden (`TRASP/INFORME_TRASPASO.md:18`).
+151:2. **Descargar el ZIP** de la Release `base-4.14`, desde la raíz del clon. La orden del README es *literal de la fuente* (`README.md:41`):
+160:     «comando probado en el traspaso del 17-nov», código 0, 41 s (`TRASP/INFORME_TRASPASO.md:24`; autodeclarado: `REVT/REVISION_TRASPASO.md:58`). También probado en la preparación F1, código 0 (`F1PREP/preparacion.json`,
+167:   «comando probado en el traspaso del 17-nov», códigos 0/0 (`TRASP/INFORME_TRASPASO.md:24`; autodeclarado: la huella solo consta en el informe, `REVT/REVISION_TRASPASO.md:58`). `sha256sum <zip>` es también la orden de la 
+169:4. **Materializar y verificar la base 4.14**, en el clon de `main`. Órdenes del README, *literal de la fuente* (`README.md:42-43`):
+180:     «comando probado en la preparación F1 del 15-nov», códigos 0/0 (`F1PREP/log_base414.txt:2`, `:12`, `:14`, `:23`). El traspaso usó la variante del README con `python3` (`TRASP/INFORME_TRASPASO.md:25`).
+188:   «comando probado en el traspaso del 17-nov», código 0 (`TRASP/INFORME_TRASPASO.md:26`; autodeclarado: `REVT/REVISION_TRASPASO.md:60`). Entonces daba `957af65`; hoy debe dar `3149128`. El comando para comprobar el HEAD **
+196:   - «comando probado en el traspaso del 17-nov», código 0: 1008 copiados · 0 existentes iguales · 0 distintos · 0 fallos (`TRASP/INFORME_TRASPASO.md:27`; `REG/paso5_copia_binarios.json`). El revisor lo dio por correcto:
+198:   - Alternativa: `F1PREP/scripts/copiar_binarios_a_b.py` (uso `python3 -I copiar_binarios_a_b.py <baseline.json> <A/munger_v2_r1> <B/munger_v2_r1> <salida.json>`, `copiar_binarios_a_b.py:2`). «comando probado en la preparaci
+199:   - **Si un binario de la 4.14 ya existe distinto en la candidata:** ninguno de los dos scripts lo sobrescribe; lo listan como «distintos». Qué hacer entonces **[NO DOCUMENTADO]**: el receptor se detiene y lo comunica. En 
+208:     «comando probado en la preparación F1 del 15-nov», código 0, sobre el manifiesto del hito 1 (7004/7004) (`F1PREP/preparacion.json`, `paso4_worktree_B.manifiesto_B`). **No consta en el traspaso:** allí el contraste se
+219:  «comando probado en el traspaso del 17-nov», código 0; dio 0 `__pycache__` y 0 `.lo_perfil` (`TRASP/INFORME_TRASPASO.md:29`; autodeclarado: `REVT/REVISION_TRASPASO.md:63`). `cp -a` conserva las fechas del checkout, que ap
+224:  «comando probado en el traspaso del 17-nov», código 0 (`REG/paso8_exit.txt`).
+269:  «comando probado en el traspaso del 17-nov» (`TRASP/INFORME_TRASPASO.md:32`). Por lectura, no llama a LibreOffice: no usa `subprocess` ni `soffice` (`REVT/REVISION_TRASPASO.md:122`). Ir con el bloqueo es prudencia, no requ
+281:  - La forma `controles_historicos_4_13.py CARPETA_SALIDA` es *literal de la fuente* (`E414/resultados/LEEME_CONTROLES_HISTORICOS_4_14.md:5`; `E414/../2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py:6`).
+282:  - Con el bloqueo y la carpeta fuera del árbol: «comando probado en el traspaso del 17-nov», código 0 (`TRASP/INFORME_TRASPASO.md:33`; `REG/paso10_exit.txt`). Las referencias de la 4.14 están dentro del árbol (`E414/res
+285:  - La columna «¿Igual que en el árbol 4.12?» compara con las salidas del árbol 4.12, no con las del 4.14 (`controles_historicos_4_13.py:20-21`, `:66-68`). Para compararlas con las del árbol 4.14 hace falta un `diff` con
+311:- En el traspaso, la limpieza se hizo **después** de la primera pasada, y solo se repitió el 4.8.1 (`TRASP/INFORME_TRASPASO.md:34`; `REVT/REVISION_TRASPASO.md:229-234`). Con la limpieza **antes** de la pasada completa, el re
+323:  «comando probado en el traspaso del 17-nov» (`TRASP/INFORME_TRASPASO.md:34`, que abrevia las rutas con «…»; `<copia>` es `copia_limpia_1`, como muestran las rutas registradas en `REG/paso10_limpieza_rutas.txt`). Las ru
+324:- **Registrar las rutas antes de borrar:** el mismo `find` con `-print` en lugar de `-delete`, redirigido a `<registro>/paso10_limpieza_rutas.txt`. **[NO DOCUMENTADO]**: no consta así en el traspaso.
+334:- **Nueva base económica o corrección de datos de un expediente cerrado:** se escribe un `CAMBIO.json` (`PV2/GUIA_RECORRIDO_SUPERVISADO.md:27`, `PV2/GUIA_RECORRIDO_SUPERVISADO.md:119`) y se ejecuta (*literal de la fuente*):
+346:- **Configuración económica (motor B):** la escribe la orquestación, nunca un agente de juicio (`PV2/GUIA_RECORRIDO_SUPERVISADO.md:10`). Lleva su trazabilidad (`PV2/GUIA_RECORRIDO_SUPERVISADO.md:30-36`) y se valida con (*li
+372:- Comandos por plantilla. La selección es siempre explícita (*literal de la fuente*, `PV2/GUIA_RECORRIDO_SUPERVISADO.md:41`, `:127-129`):
+446:  - **Qué cambio concreto hacer, cómo comprobar si llega a las celdas y cuál sería el resultado correcto: [NO DOCUMENTADO].** Este manual no lo inventa. Hasta que T-CAMBIOS lo resuelva, el operador registra `relevos_caduca
+462:- **Dónde:** en una copia de `munger_v2_r1/` distinta de la copia limpia, para no tocar el árbol en el que se hizo el control de la 4.14. El traspaso usó una «copia para relevos» aparte (`TRASP/INFORME_TRASPASO.md:18`). E
+476:  «comando probado en el traspaso del 17-nov», código 10 (`TRASP/INFORME_TRASPASO.md:36`, que abrevia la ruta con «…»; el código y el `diff -r` son autodeclarados, `REVT/REVISION_TRASPASO.md:70`). Duró unos 15 s (`REV
+477:- **Huellas del original antes y después** (mejora 5). El traspaso guardó las 126 huellas de `elis_motor_A` antes del relanzamiento (`REG/paso12_original_antes.sha256`), con el formato de `sha256sum` y rutas `./Elis/…`. El
+526:| 14 | H9: en otra copia, cambiar una salida que se vuelque en celdas (`fase_c.json`, `fase_b.json` o `entrada_efectiva.json`) y relanzar sin `--desde` | LO + AG | **[NO DOCUMENTADO]** (§7.3) | — | **Pendiente de verificar.
+562:- *Órdenes con tuberías o con `;`* (la limpieza del §5.4, el contraste con `sha256sum -c`): `paso` ejecuta un solo comando con sus argumentos (`HERR/lanzador_comun.sh:14`). Para una tubería haría falta `bash -c '…'`, y 
+564:**Plantilla propuesta.** **[NO DOCUMENTADO]**: aplica la sintaxis de `HERR/README.md:29-35` y de `HERR/lanzador_comun.sh:2-7` a comandos que se probaron sueltos en el traspaso (§4–§7). La combinación no se ha probado. Los
+581:- `df -h` es **[NO DOCUMENTADO]**: el traspaso no registró ningún `df` (`REVT/REVISION_TRASPASO.md:67-68`).
+589:- **Huellas del registro.** Se calculan al final, cuando ya no cambia ningún archivo, y la lista no se incluye a sí misma. En el traspaso, `SHA256_REGISTRO.txt` se listó con la huella del archivo vacío (`REVT/REVISION_TRAS
+601:## 12. Registro de [NO DOCUMENTADO] y [CONTRADICCIÓN]
+603:### 12.1 [NO DOCUMENTADO]
+607:| N-01 | Copia de los 1008 binarios y qué hacer si uno difiere | **Comando dado** (probado en el traspaso, §4.2.6). Qué hacer si uno difiere: sigue sin documentar | §4.2.6 |
+608:| N-02 | Contraste independiente del manifiesto | **Comando dado** (probado en la preparación F1, no en el traspaso). No detecta archivos de más | §4.2.7 |
+609:| N-03 | Copia limpia | **Comando dado** (probado en el traspaso, autodeclarado) | §5.1 |
+
+$ grep -n -E "^ {4,}[a-z]" (líneas de comando en bloque)
+85:      flock -x <e_work>/libreoffice.lock bash verificar_paquete.sh completa
+86:      flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/scripts/comprobar_entrega_4_14.py
+91:      flock -x <e_work>/libreoffice.lock soffice --version
+153:       gh release download base-4.14 --repo jluisplagos/munger-v2 --pattern munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip --dir .downloads
+158:         gh api -H "Accept: application/octet-stream" repos/jluisplagos/munger-v2/releases/assets/750814858 > .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+164:       stat -c '%s %n' .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+165:       sha256sum .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+171:       python tools/base_414.py materialize --source .downloads/munger_v2_r1_entrega4.14_cierre_verificacion_entradas.zip
+172:       python tools/base_414.py verify --report docs/VERIFICACION_BASE_COMPLETA_LOCAL.json
+177:         python3 -I tools/base_414.py materialize --source <zip>
+178:         python3 -I tools/base_414.py verify --report <registro>/VERIFICACION_BASE_COMPLETA_LOCAL_414.json
+186:       git worktree add ../candidata integracion/candidata-cierre-v2
+193:       python3 -I <copia_de>/copiar_binarios.py <clon_de_main> <worktree_candidata> <registro>/paso5_copia_binarios.json
+206:         tail -n +2 MANIFIESTO_SHA256.txt | sha256sum -c --quiet
+217:      mkdir copia_limpia_1 && cp -a candidata/munger_v2_r1 copia_limpia_1/
+222:      flock -x <e_work>/libreoffice.lock bash verificar_paquete.sh completa
+267:      flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/scripts/comprobar_entrega_4_14.py
+279:      flock -x <e_work>/libreoffice.lock python3 -I -B personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/scripts/controles_historicos_4_13.py <registro>/paso10_controles_historicos
+320:      find <copia>/munger_v2_r1/personaje_v2/pruebas/_v64 -name '*.xlsx' -not -path '<copia>/munger_v2_r1/personaje_v2/pruebas/_v64/vigencia/*' -delete
+321:      rm -rf <copia>/munger_v2_r1/personaje_v2/pruebas/_v64/vigencia
+336:      python3 -I personaje_v2/scripts/cambiar_base.py preparar CAMBIO.json
+348:      python3 -B personaje_v2/scripts/configuracion_economica.py validar configuracion_economica.json
+363:      python3 -B scripts/verificacion_entradas.py sellar CARPETA --revisor NOMBRE --fecha AAAA-MM-DD CELDA [CELDA …]
+374:      python3 personaje_v2/scripts/pipeline.py CARPETA --config personaje_v2/config_v2_v64_experimental.json     (V6.4, motor B)
+375:      python3 personaje_v2/scripts/pipeline.py CARPETA --config personaje_v2/config_v2_v641_experimental.json    (V6.4.1)
+376:      python3 personaje_v2/scripts/pipeline.py CARPETA --config personaje_v2/config_v2.json                      (V6.3, motor A)
+473:      cp -a personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/elis_motor_A personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/elis_motor_A_relevo_receptor
+474:      flock -x <e_work>/libreoffice.lock python3 personaje_v2/scripts/pipeline.py personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_14/elis_motor_A_relevo_receptor/Elis --config perso
+585:      bash lanzador_traspaso.sh; rc_lanzador=$?
+586:      python3 -I <evid>/coordinacion/cierre_v2/herramientas/comprobar_registro.py <trabajo>/registro/registro_lanzador.log --esperados 5; rc_registro=$?
+
+$ comandos en línea sin marca propia (L183, L230, L354, L363, L366)
+   - Solo lo versionado en Git: `python tools/base_414.py verify --git-only` (`README.md:51`).
+- **Modo rápido** (`bash verificar_paquete.sh`, sin `completa`): manifiesto, entorno, piloto y `test_comprobadores.py` (`munger_v2_r1/verificar_paquete.sh:3`). Su PASA solo cubre lo que lista (`munger_v2_r1/verificar_paquete.sh:2
+- Plantilla del registro: `python3 -B scripts/verificacion_entradas.py plantilla CARPETA`, desde `personaje_v2/`. Se hace en una copia (`PV2/GUIA_RECORRIDO_SUPERVISADO.md:102`). Escribe `verificacion_entradas.plantilla.json` (`PV2
+      python3 -B scripts/verificacion_entradas.py sellar CARPETA --revisor NOMBRE --fecha AAAA-MM-DD CELDA [CELDA …]
+- Comprobación: `python3 -B scripts/verificacion_entradas.py comprobar CARPETA`. El pipeline la repite en el paso 12 (`PV2/GUIA_RECORRIDO_SUPERVISADO.md:116`).
+[código 0]

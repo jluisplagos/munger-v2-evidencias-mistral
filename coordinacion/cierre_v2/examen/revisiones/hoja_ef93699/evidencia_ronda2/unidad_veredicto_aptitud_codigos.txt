@@ -1,0 +1,63 @@
+### T3 · veredicto() con fichas de otros estados (ficha real de Vidrala 4.14 como base; solo cambian los campos indicados)
+   concluido · Sí · comprar · precio_objetivo nulo · sin bloque objetivo (como el sintético «sobrevive») · precio por debajo del precio de Sí:
+      Qué concluye: Compraría al precio del análisis. Es la conclusión del personaje, no una recomendación. (Categoría del personaje: «Sí».)
+      A qué precio compraría: **la ficha no da precio de compra.** La hoja de cálculo arroja un precio de Sí de 56,00 €, pero la ficha no la emite como objetivo.
+   concluido · Sí · comprar · precio_objetivo 56,00:
+      Qué concluye: Compraría al precio del análisis. Es la conclusión del personaje, no una recomendación. (Categoría del personaje: «Sí».)
+      A qué precio compraría: a 56,00 € por acción o menos.
+   concluido · No · descartar:
+      Qué concluye: La descarta. (Categoría del personaje: «No».)
+      A qué precio compraría: **la ficha no da precio de compra.** La hoja de cálculo arroja un precio de Sí de 56,00 €, pero la ficha no la emite como objetivo.
+   concluido · Demasiado difícil:
+      Qué concluye: No sabe valorarla y la deja. (Categoría del personaje: «Demasiado difícil».)
+      A qué precio compraría: **la ficha no da precio de compra.** La hoja de cálculo arroja un precio de Sí de 56,00 €, pero la ficha no la emite como objetivo.
+   pendiente_de_investigacion:
+      Qué concluye: **Sin conclusión de compra:** una hipótesis no se puede acotar con lo que hay. Mientras tanto la deja en la categoría «Vigilar».
+      A qué precio compraría: **la ficha no da precio de compra.** La hoja de cálculo arroja un precio de Sí de 56,00 €, pero sin conclusión, esa cifra no es un precio de compra.
+   concluido con ficha.motor_a_f1.utilizable_para_conclusion = false:
+      Qué concluye: **Sin conclusión:** el motor de cálculo A no se puede usar para concluir (F1). Mientras tanto la deja en la categoría «Vigilar».
+      A qué precio compraría: **la ficha no da precio de compra.** La hoja de cálculo arroja un precio de Sí de 56,00 €, pero sin conclusión, esa cifra no es un precio de compra.
+   concluido · acción desconocida:
+      Qué concluye: mantener. (Categoría del personaje: «Vigilar».)
+      A qué precio compraría: a 56,00 € por acción o menos.
+
+### T2 · aptitud()
+   V6.3/V6.3.1 de la 4.15: verificacion_entradas no apto + motor_a_f1 bloqueado:
+      **¿Sirve para decidir con dinero real?** No. **Experimental: no vale para decidir con dinero real.**
+      - Datos de entrada verificados contra sus fuentes: **no** (0 de 288 datos comprobados); no hay verificacion_entradas.json: ninguna entrada financiera está verificada.
+      - Motor A · F1: el resultado del motor A no se usa para una conclusión; bloquean: F1-LIBRO.
+   marcas apto_para_dinero_real = true en los tres bloques (A3):
+      **¿Sirve para decidir con dinero real?** No. **Experimental: no vale para decidir con dinero real.**
+      - Datos de entrada verificados contra sus fuentes: **sí**.
+      - Motor A · F1: utilizable para una conclusión (condición necesaria, no suficiente).
+      - Evaluación de la entrega 9.9: validado.
+      - La ficha contiene una marca de aptitud para dinero real; esta hoja no la repite: la aptitud no se acredita superando controles de software (haría falta una decisión humana registrada fuera de esta hoja).
+   V6.4 4.14 real (Vidrala): aptitud_de_uso con verificacion_entradas apto:
+      **¿Sirve para decidir con dinero real?** No. **Experimental: no vale para decidir con dinero real.**
+      - Datos de entrada verificados contra sus fuentes: **sí**.
+      - Evaluación de la entrega 4.14: experimental.
+   sin bloques:
+      **¿Sirve para decidir con dinero real?** No. **Experimental: no vale para decidir con dinero real.**
+      - La ficha no dice nada sobre la aptitud; no se presume ninguna.
+   nota de la ficha real de Vidrala 4.14 que la hoja no copia: condición necesaria, no suficiente, para presentar una conclusión como apta para dinero real; los controles automáticos comprueban cobertura, conciliaciones y coherencia, no la corrección semántica (revisión independiente de las fuentes)
+
+### T1 · H4: con un fallo no queda hoja y la anterior se aparta (copia de Vidrala 4.14 con su hoja vigente)
+   código 5 (no reproduce): devuelve 5 · LA SENSIBILIDAD NO REPRODUCE EL PRECIO DE SÍ DE precio.json (no se escribe hoja): {"precio_si": [56.01200516824461, 56.0 · archivos: ['hoja_resumen.NO_VIGENTE.json', 'hoja_resumen.NO_VIGENTE.md'] · --comprobar → 4
+   código 6 (recálculo que no recalcula): devuelve 6 · FALLO DEL RECÁLCULO: el precio de Sí o el valor medio no bajan al subir la tasa (7 %: 56.002005168244615, 60.6741181667017; 8 %: 56.002005168244615, 60.6741181667017): el · archivos: ['hoja_resumen.NO_VIGENTE.json', 'hoja_resumen.NO_VIGENTE.md']
+   código 4 (contenido mínimo: «a No» = «…»): devuelve 4 · CONTENIDO MÍNIMO INCUMPLIDO (no se escribe hoja): «qué me haría pasar a No» (cambiaria_de_cubo.a_no) está vacío o no dice nada · archivos: ['hoja_resumen.NO_VIGENTE.json', 'hoja_resumen.NO_VIGENTE.md']
+   control (filas correctas): devuelve 0 · archivos: ['hoja_resumen.json', 'hoja_resumen.md'] · --comprobar → 0
+
+### T6 · H13: entradas mal formadas (copia de Vidrala 4.14)
+   ficha.json truncada: devuelve 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: ficha.json no se puede leer como JSON (JSONDecodeError: Unterminated string starting at: line 18 colum · hoja: []
+   ficha.json es una lista: devuelve 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: ficha.json no tiene la forma esperada (un objeto JSON; es list) · hoja: []
+   estado_pipeline.json truncado: devuelve 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: estado_pipeline.json no se puede leer como JSON (JSONDecodeError: Expecting property name enclosed in  · hoja: []
+   precio.json es una lista: devuelve 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: precio.json no tiene la forma esperada (un objeto JSON; es list) · hoja: []
+   fase1_metadatos.json roto: devuelve 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: fase1_metadatos.json no se puede leer como JSON (JSONDecodeError: Expecting property name enclosed in  · hoja: []
+   fase_c.json = {}: devuelve 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: el análisis oficial no está vigente: el material cambió después de la auditoría (fase_c.json): la apro · hoja: []
+   cierre_vigente.json es un texto: devuelve 3 · EXPEDIENTE NO CERRADO, NO VIGENTE O INCOMPLETO: cierre_vigente.json no tiene la forma esperada (un objeto JSON; es str) · hoja: []
+   ficha.provisional es un texto: devuelve EXCEPCIÓN AttributeError: 'str' object has no attribute 'get' ·  · hoja: []
+
+### T4/T5 · rótulos y recálculo
+   tasa_txt: {0.09: '9 %', 0.085: '8,5 %', 0.095: '9,5 %', 0.075: '7,5 %', 0.1: '10 %', 0.12: '12 %'}
+   comprobar_recalculo con cinco filas idénticas → el precio de Sí o el valor medio no bajan al subir la tasa (7 %: 56.002005168244615, 60.6741181667017; 8 %: 56.002005168244615, 60.6741181667017): el libro no parece recalculado
+   comprobar_recalculo con las filas reales → None

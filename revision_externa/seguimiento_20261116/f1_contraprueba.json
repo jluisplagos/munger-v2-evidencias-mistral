@@ -1,0 +1,115 @@
+{
+  "P1b": {
+    "como lo ejecuta el autor (g = 0, S2C = 1)": {
+      "f": 0.02,
+      "S2C_del_motor": 1,
+      "g": 0,
+      "motor_menos_caja": {
+        "año_1": 0,
+        "año_5": 0,
+        "año_6": 0,
+        "año_10": 0,
+        "terminal": 0
+      },
+      "coherente": true
+    },
+    "con g = 5 % y S2C = 1 (ancla sin la transición)": {
+      "f": 0.02,
+      "S2C_del_motor": 1,
+      "g": 0.05,
+      "motor_menos_caja": {
+        "año_1": 0,
+        "año_5": 0,
+        "año_6": 0,
+        "año_10": 0,
+        "terminal": 0
+      },
+      "coherente": true
+    },
+    "con g = 5 % y el ancla de E4 con D_X = R: 5 ÷ (5 + 7)": {
+      "f": 0.02,
+      "S2C_del_motor": 0.416667,
+      "g": 0.05,
+      "motor_menos_caja": {
+        "año_1": -7,
+        "año_5": -8.508544,
+        "año_6": -8.933971,
+        "año_10": -10.859298,
+        "terminal": -11.402262
+      },
+      "coherente": false
+    }
+  },
+  "P2d": {
+    "como lo ejecuta el autor (g = 5 %, S2C = 1, escrita a mano)": {
+      "f": 0.02,
+      "S2C_del_motor": 1,
+      "g": 0.05,
+      "motor_menos_caja": {
+        "año_1": 0,
+        "año_5": 0,
+        "año_6": 0,
+        "año_10": 0,
+        "terminal": 0
+      },
+      "coherente": true
+    },
+    "con g = 5 % y el ancla de E4 con D_X = R_propia: 5 ÷ (5 + 9)": {
+      "f": 0.02,
+      "S2C_del_motor": 0.357143,
+      "g": 0.05,
+      "motor_menos_caja": {
+        "año_1": -9,
+        "año_5": -10.939556,
+        "año_6": -11.486534,
+        "año_10": -13.961954,
+        "terminal": -14.660052
+      },
+      "coherente": false
+    }
+  },
+  "motor_sintetico_frente_a_motor_a": {
+    "coinciden": [
+      {
+        "g_años_1_5": 0.05,
+        "g_inf": 0.05,
+        "diferencia_maxima": 0,
+        "años_con_diferencia": []
+      }
+    ],
+    "no_coinciden": [
+      {
+        "g_años_1_5": 0.05,
+        "g_inf": 0.02,
+        "diferencia_maxima": 9.104811,
+        "años_con_diferencia": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          "año 11"
+        ]
+      }
+    ]
+  },
+  "casos_del_autor": {
+    "P1": {
+      "casos": 5,
+      "con_crecimiento": 0
+    },
+    "P2": {
+      "casos": 13,
+      "con_crecimiento": 10
+    },
+    "P4": {
+      "casos": 4,
+      "con_crecimiento": 3
+    }
+  },
+  "resumen": {
+    "1_el_ancla_de_E4_rompe_P1b_y_P2d": true,
+    "2_el_motor_sintetico_solo_coincide_con_g_constante": true,
+    "3_ningun_caso_de_P1_tiene_crecimiento": true
+  }
+}

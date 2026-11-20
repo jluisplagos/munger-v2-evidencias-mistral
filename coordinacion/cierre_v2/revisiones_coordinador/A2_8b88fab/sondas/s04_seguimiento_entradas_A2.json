@@ -1,0 +1,1089 @@
+{
+ "A2R1_32": {
+  "n": 32,
+  "estado_8b88fab": {
+   "PENDIENTE_CONTEXTUAL": 22,
+   "REVISADO_CONTEXTUAL": 3,
+   "CONFLICTO_CONTEXTUAL": 7
+  },
+  "columna_8b88fab": {
+   "NO_DECIDIBLE": 27,
+   "OK": 3,
+   "CONFLICTO": 2
+  },
+  "casos": [
+   {
+    "entrada": "Vidrala Análisis!C37",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "sin linea de columnas de encabezado identificable en la pagina",
+    "det_reexpresion": "no aplica"
+   },
+   {
+    "entrada": "Vidrala Historia!F23",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 0 de 1 valores -> columna 2019 (linea de columnas ['2019']); declarado ['2019']",
+    "det_reexpresion": "columna 2019 = ejercicio corriente del informe 2019; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Vidrala Historia!D25",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "fila con 5 valores no alineable 1:1 con 2 columnas ['2018', '2017']: sin mapeo posicional",
+    "det_reexpresion": "la fila con rotulo completo aparece en CF_2017.txt (linea 1999) pero la columna 2017 no se puede mapear 1:1 (columnas ['2017', '2016'], valores ['1,031', '59,233', '5,494', '5,126', '71,243'])"
+   },
+   {
+    "entrada": "Vidrala Historia!E25",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "fila con 5 valores no alineable 1:1 con 2 columnas ['2019', '2018']: sin mapeo posicional",
+    "det_reexpresion": "el valor aparece en CF_2018.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2018; reexpresion no decidible"
+   },
+   {
+    "entrada": "Vidrala Historia!F25",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "CONFLICTO",
+    "det_columna": "años repetidos en la cabecera ['2010', '2010']: hay varios bloques (consolidado/individual u otros) y la columna no es inequivoca sin identificar el bloque",
+    "det_reexpresion": "declara no reexpresado (\"no\") pero el original CF_2019.txt imprime 284,824 en la columna 2019 (fila 2499) y el comparativo cita 6244: contradiccion explicita"
+   },
+   {
+    "entrada": "Vidrala Historia!G25",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "CONFLICTO",
+    "det_columna": "fila con 5 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional",
+    "det_reexpresion": "declara no reexpresado (\"no\") pero el original CF_2020.txt imprime 2020, en la columna 2020 (fila 2907) y el comparativo cita 9071: contradiccion explicita"
+   },
+   {
+    "entrada": "Vidrala Historia!H25",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "CONFLICTO",
+    "det_columna": "años repetidos en la cabecera ['2010', '2010']: hay varios bloques (consolidado/individual u otros) y la columna no es inequivoca sin identificar el bloque",
+    "det_reexpresion": "declara no reexpresado (\"no\") pero el original CF_2021.txt imprime 108,973 en la columna 2021 (fila 3096) y el comparativo cita 6342: contradiccion explicita"
+   },
+   {
+    "entrada": "Vidrala Historia!I25",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "CONFLICTO",
+    "det_columna": "fila con 5 valores no alineable 1:1 con 2 columnas ['2023', '2022']: sin mapeo posicional",
+    "det_reexpresion": "declara no reexpresado (\"no\") pero el original CF_2022.txt imprime 520,000,000 en la columna 2022 (fila 3369) y el comparativo cita 262: contradiccion explicita"
+   },
+   {
+    "entrada": "Vidrala Historia!K25",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "fila con 5 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
+    "det_reexpresion": "la fila con rotulo completo aparece en CF_2024.txt (linea 2652) pero la columna 2024 no se puede mapear 1:1 (columnas ['2024', '2023'], valores ['1,722', '83,656', '12,236', '36,927', '275,144', '410,310'])"
+   },
+   {
+    "entrada": "Vidrala Historia!L25",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "fila con 5 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
+    "det_reexpresion": "no aplica (ejercicio del último informe)"
+   },
+   {
+    "entrada": "Vidrala Configuración V6.4!B44",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "fila con 5 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
+    "det_reexpresion": "no aplica (ejercicio del último informe)"
+   },
+   {
+    "entrada": "Vidrala Configuración V6.4!B45",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "fila con 8 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
+    "det_reexpresion": "no aplica"
+   },
+   {
+    "entrada": "Vidrala Configuración V6.4!B49",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "CONFLICTO",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 1 columnas ['2024']: sin mapeo posicional",
+    "det_reexpresion": "declara no reexpresado (\"no\") pero el original CF_2024.txt imprime (3,403) en la columna 2024 (fila 2684) y el comparativo cita -4921: contradiccion explicita"
+   },
+   {
+    "entrada": "Vidrala Configuración V6.4!B50",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "fila con 5 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
+    "det_reexpresion": "no aplica (ejercicio del último informe)"
+   },
+   {
+    "entrada": "Vidrala aux:capex_int_2017",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -2541 no esta en la fila ['13', '(2,541)'] (cabecera ['2018', '2017']); declarado ['2017']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2017.txt confirma el mismo valor (con signo) en la columna 2017 ((2,541)) en la fila 307; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:italia_bai_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional",
+    "det_reexpresion": "columna 2020 = ejercicio corriente del informe 2020; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Vidrala aux:italia_bai_2021",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional",
+    "det_reexpresion": "columna 2021 = ejercicio corriente del informe 2021; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Vidrala aux:italia_bai_2022",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional",
+    "det_reexpresion": "columna 2022 = ejercicio corriente del informe 2022; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Vidrala aux:italia_gto_fin_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional",
+    "det_reexpresion": "columna 2020 = ejercicio corriente del informe 2020; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Vidrala aux:italia_gto_fin_2021",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional",
+    "det_reexpresion": "columna 2021 = ejercicio corriente del informe 2021; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Vidrala aux:italia_gto_fin_2022",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional",
+    "det_reexpresion": "columna 2022 = ejercicio corriente del informe 2022; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Vidrala aux:italia_ing_fin_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional",
+    "det_reexpresion": "columna 2020 = ejercicio corriente del informe 2020; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Vidrala aux:italia_ingresos_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2020', '2019']: sin mapeo posicional",
+    "det_reexpresion": "columna 2020 = ejercicio corriente del informe 2020; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Vidrala aux:italia_ingresos_2021",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional",
+    "det_reexpresion": "columna 2021 = ejercicio corriente del informe 2021; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Vidrala aux:italia_ingresos_2022",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2022', '2021']: sin mapeo posicional",
+    "det_reexpresion": "columna 2022 = ejercicio corriente del informe 2022; no hay comparativo que reexpresar"
+   },
+   {
+    "entrada": "Viscofan Historia!G15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -1800 no esta en la fila ['−887', '−1,800'] (cabecera ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original AR_2020.txt confirma el mismo valor (con signo) en la columna 2020 (-1.800) en la fila 439; coherente"
+   },
+   {
+    "entrada": "Viscofan Historia!L21",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "fila con 11 valores no alineable 1:1 con 1 columnas ['2025']: sin mapeo posicional",
+    "det_reexpresion": "no aplica: ejercicio corriente del informe de 2025"
+   },
+   {
+    "entrada": "Viscofan Historia!F13",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2019 (linea de columnas ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original AR_2019.txt confirma el mismo valor (con signo) en la columna 2019 ((1,544)) en la fila 540; coherente"
+   },
+   {
+    "entrada": "Viscofan Configuración V6.4!B147",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "fila con 3 valores no alineable 1:1 con 2 columnas ['2021', '2020']: sin mapeo posicional",
+    "det_reexpresion": "no aplica: ejercicio corriente; el informe del año siguiente repite la cifra como comparativo"
+   },
+   {
+    "entrada": "Viscofan Configuración V6.4!B148",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "sin linea de columnas de encabezado identificable en la pagina",
+    "det_reexpresion": "no aplica: ejercicio corriente; el informe del año siguiente repite la cifra como comparativo"
+   },
+   {
+    "entrada": "Viscofan Configuración V6.4!B150",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 0 de 2 valores -> columna 2024 (linea de columnas ['2024', '2023']); declarado ['2024']",
+    "det_reexpresion": "no aplica: ejercicio corriente; el informe del año siguiente repite la cifra como comparativo"
+   },
+   {
+    "entrada": "Viscofan Configuración V6.4!B151",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "fila con 3 valores no alineable 1:1 con 2 columnas ['2025', '2024']: sin mapeo posicional",
+    "det_reexpresion": "no aplica: ejercicio corriente"
+   }
+  ]
+ },
+ "A2R2 declara_reexpresion_y_difiere | REVISADO_CONTEXTUAL": {
+  "n": 12,
+  "estado_8b88fab": {
+   "PENDIENTE_CONTEXTUAL": 3,
+   "REVISADO_CONTEXTUAL": 7,
+   "CONFLICTO_CONTEXTUAL": 2
+  },
+  "reexpresion_8b88fab": {
+   "OK": 11,
+   "NO_DECIDIBLE": 1
+  },
+  "clase_SOLO_SIGNO": 0,
+  "casos": [
+   {
+    "entrada": "Vidrala Historia!D6",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2018', '2017']: sin mapeo posicional",
+    "det_reexpresion": "reexpresion confirmada por columna: el original CF_2017.txt imprime 823,197 en la columna 2017 (fila 145) y el comparativo cita 822720; declarado: sí: el informe 2017 daba 823,197 (CF_2017 p.11); el de 2018 separa «Servi"
+   },
+   {
+    "entrada": "Vidrala Historia!J6",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional",
+    "det_reexpresion": "reexpresion confirmada por columna: el original CF_2023.txt imprime 1,558,765 en la columna 2023 (fila 129) y el comparativo cita 1427473; declarado: sí: 2023 reexpresado sin Vidrala Italia (el original CF_2023 p.4 daba "
+   },
+   {
+    "entrada": "Vidrala Historia!J7",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 1 de 2 valores -> columna 2023 (linea de columnas ['2024', '2023']); declarado ['2023']",
+    "det_reexpresion": "reexpresion confirmada por columna: el original CF_2023.txt imprime 289,838 en la columna 2023 (fila 139) y el comparativo cita 267508; declarado: sí: 2023 reexpresado sin Italia (original 289,838, CF_2023 p.4)"
+   },
+   {
+    "entrada": "Vidrala Historia!J8",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "fila con 4 valores no alineable 1:1 con 2 columnas ['2024', '2023']: sin mapeo posicional",
+    "det_reexpresion": "el rotulo completo de la partida no se localiza en los textos conservados del año 2023 (['CF_2023.txt'])"
+   },
+   {
+    "entrada": "Vidrala Historia!J14",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "OK",
+    "det_columna": "el valor declarado -78805 no esta en la fila ['(84,994)', '(78,805)'] (cabecera ['2024', '2023']); declarado ['2023']",
+    "det_reexpresion": "reexpresion confirmada por columna: el original CF_2023.txt imprime (89,866) en la columna 2023 (fila 285) y el comparativo cita -78805; declarado: sí: 2023 reexpresado por Italia; el original era (89,866) (CF_2023 p.7)"
+   },
+   {
+    "entrada": "Vidrala aux:bai_2023",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 1 de 2 valores -> columna 2023 (linea de columnas ['2024', '2023']); declarado ['2023']",
+    "det_reexpresion": "reexpresion confirmada por columna: el original CF_2023.txt imprime 287,493 en la columna 2023 (fila 150) y el comparativo cita 268649; declarado: sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493,"
+   },
+   {
+    "entrada": "Vidrala aux:circ_2022_l3",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 1 de 2 valores -> columna 2022 (linea de columnas ['2023', '2022']); declarado ['2022']",
+    "det_reexpresion": "reexpresion confirmada por columna: el original CF_2022.txt imprime 386,779 en la columna 2022 (fila 101) y el comparativo cita 132504; declarado: sí, en «Trade and other payables»: CF_2022 p.7 imprimía 132,341 (errata: "
+   },
+   {
+    "entrada": "Vidrala aux:impuesto_2023",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "OK",
+    "det_columna": "el valor declarado -54813 no esta en la fila ['(64,968)', '(54,813)'] (cabecera ['2024', '2023']); declarado ['2023']",
+    "det_reexpresion": "reexpresion confirmada por columna: el original CF_2023.txt imprime (54,098) en la columna 2023 (fila 152) y el comparativo cita -54813; declarado: sí: 2023 reexpresado sin Italia (original: impuesto 54,098 y BAI 287,493"
+   },
+   {
+    "entrada": "Vidrala aux:lyb_c_2023",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 1 de 2 valores -> columna 2023 (linea de columnas ['2024', '2023']); declarado ['2023']",
+    "det_reexpresion": "comparativo 2023 igual al original en CF_2023.txt: columna 2023 imprime 184,771 en la fila 97; no reexpresado"
+   },
+   {
+    "entrada": "Vidrala aux:pasivo_total_2023",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 1 de 2 valores -> columna 2023 (linea de columnas ['2024', '2023']); declarado ['2023']",
+    "det_reexpresion": "reexpresion confirmada por columna: el original CF_2023.txt imprime 1,257,579 en la columna 2023 (fila 104) y el comparativo cita 1284595; declarado: sí: balance 2023 reexpresado por la asignación definitiva del precio d"
+   },
+   {
+    "entrada": "Vidrala aux:pn_y_pasivo_2023",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 1 de 2 valores -> columna 2023 (linea de columnas ['2024', '2023']); declarado ['2023']",
+    "det_reexpresion": "reexpresion confirmada por columna: el original CF_2023.txt imprime 2,481,911 en la columna 2023 (fila 105) y el comparativo cita 2508927; declarado: sí: balance 2023 reexpresado por la asignación definitiva del precio d"
+   },
+   {
+    "entrada": "Viscofan Historia!K8",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "comparativo 2024 igual al original en CF_2024.txt: columna 2024 imprime 83,794 en la fila 406; no reexpresado"
+   }
+  ]
+ },
+ "A2R2 solo_signo (misma magnitud; no es reexpresion) | REVISADO_CONTEXTUAL": {
+  "n": 37,
+  "estado_8b88fab": {
+   "CONFLICTO_CONTEXTUAL": 33,
+   "REVISADO_CONTEXTUAL": 4
+  },
+  "reexpresion_8b88fab": {
+   "NO_APLICA": 36,
+   "OK": 1
+  },
+  "clase_SOLO_SIGNO": 0,
+  "casos": [
+   {
+    "entrada": "Vidrala Historia!E14",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -25544 no esta en la fila ['(18,206)', '(25,544)'] (cabecera ['2019', '2018']); declarado ['2018']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2018.txt confirma el mismo valor (con signo) en la columna 2018 ((25,544)) en la fila 297; coherente"
+   },
+   {
+    "entrada": "Vidrala Historia!F14",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -18206 no esta en la fila ['9,125', '(18,206)'] (cabecera ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2019.txt confirma el mismo valor (con signo) en la columna 2019 ((18,206)) en la fila 296; coherente"
+   },
+   {
+    "entrada": "Vidrala Historia!D15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -7230 no esta en la fila ['(7,917)', '(7,230)'] (cabecera ['2018', '2017']); declarado ['2017']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2017.txt confirma el mismo valor (con signo) en la columna 2017 ((7,230)) en la fila 298; coherente"
+   },
+   {
+    "entrada": "Vidrala Historia!E15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -7917 no esta en la fila ['(4,450)', '(7,917)'] (cabecera ['2019', '2018']); declarado ['2018']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2018.txt confirma el mismo valor (con signo) en la columna 2018 ((7,917)) en la fila 298; coherente"
+   },
+   {
+    "entrada": "Vidrala Historia!F15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -4450 no esta en la fila ['(5,279)', '(4,450)'] (cabecera ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2019.txt confirma el mismo valor (con signo) en la columna 2019 ((4,450)) en la fila 297; coherente"
+   },
+   {
+    "entrada": "Vidrala Historia!G15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -5279 no esta en la fila ['(3,260)', '(5,279)'] (cabecera ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2020.txt confirma el mismo valor (con signo) en la columna 2020 ((5,279)) en la fila 304; coherente"
+   },
+   {
+    "entrada": "Vidrala Historia!H15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -3260 no esta en la fila ['(4,070)', '(3,260)'] (cabecera ['2022', '2021']); declarado ['2021']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2021.txt confirma el mismo valor (con signo) en la columna 2021 ((3,260)) en la fila 290; coherente"
+   },
+   {
+    "entrada": "Vidrala Historia!I15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -4070 no esta en la fila ['(12,320)', '(4,070)'] (cabecera ['2023', '2022']); declarado ['2022']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2022.txt confirma el mismo valor (con signo) en la columna 2022 ((4,070)) en la fila 298; coherente"
+   },
+   {
+    "entrada": "Vidrala Historia!J15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -12320 no esta en la fila ['(32,100)', '(12,320)'] (cabecera ['2024', '2023']); declarado ['2023']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2023.txt confirma el mismo valor (con signo) en la columna 2023 ((12,320)) en la fila 286; coherente"
+   },
+   {
+    "entrada": "Vidrala Historia!K15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -32100 no esta en la fila ['(20,800)', '(32,100)'] (cabecera ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 ((32,100)) en la fila 291; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_int_2017",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -2541 no esta en la fila ['13', '(2,541)'] (cabecera ['2018', '2017']); declarado ['2017']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2017.txt confirma el mismo valor (con signo) en la columna 2017 ((2,541)) en la fila 307; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_int_2018",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -2245 no esta en la fila ['(3,547)', '(2,245)'] (cabecera ['2019', '2018']); declarado ['2018']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2018.txt confirma el mismo valor (con signo) en la columna 2018 ((2,245)) en la fila 306; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_int_2019",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -3547 no esta en la fila ['(2,131)', '(3,547)'] (cabecera ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2019.txt confirma el mismo valor (con signo) en la columna 2019 ((3,547)) en la fila 305; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_int_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -2131 no esta en la fila ['(2,196)', '(2,131)'] (cabecera ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2020.txt confirma el mismo valor (con signo) en la columna 2020 ((2,131)) en la fila 312; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_int_2022",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -2904 no esta en la fila ['(7,852)', '(2,904)'] (cabecera ['2023', '2022']); declarado ['2022']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2022.txt confirma el mismo valor (con signo) en la columna 2022 ((2,904)) en la fila 306; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_mat_2017",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -86479 no esta en la fila ['(2,245)', '(86,479)'] (cabecera ['2018', '2017']); declarado ['2017']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2017.txt confirma el mismo valor (con signo) en la columna 2017 ((86,479)) en la fila 306; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_mat_2019",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -103622 no esta en la fila ['(132,117)', '(103,622)'] (cabecera ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2019.txt confirma el mismo valor (con signo) en la columna 2019 ((103,622)) en la fila 304; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_mat_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -132117 no esta en la fila ['(107.604)', '(132,117)'] (cabecera ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2020.txt confirma el mismo valor (con signo) en la columna 2020 ((132,117)) en la fila 311; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_mat_2022",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -117296 no esta en la fila ['(143,848)', '(117,296)'] (cabecera ['2023', '2022']); declarado ['2022']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2022.txt confirma el mismo valor (con signo) en la columna 2022 ((117,296)) en la fila 305; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:gto_fin_2017",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -9384 no esta en la fila ['(10,149)', '(9,384)'] (cabecera ['2018', '2017']); declarado ['2017']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2017.txt confirma el mismo valor (con signo) en la columna 2017 ((9,384)) en la fila 154; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:gto_fin_2018",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -10149 no esta en la fila ['(6,595)', '(10,149)'] (cabecera ['2019', '2018']); declarado ['2018']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2018.txt confirma el mismo valor (con signo) en la columna 2018 ((10,149)) en la fila 153; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:impuesto_2017",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -20616 no esta en la fila ['(24,466)', '(20,616)'] (cabecera ['2018', '2017']); declarado ['2017']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2017.txt confirma el mismo valor (con signo) en la columna 2017 ((20,616)) en la fila 158; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:impuesto_2018",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -24466 no esta en la fila ['(22,705)', '(24,466)'] (cabecera ['2019', '2018']); declarado ['2018']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2018.txt confirma el mismo valor (con signo) en la columna 2018 ((24,466)) en la fila 157; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:impuesto_2019",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -22705 no esta en la fila ['(29,703)', '(22,705)'] (cabecera ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2019.txt confirma el mismo valor (con signo) en la columna 2019 ((22,705)) en la fila 157; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:impuesto_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -29703 no esta en la fila ['(27,357)', '(29,703)'] (cabecera ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2020.txt confirma el mismo valor (con signo) en la columna 2020 ((29,703)) en la fila 161; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:impuesto_2021",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -27357 no esta en la fila ['(34,062)', '(27,357)'] (cabecera ['2022', '2021']); declarado ['2021']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2021.txt confirma el mismo valor (con signo) en la columna 2021 ((27,357)) en la fila 148; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:impuesto_2022",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -34062 no esta en la fila ['(54,098)', '(34,062)'] (cabecera ['2023', '2022']); declarado ['2022']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2022.txt confirma el mismo valor (con signo) en la columna 2022 ((34,062)) en la fila 150; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:impuesto_2024",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -64968 no esta en la fila ['(67,320)', '(64,968)'] (cabecera ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 ((64,968)) en la fila 158; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:inversion_total_2018",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -101773 no esta en la fila ['(107,169)', '(101,773)'] (cabecera ['2019', '2018']); declarado ['2018']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2018.txt confirma el mismo valor (con signo) en la columna 2018 ((101,773)) en la fila 311; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:inversion_total_2019",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -107169 no esta en la fila ['(134,248)', '(107,169)'] (cabecera ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2019.txt confirma el mismo valor (con signo) en la columna 2019 ((107,169)) en la fila 308; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:inversion_total_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -134248 no esta en la fila ['(109,800)', '(134,248)'] (cabecera ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2020.txt confirma el mismo valor (con signo) en la columna 2020 ((134,248)) en la fila 314; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:inversion_total_2021",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -109800 no esta en la fila ['(120,200)', '(109,800)'] (cabecera ['2022', '2021']); declarado ['2021']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2021.txt confirma el mismo valor (con signo) en la columna 2021 ((109,800)) en la fila 300; coherente"
+   },
+   {
+    "entrada": "Viscofan Historia!F12",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2019 (linea de columnas ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original AR_2019.txt confirma el mismo valor (con signo) en la columna 2019 ((62,755)) en la fila 541; coherente"
+   },
+   {
+    "entrada": "Viscofan Historia!F15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2019 (linea de columnas ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original AR_2019.txt confirma el mismo valor (con signo) en la columna 2019 ((1,909)) en la fila 549; coherente"
+   },
+   {
+    "entrada": "Viscofan Historia!G15",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -1800 no esta en la fila ['−887', '−1,800'] (cabecera ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original AR_2020.txt confirma el mismo valor (con signo) en la columna 2020 (-1.800) en la fila 439; coherente"
+   },
+   {
+    "entrada": "Viscofan Historia!F13",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2019 (linea de columnas ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original AR_2019.txt confirma el mismo valor (con signo) en la columna 2019 ((1,544)) en la fila 540; coherente"
+   },
+   {
+    "entrada": "Viscofan aux:AR2025_p23_impuesto_2024",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "comparativo 2024 igual al original en CF_2024.txt: columna 2024 imprime -49,105 en la fila 179; no reexpresado"
+   }
+  ]
+ },
+ "A2R2 solo_signo (misma magnitud; no es reexpresion) | REUTILIZADO_M1": {
+  "n": 7,
+  "estado_8b88fab": {
+   "REUTILIZADO_M1": 7
+  },
+  "reexpresion_8b88fab": {
+   "NO_APLICA": 5,
+   "OK": 2
+  },
+  "clase_SOLO_SIGNO": 0,
+  "casos": [
+   {
+    "entrada": "Vidrala Historia!K14",
+    "csv_9d676ce": "REUTILIZADO_M1",
+    "csv_8b88fab": "REUTILIZADO_M1",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -84994 no esta en la fila ['799', '(84,994)'] (cabecera ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 ((84,994)) en la fila 290; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_int_2023",
+    "csv_9d676ce": "REUTILIZADO_M1",
+    "csv_8b88fab": "REUTILIZADO_M1",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -7852 no esta en la fila ['(8,737)', '(7,852)'] (cabecera ['2024', '2023']); declarado ['2023']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2023.txt confirma el mismo valor (con signo) en la columna 2023 ((7,852)) en la fila 294; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_int_2024",
+    "csv_9d676ce": "REUTILIZADO_M1",
+    "csv_8b88fab": "REUTILIZADO_M1",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -8737 no esta en la fila ['(9,757)', '(8,737)'] (cabecera ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 ((8,737)) en la fila 299; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_mat_2023",
+    "csv_9d676ce": "REUTILIZADO_M1",
+    "csv_8b88fab": "REUTILIZADO_M1",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -143848 no esta en la fila ['(160,063)', '(143,848)'] (cabecera ['2024', '2023']); declarado ['2023']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2023.txt confirma el mismo valor (con signo) en la columna 2023 ((143,848)) en la fila 293; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:capex_mat_2024",
+    "csv_9d676ce": "REUTILIZADO_M1",
+    "csv_8b88fab": "REUTILIZADO_M1",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -160063 no esta en la fila ['(178,746)', '(160,063)'] (cabecera ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 ((160,063)) en la fila 298; coherente"
+   },
+   {
+    "entrada": "Viscofan Historia!K12",
+    "csv_9d676ce": "REUTILIZADO_M1",
+    "csv_8b88fab": "REUTILIZADO_M1",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "comparativo 2024 igual al original en CF_2024.txt: columna 2024 imprime -75,027 en la fila 427; no reexpresado"
+   },
+   {
+    "entrada": "Viscofan Historia!K15",
+    "csv_9d676ce": "REUTILIZADO_M1",
+    "csv_8b88fab": "REUTILIZADO_M1",
+    "columna": "OK",
+    "reexpresion": "OK",
+    "det_columna": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "comparativo 2024 igual al original en CF_2024.txt: columna 2024 imprime -9,726 en la fila 435; no reexpresado"
+   }
+  ]
+ },
+ "A2R2 declara_NO_reexpresado_y_difiere (contradiccion etiquetada OK) | PENDIENTE_CONTEXTUAL": {
+  "n": 1,
+  "estado_8b88fab": {
+   "PENDIENTE_CONTEXTUAL": 1
+  },
+  "reexpresion_8b88fab": {
+   "OK": 1
+  },
+  "clase_SOLO_SIGNO": 0,
+  "casos": [
+   {
+    "entrada": "Vidrala Historia!D13",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "OK",
+    "det_columna": "fila con 1 valores no alineable 1:1 con 2 columnas ['2017', '2016']: sin mapeo posicional",
+    "det_reexpresion": "columna 2017 = ejercicio corriente del informe 2017; no hay comparativo que reexpresar"
+   }
+  ]
+ },
+ "A2R2 declara_NO_reexpresado_y_difiere (contradiccion etiquetada OK) | REVISADO_CONTEXTUAL": {
+  "n": 19,
+  "estado_8b88fab": {
+   "CONFLICTO_CONTEXTUAL": 8,
+   "REVISADO_CONTEXTUAL": 8,
+   "PENDIENTE_CONTEXTUAL": 3
+  },
+  "reexpresion_8b88fab": {
+   "NO_APLICA": 13,
+   "NO_DECIDIBLE": 5,
+   "CONFLICTO": 1
+  },
+  "clase_SOLO_SIGNO": 0,
+  "casos": [
+   {
+    "entrada": "Vidrala aux:circ_2022_l1",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -85880 no esta en la fila ['(83,925)', '(85,880)'] (cabecera ['2023', '2022']); declarado ['2022']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2022.txt confirma el mismo valor (con signo) en la columna 2022 ((85,880)) en la fila 290; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:circ_2022_l2",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -82341 no esta en la fila ['(34,457)', '(82,341)'] (cabecera ['2023', '2022']); declarado ['2022']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2022.txt confirma el mismo valor (con signo) en la columna 2022 ((82,341)) en la fila 291; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:circ_2022_l4",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -84515 no esta en la fila ['36,138', '(84,515)'] (cabecera ['2023', '2022']); declarado ['2022']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2022.txt confirma el mismo valor (con signo) en la columna 2022 ((84,515)) en la fila 293; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:lyb_c_2017",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2017 (linea de columnas ['2018', '2017']); declarado ['2017']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2017.txt confirma el mismo valor (con signo) en la columna 2017 (41,519) en la fila 112; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:lyb_c_2018",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2018 (linea de columnas ['2019', '2018']); declarado ['2018']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2018.txt confirma el mismo valor (con signo) en la columna 2018 (38,880) en la fila 110; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:lyb_c_2019",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2019 (linea de columnas ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2019.txt confirma el mismo valor (con signo) en la columna 2019 (131,787) en la fila 109; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:lyb_c_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2020 (linea de columnas ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2020.txt confirma el mismo valor (con signo) en la columna 2020 (160,142) en la fila 111; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:lyb_c_2021",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2021 (linea de columnas ['2022', '2021']); declarado ['2021']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2021.txt confirma el mismo valor (con signo) en la columna 2021 (73,613) en la fila 99; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:lyb_c_2022",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2022 (linea de columnas ['2023', '2022']); declarado ['2022']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2022.txt confirma el mismo valor (con signo) en la columna 2022 (50,089) en la fila 99; coherente"
+   },
+   {
+    "entrada": "Vidrala aux:lyb_c_2024",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "declara no reexpresado y el original CF_2024.txt confirma el mismo valor (con signo) en la columna 2024 (92,688) en la fila 101; coherente"
+   },
+   {
+    "entrada": "Viscofan Historia!H8",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "posicion 1 de 2 valores -> columna 2021 (linea de columnas ['2022', '2021']); declarado ['2021']",
+    "det_reexpresion": "el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion no decidible"
+   },
+   {
+    "entrada": "Viscofan Historia!F21",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "posicion 1 de 2 valores -> columna 2019 (linea de columnas ['2020', '2019']); declarado ['2019']",
+    "det_reexpresion": "el valor aparece en AR_2019.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2019; reexpresion no decidible"
+   },
+   {
+    "entrada": "Viscofan Historia!H13",
+    "csv_9d676ce": "PENDIENTE_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "NO_DECIDIBLE",
+    "reexpresion": "CONFLICTO",
+    "det_columna": "valor cero: la posicion no es decidible (sin mapeo posicional no hay OK)",
+    "det_reexpresion": "declara no reexpresado (\"no: comparativo de 2021 en los estados de 2022 (el que usó el modelo); sin reexpresión declarada\") pero el original CF_2021.txt imprime −95,779 en la columna 2021 (fila 293) y el comparativo cita"
+   },
+   {
+    "entrada": "Viscofan aux:CF2021_p8_var_existencias_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -20965 no esta en la fila ['−17,593', '−20,965'] (cabecera ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original AR_2020.txt confirma el mismo valor (con signo) en la columna 2020 (-20.965) en la fila 387; coherente"
+   },
+   {
+    "entrada": "Viscofan aux:CF2021_p8_var_deudores_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "el valor declarado -15602 no esta en la fila ['−7,660', '−15,602'] (cabecera ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original AR_2020.txt confirma el mismo valor (con signo) en la columna 2020 (-15.602) en la fila 389; coherente"
+   },
+   {
+    "entrada": "Viscofan aux:CF2021_p8_var_acreedores_2020",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "REVISADO_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_APLICA",
+    "det_columna": "posicion 1 de 2 valores -> columna 2020 (linea de columnas ['2021', '2020']); declarado ['2020']",
+    "det_reexpresion": "declara no reexpresado y el original AR_2020.txt confirma el mismo valor (con signo) en la columna 2020 (11.389) en la fila 391; coherente"
+   },
+   {
+    "entrada": "Viscofan aux:CF2022_p25_var_existencias_2021",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "el valor declarado -17593 no esta en la fila ['−69.069', '−17.593'] (cabecera ['2022', '2021']); declarado ['2021']",
+    "det_reexpresion": "el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion no decidible"
+   },
+   {
+    "entrada": "Viscofan aux:CF2022_p25_var_deudores_2021",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "CONFLICTO_CONTEXTUAL",
+    "columna": "CONFLICTO",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "el valor declarado -7660 no esta en la fila ['−47.708', '−7.660'] (cabecera ['2022', '2021']); declarado ['2021']",
+    "det_reexpresion": "el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion no decidible"
+   },
+   {
+    "entrada": "Viscofan aux:CF2022_p25_var_acreedores_2021",
+    "csv_9d676ce": "REVISADO_CONTEXTUAL",
+    "csv_8b88fab": "PENDIENTE_CONTEXTUAL",
+    "columna": "OK",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "posicion 1 de 2 valores -> columna 2021 (linea de columnas ['2022', '2021']); declarado ['2021']",
+    "det_reexpresion": "el valor aparece en CF_2021.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2021; reexpresion no decidible"
+   }
+  ]
+ },
+ "A2R2 declara_reexpresion_y_difiere | REUTILIZADO_M1": {
+  "n": 2,
+  "estado_8b88fab": {
+   "REUTILIZADO_M1": 2
+  },
+  "reexpresion_8b88fab": {
+   "NO_DECIDIBLE": 2
+  },
+  "clase_SOLO_SIGNO": 0,
+  "casos": [
+   {
+    "entrada": "Viscofan aux:AR2025_p27_var_deudores_2024",
+    "csv_9d676ce": "REUTILIZADO_M1",
+    "csv_8b88fab": "REUTILIZADO_M1",
+    "columna": "OK",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "el valor aparece en CF_2024.txt pero no en una fila con el rotulo completo mapeable 1:1 en la columna 2024; reexpresion no decidible"
+   },
+   {
+    "entrada": "Viscofan aux:AR2025_p27_var_acreedores_2024",
+    "csv_9d676ce": "REUTILIZADO_M1",
+    "csv_8b88fab": "REUTILIZADO_M1",
+    "columna": "OK",
+    "reexpresion": "NO_DECIDIBLE",
+    "det_columna": "posicion 1 de 2 valores -> columna 2024 (linea de columnas ['2025', '2024']); declarado ['2024']",
+    "det_reexpresion": "el rotulo completo de la partida no se localiza en los textos conservados del año 2024 (['CF_2024.txt'])"
+   }
+  ]
+ }
+}

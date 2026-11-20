@@ -1,0 +1,8 @@
+{"id": "Q1-033", "harness_version": "4.0", "descripcion": "SONDA DEL REVISOR R7: revisor propio sin marca + auxiliar sin comprobacion",
+ "pasos": [{"op": "nuevo_expediente"},
+  {"op": "entrada", "celda": "aux:sin_comprobacion", "clase": "hipotesis", "hipotesis": {"fundamento": "f", "alternativas": ["a"], "limites": "l"}},
+  {"op": "entrada", "celda": "aux:x", "clase": "hipotesis", "hipotesis": {"fundamento": "f", "alternativas": ["a"], "limites": "l"},
+   "comprobacion": {"extractor": "ext propio", "revisor": "rev propio", "fecha": "HOY", "resultado": "verificado", "fuente_examinada": "f", "nota": null, "vinculo": null}},
+  {"op": "sellar", "celdas": ["aux:x"], "revisor": "revisora independiente (nombre de persona)", "guardar": "s.txt", "esperado": [0, 1]},
+  {"op": "comprobar", "guardar": "c.json", "esperado": [0, 1]}],
+ "criterios": [{"id": "C1", "texto": "x", "afirma": [{"tipo": "archivo_existe", "archivo": "s.txt"}]}]}

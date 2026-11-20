@@ -1,0 +1,339 @@
+{
+ "alcance": "sondas con candidata falsa (stubs); no son resultados del producto Munger",
+ "objeto": "c734ca1 (resultados_qwen/ejecucion_d), arnés v4",
+ "INV3_aserciones_sobre_archivos_del_arnes": {
+  "A1_N3b_copiar_artefacto_de_fuente_escrita_por_el_arnes": {
+   "caso": "Q1-031",
+   "exit": 0,
+   "estado": "COMPONENTE_OK",
+   "criterios": [
+    [
+     "C1",
+     "CUMPLE_COMPONENTE"
+    ],
+    [
+     "C2",
+     "CUMPLE_COMPONENTE"
+    ]
+   ],
+   "errores": [],
+   "archivos_producto_segun_el_arnes": [
+    "salida_precio.txt"
+   ],
+   "matriz": [
+    "PARCIAL_COMPONENTE",
+    "CUMPLE"
+   ],
+   "veredicto": "ABIERTO: COMPONENTE_OK sin que ninguna salida del producto contenga lo asertado; matriz = ('PARCIAL_COMPONENTE', 'CUMPLE')"
+  },
+  "A2_N3c_copiar_artefacto_del_registro_escrito_por_el_arnes": {
+   "caso": "Q1-033",
+   "exit": 0,
+   "estado": "COMPONENTE_OK",
+   "criterios": [
+    [
+     "C1",
+     "CUMPLE_COMPONENTE"
+    ]
+   ],
+   "errores": [],
+   "archivos_producto_segun_el_arnes": [
+    "registro.json"
+   ],
+   "matriz": [
+    "PARCIAL_COMPONENTE",
+    "CUMPLE"
+   ],
+   "veredicto": "ABIERTO: COMPONENTE_OK sin que ninguna salida del producto contenga lo asertado; matriz = ('PARCIAL_COMPONENTE', 'CUMPLE')"
+  },
+  "A3_N3d_mutar_fuente_sobre_artefacto_y_copiar_artefacto": {
+   "caso": "Q1-032",
+   "exit": 0,
+   "estado": "COMPONENTE_OK",
+   "criterios": [
+    [
+     "C1",
+     "CUMPLE_COMPONENTE"
+    ]
+   ],
+   "errores": [],
+   "archivos_producto_segun_el_arnes": [
+    "06_informe.txt",
+    "07_informe_provisional.md"
+   ],
+   "matriz": [
+    "PARCIAL_COMPONENTE",
+    "CUMPLE"
+   ],
+   "veredicto": "ABIERTO: COMPONENTE_OK sin que ninguna salida del producto contenga lo asertado; matriz = ('PARCIAL_COMPONENTE', 'CUMPLE')"
+  },
+  "A4_P1v2_guardar_con_el_nombre_del_log_del_arnes": {
+   "caso": "Q1-028",
+   "exit": 0,
+   "estado": "COMPONENTE_OK",
+   "criterios": [
+    [
+     "C1",
+     "CUMPLE_COMPONENTE"
+    ]
+   ],
+   "errores": [],
+   "archivos_producto_segun_el_arnes": [
+    "ejecucion.log"
+   ],
+   "matriz": [
+    "PARCIAL_COMPONENTE",
+    "CUMPLE"
+   ],
+   "veredicto": "ABIERTO: COMPONENTE_OK sin que ninguna salida del producto contenga lo asertado; matriz = ('PARCIAL_COMPONENTE', 'CUMPLE')"
+  },
+  "A5_P7v3_preparar_cambio_guardar=origen_estado.txt_con_fallo_ajeno": {
+   "caso": "Q1-026",
+   "exit": 0,
+   "estado": "COMPONENTE_OK",
+   "criterios": [
+    [
+     "C1",
+     "CUMPLE_COMPONENTE"
+    ]
+   ],
+   "stderr_del_producto_de_juguete": [
+    "ERROR: CAMBIO inválido: analisis.C24.valor no coincide con la evidencia declarada"
+   ],
+   "lineas_de_texto_PDF_ausente": [],
+   "archivos_producto_segun_el_arnes": [
+    "origen_estado.txt"
+   ],
+   "matriz": [
+    "BLOQUEO_ENTORNO",
+    ""
+   ],
+   "veredicto": "ABIERTO: COMPONENTE_OK sin que ninguna salida del producto contenga lo asertado; matriz = ('BLOQUEO_ENTORNO', '')"
+  },
+  "MATRIZ_v4_sobre_estas_especificaciones": {
+   "exit": 0,
+   "Q1-031": {
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE",
+    "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+    "evidencia": "evidencias/Q1-031/resultado_ejecucion.json (harness 4.0, spec sha256 f5ae376b2354…, aserciones reevaluadas OK)"
+   },
+   "Q1-033": {
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE",
+    "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+    "evidencia": "evidencias/Q1-033/resultado_ejecucion.json (harness 4.0, spec sha256 ef57963048fc…, aserciones reevaluadas OK)"
+   },
+   "Q1-032": {
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE",
+    "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+    "evidencia": "evidencias/Q1-032/resultado_ejecucion.json (harness 4.0, spec sha256 bf2fcebf0b96…, aserciones reevaluadas OK)"
+   },
+   "Q1-028": {
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE",
+    "veredicto_caso": "sin veredicto de caso (pendiente de agente)",
+    "evidencia": "evidencias/Q1-028/resultado_ejecucion.json (harness 4.0, spec sha256 20f6ab0d2b63…, aserciones reevaluadas OK)"
+   },
+   "Q1-026": {
+    "estado_ejecucion": "BLOQUEO_ENTORNO",
+    "veredicto_componente": "",
+    "veredicto_caso": "NO_OBSERVABLE (bloqueo de entorno: faltan pdftotext/soffice/agente; paquete en relevo)",
+    "evidencia": "evidencias/Q1-026/resultado_ejecucion.json (bloqueo de entorno reevaluado OK; ningún criterio del banco observado; no cuenta como CUMPLE)"
+   }
+  }
+ },
+ "INV1_rutas": {
+  "B1a_N1c_entrada_fuente_archivo_../../Q1-036": {
+   "exit": 0,
+   "estado": "COMPONENTE_OK",
+   "errores": [],
+   "huella_del_archivo_ajeno_escrita_en_el_registro": true,
+   "fuente_examinada_en_el_registro": "../../Q1-036/Viscofan/fuentes_sinteticas/ajena.txt (página 1)",
+   "veredicto": "ABIERTO (el arnés lee fuera del caso sin ERROR)"
+  },
+  "B1b_N1c_entrada_fuente_archivo_absoluto": {
+   "exit": 0,
+   "estado": "COMPONENTE_OK",
+   "errores": [],
+   "huella_del_archivo_ajeno_escrita_en_el_registro": true,
+   "fuente_examinada_en_el_registro": "<tmp>/fuera_de_todo.txt (página 1)",
+   "veredicto": "ABIERTO (el arnés lee fuera del caso sin ERROR)"
+  }
+ },
+ "INV4_id": {
+  "C1_id_con_salto_de_linea_final": {
+   "id": "Q1-001\n",
+   "exit": 1,
+   "carpetas_creadas_en_EVIDENCIAS": [
+    "Q1-001\n"
+   ],
+   "hay_resultado_ejecucion": false,
+   "ultima_linea_stderr": "StopIteration",
+   "veredicto": "id aceptado por la validación; el caso termina con traza y sin resultado"
+  },
+  "C2_id_Q1-999_inexistente_en_el_banco": {
+   "id": "Q1-999",
+   "exit": 1,
+   "carpetas_creadas_en_EVIDENCIAS": [
+    "Q1-999"
+   ],
+   "hay_resultado_ejecucion": false,
+   "ultima_linea_stderr": "StopIteration",
+   "veredicto": "id aceptado por la validación; el caso termina con traza y sin resultado"
+  },
+  "C2b_id_con_digitos_no_ASCII": {
+   "id": "Q1-٠٠١",
+   "exit": 1,
+   "carpetas_creadas_en_EVIDENCIAS": [
+    "Q1-٠٠١"
+   ],
+   "hay_resultado_ejecucion": false,
+   "ultima_linea_stderr": "StopIteration",
+   "veredicto": "id aceptado por la validación; el caso termina con traza y sin resultado"
+  },
+  "C3_archivo_Q1-031.json_con_id_Q1-001": {
+   "exit": 0,
+   "evidencia_previa_de_Q1-001_sobrevive": false,
+   "veredicto": "límite: no se comprueba que el id coincida con el nombre de la especificación"
+  }
+ },
+ "INV5_candidata_limpia": {
+  "D0_control_candidata_intacta": {
+   "exit": 1,
+   "estado": "COMPONENTE_FALLA",
+   "criterios": [
+    [
+     "C1",
+     "FALLA_COMPONENTE"
+    ]
+   ],
+   "errores": [],
+   "candidata_no_rastreadas": 0,
+   "git_status": "",
+   "git_ls_files_v": "H munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py",
+   "marca_en_la_salida_del_producto": "limpio",
+   "veredicto": "sin alteración efectiva: COMPONENTE_FALLA"
+  },
+  "D0a_P8va_skip_worktree": {
+   "exit": 2,
+   "estado": "ERROR_ENTORNO",
+   "criterios": [],
+   "errores": [
+    "archivos con assume-unchanged/skip-worktree: ['munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py']"
+   ],
+   "candidata_no_rastreadas": 0,
+   "git_status": "",
+   "git_ls_files_v": "S munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py",
+   "marca_en_la_salida_del_producto": null,
+   "veredicto": "CERRADO (ERROR_ENTORNO)"
+  },
+  "D0b_N5a_assume_unchanged": {
+   "exit": 2,
+   "estado": "ERROR_ENTORNO",
+   "criterios": [],
+   "errores": [
+    "archivos con assume-unchanged/skip-worktree: ['munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py']"
+   ],
+   "candidata_no_rastreadas": 0,
+   "git_status": "",
+   "git_ls_files_v": "h munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py",
+   "marca_en_la_salida_del_producto": null,
+   "veredicto": "CERRADO (ERROR_ENTORNO)"
+  },
+  "D0c_P8vb_archivo_no_rastreado": {
+   "exit": 2,
+   "estado": "ERROR_ENTORNO",
+   "criterios": [],
+   "errores": [
+    "archivos no rastreados bajo scripts/ (posible alteración oculta): ['munger_v2_r1/personaje_v2/scripts/ast_loca"
+   ],
+   "candidata_no_rastreadas": 1,
+   "git_status": "?? munger_v2_r1/personaje_v2/scripts/ast_local.py",
+   "git_ls_files_v": "H munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py",
+   "marca_en_la_salida_del_producto": null,
+   "veredicto": "CERRADO (ERROR_ENTORNO)"
+  },
+  "D0d_N5b_archivo_no_rastreado_oculto_por_exclude": {
+   "exit": 2,
+   "estado": "ERROR_ENTORNO",
+   "criterios": [],
+   "errores": [
+    "archivos no rastreados bajo scripts/ (posible alteración oculta): ['munger_v2_r1/personaje_v2/scripts/ast_loca"
+   ],
+   "candidata_no_rastreadas": 0,
+   "git_status": "",
+   "git_ls_files_v": "H munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py",
+   "marca_en_la_salida_del_producto": null,
+   "veredicto": "CERRADO (ERROR_ENTORNO)"
+  },
+  "D1_N5c_assume_unchanged_Y_skip_worktree (nueva)": {
+   "exit": 0,
+   "estado": "COMPONENTE_OK",
+   "criterios": [
+    [
+     "C1",
+     "CUMPLE_COMPONENTE"
+    ]
+   ],
+   "errores": [],
+   "candidata_no_rastreadas": 0,
+   "git_status": "",
+   "git_ls_files_v": "s munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py",
+   "marca_en_la_salida_del_producto": "ALTERADO",
+   "veredicto": "ABIERTO (candidata alterada pasa como limpia y la alteración decide el CUMPLE)"
+  },
+  "D2_N5g_directorio_enlazado_no_rastreado_oculto_por_exclude (nueva)": {
+   "exit": 0,
+   "estado": "COMPONENTE_OK",
+   "criterios": [
+    [
+     "C1",
+     "CUMPLE_COMPONENTE"
+    ]
+   ],
+   "errores": [],
+   "candidata_no_rastreadas": 0,
+   "git_status": "",
+   "git_ls_files_v": "H munger_v2_r1/personaje_v2/scripts/verificacion_entradas.py",
+   "marca_en_la_salida_del_producto": "ALTERADO",
+   "veredicto": "ABIERTO (candidata alterada pasa como limpia y la alteración decide el CUMPLE)"
+  }
+ },
+ "INV2_R3_matriz": {
+  "E1_M3b_Q1-026_resultado_de_un_campo_ERROR_ENTORNO": {
+   "exit": 0,
+   "estado_ejecucion": "BLOQUEO_ENTORNO",
+   "veredicto_componente": "",
+   "veredicto_caso": "NO_OBSERVABLE (bloqueo de entorno: faltan pdftotext/soffice/agente; paquete en relevo)",
+   "evidencia": "evidencias/Q1-026/resultado_ejecucion.json (ERROR_ENTORNO: bloqueo documentado; no cuenta como CUMPLE)"
+  },
+  "E2_M3c_Q1-026_ejecutado_con_candidata_sucia": {
+   "ejecutar_caso_exit": 2,
+   "estado": "ERROR_ENTORNO",
+   "errores": [
+    "archivos no rastreados bajo scripts/ (posible alteración oculta): ['munger_v2_r1/personaje_v2/scripts/override.txt']"
+   ],
+   "matriz": {
+    "estado_ejecucion": "BLOQUEO_ENTORNO",
+    "veredicto_componente": "",
+    "veredicto_caso": "NO_OBSERVABLE (bloqueo de entorno: faltan pdftotext/soffice/agente; paquete en relevo)",
+    "evidencia": "evidencias/Q1-026/resultado_ejecucion.json (ERROR_ENTORNO: bloqueo documentado; no cuenta como CUMPLE)"
+   }
+  },
+  "E3_M7_generar_matriz_ignora_EVIDENCIAS_DIR": {
+   "ejecutar_caso_con_EVIDENCIAS_DIR_propio": {
+    "exit": 1,
+    "estado": "COMPONENTE_FALLA"
+   },
+   "generar_matriz_con_el_mismo_EVIDENCIAS_DIR": {
+    "exit": 0,
+    "estado_ejecucion": "PARCIAL_COMPONENTE",
+    "veredicto_componente": "CUMPLE",
+    "evidencia": "evidencias/Q1-001/resultado_ejecucion.json (harness 4.0, spec sha256 9be57a081acf…, aserciones reevaluadas OK)"
+   },
+   "veredicto": "la matriz lee siempre <ejecucion_d>/evidencias: tras reejecutar con EVIDENCIAS_DIR propio muestra el CUMPLE publicado, no el resultado nuevo"
+  }
+ }
+}

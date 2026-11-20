@@ -1,0 +1,19 @@
+== 1. Puente de patrimonio: los dividendos RESTAN (el contrato viejo los sumaba) ==
+  E0=1000, BN=100, impuesto=30 (BAI=130), dividendos=40, OCI=0
+  E1 real = E0+BN+OCI-dividendos-recompras+ampliaciones+otros = 1060
+  puente viejo (sumaba BAI y dividendos) = 1170; "otros" absorberia -110
+== 2. ROE del producto: BN (Historia fila 9) / patrimonio de CIERRE (fila 21) ==
+  ROE cierre (L9/L21) = 0.094340 (9.434 %)
+  ROE sobre apertura = 0.100000  <- el motor aplica m_t a la APERTURA (convencion del producto)
+  ROE contrato viejo (BAI/patrimonio medio) = 0.126214
+== 3. Identidad flujo_t = B(t-1)*ROE_t - dB_t; dividendo = BN - dB SOLO con excedente limpio ==
+  Caso limpio (OCI=0): B0=1000, ROE0=10%, g=3% -> dB=30, flujo=70, dividendo=BN-dB=70 OK
+  Variante OCI=-25, recompras=10: E1 = 1025; BN-dB = 75 pero reparto real = 50; diferencia = 25 = -OCI (el motor NO proyecta OCI)
+== 4. Palancas B15 se lee como ROE objetivo (NO como payout) ==
+  B15 = ROE objetivo 10%: BI = 115.06
+  B15 con payout 40% (leido como ROE objetivo 40%): BI = 278.45 (x2.42)
+== 5. Quiebra BJ = (1-p)*BI + p*rec TAMBIEN aplica en el motor C (Palancas C22/C23; build_v6.py:936) ==
+  p=10%, rec=20 sobre el ejemplo anterior: BI=115.06 -> BJ=105.55 (antes de quiebra 115.06)
+
+RESULTADO: TODO CUADRA
+

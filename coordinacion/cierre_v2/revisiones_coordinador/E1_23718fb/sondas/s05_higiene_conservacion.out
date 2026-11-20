@@ -1,0 +1,47 @@
+== commits
+f00c5dd Vibe Nuage Agent E-ELIS bloque 5 (relevo): checkpoint de recuperacion sobre 23718fb
+23718fb Vibe Nuage Agent E-ELIS bloque 4: respuesta a CORRECCION_E1 (E-R1..E-R9) sobre 93a9780
+padre de f00c5dd: 23718fb  | padre de 23718fb: 93a9780
+== archivos del diff fuera de resultados_cierre/elis_fuentes/:
+(ninguno)
+== n archivos en diff: 50
+== binarios en diff (numstat '-'):
+(fin)
+== extensiones prohibidas en diff y en arbol f00c5dd:
+(ninguno)
+== archivo mayor del diff:
+51733 resultados_cierre/elis_fuentes/LECTURA_FUENTES.jsonl
+== patrones de secreto en el diff:
+(ninguno)
+== B/P-M1
+origin/mistral/m2-fundamento-pm1 = daa74783d2708fcd46ca7c24ae1ffbb327c35784
+resultados_m2 en diff 93a9780..f00c5dd: 0
+resultados_m2 identico ec707a5 vs f00c5dd: si
+== estados en PREGUNTAS_Y_RESULTADOS.csv (estado_tras_revision_e1)
+M1 -> ABIERTO - nivel de capex corroborado (bruto 823,9/887,4/890,
+M2 -> ABIERTO - solo cualitativo (attrition 'monitored' URD p.141;
+M6 -> ABIERTO - perimetro corroborado (ya en F1 V1: informe 716cbd
+N2 -> ABIERTO - dos medidas separadas: +23,1 M EUR EFE p.327 (baja
+== Elis pendiente_de_datos:
+PUNTO_DE_RECUPERACION.md ENTREGA.json RESUMEN_PARA_INTEGRADOR.md HALLAZGOS_ELIS.md CHECKPOINT_RELEVO.md RESPUESTA_REVISION_E1.md 
+== otros estados de Elis distintos de pendiente_de_datos (valorad|apta|desbloque):
+== eleccion de R, theta, lambda, k o umbrales (frases de adopcion):
+PUNTO_DE_RECUPERACION.md:38:- No se elige R (ni dentro de 736,0–867,2), θ, λ, k
+README.md:5:cbd6`). No se pide valoración ni política; **no se elige R, θ ni λ**.
+ENTREGA.json:119:    "No se elige R (ni en 736,0-867,2), theta, lambda, k n
+CHECKPOINT_RELEVO.md:31:933 y las decisiones E1/D3/E2/E6 se conservan; no se elige R, θ, λ, k, probabilidades ni umbrales.
+PUNTO_DE_RECUPERACION.md:38:- No se elige R (ni dentro de 736,0–867,2), θ, λ, k, probabilidades ni política; Elis si
+README.md:5: No se pide valoración ni política; **no se elige R, θ ni λ**
+ENTREGA.json:119:    "No se elige R (ni en 736,0-867,2), theta, lambda, k ni probabilidad; Elis sigue pendiente_d
+CHECKPOINT_RELEVO.md:31:as decisiones E1/D3/E2/E6 se conservan; no se elige R, θ, λ, k, probabilidades ni umbrales
+== ENTREGA.json: integrado, apto, revision
+integrado_en_producto= False | apto_dinero_real= No se declara por este formulario | precondiciones_simuladas= []
+== Release fuentes-elis-e-20261117 en el control (coordinacion/cierre-v2)
+e393690 U2 draft: Ahold resources recovered (.bat only), 10/10 official annual reports indexed and verified, third B pro
+95d9e46 U3 draft: motor C contract from the real engine, selection protocol and two unverified candidates; official down
+3d19b27 Incident evidence: replace local paths in the copied launcher script
+origin/coordinacion/cierre-v2:coordinacion/cierre_v2/CONTROL.json:377:        "Release fuentes-elis-e-20261117 (11 PDF + INDICE_11_PDF.csv + SHA256SUMS), creada por el flujo preservar-fuentes-elis, ej
+origin/coordinacion/cierre-v2:coordinacion/cierre_v2/CONTROL.json:384:      "siguiente_accion": "El coordinador revisa la respuesta a E1 (23718fb/f00c5dd), solo E-R1…E-R9. Preservación duradera ya 
+origin/coordinacion/cierre-v2:coordinacion/cierre_v2/CONTROL.json:1020:      "hecho": "U1 hecho: Release fuentes-elis-e-20261117 creada por flujo con GITHUB_TOKEN (ejecución 44054890531, éxito); 11/
+== la entrega sigue llamando PROVISIONAL a los 11 PDF (desfase no imputable al autor):
+FUENTES_Y_BUSQUEDA.csv PUNTO_DE_RECUPERACION.md LECTURA_FUENTES.jsonl ENTREGA.json RESUMEN_PARA_INTEGRADOR.md scripts/publicar_extractos.py scripts/lectura_bloque2.py scripts/descargar_fuentes_elis.py extractos/factsheet2026_p1.txt extractos/fy2025_presentacion_en_p25.txt extractos/urd2025_p215.txt extractos/cgmbrochure2026_p4.txt extractos/cgmbrochure2026_p60.txt extractos/urd2025_p313.txt extractos/fy2025_comunicado_en_p4.txt extractos/urd2025_p311.txt extractos/q3_2026_revenue_p1.txt extractos/q1_2025_revenue_p1.txt extractos/fy2024_presentacion_en_p5.txt extractos/fy2025_comunicado_en_p7.txt extractos/urd2025_p217.txt extractos/h1_2026_comunicado_en_p6.txt extractos/urd2025_p137.txt extractos/urd2025_p306.txt extractos/urd2025_p349.txt extractos/fy2025_comunicado_en_p6.txt extractos/fy2024_comunicado_en_p7.txt extractos/fy2025_presentacion_en_p29.txt extractos/urd2025_p327.txt extractos/urd2025_p312.txt extractos/urd2025_p309.txt extractos/urd2025_p350.txt extractos/cgmbrochure2026_p15.txt extractos/q3_2026_revenue_p3.txt extractos/urd2025_p141.txt extractos/urd2025_p341.txt extractos/q3_2026_revenue_p2.txt extractos/fy2025_comunicado_en_p2.txt extractos/fy2025_presentacion_en_p12.txt extractos/fy2025_comunicado_en_p11.txt fuentes_descargadas/INDICE_DESCARGAS.csv HALLAZGOS_ELIS.md CHECKPOINT_RELEVO.md RESPUESTA_REVISION_E1.md 

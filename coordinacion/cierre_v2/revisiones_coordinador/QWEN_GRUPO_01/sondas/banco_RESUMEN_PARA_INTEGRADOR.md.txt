@@ -1,0 +1,87 @@
+$ git show 4745f38:resultados_qwen/q1_v2/banco_revisado/RESUMEN_PARA_INTEGRADOR.md | cat -n
+     1	# RESUMEN PARA INTEGRADOR - Banco Q1 v2 revisado (Munger V2)
+     2	
+     3	Esta copia incorpora cambios del integrador sobre la entrega original de
+     4	Qwen, que se conserva por separado. No atribuir esos cambios ni su ejecución
+     5	a la sesión de Qwen. La salida real está en resultado_comprobacion.json.
+     6	
+     7	## Alcance
+     8	36 casos sinteticos (6 familias x 6; 2 positivos y 4 conflictos/carencias por
+     9	familia) para probar despues la entrada por instrucciones y el recorrido de
+    10	usuario. No es auditoria financiera, no modifica el producto, no ejecuta
+    11	versiones no recibidas. No repite frentes Vidrala/Viscofan, P-M1 ni matematica
+    12	de precio/objetivo. Nombres ficticios, numeros simples.
+    13	
+    14	## Correcciones v2 aplicadas (7/7)
+    15	1. Q1-010 pasa a POSITIVO (equivalencia 1,5M=1500 miles, sin contradiccion
+    16	   inventada); Q1-007 pasa a CONFLICTO con ambiguedad real de escala (tabla sin
+    17	   unidad vs nota en millones) para conservar 2/4 en familia 2.
+    18	2. Q1-018 limitado a inventario 190 vigente vs 210 antiguo; sin agregado de
+    19	   circulante; esperado = impacto de reexpresion 20.
+    20	3. Q1-026/027: operando deuda 300 aportado con fuente sintetica propia
+    21	   (f5_026_nota.txt, f5_027_excel.csv); operandos de los 17 esperados auditados
+    22	   caso a caso (cada caso se ejecuta aislado).
+    23	4. Q1-005: derivado neutro magnitud sintetica D (sin etiqueta EBITDA); conserva
+    24	   origen pendiente.
+    25	5. comprobar_banco.py rechaza operacion que ignora operandos, booleanos como
+    26	   numeros y no finitos; AST restringido; 4 controles negativos nuevos (7 tot).
+    27	6. Q1-034: rango 0-200 tratado como acotado/delimitado; falta punto justificado
+    28	   o tratamiento documentado; se impide punto unico apto, no analisis acotado.
+    29	7. Plan/clasificacion: aclaracion de periodo = factual (§2), no politica
+    30	   economica; instruccion embebida nunca justifica marcar sin contraste;
+    31	   conclusion tras conflicto resuelto+documentado+revisado no es fallo.
+    32	
+    33	## Recuentos v2
+    34	- Casos 36 (Q1-001..036); control 12 POSITIVO / 24 CONFLICTO_CARENCIA.
+    35	- Naturaleza: 31 CONTRATO_REFERENCIADO / 3 PROPUESTA_ACEPTACION (019,022,029) /
+    36	  2 DECISION_PENDIENTE (030,035).
+    37	- Esperados numericos: 17, con unidad/operandos/operacion explicitos y
+    38	  operandos presentes en los fixtures del propio caso; el comprobador recalcula.
+    39	- Fixtures: 50 TXT/CSV/JSON; sin XLSX ni macros ni codigo en fuentes.
+    40	- estado_ejecucion_producto: NO_EJECUTADO en los 36.
+    41	- Controles negativos del comprobador revisado: 9.
+    42	
+    43	## Pruebas sobre el banco
+    44	- Qwen declaró no ejecución de su versión. Su declaración y archivos se
+    45	  conservan intactos en recibido/; no se le atribuyen las ejecuciones siguientes.
+    46	- El integrador materializó 50 fixtures y ejecutó comprobar_banco.py con
+    47	  --autocontroles --resultado --generar-manifiesto: código 0, 36 casos,
+    48	  17 esperados y 9 controles negativos detectados. El resultado real y su fecha
+    49	  constan en resultado_comprobacion.json.
+    50	- Una comprobación independiente con fracciones exactas confirmó los 17
+    51	  resultados; las sondas de constante simple, disfrazada y cancelación repetida
+    52	  fueron rechazadas. Evidencia en ../revision/VERIFICACION_INTEGRADOR.json
+    53	  dentro de la entrega publicada.
+    54	- El manifiesto contiene 57 archivos: siete archivos del banco más 50 fixtures.
+    55	  Se excluye el propio manifiesto y se conservan huellas calculadas realmente.
+    56	- Ningún caso se ha ejecutado contra el personaje: NO_EJECUTADO en los 36.
+    57	
+    58	## Limites
+    59	- El integrador añadió el rechazo de constantes disfrazadas y operandos
+    60	  repetidos, una nota N/A sintética examinable y precisiones en 8 casos para
+    61	  evitar falsos fallos (ausencia frente a contradicción, fuente independiente,
+    62	  período documentado y política temporal/motor). Ver la revisión externa.
+    63	- Los fixtures representan escenarios; preparar las precondiciones mediante
+    64	  las vías soportadas del producto. ADAPTACION_PENDIENTE no es fallo del producto.
+    65	- Sin leer la implementacion no se afirma cumplimiento ni que falten
+    66	  exactamente estas pruebas; el banco es propuesta, no diagnostico.
+    67	- Politicas no fijadas van como DECISION_PENDIENTE/PROPUESTA, nunca obligacion
+    68	  inventada. Aclaraciones factuales (§2) se distinguen de politicas economicas.
+    69	- No se inventan campos/estados internos; criterios remiten a matriz §4,
+    70	  artefactos y registros de aprobacion cuando se expongan; si no, NO_OBSERVABLE.
+    71	- Modelo de sesion: Qwen; version/configuracion no expuestas, no inventadas.
+    72	  Sin firma humana. SHA-256 del requisito fuente: no verificado en esta sesion.
+    73	
+    74	## Siguientes pasos
+    75	1. Comprobar el manifiesto y reproducir los controles estructurales; la copia
+    76	   revisada ya dio código 0 en el entorno del integrador.
+    77	2. Fijar version y ejecutar los 36 casos segun PLAN_DE_EJECUCION.md recogiendo
+    78	   artefactos y registros, no solo texto.
+    79	3. Clasificar veredictos; aplicar distinciones de §3 del plan (factual vs
+    80	   politica; embebido; conflicto resuelto).
+    81	4. Escalar las 2 decisiones pendientes al responsable de politica.
+    82	5. Solo entonces valorar cobertura, pendientes e impacto en plazo.
+    83	
+    84	Estado: banco de aceptación propuesto, estructuralmente comprobado y revisado
+    85	en el alcance documentado; pendiente de adaptar, ejecutar y revisar sobre el
+    86	producto. NO acredita aptitud para decisiones con dinero real.

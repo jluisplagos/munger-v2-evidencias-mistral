@@ -1,0 +1,14 @@
+# Encargo completo · M2 C · corregir comparación de D7 y cerrar alcance
+
+Continúa en tu sesión Mistral Code, modelo Mistral Large disponible, rama `mistral/m2-matematica-b`. Entrega revisada: `fe46f0761cb0590a280907b42e4605f6d3fec845`. La revisión externa ya reprodujo el oráculo, 56 casos, las diez propiedades, sensibilidad y cobertura. No se encarga otra auditoría general ni rediseñar la regla.
+
+Lee de `revision/chatgpt-m2-20261116` los archivos `revision_externa/m2/REVISION_CHATGPT_M2.md` y `SONDA_C_D7_CAJA.json`, sin fusionar la rama: `git fetch origin revision/chatgpt-m2-20261116`; `git show origin/revision/chatgpt-m2-20261116:ruta`.
+
+1. **C1:** D7 especifica «Viscofan (Caja)». Tu comparación activa NIIF16 **+1,5477811279 €** no refuta el cambio Caja **+1,5386459068 €**. Retira la afirmación de discrepancia no reproducible de 0,0092 €; el problema es de identificación de la comparación, no del oráculo.
+2. Añade el caso 4.13 **`perimetro_alternativo` (Caja)** de `personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_13/viscofan/Viscofan/configuracion_v64_variantes.json`, con huella y procedencia. Vector: `[30.6406803941772, 44.8547080140724, 59.2982622162535]`. Contrástalo con el Caja 4.12 ya conservado: `[30.6924526872033, 44.8547080140724, 59.9959132127419]`.
+3. Recalcula la tabla 2×2 Caja con probabilidades 4.12 `[0.25,0.60,0.15]` y referencia `[0.20,0.60,0.20]`, k=3. Debes contrastar desde las fuentes, no copiar los esperados: 39,2877008705; 40,9481993309; 39,1920496243; 40,8263467773 €. Total +1,5386459068 €; efecto de probabilidades +1,6604984604 o +1,6342971529 € según orden. Mantén aparte la tabla NIIF16 correcta y etiqueta cada comparación por fecha, perímetro, variante, V y p.
+4. Añade una comprobación que detecte comparaciones documentales cruzadas de perímetro. No renombres una diferencia entre preguntas distintas como discrepancia de datos. Actualiza casos, resultados afectados, CSV, dossier, hallazgos, resumen, comandos y recuentos si aumenta el universo; no mantengas 56 artificialmente.
+5. Matiza el hallazgo sobre `p_estrella` interna: la vía pública `calcular` rechaza las probabilidades inválidas ensayadas. Documenta precondiciones; no declares un fallo material de producción sin una vía pública reproducible. No modificar el producto ni ampliar esta corrección a sus guardas.
+6. Responde C1 en `RESPUESTA_REVISION_EXTERNA.md`; actualiza manifiesto, recuperación y commit/push. Entrega resultado de las comprobaciones afectadas y límites. Deja D1/D7/D11 como políticas pendientes; no adoptes k ni probabilidades, no uses precios históricos como objetivos vigentes.
+
+Escritura solo en `resultados_m2/matematica_b/` del auxiliar. No tocar `main`, el producto original, A/B, M1, decisiones, libros o sellos. Sin LibreOffice, pipeline, macros ni autoaprobación. Esta es una corrección acotada: finalizar y esperar la comprobación del integrador sobre lo cambiado, sin nuevos ciclos por iniciativa propia.

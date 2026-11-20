@@ -1,0 +1,11 @@
+(ejecutado el 17-nov-2026 sobre la copia /tmp/claude-0/revision_f1impl/munger_v2_r1/personaje_v2; los archivos se restauraron y se comprobó con cmp que son idénticos a los de la rama)
+R1 gancho del pipeline desactivado (return False al entrar) → 103/103 pruebas del motor A F1 (4.15) PASAN  · NO DETECTADA
+R2 el gancho trata el código 4 como «sigue» → 103/103 pruebas del motor A F1 (4.15) PASAN  · NO DETECTADA
+R3 A0 con C49 = 0 y ROU vacía se admite → 102/103 · detectada (G · V-F1b extensión)
+R4 F1-REGISTRO desactivada → 102/103 · detectada
+R5 compras proporcionales sin cargo en el año 11 → 102/103 · detectada (T15 · P2d)
+R6 V-F1c sin la transición en R_propia → 103/103 pruebas del motor A F1 (4.15) PASAN  · NO DETECTADA
+R7 K3 no clasifica la ROU de A0 como doble cómputo → 101/103 · detectada
+R8 el CLI devuelve 0 con un bloqueo de falta de datos → 101/103 · detectada
+R9 ancla E4 sin restar X^v → 103/103 pruebas del motor A F1 (4.15) PASAN  · NO DETECTADA
+R10 N1 no toca el EBIT del año base (m0) → 101/103 · detectada

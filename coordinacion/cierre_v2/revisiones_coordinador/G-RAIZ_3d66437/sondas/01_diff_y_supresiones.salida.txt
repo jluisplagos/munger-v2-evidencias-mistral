@@ -1,0 +1,37 @@
+3d66437e797b6b0bf137b42fa62b561f39121722
+ CLAUDE.md                  | 10 +++++-----
+ README.md                  |  8 ++++----
+ docs/MIGRATION_STATUS.json | 10 ++++++----
+ 3 files changed, 15 insertions(+), 13 deletions(-)
+== líneas suprimidas (-) y añadidas (+)
++++ b/CLAUDE.md
+-Esta es la rama de revisión intermedia 4.15 hito 1. El código contiene las correcciones técnicas de ese hito, sin cierre económico ni aprobación final. Leer docs/revision_externa_4_15_hito1/ y el encargo correctivo vigente. Mantener en main la base histórica 4.14. No sobrescribir el trabajo en curso de la sesión de Claude.
++Esta es la candidata de integración del programa de cierre: rama `integracion/candidata-cierre-v2`, entrega 4.15 · hito 2 (commit 957af65; `munger_v2_r1/VERSION`). El código contiene las correcciones técnicas de los hitos 1 y 2, sin cierre económico ni aprobación final. Leer docs/revision_externa_4_15_hito1/, el registro del hito 2 (`munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/hito2/HITO_2_4_15.md`) y el encargo correctivo vigente. Mantener en main la base histórica 4.14. No sobrescribir el trabajo en curso de ninguna sesión de Claude.
+-La versión de referencia es 4.14, experimental supervisada; no apta para dinero real.
+-La revisión externa parcial encontró:
++La base histórica de referencia es la 4.14 (main); esta candidata es la 4.15 · hito 2. Las dos son experimentales supervisadas; no aptas para dinero real.
++La revisión externa parcial de la 4.14 encontró (situación en esta candidata: 1–6 corregidos en los hitos 1 y 2 de la 4.15, con el límite H9 del relevo caducado todavía abierto; 7, F1, sigue abierto y pendiente de decisiones):
+-Los contraejemplos y la revisión externa están en docs/. Los 119 tests repetidos no cubren los tres huecos nuevos.
++Los contraejemplos y la revisión externa están en docs/. Los 119 tests repetidos de la 4.14 no cubrían los tres huecos nuevos; desde la 4.15 los cubre `test_verificacion_entradas_415.py` (190 pruebas en el hito 2).
+-No interrumpir el encargo que ya corre en otra sesión de Claude. Las correcciones aún en curso no se han importado. Esperar su entrega final y conservarla; después importar como nueva versión sobre una copia completa, nunca sobrescribirla con la base histórica.
++No interrumpir los encargos que corran en otras sesiones de Claude. La entrega del hito 2 de la 4.15 ya está importada en esta candidata (957af65). Las entregas posteriores se conservan y se importan igual: como nueva versión sobre una copia completa, nunca sobrescribiéndolas con la base histórica.
++++ b/README.md
+-# Rama de revisión: 4.15, hito 1
++# Candidata de integración: 4.15, hito 2
+-Entrega intermedia recibida de Claude, con una revisión externa en curso. No fusionada con main. El hito no contiene el cierre económico F1 ni los expedientes regenerados. Hay un contraejemplo nuevo del control de signos; consultar docs/revision_externa_4_15_hito1/.
++Rama `integracion/candidata-cierre-v2`, creada desde 957af65 (entrega 4.15 · hito 2, corrección técnica tras la revisión externa del hito 1; `munger_v2_r1/VERSION`). No fusionada con main. No contiene el cierre económico F1 ni los expedientes regenerados. La revisión externa del hito 1 está en docs/revision_externa_4_15_hito1/ y el registro del hito 2 en `munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_Vidrala_ensayo_4_15/hito2/HITO_2_4_15.md`.
+-El trabajo actual de Claude continúa aparte. Esta rama conserva exactamente el código recibido, sin incorporar correcciones propias al producto.
++Esta rama conserva el código recibido del hito 2. Solo se incorporan en ella archivos revisados por un contexto distinto del autor, con su origen, revisión y destino registrados en el control del programa de cierre (`jluisplagos/munger-v2-evidencias-mistral`, rama `coordinacion/cierre-v2`).
+-Las correcciones que Claude está preparando no están incorporadas todavía. Su trabajo debe continuar sin interrupción. La 4.14 mantiene su condición experimental supervisada y las incidencias documentadas en la revisión externa. Esta migración comprueba conservación de bytes, no aptitud financiera.
++Las correcciones de los hitos 1 y 2 de la 4.15 están en la candidata; main conserva la 4.14 sin cambios. El trabajo en otras sesiones debe continuar sin interrupción. La 4.14 mantiene su condición experimental supervisada y las incidencias documentadas en la revisión externa. Esta migración comprueba conservación de bytes, no aptitud financiera.
++++ b/docs/MIGRATION_STATUS.json
+-  "note": "Base histórica completa, comprobada y recuperable desde el ZIP original. Correcciones actuales de Claude todavía no importadas.",
++  "note": "Base histórica completa, comprobada y recuperable desde el ZIP original. La entrega 4.15 · hito 2 de Claude está importada en la candidata integracion/candidata-cierre-v2 (957af65), con manifiesto propio; main conserva la 4.14.",
+-  "next_action": "Esperar a que Claude termine y conservar su nueva entrega; incorporarla en otra rama con su propio manifiesto.",
+-  "ongoing_claude_work": "Continuar sin interrupción. Importar su entrega final como una versión posterior con manifiesto propio.",
++  "next_action": "Integrar en la candidata solo archivos revisados por un contexto distinto, con origen, revisión y destino registrados en el control del programa de cierre; no fusionar main.",
++  "ongoing_claude_work": "Continuar sin interrupción. Cada entrega posterior se importa como versión nueva con manifiesto propio.",
+-  "release_published": true
++  "release_published": true,
++  "candidate_branch": "integracion/candidata-cierre-v2",
++  "candidate_base_commit": "957af652cdc3bef3d67e8623c9572138bac685e9"

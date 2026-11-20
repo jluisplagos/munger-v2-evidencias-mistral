@@ -1,0 +1,38 @@
+$ git fetch origin automatizacion/claude-api-piloto-registro automatizacion/coordinacion-api-v1 revision/qwen-q1-v2 preparacion/qwen-q1-aceptacion
+From https://github.com/jluisplagos/munger-v2-evidencias-mistral
+ * branch            automatizacion/claude-api-piloto-registro -> FETCH_HEAD
+ * branch            automatizacion/coordinacion-api-v1 -> FETCH_HEAD
+ * branch            revision/qwen-q1-v2 -> FETCH_HEAD
+ * branch            preparacion/qwen-q1-aceptacion -> FETCH_HEAD
+$ git cat-file -t 4745f38
+commit
+$ git rev-parse (ramas)
+origin/automatizacion/claude-api-piloto-registro 953af02c43a36b090fff5f4df3c754e1a4ad59ee
+origin/automatizacion/coordinacion-api-v1 267ad18d0460c0db84db422a9c06821824bf3b54
+origin/revision/qwen-q1-v2 4745f3887f7fd86bb3052f5d5e32285862df18e3
+origin/preparacion/qwen-q1-aceptacion 96d21d5e7f4726a310f924530a76d7f63027fdb9
+$ git log --oneline -3 origin/revision/qwen-q1-v2
+4745f38 Revisar banco Qwen Q1 v2, corregir criterios y comprobar 36 casos sintéticos
+96d21d5 Preparar encargo local de Qwen para casos de aceptación sin acceso a GitHub
+e137b85 Cargar encargo e insumos de referencia para el frente aislado de Mistral
+$ git merge-base --is-ancestor 4745f38 origin/preparacion/qwen-q1-aceptacion; echo $?
+1
+$ git ls-tree -r --name-only origin/preparacion/qwen-q1-aceptacion | grep -c banco_revisado
+0
+$ git ls-tree -r --name-only 4745f38 | grep -c "^resultados_qwen/q1_v2/banco_revisado/"
+58
+$ git log --format="%h %ad %s" --date=iso origin/automatizacion/claude-api-piloto-registro -- automation/coordination/reviews/qwen-bank-group-01/ automation/coordination/reviews/qwen-peer-group-01/
+953af02 2026-11-17 12:31:53 +0000 Piloto Claude API: reservation.json
+54c25e6 2026-11-17 12:31:52 +0000 Piloto Claude API: report.md
+052cc65 2026-11-17 12:31:51 +0000 Piloto Claude API: report.json
+9f68ab7 2026-11-17 12:31:49 +0000 Piloto Claude API: sources.json
+02c75bb 2026-11-17 12:30:57 +0000 Piloto Claude API: reservation.json
+e5caa02 2026-11-17 13:28:24 +0100 Conservar revision Mistral de seis casos con una cita remaquetada verificada, sin nueva inferencia
+c898af7 2026-11-17 13:28:18 +0100 Conservar revision Mistral de seis casos con una cita remaquetada verificada, sin nueva inferencia
+f3c4145 2026-11-17 12:22:30 +0000 Piloto Claude API: reservation.json
+7537598 2026-11-17 12:22:29 +0000 Piloto Claude API: report.md
+5b9fd69 2026-11-17 12:22:27 +0000 Piloto Claude API: report.json
+2847ce8 2026-11-17 12:22:26 +0000 Piloto Claude API: sources.json
+d29d7c6 2026-11-17 12:19:18 +0000 Piloto Claude API: reservation.json
+$ git log --format="%h %s" -1 origin/automatizacion/coordinacion-api-v1 -- automation/coordination/QWEN_CONTRASTE.md
+a508d6b Contrastar entrega Mistral de seis casos con Claude API y registrar normalizacion de cita sin reinferencia

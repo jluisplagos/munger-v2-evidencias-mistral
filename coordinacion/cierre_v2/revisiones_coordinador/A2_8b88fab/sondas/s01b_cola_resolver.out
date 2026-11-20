@@ -1,0 +1,74 @@
+## python3 -E -s -B cola_pendientes.py
+{
+ "fuentes_pendientes": 183,
+ "derivados_pendientes": 26,
+ "grupos": 89,
+ "top5": [
+  {
+   "g": "Viscofan/texto/CA_2023_es.txt p.4",
+   "n": 6,
+   "prio": 650,
+   "celdas": [
+    "aux:CA2023_p4_bai_2022",
+    "aux:CA2023_p4_impuesto_2022",
+    "Historia!I5",
+    "Historia!I6",
+    "Historia!I7",
+    "Historia!I9"
+   ]
+  },
+  {
+   "g": "Viscofan/texto/CA_2023_es.txt p.8",
+   "n": 6,
+   "prio": 639,
+   "celdas": [
+    "aux:CA2023_p8_var_acreedores_2022",
+    "aux:CA2023_p8_var_deudores_2022",
+    "aux:CA2023_p8_var_existencias_2022",
+    "Historia!I12",
+    "Historia!I15",
+    "Historia!I8"
+   
+exit=0
+## python3 -E -s -B resolver_bloque2.py
+{
+ "grupos": 89,
+ "fuentes": 183,
+ "derivados": 26,
+ "clasificaciones": {
+  "OTRO": 68,
+  "NO_TABULAR": 98,
+  "SIN_ORIGINAL": 26,
+  "NO_MAPEABLE_1a1": 13,
+  "NO_LOCALIZADA": 8,
+  "CONTINUACION": 1
+ }
+}
+
+exit=0
+## control_cobertura exit=0 {"PASS": true, "violaciones": [], "recuentos": {"total": 677
+IGUAL  resultados/cola_pendientes.json
+IGUAL  resultados/resoluciones_bloque2.json
+IGUAL  resultados/control_cobertura.json
+IGUAL  resultados/lotes/lote_L00.json
+IGUAL  resultados/lotes/lote_L01.json
+IGUAL  resultados/lotes/lote_L02.json
+IGUAL  resultados/lotes/lote_L03.json
+IGUAL  resultados/lotes/lote_L04.json
+IGUAL  resultados/lotes/lote_L05.json
+IGUAL  resultados/lotes/lote_L06.json
+IGUAL  resultados/lotes/lote_L07.json
+IGUAL  resultados/lotes/lote_L08.json
+IGUAL  resultados/lotes/lote_L09.json
+IGUAL  resultados/lotes/lote_L10.json
+IGUAL  resultados/lotes/lote_L11.json
+IGUAL  resultados/lotes/lote_L12.json
+IGUAL  resultados/lotes/lote_L13.json
+IGUAL  resultados/lotes/lote_L14.json
+IGUAL  resultados/lotes/lote_L15.json
+IGUAL  resultados/lotes/lote_L16.json
+IGUAL  resultados/lotes/lote_L17.json
+IGUAL  resultados/lotes/lote_L18.json
+IGUAL  resultados/lotes/lote_L19.json
+IGUAL  resultados/lotes/lote_L20.json
+IGUAL  resultados/lotes/lote_L21.json

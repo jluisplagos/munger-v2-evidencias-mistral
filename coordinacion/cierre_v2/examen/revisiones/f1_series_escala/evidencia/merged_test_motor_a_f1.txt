@@ -1,0 +1,168 @@
+PASA  · T5 · solo arrendamientos: FCF verdadero 68; A1 y A2 dan 68; A0 da 58 · A0 58.0 · A1 68.0 · A2 68.0
+PASA  · T6 · con PPA 5 sin reposición: A2 = 68, A1 = 63, A0 = 53 · A0 53.0 · A1 63.0 · A2 68.0
+PASA  · T7 · sin NIIF 16 ni PPA: A0 = A1 = A2 = la V6.3 (f del libro) y A0 admisible: ninguna guarda bloquea; utilizable · bloquean: []
+PASA  · G · W3 · ROU y C49 positivos: V-F1a bloquea (MODELO NO APLICABLE)
+PASA  · G · W3 · los dos a cero: A0 admisible (ni V-F1a ni V-F1m)
+PASA  · G · W3 · solo ROU positiva: V-F1m (FUERA DEL DOMINIO), no V-F1a
+PASA  · G · W3 · solo C49 positivo: V-F1m, no V-F1a
+PASA  · G · V-F1a sin umbral: bloquea con cualquier importe (ROU 0,001 en un año)
+PASA  · G · umbral de V-F1a declarado: no se aplica (F1-PARAM bloquea) y V-F1a sigue bloqueando
+PASA  · G · V-F1b: C49 > 0 y D&A ROU vacía en un año de la ventana → INCOMPLETO
+PASA  · G · V-F1b no salta con la ROU declarada en la ventana
+PASA  · G · V-F1b (extensión declarada): A0 con C49 = 0 y ROU vacía no se admite (vacío ≠ 0)
+PASA  · G · V-F1e: D&A ROU > D&A total → DATOS INVÁLIDOS
+PASA  · G · V-F1e: signo −1 con el tratamiento «ninguno» (R415-SIGNO, T9)
+PASA  · G · V-F1e / T9: magnitud positiva publicada como «(10)» sin signo coherente (signo −1 sobre +10 da −10) → rechazada
+PASA  · G · V-F1e no salta con invariantes y signos correctos
+PASA  · G · F1-2i: A1 con PPA > 0 trata la PPA como reposición, contra (2)(i) → bloquea
+PASA  · G · F1-2i no salta con A2 ni con A1 y PPA = 0
+PASA  · G · V-F1h: A2 con PPA decreciente → no admisible
+PASA  · G · V-F1h: margen después de arrendamientos → no admisible (N4)
+PASA  · G · V-F1h no salta con A2 y PPA constante
+PASA  · G · V-F1g: palancas S2C en A0 con perímetro A2 → bloquea
+PASA  · G · V-F1g: palancas sin perímetro declarado → bloquea; V-F1k también (ROIC ≠ palancas)
+PASA  · G · V-F1k: ROIC en otro perímetro que las palancas → bloquea
+PASA  · G · V-F1g y V-F1k no saltan con un solo perímetro
+PASA  · G · V-F1k numérico (cae 6 puntos): aviso sí, nunca bloquea
+PASA  · G · V-F1k numérico (sube 6 puntos): aviso sí, nunca bloquea
+PASA  · G · V-F1k numérico (frontera +0,05): aviso no, nunca bloquea
+PASA  · G · V-F1k numérico (frontera −0,05): aviso no, nunca bloquea
+PASA  · G · V-F1k numérico (justo encima): aviso sí, nunca bloquea
+PASA  · G · V-F1k numérico (Elis MALO): aviso no, nunca bloquea
+PASA  · G · V-F1j: compras pendientes (opción A de 4b) → INCOMPLETO
+PASA  · G · V-F1j: «sin_compras» con adquisiciones en la Historia → DATOS INVÁLIDOS
+PASA  · G · V-F1j: compras de reposición como término y también en el ancla (sin declarar que el ancla las excluye) → bloquea
+PASA  · G · V-F1j no salta con compras de reposición como término fuera del ancla
+PASA  · G · V-F1j no salta con la hipótesis «crecimiento» registrada y su fundamento
+PASA  · G · V-F1i: transición conocida sin tratamiento (pendiente) → INCOMPLETO; nunca cero por defecto
+PASA  · G · V-F1i: sin declarar si hay transición → bloquea
+PASA  · G · V-F1i: término explícito con H = 11 > 10 → bloquea (W1: no implementado)
+PASA  · G · V-F1i: término explícito y también en el ancla → bloquea
+PASA  · G · V-F1i: transición temporal en R → bloquea (se cobraría de más después del plan, P1a)
+PASA  · G · V-F1i no salta: término explícito H = 5 con importes, finalidad y fuera del ancla
+PASA  · G · V-F1i no salta sin transición conocida
+PASA  · G · V-F1d: A3 sin estimación → INCOMPLETO
+PASA  · G · V-F1d: A3 sin fuente, método, rango ni responsable → INCOMPLETO
+PASA  · G · V-F1d: R que incluye el gasto comercial (P2f) → bloquea
+PASA  · G · V-F1d no salta con una estimación documentada
+PASA  · G · V-F1c no salta con R = 20 + 9 (compras de cartera), capex propio 20 y compras 14
+PASA  · G · V-F1c salta con R_propia 25 frente a capex propio 20; sin justificación BLOQUEA
+PASA  · G · V-F1c con justificación: AVISO, no bloquea
+PASA  · G · V-F1c salta con R_compras 9 frente a compras 5
+PASA  · G · V-F1f informa con A2 y PPA > 0 (no bloquea)
+PASA  · G · V-F1f no informa con A0
+PASA  · G · V-F1l no salta con un ajuste N1 completo (fuente, regla fiscal, caja, BAI y gasto); F1-PARAM sí (alcance de N1 sin decidir: no se elige por omisión, H9)
+PASA  · G · V-F1l: regla N2 (pendiente) → bloquea
+PASA  · G · V-F1l: deducir el diagnóstico de partidas puntuales → bloquea
+PASA  · G · V-F1l: ajuste sin ubicación de su caja → bloquea
+PASA  · G · V-F1l: N1 con tipo fijo (no es la regla aprobada) → bloquea
+PASA  · G · F1-PARAM: ajuste N1 en un ejercicio del τ fuera de la ventana → alcance sin decidir: variantes calculadas y bloquea
+PASA  · G · F1-NORMA: norma sin declarar → bloquea
+PASA  · G · F1-NORMA: NIIF declarada y el libro dice US GAAP → DATOS INVÁLIDOS
+PASA  · G · F1-NORMA no salta con NIIF y libro IFRS
+PASA  · G · F1-REGISTRO: perímetro sin persona → bloquea (las decisiones no las rellena el agente)
+PASA  · G · F1-REGISTRO no salta con los registros completos
+PASA  · G · F1-REPLICA: el libro no coincide con la réplica (C58 alterada) → fallo de implementación
+PASA  · G · F1-REPLICA no salta con el libro conforme
+PASA  · G · F1-LIBRO: perímetro A2 en un libro V6.3 (que calcula A0) → límite declarado, bloquea
+PASA  · G · F1-LIBRO no salta con A0 sin normalizar
+PASA  · G · T10: una declaración no puede tocar las entradas registradas (clave desconocida → bloquea)
+PASA  · K3 · T6: el puente cuadra en todos los perímetros
+PASA  · K3 · T6 A0: señala 10 de doble cómputo del arrendamiento y 5 de PPA como reposición no monetaria
+PASA  · K3 · T6 A2: flujo sin crecimiento = FCF base (68) y ninguna partida sin explicar
+PASA  · K3 · T6 A1: solo la PPA queda sin explicar (5)
+PASA  · T4 · f·ventas medias = NOPAT medio − reinversión media − FCF base en todos los perímetros
+PASA  · T11 · motor B: F1 no aplica (sin guardas, sin bloqueo)
+PASA  · T15 · arrendamiento una vez con crecimiento en la ventana: A2 (= A1 sin PPA) da la caja sostenible a crecimiento cero · 110.144303 frente a 110.144303
+PASA  · T15 · A0 con crecimiento: cobra de más la ROU del año base (P4d) también a crecimiento cero
+PASA  · T15 · ancla E4 con el perímetro: S2C de A2 = ΔV ÷ inversión de crecimiento propia = 2,0 · 2.0
+PASA  · T15 · P1b: el término explícito cobra 7 en los años 1–5 y nada en los años 6–10 ni en el año 11 · [-7.0, -7.0, -7.0, -7.0, -7.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+PASA  · T15 · P2d: compras de reposición proporcionales: X_t = a·V_t en los años 1–10 y a·V₁₁ en el año 11
+PASA  · T15 · P2b: compras de reposición en R (A3): f sube en R_compras ÷ ventas medias frente a R = 20
+PASA  · T15 · P2g: PPA como proporción constante (A2) → flujo sin crecimiento = caja (68)
+PASA  · T15 · P4f: sin términos explícitos, la capa F1 es el motor A del libro (réplica conforme en el caso sintético)
+PASA  · AH · pagos 1.944 frente a FCF base 2.192: A2 reproduce la caja sostenible; A0 la infravalora en ROU + PPA (1.500, el 68 % del FCF) · FCF 2192.0 · A0 692.0 · A1 2142.0 · A2 2192.0
+PASA  · AH · con A0 bloquean V-F1a y F1-2i; K3 señala 1.450 de doble cómputo y 50 de PPA
+PASA  · AH · con A2 y todo declarado solo bloquea F1-LIBRO (el libro V6.3 calcula A0): límite declarado, no un resultado silencioso
+PASA  · US · US GAAP ya no bloquea por F1-NORMA como límite: sin el desglose de arrendamientos bloquea por falta de datos (F1-US-DESGLOSE, pendiente_de_datos)
+PASA  · US · con el desglose declarado hay regla: US1 → A2 excluye de D_X la amortización operativa (68; con A0, 58 y F1-US-DA); US2 → además se retira del circulante la variación del pasivo (68; sin retirarla A2 daría 78) y, como ningún libro la retira, F1-LIBRO bloquea · US1 A2 68.0 · US1 A0 58.0 · US2 A2 68.0 · US2 A2 sin retirar 78.0
+PASA  · ELIS · libro d2593777: réplica conforme (33 flujos) y E9 T1, T2, T3 y T3b(a) a 10⁻¹² en f y 10⁻⁹ en flujos y C53
+PASA  · ELIS · K3: el puente cuadra en A0, A1, A2 y la cota B, con τ de proyección distinto del de la ventana (−7,965), y F1-K3 no salta
+PASA  · ELIS · A1 frente a A0: +139,4 en la base 2025 (139,381721)
+PASA  · ELIS · el libro tal cual (A0) dispara V-F1a y el resultado no se usa para una conclusión
+PASA  · ELIS · T16: N1 (−48,9 / +8,7 / −0,2) sin efecto fiscal: τ 0,2619/0,2806/0,2559, τ5 0,28234, f 0,044900433, flujo 236,891 (−11,605), año 11 NORMAL −18,609 · f 0.044900432751701 · flujo 236.890936177
+PASA  · ELIS · T16: la variación de N1 es la misma en A0, A1 y A2 (perímetro A1 con N1 frente a A1 sin N1)
+PASA  · ELIS · T16 control negativo: deducir el diagnóstico 27,936 no es N1 y dispara V-F1l
+PASA  · ELIS · con N1 en A0, F1-LIBRO bloquea (el libro no normaliza) y F1-PARAM también (alcance sin decidir, H9)
+PASA  · ELIS · T2 control negativo: el año 11 de A1 se aparta del de A0 en V₁₀(1+g)(f_A0 − f_A1) = 205,4 (NORMAL) · 205.363
+PASA  · CLI · A2 con todo declarado (F1-LIBRO): código 4 y resultado .json/.md escritos · código 4 · DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-LIBRO
+PASA  · CLI · compras pendientes (V-F1j): código 3 y resultado .json/.md escritos · código 3 · DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a, F1-LIBRO, V-F1j
+PASA  · CLI · declaración ilegible: código 2, no evalúa nada (falla en cerrado)
+PASA  · CLI · sin declaración: todo sin declarar → bloquea con falta de datos (código 3)
+PASA  · REV · H4: A1 con ROU > 0 y C49 = 0 → F1-M-SIM (fuera del dominio); el flujo A1 omitiría el alquiler (78 frente a la caja 68) · A1 68.0 · A0 58.0
+PASA  · REV · H4: no salta con A1 y C49 > 0
+PASA  · REV · H11: C49 vacío → F1-C49 bloquea (vacío ≠ 0)
+PASA  · REV · H11: ROU declarada a cero con principal en la fila 17 → F1-ROU-HISTORIA (DATOS INVÁLIDOS)
+PASA  · REV · H11: sin conflicto cuando las filas 17 y 23 están a cero (T7)
+PASA  · REV · H3: A0 sin arrendamientos con una transición como término explícito → F1-LIBRO (el libro no la cobra)
+PASA  · REV · H3: A0 con compras de reposición proporcionales como término → F1-LIBRO
+PASA  · REV · H3: un flujo del Motor distinto del de la capa en A0 → F1-REPLICA y F1-LIBRO (comparación numérica)
+PASA  · REV · H3: A0 sin términos ni diferencias con el Motor → F1-LIBRO no salta (T7 sigue utilizable)
+PASA  · REV · K3a: el interés de arrendamientos en C48 sin declarar → la caja base por dos vías no cuadra (componente C48, −2)
+PASA  · REV · K3a: con la partida declarada y su fuente → conforme
+PASA  · REV · K3a: C49 con los pagos enteros y C48 con el interés (alquiler restado dos veces en el FCF base) → componente C49 sin explicar, bloquea · {'C70': 56.0, 'media_fila_35': 60.0, 'diferencia': -4.0, 'componentes': {'C46': 0.0, 'C47': 0.0, 'C48': -2.0, 'C49': -2.0, 'C50': 0.0, 'C70': 0.0}, 'explicado': {'C48': -2.0}, 'residuo': -2.0}
+PASA  · REV · K3a (S10): FCF base que resta el alquiler dos veces (56 frente a la fila 35, 68): bloquea con DATOS INVÁLIDOS; el puente sigue cuadrando · {'C70': 56.0, 'media_fila_35': 68.0, 'diferencia': -12.0, 'componentes': {'C46': 0.0, 'C47': 0.0, 'C48': -2.0, 'C49': 0.0, 'C50': 0.0, 'C70': 0.0}, 'explicado': {'C48': -2.0}, 'residuo': -10.0}
+PASA  · REV · K3b: A0 con arrendamientos → alquiler contado dos veces (bloquea)
+PASA  · REV · K3b: A1 con C49 = 0 → ninguna vez (bloquea)
+PASA  · REV · K3b: A2 con C49 > 0 → una vez; sin arrendamientos → ninguna vez (sin arrendamientos); ninguno bloquea
+PASA  · REV · K3c: A0 con reinversión media negativa (−15) y ventas estables → bloquea sin justificación
+PASA  · REV · K3c: con justificación declarada → AVISO, no bloquea
+PASA  · REV · K3c: A2 (reinversión 0) no salta
+PASA  · REV · ELIS K3a: C70 307,933 frente a la fila 35 323,000; −15,067 = −25,067 (C48) + 10,0 (C47): conforme con las dos partidas declaradas · {"C70": 307.933, "media_fila_35": 323.0, "diferencia": -15.067, "componentes": {"C46": -0.000333, "C47": 9.999667, "C48": -25.066667, "C49": 0.0, "C50": 0.000333, "C70": 0.0}, "explicado": {"C48": -25.067, "C47": 10.0}, "residuo": 0.0}
+PASA  · REV · ELIS K3a sin declarar las partidas → bloquea
+PASA  · REV · ELIS K3b y K3c: el libro tal cual (A0) cuenta el alquiler dos veces y su reinversión media es −81,2: bloquean
+PASA  · REV · H7/R6: V-F1c salta con R_propia 18 + transición 7 frente a capex propio 20 (la transición está dentro del capex)
+PASA  · REV · H7/R9: ancla de S2C con X^v fuera del denominador (V2g): ΔV ÷ (Σ inversión de crecimiento − Σ a·V) · 3.215434083601 frente a 3.215434083601284
+PASA  · REV · H2: F1 se exige sin libro (falla en cerrado), con arrendamientos en el libro aunque no haya archivos, con entrada_efectiva.json o con el modo en alcance_v2.json · (True, True, True, True)
+PASA  · REV · H2: no se exige en un libro sin arrendamientos de un expediente anterior, ni en la línea de base sintética (exención explícita y registrada) · línea de base sintética v2.2 (empresa inventada; sin declaración F1 ni entrada efectiva de la 4.15)
+PASA  · REV · H2: los cierres históricos del motor A están exentos por la huella de su cierre_vigente.json (registro esquema/motor_a_f1_exenciones.json)
+PASA  · REV · H2: un cierre nuevo (otra huella) no queda exento
+PASA  · REV · H1: sin evaluación F1, el cierre de un «concluido» del motor A se rechaza
+PASA  · REV · H1: con una evaluación F1 vigente y utilizable, el cierre no tiene objeción F1 · código 0 · None
+PASA  · REV · H6: la declaración y el resultado F1 están en el material auditado; cambiar la declaración cambia el material
+PASA  · REV · H1/H6: declaración cambiada tras la evaluación → no vigente → el cierre se rechaza
+PASA  · REV · H1/H6: libro evaluado cambiado tras la evaluación → no vigente → el cierre se rechaza
+PASA  · REV · H1: con F1 bloqueando (F1-LIBRO), un cierre «concluido» se rechaza
+PASA  · REV · H1: con F1 bloqueando, un cierre «pendiente_de_datos» sí se admite (Elis)
+PASA  · REV · H1: motivo_rechazo_cierre llama a la comprobación F1
+[paso 7] motor A · F1: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-LIBRO
+PASA  · REV · H7: el gancho termina el análisis con un bloqueo de límite (código 4) → no_entregable · limite_del_modelo · [('no_entregable', 'limite_del_modelo', 7)]
+[paso 7] motor A · F1: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-LIBRO, V-F1j
+PASA  · REV · H7: el gancho termina con falta de datos (código 3) → pendiente_de_datos · [('pendiente_de_datos', 'falta_de_datos', 7)]
+[paso 7] motor A · F1: motor A utilizable para una conclusión según F1 (condición necesaria, no suficiente; no apto para dinero real)
+PASA  · REV · H7: con F1 utilizable el gancho deja seguir y registra el resultado
+PASA  · REV · H7: con el motor B el gancho no actúa
+PASA  · PIPE · el pipeline evalúa F1 en el paso 7, en el paso 12 (tras verificar el libro) y comprueba su vigencia en el paso 13 antes de fijar el material
+PASA  · REV2 · H12: sin la carpeta del expediente las fuentes de las series no se examinan → F1-SERIES bloquea (INCOMPLETO)
+PASA  · REV2 · H12 / T9: la cifra publicada «(0,5)» declarada como 0 → F1-SERIES DATOS INVÁLIDOS
+PASA  · REV2 · H12 / T9: «(10)» declarado como +10 con signo 1 → F1-SERIES (el signo publicado no se cambia en valor_fuente)
+PASA  · REV2 · H12: página inexistente (7) → DATOS INVÁLIDOS; fuente ausente → INCOMPLETO; cifra que no está en la página → DATOS INVÁLIDOS · [('DATOS INVÁLIDOS', 'series.da_rou.2023: la página 7 no existe en el texto de la fuente (páginas 1–2, 2 marcas)')] | [('INCOMPLETO', "series.da_rou.2016: la fuente 'no_existe.txt' de 'sintético' no existe en el expediente; s")] | [('DATOS INVÁLIDOS', "series.da_rou.2023: la cifra '(3)' no está, como cifra completa, en la página 1 de 'sintét")]
+PASA  · REV2 · H12: si otra guarda ya bloquea, F1-SERIES avisa y no cambia el estado propuesto
+PASA  · REV2 · H12: literales con coma o punto decimal, paréntesis, menos y miles
+PASA  · REV2 · H10: compras con importes de los años 1–10 sin el del año 11 → V-F1j (vacío no es cero)
+PASA  · REV2 · H10: un importe no numérico («nueve») → V-F1j
+PASA  · REV2 · H10: ancla que excluye los términos sin importes históricos H–L → V-F1j
+PASA  · REV2 · H10: completos → V-F1j no salta; el año 11 cobra su importe declarado (10), no 0 (los términos siguen bloqueados por F1-LIBRO) · año 11 96.504456852521 frente a 106.504456852521
+PASA  · REV2 · H10: con importes por año, el ancla excluye X^v = Σ importes históricos H–L (5 × 2 = 10 menos en el denominador) · ancla 2.0 → 2.126653634987
+PASA  · REV2 · H10: transición como término sin importes históricos H–L (el ancla la excluye) → V-F1i
+PASA  · REV2 · H11: «sin transición conocida» sin registro → F1-REGISTRO
+PASA  · V631-2 · cifras completas en su fila y en la columna de su ejercicio, fuente del expediente con su huella → F1-SERIES no salta (2 columnas comprobadas) · D&A de derechos de uso y PPA: cifra publicada con su signo, como cifra completa, en una página existente de una fuente d
+PASA  · V631-2 · E1: la cifra de 2024 declarada para 2025 (misma página) → DATOS INVÁLIDOS (columna de otro ejercicio) · series.da_rou.2025: la cifra '(132.2)' de la fila 'Right-of-use assets' está en la columna de ['2024'], no en la de 2025
+PASA  · V631-2 · S1/S3: «149.5» (dentro de «(1149.57)» o sin paréntesis) y «8.5» (dentro de «(2008.5)») no son la cifra publicada → DATOS INVÁLIDOS · series.da_rou.2025: la cifra '149.5' no está, como cifra completa, en la página 1 de 'AR2025'
+PASA  · V631-2 · S5: fuente fuera de la carpeta del expediente (otro expediente o el paquete) → DATOS INVÁLIDOS · series.da_rou.2025: la fuente '../ajeno_f1_v631_2_4_qvckox.txt' de 'AR2025' está fuera de la carpeta del expediente
+PASA  · V631-2 · S4: huella declarada distinta de la de la fuente → DATOS INVÁLIDOS
+PASA  · V631-2 · fuente sin huella → INCOMPLETO
+PASA  · V631-2 · S6: «documento» sin fuente registrada → INCOMPLETO; «archivo» de la entrada distinto del registrado para su documento → DATOS INVÁLIDOS
+PASA  · V631-2 · sin «fila»: la columna queda PENDIENTE (no bloquea F1; la aptitud por entradas la bloquea el universo)
+
+163/163 pruebas del motor A F1 (4.15) PASAN

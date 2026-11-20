@@ -1,0 +1,96 @@
+libro real: Control maestro L4 = 'US GAAP' · C49 = 1 · C70 = 1994.001 · fila 17 (2023–2025) = [0, 1, None] · fila 23 (2025) = 248 · perímetro del libro C89 = 'A0_total'
+
+líneas REALES que la fase 1 sumó (fase1_partes), años 2021–2025, tal como las ve la capa:
+   2021 · da                : «depreciation and amortization expense»
+   2021 · circulante_lineas : «accounts receivable»; «inventories»; «other assets»; «accounts payable»; «other liabilities»; «other tax accounts, net»
+   2021 · arrendamientos    : «total operating lease liabilities» [nombra arrendamiento]
+   2022 · da                : «depreciation and amortization expense»
+   2022 · circulante_lineas : «accounts receivable»; «inventories»; «other assets»; «accounts payable»; «other liabilities»; «other tax accounts, net»
+   2022 · arrendamientos    : «total lease liabilities» [nombra arrendamiento]
+   2023 · da                : «total earnings“ 497_$ 491_$»
+   2023 · circulante_lineas : «accounts receivable»; «inventories»; «other assets»; «accounts payable»; «other liabilities»; «other tax accounts, net»
+   2023 · arrendamientos    : «operating lease liabilities current (in other current liabil» [nombra arrendamiento]; «operating lease liabilities noncurrent» [nombra arrendamiento]
+   2024 · da                : «depreciation and amortization expense»
+   2024 · circulante_lineas : «accounts receivable»; «inventories»; «other assets»; «accounts payable»; «other liabilities»; «other tax accounts, net»
+   2024 · arrendamientos    : «operating lease liabilities current (in other current liabil» [nombra arrendamiento]; «operating lease liabilities noncurrent» [nombra arrendamiento]
+   2025 · da                : «depreciation and amortization expense»
+   2025 · circulante_lineas : «accounts receivable»; «inventories»; «other assets»; «accounts payable»; «other liabilities»; «other tax accounts, net»
+   2025 · arrendamientos    : «operating lease liabilities current (in other current liabil» [nombra arrendamiento]; «operating lease liabilities noncurrent» [nombra arrendamiento]
+
+== Z1 · la declaración que sale del 10-K FY2025 (operativos «no_publicada», página 70; financieros con su amortización 1/1/1 dentro de la fila 8 por omisión; principal 2/1/«—»)
+   utilizable: False · estado propuesto: pendiente_de_datos · bloquean: ['F1-K3a', 'F1-LIBRO']
+   rótulo: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a, F1-LIBRO
+   contraste: {'amortizacion_rou': 'hipotesis_D_US1', 'variacion_pasivo': 'hipotesis_D_US1'} · fundamento: hipótesis
+   fase1_partes: informes [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025] · sin examinar: [] · ilegibles: []
+   condicionada: D-US1 · cota: el flujo sin crecimiento podría cambiar entre -64.231 y +63.537 mm (-2.3 % y +2.3 %)
+   flujo sin crecimiento (capa, perímetro declarado): 2795.143568328 · f -0.029978046723145
+   F1-SERIES · inválidas: 1 · incompletas: 0 · columna comprobada: 0 · columna pendiente: 15
+     invalidas: series.pagos_arr_financiero_principal.2023: la cifra '—' no está, como cifra completa, en la página 89 de 'Zoetis · Form 10-K FY2025'
+   F1-US-PUENTE · INFORMA · INFORMA · la fila 23 lleva 248.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en el capital invertido y en el ROIC histórico del libro (filas 32–33) y en Historia C64. Deuda coherente de un puente (motor B): 9049.0
+   F1-US-BASE · INFORMA · INFORMA · arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); coste lineal medio 61.000, pagos medios 61.667: coste − pagos = -0.667 de media en la ventana (-0.694 a la escala del año base)
+   F1-US-HIPOTESIS · AVISO · AVISO · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14. CONCLUSIÓN CONDICIONADA. Cota: si la variación del pasi
+   F1-K3a · BLOQUEA · DATOS INVÁLIDOS · caja base por dos vías: faltan Análisis C46–C52 o las filas 11, 12, 16, 17 o 18 de la ventana: no se puede descomponer la diferencia; diferencia total sin explicar: -0.665667
+   F1-LIBRO · BLOQUEA · MODELO NO APLICABLE · el libro V6.3.1 F1 no calcula lo declarado (A2_propio; N1 y los términos explícitos no están en el libro): perímetro efectivo del libro (Historia C89) 'A0_total' ≠ declarado 'A2_propio'; D&A de derechos de uso 2023: libro (Historia J86) None ≠ declaración 1.0; D&A de derechos de uso 2024: libro (His
+
+== Z2 · la misma, con la amortización del derecho de uso financiero declarada «fuera_de_la_fila_8» (cita de la nota, página 89)
+   utilizable: False · estado propuesto: pendiente_de_datos · bloquean: ['F1-K3a', 'F1-LIBRO']
+   rótulo: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a, F1-LIBRO
+   contraste: {'amortizacion_rou': 'hipotesis_D_US1', 'variacion_pasivo': 'hipotesis_D_US1', 'amortizacion_rou_financiero': 'sin_contrastar'} · fundamento: hipótesis y declarado
+   fase1_partes: informes [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025] · sin examinar: [] · ilegibles: []
+   condicionada: D-US1 + F1-US-FILAS · cota: el flujo sin crecimiento podría cambiar entre -64.231 y +64.579 mm (-2.3 % y +2.3 %)
+   flujo sin crecimiento (capa, perímetro declarado): 2794.101979594 · f -0.029868023618293
+   F1-SERIES · inválidas: 1 · incompletas: 0 · columna comprobada: 0 · columna pendiente: 15
+     invalidas: series.pagos_arr_financiero_principal.2023: la cifra '—' no está, como cifra completa, en la página 89 de 'Zoetis · Form 10-K FY2025'
+   F1-US-FILAS · AVISO · AVISO · ubicaciones declaradas SIN CONTRASTAR con una línea del expediente: la amortización del derecho de uso de los arrendamientos financieros (fuera de la fila 8): la cita no es una línea del estado de flujos que usó la fase 1. La conclusión queda CONDICIONADA, con su cota (F1-US-HIPOTESIS)
+   F1-US-PUENTE · INFORMA · INFORMA · la fila 23 lleva 248.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en el capital invertido y en el ROIC histórico del libro (filas 32–33) y en Historia C64. Deuda coherente de un puente (motor B): 9049.0
+   F1-US-BASE · INFORMA · INFORMA · arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); coste lineal medio 61.000, pagos medios 61.667: coste − pagos = -0.667 de media en la ventana (-0.694 a la escala del año base)
+   F1-US-HIPOTESIS · AVISO · AVISO · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14 · ubicación declarada sin contrastar con una línea (no e
+   F1-K3a · BLOQUEA · DATOS INVÁLIDOS · caja base por dos vías: faltan Análisis C46–C52 o las filas 11, 12, 16, 17 o 18 de la ventana: no se puede descomponer la diferencia; diferencia total sin explicar: -0.665667
+   F1-LIBRO · BLOQUEA · MODELO NO APLICABLE · el libro V6.3.1 F1 no calcula lo declarado (A2_propio; N1 y los términos explícitos no están en el libro): perímetro efectivo del libro (Historia C89) 'A0_total' ≠ declarado 'A2_propio'; D&A de derechos de uso 2016: libro (Historia C86) None ≠ declaración 0.0; D&A de derechos de uso 2017: libro (His
+
+== Z3 · el principal de 2023 (impreso «—») declarado con literal «0»
+   utilizable: False · estado propuesto: pendiente_de_datos · bloquean: ['F1-K3a', 'F1-LIBRO']
+   rótulo: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a, F1-LIBRO
+   contraste: {'amortizacion_rou': 'hipotesis_D_US1', 'variacion_pasivo': 'hipotesis_D_US1'} · fundamento: hipótesis
+   fase1_partes: informes [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025] · sin examinar: [] · ilegibles: []
+   condicionada: D-US1 · cota: el flujo sin crecimiento podría cambiar entre -64.231 y +63.537 mm (-2.3 % y +2.3 %)
+   flujo sin crecimiento (capa, perímetro declarado): 2795.143568328 · f -0.029978046723145
+   F1-SERIES · inválidas: 1 · incompletas: 0 · columna comprobada: 0 · columna pendiente: 15
+     invalidas: series.pagos_arr_financiero_principal.2023: la cifra '0' no está, como cifra completa, en la página 89 de 'Zoetis · Form 10-K FY2025'
+   F1-US-PUENTE · INFORMA · INFORMA · la fila 23 lleva 248.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en el capital invertido y en el ROIC histórico del libro (filas 32–33) y en Historia C64. Deuda coherente de un puente (motor B): 9049.0
+   F1-US-BASE · INFORMA · INFORMA · arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); coste lineal medio 61.000, pagos medios 61.667: coste − pagos = -0.667 de media en la ventana (-0.694 a la escala del año base)
+   F1-US-HIPOTESIS · AVISO · AVISO · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14. CONCLUSIÓN CONDICIONADA. Cota: si la variación del pasi
+   F1-K3a · BLOQUEA · DATOS INVÁLIDOS · caja base por dos vías: faltan Análisis C46–C52 o las filas 11, 12, 16, 17 o 18 de la ventana: no se puede descomponer la diferencia; diferencia total sin explicar: -0.665667
+   F1-LIBRO · BLOQUEA · MODELO NO APLICABLE · el libro V6.3.1 F1 no calcula lo declarado (A2_propio; N1 y los términos explícitos no están en el libro): perímetro efectivo del libro (Historia C89) 'A0_total' ≠ declarado 'A2_propio'; D&A de derechos de uso 2023: libro (Historia J86) None ≠ declaración 1.0; D&A de derechos de uso 2024: libro (His
+
+== Z4 · «no_publicada» citando por error la página de la nota (89)
+   utilizable: False · estado propuesto: pendiente_de_datos · bloquean: ['F1-K3a', 'F1-LIBRO']
+   rótulo: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a, F1-LIBRO
+   contraste: {'amortizacion_rou': 'hipotesis_D_US1', 'variacion_pasivo': 'hipotesis_D_US1'} · fundamento: hipótesis
+   fase1_partes: informes [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025] · sin examinar: [] · ilegibles: []
+   condicionada: D-US1 · cota: el flujo sin crecimiento podría cambiar entre -64.231 y +63.537 mm (-2.3 % y +2.3 %)
+   flujo sin crecimiento (capa, perímetro declarado): 2795.143568328 · f -0.029978046723145
+   F1-SERIES · inválidas: 1 · incompletas: 2 · columna comprobada: 0 · columna pendiente: 15
+     invalidas: series.pagos_arr_financiero_principal.2023: la cifra '—' no está, como cifra completa, en la página 89 de 'Zoetis · Form 10-K FY2025'
+     incompletas: arrendamientos_us_gaap.operativos.amortizacion_rou: «no_publicada», pero la página 89 de 'Zoetis · Form 10-K FY2025' no es la del estado de flujos que usó la fase 1 (no lleva sus líneas de explotación): se examina la página del estado de fl
+     incompletas: arrendamientos_us_gaap.operativos.variacion_pasivo: «no_publicada», pero la página 89 de 'Zoetis · Form 10-K FY2025' no es la del estado de flujos que usó la fase 1 (no lleva sus líneas de explotación): se examina la página del estado de fl
+   F1-US-PUENTE · INFORMA · INFORMA · la fila 23 lleva 248.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en el capital invertido y en el ROIC histórico del libro (filas 32–33) y en Historia C64. Deuda coherente de un puente (motor B): 9049.0
+   F1-US-BASE · INFORMA · INFORMA · arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); coste lineal medio 61.000, pagos medios 61.667: coste − pagos = -0.667 de media en la ventana (-0.694 a la escala del año base)
+   F1-US-HIPOTESIS · AVISO · AVISO · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14. CONCLUSIÓN CONDICIONADA. Cota: si la variación del pasi
+   F1-K3a · BLOQUEA · DATOS INVÁLIDOS · caja base por dos vías: faltan Análisis C46–C52 o las filas 11, 12, 16, 17 o 18 de la ventana: no se puede descomponer la diferencia; diferencia total sin explicar: -0.665667
+   F1-LIBRO · BLOQUEA · MODELO NO APLICABLE · el libro V6.3.1 F1 no calcula lo declarado (A2_propio; N1 y los términos explícitos no están en el libro): perímetro efectivo del libro (Historia C89) 'A0_total' ≠ declarado 'A2_propio'; D&A de derechos de uso 2023: libro (Historia J86) None ≠ declaración 1.0; D&A de derechos de uso 2024: libro (His
+
+== Z5 · como Z1 con la fila 17 de 2025 = 2 (la nota), que la fase 1 real dejó vacía
+   utilizable: False · estado propuesto: pendiente_de_datos · bloquean: ['F1-K3a', 'F1-LIBRO']
+   rótulo: DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a, F1-LIBRO
+   contraste: {'amortizacion_rou': 'hipotesis_D_US1', 'variacion_pasivo': 'hipotesis_D_US1'} · fundamento: hipótesis
+   fase1_partes: informes [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025] · sin examinar: [] · ilegibles: []
+   condicionada: D-US1 · cota: el flujo sin crecimiento podría cambiar entre -64.231 y +63.537 mm (-2.3 % y +2.3 %)
+   flujo sin crecimiento (capa, perímetro declarado): 2795.143568328 · f -0.029978046723145
+   F1-SERIES · inválidas: 1 · incompletas: 0 · columna comprobada: 0 · columna pendiente: 15
+     invalidas: series.pagos_arr_financiero_principal.2023: la cifra '—' no está, como cifra completa, en la página 89 de 'Zoetis · Form 10-K FY2025'
+   F1-US-PUENTE · INFORMA · INFORMA · la fila 23 lleva 248.0 de pasivo por arrendamiento operativo. El motor A no resta deuda, así que no afecta a su valor; sí entra en el capital invertido y en el ROIC histórico del libro (filas 32–33) y en Historia C64. Deuda coherente de un puente (motor B): 9049.0
+   F1-US-BASE · INFORMA · INFORMA · arrendamientos operativos: la proyección cuenta los PAGOS (D-US2); coste lineal medio 61.000, pagos medios 61.667: coste − pagos = -0.667 de media en la ventana (-0.694 a la escala del año base)
+   F1-US-HIPOTESIS · AVISO · AVISO · hipótesis D-US1 (no es un dato): la empresa no publica en qué líneas del flujo van la amortización del derecho de uso ni la variación del pasivo del arrendamiento operativo; se suponen dentro del flujo de explotación, fuera de las filas 8 y 14. CONCLUSIÓN CONDICIONADA. Cota: si la variación del pasi
+   F1-K3a · BLOQUEA · DATOS INVÁLIDOS · caja base por dos vías: la diferencia total -0.665667 no es la suma de sus componentes +0.001000: la fila 35 no es CFO − capex − intereses − principal − SBC de las filas de la Historia; diferencia total sin explicar: -0.665667
+   F1-LIBRO · BLOQUEA · MODELO NO APLICABLE · el libro V6.3.1 F1 no calcula lo declarado (A2_propio; N1 y los términos explícitos no están en el libro): perímetro efectivo del libro (Historia C89) 'A0_total' ≠ declarado 'A2_propio'; D&A de derechos de uso 2023: libro (Historia J86) None ≠ declaración 1.0; D&A de derechos de uso 2024: libro (His

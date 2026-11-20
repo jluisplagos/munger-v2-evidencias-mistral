@@ -1,0 +1,47 @@
+PASA  · resumen · secuencia · publicación configurada: código 0, fila concluido / APROBADO en el CSV personalizado y destino registrado (ruta resuelta respecto a la configuración) · ['79w3y/c01/cfg/cartera/resumen_global.csv']
+PASA  · resumen · secuencia · informe.py directo sin --config: código 3; inmediatamente después, el CSV personalizado y el predeterminado ya no presentan la aprobación; fila ajena intacta; historiales con la fila anterior · pers ['SIN APROBACIÓN VIGENTE · cierr'] · hist 1 · hist pred 1→2
+PASA  · resumen · secuencia · relanzamiento configurado: código 4; el CSV personalizado sigue sin aprobación y sin historial duplicado · código 4
+PASA  · resumen · repetición estable: más invalidaciones no duplican filas ni historiales
+PASA  · resumen · registro de destinos: todas las publicaciones de la empresa quedan como «retirada» · ['retirada', 'retirada']
+PASA  · resumen · copia del expediente invalidada: retira su propio resumen y no toca las filas que publicó el original (registro ligado al expediente)
+PASA  · resumen · ruta absoluta · invalidación por el pipeline configurado: código 4; ficha, informe y fila personalizada retirados
+PASA  · resumen · ficha.py directo sin --config: código 3 y retirada en el CSV personalizado registrado
+PASA  · resumen · resumen.py directo con otro destino: código 3; retirada también en el CSV personalizado registrado; el destino nuevo no recibe una aprobación
+PASA  · resumen · resumen.py con destino explícito y material intacto: código 0, fila aprobada y destino registrado con el material
+PASA  · resumen · …y una invalidación posterior lo retira en ese destino explícito
+PASA  · resumen · destino inaccesible: código 5 (error operativo), retirada pendiente registrada con su error; ficha, informe y cierre ya archivados · IsADirectoryError: [Errno 21] Is a directory: '/tmp/claude-0/revision_hoja_r2/tm
+PASA  · resumen · con la retirada pendiente, el pipeline se detiene con código 5 y no declara nada completado
+PASA  · resumen · al recuperar el acceso, el reintento retira la fila (ficha, informe y cierre ya archivados), sin duplicar historial, y el rechazo sigue (código 4) · código 4 · retirada
+PASA  · resumen · material intacto: generadores y pipeline configurado con código 0; la fila personalizada conserva concluido / APROBADO; sin historial · 0 0 0
+PASA  · resumen · material modificado: el pipeline prepara material provisional (confirmado = false) y espera una auditoría nueva; fila personalizada retirada
+PASA  · resumen · auditoría nueva válida: cierre del material nuevo y fila personalizada concluido / APROBADO registrada con ese material; historial conservado · código 0
+PASA  · resumen · carpeta del destino ausente: código 5 y retirada pendiente (no «retirada»); al volver la carpeta, el relanzamiento retira la fila (código 4) · 5 retirada_pendiente 4
+PASA  · resumen · CSV ausente en carpeta accesible: queda «sin_archivo»; si reaparece con la aprobación, la siguiente llamada (resumen.py sin ficha) la retira · 3 sin_archivo 3
+PASA  · resumen · expediente trasladado o renombrado: sus publicaciones se adoptan y la invalidación directa retira la fila del CSV personalizado · código 3
+PASA  · resumen · resumen.py con las salidas archivadas: código 5 mientras la retirada está pendiente; al recuperar el acceso la completa (código 3) sin publicar · 5 3
+PASA  · resumen · registro ilegible: código 5 con el motivo y el registro se conserva sin tocar · código 5
+PASA  · resumen · registro borrado: se recupera del respaldo y la invalidación directa retira la fila del CSV personalizado · código 3
+PASA  · resumen · copia de todo el árbol con el original vivo: la invalidación directa de la copia retira la fila de SU CSV configurado y no toca las del original · código 3
+PASA  · resumen · expediente renombrado con otro expediente en la ruta antigua: el renombrado adopta sus publicaciones y retira la fila del CSV configurado · código 3
+PASA  · resumen · traslado de todo el árbol: la invalidación retira en los destinos trasladados (código 3, no 5) y el relanzamiento sigue con el rechazo (código 4) · 3 4
+PASA  · resumen · registro ilegible: código 5 y, aun así, se retiran el resumen predeterminado y los destinos del respaldo legible · código 5
+PASA  · resumen · destino que no volverá: código 5 hasta que la persona responsable lo descarta (descartado_por y fecha_descarte); después, el rechazo normal (código 4) · 5 4 4
+PASA  · resumen · expediente trasladado a un árbol con un CSV equivalente ajeno: se retira el CSV realmente publicado y el ajeno no se toca · código 3
+PASA  · resumen · aprobación sin registrar en el resumen predeterminado: la invalidación por el pipeline configurado la retira por sí sola (código 4) · 4
+PASA  · resumen · …y resumen.py sin ficha no la reaviva (código 3) · 3
+PASA  · resumen · fila aprobada del predeterminado que no corresponde a una ficha cerrada de este expediente: no se retira (no es su publicación) · 4
+PASA  · resumen · descarte incompleto (falta descartado_por): sigue como retirada pendiente y el pipeline termina con código 5 · código 5
+PASA  · resumen · W-1: resumen.py con ficha invalidada hacia otro destino retira en esa misma llamada la aprobación sin registrar del predeterminado: las dos filas, los dos historiales, las salidas archivadas, el estado del pipeline y el registro (con el material de la ficha archivada) comprobados de inmediato; el reintento no cambia nada · 3 3 · hist 1→2 · retirada
+PASA  · resumen · W-1: con el otro destino también aprobado, la misma llamada retira las dos filas, con los dos historiales, las salidas archivadas y el estado del pipeline; fila ajena conservada; el reintento no duplica nada · 3 3
+PASA  · resumen · W-1 (ficha.py): al sustituir una ficha cerrada, la misma llamada retira la fila de la anterior en el resumen predeterminado sin registrar, aunque el de la llamada sea el configurado; las llamadas siguientes no publican ni duplican el historial · 0 3 3
+PASA  · resumen · W-a: fila del predeterminado reescrita por una hoja de cálculo (87.90, 65.6880873204157, 11/03/26): la ruta de W-1 la retira en la misma llamada · código 3
+PASA  · resumen · W-a: ficha.json editada tras el cierre (precio 99,9) en un expediente sin fichas archivadas: la ruta de W-1 retira la fila publicada del predeterminado · código 3
+PASA  · resumen · W-a: resumen.py sin ficha retira la aprobación del destino recibido aunque la fila esté reescrita; fila ajena conservada · código 3
+PASA  · resumen · W-a: con la fila reescrita, la invalidación por el pipeline configurado la retira por sí sola (código 4) · código 4
+PASA  · resumen · W-a: la fila sin registrar de la ficha vigente, reescrita por una hoja de cálculo, se conserva (resumen.py hacia otro destino, informe.py y pipeline con código 0) · 0 0 0
+PASA  · resumen · W-b: con el registro ilegible, la ruta de W-1 termina con código 5 y retira igualmente la aprobación sin registrar del predeterminado; el registro no se toca · código 5
+PASA  · resumen · W-f: la fila aprobada que reaparece en un destino ya registrado como «retirada» se vuelve a retirar (resumen.py sin ficha, código 3) · True True 3
+PASA  · resumen · W-e: la sustitución dentro del pipeline termina con código 4 (no «concluido»), sin salidas oficiales, con el estado sin aprobación y los dos archivos registrados; filas retiradas; el relanzamiento sigue rechazado y no publica · 4 4 · dirs 1→3 · 3
+PASA  · resumen · estado temprano sin auditoría (pendiente_de_datos) con resumen configurado: se publica como antes y no se registra como aprobación
+
+45/45 pruebas de aceptación del resumen PASAN

@@ -1,0 +1,114 @@
+A. BASE SIN AJUSTES [CSV]
+  ventas medias 4559.966667; V0 4796.8; k = V0/ventas medias 1.051937514
+  FCF base con la convención de registro: 307.933  (C46 1429.433, C47 857.167, C48 108.0, C49 128.1, C50 28.233)
+  tipos fila 10, 2021–25: [0.331, 0.2823, 0.2963, 0.2754, 0.256]; τ de 5 años 0.2882
+  NOPAT medio 416.799047; m0 0.131337558
+  A0: reinversión media -81.2; f 0.041681455274; flujo sin crecimiento 248.496395343
+  A1: reinversión media 51.3; f 0.012624225323; flujo sin crecimiento 387.878115969
+  A2: reinversión media 136.766667; f -0.006118601744; flujo sin crecimiento 477.783708846
+  [LIBRO] 89 comparaciones con celdas del libro coinciden (Historia 2021–25, C52, C53, C58, C70, C75, C76, palancas y 33 flujos del Motor)
+
+B. ESCENARIOS DE LA PROPUESTA, RECALCULADOS [CSV]
+  N1a · earnout 2023, tipo fijo
+      τ 2023/24/25 [0.2963, 0.2754, 0.256]  τ proy. 0.2882  m0 0.131338  f 0.044196893  F0 236.43
+      ΔF0 -12.066  (f -12.066 / m0 0.0 / τ 0.0)  Δ año 11 M/N/B [-14.423, -17.778, -19.381]  igual en A1 y A2: True
+  N1a · earnout 2023, no deducible
+      τ 2023/24/25 [0.2619, 0.2754, 0.256]  τ proy. 0.28132  m0 0.131338  f 0.045569131  F0 234.182
+      ΔF0 -14.314  (f -18.648 / m0 0.0 / τ 4.334)  Δ año 11 M/N/B [-18.741, -22.614, -24.288]  igual en A1 y A2: True
+  N1 · earnout 2023–25, tipo fijo
+      τ 2023/24/25 [0.2963, 0.2754, 0.256]  τ proy. 0.2882  m0 0.131379  f 0.043746946  F0 238.731
+      ΔF0 -9.765  (f -9.908 / m0 0.142 / τ 0.0)  Δ año 11 M/N/B [-11.843, -14.598, -15.914]  igual en A1 y A2: True
+  N1 · earnout 2023–25, no deducibles
+      τ 2023/24/25 [0.2619, 0.2806, 0.2559]  τ proy. 0.28234  m0 0.131379  f 0.044900433  F0 236.891
+      ΔF0 -11.605  (f -15.441 / m0 0.144 / τ 3.692)  Δ año 11 M/N/B [-15.433, -18.609, -19.976]  igual en A1 y A2: True
+  N2 · bajas 2025, tipo fijo
+      τ 2023/24/25 [0.2963, 0.2754, 0.256]  τ proy. 0.2882  m0 0.12598  f 0.040283726  F0 236.908
+      ΔF0 -11.589  (f 6.705 / m0 -18.293 / τ 0.0)  Δ año 11 M/N/B [8.015, 9.879, 10.769]  igual en A1 y A2: True
+  N2 · bajas 2025, gravadas al tipo teórico
+      τ 2023/24/25 [0.2963, 0.2754, 0.2559]  τ proy. 0.28818  m0 0.12598  f 0.040288143  F0 236.899
+      ΔF0 -11.598  (f 6.683 / m0 -18.294 / τ 0.013)  Δ año 11 M/N/B [8.0, 9.861, 10.752]  igual en A1 y A2: True
+  N2 · bajas 2025, no gravadas
+      τ 2023/24/25 [0.2963, 0.2754, 0.2701]  τ proy. 0.29102  m0 0.12598  f 0.039660868  F0 238.191
+      ΔF0 -10.305  (f 9.692 / m0 -18.221 / τ -1.777)  Δ año 11 M/N/B [10.131, 12.288, 13.246]  igual en A1 y A2: True
+  N2s · bajas 2023–25, tipo fijo
+      τ 2023/24/25 [0.2963, 0.2754, 0.256]  τ proy. 0.2882  m0 0.12598  f 0.040424907  F0 236.231
+      ΔF0 -12.266  (f 6.027 / m0 -18.293 / τ 0.0)  Δ año 11 M/N/B [7.205, 8.881, 9.681]  igual en A1 y A2: True
+  N1 + N2 · earnout no deducible; bajas 2025 con tipo fijo
+      τ 2023/24/25 [0.2619, 0.2806, 0.256]  τ proy. 0.28236  m0 0.126022  f 0.043498096  F0 225.162
+      ΔF0 -23.335  (f -8.714 / m0 -18.3 / τ 3.679)  Δ año 11 M/N/B [-7.403, -8.712, -9.188]  igual en A1 y A2: True
+  N1 + N2 · earnout no deducible; bajas 2025 gravadas al tipo teórico
+      τ 2023/24/25 [0.2619, 0.2806, 0.2558]  τ proy. 0.28232  m0 0.126022  f 0.043506934  F0 225.143
+      ΔF0 -23.353  (f -8.756 / m0 -18.301 / τ 3.704)  Δ año 11 M/N/B [-7.433, -8.746, -9.223]  igual en A1 y A2: True
+  N1 + N2 · earnout no deducible; bajas 2025 no gravadas
+      τ 2023/24/25 [0.2619, 0.2806, 0.27]  τ proy. 0.28516  m0 0.126022  f 0.042879452  F0 226.437
+      ΔF0 -22.06  (f -5.747 / m0 -18.228 / τ 1.915)  Δ año 11 M/N/B [-5.3, -6.318, -6.727]  igual en A1 y A2: True
+  Contraejemplo · nota 4.6 entera, tipo fijo
+      τ 2023/24/25 [0.2963, 0.2754, 0.256]  τ proy. 0.2882  m0 0.131984  f 0.046322771  F0 228.44
+      ΔF0 -20.057  (f -22.263 / m0 2.207 / τ 0.0)  Δ año 11 M/N/B [-26.613, -32.803, -35.76]  igual en A1 y A2: True
+  comparación con `copia_investigacion_f1.json` del autor: 108 valores coinciden en 12 escenarios; el autor tiene 12
+
+C. N1: LA DIFERENCIA ENTRE «NO DEDUCIBLE» Y «TIPO FIJO» ES LA CONVENCIÓN DEL TIPO (E8.1), NO LA FISCALIDAD [CSV]
+  con τ de proyección de 5 años (convención registrada): {'no_deducible': -11.605, 'tipo_fijo': -9.765, 'diferencia': -1.84, 'año11_NORMAL_no_deducible': -18.609, 'año11_NORMAL_tipo_fijo': -14.598}
+  si el τ de proyección fuera la media de la ventana (los mismos tres años que calibran f): {'no_deducible': -9.141, 'tipo_fijo': -9.763, 'diferencia': 0.622, 'año11_NORMAL_no_deducible': -15.848, 'año11_NORMAL_tipo_fijo': -14.598}
+  referencia antes de impuestos: {'EBIT medio de la ventana: variación': 13.467, 'EBIT 2025 − k·EBIT medio: variación (lo único que cambia en caja antes de impuestos)': -13.966}
+
+D. LO QUE LA RESPUESTA DEJA SIN CALCULAR EN N1 [LECTURA: cifras leídas por el revisor, no están en el CSV]
+  2023: ajuste -48.9; actualización 12.4; −25,83 % × (48.9 + 12.4) = -15.834; línea publicada -15.8; cuadra: True
+  2024: ajuste 8.7; actualización 5.6; −25,83 % × (-8.7 + 5.6) = 0.801; línea publicada 0.8; cuadra: True
+  2025: ajuste -0.2; actualización 0.7; −25,83 % × (0.2 + 0.7) = -0.232; línea publicada -0.2; cuadra: True
+  N1 + actualización del earnout fuera del BAI que da el tipo (EBIT como N1)
+      τ 2023/24/25 [0.2544, 0.2772, 0.2556]  τ proy. 0.2801  m0 0.131379  f 0.045359475  F0 236.101
+      ΔF0 -12.396  (f -17.643 / m0 0.144 / τ 5.103)  Δ año 11 M/N/B [-16.91, -20.27, -21.668]  igual en A1 y A2: True
+  N1 + los ajustes de earnout de 2021–22 fuera del BAI de su año (solo cambia el τ de 5 años)
+      τ 2023/24/25 [0.2619, 0.2806, 0.2559]  τ proy. 0.28168  m0 0.131379  f 0.044900433  F0 237.307
+      ΔF0 -11.19  (f -15.441 / m0 0.144 / τ 4.108)  Δ año 11 M/N/B [-15.093, -18.142, -19.433]  igual en A1 y A2: True
+  frente a N1: {'actualizacion · F0': -0.79, 'actualizacion · año 11 NORMAL': -1.661, '2021–22 · F0': 0.416, '2021–22 · año 11 NORMAL': 0.466}
+
+E. DIAGNÓSTICO 27,936 Y SUS TRES DIFERENCIAS CON UNA REGLA [CSV]
+  earnout_y_otros_en_f (línea del EFE × k): 13.675
+  plusvalias_en_f (línea del EFE × k): -4.032
+  plusvalia_2025_en_m0 (25,7 × (1 − τ5)): 18.293
+  suma: 27.936
+  línea del EFE − línea de la nota 4.6, bajas (pérdidas ordinarias): {2023: 3.1, 2024: 5.8, 2025: 2.6}
+  línea del EFE + ajuste de la nota 4.6, earnout (otros no monetarios): {2023: -0.5, 2024: -0.6, 2025: -0.3}
+  monetarios de la nota 4.6: {2023: -16.9, 2024: -22.2, 2025: -28.2}
+  cobros por bajas 2025 frente a plusvalía del EFE 2025: [15.3, 23.1]
+
+F. ARRENDAMIENTOS (1b) [CSV]
+  pagos ÷ ventas: media y 2025 (%): [3.3589, 3.7087]
+  amortización ROU ÷ ventas: media y 2025 (%): [2.9057, 3.1167]
+  pagos: media escalada y 2025: [161.121763, 177.9]
+  amortización ROU: media escalada (lo que devuelve f en A1 y A2) y 2025 (lo que lleva m0): [139.381721, 149.5]
+  F0 con el peso de 2025 en los pagos (A0, A1 y A2): -16.778237
+  F0 con el peso de 2025 también en la amortización ROU que devuelve f (solo A1 y A2): 10.118279
+  F0 con el peso de 2025 en las dos cosas (A1 y A2): -6.659958
+
+G. «PPA CONSTANTE» (2) [CSV]
+  PPA media ÷ ventas medias (%): 1.8743
+  PPA 2025 ÷ ventas 2025 (%): 1.7866
+  PPA que devuelve f sobre las ventas de 2025: 89.906
+  PPA de 2025 en m0: 85.7
+  f devuelve de más (sube el flujo sin crecimiento de A2): 4.206
+  ROU: f devuelve de menos (baja el flujo sin crecimiento de A1 y A2): -10.118
+  los dos efectos de escala juntos en A2: -5.913
+
+H. ROIC DEL TERMINAL Y S2C (4a) [CSV + palancas]
+  MALO: {'ROIC de la palanca': 0.07, 'ROIC que iguala la inversión del año 11 con ΔV/S2C: (1+g∞)·m_obj·(1−τ)·S2C': 0.075486, 'rentabilidad marginal de los años 1–10 según Convenciones §3: m_obj·(1−τ)·S2C': 0.074739, 'inversión del año 11 con el ROIC de la palanca': 61.222, 'con ΔV/S2C': 56.772, 'diferencia': 4.45, 'comprobación: con el ROIC de la propuesta la inversión es ΔV/S2C': True, 'con el de Convenciones §3 la inversión es (1+g∞) veces ΔV/S2C': True, 'salto del año 11 según el libro (puntos): m_obj·(1−τ)·S2C − ROIC': 0.4739, 'salto con la fórmula de la propuesta (puntos)': 0.5486}
+  NORMAL: {'ROIC de la palanca': 0.1, 'ROIC que iguala la inversión del año 11 con ΔV/S2C: (1+g∞)·m_obj·(1−τ)·S2C': 0.108905, 'rentabilidad marginal de los años 1–10 según Convenciones §3: m_obj·(1−τ)·S2C': 0.10677, 'inversión del año 11 con el ROIC de la palanca': 125.767, 'con ΔV/S2C': 115.483, 'diferencia': 10.284, 'comprobación: con el ROIC de la propuesta la inversión es ΔV/S2C': True, 'con el de Convenciones §3 la inversión es (1+g∞) veces ΔV/S2C': True, 'salto del año 11 según el libro (puntos): m_obj·(1−τ)·S2C − ROIC': 0.677, 'salto con la fórmula de la propuesta (puntos)': 0.8905}
+  BUENO: {'ROIC de la palanca': 0.12, 'ROIC que iguala la inversión del año 11 con ΔV/S2C: (1+g∞)·m_obj·(1−τ)·S2C': 0.147743, 'rentabilidad marginal de los años 1–10 según Convenciones §3: m_obj·(1−τ)·S2C': 0.14414, 'inversión del año 11 con el ROIC de la palanca': 154.244, 'con ΔV/S2C': 125.281, 'diferencia': 28.964, 'comprobación: con el ROIC de la propuesta la inversión es ΔV/S2C': True, 'con el de Convenciones §3 la inversión es (1+g∞) veces ΔV/S2C': True, 'salto del año 11 según el libro (puntos): m_obj·(1−τ)·S2C − ROIC': 2.4139, 'salto con la fórmula de la propuesta (puntos)': 2.7743}
+  [LIBRO] Diagnóstico V6, bloque 10 (filas 176–178): {'rentabilidad_marginal_años_1_10 (fila 176)': [0.074739, 0.10677, 0.1441395], 'ROIC_del_terminal (fila 177)': [0.07, 0.1, 0.12], 'salto_en_el_año_11 (fila 178)': [0.00473899999999999, 0.00676999999999998, 0.0241395], 'umbral_del_aviso (fila 179)': {'rotulo': 'Umbral del aviso (puntos; ajustable)', 'valor': 0.05}}
+
+I. COMPRAS DE SOCIEDADES (4b, 3a) [CSV; composición: LECTURA]
+  adquisiciones netas, media 2023–25: 127.667
+  escalada a las ventas de 2025: 134.297
+  en % del FCF base: 41.5
+  capex propio medio: 867.167
+  capex propio + adquisiciones, media: 994.833
+  composicion_por_año: {'2023': {'adquisiciones netas (EFE)': 82.1, 'de ellas, earnouts y pagos aplazados': 34.4, 'de ellos, Lavartex (México, comprada en 2022)': 31.4, 'flujo neto de «otras adquisiciones» (por debajo del umbral de «importantes»)': 35.3}, '2024': {'adquisiciones netas (EFE)': 183.3, 'de ellas, earnouts y pagos aplazados': 93.9, 'de ellos, Lavartex (México, comprada en 2022)': 83.2, 'flujo neto de «otras adquisiciones» (por debajo del umbral de «importantes»)': 22.0}, '2025': {'adquisiciones netas (EFE)': 117.6, 'de ellas, earnouts y pagos aplazados': 23.3, 'de ellos, Lavartex (México, comprada en 2022)': 19.7, 'flujo neto de «otras adquisiciones» (por debajo del umbral de «importantes»)': 37.3}}
+  Lavartex: pagos de 2023–25 (earnout y aplazados): 134.3
+  «otras adquisiciones»: flujo neto medio 2023–25: 31.533
+  en % del FCF base (otras): 10.2
+  crecimiento orgánico publicado 2021–25 (%): {'2021': 7.4, '2022': 21.0, '2023': 11.8, '2024': 5.2, '2025': 3.8}
+  crecimiento externo publicado 2022–25 (%): {'2022': 3.1, '2023': 1.8, '2024': 1.2, '2025': 1.8}
+
+RESUMEN: fallos 0; cifras del CSV usadas 138; libro contrastado: True; comparado con la salida del autor: True

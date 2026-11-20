@@ -1,0 +1,32 @@
+PASA  · 424.927.535 acciones con valor 424,928: defecto (redondeado) · acciones_diluidas de los metadatos (Análisis!C55): valor 424.928 no es la cifra impresa «424.927.535» (unidades) en millones = 424.927535, con todos sus decimales (un número de acciones no se redondea)
+PASA  · 424.927.535 con valor 424,927535: sin defecto
+PASA  · escala_impreso por omisión «unidades»
+PASA  · (C1) «unidad» es la de «valor» («millones de acciones», como Ahold) y no bloquea con «impreso»
+PASA  · (C1) y la escala de «impreso» no se toma de «unidad»: «unidad» «millones» con «impreso» 424.927.535 en unidades
+PASA  · escala «millones» («905» → 905)
+PASA  · escala «miles» («1.500» → 1,5)
+PASA  · cifra en unidades tomada como millones (424.927,535): defecto · acciones_diluidas de los metadatos (Análisis!C55): valor 424927.535 no es la cifra impresa «424.927.535» (unidades) en millones = 424.927535, con todos sus decimales (un número de acciones no se redondea)
+PASA  · (C4) «424.928» en millones: defecto con aviso del separador de miles · acciones_diluidas de los metadatos (Análisis!C55): valor 424.928 no es la cifra impresa «424.928» (millones) en millones = 424928.0, con todos sus decimales (un número de acciones no se redondea); «424.928» se lee como entero con separador de miles: si lleva decimales, escríbalo en unidades como lo imprime la fuente (p. ej. «424.927.535») o con dos decimales como mucho
+PASA  · escala que no es de la lista: defecto · acciones_diluidas de los metadatos: escala_impreso 'docenas' no es una de ['unidades', 'miles', 'millones'] (la escala de la cifra impresa; «unidad» es la de «valor»)
+PASA  · impreso que no es texto: defecto · acciones_diluidas de los metadatos: «impreso» 424927535 tiene que ser la cifra tal como se imprime (texto)
+PASA  · impreso no numérico: defecto · acciones_diluidas de los metadatos: no numérico: '12a'
+PASA  · valor booleano o ausente: defecto
+PASA  · impreso cero o guion: defecto (no es un número positivo de acciones) · acciones_diluidas de los metadatos: «impreso» '-' no es un número positivo de acciones
+PASA  · (C2) dilución: circulación + componentes impresos, cada uno con su escala, suma exacta
+PASA  · (C2) dilución sumada en valor sin declarar sus componentes: defecto · acciones_diluidas de los metadatos (Análisis!C55): valor 426.127535 no es la cifra impresa «424.927.535» (unidades) en millones = 424.927535, con todos sus decimales (un número de acciones no se redondea)
+PASA  · (C2) dilución redondeada: defecto que nombra la dilución · acciones_diluidas de los metadatos (Análisis!C55): valor 426.128 no es la cifra impresa «424.927.535» (unidades) más 1 componentes de dilución en millones = 426.127535, con todos sus decimales (un número de acciones no se redondea)
+PASA  · (C2) componente de dilución mal formado: defecto · acciones_diluidas de los metadatos, dilución 1: no numérico: 'x'
+PASA  · (C2) «dilucion» que no es una lista: defecto · acciones_diluidas de los metadatos: «dilucion» tiene que ser una lista de {impreso, escala_impreso, pagina, concepto}
+PASA  · metadatos sin «impreso» (anteriores a la regla): no bloquean
+PASA  · v63_xml escribe 424.927535 tal cual · 424.927535
+PASA  · el prompt de metadatos pide «impreso», «escala_impreso», «dilucion» y el valor con todos sus decimales
+PASA  · (C3) y la capitalización sin redondear el resultado
+PASA  · zoetis_t1c con «impreso» 424.927.535 y valor 424,928: construir se detiene sin escribir fase1_v63.json · idas incoherentes: acciones_diluidas de los metadatos (Análisis!C55): valor 424.928 no es la cifra impresa «424.927.535» (unidades) en millones = 424.927535, con todos sus decimales (un número de acciones no se redondea)
+PASA  · zoetis_t1c con la cifra exacta: construye y fase1_v63.json lleva C55 = 424,927535 · 424.927535
+PASA  · zoetis_t1c con sus metadatos de hoy (sin «impreso»): construye igual que antes (424,928) · 424.928
+PASA  · (C2) y historia_revision.md avisa de que falta «impreso»
+PASA  · (extra) historia_revision.md avisa del signo de los minoritarios impresos (2) y (6) que la Historia guarda en positivo · (la conversión no cambia; pensiones, posición neta, no se avisa)
+PASA  · (C1) con «unidad» «millones de acciones» e «impreso»: construye, conserva la unidad del valor y lo da por comprobado · fase1_v63.json escrito (10 años, 1 diferencias con el comparativo, 30 ceros pendientes de verificación, 0 confirmados por decisión humana; ver historia_revision.md)
+PASA  · (C3) capitalización de respaldo exacta: 73,08 × 424,927535 = 31.053,7042578 (antes 31.053,7) · 31053.7042578
+
+30/30 comprobaciones PASAN

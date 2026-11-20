@@ -1,0 +1,10 @@
+PASA  · P1 · 4.15 sin declaración F1: el paso 7 termina en pendiente_de_datos con el diagnóstico F1 · código 0 · estado pendiente_de_datos · paso 7 · DIAGNÓSTICO F1 · el resultado del motor A no se usa para una conclusión: F1-K3a, F1-NORMA, F1-PERIMETRO, V-F1b, V-F1g, V-F1h, V-F1i, V-F1j, V-F1k
+PASA  · P1 · la ficha lleva el bloque motor_a_f1 con «no utilizable»
+PASA  · P2 · sin arrendamientos ni PPA y todo declarado: F1 no bloquea y el pipeline pasa de la fase B (gancho en los pasos 7 y 12) · código 0 · estado concluido · paso 14 · bloquean []
+PASA  · P2 · el estado final no es un bloqueo F1 y la ficha lleva motor_a_f1 «utilizable» · estado concluido
+PASA  · P2 · con NIIF la ficha no lleva las claves «condicionada» ni «us_gaap» (ni nulas) y la línea F1 del informe no habla de US GAAP ni de cotas · > **Motor A · F1:** utilizable para una conclusión (condición necesaria, no suficiente); K3: alquiler contado ninguna vez (sin arrendamientos), caja base por dos vías conforme; perímetro declarado: A0_total; flujo sin crecimiento frente a A0 (diagnóstico): A1_
+PASA  · P3 · US GAAP declarada con un libro IFRS (mezcla de normas): el paso 7 termina en pendiente_de_datos con F1-NORMA; nunca un resultado silencioso · estado pendiente_de_datos · motor A · F1 (motor_a_f1_resultado.md): el resultado del motor A no se usa para una conclusión · F1-NORMA DATOS INVÁLIDOS: mezcla de normas: la declaración F1 dice US_GAAP y el libro dice 'IFRS' (Cont
+PASA  · P4 · sin archivos de la 4.15 y con arrendamientos en el libro: F1 se exige y el paso 7 termina en pendiente_de_datos · código 0 · estado pendiente_de_datos · paso 7
+PASA  · P5 · declaración cambiada tras el cierre y «--desde 13»: no hay ficha oficial concluido ni «comprar»; termina por F1 · código 0/0 · estado no_entregable · paso 12 · ficha no_entregable · decisión 
+8/8 pruebas del gancho F1 del pipeline PASAN
+rc=0
