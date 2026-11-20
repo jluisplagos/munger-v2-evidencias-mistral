@@ -54,3 +54,10 @@
 - **API:** cribado completo (117 empresas, ~53 USD). Paquetes vinci, zoetis-t2 y 8 finalistas revisados CONFORME en `automatizacion/paquetes-examen-y-universo` (8e9b5da); falta la frase de la persona para fusionar en main. Elis bloqueado por ceguera (decisión pendiente).
 - **Mistral:** M12 (borrador de evaluación Ahold/Zoetis T1) y M11 (contraste zoetis_t2) en curso; después M8 y M10.
 - **Siguiente (viernes, con cuota renovada):** vinci_b (V6.3.2 F1, C57 3,47 %, registro corregido según `vinci/revision_registro/REVISION.md`) → fases; zoetis_t2 fases; jumbo_g auditoría (C31 pendiente del H1-2025); Elis; evaluación; contradictor final (Fable); veredicto 23-nov.
+
+## 20-nov-2026 (tarde) · punto de reanudación
+- **jumbo_g cerrado:** C31 sellado (apto por entradas 311/313), auditoría APROBADA (SA-864e1eb1613743d8), paso 14 FIN (producto e5030a7). Vigilar · esperar.
+- **Elis (elis_f1):** estado `pendiente_de_datos`, detenido en el paso 7 (producto 8c5ee44). Causa «falta de datos»: la declaración F1 del motor A queda INCOMPLETA (margen objetivo de N1 sin ajustes no declarado; alcance de N1 fuera de la ventana sin decisión; R de V-F1d entre las guardas). Fase A válida (cubo cualitativo Vigilar, sin descalificadores); fase B no ejecutada. Es el desenlace esperado del caso («faltan datos»); no se fuerza la declaración F1 para seguir.
+- **zoetis_t2:** fases A y B hechas; fase C turno 1 en curso.
+- **vinci_b:** montaje con V6.3.2 F1 en curso.
+- **Lanzador API:** ampliación de la salida del análisis directo a 65.536 tokens y plazo de stream de 1.500 s en la rama `automatizacion/analisis-directo-salida-64k` (en preparación; después revisión independiente y frase de la persona para fusionar en main).
