@@ -230,3 +230,129 @@ OK
 
 En `main` fcb18bb: 49, 97, 60 y 44, todas OK. Las nuevas son 12 en `direct_analysis` y 1
 en el cribado.
+
+---
+
+## Verificación de 68f1c91
+
+**Veredicto final: CONFORME.**
+
+Contexto:
+- Commit `68f1c91` sobre `3dfedb7`. Verificado el 20-nov-2026 por el mismo revisor, que
+  no es el autor del cambio.
+- El worktree `/home/user/e_work/wt_salida64k` está en la cabeza remota (`git fetch` y
+  `checkout` de `origin/automatizacion/analisis-directo-salida-64k`) y no tiene cambios
+  locales.
+- Las mutaciones se hicieron en un clon aparte, en el scratchpad.
+- El diff con `origin/main` sigue sin tocar `automation/coordination`,
+  `automation/claude_review` ni otros workflows.
+
+### Las tres correcciones y las recomendaciones
+
+1. **Vinci con `high`: hecho.**
+   - `direct_analysis.py:43-45` y `README.md:116-117` y `:333-338` citan ahora la ejecución
+     44554333055 con esfuerzo `high`.
+   - Ya no queda en el código ni en el README la frase «esfuerzo `max` un análisis de Vinci».
+   - Datos del README comprobados en el registro:
+     - 39 carpetas del análisis directo, ninguna con `max`;
+     - las demás con `high` van de 13 315 a 24 400 tokens de salida.
+2. **Prueba de `main` con 65 536: hecho.**
+   - `test_cli_passes_65536_to_execute` hace pasar `main()` real sin red.
+   - El mutante N1 (quitar `max_output=max_output`) ahora falla.
+3. **Tope de bytes del stream: hecho.**
+   - `STREAM_LIMITS = {32768: 2 000 000, 65536: 4 000 000}` (`direct_analysis.py:60`).
+   - Se fija en `cr.STREAM_LIMIT_BYTES` solo dentro de `configured` (`:753`, `:768`) y se
+     restaura en el `finally`.
+   - `read_stream`/`_lines` lo leen como global en cada lectura
+     (`critical_review.py:135`, `:139`).
+   - Queda registrado en `preflight` (`:797`), `report.json` (`:673`), `report.md` (`:613`)
+     y `budget.stream_limit_bytes` (`:762`).
+   - La prueba con unos 3 MB de SSE válido pasa con 4 MB y da `STREAM_DEMASIADO_GRANDE` con
+     2 MB y fuera de `configured`.
+4. **R1 (cribado):** `screening.py` fija sus propios `STREAM_DEADLINE_SECONDS = 720` y
+   `STREAM_LIMIT_BYTES = 2 000 000` en su `configured`. `PER_CALL_WORST_SECONDS` sale de su
+   constante y vale lo mismo, 900. Hay una prueba con `cr` dejado a propósito en
+   65536/1500/4 MB: el cribado sigue enviando y usando 32768/720/2 MB.
+5. **R2:** `max_usd` vuelve a `'1'`.
+
+### Con 32 768, lo enviado y lo aceptado es idéntico a `main`
+
+- Repetí la comparación con `FakeHTTP` en los mismos tres casos (correcto, salida 40 000 y
+  aborto), con `main` fcb18bb y con 68f1c91.
+- Las llamadas a Anthropic son idénticas, con `max_tokens` 32768, y también las rutas de
+  GitHub.
+- El tope de bytes efectivo es 2 000 000, el mismo de AUTO1. Plazo, `check_usage` y
+  validación no cambian. El caso de 40 000 tokens acaba en el mismo error y el mismo estado
+  de coste.
+- Las diferencias son solo informativas: `stream_deadline_seconds: 720` y
+  `stream_limit_bytes: 2000000` en `budget` (reserva e informe), las mismas claves y
+  `max_output_tokens` en la raíz de `report.json`, y dos filas en `report.md`.
+
+### El nuevo tope no se filtra a AUTO1 ni al cribado
+
+| Mutante | Resultado |
+|---|---|
+| N1 `main` no pasa `max_output` | falla (1) |
+| N2 `configured` sin `STREAM_LIMIT_BYTES` | falla (4) |
+| N3 tope de 65536 = 2 MB | falla (5) |
+| N4 tope de 32768 = 4 MB | falla (5) |
+| N5 sin restaurar ante excepción | falla (23) |
+| N6 el cribado no fija plazo ni tope | falla (1, cribado) |
+| N7 el cribado no fija el tope | falla (1, cribado) |
+| N8 el cribado toma `MAX_OUTPUT` de `cr` | falla (1, cribado) |
+| N9 `budget` sin `stream_limit_bytes` | falla (3) |
+| N10 `preflight` con tope fijo | falla (3) |
+
+Los dos mutantes que sobrevivían en la revisión anterior (M8 y M11) ahora fallan: son N1 y
+N8.
+
+### ¿Son honestas la medición y la justificación de los 4 MB?
+
+En lo esencial, sí. Recalculé las cifras desde la rama de registro:
+
+- **2,3 bytes por token** del texto visible escapado en JSON: en las 37 ejecuciones del
+  análisis directo con uso registrado va de 2,22 a 2,47. Coincide.
+- **De 5 700 a 8 200 tokens visibles con `high`:** 5 736-8 212, sin contar el Vinci
+  truncado. Coincide.
+- **Vinci 44554333055** cerró el stream con uso final, así que entró en menos de 2 MB.
+- **Cuentas:** 65 536 × 120 B ≈ 7,8 MB y 8 200 × 120 B ≈ 1 MB. Bien hechas.
+- **Lo que no se sabe:** el README reconoce que no se registran los bytes totales y que
+  4 MB «cubre el doble de lo que cupo con 32 768, no un caso extremo». Además recomienda
+  anotar el primer stream real. Es honesto.
+- **«El pensamiento llega omitido»:** no es una medición. Coincide con el comportamiento
+  documentado de la API: con Opus 5.5, Fable 5.2 y Sonnet 5.5, `thinking.display` es
+  `"omitted"` por defecto y los bloques de pensamiento llegan en streaming con el texto
+  vacío. Es una afirmación correcta, aunque convendría decir que sale de la documentación y
+  no de una medida.
+
+Dos imprecisiones menores. No cambian el veredicto, pero conviene arreglarlas si se toca de
+nuevo el texto:
+
+- `README.md:346-347` dice «2,22-2,47 en las 37 ejecuciones … y en el cribado». En el
+  cribado el rango es 2,29-2,50 (sony 2,50, airbus 2,49), así que el 2,47 no lo cubre.
+- `direct_analysis.py:58` habla de «38 ejecuciones del análisis directo», mientras que el
+  README dice 37 con uso registrado y 39 carpetas. Hay que unificar la cifra.
+
+### Salida de las pruebas
+
+En `/home/user/e_work/wt_salida64k`, HEAD 68f1c91, con
+`python3 -I -m unittest discover -s automation/<dir> -p 'test_*.py' -v`:
+
+```
+== claude_review
+Ran 49 tests in 0.050s
+
+OK
+== coordination
+Ran 97 tests in 0.789s
+
+OK
+== direct_analysis
+Ran 75 tests in 12.810s
+
+OK
+== screening
+Ran 46 tests in 1.095s
+
+OK
+```
