@@ -116,3 +116,18 @@ No acredita aptitud para dinero real.
   - 2 entradas no materiales con el juicio revisado;
   - 2 lecturas externas sin bytes, listadas aparte.
 - **Apto por entradas: False.** Lo impide **una sola entrada material sin comprobar: `Análisis!C31`.**
+
+### jumbo_g · Análisis!C31 con el informe H1-2025 (2026-11-20)
+
+- **Material:** commits `b9c6be3` y `99b62e8`. El informe semestral H1-2025 se añadió como fuente: el PDF tiene la huella 0e69fd76…, la misma que `FUENTES.tsv`.
+- **Contraste en `texto/`, y con `pdftotext` para la p. 23 del PDF:**
+  - **H1-2025:** inventario 316.655.374 (p. 23; «€ 316,66 mil» en p. 8), deudores 90.278.641 (p. 23 y nota 4.11, p. 50), clientes netos 15.390.263 y ventas del 1S 497.278.437 (p. 21).
+  - **H1-2026:** inventario 325.764.610 (p. 25), deudores 86.024.991 (p. 25), clientes netos 15.072.374 (p. 52) y ventas 519.257.126 (p. 23). Su comparativo de ventas coincide con el H1-2025.
+- **Recálculo:** inventario +2,88 %, deudores −4,71 %, clientes netos −2,07 %, ventas +4,42 %. Ni el inventario ni los cobros crecen más que las ventas, así que sale «No» con la comparación semestral que decidió el inversor. La alternativa anual (BANDERA) queda declarada.
+- **Resultado:** sellada. El sello acredita el registro, no la elección de la comparación.
+- **Commit del sellado:** `39214ae`.
+
+**`comprobar`:**
+- **Cobertura:** universo 313, de las que 311 están comprobadas (214 de 214 de cálculo y 97 de 99 de juicio). Las otras dos son C38 y C88, no materiales con el juicio revisado.
+- **Estado:** 0 pendientes, 0 discrepancias, 0 errores, 0 desactualizadas.
+- **Apto por entradas: True.** Es condición necesaria, no suficiente: no acredita aptitud para dinero real ni sustituye la auditoría.
