@@ -39,15 +39,17 @@ MODELS = {
 DEFAULT_MODEL = 'claude-opus-5-5'
 EFFORTS = ('low', 'medium', 'high', 'xhigh', 'max')
 PRICES_CHECKED = '2026-11-17'
-# Salida máxima (pensamiento + respuesta) y plazo total del stream, propios del análisis
-# directo: el doble que AUTO1 (32 768 tokens, 720 s), porque con esfuerzo `max` un análisis
-# de Vinci agotó la salida (stop_reason max_tokens, 31 289 tokens de pensamiento) y se pagó
-# sin resultado aceptado. Solo rigen dentro de `configured`, que los fija en critical_review
-# y restaura los de AUTO1 al salir; el cribado (automation/screening) mantiene los de AUTO1.
-# Invariante del workflow analisis-directo.yml: plazo + socket (60 s) + publicación <
-# timeout-minutes del job `analisis` (ver WORKFLOW_MARGIN_SECONDS y sus pruebas).
-MAX_OUTPUT = 65536
-STREAM_DEADLINE_SECONDS = 1500
+# Salida máxima (pensamiento + respuesta) elegible por ejecución, con su plazo total de
+# stream. 32 768 / 720 s es lo de AUTO1 y el valor por defecto; 65 536 / 1500 s existe
+# porque con esfuerzo `max` un análisis de Vinci agotó la salida (stop_reason max_tokens,
+# 31 289 tokens de pensamiento) y se pagó sin resultado aceptado. Lista cerrada: cualquier
+# otro valor es SALIDA_MAXIMA_INVALIDA y se aborta sin llamar ni reservar. Solo rigen dentro
+# de `configured`, que los fija en critical_review y restaura los de AUTO1 al salir; el
+# cribado (automation/screening) mantiene los de AUTO1.
+# Invariante del workflow analisis-directo.yml: el plazo mayor + socket (60 s) + preparación
+# y publicación < timeout-minutes del job `analisis` (ver WORKFLOW_MARGIN_SECONDS y sus pruebas).
+OUTPUT_CHOICES = {32768: 720, 65536: 1500}   # salida máxima (tokens) -> plazo del stream (s)
+DEFAULT_OUTPUT = 32768
 SOCKET_TIMEOUT_SECONDS = 60     # el de StreamingHTTP.call (AUTO1), por lectura
 WORKFLOW_MARGIN_SECONDS = 420   # preparación + publicación: el mismo margen que AUTO1 (1200 - 720 - 60)
 HARD_MAX_USD = Decimal('5')  # techo del código; el tope acumulado lo fija la persona
@@ -599,6 +601,7 @@ def render(report, bundle, preflight):
            f"| Modelo pedido / devuelto | {report['model_requested']} / {report.get('model_returned', '—')} |",
            f"| Esfuerzo | {report['effort_requested']} |",
            f"| Mensajes enviados | {report['api_messages_sent']} |",
+           f"| Salida máxima / plazo del stream | {preflight.get('max_output_tokens')} tokens / {preflight.get('stream_deadline_seconds')} s |",
            f"| Cota de entrada estimada antes de llamar | {preflight['input_tokens_upper_bound']} tokens |",
            f"| Reserva estimada antes de llamar | USD {preflight['reserve_upper_bound_usd']} (máximo de la ejecución USD {preflight['max_usd']}) |"]
     if 'budget' in report:
@@ -656,6 +659,11 @@ def render(report, bundle, preflight):
 
 def make_writer(bundle, preflight):
     def write(output, report):
+        # Salida máxima y plazo usados, también en el report.json publicado (publish lo
+        # serializa después de escribir).
+        for key in ('max_output_tokens', 'stream_deadline_seconds'):
+            if key in preflight:
+                report[key] = preflight[key]
         output = Path(output)
         output.mkdir(parents=True, exist_ok=True)
         (output / 'report.json').write_bytes(pilot.canonical(report))
@@ -669,6 +677,17 @@ def make_writer(bundle, preflight):
 
 
 # --- Configuración de AUTO1 y comprobación previa del tamaño -------------------------
+def parse_max_output(raw):
+    """Salida máxima elegida: '32768' o '65536' (o esos enteros); nada más."""
+    if isinstance(raw, bool):
+        raise pilot.PilotError('SALIDA_MAXIMA_INVALIDA')
+    if isinstance(raw, int) and raw in OUTPUT_CHOICES:
+        return raw
+    if isinstance(raw, str) and raw in {str(k): k for k in OUTPUT_CHOICES}:
+        return int(raw)
+    raise pilot.PilotError('SALIDA_MAXIMA_INVALIDA')
+
+
 def parse_max_usd(raw):
     if not isinstance(raw, str) or not re.fullmatch(r'[0-9]{1,3}(\.[0-9]{1,6})?', raw.strip()):
         raise pilot.PilotError('COSTE_MAXIMO_INVALIDO')
@@ -708,30 +727,35 @@ def payload_sin_gramatica(bundle):
 
 
 @contextlib.contextmanager
-def configured(task_id, model, effort, max_usd, bundle, encargo, preflight=None):
+def configured(task_id, model, effort, max_usd, bundle, encargo, preflight=None, max_output=DEFAULT_OUTPUT):
     """Configura critical_review como hace qwen_peer_review.configure y lo restaura al salir.
 
     Dentro del contexto, todo lo que critical_review lee de MAX_OUTPUT y
-    STREAM_DEADLINE_SECONDS usa los valores del análisis directo: `max_tokens` del cuerpo
-    (run), la reserva en USD (budget), la comprobación de salida tras la respuesta
-    (check_usage) y el plazo total del stream (StreamingHTTP.call). Al salir vuelven los de AUTO1.
+    STREAM_DEADLINE_SECONDS usa la salida elegida (`max_output`) y su plazo: `max_tokens`
+    del cuerpo (run), la reserva en USD (budget), la comprobación de salida tras la
+    respuesta (check_usage) y el plazo total del stream (StreamingHTTP.call). Al salir
+    vuelven los de AUTO1.
     """
     if model not in MODELS:
         raise pilot.PilotError('MODELO_NO_AUTORIZADO')
     if effort not in EFFORTS:
         raise pilot.PilotError('ESFUERZO_INVALIDO')
+    max_output = parse_max_output(max_output)
+    deadline = OUTPUT_CHOICES[max_output]
     info, original_budget = MODELS[model], cr.budget
 
     def budget(b, count):
         # Tras count_tokens y antes de reservar: el conteo real también cabe en el contexto.
-        if type(count) is int and count + MAX_OUTPUT > info['context']:
+        if type(count) is int and count + max_output > info['context']:
             raise pilot.PilotError('PAQUETE_SUPERA_CONTEXTO_DEL_MODELO_NO_SE_RECORTA')
-        return original_budget(b, count)
+        # La reserva publicada (reservation.json, report.json) lleva también el plazo usado.
+        return {**original_budget(b, count), 'stream_deadline_seconds': deadline}
 
     holder = preflight if preflight is not None else {}
     holder['system_sha256'] = pilot.digest(system_con_esquema(encargo).encode('utf-8'))
-    values = dict(TASK=task_id, MODEL=model, EFFORT=effort, MAX_OUTPUT=MAX_OUTPUT, MAX_USD=max_usd,
-                  STREAM_DEADLINE_SECONDS=STREAM_DEADLINE_SECONDS,
+    holder.update(max_output_tokens=max_output, stream_deadline_seconds=deadline)
+    values = dict(TASK=task_id, MODEL=model, EFFORT=effort, MAX_OUTPUT=max_output, MAX_USD=max_usd,
+                  STREAM_DEADLINE_SECONDS=deadline,
                   INPUT_PRICE=info['input'], OUTPUT_PRICE=info['output'], SYSTEM=system_con_esquema(encargo), SCHEMA=SCHEMA,
                   payload=payload_sin_gramatica,
                   validate=validate, write=make_writer(bundle, holder), budget=budget)
@@ -759,7 +783,8 @@ def preflight(bundle, holder=None):
     reserve = (Decimal(bound) * cr.INPUT_PRICE + Decimal(max_output) * cr.OUTPUT_PRICE) / 1_000_000
     result = {'payload_bytes': payload_bytes, 'input_tokens_upper_bound': bound,
               'input_tokens_rough_estimate': math.ceil(payload_bytes / 3.5),
-              'max_output_tokens': max_output, 'context_tokens': info['context'],
+              'max_output_tokens': max_output, 'stream_deadline_seconds': cr.STREAM_DEADLINE_SECONDS,
+              'context_tokens': info['context'],
               'reserve_upper_bound_usd': str(reserve), 'max_usd': str(cr.MAX_USD),
               'usd_per_mtok_input': str(cr.INPUT_PRICE), 'usd_per_mtok_output': str(cr.OUTPUT_PRICE),
               'prices_checked': PRICES_CHECKED}
@@ -775,9 +800,9 @@ def preflight(bundle, holder=None):
 class DirectHTTP(cr.StreamingHTTP):
     """El transporte SSE de AUTO1 sin cambios; solo amplía la lista de modelos autorizados.
 
-    El plazo total del stream lo lee StreamingHTTP.call de cr.STREAM_DEADLINE_SECONDS: 1500 s
-    dentro de `configured` del análisis directo; 720 s (AUTO1) en el cribado, que también usa
-    esta clase con su propia configuración.
+    El plazo total del stream lo lee StreamingHTTP.call de cr.STREAM_DEADLINE_SECONDS: el de
+    la salida elegida dentro de `configured` del análisis directo (720 o 1500 s); 720 s
+    (AUTO1) en el cribado, que también usa esta clase con su propia configuración.
 
     pilot.HTTP.__init__ admite únicamente Sonnet 5.5 y Fable 5.2; aquí se valida contra
     MODELS (con sus tarifas). El cuerpo de cada llamada sigue ligado a self.model.
@@ -794,9 +819,11 @@ def task_id_for(empresa, run_id):
     return f'analisis-directo-{_slug(empresa, "EMPRESA_INVALIDA")}-{run_id}'
 
 
-def execute(http, bundle, encargo, model, effort, max_usd, output, live=False, receipt=None):
+def execute(http, bundle, encargo, model, effort, max_usd, output, live=False, receipt=None,
+            max_output=DEFAULT_OUTPUT):
     """Comprobación previa y, solo si pasa, critical_review.run (una llamada como máximo)."""
-    with configured(bundle['task_id'], model, effort, max_usd, bundle, encargo) as holder:
+    with configured(bundle['task_id'], model, effort, max_usd, bundle, encargo,
+                    max_output=max_output) as holder:
         try:
             preflight(bundle, holder)
         except pilot.PilotError as err:
@@ -822,18 +849,22 @@ def main(argv=None):
     p.add_argument('--model', default=DEFAULT_MODEL)
     p.add_argument('--effort', default='high')
     p.add_argument('--max-usd', required=True)
+    p.add_argument('--max-output', default=str(DEFAULT_OUTPUT),
+                   help='salida máxima en tokens: 32768 (plazo 720 s, por defecto) o 65536 (1500 s)')
     p.add_argument('--run-id', required=True)
     p.add_argument('--code-sha', required=True)
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--execute-api', action='store_true')
     a = p.parse_args(argv)
     try:
+        max_output = parse_max_output(a.max_output)  # antes de leer nada: un valor inválido no llama
         max_usd = parse_max_usd(a.max_usd)
         task_id = task_id_for(a.empresa, a.run_id)
         encargo = verify_code(ROOT, a.code_sha)
         bundle = build_bundle(load_package(ROOT, a.code_sha, a.package, a.empresa), encargo, task_id, a.code_sha)
         http = DirectHTTP(os.getenv('GH_TOKEN', ''), os.getenv('ANTHROPIC_API_KEY', ''), model=a.model)
-        report = execute(http, bundle, encargo, a.model, a.effort, max_usd, a.output, live=a.execute_api)
+        report = execute(http, bundle, encargo, a.model, a.effort, max_usd, a.output, live=a.execute_api,
+                         max_output=max_output)
         print(json.dumps({k: report.get(k) for k in ('task_id', 'state', 'api_messages_sent', 'estimated_cost_usd', 'error', 'api_error')}))
         # YA_RESERVADO_SIN_NUEVA_LLAMADA (p. ej. «Re-run» de la misma ejecución) sale con 1:
         # no hay análisis nuevo y no debe parecer un éxito.

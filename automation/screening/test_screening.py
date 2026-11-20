@@ -440,7 +440,7 @@ class ValidationTests(Base):
 # --- La tanda -------------------------------------------------------------------------------------
 class BatchTests(Base):
     def test_cribado_keeps_auto1_output_and_deadline_not_direct_analysis(self):
-        # La salida de 65 536 y el plazo de 1500 s son solo del análisis directo.
+        # La salida elegible (65 536 con 1500 s) es solo del análisis directo.
         seen = []
 
         class Spy(FakeHTTP):
@@ -449,7 +449,7 @@ class BatchTests(Base):
                     seen.append((body['max_tokens'], cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS))
                 return super().call(service, method, path, body)
         self.assertEqual(sc.MAX_OUTPUT, 32768)
-        self.assertNotEqual(sc.MAX_OUTPUT, da.MAX_OUTPUT)
+        self.assertEqual(sc.MAX_OUTPUT, da.DEFAULT_OUTPUT)  # la elegible del análisis directo no le afecta
         rows = self.rows()
         self.batch(Spy(GitHubStore()), rows)
         self.assertEqual(seen, [(32768, 32768, 720)] * 3)

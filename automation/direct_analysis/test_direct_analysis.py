@@ -93,9 +93,10 @@ class Base(unittest.TestCase):
         p = patch.dict('os.environ', CAP)
         p.start(); self.addCleanup(p.stop)
 
-    def run_da(self, http, b=None, model=da.DEFAULT_MODEL, max_usd='3', live=True, receipt=None, effort='high'):
+    def run_da(self, http, b=None, model=da.DEFAULT_MODEL, max_usd='3', live=True, receipt=None, effort='high',
+               **kw):
         return da.execute(http, b or bundle(), ENCARGO, model, effort, Decimal(max_usd), self.tmp.name,
-                          live=live, receipt=receipt)
+                          live=live, receipt=receipt, **kw)
 
     def ledger(self, store, task='analisis-directo-zoetis-1', name='reservation.json'):
         return json.loads(store.files[f'automation/coordination/reviews/{task}/{name}'])
@@ -115,7 +116,7 @@ class RunTests(Base):
         self.assertIn(json.dumps(da.SCHEMA, ensure_ascii=False, sort_keys=True), body['system'])
         self.assertEqual(body['output_config']['effort'], 'high')
         self.assertEqual(body['output_config'], {'effort': 'high'})  # sin gramática (400 de 44288081039)
-        self.assertEqual(body['max_tokens'], da.MAX_OUTPUT)
+        self.assertEqual(body['max_tokens'], da.DEFAULT_OUTPUT)
         self.assertNotIn('tools', body)
         self.assertNotIn('fallbacks', body)
         sent = json.loads(body['messages'][0]['content'])
@@ -459,98 +460,165 @@ AUTO1 = (32768, 720)
 
 
 class SalidaYPlazoTests(Base):
-    """Salida de 65 536 tokens y plazo de 1500 s solo en el análisis directo; AUTO1 sigue en 32 768 / 720."""
+    """Salida máxima elegible: 32 768 / 720 s (por defecto) o 65 536 / 1500 s; AUTO1 no cambia."""
 
     def config(self):
         return cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS
 
-    def test_constants(self):
-        self.assertEqual((da.MAX_OUTPUT, da.STREAM_DEADLINE_SECONDS), (65536, 1500))
+    def test_choices_and_default(self):
+        self.assertEqual(da.OUTPUT_CHOICES, {32768: 720, 65536: 1500})
+        self.assertEqual(da.DEFAULT_OUTPUT, 32768)
         self.assertEqual(da.HARD_MAX_USD, Decimal('5'))
         self.assertEqual(self.config(), AUTO1)
+        self.assertEqual([da.parse_max_output(x) for x in ('32768', '65536', 32768, 65536)], [32768, 65536, 32768, 65536])
 
-    def test_direct_sends_65536_with_1500_s_deadline_and_restores_auto1(self):
+    def check_choice(self, max_output, deadline, output_tokens):
         self.assertEqual(self.config(), AUTO1)
         store = GitHubStore()
-        # 60 000 tokens de salida: por encima de los 32 768 de AUTO1, dentro de los 65 536.
-        opener, seen = live_transport(self, reply(usage={'input_tokens': 900, 'output_tokens': 60000}))
-        r = self.run_da(LiveDirectHTTP(store), max_usd='3')
+        opener, seen = live_transport(self, reply(usage={'input_tokens': 900, 'output_tokens': output_tokens}))
+        kw = {} if max_output is None else {'max_output': max_output}
+        r = self.run_da(LiveDirectHTTP(store), max_usd='3', **kw)
+        expected = max_output or 32768
         self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
         self.assertEqual(len(opener.bodies), 1)
         body = opener.bodies[0]
-        self.assertEqual((body['max_tokens'], body['stream'], body['model']), (65536, True, 'claude-opus-5-5'))
+        self.assertEqual((body['max_tokens'], body['stream'], body['model']), (expected, True, 'claude-opus-5-5'))
         self.assertEqual(opener.timeouts, [da.SOCKET_TIMEOUT_SECONDS])
         self.assertEqual(len(seen), 1)
-        self.assertTrue(1500 - 5 < seen[0]['plazo_s'] <= 1500, seen)
-        self.assertEqual(seen[0]['MAX_OUTPUT'], 65536)
-        # Reserva y comprobación de salida con 65 536 (Opus 5.5: 4 / 20 USD por MTok).
-        budget = self.ledger(store)['budget']
-        self.assertEqual(budget['max_output_tokens'], 65536)
+        self.assertTrue(deadline - 5 < seen[0]['plazo_s'] <= deadline, seen)
+        self.assertEqual(seen[0]['MAX_OUTPUT'], expected)
+        # Reserva (Opus 5.5: 4 / 20 USD por MTok) y registro con la salida y el plazo usados.
+        res = self.ledger(store)
+        budget = res['budget']
+        self.assertEqual((budget['max_output_tokens'], budget['stream_deadline_seconds']), (expected, deadline))
         self.assertEqual(Decimal(budget['reserved_usd']),
-                         (Decimal(budget['reserved_input_tokens']) * 4 + Decimal(65536) * 20) / 1_000_000)
+                         (Decimal(budget['reserved_input_tokens']) * 4 + Decimal(expected) * 20) / 1_000_000)
+        rep = self.ledger(store, name='report.json')
+        self.assertEqual((rep['max_output_tokens'], rep['stream_deadline_seconds']), (expected, deadline))
+        self.assertIn(f'| Salida máxima / plazo del stream | {expected} tokens / {deadline} s |',
+                      self.ledger_md(store))
         self.assertEqual(r['cost_status'], 'CONOCIDO_ESTIMADO')
-        self.assertEqual(Decimal(r['estimated_cost_usd']), (Decimal(900) * 4 + Decimal(60000) * 20) / 1_000_000)
+        self.assertEqual(Decimal(r['estimated_cost_usd']),
+                         (Decimal(900) * 4 + Decimal(output_tokens) * 20) / 1_000_000)
         self.assertEqual(self.config(), AUTO1)
 
-    def test_output_over_65536_is_cost_without_bound(self):
-        store = GitHubStore()
-        live_transport(self, reply(usage={'input_tokens': 900, 'output_tokens': 65537}))
-        r = self.run_da(LiveDirectHTTP(store), max_usd='3')
-        self.assertEqual((r['error'], r['cost_status']), ('CONSUMO_SUPERA_RESERVA_REVISAR_FACTURACION', 'INCIERTO_SIN_COTA'))
-        self.assertEqual(self.config(), AUTO1)
+    def ledger_md(self, store, task='analisis-directo-zoetis-1'):
+        raw = store.files[f'automation/coordination/reviews/{task}/report.md']
+        return raw.decode('utf-8') if isinstance(raw, bytes) else raw
 
-    def test_preflight_and_context_check_use_65536(self):
-        b = bundle()
-        with da.configured(b['task_id'], 'claude-fable-5-2', 'max', Decimal('5'), b, ENCARGO) as holder:
-            self.assertEqual(self.config(), (65536, 1500))
-            res = da.preflight(b, holder)
-        self.assertEqual(res['max_output_tokens'], 65536)
-        self.assertEqual(Decimal(res['reserve_upper_bound_usd']),
-                         (Decimal(res['input_tokens_upper_bound']) * 8 + Decimal(65536) * 40) / 1_000_000)
-        self.assertEqual(self.config(), AUTO1)
+    def test_default_is_32768_with_720_s_like_before(self):
+        self.check_choice(None, 720, 30000)
 
-    def test_context_check_after_count_uses_65536(self):
-        for count, sent in ((da.MODELS['claude-opus-5-5']['context'] - 65536 + 1, 0), (900, 1)):
+    def test_choice_32768_sends_32768_with_720_s(self):
+        self.check_choice(32768, 720, 30000)
+
+    def test_choice_65536_sends_65536_with_1500_s(self):
+        # 60 000 tokens de salida: por encima de 32 768, dentro de 65 536.
+        self.check_choice(65536, 1500, 60000)
+
+    def test_output_over_the_chosen_maximum_is_cost_without_bound(self):
+        for max_output, tokens in ((32768, 32769), (65536, 65537)):
             store = GitHubStore()
-            h = FakeHTTP(store, reply=reply(), count=count)
-            with self.subTest(count=count):
-                if sent:
-                    self.run_da(h)
-                else:
-                    with self.assertRaisesRegex(pilot.PilotError, 'PAQUETE_SUPERA_CONTEXTO'):
-                        self.run_da(h)
-                self.assertEqual(len(h.sent()), sent)
+            with self.subTest(max_output=max_output):
+                live_transport(self, reply(usage={'input_tokens': 900, 'output_tokens': tokens}))
+                r = self.run_da(LiveDirectHTTP(store), max_usd='3', max_output=max_output)
+                self.assertEqual((r['error'], r['cost_status']),
+                                 ('CONSUMO_SUPERA_RESERVA_REVISAR_FACTURACION', 'INCIERTO_SIN_COTA'))
+                self.assertEqual(self.config(), AUTO1)
 
-    def test_fable_reserve_fits_typical_package_or_aborts_without_calls(self):
-        out_usd = Decimal(65536) * 40 / 1_000_000
-        self.assertEqual(out_usd, Decimal('2.62144'))
+    def test_invalid_choice_aborts_without_calls_or_reserve(self):
+        for bad in ('16384', '65535', '131072', '', ' 32768', '32768 ', '32 768', '0x8000', 'max', '3.2768e4',
+                    32767, 32768.0, True, None, [32768]):
+            with self.subTest(bad=bad):
+                with self.assertRaisesRegex(pilot.PilotError, '^SALIDA_MAXIMA_INVALIDA$'):
+                    da.parse_max_output(bad)
+                store = GitHubStore()
+                h = FakeHTTP(store, reply=reply())
+                with self.assertRaisesRegex(pilot.PilotError, '^SALIDA_MAXIMA_INVALIDA$'):
+                    self.run_da(h, max_output=bad)
+                self.assertEqual((h.calls, store.puts), ([], []))
+                self.assertEqual(self.config(), AUTO1)
+
+    def test_cli_rejects_invalid_choice_before_reading_anything(self):
+        import io
+        from contextlib import redirect_stderr
+        err = io.StringIO()
+        with patch.object(da, 'verify_code', side_effect=AssertionError('no debe leer el código')), \
+                patch.object(da, 'DirectHTTP', side_effect=AssertionError('no debe crear el cliente')), \
+                redirect_stderr(err):
+            code = da.main(['--empresa', 'zoetis', '--package', 'automation/direct_analysis/paquetes/zoetis.json',
+                            '--max-usd', '3', '--max-output', '16384', '--run-id', '1', '--code-sha', 'a' * 40,
+                            '--output', self.tmp.name, '--execute-api'])
+        self.assertEqual((code, err.getvalue().strip()), (2, 'SALIDA_MAXIMA_INVALIDA'))
+        self.assertEqual(list(Path(self.tmp.name).iterdir()), [])
+
+    def test_preflight_reserve_and_report_use_the_choice(self):
+        b = bundle()
+        for max_output, deadline in da.OUTPUT_CHOICES.items():
+            with self.subTest(max_output=max_output), \
+                    da.configured(b['task_id'], 'claude-fable-5-2', 'max', Decimal('5'), b, ENCARGO,
+                                  max_output=max_output) as holder:
+                self.assertEqual(self.config(), (max_output, deadline))
+                res = da.preflight(b, holder)
+                self.assertEqual((res['max_output_tokens'], res['stream_deadline_seconds']), (max_output, deadline))
+                self.assertEqual(Decimal(res['reserve_upper_bound_usd']),
+                                 (Decimal(res['input_tokens_upper_bound']) * 8 + Decimal(max_output) * 40) / 1_000_000)
+            self.assertEqual(self.config(), AUTO1)
+
+    def test_context_check_after_count_uses_the_choice(self):
+        context = da.MODELS['claude-opus-5-5']['context']
+        for max_output in da.OUTPUT_CHOICES:
+            # 900 000 cabe en contexto y en 5 USD con las dos salidas; contexto - salida + 1, no.
+            for count, sent in ((context - max_output + 1, 0), (900_000, 1)):
+                store = GitHubStore()
+                h = FakeHTTP(store, reply=reply(), count=count)
+                with self.subTest(max_output=max_output, count=count):
+                    if sent:
+                        self.run_da(h, max_usd='5', max_output=max_output)
+                        self.assertEqual(len(h.sent()), 1)
+                        self.assertEqual(h.sent()[0][3]['max_tokens'], max_output)
+                    else:
+                        with self.assertRaisesRegex(pilot.PilotError, 'PAQUETE_SUPERA_CONTEXTO'):
+                            self.run_da(h, max_usd='5', max_output=max_output)
+                        self.assertEqual((h.sent(), store.puts), ([], []))
+
+    def test_fable_65536_fits_typical_package_or_aborts_without_calls(self):
+        self.assertEqual(Decimal(65536) * 40 / 1_000_000, Decimal('2.62144'))
         # Paquete típico del universo (130-210 KB; aquí unos 205 KB): cabe en 5 USD con Fable 5.2.
         # Con 65 536 de salida, Fable cabe en 5 USD hasta unos 297 000 tokens de cota de entrada.
         h = FakeHTTP(reply=reply(model='claude-fable-5-2'), model='claude-fable-5-2')
-        r = self.run_da(h, b=bundle(extra=200_000), model='claude-fable-5-2', effort='max', max_usd='5')
+        r = self.run_da(h, b=bundle(extra=200_000), model='claude-fable-5-2', effort='max', max_usd='5',
+                        max_output=65536)
         self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
         self.assertEqual(h.sent()[0][3]['max_tokens'], 65536)
         self.assertLessEqual(Decimal(r['budget']['reserved_usd']), da.HARD_MAX_USD)
-        # Paquete de unos 305 KB: la reserva ya no cabe y aborta sin llamar ni reservar.
+        # Paquete de unos 305 KB: con 65 536 la reserva no cabe y aborta sin llamar ni reservar...
         h = FakeHTTP(reply=reply(model='claude-fable-5-2'), model='claude-fable-5-2')
         with self.assertRaisesRegex(pilot.PilotError, 'COSTE_MAXIMO_INSUFICIENTE_NO_SE_RECORTA'):
             self.run_da(h, b=bundle('analisis-directo-zoetis-2', extra=300_000),
-                        model='claude-fable-5-2', effort='max', max_usd='5')
+                        model='claude-fable-5-2', effort='max', max_usd='5', max_output=65536)
         self.assertEqual(h.calls, [])
         self.assertIn('Abortado antes de llamar', (Path(self.tmp.name) / 'report.md').read_text())
+        # ...y con 32 768 sí cabe.
+        h = FakeHTTP(reply=reply(model='claude-fable-5-2'), model='claude-fable-5-2')
+        r = self.run_da(h, b=bundle('analisis-directo-zoetis-3', extra=300_000),
+                        model='claude-fable-5-2', effort='max', max_usd='5')
+        self.assertEqual(h.sent()[0][3]['max_tokens'], 32768)
         self.assertEqual(self.config(), AUTO1)
 
     def test_auto1_run_still_sends_32768_with_720_s_deadline(self):
-        self.run_da(FakeHTTP(GitHubStore(), reply=reply()))  # un análisis directo antes, ya restaurado
-        opener, seen = live_transport(self, t1.good_reply())
-        h = t1.StreamH('fake-gh', 'fake-key', model='claude-fable-5-2')
-        with tempfile.TemporaryDirectory() as out:
-            r = cr.run(h, t1.bundle(), out, receipt=t1.MemoryReceipt(), execute=True)
-        self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
-        self.assertEqual(opener.bodies[0]['max_tokens'], 32768)
-        self.assertEqual(r['budget']['max_output_tokens'], 32768)
-        self.assertTrue(720 - 5 < seen[0]['plazo_s'] <= 720, seen)
-        self.assertEqual(opener.timeouts, [60])
+        for max_output in da.OUTPUT_CHOICES:  # un análisis directo antes, con cada salida, ya restaurado
+            self.run_da(FakeHTTP(GitHubStore(), reply=reply()), max_output=max_output)
+            opener, seen = live_transport(self, t1.good_reply())
+            h = t1.StreamH('fake-gh', 'fake-key', model='claude-fable-5-2')
+            with self.subTest(max_output=max_output), tempfile.TemporaryDirectory() as out:
+                r = cr.run(h, t1.bundle(), out, receipt=t1.MemoryReceipt(), execute=True)
+                self.assertEqual(r['state'], 'AUDITORIA_DOCUMENTAL_PENDIENTE_ACEPTACION')
+                self.assertEqual(opener.bodies[0]['max_tokens'], 32768)
+                self.assertEqual(r['budget']['max_output_tokens'], 32768)
+                self.assertNotIn('stream_deadline_seconds', r['budget'])
+                self.assertTrue(720 - 5 < seen[0]['plazo_s'] <= 720, seen)
+                self.assertEqual(opener.timeouts, [60])
 
 
 class SizeTests(Base):
@@ -857,7 +925,14 @@ class WorkflowTests(unittest.TestCase):
         on = self.doc.get('on', self.doc.get(True))
         self.assertEqual(list(on), ['workflow_dispatch'])
         inputs = on['workflow_dispatch']['inputs']
-        self.assertEqual(set(inputs), {'empresa', 'paquete', 'modelo', 'esfuerzo', 'coste_maximo_usd'})
+        self.assertEqual(set(inputs), {'empresa', 'paquete', 'modelo', 'esfuerzo', 'coste_maximo_usd', 'salida_maxima'})
+        out = inputs['salida_maxima']
+        self.assertEqual((out['type'], out['default']), ('choice', str(da.DEFAULT_OUTPUT)))
+        self.assertEqual(out['options'], [str(k) for k in da.OUTPUT_CHOICES])
+        for job in ('preparar', 'analisis'):
+            step = self.doc['jobs'][job]['steps'][1]
+            self.assertEqual(step['env']['SALIDA_MAXIMA'], '${{ inputs.salida_maxima }}')
+            self.assertIn('--max-output "$SALIDA_MAXIMA"', step['run'])
         self.assertEqual(inputs['modelo']['default'], 'claude-opus-5-5')
         self.assertEqual(set(inputs['modelo']['options']), set(da.MODELS))
         self.assertEqual(inputs['esfuerzo']['options'], list(da.EFFORTS))
@@ -881,7 +956,7 @@ class WorkflowTests(unittest.TestCase):
         # con al menos el margen de AUTO1 (20 min - 720 s - 60 s = 420 s).
         job = self.doc['jobs']['analisis']
         self.assertEqual(da.WORKFLOW_MARGIN_SECONDS, 20 * 60 - 720 - 60)
-        need = da.STREAM_DEADLINE_SECONDS + da.SOCKET_TIMEOUT_SECONDS + da.WORKFLOW_MARGIN_SECONDS
+        need = max(da.OUTPUT_CHOICES.values()) + da.SOCKET_TIMEOUT_SECONDS + da.WORKFLOW_MARGIN_SECONDS
         self.assertGreaterEqual(job['timeout-minutes'] * 60, need)
         self.assertEqual(job['timeout-minutes'], 35)
         # AUTO1 conserva su job de 20 min y su plazo de 720 s.

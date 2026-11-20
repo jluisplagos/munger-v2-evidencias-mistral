@@ -30,6 +30,12 @@ on:
         description: 'Coste maximo de esta ejecucion en USD (techo del codigo: 5)'
         required: true
         type: string
+      salida_maxima:
+        description: 'Salida maxima en tokens (pensamiento + respuesta): 32768 con plazo de stream de 720 s, o 65536 con 1500 s'
+        required: true
+        type: choice
+        default: '32768'
+        options: ['32768', '65536']
 permissions:
   contents: read
 jobs:
@@ -61,10 +67,11 @@ jobs:
           MODELO: ${{ inputs.modelo }}
           ESFUERZO: ${{ inputs.esfuerzo }}
           COSTE_MAXIMO: ${{ inputs.coste_maximo_usd }}
+          SALIDA_MAXIMA: ${{ inputs.salida_maxima }}
         run: >-
           python3 automation/direct_analysis/direct_analysis.py
           --empresa "$EMPRESA" --package "$PAQUETE" --model "$MODELO" --effort "$ESFUERZO"
-          --max-usd "$COSTE_MAXIMO" --run-id "$GITHUB_RUN_ID" --code-sha "$GITHUB_SHA"
+          --max-usd "$COSTE_MAXIMO" --max-output "$SALIDA_MAXIMA" --run-id "$GITHUB_RUN_ID" --code-sha "$GITHUB_SHA"
           --output "$RUNNER_TEMP/munger-analisis-directo"
       - name: Resumen
         if: always()
@@ -85,8 +92,9 @@ jobs:
       group: munger-analisis-directo
       cancel-in-progress: false
     runs-on: ubuntu-latest
-    # Plazo del stream propio del analisis directo (1500 s) + timeout de socket (60 s)
+    # Peor caso (salida_maxima 65536): plazo del stream de 1500 s + timeout de socket (60 s)
     # + preparacion y publicacion de informe y reserva (margen >= 420 s, el de AUTO1) < 35 min.
+    # Con 32768 el plazo es 720 s, como AUTO1; el mismo timeout le deja mas margen.
     timeout-minutes: 35
     environment: inferencia-aprobada
     permissions:
@@ -106,10 +114,11 @@ jobs:
           MODELO: ${{ inputs.modelo }}
           ESFUERZO: ${{ inputs.esfuerzo }}
           COSTE_MAXIMO: ${{ inputs.coste_maximo_usd }}
+          SALIDA_MAXIMA: ${{ inputs.salida_maxima }}
         run: >-
           python3 automation/direct_analysis/direct_analysis.py
           --empresa "$EMPRESA" --package "$PAQUETE" --model "$MODELO" --effort "$ESFUERZO"
-          --max-usd "$COSTE_MAXIMO" --run-id "$GITHUB_RUN_ID" --code-sha "$GITHUB_SHA"
+          --max-usd "$COSTE_MAXIMO" --max-output "$SALIDA_MAXIMA" --run-id "$GITHUB_RUN_ID" --code-sha "$GITHUB_SHA"
           --output "$RUNNER_TEMP/munger-analisis-directo"
           --execute-api
       - name: Resumen
