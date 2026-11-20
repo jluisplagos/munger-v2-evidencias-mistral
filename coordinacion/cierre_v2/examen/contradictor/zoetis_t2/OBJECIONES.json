@@ -1,0 +1,58 @@
+{
+ "empresa": "Zoetis Inc. (ZTS)",
+ "conclusion_atacada": {
+  "estado": "concluido (provisional hasta la auditoría), fase C turno 2",
+  "cubo": "Vigilar",
+  "accion": "esperar",
+  "precio_si": 71.97
+ },
+ "objeciones": [
+  {
+   "id": "O1-deuda",
+   "direccion": "baja",
+   "hecho": {
+    "archivo": "zoetis-10q-2026-q3.txt",
+    "pagina": 44,
+    "cita": "2025 Convertible Senior Notes due 2029 $2,000 million 0.250% Interest due semi annually, not subject to amortization, aggregate principal due on June 15, 2029"
+   },
+   "dato_ausente": "El coste al que se refinanciarán los 4.850 mm que vencen en 2027–2030 (la fase A lo lista en «lo que no sé» y en «qué puede salir mal»; nadie lo cifró). Lo acoto con los cupones que la propia empresa paga hoy.",
+   "cuanto_mueve": {
+    "cifra_o_rango": "Precio de Sí de 71,97 a 68,2–70,5 (−1,5 a −3,7 USD); central 69,62 (−2,35). Ponderado de 78,62 a 74,9–77,5 (central 76,64). Valor central por escenario: MALO −3,09, NORMAL −1,85, BUENO −0,66 USD.",
+    "cuenta": "El motor A no resta deuda: su FCF va «ya después de intereses» a través de f = 0,0101 (Historia C58, media 2023–2025), y una réplica del motor hecha con resultados.json y datos_v63.md reproduce exactos B78:D78, el ponderado, el precio de Sí y la tabla del DCF inverso. (1) Interés neto que lleva f: gasto 239/225/222 menos ingresos por intereses 103/106/93 = 136/119/129 antes de impuestos [zoetis-10k-fy2025.txt, PDF p. 54]; tras impuestos (t = 0,1997) es el 1,131 % de las ventas de cada año. (2) 2026: gasto 185 frente a 165 en nueve meses [zoetis-10q-2026-q3.txt, PDF p. 3] e ingresos 54 frente a 69 [PDF p. 15]; ritmo anual 246,7 − 72 = 174,7, +46,7 sobre la media de 128 (LTM: 164). (3) Vencen 750 al 3,000 % (12-sep-2027), 500 al 3,900 % y 850 al 4,150 % (ago-2028), 2.000 al 0,250 % (15-jun-2029) y 750 al 2,000 % (15-may-2030) [zoetis-10q-2026-q3.txt, PDF p. 44; zoetis-10k-fy2025.txt, PDF p. 86]: 4.850 al 2,0 % medio. Refinanciados a R desde su fecha, el gasto sube +104 (R = 4,15 %, su cupón a tres años), +145 (R = 5,0 %, el de su bono a diez años de ago-2025 [zoetis-10k-fy2025.txt, PDF p. 85]) o +174 (R = 5,6 %, su cupón de 2032) al año desde 2031. (4) Deuda constante en 9.150: cada año resto (174,7 + escalón_año) × 0,8003 − 0,01131 × ventas_año; en el terminal, el interés real plano a perpetuidad (÷ 0,09) frente al implícito que crece con g (÷ (0,09 − g)). R = 5 %: V = 55,56 / 78,21 / 105,51 → precio de Sí 69,62. El rango junta R 4,15–5,6 %, el ritmo de nueve meses o el LTM, y la variante de comparar con la cifra fija de 2023–2025 (−2,6 a −3,7 por acción en los tres). Excluyo los vencimientos posteriores a 2030: su efecto neto es de céntimos."
+   },
+   "por_que_cambia_la_conclusion": "No cambia la acción (esperar) pero el objetivo de 71,97 queda alto: con la deuda que ya tiene y la que vence, el precio de Sí es 68,2–70,5. La fase C descartó este dato con un argumento equivocado («el motor A no usa el coste de la deuda», en su revisión del dato ausente «Coste medio de la deuda publicado por la empresa y WACC»): el motor sí lo usa, dentro de f, y f se calibró con 2023–2025, antes del convertible al 0,25 % y de la caja gastada en 2026. Es la misma decisión de capital (deuda y caja para recomprar) cuyo lado bueno, menos acciones, sí cuenta la fase C en su incoherencia 2."
+  },
+  {
+   "id": "O2-fechas",
+   "direccion": "sube",
+   "hecho": {
+    "archivo": "zoetis-10q-2026-q3.txt",
+    "pagina": 1,
+    "cita": "As of October 30, 2026, there were 406,316,147 shares of common stock outstanding."
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "Precio de Sí de 71,97 a 75,3–76,1 (+3,3 a +4,1 USD). Ponderado de 78,62 a 82,2–83,8, por encima del precio de 82,11. Escenarios: 61,3 / 83,7 / 111,0 (solo acciones) o 60,8 / 85,5 / 115,2 (acciones y fecha).",
+    "cuenta": "La hoja divide por 424,927535 m (31-dic-2025) y descuenta el año 1 (ventas 9.467 × (1 + g), es decir, 2026) un año entero desde el 31-dic-2025, pero compara con el precio del 5-nov-2026. Entre medias recompró 17,7 m de acciones por 1.659 en nueve meses [zoetis-10q-2026-q3.txt, PDF p. 44] y pagó 1.690 de recompras y 666 de dividendos [PDF p. 8]. (ii) Solo acciones vigentes: × 424,927535 ÷ 406,316147 = × 1,0458 → 61,34 / 83,73 / 111,04; precio de Sí 75,26 (+3,29); ponderado 82,23 > 82,11. (i) Si el año 1 es 2026, como escriben la fase B y la C («año 1 en la guía», predicción de 2027 «sobre 9.467»), el valor está a 31-dic-2025 y hay que llevarlo al 5-nov-2026 (309 días, τ = 0,8466) quitando lo ya generado y repartido de 2026: E_nov = 1,09^τ × (E0 − FCF1 ÷ 1,09) + (1 − τ) × FCF1 ÷ 1,09^(1 − τ), dividido entre 406,316147 → 60,78 / 85,50 / 115,17; precio de Sí 76,10 (+4,13); ponderado 83,77. La fase C usó las acciones del 30-sep (407,49 m): 75,05 y 81,99, «caro por 0,1 USD»; con las del 30-oct ya no lo es. No propongo cambiar C55 (decisión P-O2/Z-ACC): es la lectura de la escalera la que debe llevar la fecha."
+   },
+   "por_que_cambia_la_conclusion": "Quita una de las dos razones de «esperar»: con las acciones vigentes el ponderado (82,2–83,8) supera el precio, así que la zona no es «caro», y la distancia del precio al precio de Sí baja del 14,1 % al 7,9–9,1 %. El objetivo sube a 75,3–76,1, por encima del precio medio al que la propia empresa recompró en el T3 de 2026, 74,77 USD [zoetis-10q-2026-q3.txt, PDF p. 47]: no es un precio imposible, y con 71,97 se dejaría pasar. La acción sigue siendo esperar porque 82,11 está por encima de 76,1. La caja gastada en esas recompras tiene un coste (menos ingresos por intereses) que va en O1: juntas, precio de Sí 72,3–74,5 y ponderado 79,7–82,6."
+  },
+  {
+   "id": "O3-IRS",
+   "direccion": "baja",
+   "hecho": {
+    "archivo": "zoetis-10q-2026-q3.txt",
+    "pagina": 16,
+    "cita": "As of September 30, 2026, the additional tax liability, based on the income adjustment proposed by the IRS under the RAR, is approximately $450 million, excluding interest and penalties. This matter is currently under appeal with the IRS."
+   },
+   "dato_ausente": null,
+   "cuanto_mueve": {
+    "cifra_o_rango": "Precio de Sí de 71,97 a 70,9–72,0 (0 a −1,1 USD); ponderado 77,5–78,6. Más si se suman intereses, que el 10-Q no cifra.",
+    "cuenta": "450 ÷ 406,316147 = 1,11 USD por acción (1,06 con 424,93 m) si la reclamación prospera y 0 si la gana la empresa. El FCF del motor no lleva ni la provisión ni el pago; la empresa solo dice que lo provisionado es «appropriate», y sus provisiones para todas las posiciones fiscales inciertas son 222 más 51 de intereses a 31-dic-2025 [zoetis-10k-fy2025.txt, PDF p. 83–84]. Resta lo mismo en los tres escenarios, y un cambio uniforme mueve el precio de Sí uno a uno (0,5 + 0,4 + 0,1)."
+   },
+   "por_que_cambia_la_conclusion": "Sola no cambia ni la acción ni la zona. Corrige un hecho: la fase A («reclamación del IRS … no los he podido comprobar y no los uso») y la C («Quito el IRS … porque venían del extracto de la etapa 1, que no está en la carpeta») lo dan por no disponible, y está en texto/ (10-Q del T3, p. 16; 10-K FY2025, p. 84). Debe volver a la tesis inversa (B102) y suma a la baja con O1."
+  }
+ ],
+ "sin_objeciones_validas": false,
+ "nota": "Tres objeciones válidas, ninguna cambia la acción. O1 y O2 salen de la misma decisión de capital (deuda y caja usadas para recomprar) y casi se compensan: juntas, precio de Sí 72,3–74,5 y ponderado 79,7–82,6 (por debajo de 82,11 salvo con R = 4,15 % y la lectura (i)), así que la zona «caro» queda en el filo y la incoherencia 2 de la fase C (+4 % solo por las acciones) está escrita a medias. Con O3: 71,2–73,4. Si además se aplican las cuatro derivaciones generosas que la fase C calculó y dejó (C14 0,02–0,025, B14 −0,02, MALO sin liberar capital, S2C del BUENO 0,8), el precio de Sí queda en 69,5–70,2 con las fechas corregidas (65,9–66,6 si no se corrigen). Vigilar y esperar sobreviven; lo que se mueve es el objetivo, que con todo lo anterior cae en una banda de ≈ 69–74 en vez del punto 71,97. Revisé y descarto por falta de hecho nuevo: fechas de exclusividad de las cuatro grandes (el 10-K FY2025, p. 17, solo lista Draxxin, Excede y Cerenia), la ley fiscal de EE. UU. de 2025 («did not have a material impact», 10-Q del T3, PDF p. 15) y el tipo efectivo (20,0 % en nueve meses, prácticamente el t de 0,1997 de la hoja). Método: no leí nada fuera de la carpeta ni el xlsx; los cálculos salen de una réplica del motor A que reproduce exactos los valores de resultados.json. No toco r = 9 % ni propongo tamaños."
+}
