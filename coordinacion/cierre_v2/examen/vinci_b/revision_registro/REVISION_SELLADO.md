@@ -64,3 +64,29 @@ De las 488 entradas, se sellaron **478**. Todas se examinaron, por ser el primer
 Las 28 hipótesis y 22 convenciones coinciden con el texto vigente de su fase o de `motor_a_f1.json`.
 - El sello acredita que el registro es fiel.
 - No acredita que el juicio sea correcto.
+
+## Segunda revisión, tras la corrección del extractor (04e86dd y 871b72e)
+Revisor: Claude revisor sellado, con fecha 2026-11-20 (fecha del sistema).
+- Producto: commit **ed65330**; manifiesto **d7537ae**, con `rapida` en PASA (rc 0, 136 s) sobre una copia limpia.
+- Solo cambian los bloques `comprobacion` de las 10 entradas.
+- No se ejecutó el pipeline.
+
+Examiné cada corrección en su fuente. Las **10 de 10** están selladas:
+
+| Entrada | Lo que comprobé |
+|---|---|
+| Historia!C86, D86, E86 | Ya no está la frase falsa. La justificación nueva es correcta: el año es anterior a la NIIF 16 y no hay derechos de uso. La referencia a 548/582 coincide con URD 2020, p. 319. |
+| Palancas!A29 | Los límites anotan ahora que «Europe excluding France» (28.511) incluye «Central and Eastern Europe» (3.297, un 4,4 % de 74.599) y «Rest of Europe» (5.732), según URD 2025, p. 369. Es una convención declarada, como en Z-R. |
+| Acciones de cinco consejeros (p. 148) | Cada cita es ya la fila literal de su persona (Lombard 1.016; Aguilar, Assouad, Bertocco Trindade y Zingoni 1.000). Están en la página y los valores no cambian. |
+| Análisis!C96 | Con sus 12 orígenes ya sellados, la sellé después: 550.233 ÷ 555.967.094 = 0,000989686, igual que el libro. |
+
+**C38.** Su juicio de materialidad ya estaba sellado desde 9a9e8ab y tenía su huella antes de la corrección. `comprobar` lo confirma: `no_materiales_revisados` = [C38] y `no_materiales_sin_revisar` = [].
+- C38 es la única celda del universo que no cuenta como comprobada: el dato de terceros no tiene bytes.
+- No es material.
+
+**`comprobar` ahora:**
+- **325 de 326** del universo (225/225 de cálculo y 100/101 de juicio), más 162 auxiliares.
+- 0 pendientes, 0 discrepancias, 0 desactualizadas, 0 errores.
+- **Apto por entradas: SÍ.**
+
+Es una condición necesaria, no suficiente. No acredita la aptitud para dinero real.
