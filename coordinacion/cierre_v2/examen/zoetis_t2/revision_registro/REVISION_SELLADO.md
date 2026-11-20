@@ -2,7 +2,7 @@
 
 - **Revisor:** «Claude revisor sellado». No he extraído ninguna entrada: los extractores son Mistral, el extractor complementario y «Claude orquestación».
 - **Fecha del sello: 2026-11-20.** Es la del reloj del sistema (UTC), la única que admite `verificacion_entradas.py sellar` («solo la revisión de hoy»). El encargo pedía 2026-11-21, pero el programa lo habría rechazado.
-- **Material:** `zoetis_t2/Zoetis/verificacion_entradas.json`, rama `examen/expedientes-f1`, cabeza `6df1558` (+ `11ab9ea`). Commit del sellado: `19b5c08`.
+- **Material:** `zoetis_t2/Zoetis/verificacion_entradas.json`, rama `examen/expedientes-f1`, cabeza `6df1558` (+ `11ab9ea`). Commit del sellado: `19b5c08`; manifiesto en `fcf7e9c` (10702 archivos; `verificar_paquete.sh rapida` sobre copia limpia: RESULTADO GLOBAL PASA).
 - **Qué cambié:** solo el bloque `comprobacion` y el vínculo que escribe `sellar`. No toqué valores, fuentes, huellas, fases ni el pipeline.
 
 ## Qué examiné y resultado: 65 de 65 pendientes sellados
