@@ -446,16 +446,32 @@ class BatchTests(Base):
         class Spy(FakeHTTP):
             def call(self, service, method, path, body=None):
                 if path == '/v1/messages':
-                    seen.append((body['max_tokens'], cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS))
+                    seen.append((body['max_tokens'], cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS, cr.STREAM_LIMIT_BYTES))
                 return super().call(service, method, path, body)
-        self.assertEqual(sc.MAX_OUTPUT, 32768)
+        self.assertEqual((sc.MAX_OUTPUT, sc.STREAM_DEADLINE_SECONDS, sc.STREAM_LIMIT_BYTES), (32768, 720, 2_000_000))
         self.assertEqual(sc.MAX_OUTPUT, da.DEFAULT_OUTPUT)  # la elegible del análisis directo no le afecta
         rows = self.rows()
         self.batch(Spy(GitHubStore()), rows)
-        self.assertEqual(seen, [(32768, 32768, 720)] * 3)
+        self.assertEqual(seen, [(32768, 32768, 720, 2_000_000)] * 3)
         self.assertTrue(all(r['preflight']['max_output_tokens'] == 32768 for r in rows))
+        self.assertTrue(all(r['preflight']['stream_deadline_seconds'] == 720 for r in rows))
         self.assertEqual(sc.PER_CALL_WORST_SECONDS, 720 + 60 + 120)
-        self.assertEqual((cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS), (32768, 720))
+        self.assertEqual((cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS, cr.STREAM_LIMIT_BYTES), (32768, 720, 2_000_000))
+
+    def test_cribado_sets_its_own_values_even_if_critical_review_was_left_changed(self):
+        # Blindaje (revisión R1): el cribado no hereda salida, plazo ni tope de critical_review.
+        seen = []
+
+        class Spy(FakeHTTP):
+            def call(self, service, method, path, body=None):
+                if path == '/v1/messages':
+                    seen.append((body['max_tokens'], cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS, cr.STREAM_LIMIT_BYTES))
+                return super().call(service, method, path, body)
+        with patch.multiple(cr, MAX_OUTPUT=65536, STREAM_DEADLINE_SECONDS=1500, STREAM_LIMIT_BYTES=4_000_000):
+            rows = self.rows()
+            self.batch(Spy(GitHubStore()), rows)
+            self.assertEqual((cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS, cr.STREAM_LIMIT_BYTES), (65536, 1500, 4_000_000))
+        self.assertEqual(seen, [(32768, 32768, 720, 2_000_000)] * 3)
 
     def test_one_call_per_company_in_sequence_and_ledger(self):
         store = GitHubStore()

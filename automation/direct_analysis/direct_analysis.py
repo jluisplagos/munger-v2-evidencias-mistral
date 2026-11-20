@@ -40,16 +40,24 @@ DEFAULT_MODEL = 'claude-opus-5-5'
 EFFORTS = ('low', 'medium', 'high', 'xhigh', 'max')
 PRICES_CHECKED = '2026-11-17'
 # Salida máxima (pensamiento + respuesta) elegible por ejecución, con su plazo total de
-# stream. 32 768 / 720 s es lo de AUTO1 y el valor por defecto; 65 536 / 1500 s existe
-# porque con esfuerzo `max` un análisis de Vinci agotó la salida (stop_reason max_tokens,
-# 31 289 tokens de pensamiento) y se pagó sin resultado aceptado. Lista cerrada: cualquier
-# otro valor es SALIDA_MAXIMA_INVALIDA y se aborta sin llamar ni reservar. Solo rigen dentro
-# de `configured`, que los fija en critical_review y restaura los de AUTO1 al salir; el
-# cribado (automation/screening) mantiene los de AUTO1.
+# stream y su tope de bytes del stream. 32 768 / 720 s / 2 MB es lo de AUTO1 y el valor por
+# defecto; 65 536 / 1500 s / 4 MB existe porque ya con esfuerzo `high` un análisis de Vinci
+# (ejecución 44554333055) agotó los 32 768 (stop_reason max_tokens, 31 289 tokens de
+# pensamiento) y se pagó sin resultado aceptado. Lista cerrada: cualquier otro valor es
+# SALIDA_MAXIMA_INVALIDA y se aborta sin llamar ni reservar. Solo rigen dentro de
+# `configured`, que los fija en critical_review y restaura los de AUTO1 al salir; el cribado
+# (automation/screening) fija los suyos (los de AUTO1).
 # Invariante del workflow analisis-directo.yml: el plazo mayor + socket (60 s) + preparación
 # y publicación < timeout-minutes del job `analisis` (ver WORKFLOW_MARGIN_SECONDS y sus pruebas).
 OUTPUT_CHOICES = {32768: 720, 65536: 1500}   # salida máxima (tokens) -> plazo del stream (s)
 DEFAULT_OUTPUT = 32768
+# Tope de bytes del stream SSE (critical_review.STREAM_LIMIT_BYTES = 2 000 000 en AUTO1),
+# proporcional a la salida elegida: con 32 768 queda igual. Medida del registro: la
+# ejecución de Vinci 44554333055 (32 768 tokens, 31 289 de pensamiento) cerró su stream sin
+# STREAM_DEMASIADO_GRANDE; el texto visible ocupa unos 2,3 bytes por token JSON-escapado
+# (38 ejecuciones del análisis directo) y el pensamiento llega omitido. Los bytes totales del
+# stream no se registran: con 65 536 el tope de 2 MB no estaba garantizado.
+STREAM_LIMITS = {k: 2_000_000 * k // 32768 for k in OUTPUT_CHOICES}
 SOCKET_TIMEOUT_SECONDS = 60     # el de StreamingHTTP.call (AUTO1), por lectura
 WORKFLOW_MARGIN_SECONDS = 420   # preparación + publicación: el mismo margen que AUTO1 (1200 - 720 - 60)
 HARD_MAX_USD = Decimal('5')  # techo del código; el tope acumulado lo fija la persona
@@ -602,6 +610,7 @@ def render(report, bundle, preflight):
            f"| Esfuerzo | {report['effort_requested']} |",
            f"| Mensajes enviados | {report['api_messages_sent']} |",
            f"| Salida máxima / plazo del stream | {preflight.get('max_output_tokens')} tokens / {preflight.get('stream_deadline_seconds')} s |",
+           f"| Tope de bytes del stream | {preflight.get('stream_limit_bytes')} |",
            f"| Cota de entrada estimada antes de llamar | {preflight['input_tokens_upper_bound']} tokens |",
            f"| Reserva estimada antes de llamar | USD {preflight['reserve_upper_bound_usd']} (máximo de la ejecución USD {preflight['max_usd']}) |"]
     if 'budget' in report:
@@ -661,7 +670,7 @@ def make_writer(bundle, preflight):
     def write(output, report):
         # Salida máxima y plazo usados, también en el report.json publicado (publish lo
         # serializa después de escribir).
-        for key in ('max_output_tokens', 'stream_deadline_seconds'):
+        for key in ('max_output_tokens', 'stream_deadline_seconds', 'stream_limit_bytes'):
             if key in preflight:
                 report[key] = preflight[key]
         output = Path(output)
@@ -730,18 +739,18 @@ def payload_sin_gramatica(bundle):
 def configured(task_id, model, effort, max_usd, bundle, encargo, preflight=None, max_output=DEFAULT_OUTPUT):
     """Configura critical_review como hace qwen_peer_review.configure y lo restaura al salir.
 
-    Dentro del contexto, todo lo que critical_review lee de MAX_OUTPUT y
-    STREAM_DEADLINE_SECONDS usa la salida elegida (`max_output`) y su plazo: `max_tokens`
-    del cuerpo (run), la reserva en USD (budget), la comprobación de salida tras la
-    respuesta (check_usage) y el plazo total del stream (StreamingHTTP.call). Al salir
-    vuelven los de AUTO1.
+    Dentro del contexto, todo lo que critical_review lee de MAX_OUTPUT,
+    STREAM_DEADLINE_SECONDS y STREAM_LIMIT_BYTES usa la salida elegida (`max_output`), su
+    plazo y su tope de bytes: `max_tokens` del cuerpo (run), la reserva en USD (budget), la
+    comprobación de salida tras la respuesta (check_usage), el plazo total del stream
+    (StreamingHTTP.call) y el tope de bytes (read_stream). Al salir vuelven los de AUTO1.
     """
     if model not in MODELS:
         raise pilot.PilotError('MODELO_NO_AUTORIZADO')
     if effort not in EFFORTS:
         raise pilot.PilotError('ESFUERZO_INVALIDO')
     max_output = parse_max_output(max_output)
-    deadline = OUTPUT_CHOICES[max_output]
+    deadline, stream_limit = OUTPUT_CHOICES[max_output], STREAM_LIMITS[max_output]
     info, original_budget = MODELS[model], cr.budget
 
     def budget(b, count):
@@ -749,13 +758,14 @@ def configured(task_id, model, effort, max_usd, bundle, encargo, preflight=None,
         if type(count) is int and count + max_output > info['context']:
             raise pilot.PilotError('PAQUETE_SUPERA_CONTEXTO_DEL_MODELO_NO_SE_RECORTA')
         # La reserva publicada (reservation.json, report.json) lleva también el plazo usado.
-        return {**original_budget(b, count), 'stream_deadline_seconds': deadline}
+        return {**original_budget(b, count), 'stream_deadline_seconds': deadline,
+                'stream_limit_bytes': stream_limit}
 
     holder = preflight if preflight is not None else {}
     holder['system_sha256'] = pilot.digest(system_con_esquema(encargo).encode('utf-8'))
-    holder.update(max_output_tokens=max_output, stream_deadline_seconds=deadline)
+    holder.update(max_output_tokens=max_output, stream_deadline_seconds=deadline, stream_limit_bytes=stream_limit)
     values = dict(TASK=task_id, MODEL=model, EFFORT=effort, MAX_OUTPUT=max_output, MAX_USD=max_usd,
-                  STREAM_DEADLINE_SECONDS=deadline,
+                  STREAM_DEADLINE_SECONDS=deadline, STREAM_LIMIT_BYTES=stream_limit,
                   INPUT_PRICE=info['input'], OUTPUT_PRICE=info['output'], SYSTEM=system_con_esquema(encargo), SCHEMA=SCHEMA,
                   payload=payload_sin_gramatica,
                   validate=validate, write=make_writer(bundle, holder), budget=budget)
@@ -784,6 +794,7 @@ def preflight(bundle, holder=None):
     result = {'payload_bytes': payload_bytes, 'input_tokens_upper_bound': bound,
               'input_tokens_rough_estimate': math.ceil(payload_bytes / 3.5),
               'max_output_tokens': max_output, 'stream_deadline_seconds': cr.STREAM_DEADLINE_SECONDS,
+              'stream_limit_bytes': cr.STREAM_LIMIT_BYTES,
               'context_tokens': info['context'],
               'reserve_upper_bound_usd': str(reserve), 'max_usd': str(cr.MAX_USD),
               'usd_per_mtok_input': str(cr.INPUT_PRICE), 'usd_per_mtok_output': str(cr.OUTPUT_PRICE),

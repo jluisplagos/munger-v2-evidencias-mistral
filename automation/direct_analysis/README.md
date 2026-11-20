@@ -113,12 +113,14 @@ rúbrica, el personaje ni Munger. El nombre del repositorio no se envía al mode
      admiten un presupuesto de pensamiento en tokens: el esfuerzo es el único mando;
    - **coste máximo en USD** de esta ejecución (hasta 5);
    - **salida máxima** (pensamiento + respuesta): `32768` (por defecto; plazo de stream de
-     720 s, como AUTO1 y como hasta ahora) o `65536` (plazo de 1500 s), para esfuerzos altos
-     que agotarían 32 768. La de 65 536 reserva el doble de salida y no la admiten los
+     720 s y tope de 2 MB, como AUTO1 y como hasta ahora) o `65536` (plazo de 1500 s y tope
+     de 4 MB). Ya con esfuerzo `high` se pueden agotar 32 768: le pasó a Vinci en la
+     ejecución 44554333055. La de 65 536 reserva el doble de salida y no la admiten los
      paquetes de examen grandes (tabla de abajo). Cualquier otro valor
-     (`SALIDA_MAXIMA_INVALIDA`) se para antes de leer nada, sin llamar ni reservar. La salida
-     y el plazo usados figuran en el resumen de `preparar`, en `report.json`/`report.md` y en
-     la reserva (`budget.max_output_tokens`, `budget.stream_deadline_seconds`).
+     (`SALIDA_MAXIMA_INVALIDA`) se para antes de leer nada, sin llamar ni reservar. La
+     salida, el plazo y el tope usados figuran en el resumen de `preparar`, en
+     `report.json`/`report.md` y en la reserva (`budget.max_output_tokens`,
+     `budget.stream_deadline_seconds`, `budget.stream_limit_bytes`).
 3. El workflow pasa las pruebas y prepara el paquete **sin llamar a la API**. En el
    resumen del job `preparar` verás los archivos, sus huellas, la cota de tokens y la
    reserva estimada. Si no cabe en el contexto o en el coste máximo, se para aquí.
@@ -328,10 +330,28 @@ van a Git: se leen de la Release.
   preparación y publicación (margen de 420 s, el de AUTO1). Son valores propios del análisis
   directo (`direct_analysis.OUTPUT_CHOICES`, fijados en `critical_review` solo dentro de
   `configured`); AUTO1 y el cribado siguen con 32 768 y 720 s. La opción de 65 536 existe
-  porque con esfuerzo `max` un análisis de Vinci agotó la de 32 768 (31 289 tokens de
-  pensamiento) y se pagó sin resultado aceptado; con el paquete actual de Vinci, 65 536 no
-  cabe (tabla de arriba). Un esfuerzo `max` todavía puede agotar cualquiera de los dos
+  porque ya con esfuerzo `high` el análisis de Vinci (ejecución 44554333055, Opus 5.5) agotó
+  la de 32 768 (stop_reason `max_tokens`, 31 289 tokens de pensamiento) y se pagó sin
+  resultado aceptado. Ninguna ejecución del análisis directo del registro (39 carpetas) usó
+  `max`; las demás con `high` gastaron de 13 000 a 24 400 tokens de salida. Con el paquete actual de Vinci, 65 536
+  no cabe (tabla de arriba). Cualquier esfuerzo puede agotar cualquiera de los dos
   límites: el resultado se paga y queda no aceptado.
+- **Tope de bytes del stream.** El transporte de AUTO1 corta el stream SSE a los 2 000 000
+  bytes (`critical_review.STREAM_LIMIT_BYTES`): `STREAM_DEMASIADO_GRANDE`, resultado pagado
+  y no aceptado. Ese tope se fijó para 32 768 tokens. En el análisis directo es
+  proporcional a la salida elegida (`direct_analysis.STREAM_LIMITS`): 2 000 000 con 32 768
+  (igual que AUTO1) y 4 000 000 con 65 536, fijado solo dentro de `configured` y restaurado
+  al salir; el cribado fija el suyo (2 000 000). Lo medido (20-nov-2026, registro):
+  - Los bytes totales del stream no se registran en ninguna ejecución.
+  - El texto visible ocupa unos 2,3 bytes por token (JSON-escapado; 2,22-2,47 en las 37
+    ejecuciones con uso registrado y en el cribado) y es de 5 700 a 8 200 tokens con `high`. El pensamiento
+    llega omitido (no se pide `display`), así que apenas ocupa bytes como texto.
+  - Vinci 44554333055 (32 768 tokens, 31 289 de pensamiento) cerró su stream con uso final y
+    sin `STREAM_DEMASIADO_GRANDE`: 32 768 tokens de esa mezcla caben en 2 MB.
+  - Con un evento SSE por token (unos 120 bytes de envoltura), 65 536 tokens de texto
+    ocuparían unos 7,8 MB; 8 200 tokens de texto, alrededor de 1 MB. El tope de 4 MB cubre
+    el doble de lo que cupo con 32 768, no un caso extremo de texto visible. Conviene anotar
+    el tamaño del primer stream real de 65 536.
 - Salidas estructuradas: con este esquema la API respondió 400 «The compiled grammar is
   too large» (ejecución 44288081039; un 400 no se cobra). Desde 08fa48f no se envía
   `output_config.format`: el esquema va al final del encargo y la respuesta se valida

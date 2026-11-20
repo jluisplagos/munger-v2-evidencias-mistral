@@ -3,6 +3,7 @@ import contextlib
 import copy
 from decimal import Decimal
 import hashlib
+import io
 import json
 from pathlib import Path
 import subprocess
@@ -396,7 +397,7 @@ class CapTests(Base):
         h = FakeHTTP(store, reply=reply())
         with patch.dict('os.environ', {cr.CAP_ENV: str(spent + Decimal('0.5'))}), \
                 self.assertRaisesRegex(pilot.PilotError, 'TOPE_ACUMULADO_SUPERADO'):
-            self.run_da(h, b=bundle('analisis-directo-zoetis-2'), max_usd='2')
+            self.run_da(h, b=bundle('analisis-directo-zoetis-2'), max_usd='1')
         self.assertEqual(h.sent(), [])
 
     def test_reservation_published_before_the_call(self):
@@ -433,7 +434,8 @@ def live_transport(test, response):
     opener, seen = SpyOpener(), []
 
     def fake_read(resp, partial=None, deadline=None, clock=time.monotonic):
-        seen.append({'plazo_s': deadline - time.monotonic(), 'MAX_OUTPUT': cr.MAX_OUTPUT})
+        seen.append({'plazo_s': deadline - time.monotonic(), 'MAX_OUTPUT': cr.MAX_OUTPUT,
+                     'STREAM_LIMIT_BYTES': cr.STREAM_LIMIT_BYTES})
         return copy.deepcopy(response)
     for p in (patch.object(cr, 'build_opener', lambda *a, **k: opener), patch.object(cr, 'read_stream', fake_read)):
         p.start(); test.addCleanup(p.stop)
@@ -456,17 +458,19 @@ class LiveDirectHTTP(da.DirectHTTP):
         return {'id': self.model}
 
 
-AUTO1 = (32768, 720)
+AUTO1 = (32768, 720, 2_000_000)   # salida, plazo (s) y tope de bytes del stream de AUTO1
+LIMITS = {32768: 2_000_000, 65536: 4_000_000}
 
 
 class SalidaYPlazoTests(Base):
-    """Salida máxima elegible: 32 768 / 720 s (por defecto) o 65 536 / 1500 s; AUTO1 no cambia."""
+    """Salida máxima elegible: 32 768 / 720 s / 2 MB (por defecto) o 65 536 / 1500 s / 4 MB; AUTO1 no cambia."""
 
     def config(self):
-        return cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS
+        return cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS, cr.STREAM_LIMIT_BYTES
 
     def test_choices_and_default(self):
         self.assertEqual(da.OUTPUT_CHOICES, {32768: 720, 65536: 1500})
+        self.assertEqual(da.STREAM_LIMITS, LIMITS)
         self.assertEqual(da.DEFAULT_OUTPUT, 32768)
         self.assertEqual(da.HARD_MAX_USD, Decimal('5'))
         self.assertEqual(self.config(), AUTO1)
@@ -486,17 +490,20 @@ class SalidaYPlazoTests(Base):
         self.assertEqual(opener.timeouts, [da.SOCKET_TIMEOUT_SECONDS])
         self.assertEqual(len(seen), 1)
         self.assertTrue(deadline - 5 < seen[0]['plazo_s'] <= deadline, seen)
-        self.assertEqual(seen[0]['MAX_OUTPUT'], expected)
-        # Reserva (Opus 5.5: 4 / 20 USD por MTok) y registro con la salida y el plazo usados.
+        self.assertEqual((seen[0]['MAX_OUTPUT'], seen[0]['STREAM_LIMIT_BYTES']), (expected, LIMITS[expected]))
+        # Reserva (Opus 5.5: 4 / 20 USD por MTok) y registro con la salida, el plazo y el tope usados.
         res = self.ledger(store)
         budget = res['budget']
-        self.assertEqual((budget['max_output_tokens'], budget['stream_deadline_seconds']), (expected, deadline))
+        self.assertEqual((budget['max_output_tokens'], budget['stream_deadline_seconds'], budget['stream_limit_bytes']),
+                         (expected, deadline, LIMITS[expected]))
         self.assertEqual(Decimal(budget['reserved_usd']),
                          (Decimal(budget['reserved_input_tokens']) * 4 + Decimal(expected) * 20) / 1_000_000)
         rep = self.ledger(store, name='report.json')
-        self.assertEqual((rep['max_output_tokens'], rep['stream_deadline_seconds']), (expected, deadline))
+        self.assertEqual((rep['max_output_tokens'], rep['stream_deadline_seconds'], rep['stream_limit_bytes']),
+                         (expected, deadline, LIMITS[expected]))
         self.assertIn(f'| Salida máxima / plazo del stream | {expected} tokens / {deadline} s |',
                       self.ledger_md(store))
+        self.assertIn(f'| Tope de bytes del stream | {LIMITS[expected]} |', self.ledger_md(store))
         self.assertEqual(r['cost_status'], 'CONOCIDO_ESTIMADO')
         self.assertEqual(Decimal(r['estimated_cost_usd']),
                          (Decimal(900) * 4 + Decimal(output_tokens) * 20) / 1_000_000)
@@ -552,15 +559,62 @@ class SalidaYPlazoTests(Base):
         self.assertEqual((code, err.getvalue().strip()), (2, 'SALIDA_MAXIMA_INVALIDA'))
         self.assertEqual(list(Path(self.tmp.name).iterdir()), [])
 
+    def main_preparado(self, *extra):
+        """main() real sin --execute-api (como `preparar`): solo se simulan el código y el paquete."""
+        b = bundle()
+        package = {k: v for k, v in b.items() if k not in ('encargo_sha256', 'package_sha256', 'task_id', 'code_sha')}
+        with patch.object(da, 'verify_code', lambda root, sha: ENCARGO), \
+                patch.object(da, 'load_package', lambda *a, **k: copy.deepcopy(package)), \
+                patch.object(cr, 'build_opener', side_effect=AssertionError('sin red')):
+            code = da.main(['--empresa', 'zoetis', '--package', 'automation/direct_analysis/paquetes/zoetis.json',
+                            '--max-usd', '3', *extra, '--run-id', '1', '--code-sha', 'a' * 40,
+                            '--output', self.tmp.name])
+        out = Path(self.tmp.name)
+        return code, json.loads((out / 'report.json').read_text()), (out / 'report.md').read_text()
+
+    def test_cli_passes_65536_to_execute(self):
+        # Camino del workflow con salida_maxima=65536: main -> execute(max_output=65536).
+        code, rep, md = self.main_preparado('--max-output', '65536')
+        self.assertEqual((code, rep['state'], rep['api_messages_sent']), (0, 'PREPARADO_SIN_API', 0))
+        self.assertEqual((rep['max_output_tokens'], rep['stream_deadline_seconds'], rep['stream_limit_bytes']),
+                         (65536, 1500, 4_000_000))
+        self.assertIn('| Salida máxima / plazo del stream | 65536 tokens / 1500 s |', md)
+        self.assertEqual(self.config(), AUTO1)
+
+    def test_cli_default_is_32768(self):
+        code, rep, md = self.main_preparado()
+        self.assertEqual((code, rep['max_output_tokens'], rep['stream_deadline_seconds']), (0, 32768, 720))
+        self.assertIn('| Salida máxima / plazo del stream | 32768 tokens / 720 s |', md)
+
+    def test_stream_byte_limit_scales_with_the_choice_and_is_restored(self):
+        # Unos 3 MB de SSE válido (eventos ping con relleno): pasa con el tope de 65 536 (4 MB) y no con 2 MB.
+        ev = t1.events()
+        data = t1.sse(ev[:2] + [{'type': 'ping', 'relleno': 'x' * 10_000}] * 300 + ev[2:])
+        self.assertTrue(2_000_000 < len(data) < 4_000_000, len(data))
+        b = bundle()
+        for max_output in da.OUTPUT_CHOICES:
+            with self.subTest(max_output=max_output), \
+                    da.configured(b['task_id'], da.DEFAULT_MODEL, 'high', Decimal('5'), b, ENCARGO, max_output=max_output):
+                self.assertEqual(cr.STREAM_LIMIT_BYTES, LIMITS[max_output])
+                if max_output == 65536:
+                    self.assertEqual(cr.read_stream(io.BytesIO(data))['stop_reason'], 'end_turn')
+                else:
+                    with self.assertRaisesRegex(pilot.PilotError, 'STREAM_DEMASIADO_GRANDE'):
+                        cr.read_stream(io.BytesIO(data))
+            self.assertEqual(self.config(), AUTO1)
+        with self.assertRaisesRegex(pilot.PilotError, 'STREAM_DEMASIADO_GRANDE'):  # AUTO1, fuera de configured
+            cr.read_stream(io.BytesIO(data))
+
     def test_preflight_reserve_and_report_use_the_choice(self):
         b = bundle()
         for max_output, deadline in da.OUTPUT_CHOICES.items():
             with self.subTest(max_output=max_output), \
                     da.configured(b['task_id'], 'claude-fable-5-2', 'max', Decimal('5'), b, ENCARGO,
                                   max_output=max_output) as holder:
-                self.assertEqual(self.config(), (max_output, deadline))
+                self.assertEqual(self.config(), (max_output, deadline, LIMITS[max_output]))
                 res = da.preflight(b, holder)
-                self.assertEqual((res['max_output_tokens'], res['stream_deadline_seconds']), (max_output, deadline))
+                self.assertEqual((res['max_output_tokens'], res['stream_deadline_seconds'], res['stream_limit_bytes']),
+                                 (max_output, deadline, LIMITS[max_output]))
                 self.assertEqual(Decimal(res['reserve_upper_bound_usd']),
                                  (Decimal(res['input_tokens_upper_bound']) * 8 + Decimal(max_output) * 40) / 1_000_000)
             self.assertEqual(self.config(), AUTO1)

@@ -80,11 +80,14 @@ COMPANY_ONLY = ('COSTE_MAXIMO_INSUFICIENTE_NO_SE_RECORTA', 'PAQUETE_SUPERA_CONTE
                 'RESERVA_SUPERA_2_USD', 'CONTEO_INVALIDO')
 # Plazo de la tanda: no se empieza una empresa si no cabe su peor caso (stream de AUTO1 +
 # socket + publicación) antes del timeout del job.
-PER_CALL_WORST_SECONDS = cr.STREAM_DEADLINE_SECONDS + 60 + 120
-# Salida máxima del cribado: la de AUTO1 (32 768), no la del análisis directo (65 536, solo
-# en su `configured`); el plazo del stream sigue siendo el de AUTO1 (720 s), que la tanda
-# usa arriba para no empezar una empresa que no quepa en el timeout del job.
+# Salida máxima, plazo y tope de bytes del stream del cribado: los de AUTO1 (32 768 tokens,
+# 720 s, 2 MB), no los elegibles del análisis directo. Se fijan en `configured` (no se
+# heredan de critical_review); la tanda usa el plazo para no empezar una empresa que no
+# quepa en el timeout del job.
 MAX_OUTPUT = 32768
+STREAM_DEADLINE_SECONDS = 720
+STREAM_LIMIT_BYTES = 2_000_000
+PER_CALL_WORST_SECONDS = STREAM_DEADLINE_SECONDS + 60 + 120
 # Supuesto para el coste orientativo del dry-run (no es la cota): la ejecución real del
 # análisis directo con Opus 5.5 high (unos 388 000 tokens de entrada, 1,9 USD) gastó unos
 # 17 000 tokens de salida; el cribado devuelve un JSON mucho más corto.
@@ -629,6 +632,7 @@ def configured(task_id, model, effort, max_usd, bundle, encargo, gramatica=False
     holder = {} if holder is None else holder
     holder.update(system_sha256=digest(system.encode('utf-8')), gramatica=bool(gramatica))
     values = dict(TASK=task_id, MODEL=model, EFFORT=effort, MAX_OUTPUT=MAX_OUTPUT, MAX_USD=max_usd,
+                  STREAM_DEADLINE_SECONDS=STREAM_DEADLINE_SECONDS, STREAM_LIMIT_BYTES=STREAM_LIMIT_BYTES,
                   INPUT_PRICE=info['input'], OUTPUT_PRICE=info['output'], SYSTEM=system, SCHEMA=SCHEMA,
                   payload=payload, validate=validate, write=make_writer(bundle, holder), budget=budget,
                   Register=cached_register({} if cache is None else cache))
