@@ -85,8 +85,9 @@ jobs:
       group: munger-analisis-directo
       cancel-in-progress: false
     runs-on: ubuntu-latest
-    # Plazo del stream (720 s) + timeout de socket (60 s) + publicacion < 20 min.
-    timeout-minutes: 20
+    # Plazo del stream propio del analisis directo (1500 s) + timeout de socket (60 s)
+    # + preparacion y publicacion de informe y reserva (margen >= 420 s, el de AUTO1) < 35 min.
+    timeout-minutes: 35
     environment: inferencia-aprobada
     permissions:
       contents: write

@@ -439,6 +439,24 @@ class ValidationTests(Base):
 
 # --- La tanda -------------------------------------------------------------------------------------
 class BatchTests(Base):
+    def test_cribado_keeps_auto1_output_and_deadline_not_direct_analysis(self):
+        # La salida de 65 536 y el plazo de 1500 s son solo del análisis directo.
+        seen = []
+
+        class Spy(FakeHTTP):
+            def call(self, service, method, path, body=None):
+                if path == '/v1/messages':
+                    seen.append((body['max_tokens'], cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS))
+                return super().call(service, method, path, body)
+        self.assertEqual(sc.MAX_OUTPUT, 32768)
+        self.assertNotEqual(sc.MAX_OUTPUT, da.MAX_OUTPUT)
+        rows = self.rows()
+        self.batch(Spy(GitHubStore()), rows)
+        self.assertEqual(seen, [(32768, 32768, 720)] * 3)
+        self.assertTrue(all(r['preflight']['max_output_tokens'] == 32768 for r in rows))
+        self.assertEqual(sc.PER_CALL_WORST_SECONDS, 720 + 60 + 120)
+        self.assertEqual((cr.MAX_OUTPUT, cr.STREAM_DEADLINE_SECONDS), (32768, 720))
+
     def test_one_call_per_company_in_sequence_and_ledger(self):
         store = GitHubStore()
         h = FakeHTTP(store)
@@ -453,7 +471,7 @@ class BatchTests(Base):
             body = call[3]
             self.assertEqual(body['model'], 'claude-opus-5-5')
             self.assertEqual(body['output_config'], {'effort': 'high'})  # sin gramática por defecto
-            self.assertEqual(body['max_tokens'], da.MAX_OUTPUT)
+            self.assertEqual(body['max_tokens'], sc.MAX_OUTPUT)
             self.assertNotIn('tools', body)
             self.assertTrue(body['system'].startswith(ENCARGO))
             self.assertEqual(json.loads(body['messages'][0]['content'])['empresa'], ['Acme', 'Beta_Co', 'Gamma'][i])
@@ -712,7 +730,7 @@ class DryRunTests(Base):
         for t in result['empresas']:
             bound = t['bytes_paquete'] + da.MARGIN_TOKENS
             self.assertEqual(t['cota_tokens_entrada'], bound)
-            self.assertEqual(Decimal(t['reserva_cota_usd']), (Decimal(bound) * 4 + Decimal(da.MAX_OUTPUT) * 20) / 1_000_000)
+            self.assertEqual(Decimal(t['reserva_cota_usd']), (Decimal(bound) * 4 + Decimal(sc.MAX_OUTPUT) * 20) / 1_000_000)
         total = sum(Decimal(t['reserva_cota_usd']) for t in result['empresas'])
         self.assertEqual(Decimal(result['total_reserva_cota_usd']), total)
         self.assertEqual(sum(Decimal(b['reserva_cota_usd']) for b in result['tandas']), total)

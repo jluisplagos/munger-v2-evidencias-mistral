@@ -39,9 +39,17 @@ MODELS = {
 DEFAULT_MODEL = 'claude-opus-5-5'
 EFFORTS = ('low', 'medium', 'high', 'xhigh', 'max')
 PRICES_CHECKED = '2026-11-17'
-# Salida máxima (pensamiento + respuesta). Igual que AUTO1, para caber en su plazo de
-# stream de 720 s; agotarla deja un resultado pagado y no aceptado.
-MAX_OUTPUT = 32768
+# Salida máxima (pensamiento + respuesta) y plazo total del stream, propios del análisis
+# directo: el doble que AUTO1 (32 768 tokens, 720 s), porque con esfuerzo `max` un análisis
+# de Vinci agotó la salida (stop_reason max_tokens, 31 289 tokens de pensamiento) y se pagó
+# sin resultado aceptado. Solo rigen dentro de `configured`, que los fija en critical_review
+# y restaura los de AUTO1 al salir; el cribado (automation/screening) mantiene los de AUTO1.
+# Invariante del workflow analisis-directo.yml: plazo + socket (60 s) + publicación <
+# timeout-minutes del job `analisis` (ver WORKFLOW_MARGIN_SECONDS y sus pruebas).
+MAX_OUTPUT = 65536
+STREAM_DEADLINE_SECONDS = 1500
+SOCKET_TIMEOUT_SECONDS = 60     # el de StreamingHTTP.call (AUTO1), por lectura
+WORKFLOW_MARGIN_SECONDS = 420   # preparación + publicación: el mismo margen que AUTO1 (1200 - 720 - 60)
 HARD_MAX_USD = Decimal('5')  # techo del código; el tope acumulado lo fija la persona
 MARGIN_TOKENS = 4096          # el mismo margen que critical_review.budget
 MAX_FILE_BYTES = 1_500_000
@@ -701,7 +709,13 @@ def payload_sin_gramatica(bundle):
 
 @contextlib.contextmanager
 def configured(task_id, model, effort, max_usd, bundle, encargo, preflight=None):
-    """Configura critical_review como hace qwen_peer_review.configure y lo restaura al salir."""
+    """Configura critical_review como hace qwen_peer_review.configure y lo restaura al salir.
+
+    Dentro del contexto, todo lo que critical_review lee de MAX_OUTPUT y
+    STREAM_DEADLINE_SECONDS usa los valores del análisis directo: `max_tokens` del cuerpo
+    (run), la reserva en USD (budget), la comprobación de salida tras la respuesta
+    (check_usage) y el plazo total del stream (StreamingHTTP.call). Al salir vuelven los de AUTO1.
+    """
     if model not in MODELS:
         raise pilot.PilotError('MODELO_NO_AUTORIZADO')
     if effort not in EFFORTS:
@@ -717,6 +731,7 @@ def configured(task_id, model, effort, max_usd, bundle, encargo, preflight=None)
     holder = preflight if preflight is not None else {}
     holder['system_sha256'] = pilot.digest(system_con_esquema(encargo).encode('utf-8'))
     values = dict(TASK=task_id, MODEL=model, EFFORT=effort, MAX_OUTPUT=MAX_OUTPUT, MAX_USD=max_usd,
+                  STREAM_DEADLINE_SECONDS=STREAM_DEADLINE_SECONDS,
                   INPUT_PRICE=info['input'], OUTPUT_PRICE=info['output'], SYSTEM=system_con_esquema(encargo), SCHEMA=SCHEMA,
                   payload=payload_sin_gramatica,
                   validate=validate, write=make_writer(bundle, holder), budget=budget)
@@ -734,21 +749,23 @@ def preflight(bundle, holder=None):
     """Antes de cualquier llamada: cota de tokens por bytes (un token ocupa al menos un byte).
 
     Aborta si el paquete no cabe en el contexto o si la reserva supera el máximo de la
-    ejecución. Nunca recorta el paquete. Usa la configuración activa de critical_review.
+    ejecución. Nunca recorta el paquete. Usa la configuración activa de critical_review,
+    también la salida máxima (cr.MAX_OUTPUT): la de `configured` aquí y la propia del cribado
+    cuando lo llama automation/screening.
     """
-    info = MODELS[cr.MODEL]
+    info, max_output = MODELS[cr.MODEL], cr.MAX_OUTPUT
     payload_bytes = len(pilot.canonical(cr.payload(bundle)))
     bound = payload_bytes + MARGIN_TOKENS
-    reserve = (Decimal(bound) * cr.INPUT_PRICE + Decimal(MAX_OUTPUT) * cr.OUTPUT_PRICE) / 1_000_000
+    reserve = (Decimal(bound) * cr.INPUT_PRICE + Decimal(max_output) * cr.OUTPUT_PRICE) / 1_000_000
     result = {'payload_bytes': payload_bytes, 'input_tokens_upper_bound': bound,
               'input_tokens_rough_estimate': math.ceil(payload_bytes / 3.5),
-              'max_output_tokens': MAX_OUTPUT, 'context_tokens': info['context'],
+              'max_output_tokens': max_output, 'context_tokens': info['context'],
               'reserve_upper_bound_usd': str(reserve), 'max_usd': str(cr.MAX_USD),
               'usd_per_mtok_input': str(cr.INPUT_PRICE), 'usd_per_mtok_output': str(cr.OUTPUT_PRICE),
               'prices_checked': PRICES_CHECKED}
     if holder is not None:
         holder.update(result)
-    if bound + MAX_OUTPUT > info['context']:
+    if bound + max_output > info['context']:
         raise pilot.PilotError('PAQUETE_SUPERA_CONTEXTO_DEL_MODELO_NO_SE_RECORTA')
     if reserve > cr.MAX_USD:
         raise pilot.PilotError('COSTE_MAXIMO_INSUFICIENTE_NO_SE_RECORTA')
@@ -757,6 +774,10 @@ def preflight(bundle, holder=None):
 
 class DirectHTTP(cr.StreamingHTTP):
     """El transporte SSE de AUTO1 sin cambios; solo amplía la lista de modelos autorizados.
+
+    El plazo total del stream lo lee StreamingHTTP.call de cr.STREAM_DEADLINE_SECONDS: 1500 s
+    dentro de `configured` del análisis directo; 720 s (AUTO1) en el cribado, que también usa
+    esta clase con su propia configuración.
 
     pilot.HTTP.__init__ admite únicamente Sonnet 5.5 y Fable 5.2; aquí se valida contra
     MODELS (con sus tarifas). El cuerpo de cada llamada sigue ligado a self.model.

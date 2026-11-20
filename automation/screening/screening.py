@@ -81,6 +81,10 @@ COMPANY_ONLY = ('COSTE_MAXIMO_INSUFICIENTE_NO_SE_RECORTA', 'PAQUETE_SUPERA_CONTE
 # Plazo de la tanda: no se empieza una empresa si no cabe su peor caso (stream de AUTO1 +
 # socket + publicación) antes del timeout del job.
 PER_CALL_WORST_SECONDS = cr.STREAM_DEADLINE_SECONDS + 60 + 120
+# Salida máxima del cribado: la de AUTO1 (32 768), no la del análisis directo (65 536, solo
+# en su `configured`); el plazo del stream sigue siendo el de AUTO1 (720 s), que la tanda
+# usa arriba para no empezar una empresa que no quepa en el timeout del job.
+MAX_OUTPUT = 32768
 # Supuesto para el coste orientativo del dry-run (no es la cota): la ejecución real del
 # análisis directo con Opus 5.5 high (unos 388 000 tokens de entrada, 1,9 USD) gastó unos
 # 17 000 tokens de salida; el cribado devuelve un JSON mucho más corto.
@@ -610,7 +614,7 @@ def configured(task_id, model, effort, max_usd, bundle, encargo, gramatica=False
     system = system_con_esquema(encargo)
 
     def budget(b, count):
-        if type(count) is int and count + da.MAX_OUTPUT > info['context']:
+        if type(count) is int and count + MAX_OUTPUT > info['context']:
             raise pilot.PilotError('PAQUETE_SUPERA_CONTEXTO_DEL_MODELO_NO_SE_RECORTA')
         return original_budget(b, count)
 
@@ -624,7 +628,7 @@ def configured(task_id, model, effort, max_usd, bundle, encargo, gramatica=False
 
     holder = {} if holder is None else holder
     holder.update(system_sha256=digest(system.encode('utf-8')), gramatica=bool(gramatica))
-    values = dict(TASK=task_id, MODEL=model, EFFORT=effort, MAX_OUTPUT=da.MAX_OUTPUT, MAX_USD=max_usd,
+    values = dict(TASK=task_id, MODEL=model, EFFORT=effort, MAX_OUTPUT=MAX_OUTPUT, MAX_USD=max_usd,
                   INPUT_PRICE=info['input'], OUTPUT_PRICE=info['output'], SYSTEM=system, SCHEMA=SCHEMA,
                   payload=payload, validate=validate, write=make_writer(bundle, holder), budget=budget,
                   Register=cached_register({} if cache is None else cache))
@@ -1053,7 +1057,7 @@ def write_cotas(output, result):
             w.writerow(['' if row[k] is None else row[k] for k in cols])
     lines = [f"# Cotas del cribado · {result['modelo']} · esfuerzo {result['esfuerzo']}", '',
              'Dry-run sin API. La **cota** es la reserva de AUTO1: un token por byte del envío + 4 096 de margen'
-             f" y la salida máxima ({da.MAX_OUTPUT} tokens), a {result['tarifas_usd_mtok']['entrada']} / "
+             f" y la salida máxima ({MAX_OUTPUT} tokens), a {result['tarifas_usd_mtok']['entrada']} / "
              f"{result['tarifas_usd_mtok']['salida']} USD por millón (tarifas del {result['tarifas_consultadas']}). "
              f"El **orientativo** supone {ROUGH_BYTES_PER_TOKEN} bytes por token y {ROUGH_OUTPUT_TOKENS} tokens de salida.", '',
              f"- Empresas preparadas: {result['preparadas']}; no preparadas: {len(result['no_preparadas'])}; "

@@ -153,9 +153,12 @@ Opus 5.5, 4 / 20; Fable 5.2, 8 / 40; Sonnet 5.5, 2 / 10.
 - Paquete de 100 a 300 KB de texto con Opus 5.5: de 30 000 a 90 000 tokens de
   entrada y, con esfuerzo alto, de 10 000 a 30 000 de salida (el pensamiento cuenta
   como salida). Coste real: **de 0,3 a 1 USD**. Con Fable 5.2, el doble.
-- La **reserva** es más alta: cuenta un token por byte y la salida máxima
-  (32 768 tokens). Para 300 KB con Opus 5.5 ronda **1,9 USD**. El coste máximo que
-  pongas tiene que cubrir la reserva que muestra `preparar`.
+- La **reserva** es más alta: cuenta un token por byte y la salida máxima del análisis
+  directo (65 536 tokens; AUTO1 y el cribado siguen con 32 768). Solo la salida reservada
+  son 1,31 USD con Opus 5.5 y 2,62 USD con Fable 5.2. Para 300 KB con Opus 5.5 ronda
+  **2,5 USD**; con Fable 5.2 solo caben paquetes de hasta unos 293 KB (cota de entrada de
+  unos 297 000 tokens) bajo el techo de 5 USD. El coste máximo que pongas tiene que cubrir
+  la reserva que muestra `preparar`; si no la cubre, `preparar` aborta sin llamar.
 - **Tope acumulado**: la variable `MUNGER_TOPE_ACUMULADO_ANTHROPIC_USD` del
   environment. Antes de llamar se suma todo lo ya comprometido en la rama de registro
   (de todas las tareas) más el coste máximo de esta ejecución; si pasa del tope, no se
@@ -165,7 +168,8 @@ Opus 5.5, 4 / 20; Fable 5.2, 8 / 40; Sonnet 5.5, 2 / 10.
 ## Paquetes preparados y coste estimado por ejecución
 
 Prueba sin API (`direct_analysis.py` sin `--execute-api`, Opus 5.5, esfuerzo `high`, con
-todas las ramas del repositorio para la ceguera). «Cota» es la cota de entrada del
+todas las ramas del repositorio para la ceguera). Reservas recalculadas con la salida de
+65 536 tokens (20-nov-2026): 0,66 USD más que con 32 768 en cada paquete con Opus 5.5. «Cota» es la cota de entrada del
 lanzador (un token por byte); «Reserva» es lo que hay que cubrir con `coste_maximo_usd`;
 «Orientativo» es el coste esperado con lo observado en las 11 ejecuciones pagadas de Ahold,
 Jumbo y Zoetis T1 (entrada real ≈ 0,40 × cota; salida ≈ 21 000 tokens, de 18 000 a
@@ -174,29 +178,33 @@ doble.
 
 | Manifiesto (`paquete`) | `empresa` | Corte | Cota (tokens) | Reserva USD | Orientativo USD | Estado sin API |
 |---|---|---|---|---|---|---|
-| `paquetes/ahold.json` | `ahold` | 2026-11-17 | 962 711 | 4,51 | 1,92–1,95 (real) | preparado |
-| `paquetes/jumbo.json` | `jumbo` | 2026-11-17 | 814 919 | 3,92 | 1,76–1,84 (real) | preparado |
-| `paquetes/zoetis.json` | `zoetis` | 2026-10-09 | 943 029 | 4,43 | 1,86–1,97 (real) | preparado |
-| `paquetes/zoetis_t2.json` | `zoetis-t2` | 2026-11-05 | 955 377 | 4,48 | ≈ 1,95 | preparado |
-| `paquetes/vinci.json` | `vinci` | 2026-10-10 | 955 094 | 4,48 | ≈ 1,95 | preparado |
-| `paquetes/elis.json` | `elis` | 2026-11-05 | 924 126 (sin el control de solape) | 4,35 | ≈ 1,90 | **bloqueado por la ceguera** (abajo) |
-| `paquetes/universo_fw_thorpe.json` | `fw-thorpe` | 2026-10-30 | 140 370 | 1,22 | ≈ 0,67 | preparado |
-| `paquetes/universo_azkoyen.json` | `azkoyen` | 2026-10-30 | 135 585 | 1,20 | ≈ 0,66 | preparado |
-| `paquetes/universo_betsson.json` | `betsson` | 2026-10-25 | 176 900 | 1,36 | ≈ 0,74 | preparado |
-| `paquetes/universo_cocacola.json` | `cocacola` | 2026-10-30 | 146 450 | 1,24 | ≈ 0,68 | preparado |
-| `paquetes/universo_moury.json` | `moury` | 2026-10-31 | 132 460 | 1,19 | ≈ 0,66 | preparado |
-| `paquetes/universo_spie.json` | `spie` | 2026-11-07 | 178 166 | 1,37 | ≈ 0,74 | preparado |
-| `paquetes/universo_strabag.json` | `strabag` | 2026-10-11 | 143 122 | 1,23 | ≈ 0,68 | preparado |
-| `paquetes/universo_tupras.json` | `tupras` | 2026-11-01 | 133 553 | 1,19 | ≈ 0,66 | preparado |
+| `paquetes/ahold.json` | `ahold` | 2026-11-17 | 962 711 | 5,16 | 1,92–1,95 (real) | **no cabe con 65 536**: aborta sin llamar (contexto) |
+| `paquetes/jumbo.json` | `jumbo` | 2026-11-17 | 814 919 | 4,57 | 1,76–1,84 (real) | preparado (solo Opus 5.5 o Sonnet 5.5) |
+| `paquetes/zoetis.json` | `zoetis` | 2026-10-09 | 943 029 | 5,08 | 1,86–1,97 (real) | **no cabe con 65 536**: aborta sin llamar (contexto) |
+| `paquetes/zoetis_t2.json` | `zoetis-t2` | 2026-11-05 | 955 377 | 5,13 | ≈ 1,95 | **no cabe con 65 536**: aborta sin llamar (contexto) |
+| `paquetes/vinci.json` | `vinci` | 2026-10-10 | 955 094 | 5,13 | ≈ 1,95 | **no cabe con 65 536**: aborta sin llamar (contexto) |
+| `paquetes/elis.json` | `elis` | 2026-11-05 | 924 126 (sin el control de solape) | 5,01 | ≈ 1,90 | **bloqueado por la ceguera** (abajo); además la reserva pasa de 5 USD con Opus 5.5 |
+| `paquetes/universo_fw_thorpe.json` | `fw-thorpe` | 2026-10-30 | 140 370 | 1,87 | ≈ 0,67 | preparado |
+| `paquetes/universo_azkoyen.json` | `azkoyen` | 2026-10-30 | 135 585 | 1,85 | ≈ 0,66 | preparado |
+| `paquetes/universo_betsson.json` | `betsson` | 2026-10-25 | 176 900 | 2,02 | ≈ 0,74 | preparado |
+| `paquetes/universo_cocacola.json` | `cocacola` | 2026-10-30 | 146 450 | 1,90 | ≈ 0,68 | preparado |
+| `paquetes/universo_moury.json` | `moury` | 2026-10-31 | 132 460 | 1,84 | ≈ 0,66 | preparado |
+| `paquetes/universo_spie.json` | `spie` | 2026-11-07 | 178 166 | 2,02 | ≈ 0,74 | preparado |
+| `paquetes/universo_strabag.json` | `strabag` | 2026-10-11 | 143 122 | 1,88 | ≈ 0,68 | preparado |
+| `paquetes/universo_tupras.json` | `tupras` | 2026-11-01 | 133 553 | 1,84 | ≈ 0,66 | preparado |
 
 - La `empresa` del workflow es la del manifiesto, con guion: `zoetis-t2` (el lanzador no
   admite guiones bajos en la empresa) y `fw-thorpe`.
-- Paquetes nuevos (Vinci, Zoetis T2 y las ocho finalistas), una ejecución de cada uno sin
-  Elis: reservas 18,94 USD; orientativo ≈ 9,4 USD (con Elis, cuando se desbloquee: 23,29 y
-  ≈ 11,3). Tres repeticiones de Vinci y de Zoetis T2, como en Ahold, Jumbo y Zoetis T1:
-  ≈ 11,7 USD en lugar de 3,9.
-- Los cuatro paquetes de examen nuevos rozan la cota de contexto (967 232 tokens de entrada
-  como máximo con la salida de 32 768): por eso llevan selecciones de páginas declaradas.
+- Con la salida de 32 768 (hasta el 20-nov-2026): paquetes nuevos (Vinci, Zoetis T2 y las
+  ocho finalistas), una ejecución de cada uno sin Elis: reservas 18,94 USD; orientativo
+  ≈ 9,4 USD. Con la de 65 536, Vinci y Zoetis T2 no caben; las ocho finalistas suman
+  15,23 USD de reservas (orientativo sin cambio, ≈ 5,5 USD, con esfuerzo `high`).
+- Los paquetes de examen rozan la cota de contexto: con la salida de 65 536 la cota de
+  entrada admite como máximo 934 464 tokens (antes 967 232). Ahold, Zoetis T1, Zoetis T2 y
+  Vinci la superan con cualquier modelo y abortan en `preparar` sin llamar ni reservar;
+  Elis pasa de 5 USD con Opus 5.5 y Fable 5.2. Para relanzarlos con 65 536 hay que reducir
+  el paquete (nueva receta y manifiesto) o que la persona responsable decida otra cota;
+  el código no recorta nada. `test_paquetes.py` los enumera (`NO_CABEN_CON_64K`).
 
 ### Cómo se hizo cada paquete (recetas reproducibles)
 
@@ -294,9 +302,15 @@ van a Git: se leen de la Release.
 
 ## Límites conocidos
 
-- La salida máxima es 32 768 tokens y el stream de AUTO1 se corta a los 720 s. Un
-  esfuerzo `max` con un paquete grande puede agotar cualquiera de los dos: el
-  resultado se paga y queda no aceptado.
+- La salida máxima del análisis directo es 65 536 tokens (pensamiento + respuesta) y su
+  stream se corta a los 1500 s (25 min); el job `analisis` tiene 35 min, de modo que plazo
+  + socket (60 s) + preparación y publicación (margen de 420 s, el de AUTO1) caben siempre.
+  Son valores propios del análisis directo (`direct_analysis.MAX_OUTPUT` y
+  `STREAM_DEADLINE_SECONDS`, fijados en `critical_review` solo dentro de `configured`);
+  AUTO1 y el cribado siguen con 32 768 y 720 s. Antes eran 32 768 y 720 s también aquí: con
+  esfuerzo `max` un análisis de Vinci agotó la salida (31 289 tokens de pensamiento) y se
+  pagó sin resultado aceptado. Un esfuerzo `max` todavía puede agotar cualquiera de los
+  dos límites: el resultado se paga y queda no aceptado.
 - Salidas estructuradas: con este esquema la API respondió 400 «The compiled grammar is
   too large» (ejecución 44288081039; un 400 no se cobra). Desde 08fa48f no se envía
   `output_config.format`: el esquema va al final del encargo y la respuesta se valida

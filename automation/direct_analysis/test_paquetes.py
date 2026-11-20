@@ -1,8 +1,9 @@
 """Pruebas sin red ni API de los paquetes del análisis directo.
 
 - Los manifiestos versionados en `paquetes/`: huellas, rutas, textos del manifiesto y
-  tamaño (cota de contexto y reserva con Opus 5.5 por debajo del techo de 5 USD), leídos del
-  commit actual como en `preparar`. La ceguera (copias y solapes con material de otras
+  tamaño (cota de contexto y reserva con Opus 5.5 por debajo del techo de 5 USD, con la
+  salida de 65 536 tokens), leídos del commit actual como en `preparar`. Los paquetes de
+  examen que ya no caben con esa salida están enumerados y abortan sin llamar. La ceguera (copias y solapes con material de otras
   ramas) no se prueba aquí: depende de las ramas presentes y la comprueba el lanzador en
   `preparar`, con el historial completo.
 - `preparar_paquete.py`: selección de páginas, compactado, HTML, ediciones declaradas,
@@ -31,6 +32,23 @@ import universo  # noqa: E402
 pilot, cr = da.pilot, da.cr
 PAQUETES = sorted((HERE / 'paquetes').glob('*.json'))
 NUEVOS = {'vinci', 'zoetis_t2', 'elis'}
+# Con la salida de 65 536 tokens del análisis directo (antes 32 768), estos paquetes de
+# examen superan con Opus 5.5 la cota de contexto (un token por byte + 4 096 + salida >
+# 1 000 000) o la reserva de 5 USD: `preparar` aborta sin llamar ni reservar. Ver README,
+# «Límites conocidos». Si se reduce un paquete, se quita de aquí.
+NO_CABEN_CON_64K = {'ahold', 'elis', 'vinci', 'zoetis', 'zoetis_t2'}
+ABORTOS_LIMPIOS = {'PAQUETE_SUPERA_CONTEXTO_DEL_MODELO_NO_SE_RECORTA', 'COSTE_MAXIMO_INSUFICIENTE_NO_SE_RECORTA'}
+
+
+class SinLlamadas:
+    """Cualquier llamada (Anthropic o GitHub) hace fallar la prueba."""
+    api_key, github_token = 'fake-api', 'fake-gh'
+
+    def __init__(self, test):
+        self.test = test
+
+    def call(self, *args, **kwargs):
+        self.test.fail(f'llamada no permitida: {args[:3]}')
 
 
 def head():
@@ -65,10 +83,24 @@ class ManifiestosTests(unittest.TestCase):
                 package = da.load_package(ROOT, sha, rel, empresa)
                 self.assertTrue(all(s['sha256'] == pilot.digest(s['text'].encode('utf-8')) for s in package['sources']))
                 bundle = da.build_bundle(package, encargo, da.task_id_for(empresa, '1'), sha)
+                if path.stem in NO_CABEN_CON_64K:
+                    # Aborta en la comprobación previa: ninguna llamada, ninguna reserva.
+                    with tempfile.TemporaryDirectory() as out, self.assertRaises(pilot.PilotError) as ctx:
+                        da.execute(SinLlamadas(self), bundle, encargo, da.DEFAULT_MODEL, 'high', da.HARD_MAX_USD,
+                                   out, live=True)
+                    self.assertIn(str(ctx.exception), ABORTOS_LIMPIOS)
+                    continue
                 with da.configured(bundle['task_id'], da.DEFAULT_MODEL, 'high', Decimal('5'), bundle, encargo) as holder:
                     res = da.preflight(bundle, holder)
+                self.assertEqual(res['max_output_tokens'], 65536)
                 self.assertLessEqual(res['input_tokens_upper_bound'] + da.MAX_OUTPUT, 1_000_000)
                 self.assertLessEqual(Decimal(res['reserve_upper_bound_usd']), da.HARD_MAX_USD)
+                if path.stem.startswith(universo.PREFIJO_MANIFIESTO):
+                    # Fable 5.2 (40 USD/MTok de salida: 2,62 USD de reserva de salida) también cabe.
+                    with da.configured(bundle['task_id'], 'claude-fable-5-2', 'max', da.HARD_MAX_USD, bundle,
+                                       encargo) as holder:
+                        res = da.preflight(bundle, holder)
+                    self.assertLessEqual(Decimal(res['reserve_upper_bound_usd']), da.HARD_MAX_USD)
 
 
 class PreparadorTests(unittest.TestCase):
