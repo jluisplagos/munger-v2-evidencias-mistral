@@ -1,0 +1,189 @@
+fila,A,B,C,D,E
+1,  HOJA DE EVALUACIÓN DE EMPRESAS — V5.3 · Checklist + calidad financiera + valoración por escenarios,,,,
+2,  IDENTIFICACIÓN,,,,
+3,Empresa,L'Oréal SA,Ticker,OR · Euronext Paris,
+4,Sector,Consumo · cosmética y belleza,Fecha de análisis,2026-10-25,
+5,  VEREDICTO GLOBAL  (no es una orden de compra: resume lo que has rellenado),,,,
+6,DESCARTAR · demasiado difícil,,✗ Banderas,⚠ Revisar,Progreso
+7,(tu checklist + TU DCF; Simply Wall St queda como referencia externa),,5,4,1
+8,"  AUTOMÁTICO = cuentas, márgenes y avisos.  MANUAL = entender el negocio, elegir escenarios/probabilidades y escribir la tesis.  Si no entiendes un dato, no lo inventes.",,,,
+9,  ETAPA 0 · FILTRO RÁPIDO — ¿sigo o va a la pila de 'demasiado difícil'?,,,,
+10,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+11,¿Entiendo el negocio y lo explico a un niño de 10 años en ≤5 frases?,"Si no puedes, va a 'demasiado difícil'. El 99% de ideas acaban aquí.",Sí,✓ PASA,Pabrai #2. Escríbelo en la Etapa 5.
+12,¿Está dentro de tu círculo de competencia?,"1 cm de ancho, 1 km de profundidad.",Sí,✓ PASA,Pabrai #3.
+13,¿El valor es claro SIN modelos complejos? (tesis sin Excel),"Si necesitas un Excel para ver que es barata, descártala.",No,✗ BANDERA,Pabrai #4.
+14,Tipo de oportunidad,"Define qué compras. La hoja ajusta algunas señales (ROIC/crecimiento), pero no sustituye el contexto sectorial.",Compounder,—,Compounder → pesa ROIC. Deep value → pesa precio y balance.
+15,  ETAPA 1 · CALIDAD DEL NEGOCIO (cualitativo — lo que más errores causa),,,,
+16,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+17,¿Hay un viento de cola duradero?,"Electrificación, red, automatización, salud-tech…",Sí,✓ PASA,Es el viento del SECTOR. Anota cuál.
+18,¿Ventaja competitiva sostenible (moat)?,Por qué ESTA empresa capta el viento mejor y lo defiende.,Sí,✓ PASA,"El hueco nº1 de los 3 docs. Tipo: marca, costes, red, escala…"
+19,Ingresos / beneficios crecen de forma consistente,"Si no crece, necesitas razón muy buena para poseerla.",Sí,✓ PASA,Doc 1. SWS: Past.
+20,Riesgo ≠ incertidumbre,Incertidumbre alta + riesgo real bajo = la mayor oportunidad.,Riesgo real alto,✗ BANDERA,Pabrai #7.
+21,  ETAPA 2 · CALIDAD FINANCIERA Y BANDERAS ROJAS,,,,
+22,    Rentabilidad y calidad del beneficio,,,,
+23,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+24,ROIC / ROCE  (%),Métrica nº1 de calidad. >15% sostenido = compounder.,0.237,✓ PASA,Mete el % (ej. 18%). Escribe N/A si no es una métrica útil para este tipo de empresa.
+25,Free Cash Flow: ¿creciente?,La caja es más difícil de falsear que los ingresos.,Sí,✓ PASA,SWS: Health / Past.
+26,Caja operativa ÷ Beneficio neto,"Test de conversión a caja. ≥0,9 sano; <0,7 exige investigar por qué.",1.2925,✓ PASA,"Usa una media/lectura representativa. Un ratio bajo no demuestra por sí solo ventas incobrables: revisa working capital, impuestos y partidas no monetarias."
+27,Tendencia de márgenes (5–10 años),"Su evolución, no un año (bruto/operativo/neto).",Expandiendo,✓ PASA,SWS: Past.
+28,Dilución: acciones en circulación,El dato más olvidado. Recompra=bueno; emite=tu trozo encoge.,Estable,ℹ ESTABLE,SWS: Past → Shares Outstanding.
+29,    Banderas rojas del balance,,,,
+30,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+31,¿Cobros o inventario crecen MÁS RÁPIDO que ingresos?,Señal de problemas de demanda o ventas infladas.,No,✓ PASA,'No' es lo bueno. SWS: Balance.
+32,Goodwill ÷ Activo total  (%),Mucho goodwill puede reflejar adquisiciones; importa la calidad del M&A y los deterioros posteriores.,0.2663,⚠ REVISAR,"Mete el % (ej. 25%). No hay un umbral universal que convierta el goodwill en 'malo': revisa adquisiciones, impairments y retorno obtenido."
+33,Deuda neta ÷ EBITDA  (x),Umbral que faltaba: <2.5x cómodo; >4x apalancada.,1.1517,✓ PASA,"Mete el múltiplo. Escribe N/A si no es aplicable (p. ej., ciertos negocios financieros)."
+34,¿La caja cubre la deuda a corto plazo?,Liquidez inmediata.,No,⚠ REVISAR · mira vencimientos y generación de caja,SWS: Health.
+35,  ETAPA 3 · VALORACIÓN (tu DCF manda; Simply Wall St es solo contraste),,,,
+36,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+37,Precio actual,Cotización por acción.,436.3,—,Lo usa el margen de seguridad de abajo.
+38,Valor intrínseco (Simply Wall St),"Fair Value externo por DCF. Úsalo para contrastar, no para decidir.",470.22,—,SWS: Valuation → Share Price vs Fair Value.
+39,→ Margen de seguridad (SWS · referencia),(VI − Precio) ÷ VI. ≥30% excelente; 10–30% justo; <10% sin colchón.,0.0721364467695972,ℹ SWS · poco/sin descuento,Se calcula solo con Precio y VI de arriba.
+40,FCF (mm)  — para FCF Yield,FCF Yield = FCF ÷ Capitalización.,6847.7,ℹ coherente con FCF base,"Opcional. Si lo dejas vacío se usa el FCF base normalizado de la fila 52 (el mismo del DCF). Si escribes otro (p. ej. LTM), la columna Veredicto avisa cuando difiere >20%."
+41,  ↳ Capitalización (mm)  → FCF Yield,≥5% atractivo · 3–5% justo · <3% caro (según tipos).,232685.3,⚠ BAJO · compara sector · 2.9%,Veredicto = FCF Yield calculado (con el % al final).
+42,EV / EBITDA  (x),"No hay un múltiplo universal “barato”. Compáralo con pares, historia y calidad.",20.73,ℹ COMPARA · pares + historia,"No hay corte automático: compáralo con pares, historia, crecimiento, márgenes y calidad."
+43,▸ MI VALOR INTRÍNSECO por escenarios,El desglose está debajo: usa [−] / [+] a la izquierda para plegarlo o abrirlo.,224.743845438269,✗ BANDERA · poco margen,Valor ponderado · margen -94% · vs SWS -52%
+44,    1 · Datos base del DCF SIMPLIFICADO al accionista  (mm · media de 3–5 años cuando tenga sentido),,,,
+45,Dato,Qué es,Tu dato,Resultado,Dónde / nota
+46,Caja de las operaciones (mm),Cash from Operations. Media de 3–5 años.,8182.5,—,Estado de flujos de caja. SWS: Cash Flow.
+47,Capex: inversión en activos (mm),Capital Expenditures. Escríbelo en POSITIVO.,1541.9,—,Estado de flujos de caja. Suele venir con signo menos: quítaselo.
+48,Intereses pagados en «financiación» (mm) · solo IFRS,En IFRS los intereses pagados pueden ir en financiación; entonces CFO no los descuenta y hay que restarlos aquí.,,—,"Estado de flujos, bloque de financiación ('Interest paid'). Escríbelo en POSITIVO. Si los intereses ya van dentro de CFO (siempre en US GAAP), déjalo vacío."
+49,Pagos por arrendamientos · principal (mm) · IFRS 16,"En IFRS 16 el principal de los alquileres va en financiación: si no lo restas, CFO − Capex sobrestima la caja.",452.8,ℹ se resta del FCF,"Estado de flujos, financiación ('Payment of lease liabilities' / 'Principal elements of lease payments'). En POSITIVO. En US GAAP normalmente vacío."
+50,Stock-based compensation (SBC) (mm),"Compensación en acciones. CFO la suma porque no es caja, pero es un coste real: diluye o se compensa con recompras pagadas con tu caja.",218.6,ℹ se resta del FCF,"OBLIGATORIO: escríbela (0 si no tiene); sin ella no se calcula el FCF base. Estado de flujos ('Stock-based compensation'), en POSITIVO y en la misma base que CFO (idealmente media 3–5 años)."
+51,¿Restar la SBC del FCF base?,"Recomendado: Sí. Con No, el valor por acción ignora la dilución futura o la caja que se va en recompras para compensarla.",Sí,ℹ FCF neto de SBC,"OBLIGATORIO: elige Sí o No. Si queda vacío, el FCF base no se calcula. Si eliges No, la fila 59 te avisará cuando la SBC pese ≥10% del FCF."
+52,→ Caja libre (FCF) base normalizada (mm),CFO − Capex − intereses y arrendamientos en financiación (IFRS) − SBC (si la restas). Aproximación al flujo del accionista si la financiación es razonablemente estable.,5969.2,✓ PASA,"Se calcula solo. Si sale ≤0, este DCF no sirve. La fila 62 comprueba si la financiación/estructura hace poco fiable esta aproximación."
+53,Caja y equivalentes (mm) — CONTEXTO,Dato de balance. Este DCF simplificado no la suma automáticamente.,4048.8,ℹ CONTEXTO,"Si existe exceso de caja claramente no operativo, úsalo como contraste y documéntalo; no lo mezcles mecánicamente con el modelo."
+54,Deuda total (mm) — CONTEXTO,Dato de balance. Este DCF simplificado no resta automáticamente la deuda.,16712.6,ℹ CONTEXTO,"La deuda importa para la fiabilidad del flujo y el riesgo. Si cambia mucho o domina la estructura financiera, marca la fila 62 como no aplicable."
+55,Acciones diluidas (mm),Diluted shares outstanding.,535,—,"Cuenta de resultados. En millones, igual que lo demás."
+56,Rentabilidad exigida al accionista (r / hurdle rate),Tu rentabilidad mínima objetivo. No pretende estimar un 'coste de equity verdadero' con precisión académica.,0.09,—,"PENDIENTE DE INVERSOR. La versión original traía 10,0% precargado; en esta versión maestra no se presupone ninguna rentabilidad exigida. El DCF solo debe usarse cuando tú fijes r."
+57,Tasa sin riesgo a 10 años (misma moneda) — referencia,Referencia de coste de oportunidad; debe corresponder a la moneda de los flujos del DCF.,0.0333,ℹ spread sobre rf: 5.7%,Ej.: Treasury 10Y si los flujos están en USD. No cambia tu r: solo muestra el spread que te estás exigiendo.
+58,   ↳ Calidad del FCF por acción y aplicabilidad del DCF simplificado,,,,
+59,Peso de la SBC sobre el FCF,"SBC ÷ FCF antes de restarla. Si no la restas y pesa ≥10%, el valor por acción sale inflado.",0.0353275800769256,ℹ SBC 4% · ya restada,Se calcula solo con la SBC de la fila 50. Contrástalo con el CAGR de acciones y las recompras (filas 60–61).
+60,CAGR de acciones diluidas · 3–5 años (%),¿Tu participación económica se diluye o se reduce después de recompras y emisiones?,-0.0014,ℹ ACCIONES ↓/ESTABLE,Calcula el CAGR del número de acciones diluidas. Negativo = menos acciones; positivo = dilución neta.
+61,¿Las recompras neutralizan la SBC a nivel de acciones?,No basta con que la empresa anuncie recompras: mira si el número diluido de acciones realmente baja/queda estable.,Sí,ℹ SBC neutralizada en acciones,"Contrasta SBC, recompras y evolución de diluted shares. Si no está claro, elige 'No está claro'."
+62,¿Este DCF simplificado es aplicable y la financiación es estable?,CFO−Capex aproxima mejor el flujo del accionista cuando deuda/financiación no cambian de forma material.,Sí,✓ MODELO APLICABLE,"Si es banco/aseguradora, la deuda cambia mucho o el modelo de negocio exige otro enfoque, marca que NO aplica."
+63,    2 · Tus 3 escenarios  (elige en los desplegables · el precio actual se toma de arriba),,,,
+64,,MALO,NORMAL,BUENO,Nota
+65,¿Qué tiene que pasar?,El viento de cola se frena,"El viento de cola sigue, sin acelerar",Márgenes suben por escala o precios,"OBLIGATORIO. Sin una historia, el número no vale: el escenario no se calcula hasta que la elijas."
+66,En tus palabras (una frase),"El mercado de belleza se frena, Asia del Norte sigue plana y el precio/mix deja de compensar aranceles y costes; las compras de 2025-26 no rinden y el litigio de EE. UU. se cuantifica en contra: el FCF crece 2% nominal diez años.","El mercado crece ~4% como desde 2002, L'Oréal lo sigue batiendo ligeramente, el margen operativo se queda cerca del 20-21% y el interés de la deuda nueva se come parte de la mejora: el FCF crece ~6%.","Los 10,9 mm€ comprados en 2025-26 aportan desde 2027 (licencia de Gucci desde el 1-jul-2027), Asia del Norte recupera y el margen operativo sigue la pendiente de la última década: el FCF crece 10%.","Opcional, pero es donde de verdad lo entiendes. Ej.: ""Si X pierde el contrato con Y…"""
+67,Crecimiento de la caja libre · años 1–10,0.02,0.06,0.1,Esto lo decides TÚ. Usa historia + economía del negocio. >15% anual durante 10 años es excepcional.
+68,Crecimiento para siempre · desde el año 11,0.015,0.02,0.025,"Normalmente 1–3%. Nunca debe ser ≥ r. Cuanto más alto, más depende el valor del futuro lejano."
+69,Probabilidad que le das,0.2,0.6,0.2,✓ Suman 100%
+70,   ↳ Cómo se calcula · la cuenta paso a paso (el manzano) · se pliega con [−] a la izquierda,,,,
+71,Caja libre del año 10 (mm),7276.42149183271,10689.9280702036,15482.5674928289,FCF × (1 + crecimiento)^10. Lo que daría el manzano en el año 10.
+72,Valor HOY de los años 1–10 (mm),42192.4592121178,51362.6129900308,62788.4210209114,"Cada año: FCF del año ÷ (1+r)^año, y se suman los 10."
+73,Valor HOY del 'para siempre' (mm),41596.5821304448,65797.885208963,103130.829586914,"FCF año 10 × (1+g) ÷ (r − g), y traído a hoy ÷ (1+r)^10."
+74,% del valor que viene del 'para siempre',0.496444182484217,0.561604689468008,0.621572416757588,"Cuanto mayor sea este %, más sensible es el valor a hipótesis lejanas. No existe un umbral universal que vuelva 'incorrecto' el DCF."
+75,Tu 'para siempre' = vender en el año 10 a… (veces su FCF),13.5333333333333,14.5714285714286,15.7692307692308,"(1 + g) ÷ (r − g). Ej.: r 10% y g 2,5% ≈ 13,7x. Compáralo con el P/FCF al que ha cotizado la empresa (Conclusión)."
+76,Exceso de caja NO operativa que sumas (mm) · opcional,0,0,0,"Escríbelo en C (se aplica a los 3 escenarios). Vacío = 0, como antes. Solo caja claramente sobrante (no la necesaria para operar) y ≤ caja de la fila 53. NO restes deuda: el FCF ya va después de intereses, sería contarla dos veces."
+77,Valor total para el accionista (mm),83789.0413425626,117160.498198994,165919.250607825,Valor hoy de los años 1–10 + valor terminal + exceso de caja no operativa (si lo has escrito en la fila 76).
+78,VALOR INTRÍNSECO POR ACCIÓN,156.615030546846,218.99158541868,310.129440388459,Valor total ÷ acciones. Compáralo con el precio actual de arriba.
+79,Margen de seguridad vs precio,-1.78581179901182,-0.992313993096392,-0.406831932671417,(Valor − Precio) ÷ Valor. Negativo = está más cara que ese escenario.
+80,Prima/descuento del valor del escenario vs precio,-0.641038206401912,-0.49807108544882,-0.289183038302869,Valor del escenario ÷ precio − 1. NO es una rentabilidad futura: mide la distancia entre el precio y tu valor estimado hoy.
+81,    3 · Conclusión,,,,
+82,Criterio,Qué significa,Tu dato,Veredicto,Dónde / nota
+83,Valor intrínseco ponderado (por acción),"Media de los 3 escenarios según tus probabilidades. Tu ""precio justo"".",224.743845438269,—,Solo calcula si los 3 escenarios tienen valor y las probabilidades suman exactamente 100%.
+84,→ Margen de seguridad (ponderado),(Valor − Precio) ÷ Valor. ≥30% excelente; 10–30% justo; <10% sin colchón.,-0.941321236847128,✗ BANDERA · poco margen,"Este es el margen principal: sale de TU DCF ponderado, no del Fair Value de SWS."
+85,Asimetría de valoración · escenario MALO / BUENO,Compara la distancia del precio al valor del escenario MALO con la del BUENO.,-64% / -29%,✗ BANDERA · asimetría débil,"Es una asimetría de valoración, no una distribución de rentabilidades ni una garantía. Depende por completo de tus escenarios."
+86,Crecimiento que el precio ya da por hecho,DCF inverso: crecimiento de FCF (años 1–10) que haría que el valor fuese igual al precio actual.,0.152110570566739,✗ BANDERA · > BUENO,"Usa el crecimiento perpetuo NORMAL. Si el precio exige más crecimiento que tu escenario BUENO, el mercado ya descuenta mucho."
+87,Tu valor vs el de Simply Wall St,¿Tu número ponderado y el de SWS se parecen?,-0.522045328913554,⚠ OJO · hipótesis muy distintas,"Si difieren más de ±25%, uno de los dos supone algo raro: averigua cuál antes de fiarte."
+88,Múltiplo de salida implícito vs su historia,Tu 'para siempre' (NORMAL) frente al P/FCF al que ha cotizado la empresa. Escribe ese P/FCF histórico en 'Tu dato'.,34.6,ℹ 14.6x implícito vs 34.6x histórico · investiga la diferencia,"El múltiplo histórico es contexto, no un juez: crecimiento, tipos, ROIC y madurez pueden ser distintos en el año terminal."
+89,Sensibilidad · valor ponderado con r × g terminal,"g − 0,5 pts",g base,"g + 0,5 pts","Mueve r ±2 pts y TODOS los g terminales ±0,5 pts; escenarios y probabilidades no cambian."
+90,r − 2 pts (7.0%),302.742704479252,323.837021348806,349.763481119095,Más favorable por r; conservador por g.
+91,Tu r (9.0%),215.514609904221,224.743845438269,235.419038528208,Caso base: debe coincidir con el valor ponderado de arriba.
+92,r + 2 pts (11.0%),165.970609832619,170.749870556515,176.098613078085,Caso más exigente por r; optimista/conservador según la columna de g.
+93,Chequeo terminal · ¿el g NORMAL es sostenible?,"Piensa en reinversión + ROIC de una empresa madura, no solo en g < r.",Sí,✓ PASA · terminal coherente,El crecimiento perpetuo exige reinversión. Documenta por qué el g NORMAL es sostenible; 'No lo sé' obliga a investigar.
+94,  ETAPA 4 · GESTIÓN,,,,
+95,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+96,Skin in the game: % de insiders,La cifra aislada no tiene un umbral universal: importa el valor económico y el contexto.,0.0027,ℹ CONTEXTO · no hay umbral universal,Mete el % (ej. 5%). SWS: Ownership → Insiders.
+97,¿Insiders comprando o vendiendo?,Comprando=buena señal; venta en masa=mala.,Vendiendo,⚠ REVISAR · mira motivo y magnitud,SWS: Ownership → Insider Transactions.
+98,Asignación de capital de la dirección,"Recompras solo si están baratas, deuda sensata y M&A que cree valor por acción.",Aceptable,⚠ REVISAR,"Mira el historial, no las promesas."
+99,  ETAPA 5 · VEREDICTO Y DISCIPLINA (Pabrai — antes de actuar),,,,
+100,Criterio,Qué buscar / umbral,Tu dato,Veredicto,Dónde / nota
+101,Tesis en ≤5 frases (para un niño de 10 años),"L'Oréal es el primer grupo de belleza del mundo (47,04 mm USD en el ranking WWD de ventas 2024, ~1,8x el segundo) en un mercado que la propia empresa cifra en ~300.000 M€. Leo su ventaja como marca registrada más escala: 32,2% de las ventas en publicidad y promoción y 1.380,6 M€ en investigación son un gasto que un competidor pequeño no puede igualar, y el margen bruto de 74,3% con el operativo subiendo de 17,6% (2016) a 20,2% (2025) me dice que el beneficio de esa escala se queda en casa y no se va al cliente. Necesita poco capital (capex 3,4% de ventas) y el ROIC estimado es 23,7% (Control maestro, C24), así que la caja crece sin pedir dinero: FCF del accionista de 4.606 M€ (2019) a 7.103 M€ LTM. El balance no la mata: deuda neta 1,15x EBITDA, AA/Aa1, sin covenants y 7.000 M€ de líneas no dispuestas. Lo que falla es el precio: a 436,3 € paga ≈39x el FCF base de la plantilla y mi valor ponderado estimado es ≈225 €/acción con r = 0,09, de modo que compraría calidad sin margen de seguridad.",,,"Si no cabe aquí, no la entiendes."
+102,Tesis inversa: ¿qué me haría NO comprar / estar equivocado?,"Empiezo por lo que destruye *mi* conclusión. Primero, todo el «está cara» cuelga de r = 0,09, que es una convención mía, no un coste de capital medido: el Bund a 10 años es 3,33% (Control maestro, C57), y con r = 0,06 mi valor ponderado sería ≈412 €/acción, o sea el precio actual; Munger exige decir cuál es la alternativa —«it's only fair, if you're going to use the cost of capital, to say what it is» (DR pp.303–304; HIM)— y yo no puedo demostrar que la mía sea la correcta. Segundo, mi terminal paga 14,6x el FCF del año 10 mientras la empresa ha cotizado a una mediana de 34,6x P/FCF en 2019-2025 (Control maestro, C88): si para un negocio así el múltiplo normal es 30x, mi valor está mal por un factor de dos. Tercero, estoy valorando una empresa más pequeña que la que existe: el FCF base es la media FY23-25 (5.969 M€), un 16% por debajo del LTM (7.103 M€), y el 20% de Galderma (9.487,5 M€ de valor de mercado a 30-jun-2026) y el 7,3% de Sanofi (6.657,4 M€) están fuera del flujo descontado, ≈30 €/acción que el modelo no cuenta y que casi tapan la deuda neta (≈24 €/acción). Cuarto, suponer margen estable en el escenario normal puede ser el error: el margen operativo ha subido todos los años salvo 2020 durante una década y el primer semestre de 2026 va al 21,3%. Y ahora contra el bajista: su caso tiene agujeros peores que el mío, porque el litigio de EE. UU. no tiene provisión ni cuantificación en el documento («No provisions have been recognized to date»), de modo que quien afirme un número lo está inventando; los 10,9 mm€ de compras de 2025-26 no tienen historial todavía y el precedente de deterioros es pequeño pero real (IT Cosmetics −250 M€ y Decléor −20 M€ en 2023, Multicultural Brands −49,9 M€ en 2024); el >30% de comercio electrónico es dato declarado y no auditado; y los «otros ingresos y gastos» son −449,9 / −437,7 / −505,4 M€ en 2023, 2024 y 2025, es decir que el «beneficio neto sin no recurrentes» que la empresa destaca va entre 302,6 y 679,2 M€ por encima del atribuible cada año de 2019 a 2025. Mi postura solo sobrevive si (a) 9% es de verdad mi alternativa y (b) el múltiplo histórico no vuelve; si me equivoco en cualquiera de las dos, el que está equivocado soy yo, no el mercado.",,,Un checklist que solo confirma te hace comprar de todo.
+103,¿Categoría 'nunca vender'?,"Si sí: se revisa por deterioro fundamental, NO por valoración.",Sí,—,Pabrai #9.
+104,Tamaño de posición pensado (%),"Decisión de cartera, NO un resultado de esta hoja.",0% · Watchlist · precio de Sí ≈ 157 €,ℹ PLAN DE CARTERA,"No uses una regla fija. Piensa en concentración, correlación, liquidez y pérdida máxima tolerable."
+105,"  Regla de oro: la mayoría de errores vienen de NO ENTENDER EL NEGOCIO, no de pasar por alto una métrica. Si la Etapa 0 falla, ninguna métrica salva la idea.  ·  Amarillo = lo rellenas tú · Columna Veredicto = automática.  ·  ⚠ OJO = aviso de contraste: no cambia el veredicto global.",,,,
+106,▸ Tabla auxiliar del DCF inverso (no tocar) · se abre con [+] a la izquierda,,,,
+107,Crecimiento años 1–10,Valor por acción,,,
+108,-0.1,69.0121470500041,,,
+109,-0.095,71.393422644016,,,
+110,-0.09,73.8714222576769,,,
+111,-0.08500000000000001,76.4500760861441,,,
+112,-0.08,79.133459979617,,,
+113,-0.075,81.9258001454864,,,
+114,-0.07000000000000001,84.8314779777329,,,
+115,-0.065,87.8550350163372,,,
+116,-0.06,91.0011780394995,,,
+117,-0.055,94.2747842915221,,,
+118,-0.05,97.6809068492454,,,
+119,-0.045,101.224780129978,,,
+120,-0.04,104.911825543912,,,
+121,-0.035,108.747657294047,,,
+122,-0.03,112.738088326724,,,
+123,-0.025,116.889136435877,,,
+124,-0.02,121.207030524194,,,
+125,-0.015,125.698217024419,,,
+126,-0.01,130.369366484062,,,
+127,-0.005,135.227380316852,,,
+128,0,140.279397724306,,,
+129,0.00499999999999999,145.532802790861,,,
+130,0.01,150.995231756021,,,
+131,0.015,156.674580467085,,,
+132,0.02,162.579012016021,,,
+133,0.025,168.716964564139,,,
+134,0.03,175.097159358244,,,
+135,0.035,181.728608942039,,,
+136,0.04,188.620625566557,,,
+137,0.045,195.782829803501,,,
+138,0.05,203.225159365394,,,
+139,0.055,210.957878136521,,,
+140,0.06,218.99158541868,,,
+141,0.065,227.337225395844,,,
+142,0.07000000000000001,236.006096821865,,,
+143,0.075,245.009862935423,,,
+144,0.08,254.360561606504,,,
+145,0.08500000000000001,264.070615718697,,,
+146,0.09,274.152843791722,,,
+147,0.095,284.620470848611,,,
+148,0.1,295.487139532066,,,
+149,0.105,306.766921474552,,,
+150,0.11,318.474328926751,,,
+151,0.115,330.624326649076,,,
+152,0.12,343.232344071019,,,
+153,0.125,356.314287723109,,,
+154,0.13,369.886553946425,,,
+155,0.135,383.966041884572,,,
+156,0.14,398.570166763153,,,
+157,0.145,413.716873461836,,,
+158,0.15,429.424650384139,,,
+159,0.155,445.71254363019,,,
+160,0.16,462.600171477709,,,
+161,0.165,480.107739176616,,,
+162,0.17,498.25605406265,,,
+163,0.175,517.066540995533,,,
+164,0.18,536.561258127214,,,
+165,0.185,556.762913005872,,,
+166,0.19,577.694879021356,,,
+167,0.195,599.381212197863,,,
+168,0.2,621.846668339717,,,
+169,0.205,645.116720536179,,,
+170,0.21,669.217577031279,,,
+171,0.215,694.176199464786,,,
+172,0.22,720.020321490438,,,
+173,0.225,746.778467777702,,,
+174,0.23,774.479973403338,,,
+175,0.235,803.155003639202,,,
+176,0.24,832.834574142713,,,
+177,0.245,863.550571556557,,,
+178,0.25,895.335774524252,,,
+179,0.255,928.223875128276,,,
+180,0.26,962.249500757549,,,
+181,0.265,997.448236411133,,,
+182,0.27,1033.85664744512,,,
+183,0.275,1071.51230276971,,,
+184,0.28,1110.45379850367,,,
+185,0.285,1150.72078209322,,,
+186,0.29,1192.35397690289,,,
+187,0.295,1235.39520728543,,,
+188,0.3,1279.88742413846,,,
