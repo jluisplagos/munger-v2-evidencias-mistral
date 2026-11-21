@@ -61,3 +61,12 @@
 - **zoetis_t2:** fases A y B hechas; fase C turno 1 en curso.
 - **vinci_b:** montaje con V6.3.2 F1 en curso.
 - **Lanzador API:** ampliación de la salida del análisis directo a 65.536 tokens y plazo de stream de 1.500 s en la rama `automatizacion/analisis-directo-salida-64k` (en preparación; después revisión independiente y frase de la persona para fusionar en main).
+
+## 21-nov-2026 (madrugada) · punto de reanudación
+- **Todos los expedientes del examen cerrados** (producto `examen/expedientes-f1`, manifiesto da47673, `rapida` PASA):
+  - zoetis_t2: concluido · Vigilar · esperar (precio de Sí 71,97; banda ≈71–74,5 tras el contradictor); apto por entradas 313/315; auditoría REPETIR (Green Book de memoria) → corregido → APROBADO (SA-982f8b488e3b03a2).
+  - vinci_b: pendiente_de_investigacion · Vigilar · sin acción ni objetivo (comprobación conjunta no sobrevive: precio de Sí 105,36 en el extremo adverso frente a 107,05); apto por entradas 325/326; auditoría REPETIR (puntos 5, 6, 9) → corregido → APROBADO (SA-7c065ea359b33fd7). Causa: recorte por minoritarios de Palancas!B15:D15 fuera de su rango defendible; Historia C52 y C63 pendientes de decisión humana.
+- **Evaluación** con la rúbrica congelada en curso (Fable, esfuerzo máximo; registro Fable uso 10).
+- **Lanzador API:** salida elegible (32768/65536) CONFORME en `automatizacion/analisis-directo-salida-64k` (68f1c91; revisión 9addce2); falta la frase de la persona para fusionar en main.
+- **Mistral:** M13 b1–b4 pendientes de lanzar por la persona.
+- **Abiertos para el veredicto:** K7 (no hay repeticiones independientes de Jumbo ni de Zoetis T1); K10 en Vinci (se abstiene por los minoritarios, no por la vida finita de las concesiones).
