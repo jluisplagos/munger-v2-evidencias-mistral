@@ -1,0 +1,186 @@
+{
+ "documento": "Contradictor del veredicto final del examen del personaje Munger V2",
+ "fecha": "2026-11-21",
+ "autor": "Agente Claude (Fable 5.2) que no ha preparado, corregido, auditado ni evaluado el personaje",
+ "veredicto_atacado": "No, para",
+ "material": {
+  "evaluacion": "auxiliar, rama coordinacion/cierre-v2, commit 645d9ba (sin cambios en 87530c6): EVALUACION.md, EVALUACION.json, EVALUACION_RESUMEN.md",
+  "rubrica_sha256": "07dd459752815e4cb225ac44c532290e15b2852c41c12253b0fb27696a330579",
+  "rubrica_sha256_comprobado_antes_de_usarla": true,
+  "rubrica_modificada": false,
+  "producto": "rama examen/expedientes-f1, commit da47673 (solo lectura)",
+  "abreviaturas": {
+   "EXP": "munger_v2_r1/personaje_v2/empresas_v2_correcciones/2026-11_examen_universo/ (producto)",
+   "PV2": "munger_v2_r1/personaje_v2/ (producto)",
+   "AUX": "coordinacion/cierre_v2/ (auxiliar)"
+  },
+  "no_leido": [
+   "ESTADO_DIARIO.md",
+   "PLAN_*",
+   "REGISTRO_FABLE.md"
+  ],
+  "no_comprobado": [
+   "conversaciones de los agentes (solo sus archivos)",
+   "cálculos de la hoja y réplicas del motor",
+   "verificacion_entradas.py comprobar (no ejecuto programas del producto)",
+   "todas las preguntas de K6 una a una (solo Vinci y las que tocan las correcciones)"
+  ]
+ },
+ "conclusion": {
+  "se_sostiene_no_para": true,
+  "resumen": "«No, para» se sostiene. En la dirección más favorable no hay ninguna objeción válida: la excepción del §11 (defecto de implementación y no de juicio) no solo está sin demostrar, los archivos la contradicen. En la dirección más desfavorable hay tres objeciones que no cambian la etiqueta pero sí su fundamento: es más firme de lo que dice el evaluador y no depende solo de K10.",
+  "cambios_pedidos_antes_de_declararlo": [
+   "Quitar la reserva sobre la excepción en todo lo comprobable en los repositorios (D1); solo la reabriría una instrucción al agente fuera de los archivos, de la que no hay indicio",
+   "Retirar el segundo «qué lo haría falso» (que la persona lea K10 de otro modo): la rúbrica prohíbe cambios a la vista de un resultado y el plan aprobado ya decía «debe abstenerse» (C2)",
+   "Decir que la S de Vinci es literal y que el fallo se consumó en la fase A (C1)",
+   "No presentar «Todavía no» como resultado automático si se aceptara la excepción: la regla de parada también daría «No, para» al acabar el plazo (D3)",
+   "Corregir cuatro puntos de los casos que no mueven el veredicto: Ahold K4, Jumbo, Elis y Zoetis T1 (C3 a C6)"
+  ],
+  "riesgo_residual": "De lectura, no de hechos: la única vía a «Todavía no» sería llamar «defecto de implementación» a un hueco en el criterio escrito del personaje. La descarto (el hueco se conocía antes de congelar la rúbrica, la regla general sí estaba escrita y el agente se apartó de ella por decisión propia), y el evaluador lee igual; pero el §11 no define los dos términos."
+ },
+ "objeciones": [
+  {
+   "id": "D1",
+   "direccion": "mas_desfavorable",
+   "titulo": "La excepción del §11 no solo está sin demostrar: los archivos la contradicen",
+   "hecho_o_regla": "EXP/vinci_b/Vinci/: (1) la hipótesis heredada de C62 que recibió la fase A nombraba el límite y su condición: «Lo sustituiría: por \"No · este tipo de empresa requiere otro método\" si no consigo deuda y flujos concesión por concesión» (datos_v63.md, línea 179; misma línea en el commit 1f05e1d, la versión que tenía delante el agente). (2) Esa condición se cumplía: el extracto lista como no encontrado «Deuda, flujos y obligaciones de fin de contrato concesión por concesión» (extracto_v63.md, línea 139; datos_v63.md, línea 215 en 1f05e1d y 232 hoy). (3) La fase A lo reconoce (fase_a.md, línea 79; fase_a.json, línea 320). (4) Aun así cambia la condición por otra más blanda (fase_a.json, línea 302: «si la fase B no puede representarlo sin incoherencias») y escribe la premisa del límite rechazando la consecuencia (fase_a.md, línea 56), contra el relevo (prompts_generados/06_fase_a.md, línea 31: «\"otro método\" si ningún motor vale») y el personaje (PV2/personaje_munger_v2.md, línea 15). (5) La fase C lo repite con motivo propio: «no un motor que no pueda valorar la empresa» (fase_c.json, líneas 124–128; fase_c.md, línea 110). (6) La salida existía y funcionaba: PV2/scripts/pipeline.py, líneas 815–822 (fase A), 874–884 (fase B), 991, 1037 y 1309–1330 (fase C); caso sintético L3 en PV2/ESTADO.md, línea 72; el relevo generado es igual a la plantilla PV2/prompts/fase_a.md salvo rutas. (7) La fase A fue una sola pasada sin correcciones (estado_pipeline.json: esquema válido a la primera, vueltas_b_a_a 0). (8) El hueco de la plantilla (solo aviso para «regulada o conglomerado») se conocía antes de congelar la rúbrica (AUX/universo/LECTURA_INFORME.md, líneas 606, 668 y 860) y la persona aprobó «debe abstenerse» (AUX/REORIENTACION_UNIVERSO.md, líneas 44 y 95). Regla: §11, segundo punto de «No, para» y su excepción.",
+   "efecto_en_veredicto": "Confirma «No, para» por K10 y cierra la excepción para todo lo que hay en los repositorios. El §11 exige demostrar que la causa fue de implementación y no de juicio; aquí el personaje tenía delante la opción, la regla general, la condición concreta que su hipótesis heredada ponía para usarla y el dato de que esa condición se cumplía, y decidió otra cosa dejando escrito por qué. Eso es juicio. La evaluación puede retirar su reserva («solo he visto los archivos», EVALUACION.md, líneas 43 y 626) salvo para una instrucción dada fuera de los archivos, de la que no hay indicio.",
+   "solidez": "alta"
+  },
+  {
+   "id": "D2",
+   "direccion": "mas_desfavorable",
+   "titulo": "No falló un agente: falló la cadena entera, y los controles no lo vieron",
+   "hecho_o_regla": "(1) Las tres fases (A, B y C; el relevo de cada una pide un agente de contexto limpio) tuvieron la salida y ninguna la usó (fase_a.json, fase_b.json y fase_c.json de EXP/vinci_b/Vinci/: limite_del_modelo.aplica false). (2) El contradictor comprobó con una suma de partes el cálculo hecho fuera de la hoja y lo dio por bueno (AUX/examen/contradictor/vinci_b/OBJECIONES.md, línea 28); su encargo es atacar la conclusión, no el método. (3) La auditoría tiene encargado mirar L1–L3 (prompts_generados/13_verificacion.md, línea 29) y aprobó: «limite_del_modelo.aplica = false tiene motivo propio, y la marca de Regulada (V11/A4) se trata como aviso» (auditoria.md, línea 4). (4) El análisis directo, el mismo modelo sin el pipeline y con esfuerzo medio, tampoco se abstuvo: concluido · Vigilar · esperar, precio de Sí 91,54 € (rama automatizacion/claude-api-piloto-registro, automation/coordination/reviews/analisis-directo-vinci-44719920278/report.md); cautela: su encargo le pide escenarios y precio. (5) vinci/Vinci nunca llegó a la fase A (EXP/vinci/Vinci/ESPERANDO.md): el de vinci_b fue el primer y único juicio sobre Vinci. Regla: §11, «repetir el mismo caso no lo redime» y primer párrafo (no trasladar a otra versión sin repetir K7).",
+   "efecto_en_veredicto": "No cambia la etiqueta; la agrava. Hay motivo para pensar que una repetición saldría igual. Dos frases del resumen se quedan cortas: «el motivo es una sola empresa» (EVALUACION_RESUMEN.md, línea 8) y «los controles funcionan»: en el fallo que decide el veredicto, el contradictor y la auditoría no lo detectaron; K8 se cumple en la forma y no protege contra K10. Un intento nuevo necesita la regla en la fase A, en el contradictor y en la auditoría, una versión nueva y K7 repetido.",
+   "solidez": "media"
+  },
+  {
+   "id": "D3",
+   "direccion": "mas_desfavorable",
+   "titulo": "La regla de parada es un segundo apoyo, y «Todavía no» no sería automático con la excepción",
+   "hecho_o_regla": "Regla: §11, quinto punto de «No, para»: «acabar los 4–6 días con fallos propios del personaje (regla de parada)». Plan aprobado: «Tope: 4–6 días de trabajo. Si al terminar no se cumplen los criterios, se para» (AUX/REORIENTACION_UNIVERSO.md, líneas 74 y 95); el plazo acaba como tarde el 23-nov (AUX/RESUMEN_SESION_20261117_TARDE.md, línea 54; AUX/DECISIONES_PARA_EL_USUARIO.md, línea 125). El evaluador reconoce que «a fecha de hoy los hay» (Vinci, el cubo de Zoetis T1 y el motor único de Ahold) pero no aplica el punto porque «el plazo no ha terminado» (EVALUACION.md, línea 602), y dice que con la excepción «Todavía no» sería el techo, con dos reservas que solo dependen del personaje: el cubo de Zoetis T1 y la inestabilidad del juicio (línea 630; EVALUACION.json, si_se_aceptara_la_excepcion). Zoetis T1: salida fuera de la lista cerrada (rúbrica, líneas 199–201), el caso no PASA (línea 415) y la causa es una decisión del personaje (EXP/zoetis_t1d/Zoetis/fase_c.md, línea 65).",
+   "efecto_en_veredicto": "Lo que se propone es el veredicto final: cuando se declare, el plazo habrá acabado y el quinto punto se cumple por sí solo; las «reservas» del evaluador son justo los fallos propios de los que habla ese punto. «No, para» tiene así un segundo apoyo que no depende de K10. Aunque alguien demostrara la excepción en Vinci, para llegar a «Todavía no» haría falta además corregir o reclasificar Zoetis T1 antes del 23-nov. Solo media porque la rúbrica no define «fallos propios» y el peso de Zoetis T1 depende de cómo se lea (C6); el motor único de Ahold no lo cuento (C3).",
+   "solidez": "media"
+  }
+ ],
+ "revisado_y_descartado_mas_favorable": [
+  {
+   "candidata": "El producto solo avisa en las concesiones (Regulada); eso sería el defecto de implementación",
+   "hecho": "PV2/ANEXO_B_gramatica_damodaran.md, línea 117; PV2/scripts/comprobar_gramatica.py, líneas 410–411",
+   "por_que_no_vale": "Se sabía antes de congelar la rúbrica (AUX/universo/LECTURA_INFORME.md, línea 606) y la trampa se montó sobre ese hueco. Si contara como excepción, K10 en Vinci nunca podría dar «No, para». El agente no alegó el aviso: dio una razón propia"
+  },
+  {
+   "candidata": "Falta en el personaje la regla «vida finita ⇒ otro método»",
+   "hecho": "No está con esas palabras; los ejemplos de límite son financieras y flujo negativo",
+   "por_que_no_vale": "La regla general sí está (personaje, línea 15; relevo, línea 31) y el agente escribió la premisa él mismo («ningún motor de la hoja representa el escalón», fase_a.md, línea 56). Se apartó de lo escrito por decisión propia"
+  },
+  {
+   "candidata": "El pipeline solo admite una vuelta de la fase C a la B",
+   "hecho": "PV2/scripts/pipeline.py, línea 984; EXP/vinci_b/Vinci/fase_c.md, líneas 11 y 89",
+   "por_que_no_vale": "Declarar el límite no necesita ninguna vuelta (pipeline.py, 991, 1037 y 1309–1330). La fase C escribió «Límite del modelo: no hay» (línea 110) y con otra vuelta quería recalcular un precio (línea 214). El fallo ya estaba en la fase A"
+  },
+  {
+   "candidata": "El montaje preparó el motor para Vinci (V-CIRC, V-ANCLA, plantilla V6.3.2)",
+   "hecho": "AUX/DECISIONES_PARA_EL_USUARIO.md, líneas 134–135",
+   "por_que_no_vale": "Solo afecta a la capa F1 del motor A y el personaje eligió el B (informe.md, línea 11). El coordinador descartó elegir «por el resultado que dé» (AUX/examen/PREGUNTAS_PARA_LA_PERSONA.md, línea 58)"
+  },
+  {
+   "candidata": "Faltaba etapa1/extracto.md, que el relevo lista como entrada",
+   "hecho": "EXP/vinci_b/Vinci/fase_a.md, línea 3",
+   "por_que_no_vale": "Defecto del montaje, pero menos datos empujan a abstenerse, no a valorar"
+  },
+  {
+   "candidata": "Una instrucción al agente fuera del relevo",
+   "hecho": "No comprobable: no hay conversaciones",
+   "por_que_no_vale": "Sin indicio. Una sola pasada sin correcciones (estado_pipeline.json: esquema válido a la primera, vueltas_b_a_a 0) y el texto da una razón propia. Además, un empujón desde la coordinación, que conocía la rúbrica, habría ido hacia abstenerse; esto último es plausibilidad, no prueba"
+  },
+  {
+   "candidata": "La fuente de la rúbrica admitía «que valore por partes o se abstenga»",
+   "hecho": "AUX/universo/LECTURA_INFORME.md, línea 728",
+   "por_que_no_vale": "Es pedir otra regla. La rúbrica congelada exige abstenerse (líneas 313–323 y 437) y el plan aprobado dice «debe abstenerse» y que el personaje no hace sumas de partes (AUX/REORIENTACION_UNIVERSO.md, líneas 44, 91 y 95)"
+  },
+  {
+   "candidata": "«No concluir, sin acción ni objetivo» ya es abstenerse",
+   "hecho": "Estado final de vinci_b",
+   "por_que_no_vale": "Es pedir otra regla. Y tampoco es una abstención por el método: el cierre dice que un documento lo resuelve (fase_c.md, línea 173) y describe cómo llegaría a «Sí» (línea 214)"
+  },
+  {
+   "candidata": "«Sí, con poco»",
+   "hecho": "§11, lista de condiciones",
+   "por_que_no_vale": "No queda ningún «Sí» en pie, no hay repeticiones (K7) y faltan K4, K5, K12 y la hoja en lenguaje llano"
+  }
+ ],
+ "correcciones_a_la_evaluacion": [
+  {
+   "id": "C1",
+   "caso": "Vinci",
+   "que": "La S es literal, no por analogía, y el fallo se consumó en la fase A",
+   "prueba": "EVALUACION.md, línea 663, dice que el estado final no está «literalmente» en la lista de S. Sí lo está por dos vías: «Vigilar con objetivo» (rúbrica, línea 322) fue la conclusión que el personaje dio por sí solo (fase_c.md del commit 11ab9ea, línea 125); y «cualquier precio de Sí, zona u objetivo presentado como conclusión» (línea 320) frente a la línea de conclusión del informe final, «zona caro · precio de Sí 97.79» (EXP/vinci_b/Vinci/informe.md, línea 7). La rúbrica solo pedía llegar a la fase A (línea 313) y ahí ya estaba el fallo (fase_a.json, líneas 71–76 y 91)",
+   "efecto": "La «lectura benigna» de dos G y ninguna S no se sostiene. No cambia el veredicto",
+   "solidez": "alta"
+  },
+  {
+   "id": "C2",
+   "caso": "Veredicto",
+   "que": "El segundo «qué lo haría falso» (que la persona lea K10 de otro modo) no es admisible para este examen",
+   "prueba": "EVALUACION.md, línea 44; EVALUACION_RESUMEN.md, línea 42. La rúbrica dice que cualquier cambio va en una adenda «que no puede depender de ningún resultado ya visto» (línea 3). La política ya estaba fijada: «Vinci | Límite del modelo […]: debe abstenerse» (AUX/REORIENTACION_UNIVERSO.md, línea 44, aprobado en la línea 95)",
+   "efecto": "Se retira de «qué lo haría falso» y pasa a propuesta para la próxima versión. No cambia el veredicto",
+   "solidez": "alta"
+  },
+  {
+   "id": "C3",
+   "caso": "Ahold",
+   "que": "El motor único no es un «G sin corregir» del personaje ni un «fallo propio»",
+   "prueba": "EVALUACION.md, líneas 104, 110 y 602. K4 se concibió como un segundo expediente (AUX/universo/LECTURA_INFORME.md, línea 760; rúbrica, línea 431: «Elis (ya existe)»). El pipeline calcula un solo motor por expediente (PV2/scripts/pipeline.py, línea 810). La justificación que le toca al personaje está hecha con su criterio: «la financiación es estable» (EXP/ahold_f4/Ahold/fase_a.md, línea 37)",
+   "efecto": "K4 sigue sin cumplirse y la pregunta 4 sin cubrir, pero por una causa ajena al personaje (nadie montó el segundo expediente), del tipo que el §11 pone en «Todavía no». No cambia el veredicto",
+   "solidez": "media"
+  },
+  {
+   "id": "C4",
+   "caso": "Jumbo",
+   "que": "El recorrido no debería contar, ni como aprobado: el expediente decía qué salida se esperaba",
+   "prueba": "alcance_v2.json de las siete carpetas de Jumbo lleva «caso del examen: \"posible Sí\"» desde el primer montaje (commit fa39382). El informe lo lleva escrito tres veces (EXP/jumbo_g/Jumbo/informe.md, líneas 5, 114 y 135) y la fase C leyó el archivo (fase_c.md, líneas 9 y 128). Rúbrica: los agentes del personaje no ven la rúbrica ni el informe crítico (línea 5); regla 1 del §0: el recorrido no vale, se repite y no cuenta como aprobado ni como suspenso (líneas 41–43). El evaluador lo ve y concluye que la regla no lo cubre al pie de la letra (EVALUACION.md, línea 156)",
+   "efecto": "Jumbo pasaría de «PASA SIN DEMOSTRAR» a «recorrido no válido, por repetir». Como mínimo, los dos «Sí» provisionales (jumbo_e y jumbo_g) no sirven de indicio de que el personaje sepa decir que sí. No cambia el veredicto",
+   "solidez": "media"
+  },
+  {
+   "id": "C5",
+   "caso": "Elis",
+   "que": "Los valores de la fase A vienen de un juicio anterior a la congelación de la rúbrica",
+   "prueba": "«Parto de la fase A del expediente anterior de Elis (antecedentes/heredados/fase_a.json y fase_a.md, fecha 2026-11-14) […] Ningún valor de las 29 celdas cambia» (EXP/elis_f1/Elis/fase_a.md, línea 107; también línea 5). La rúbrica se congeló el 17-nov «antes de ejecutar ninguna fase de juicio de ningún caso» (línea 3; commit auxiliar 70c65c5); en Elis el juicio es del 14-nov y el 18-nov solo se repasó sin cambiar ninguna celda. El estado lo pone una guarda que aplica una decisión de la persona (AUX/DECISIONES_PARA_EL_USUARIO.md, líneas 68 y 90)",
+   "efecto": "El recuento de preguntas (9 de 11) no es una prueba a ciegas. «PASA, justo» debería leerse como «salida correcta por construcción; no mide juicio». No cambia el veredicto",
+   "solidez": "alta"
+  },
+  {
+   "id": "C6",
+   "caso": "Zoetis T1",
+   "que": "Dos matices: en una versión anterior la zona daba comprar, y la G se apoya en una analogía que no es la más cercana",
+   "prueba": "(a) EVALUACION.md, línea 197: «ni aquí ni en las versiones anteriores». En zoetis_t1c: «Hasta aquí, la zona da comprar. Pero un dato ausente material va antes» (EXP/zoetis_t1c/Zoetis/fase_c.md, línea 43; fase_c.json, línea 159: conclusion_provisional «comprar»; el precio queda solo 0,23 USD por debajo del precio de Sí, línea 68). No se emitió. (b) EVALUACION.md, línea 207, usa la G de Waste Management, que es para un «Demasiado difícil» sin explicar (rúbrica, línea 368); la analogía del propio caso es «T2 en \"No\" […] con hechos es m» (línea 215). (c) Inestabilidad: con la misma información, C12 = Sí en zoetis_t1b y zoetis_t1c y C12 = No en zoetis_t1d (fase_a.json, línea 79 de cada uno)",
+   "efecto": "K10 se cumple en Zoetis, pero por una regla de orden y por poco. Con G o con m, la salida no está en la lista cerrada y el caso no pasa. No cambia el veredicto",
+   "solidez": "media"
+  }
+ ],
+ "comprobado_y_conforme": [
+  "Las cuatro pruebas de Vinci del §1 de la evaluación, con sus líneas",
+  "La conciliación K3 de Ahold (EXP/ahold_f4/Ahold/motor_a_f1_resultado.md, líneas 30–32)",
+  "El «Green Book» ya no está en Zoetis T2",
+  "No hay nada posterior al 9-oct-2026 en las fases de Zoetis T1",
+  "La ficha del contradictor del §6 para Vinci y Jumbo",
+  "La evaluación no cambió entre 645d9ba y 87530c6"
+ ],
+ "propuestas_proxima_version": [
+  "Definir «defecto de implementación» frente a «juicio» en el §11, con ejemplos",
+  "Decidir antes del examen qué vale en un caso de límite: si «no concluir sin objetivo» o una suma de partes verificada cuentan (hoy no cuentan)",
+  "Poner un umbral a la regla de movimiento: en Jumbo el propio contradictor escribió «Ninguna cambia el cubo, ni sola ni junto a la otra» (AUX/examen/contradictor/jumbo_g/OBJECIONES.md, línea 6) y el «Sí» cayó",
+  "Avisos de alcance neutros en las carpetas (sin «posible Sí» ni «primer tiempo») y ampliar la regla de contaminación a cualquier pista de la salida esperada",
+  "La trampa nueva, de otro tipo de límite: si se escribe la regla de la vida finita, otra concesionaria solo probaría el parche",
+  "Decir quién calcula el segundo motor (K4), cuándo acaba el plazo y qué es un «fallo propio» (regla de parada)",
+  "Zoetis T1: decidir si un «Demasiado difícil» razonado es aceptable y cómo se clasifica",
+  "Zoetis T2: si tiene que demostrar que la tesis se rehace, el segundo tiempo debe conocer la conclusión del primero"
+ ],
+ "sin_objeciones_validas": {
+  "mas_favorable": true,
+  "mas_desfavorable": false
+ }
+}
