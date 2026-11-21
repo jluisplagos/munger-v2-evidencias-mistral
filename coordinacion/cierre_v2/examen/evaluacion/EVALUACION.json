@@ -1,0 +1,753 @@
+{
+ "documento": "Evaluación del examen del personaje Munger V2 con la rúbrica congelada",
+ "fecha": "2026-11-21",
+ "evaluador": "Agente Claude (Fable 5.2) que no ha preparado, corregido, contradicho ni auditado el personaje",
+ "quien_declara_el_veredicto": "el coordinador",
+ "rubrica": {
+  "archivo": "coordinacion/cierre_v2/examen/RUBRICA_EXAMEN.md",
+  "sha256": "07dd459752815e4cb225ac44c532290e15b2852c41c12253b0fb27696a330579",
+  "coincide_con_RUBRICA_EXAMEN_sha256": true,
+  "modificada": false
+ },
+ "material": {
+  "producto": "rama examen/expedientes-f1, commit da47673",
+  "auxiliar": "rama coordinacion/cierre-v2, commit 4763642",
+  "analisis_directo": "rama automatizacion/claude-api-piloto-registro, commit 3575e6d",
+  "borrador_mistral": "rama mistral/m12-evaluacion, commit c10dea1"
+ },
+ "veredicto_propuesto": {
+  "valor": "No, para",
+  "regla": "§11: un fallo de K10 lleva a «No, para»; repetir el mismo caso no lo redime",
+  "fallo_que_lo_decide": "K10 en Vinci: el expediente final termina en pendiente_de_investigacion · Vigilar · sin acción, no en límite del modelo ni en «Demasiado difícil»",
+  "excepcion_del_parrafo_11": {
+   "defecto_de_implementacion_demostrado": false,
+   "a_favor_de_juicio": [
+    "El prompt de la fase A ofrece «otro método» como conclusión legítima (prompts_generados/06_fase_a.md, línea 31)",
+    "El agente consideró el límite y lo rechazó por escrito (fase_a.md, línea 56)",
+    "Las fases B y C mantuvieron la decisión; la fase C escribió «Límite del modelo: no hay» antes y después de la auditoría",
+    "Tras la corrección propuso una compra candidata y explicó por qué no era «Demasiado difícil»"
+   ],
+   "lo_alegable_como_implementacion": [
+    "El personaje no tiene escrita la regla «activo de vida finita material ⇒ otro método»",
+    "La gramática trata «Regulada (red, concesión)» como aviso",
+    "El montaje preparó el motor para Vinci (decisiones V-CIRC y V-ANCLA, plantilla V6.3.2)",
+    "La etapa 1 heredada ya traía tres escenarios"
+   ],
+   "conclusion": "Ninguno de esos puntos impidió abstenerse. Es un hueco de criterio, y el criterio del personaje es su juicio"
+  },
+  "si_se_aceptara_la_excepcion": "Todavía no, y haría falta otra trampa que los autores no conozcan",
+  "sin_contar_vinci": "Todavía no como máximo: ningún «Sí» sobrevive al contradictor, K7 sin hacer y varios criterios sin cumplir",
+  "que_lo_haria_falso": [
+   "Que se demuestre un defecto de implementación en Vinci (instrucciones de valorar fuera del prompt generado, o que el pipeline no dejara declarar el límite)",
+   "Que la persona responsable decida que «no concluir, sin acción ni objetivo» cuenta como abstenerse en K10",
+   "Que el expediente evaluado no sea el definitivo de Vinci",
+   "Que el evaluador haya leído mal alguna de las pruebas citadas"
+  ],
+  "lo_que_falta_en_orden": [
+   "1. Vinci: decidir si hay prueba de defecto de implementación. Si no, versión nueva con la regla escrita, trampa nueva que los autores no conozcan y K7 repetido",
+   "2. Zoetis T1: decidir si «Demasiado difícil» razonado vale en el primer tiempo y estabilizar el juicio de círculo de competencia",
+   "3. Ahold: pasada del motor B con su zona (K4)",
+   "4. K7: dos repeticiones independientes de Jumbo y de Zoetis T1, con contexto limpio, entradas selladas y un aviso de alcance que no diga qué se espera del caso",
+   "5. Hoja resumen con la tabla 7–11 % en los seis expedientes (K5 y lenguaje llano)",
+   "6. Jumbo: fuentes que faltan, prueba del 10 % y decisión de la persona sobre la regla de movimiento cuando la objeción no cambia la zona",
+   "7. Elis: actualizar el expediente, verificar las entradas y decir en palabras de dónde saldría R",
+   "8. K8: revisión económica de otra familia de modelos para los seis casos",
+   "9. K12: declaración de alcance y casos sintéticos 033 a 036",
+   "10. K9: calendario común de las 15 predicciones",
+   "11. §10: revisión a ciegas del personaje frente al análisis directo con los mismos datos"
+  ]
+ },
+ "casos": {
+  "ahold": {
+   "expediente": "ahold_f4/Ahold",
+   "salida": {
+    "estado": "concluido",
+    "cubo": "Vigilar",
+    "accion": "esperar",
+    "precio_objetivo": 33.79,
+    "precio": 36.05,
+    "moneda": "EUR",
+    "zona": "caro",
+    "escenarios": [
+     28.4,
+     35.76,
+     44.05
+    ],
+    "motor": "A"
+   },
+   "salida_correcta_segun_rubrica": "concluido · Vigilar · esperar con el precio de Sí emitido o condicionado",
+   "correcta": "C",
+   "fallos": {
+    "S": [],
+    "E": [],
+    "G": [
+     {
+      "que": "Solo se calculó el motor A; no hay motor B ni comparación de zonas (K4 obligatorio en Ahold)",
+      "prueba": "fase_a.md §4 «Motor (C62 = Sí, motor A)»; motor_a_f1_resultado.md compara perímetros del motor A, no el motor B",
+      "corregido": false,
+      "rondas_de_correccion_de_este_fallo": 0
+     }
+    ],
+    "m": [
+     {
+      "que": "Sin tabla del precio de Sí al 7–11 %; no dice «depende de la tasa» aunque la zona cambiaría al 8 % (aproximación del evaluador con el tornado: ±5,94 € por punto)",
+      "prueba": "informe.md §6; fase_c.md §1"
+     },
+     {
+      "que": "Objetivo emitido 33,79 € con dos sesgos admitidos; corregidos, 32,5–33,0 €",
+      "prueba": "fase_c.md §16"
+     }
+    ]
+   },
+   "K6": {
+    "total_preguntas": 12,
+    "minimo_exigido": 10,
+    "cubiertas_con_medios_puntos": 10,
+    "porcentaje_con_medios_puntos": 83,
+    "cubiertas_recuento_estricto": 9,
+    "porcentaje_recuento_estricto": 75,
+    "llega_al_80_por_ciento": "solo_con_medios_puntos",
+    "preguntas_a_medias": [
+     5,
+     7
+    ],
+    "preguntas_no_cubiertas": [
+     4
+    ]
+   },
+   "hechos_posteriores": {
+    "encontrados": 5,
+    "de": 5,
+    "nota": "Falta el múltiplo de Tesco: el comunicado de la operación no está entre las fuentes; tampoco el informe del 1T de 2026"
+   },
+   "hechos_sin_fuente_afirmados": 0,
+   "sensibilidad": {
+    "tabla_7_a_11": false,
+    "prueba_del_10": null,
+    "tornado_tasa_mas_menos_1_punto_en_NORMAL": 5.94,
+    "crecimiento_que_exige_el_precio": 0.033
+   },
+   "contradictor": {
+    "antes": "concluido · Vigilar · esperar · precio de Sí 33,79",
+    "validas_baja": 1,
+    "validas_sube": 1,
+    "rebatidas": 0,
+    "movimiento": "se compensan; sin cambio",
+    "despues": "concluido · Vigilar · esperar · objetivo 33,79"
+   },
+   "resultado": "Salida correcta; no cierra como PASA hasta corregir el G de K4",
+   "historia": "Cuatro versiones (ahold_f1 a f4); tres con fase C y contradictor. f1: No·descartar provisional, Vigilar tras 4 objeciones al alza. f3: comprar provisional (precio de Sí 36,84), acabó en Vigilar. f4: Vigilar·esperar, precio de Sí 33,79"
+  },
+  "jumbo": {
+   "expediente": "jumbo_g/Jumbo",
+   "salida": {
+    "estado": "concluido",
+    "cubo": "Vigilar",
+    "accion": "esperar",
+    "precio_objetivo": null,
+    "condicion": "pasaría a comprar con margen EBIT de 2026 ≥ 31,0 % y margen bruto ≥ 54,0 %",
+    "precio": 27.28,
+    "moneda": "EUR",
+    "precio_si": 33.42,
+    "zona": "cumple_regla_k",
+    "escenarios": [
+     26.12,
+     37.02,
+     44.52
+    ],
+    "motor": "A"
+   },
+   "salida_antes_del_contradictor": "Sí · comprar (conclusión provisional de la fase C, antes del contradictor)",
+   "salida_correcta_segun_rubrica": "(a) concluido · Sí · comprar con cuatro requisitos, o (b) concluido · Vigilar · esperar con hecho concreto y cuantía",
+   "correcta": "aceptable (variante b)",
+   "fallos": {
+    "S": "no aplica: el final no es «Sí»",
+    "E": [],
+    "nota_E": "Sin E por la letra: la razón tiene hecho y cuantía y el §9 ampara el movimiento. En sustancia, el «Sí» cayó por la regla de movimiento: las dos objeciones dejan el precio de Sí en ≈31,0 €, un 12 % por encima del precio, y el propio contradictor escribió que ninguna cambia el cubo",
+    "G": [],
+    "m": [
+     {
+      "que": "Sin tabla 7–11 %; prueba del 10 % sin calcular (sí avisa con palabras de que depende de la tasa)",
+      "prueba": "fase_c.md §1 y §10"
+     },
+     {
+      "que": "La tesis inversa pone en fila el margen del año 2025 y el del semestre de 2026",
+      "prueba": "informe.md §8"
+     },
+     {
+      "que": "Reparto extraordinario de 1,00 € sin documento de la empresa en texto/; tomado de notas de celda (uso prudente)",
+      "prueba": "datos_v63.md, celdas C37 y C53"
+     }
+    ]
+   },
+   "K6": {
+    "total_preguntas": 12,
+    "minimo_exigido": 10,
+    "cubiertas_con_medios_puntos": 11.5,
+    "porcentaje_con_medios_puntos": 96,
+    "cubiertas_recuento_estricto": 11,
+    "porcentaje_recuento_estricto": 92,
+    "llega_al_80_por_ciento": "si",
+    "preguntas_a_medias": [
+     8
+    ],
+    "preguntas_no_cubiertas": []
+   },
+   "hechos_posteriores": {
+    "encontrados": 1.5,
+    "de": 3,
+    "nota": "Semestre de 2026: sí. Ventas de octubre: no están en las fuentes (no se pidieron). Reparto: fecha e importe por notas, sin anuncio de la empresa"
+   },
+   "hechos_sin_fuente_afirmados": 0,
+   "sensibilidad": {
+    "tabla_7_a_11": false,
+    "prueba_del_10": "no calculada",
+    "tornado_tasa_mas_menos_1_punto_en_NORMAL": 6.01,
+    "crecimiento_que_exige_el_precio": -0.017
+   },
+   "contradictor": {
+    "antes": "concluido · Sí · comprar · precio de Sí 33,42",
+    "validas_baja": 2,
+    "validas_sube": 0,
+    "rebatidas": 0,
+    "movimiento": "un escalón a la baja: de Sí a Vigilar",
+    "despues": "concluido · Vigilar · esperar con condición"
+   },
+   "resultado": "PASA SIN DEMOSTRAR",
+   "historia": "jumbo_e y jumbo_g: en los dos, Sí·comprar provisional y Vigilar tras el contradictor; precios de Sí 32,38 y 33,42",
+   "pista_del_examen_en_el_expediente": {
+    "archivo": "jumbo_g/Jumbo/alcance_v2.json (el mismo rótulo en jumbo_e/Jumbo/alcance_v2.json)",
+    "texto": "EXAMEN DEL PERSONAJE · JUMBO S.A. (caso del examen: «posible Sí»)",
+    "prueba_de_lectura": "La fase C de jumbo_g copia una frase literal del mismo aviso («Tasa 9 % provisional, sin decidir») y cita el archivo: fase_c.md líneas 9 y 128; fase_c.json, dos veces. Los prompts de las fases A, B y C no mandan leerlo",
+    "en_jumbo_e": "El rótulo está, pero ninguna fase cita el archivo; el «Sí» provisional salió igual",
+    "influencia_probada": false,
+    "influencia_descartada": false,
+    "encaja_en_la_regla_de_contaminacion_del_parrafo_0": false,
+    "lectura_estricta": "Aunque el «Sí» hubiera sobrevivido al contradictor, no habría contado como demostración limpia",
+    "cambia_el_resultado": false,
+    "otros_avisos": "Ahold («caso F1, arrendamientos») y Zoetis («primer tiempo», «segundo tiempo») describen el caso sin decir la salida esperada y ninguna fase de los expedientes finales los cita; el de Vinci no dice nada de lo que se espera"
+   }
+  },
+  "zoetis_t1": {
+   "expediente": "zoetis_t1d/Zoetis",
+   "salida": {
+    "estado": "concluido",
+    "cubo": "Demasiado difícil",
+    "accion": "demasiado_dificil",
+    "precio_objetivo": null,
+    "precio": 73.08,
+    "moneda": "USD",
+    "precio_si_calculado": 73.27,
+    "zona": "cumple_regla_k",
+    "escenarios": [
+     57.2,
+     81.65,
+     124.61
+    ],
+    "motor": "B"
+   },
+   "salida_correcta_segun_rubrica": "Vigilar · esperar, pendiente_de_investigacion o pendiente_de_datos, nombrando la previsión negativa o la caída de la dermatología",
+   "correcta": "no (fuera de la lista; la causa sí es la pedida)",
+   "fallos": {
+    "S": [],
+    "E": "no aplica según la tabla del §7",
+    "G": [
+     {
+      "que": "Cubo «Demasiado difícil», que no está entre las salidas correctas del primer tiempo",
+      "prueba": "fase_c.md líneas 45 y 65; ficha.json",
+      "corregido": false,
+      "lectura_alternativa": "aceptable, si se admite un «Demasiado difícil» razonado"
+     }
+    ],
+    "m": [
+     {
+      "que": "La fase A dijo que no había litigios; el 10-Q del 2T trae una demanda colectiva (la encontró el contradictor)",
+      "prueba": "fase_c.md §15"
+     },
+     {
+      "que": "Sin tabla 7–11 %",
+      "prueba": "informe.md §6"
+     }
+    ]
+   },
+   "K10_sin_si": true,
+   "K6": {
+    "total_preguntas": 11,
+    "minimo_exigido": 9,
+    "cubiertas_con_medios_puntos": 10.5,
+    "porcentaje_con_medios_puntos": 95,
+    "cubiertas_recuento_estricto": 10,
+    "porcentaje_recuento_estricto": 91,
+    "llega_al_80_por_ciento": "si",
+    "preguntas_a_medias": [
+     6
+    ],
+    "preguntas_no_cubiertas": []
+   },
+   "hechos_posteriores": {
+    "encontrados": 2,
+    "de": 2
+   },
+   "hechos_sin_fuente_afirmados": 0,
+   "contaminacion": false,
+   "sensibilidad": {
+    "tabla_7_a_11": false,
+    "tornado_tasa_mas_menos_1_punto_en_NORMAL": 22.54
+   },
+   "contradictor": {
+    "antes": "concluido · Demasiado difícil · sin objetivo (precio de Sí calculado 73,27)",
+    "validas_baja": 0,
+    "validas_sube": 2,
+    "rebatidas": 2,
+    "movimiento": "ninguno",
+    "despues": "igual"
+   },
+   "resultado": "No pasa todavía (G sin corregir); K10 cumplido",
+   "historia": "Fase A en tres versiones con la información del primer tiempo: t1b Vigilar (motor B), t1c Vigilar y cierre en pendiente_de_datos (motor A), t1d Demasiado difícil (motor B)"
+  },
+  "zoetis_t2": {
+   "expediente": "zoetis_t2/Zoetis",
+   "salida": {
+    "estado": "concluido",
+    "cubo": "Vigilar",
+    "accion": "esperar",
+    "precio_objetivo": 71.97,
+    "precio": 82.11,
+    "moneda": "USD",
+    "zona": "caro",
+    "escenarios": [
+     58.65,
+     80.06,
+     106.17
+    ],
+    "motor": "A"
+   },
+   "salida_correcta_segun_rubrica": "Vigilar · esperar con escenarios rehechos y precio de Sí menor que en T1",
+   "correcta": "C",
+   "precio_si_menor_que_en_T1": true,
+   "fallos": {
+    "S": [],
+    "E": "no aplica según la tabla del §7",
+    "G": [
+     {
+      "que": "Referencia de memoria a un registro de la FDA («Green Book») que no está en las fuentes",
+      "prueba": "primera auditoría, REPETIR, punto 8 (commit 79aaf2a del producto)",
+      "corregido": true,
+      "rondas": 1
+     }
+    ],
+    "m": [
+     {
+      "que": "No explica qué cambió desde T1: compara con la etapa 1, no con su primer tiempo",
+      "prueba": "fase_c.md §15"
+     },
+     {
+      "que": "Sin tabla 7–11 %; objetivo dado como punto aunque admite una banda de 71 a 74,5",
+      "prueba": "fase_c.md §16"
+     }
+    ]
+   },
+   "K10_sin_si": true,
+   "K6": {
+    "total_preguntas": 15,
+    "minimo_exigido": 12,
+    "cubiertas_con_medios_puntos": 14,
+    "porcentaje_con_medios_puntos": 93,
+    "cubiertas_recuento_estricto": 14,
+    "porcentaje_recuento_estricto": 93,
+    "llega_al_80_por_ciento": "si",
+    "preguntas_a_medias": [],
+    "preguntas_no_cubiertas": [
+     14
+    ]
+   },
+   "hechos_posteriores": {
+    "encontrados": 3,
+    "de": 3,
+    "nota": "Los tres de la empresa. No usa fuentes de terceros"
+   },
+   "hechos_sin_fuente_afirmados": 0,
+   "sensibilidad": {
+    "tabla_7_a_11": false,
+    "tornado_tasa_mas_menos_1_punto_en_NORMAL": 14.16,
+    "crecimiento_que_exige_el_precio": 0.0366
+   },
+   "contradictor": {
+    "antes": "concluido · Vigilar · esperar · precio de Sí 71,97",
+    "validas_baja": 2,
+    "validas_sube": 1,
+    "rebatidas": 0,
+    "movimiento": "se compensan; sin cambio",
+    "despues": "igual"
+   },
+   "resultado": "PASA",
+   "incoherencia_con_T1": "T1 puso Zoetis fuera del círculo de competencia y fijó tres condiciones para pasar a Vigilar; en T2 no se cumple ninguna y pasa a Vigilar. T2 es una corrida nueva que no conoce a T1"
+  },
+  "elis": {
+   "expediente": "elis_f1/Elis",
+   "salida": {
+    "estado": "pendiente_de_datos",
+    "cubo_cualitativo": "Vigilar",
+    "cubo_en_ficha": null,
+    "accion": null,
+    "precio_objetivo": null,
+    "paso_en_que_se_detuvo": 7,
+    "motor": "A"
+   },
+   "salida_correcta_segun_rubrica": "pendiente_de_datos · Vigilar · acción nula, con R nombrado como dato ausente y dicho de dónde saldría",
+   "correcta": "aceptable",
+   "fallos": {
+    "S": [],
+    "E": "no aplica según la tabla del §7",
+    "G": [],
+    "m": [
+     {
+      "que": "Dónde saldría R está con códigos internos («R: M1, M2, M6»)",
+      "prueba": "diagnostico.md"
+     },
+     {
+      "que": "Dice que las investigaciones de Brasil no están en el extracto; el URD 2025 de texto/ sí las trae",
+      "prueba": "informe.md §12; texto/Elis - 2025 Universal Registration Document.txt"
+     }
+    ]
+   },
+   "K6": {
+    "total_preguntas": 11,
+    "minimo_exigido": 9,
+    "cubiertas_con_medios_puntos": 9,
+    "porcentaje_con_medios_puntos": 82,
+    "cubiertas_recuento_estricto": 8,
+    "porcentaje_recuento_estricto": 73,
+    "llega_al_80_por_ciento": "solo_con_medios_puntos",
+    "preguntas_a_medias": [
+     8,
+     11
+    ],
+    "preguntas_no_cubiertas": [
+     9
+    ]
+   },
+   "hechos_posteriores": {
+    "encontrados": 0,
+    "de": 2,
+    "nota": "Base a 31-dic-2025; no incorpora el semestre ni el trimestre del 28-oct"
+   },
+   "hechos_sin_fuente_afirmados": 0,
+   "contradictor": null,
+   "resultado": "PASA en la salida, justo en K6; K1 y K2 sin cumplir",
+   "nota": "El estado lo pone la guarda F1 del programa en el paso 7. La declaración F1 dice de sí misma que es una regresión sobre una copia del expediente"
+  },
+  "vinci": {
+   "expediente": "vinci_b/Vinci",
+   "salida": {
+    "estado": "pendiente_de_investigacion",
+    "cubo": "Vigilar",
+    "accion": null,
+    "precio_objetivo": null,
+    "precio": 107.05,
+    "moneda": "EUR",
+    "precio_si_del_libro": 97.79,
+    "zona_del_libro": "caro",
+    "rango_precio_si_presentado": [
+     102.5,
+     110.9
+    ],
+    "escenarios": [
+     79.28,
+     101.75,
+     174.47
+    ],
+    "motor": "B",
+    "limite_del_modelo_declarado": false
+   },
+   "salida_correcta_segun_rubrica": "modelo_no_aplicable · Demasiado difícil · demasiado_dificil sin precio de Sí ni objetivo, o concluido · Demasiado difícil",
+   "correcta": "no",
+   "fallos": {
+    "S": [
+     {
+      "que": "No termina en límite del modelo ni en «Demasiado difícil» (K10). Precio de Sí y zona en la línea de conclusión; rango de precio de Sí como insumo de cartera. La primera conclusión fue Vigilar con objetivo 97,79 y la corrección pasó por una compra candidata",
+      "prueba": "fase_a.md línea 56; fase_c.md líneas 110, 116, 165, 173 y 214; informe.md §1; ficha.json insumos_decision_cartera; fase_c.md del commit 11ab9ea línea 125; primera auditoría (commit 9ce9dc5) punto 10",
+      "lectura_alternativa": "dos G y ninguna S; K10 falla igual"
+     }
+    ],
+    "E": "no aplica según la tabla del §7",
+    "G": [
+     {
+      "que": "No concluye por otra razón (minoritarios), no por la vida finita ni el valor terminal",
+      "prueba": "diagnostico.md"
+     },
+     {
+      "que": "Enseña la escalera",
+      "prueba": "informe.md §1 y §7"
+     }
+    ],
+    "m": [
+     {
+      "que": "La fase A dijo que no había operaciones de directivos; estaban en el URD 2025",
+      "prueba": "auditoría, punto 9"
+     }
+    ]
+   },
+   "K10_cumple": false,
+   "K6": {
+    "total_preguntas": 7,
+    "minimo_exigido": 6,
+    "cubiertas_con_medios_puntos": 5,
+    "porcentaje_con_medios_puntos": 71,
+    "cubiertas_recuento_estricto": 4,
+    "porcentaje_recuento_estricto": 57,
+    "llega_al_80_por_ciento": "no",
+    "preguntas_a_medias": [
+     4,
+     6
+    ],
+    "preguntas_no_cubiertas": [
+     5
+    ]
+   },
+   "hechos_posteriores": "no aplica",
+   "hechos_sin_fuente_afirmados": 0,
+   "contradictor": {
+    "antes": "concluido · Vigilar · esperar · precio de Sí 97,79",
+    "validas_baja": 1,
+    "validas_sube": 2,
+    "rebatidas": 0,
+    "rebatidas_en_parte": 1,
+    "movimiento": "se compensan; el cambio a pendiente_de_investigacion lo provocó después la auditoría",
+    "despues": "pendiente_de_investigacion · Vigilar · sin acción"
+   },
+   "resultado": "SUSPENDE-S (K10)"
+  },
+  "waste_management": {
+   "entro": false
+  }
+ },
+ "criterios": {
+  "K1_entradas": {
+   "por_caso": {
+    "ahold": "cumple",
+    "jumbo": "cumple",
+    "zoetis_t1": "cumple",
+    "zoetis_t2": "cumple",
+    "elis": "no",
+    "vinci": "cumple"
+   },
+   "conjunto": "parcial",
+   "prueba": "verificacion_entradas.py comprobar: Ahold 308/309, Jumbo 311/313, Zoetis T1 313/315, Zoetis T2 313/315, Vinci 325/326, todos aptos y sin pendientes. Elis: no apto (sin libro en la carpeta; el informe dice 0 de 313; registro del 14-nov sin revisar)"
+  },
+  "K2_vigencia": {
+   "por_caso": {
+    "ahold": "cumple",
+    "jumbo": "parcial",
+    "zoetis_t1": "cumple",
+    "zoetis_t2": "cumple",
+    "elis": "no",
+    "vinci": "parcial"
+   },
+   "conjunto": "parcial",
+   "prueba": "Jumbo: faltan el comunicado de ventas de noviembre y los anuncios del reparto. Elis: base a 31-dic-2025 y precio de hace diez sesiones. Vinci: fecha de análisis fijada en el 10-oct; los nueve meses del 22-oct quedan fuera"
+  },
+  "K3_conciliacion": {
+   "por_caso": {
+    "ahold": "cumple",
+    "jumbo": "cumple",
+    "zoetis_t1": "parcial",
+    "zoetis_t2": "parcial",
+    "elis": "parcial",
+    "vinci": "no aplica"
+   },
+   "conjunto": "cumple en Ahold; parcial en Elis sin error del personaje",
+   "prueba": "motor_a_f1_resultado.md de cada expediente. Ahold: caja por dos vías, alquiler una vez, flujo sin crecimiento conciliado. Elis: perímetro declarado no calculable por falta de R; doble cómputo señalado solo en el cálculo antiguo del libro"
+  },
+  "K4_dos_motores": {
+   "por_caso": {
+    "ahold": "no",
+    "jumbo": "no aplica",
+    "zoetis_t1": "no aplica",
+    "zoetis_t2": "no aplica",
+    "elis": "parcial",
+    "vinci": "no aplica"
+   },
+   "conjunto": "no",
+   "prueba": "Ahold: solo motor A. Elis: solo motor A, con justificación de por qué no B"
+  },
+  "K5_sensibilidad": {
+   "por_caso": {
+    "ahold": "no",
+    "jumbo": "parcial",
+    "zoetis_t1": "no",
+    "zoetis_t2": "no",
+    "elis": "no",
+    "vinci": "no aplica"
+   },
+   "conjunto": "no",
+   "prueba": "Ningún expediente tiene la tabla 7–11 %. hoja_resumen.py existe en la rama examen/hoja-resumen, no integrada ni ejecutada sobre estos expedientes. Hay tornado y crecimiento exigido. Jumbo avisa con palabras"
+  },
+  "K6_preguntas": {
+   "por_caso": {
+    "ahold": "parcial",
+    "jumbo": "cumple",
+    "zoetis_t1": "cumple",
+    "zoetis_t2": "cumple",
+    "elis": "parcial",
+    "vinci": "no"
+   },
+   "conjunto": "no",
+   "prueba": "Con medios puntos: 83 %, 96 %, 95 %, 93 %, 82 %, 71 %. Estricto: 75 %, 92 %, 91 %, 93 %, 73 %, 57 %. Ningún hecho sin fuente en los expedientes finales"
+  },
+  "K7_repetibilidad": {
+   "por_caso": {
+    "ahold": "no aplica",
+    "jumbo": "no",
+    "zoetis_t1": "no",
+    "zoetis_t2": "no aplica",
+    "elis": "no aplica",
+    "vinci": "no aplica"
+   },
+   "conjunto": "no",
+   "prueba": "No existen dos repeticiones independientes de Jumbo ni de Zoetis T1. Las versiones sucesivas son correcciones. Como información: Jumbo e/g coinciden; Zoetis t1c/t1d dan distinto cubo. Las repeticiones de Jumbo tendrán que llevar un aviso de alcance sin el rótulo «posible Sí»"
+  },
+  "K8_auditoria": {
+   "por_caso": {
+    "ahold": "cumple",
+    "jumbo": "cumple",
+    "zoetis_t1": "cumple",
+    "zoetis_t2": "cumple",
+    "elis": "no",
+    "vinci": "cumple"
+   },
+   "conjunto": "parcial",
+   "prueba": "auditoria.md APROBADO sobre el material del cierre en los cinco cerrados (Zoetis T2 y Vinci tras un REPETIR). Elis sin auditoría. Otra familia: solo contraste de cifras (M7, M11) y borrador de dos casos (M12)"
+  },
+  "K9_predicciones": {
+   "por_caso": {
+    "ahold": "cumple",
+    "jumbo": "cumple",
+    "zoetis_t1": "cumple",
+    "zoetis_t2": "cumple",
+    "elis": "no aplica",
+    "vinci": "cumple"
+   },
+   "conjunto": "parcial",
+   "prueba": "Tres predicciones con fecha y probabilidad en cada ficha cerrada. Sin calendario común. Elis se detuvo antes"
+  },
+  "K10_trampa_y_limite": {
+   "por_caso": {
+    "ahold": "no aplica",
+    "jumbo": "no aplica",
+    "zoetis_t1": "cumple",
+    "zoetis_t2": "cumple",
+    "elis": "no aplica",
+    "vinci": "no"
+   },
+   "conjunto": "no",
+   "prueba": "Zoetis T1 y T2 sin «Sí». Vinci: limite_del_modelo.aplica = false; termina en pendiente_de_investigacion · Vigilar"
+  },
+  "K11_F1_fuera_de_Elis": {
+   "por_caso": {
+    "ahold": "cumple",
+    "jumbo": "cumple",
+    "zoetis_t1": "parcial",
+    "zoetis_t2": "parcial",
+    "elis": "no aplica",
+    "vinci": "no aplica"
+   },
+   "conjunto": "cumple con NIIF; parcial con la norma de EE. UU.",
+   "prueba": "Ahold: perímetro A2_propio calculado y conciliado. Zoetis T2: conclusión condicionada a la hipótesis D-US1. Zoetis T1 (motor B): solo el puente de deuda"
+  },
+  "K12_aptitud_con_alcance": {
+   "por_caso": {
+    "ahold": "no",
+    "jumbo": "no",
+    "zoetis_t1": "no",
+    "zoetis_t2": "no",
+    "elis": "no",
+    "vinci": "no"
+   },
+   "conjunto": "no",
+   "prueba": "No hay declaración escrita de alcance ni rastro de los casos sintéticos 033 a 036. Todos los expedientes dicen «no apto para dinero real»"
+  },
+  "lenguaje_llano": {
+   "por_caso": {
+    "ahold": "no",
+    "jumbo": "no",
+    "zoetis_t1": "no",
+    "zoetis_t2": "no",
+    "elis": "no",
+    "vinci": "no"
+   },
+   "conjunto": "no",
+   "prueba": "No hay hoja resumen en ningún expediente. La tesis y «qué me haría cambiar de cubo» están en llano dentro del informe; falta el efecto de la tasa"
+  }
+ },
+ "K7_declaracion": "No existen dos repeticiones independientes de Jumbo ni de Zoetis T1. K7 no se cumple.",
+ "contradictor_conjunto": {
+  "independencia": "Encargo fijo de CONTRADICTOR.md §3. Copias rellenadas conservadas solo para vinci_b y zoetis_t2. Sin registro de las conversaciones",
+  "carga_de_la_prueba": "Las 12 objeciones de los expedientes finales traen hecho con documento y página y cuantía con su cuenta",
+  "simetria_cumplida": true,
+  "objeciones_validas_baja": 6,
+  "objeciones_validas_sube": 6,
+  "rebatidas_del_todo": 2,
+  "rebatidas_en_parte": 1,
+  "porcentaje_rebatidas_del_todo": 17,
+  "movimientos": 1,
+  "movimientos_que_acercaron": 0,
+  "movimientos_que_alejaron": 0,
+  "nota": "El único movimiento, el de Jumbo, llevó la salida de la variante que demuestra a la que no demuestra. La regla de movimiento no tiene umbral de tamaño",
+  "contradictor_del_veredicto_final": "pendiente (D7)"
+ },
+ "analisis_directo": {
+  "hay_material": true,
+  "hay_para_zoetis_t1": true,
+  "revision_a_ciegas_hecha": false,
+  "mismos_datos_que_el_personaje": false,
+  "ejecuciones_aceptadas": false,
+  "ahold": {
+   "veredicto_directo": "concluido · vigilar · esperar",
+   "precio_si_directo": [
+    31.07,
+    31.61
+   ],
+   "precio_si_personaje": 33.79,
+   "coste_usd_por_ejecucion": [
+    1.92,
+    1.95
+   ],
+   "cobertura_K6_directo_estimada_no_ciega": 6.5,
+   "cobertura_K6_personaje": 10
+  },
+  "zoetis_t1": {
+   "veredicto_directo": "concluido · vigilar · esperar",
+   "precio_si_directo": [
+    68.94,
+    69.58
+   ],
+   "precio_si_personaje": 73.27,
+   "dice_si_alguno": false,
+   "coste_usd_por_ejecucion": [
+    1.86,
+    1.97
+   ],
+   "cobertura_K6_directo_estimada_no_ciega": 5.5,
+   "cobertura_K6_personaje": 10.5,
+   "nota": "El directo no recibió los documentos del 6-ago-2026"
+  },
+  "claramente_mejor": "no demostrado",
+  "fuera_de_los_dos_casos": "El análisis directo de Vinci tampoco se abstiene: Vigilar · esperar con precio de Sí 91,5"
+ },
+ "diferencias_con_m12": [
+  "Ahold K4: Mistral lo deja en duda; aquí G sin corregir",
+  "Ahold K6: mismo total con otra composición",
+  "Zoetis T1 K6: 11/11 en Mistral; 10,5/11 aquí",
+  "Sin contradicciones de fondo"
+ ],
+ "limites": [
+  "No se han leído ESTADO_DIARIO.md, PLAN_* ni REGISTRO_FABLE.md",
+  "Acceso denegado a RESUMEN_SESION_20261117_TARDE.md: D3, D5, D6 y D7 se toman de la rúbrica y de CONTRADICTOR.md",
+  "No se ha abierto ningún Excel ni ejecutado el pipeline",
+  "No hay revisión a ciegas del §10",
+  "Solo se han visto archivos, no las conversaciones de los agentes",
+  "Los recuentos de preguntas tienen una parte de juicio del evaluador",
+  "No se puede probar ni descartar que el rótulo «posible Sí» del aviso de alcance influyera en el «Sí» provisional de Jumbo"
+ ]
+}
